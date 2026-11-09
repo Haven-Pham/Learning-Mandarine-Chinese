@@ -1,0 +1,11 @@
+{
+  "name": "Sổ học tiếng Hoa",
+  "short_name": "Sổ học",
+  "lang": "vi",
+  "start_url": "./#trang-chu",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#F4F6F3",
+  "theme_color": "#1C7563",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}
