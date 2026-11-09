@@ -274,3 +274,16 @@ nav.tabs a[aria-current="page"] { border-bottom-color: var(--seal); }
 .item.level-row { grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
 .level-row select { width: auto; max-width: 100%; }
 #levelStatus:empty { display: none; }
+
+.daily-tasks { margin: 0; padding-inline-start: 1.7rem; }
+.daily-tasks li { padding: .65rem .2rem; border-bottom: 1px solid var(--line); }
+.daily-tasks li:last-child { border: 0; }
+.daily-tasks li::marker { color: var(--jade); font-weight: bold; }
+.daily-tasks li > div { display: inline-grid; width: calc(100% - 6rem); vertical-align: middle; }
+.task-done { color: var(--jade); font-weight: bold; }
+.study-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr)); gap: .65rem; }
+.study-metrics > div { display: grid; padding: .7rem; background: var(--paper); border-radius: 8px; }
+.study-metrics strong { font-size: 1.35rem; color: var(--jade); }
+.study-history { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+.study-history th, .study-history td { padding: .35rem; text-align: right; border-bottom: 1px solid var(--line); }
+.study-history th:first-child { text-align: left; }

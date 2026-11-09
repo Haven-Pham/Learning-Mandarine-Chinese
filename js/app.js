@@ -288,6 +288,46 @@ function route() {
 addEventListener("hashchange", route);
 function updateBadge() { const b = $("#tabBadge"); if (!b || !S.ready) return; const c = todayCounts().total; b.hidden = !c; b.textContent = c; }
 
+function studySummary(stats, now) {
+  const today = dayKey(now);
+  const active = [...stats].filter(([key, value]) => key <= today && value.reviews > 0)
+    .sort(([a], [b]) => a.localeCompare(b));
+  let previous = -Infinity, run = 0, longest = 0, answers = 0;
+  for (const [key, value] of active) {
+    const ordinal = Date.parse(key) / DAY;
+    run = ordinal === previous + 1 ? run + 1 : 1;
+    longest = Math.max(longest, run);
+    previous = ordinal;
+    answers += value.reviews;
+  }
+  const current = Date.parse(today) / DAY - previous <= 1 ? run : 0;
+  return { current, longest, activeDays: active.length, answers };
+}
+
+function dailyDashboard(c, days) {
+  const st = todayStats();
+  const summary = studySummary(S.stats, Date.now());
+  const metrics = [["Chuỗi hiện tại", summary.current, "ngày"], ["Chuỗi dài nhất", summary.longest, "ngày"],
+    ["Tổng ngày học", summary.activeDays, "ngày"], ["Tổng lượt trả lời", summary.answers, "lượt"]];
+  const tasks = [
+    ["Giữ chuỗi ngày học", st.reviews > 0 ? "Đã trả lời thẻ hôm nay" : "Trả lời 1 thẻ trong mục Học", st.reviews > 0],
+    ["Ôn thẻ đến hạn", c.due ? `Còn ${fmt(c.due)} thẻ trong lịch hôm nay` : "Không còn thẻ đến hạn hôm nay", !c.due],
+    ["Học thẻ mới", st.newCards + c.fresh === 0 ? "Hôm nay không có thẻ mới trong lịch" : `${fmt(st.newCards)} / ${fmt(st.newCards + c.fresh)} thẻ theo lịch hôm nay`, !c.fresh]
+  ];
+  return `<section class="panel"><h2 class="h2">Lộ trình hôm nay</h2>
+    <ol class="daily-tasks">${tasks.map(([title, detail, done]) => `<li><div><strong>${title}</strong><span class="sub">${detail}</span></div>
+      ${done ? '<span class="task-done" aria-label="Đã xong">✓</span>' : '<a class="link" href="#hoc">Vào học →</a>'}</li>`).join("")}</ol>
+    </section><section class="panel"><h2 class="h2">Chuỗi ngày học</h2>
+    <div class="study-metrics">${metrics.map(([label, value, unit]) => `<div><span>${label}</span><strong>${fmt(value)} ${unit}</strong></div>`).join("")}</div>
+    <p class="sub">Mỗi ngày có ít nhất một lượt trả lời thẻ được tính vào chuỗi. Ngày học mới bắt đầu lúc 04:00.</p>
+    <details class="more"><summary>Chi tiết 14 ngày gần nhất</summary>
+      <table class="study-history"><thead><tr><th>Ngày</th><th>Lượt trả lời</th><th>Thẻ mới</th><th>Lượt Quên</th></tr></thead><tbody>
+      ${days.slice().reverse().map(([key, date]) => { const row = S.stats.get(key) || {};
+        return `<tr><th scope="row"><time datetime="${key}">${date.getDate()}/${date.getMonth()+1}</time></th><td>${fmt(row.reviews || 0)}</td><td>${fmt(row.newCards || 0)}</td><td>${fmt(row.again || 0)}</td></tr>`;
+      }).join("")}</tbody></table>
+    </details></section>`;
+}
+
 // --- Trang chủ ---
 VIEWS["trang-chu"] = () => {
   const vocab = S.notes.filter((n) => n.kind === "vocab");
@@ -305,7 +345,11 @@ VIEWS["trang-chu"] = () => {
       <div class="bar"><span class="cov" style="width:${ns.length ? (l / ns.length) * 100 : 0}%"></span></div><div class="fstat num">${fmt(l)} / ${fmt(ns.length)} mục đã học</div></a>`; };
   const mine = folderCard("cua-toi", "Thư mục của tôi", "Lớp học, các đợt TOCFL, ngữ pháp, từ viết tắt", folderNotes("cua-toi"))
     + folderCard("viet-tat", "Từ viết tắt", "Cách nói tắt có nguồn từ điển", folderNotes("viet-tat"));
-  const days = []; for (let k = 13; k >= 0; k--) { const t = Date.now() - k * DAY; days.push([dayKey(t), new Date(dayStart(t))]); }
+  const today = new Date(dayStart(Date.now()));
+  const days = Array.from({ length: 14 }, (_, i) => {
+    const d = new Date(today); d.setDate(d.getDate() - 13 + i);
+    return [dayKey(d), d];
+  });
   const max = Math.max(1, ...days.map(([key]) => (S.stats.get(key) || {}).reviews || 0));
   setView(`<section class="view"><div class="home-top">
     <div class="hero panel">
@@ -316,6 +360,7 @@ VIEWS["trang-chu"] = () => {
     </div>
     <div class="panel"><div class="eyebrow">Số thẻ đã trả lời, 14 ngày gần nhất</div><div class="week">${days.map(([key, d]) => { const v = (S.stats.get(key) || {}).reviews || 0;
       return `<div title="${esc(key)}: ${v} thẻ"><span class="num">${v || ""}</span><i class="${v ? "" : "zero"}" style="height:${Math.max(2, (v / max) * 60)}px"></i><span>${d.getDate()}</span></div>`; }).join("")}</div></div></div>
+    ${dailyDashboard(c, days)}
     <div><h2 class="h2">Từ vựng TOCFL theo band</h2><p class="lead">${fmt(S.tocfl.length)} từ của bảng chính thức 2024. Mở một band để xem từ và đưa cả band vào lịch học.</p></div>
     <div class="folders">${bandCards}</div>
     <div><h2 class="h2">Thư mục của tôi</h2><p class="lead">Một từ có mặt ở nhiều thư mục vẫn là một từ: học ở đâu cũng được tính ở mọi nơi.</p></div>
@@ -329,22 +374,40 @@ VIEWS["muc-nho"] = (arg) => {
   const notes = S.notes.filter((n) => n.kind === "vocab" && noteLevel(n) === level);
   setView(`<section class="view"><a class="link" href="#trang-chu">← Trang chủ</a>
     <h2 class="h2">${esc(LEVELS[level])} · <span id="levelCount">${fmt(notes.length)}</span> từ</h2>
+    <label>Tìm trong mức nhớ này<input type="search" id="levelSearch" placeholder="Chữ Hán, pinyin hoặc nghĩa tiếng Việt"></label>
+    <div id="levelMatches" class="sub" role="status"></div>
     <div id="levelStatus" role="status"></div>
     <p id="levelEmpty"${notes.length ? " hidden" : ""}>Chưa có từ ở mức này.</p>
     <div class="list" id="levelList">${notes.map((n) => {
       const it = itemOf(n);
-      return `<div class="item level-row"><div class="meta"><a class="w" lang="zh-Hant" href="#tu/${encodeURIComponent(n.w)}">${esc(n.w)}</a>
+      const searchText = [n.w, ...(n.forms || []), it.py, it.vn].map(fold).join("|");
+      return `<div class="item level-row" data-search="${esc(searchText)}"><div class="meta"><a class="w" lang="zh-Hant" href="#tu/${encodeURIComponent(n.w)}">${esc(n.w)}</a>
         <span class="py">${esc(it.py)}</span><span class="vn">${esc(it.vn || it.en || "")}</span></div>
         <select aria-label="Đổi mức nhớ của ${esc(n.w)}">${levelOptions(level)}</select></div>`;
     }).join("")}</div></section>`);
   const list = $("#levelList");
+  const search = $("#levelSearch");
+  function filterRows() {
+    const query = fold(search.value);
+    let matches = 0;
+    for (const row of list.children) {
+      row.hidden = !row.dataset.search.includes(query);
+      if (!row.hidden) matches++;
+    }
+    $("#levelMatches").textContent = query && list.childElementCount
+      ? (matches ? `Tìm thấy ${fmt(matches)} / ${fmt(list.childElementCount)} từ` : "Không có từ khớp với tìm kiếm.") : "";
+  }
+  search.oninput = filterRows;
   list.querySelectorAll("select").forEach((select, i) => bindLevelPicker(notes[i], () => {
     const row = select.closest(".level-row");
-    const neighbor = row.nextElementSibling || row.previousElementSibling;
+    const visible = [...list.querySelectorAll(".level-row:not([hidden])")];
+    const index = visible.indexOf(row);
+    const neighbor = visible[index + 1] || visible[index - 1];
     row.remove();
     $("#levelCount").textContent = fmt(list.childElementCount);
     $("#levelEmpty").hidden = list.childElementCount > 0;
-    (neighbor?.querySelector("select") || $(".view > a.link")).focus({ preventScroll: true });
+    filterRows();
+    (neighbor?.querySelector("select") || search).focus({ preventScroll: true });
   }, select));
 };
 
