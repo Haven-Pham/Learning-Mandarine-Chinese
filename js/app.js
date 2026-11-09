@@ -96,16 +96,18 @@ function noteLevel(n) {
 }
 function noteLapses(n) { return typesOf(n).reduce((a, [t]) => a + ((S.srs.get(cardId(n, t)) || {}).lapses || 0), 0); }
 function levelPill(n) { const l = noteLevel(n); return `<span class="pill lv-${l}">${esc(LEVELS[l])}</span>` + (noteLapses(n) >= 4 ? ` <span class="pill forget">Hay quên</span>` : ""); }
+function levelOptions(selected) {
+  return LEVELS.slice(1).map((label, i) => `<option value="${i + 1}"${selected === i + 1 ? " selected" : ""}>${esc(label)}</option>`).join("");
+}
 function levelPicker(n) {
   const current = noteLevel(n);
   return `<div class="panel"><label>Đặt mức nhớ cho cả từ
     <select id="wordLevel"><option value="" selected disabled>Hiện tại · ${esc(LEVELS[current])}</option>
-    ${LEVELS.slice(1).map((label, i) => `<option value="${i + 1}">${esc(label)}</option>`).join("")}</select></label>
+    ${levelOptions()}</select></label>
     <div class="sub">Áp dụng cho mọi dạng thẻ của từ và đặt lại lịch ôn.</div>
     <div role="status" id="levelStatus"></div></div>`;
 }
-function bindLevelPicker(n, afterSave) {
-  const select = $("#wordLevel");
+function bindLevelPicker(n, afterSave, select = $("#wordLevel")) {
   if (!select) return;
   const status = $("#levelStatus");
   select.onchange = async () => {
@@ -125,7 +127,7 @@ function bindLevelPicker(n, afterSave) {
     try {
       await Store.putMany("srs", entries);
     } catch (err) {
-      select.disabled = false; select.value = "";
+      select.disabled = false; select.selectedIndex = Array.from(select.options).findIndex((o) => o.defaultSelected);
       status.textContent = "Chưa lưu được mức nhớ. Vui lòng thử lại.";
       return;
     }
@@ -225,7 +227,9 @@ function ruby(text) {
   }
   return out + esc(s.slice(last));
 }
-function kv(rows) { return rows.filter(([, v]) => v).map(([k, v]) => `<div><span class="k">${esc(k)}</span><span class="mix">${ruby(v)}</span></div>`).join(""); }
+function kv(rows) {
+  return rows.map(([label, value], i) => value ? `<div class="detail-tone-${i}"><span class="k">${esc(label)}</span><span class="mix">${ruby(value)}</span></div>` : "").join("");
+}
 function abbrHTML(w) {
   const a = S.abbrS.get(w), f = S.abbrF.get(w); let h = "";
   if (a) h += `<div class="abbr"><b>Nói tắt của</b> <a class="han" href="#tu/${encodeURIComponent(a.f)}"><ruby>${esc(a.f)}<rt>${esc(a.pyf)}</rt></ruby></a>
@@ -276,7 +280,7 @@ function setView(html) { $("#view").innerHTML = html; }
 function route() {
   const h = decodeURIComponent(location.hash.slice(1) || "trang-chu");
   const [name, ...rest] = h.split("/"); const arg = rest.join("/");
-  document.querySelectorAll("nav.tabs a").forEach((a) => { if (a.dataset.view === name || (name === "tu" && a.dataset.view === "tu-dien")) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+  document.querySelectorAll("nav.tabs a").forEach((a) => { if (a.dataset.view === name || (name === "tu" && a.dataset.view === "tu-dien") || (name === "muc-nho" && a.dataset.view === "trang-chu")) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
   const fn = VIEWS[name] || VIEWS["trang-chu"];
   if (name !== "hoc") S.session = null;
   fn(arg); window.scrollTo(0, 0); updateBadge();
@@ -307,7 +311,7 @@ VIEWS["trang-chu"] = () => {
     <div class="hero panel">
       <div class="hero-top"><div><span class="bignum num">${fmt(learned)}</span> <span class="lead-s">từ đã học</span></div>
         <a class="primary btn" href="#hoc">Học ngay${c.total ? ` · ${fmt(c.total)} thẻ` : ""}</a></div>
-      <div class="rings">${[1, 2, 3, 4, 5].map((l) => `<div class="ring lv-ring-${l}"><b class="num">${fmt(lv[l])}</b><span>${esc(LEVELS[l])}</span></div>`).join("")}</div>
+      <div class="rings">${[1, 2, 3, 4, 5].map((l) => `<a href="#muc-nho/${l}" class="ring lv-ring-${l}"><b class="num">${fmt(lv[l])}</b><span>${esc(LEVELS[l])}</span></a>`).join("")}</div>
       <div class="sub">Hôm nay: <b class="num">${fmt(c.due)}</b> thẻ cần ôn · <b class="num">${fmt(c.fresh)}</b> thẻ mới · đã trả lời <b class="num">${fmt(todayStats().reviews)}</b> thẻ</div>
     </div>
     <div class="panel"><div class="eyebrow">Số thẻ đã trả lời, 14 ngày gần nhất</div><div class="week">${days.map(([key, d]) => { const v = (S.stats.get(key) || {}).reviews || 0;
@@ -317,6 +321,31 @@ VIEWS["trang-chu"] = () => {
     <div><h2 class="h2">Thư mục của tôi</h2><p class="lead">Một từ có mặt ở nhiều thư mục vẫn là một từ: học ở đâu cũng được tính ở mọi nơi.</p></div>
     <div class="folders">${mine}</div>
   </section>`);
+};
+
+VIEWS["muc-nho"] = (arg) => {
+  if (!/^[1-5]$/.test(arg)) { location.replace("#trang-chu"); return; }
+  const level = Number(arg);
+  const notes = S.notes.filter((n) => n.kind === "vocab" && noteLevel(n) === level);
+  setView(`<section class="view"><a class="link" href="#trang-chu">← Trang chủ</a>
+    <h2 class="h2">${esc(LEVELS[level])} · <span id="levelCount">${fmt(notes.length)}</span> từ</h2>
+    <div id="levelStatus" role="status"></div>
+    <p id="levelEmpty"${notes.length ? " hidden" : ""}>Chưa có từ ở mức này.</p>
+    <div class="list" id="levelList">${notes.map((n) => {
+      const it = itemOf(n);
+      return `<div class="item level-row"><div class="meta"><a class="w" lang="zh-Hant" href="#tu/${encodeURIComponent(n.w)}">${esc(n.w)}</a>
+        <span class="py">${esc(it.py)}</span><span class="vn">${esc(it.vn || it.en || "")}</span></div>
+        <select aria-label="Đổi mức nhớ của ${esc(n.w)}">${levelOptions(level)}</select></div>`;
+    }).join("")}</div></section>`);
+  const list = $("#levelList");
+  list.querySelectorAll("select").forEach((select, i) => bindLevelPicker(notes[i], () => {
+    const row = select.closest(".level-row");
+    const neighbor = row.nextElementSibling || row.previousElementSibling;
+    row.remove();
+    $("#levelCount").textContent = fmt(list.childElementCount);
+    $("#levelEmpty").hidden = list.childElementCount > 0;
+    (neighbor?.querySelector("select") || $(".view > a.link")).focus({ preventScroll: true });
+  }, select));
 };
 
 // --- Học ---

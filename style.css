@@ -93,6 +93,9 @@ button.speak { border: 0; background: var(--jade-soft); color: var(--jade); bord
 .bignum { font-size: 44px; font-weight: 700; color: var(--jade); line-height: 1; }
 .rings { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
 .ring { display: grid; justify-items: center; gap: 6px; text-align: center; }
+.ring { color: var(--ink); text-decoration: none; border-radius: 8px; }
+.ring span { text-decoration: underline; text-underline-offset: 3px; }
+.ring:hover { background: var(--surface); }
 .ring b { width: 62px; height: 62px; border-radius: 50%; display: grid; place-items: center; font-size: 17px; border: 5px solid var(--line); }
 .ring span { font-size: 13.5px; color: var(--muted); line-height: 1.25; }
 .lv-ring-1 b { border-color: var(--amber); } .lv-ring-2 b { border-color: var(--jade-soft); border-top-color: var(--jade); }
@@ -145,6 +148,15 @@ details.more summary { cursor: pointer; font-weight: 700; font-size: 1.35rem; pa
 .kv { display: grid; gap: 12px; margin-top: 10px; }
 .kv > div { display: grid; gap: 6px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); }
 .kv .k { font-size: 1.12rem; line-height: 1.4; font-weight: 700; color: var(--jade); }
+.kv > div { --accent: var(--jade); border-inline-start: 5px solid var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--surface)); }
+.kv .detail-tone-1 { --accent: var(--indigo); }
+.kv .detail-tone-2 { --accent: light-dark(#75519c, #c6a7ea); }
+.kv .detail-tone-3 { --accent: var(--amber); }
+.kv .detail-tone-4 { --accent: var(--seal); }
+.kv .detail-tone-5 { --accent: light-dark(#426d31, #a8cc88); }
+.kv .detail-tone-6 { --accent: light-dark(#366c82, #97ccdf); }
+.kv .detail-tone-7 { --accent: var(--muted); }
+.kv .k { color: var(--accent); }
 .kv .mix { font-size: 1.25rem; line-height: 2.25; overflow-wrap: anywhere; }
 .kv rt { font-size: 1rem; }
 .word-meta, .word-meanings { width: 100%; margin: 8px 0 0; text-align: left; overflow-wrap: anywhere; }
@@ -259,3 +271,6 @@ button.primary, .btn.primary { background: var(--seal); border-color: var(--seal
 .reveal.primary { background: var(--jade); border-color: var(--jade); }
 .badge { background: var(--seal); }
 nav.tabs a[aria-current="page"] { border-bottom-color: var(--seal); }
+.item.level-row { grid-template-columns: minmax(0, 1fr) auto; align-items: center; }
+.level-row select { width: auto; max-width: 100%; }
+#levelStatus:empty { display: none; }
