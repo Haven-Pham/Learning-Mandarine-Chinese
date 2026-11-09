@@ -52,6 +52,7 @@ function buildNotes() {
     const forms = formsOf(w);
     const richNote = forms.map((f) => S.noteByWord.get(f)).find((n) => n && n.rich);
     if (richNote) { for (const f of forms) if (!S.noteByWord.has(f)) S.noteByWord.set(f, richNote); richNote.official = richNote.official || { w, py, band, pos }; return; }
+    if (S.noteByKey.has(`t~${forms[0]}`) || forms.some((f) => S.noteByWord.has(f) && S.noteByWord.get(f).basic)) return; // same word at a higher band: keep the first
     const n = { key: `t~${forms[0]}`, kind: "vocab", basic: true, w: forms[0], forms, display: w, py, band, pos, theme, idx };
     add(n); for (const f of forms) if (!S.noteByWord.has(f)) S.noteByWord.set(f, n);
   });
@@ -154,13 +155,19 @@ function frontHTML(r) {
   const cz = it.e2.split(it.w).join("＿".repeat([...it.w].length));
   return `<div class="front"><div class="cz">${esc(cz)}</div><div class="task">${esc(it.e2v || "")}<br>Điền từ còn thiếu</div></div>`;
 }
-function kv(rows) { return rows.filter(([, v]) => v).map(([k, v]) => `<div><span class="k">${esc(k)}</span><span class="han">${esc(v)}</span></div>`).join(""); }
+function kv(rows) { return rows.filter(([, v]) => v).map(([k, v]) => `<div><span class="k">${esc(k)}</span><span class="mix">${esc(v)}</span></div>`).join(""); }
+// Split view on wide screens: head (word, reading, meaning) and body (mnemonics, examples, details).
+function detailParts(n, opts = {}) {
+  const html = detailHTML(n, opts);
+  const i = html.indexOf("<!--body-->"); const j = html.lastIndexOf("</div>");
+  return { head: html.slice(0, i).replace('<div class="ans">', ""), body: html.slice(i + 11, j) };
+}
 function detailHTML(n, opts = {}) {
   const it = itemOf(n);
   if (n.kind === "grammar") {
     return `<div class="ans">
       <div class="head"><div class="w gram">${esc(it.w)}</div><div class="py">${esc(it.py)}</div><div class="vn">${esc(it.vn)}</div><div class="sub">${esc(it.en)}</div>
-        ${opts.answer ? `<div class="pill lv-3" style="margin-top:6px">${esc(it.ans)}</div>` : ""}</div>
+        ${opts.answer ? `<div class="pill lv-3" style="margin-top:6px">${esc(it.ans)}</div>` : ""}</div><!--body-->
       <div class="tip"><b>Cấu trúc</b><span class="han">${esc(it.st)}</span></div>
       ${[1, 2, 3].map((k) => it["e" + k] ? `<div class="ex"><div class="zh">${esc(it["e" + k])} ${sp(it["e" + k])}</div><div class="exs">${esc(it["e" + k + "p"])}<br>${esc(it["e" + k + "v"])}</div></div>` : "").join("")}
       ${it.tw ? `<div class="tw"><b>Người Đài nói thế nào</b><span class="han">${esc(it.tw)}</span></div>` : ""}
@@ -172,7 +179,7 @@ function detailHTML(n, opts = {}) {
     <div class="head">${it.img ? `<div class="emoji-s" aria-hidden="true">${esc(it.img)}</div>` : ""}<div class="w">${esc(it.w)}</div>
       <div class="py">${esc(it.py)} ${sp(it.w)}</div>
       <div class="sub">${[it.pos, it.hv ? "Hán Việt: " + it.hv : "", band].filter(Boolean).map(esc).join(" · ")}</div>
-      ${it.vn ? `<div class="vn">${esc(it.vn)}</div>` : `<div class="vn muted">Chưa có nghĩa tiếng Việt</div>`}${it.en ? `<div class="sub">${esc(it.en)}</div>` : ""}</div>
+      ${it.vn ? `<div class="vn">${esc(it.vn)}</div>` : `<div class="vn muted">Chưa có nghĩa tiếng Việt</div>`}${it.en ? `<div class="sub">${esc(it.en)}</div>` : ""}</div><!--body-->
     ${it.mi || it.mh || it.ms ? `<div class="tip"><b>Mẹo nhớ</b>${it.mi ? `<div><b>Hình:</b> ${esc(it.mi)}</div>` : ""}${it.mh ? `<div><b>Hán Việt:</b> ${esc(it.mh)}</div>` : ""}${it.ms ? `<div><b>Chuyện:</b> ${esc(it.ms)}</div>` : ""}</div>` : ""}
     ${it.e1 ? `<div class="ex"><div class="zh">${esc(it.e1)} ${sp(it.e1)}</div><div class="exs">${esc(it.e1p || "")}<br>${esc(it.e1v || "")}</div></div>` : ""}
     ${it.e2 ? `<div class="ex"><div class="zh">${esc(it.e2)} ${sp(it.e2)}</div><div class="exs">${esc(it.e2p || "")}<br>${esc(it.e2v || "")}</div></div>` : ""}
@@ -216,7 +223,7 @@ VIEWS["trang-chu"] = () => {
   }).join("");
   const days = []; for (let k = 13; k >= 0; k--) { const t = Date.now() - k * DAY; days.push([dayKey(t), new Date(dayStart(t))]); }
   const max = Math.max(1, ...days.map(([key]) => (S.stats.get(key) || {}).reviews || 0));
-  setView(`<section class="view">
+  setView(`<section class="view"><div class="home-top">
     <div class="hero panel">
       <div class="hero-top"><div><span class="bignum num">${fmt(learned)}</span> <span class="lead-s">từ đã học</span></div>
         <a class="primary btn" href="#hoc">Học ngay${c.total ? ` · ${fmt(c.total)} thẻ` : ""}</a></div>
@@ -224,7 +231,7 @@ VIEWS["trang-chu"] = () => {
       <div class="sub">Hôm nay: <b class="num">${fmt(c.due)}</b> thẻ cần ôn · <b class="num">${fmt(c.fresh)}</b> thẻ mới · đã trả lời <b class="num">${fmt(todayStats().reviews)}</b> thẻ</div>
     </div>
     <div class="panel"><div class="eyebrow">Số thẻ đã trả lời, 14 ngày gần nhất</div><div class="week">${days.map(([key, d]) => { const v = (S.stats.get(key) || {}).reviews || 0;
-      return `<div title="${esc(key)}: ${v} thẻ"><span class="num">${v || ""}</span><i class="${v ? "" : "zero"}" style="height:${Math.max(2, (v / max) * 60)}px"></i><span>${d.getDate()}</span></div>`; }).join("")}</div></div>
+      return `<div title="${esc(key)}: ${v} thẻ"><span class="num">${v || ""}</span><i class="${v ? "" : "zero"}" style="height:${Math.max(2, (v / max) * 60)}px"></i><span>${d.getDate()}</span></div>`; }).join("")}</div></div></div>
     <div><h2 class="h2">Từ vựng TOCFL theo band</h2><p class="lead">${fmt(S.tocfl.length)} từ của bảng chính thức 2024. Mở một band để xem từ và đưa cả band vào lịch học.</p></div>
     <div class="folders">${bandCards}</div>
     <div><h2 class="h2">Thư mục của tôi</h2><p class="lead">Thẻ soạn đầy đủ: từ lớp học, các đợt TOCFL, ngữ pháp.</p></div>
@@ -255,15 +262,18 @@ function renderCard() {
   const r = ss.current; const types = typesOf(r.n); const label = (types.find(([t]) => t === r.t) || [r.t, r.t])[1];
   const pct = Math.min(100, (ss.answered / Math.max(ss.start, ss.answered + 1)) * 100);
   const src = r.n.rich ? r.n.deck.name : `TOCFL ${r.n.band}`;
-  let html = `<section class="view"><div class="sessbar"><span style="width:${pct}%"></span></div><article class="card">
-    <div class="kind"><span>${esc(label)} · ${esc(src)}</span><span>${r.s && r.s.state !== "new" ? esc(LEVELS[cardLevel(r.s)]) : "Thẻ mới"}</span></div>${frontHTML(r)}`;
+  const kindRow = `<div class="kind"><span>${esc(label)} · ${esc(src)}</span><span>${r.s && r.s.state !== "new" ? esc(LEVELS[cardLevel(r.s)]) : "Thẻ mới"}</span></div>`;
+  const tail = `<div class="msg err" id="saveErr"></div><button type="button" class="link" id="stop">Dừng, học tiếp sau</button>`;
+  let html = `<section class="view"><div class="sessbar"><span style="width:${pct}%"></span></div>`;
   if (ss.shown) {
-    const now = Date.now();
-    html += detailHTML(r.n, { answer: r.t === "clo" }) + `<div class="grades">${[1, 2, 3, 4].map((g) => { const ns = schedule(r.s, g, now);
+    const now = Date.now(); const p = detailParts(r.n, { answer: r.t === "clo" });
+    const grades = `<div class="grades">${[1, 2, 3, 4].map((g) => { const ns = schedule(r.s, g, now);
       return `<button type="button" class="g${g}" data-g="${g}">${["", "Quên", "Khó", "Nhớ", "Dễ"][g]}<small>${esc(fmtGap(ns.due - now))}</small></button>`; }).join("")}</div>
       <div class="keys">Bàn phím: 1 Quên · 2 Khó · 3 Nhớ · 4 Dễ</div>`;
-  } else html += `<button class="primary reveal" type="button" id="reveal">Xem đáp án</button><div class="keys">Bàn phím: phím cách để xem đáp án</div>`;
-  html += `<div class="msg err" id="saveErr"></div><button type="button" class="link" id="stop">Dừng, học tiếp sau</button></article></section>`;
+    html += `<article class="card split"><div class="col-a">${kindRow}${frontHTML(r)}<div class="ans">${p.head}</div>${grades}${tail}</div>
+      <div class="col-b ans">${p.body}</div></article>`;
+  } else html += `<article class="card">${kindRow}${frontHTML(r)}<button class="primary reveal" type="button" id="reveal">Xem đáp án</button><div class="keys">Bàn phím: phím cách để xem đáp án</div>${tail}</article>`;
+  html += `</section>`;
   setView(html);
   const rv = $("#reveal"); if (rv) rv.onclick = reveal;
   document.querySelectorAll("[data-g]").forEach((b) => (b.onclick = () => grade(Number(b.dataset.g))));
@@ -296,7 +306,7 @@ document.addEventListener("keydown", (e) => {
 VIEWS["tu-dien"] = (arg) => {
   setView(`<section class="view"><label for="dq" class="biglabel">Tra từ: chữ Hán, pinyin (không cần dấu), tiếng Việt hoặc tiếng Anh
     <input id="dq" class="bigin" placeholder="例如：學生 · xuesheng · học sinh · student" value="${esc(arg || "")}" autocomplete="off"></label>
-    <div class="count" id="dcount"></div><div class="list" id="dres"></div></section>`);
+    <div class="count" id="dcount"></div><div class="list grid2" id="dres"></div></section>`);
   const inp = $("#dq"); let tmr = null;
   inp.oninput = () => { clearTimeout(tmr); tmr = setTimeout(() => searchDict(inp.value), 150); };
   inp.focus(); searchDict(inp.value);
@@ -329,18 +339,18 @@ VIEWS["tu"] = (w) => {
   const inLearn = n && (n.rich ? deckOn(n.deck.id) : (S.settings.bands[n.band] || S.settings.extra[n.w]));
   const chars = [...new Set([...hanOnly(w)])];
   const containing = (c) => S.notes.filter((x) => x.kind === "vocab" && x.w.includes(c) && x.w !== w).slice(0, 16);
-  setView(`<section class="view"><a class="link" href="#tu-dien">← Tra từ khác</a>
+  setView(`<section class="view"><a class="link" href="#tu-dien">← Tra từ khác</a><div class="cols"><div class="c1">
     ${n ? detailHTML(n, { link: false }) : `<div class="ans"><div class="head"><div class="w">${esc(w)}</div><div class="py">${esc(e ? e[0][0] : "")} ${sp(w)}</div><div class="sub">ngoài bảng TOCFL</div></div></div>`}
     ${n ? `<div class="actions"><span>Mức nhớ: ${levelPill(n)}</span>${n.basic ? (inLearn ? `<span class="pill lv-2">Đang trong lịch học</span>` : `<button type="button" class="primary" id="addLearn">Thêm từ này vào lịch học</button>`) : ""}</div>` : ""}
-    ${e ? `<div class="panel"><div class="eyebrow">Nghĩa tiếng Anh (CC-CEDICT)</div>${e.map(([py, defs]) => `<div class="cedrow"><span class="py">${esc(py)}</span> ${esc(defs.split("/").join("; "))}</div>`).join("")}</div>` : ""}
-    <div class="panel"><div class="eyebrow">Nét viết · bấm “Xem nét” hoặc “Viết thử”</div><div class="strokes">${chars.map((c, k) => `
+    ${e ? `<div class="panel"><div class="eyebrow">Nghĩa tiếng Anh (CC-CEDICT)</div>${e.map(([py, defs]) => `<div class="cedrow"><span class="py">${esc(py)}</span> ${esc(defs.replace(/\[[^\]]*\d\]/g, "").split("/").join("; "))}</div>`).join("")}</div>` : ""}
+    </div><div class="c2"><div class="panel"><div class="eyebrow">Nét viết · bấm “Xem nét” hoặc “Viết thử”</div><div class="strokes">${chars.map((c, k) => `
       <div class="sbox"><div class="hw" id="hw${k}" data-c="${esc(c)}"></div><div class="actions center"><button type="button" class="small" data-anim="${k}">Xem nét</button><button type="button" class="small" data-quiz="${k}">Viết thử</button></div>
       <div class="sub center">${esc(c)} · ${esc((cedFirst(c) || [[""]])[0][0])}</div></div>`).join("")}</div>
       <div class="sub">Thứ tự nét lấy từ Make Me a Hanzi, theo chuẩn Trung Quốc đại lục; vài chữ có thể khác thứ tự nét chuẩn Đài Loan.</div></div>
     ${chars.map((c) => { const cs = containing(c); const ce = cedFirst(c);
-      return `<div class="panel"><div class="eyebrow">Chữ ${esc(c)}</div><div class="charline"><span class="han bigc">${esc(c)}</span><span>${esc(ce ? ce.map(([py, d]) => py + ": " + d.split("/").slice(0, 3).join("; ")).slice(0, 2).join(" | ") : "")}</span></div>
+      return `<div class="panel"><div class="eyebrow">Chữ ${esc(c)}</div><div class="charline"><span class="han bigc">${esc(c)}</span><span>${esc(ce ? ce.map(([py, d]) => py + ": " + d.replace(/\[[^\]]*\d\]/g, "").split("/").slice(0, 3).join("; ")).slice(0, 2).join(" | ") : "")}</span></div>
         ${cs.length ? `<div class="sub">Từ TOCFL có chữ này:</div><div class="chips">${cs.map((x) => `<a class="chip" href="#tu/${encodeURIComponent(x.w)}"><span class="han">${esc(x.w)}</span> ${esc(itemOf(x).py)}</a>`).join("")}</div>` : ""}</div>`; }).join("")}
-  </section>`);
+  </div></div></section>`);
   const add = $("#addLearn"); if (add) add.onclick = async () => { S.settings.extra[n.w] = true; await saveSettings(); route(); };
   chars.forEach((c, k) => drawChar(k, c));
 };
@@ -379,7 +389,7 @@ VIEWS["thu-muc"] = (id) => {
       <div class="actions"><button type="button" class="${on ? "" : "primary"}" id="toggleLearn">${on ? "Tạm dừng học thư mục này" : isBand ? "Đưa band này vào lịch học" : "Học thư mục này"}</button>
       <span class="sub">${on ? "Từ mới của thư mục này đang được đưa vào mục Học, theo thứ tự trong danh sách." : "Thẻ đã học vẫn được ôn đúng lịch dù tạm dừng."}</span></div>
       <label for="fq">Lọc trong thư mục<input id="fq" placeholder="chữ Hán, pinyin hoặc nghĩa"></label></div>
-    <div class="list" id="flist"></div></section>`);
+    <div class="list grid2" id="flist"></div></section>`);
   const draw = () => { const f = fold($("#fq").value);
     $("#flist").innerHTML = ns.filter((n) => { if (!f) return true; const it = itemOf(n); return fold(it.w).includes(f) || fold(it.py).includes(f) || fold(meaningOf(n)).includes(f); }).map((n) => { const it = itemOf(n);
       const inner = `<div class="w ${n.kind === "grammar" ? "gram" : ""}">${esc(n.basic ? n.display : it.w)}</div>
@@ -392,49 +402,147 @@ VIEWS["thu-muc"] = (id) => {
 };
 
 // --- Chép chính tả ---
-VIEWS["chinh-ta"] = () => {
-  const pool = S.notes.filter((n) => n.kind === "vocab" && noteLevel(n) > 0);
-  const fallback = pool.length < 5;
-  const list = fallback ? activeNotes().filter((n) => n.kind === "vocab").slice(0, 60) : pool;
-  const d = S.dict;
-  setView(`<section class="view"><div class="panel"><h2 class="h2">Chép chính tả</h2>
-    <p class="lead">Nghe rồi viết lại. ${fallback ? "Bạn chưa học đủ từ nên bài lấy từ các thư mục đang học." : `Bài lấy ngẫu nhiên từ ${fmt(pool.length)} từ bạn đã học.`}</p>
-    <div class="row2"><label for="dm">Cách trả lời<select id="dm"><option value="han">Gõ chữ Hán</option><option value="py">Gõ pinyin (không cần dấu)</option><option value="paper">Viết ra giấy rồi tự chấm</option></select></label>
-    <label for="ds">Nghe gì<select id="ds"><option value="word">Từ</option><option value="sent">Câu ví dụ (nếu có)</option></select></label></div></div>
-    <div id="dict"></div></section>`);
-  $("#dm").value = d.mode; $("#ds").value = d.src;
-  $("#dm").onchange = (e) => { d.mode = e.target.value; nextDict(list); }; $("#ds").onchange = (e) => { d.src = e.target.value; nextDict(list); };
-  d.score = { ok: 0, total: 0 }; nextDict(list);
-};
-function nextDict(list) {
-  const d = S.dict, box = $("#dict"); if (!box) return;
-  if (!list.length) { box.innerHTML = `<div class="note">Chưa có từ nào. Vào Thư mục để đưa một band vào lịch học trước.</div>`; return; }
-  const n = list[Math.floor(Math.random() * list.length)], it = itemOf(n);
-  const useSent = d.src === "sent" && it.e1; const target = useSent ? it.e1 : it.w;
-  d.cur = { n, it, target, useSent };
-  box.innerHTML = `<article class="card"><div class="kind"><span>Câu ${d.score.total + 1}${d.score.total ? ` · đúng ${d.score.ok}/${d.score.total}` : ""}</span><span>${useSent ? "Nghe câu" : "Nghe từ"}</span></div>
-    <div class="front"><div class="emoji" aria-hidden="true">🎧</div><div class="actions center">${sp(target, "nghe")}<button type="button" class="speak" data-say="${esc(target)}" data-rate="0.6">▶ nghe chậm</button></div>
-    ${d.mode === "paper" ? `<div class="task">Viết ra giấy, xong bấm “Xem đáp án”.</div>` : `<input id="dans" class="bigin ${d.mode === "han" ? "han" : ""}" placeholder="${d.mode === "han" ? "Gõ chữ Hán bạn nghe được" : "Gõ pinyin, ví dụ: xuesheng"}" autocomplete="off" autocapitalize="off">`}</div>
-    <button type="button" class="primary reveal" id="dcheck">${d.mode === "paper" ? "Xem đáp án" : "Kiểm tra"}</button><div id="dout"></div></article>`;
-  say(target, useSent ? 0.8 : 0.9);
-  const inp = $("#dans"); if (inp) { inp.focus(); inp.onkeydown = (e) => { if (e.key === "Enter") $("#dcheck").click(); }; }
-  $("#dcheck").onclick = () => checkDict(list);
+// Sentence bank: example sentences from our own cards (public) + private packs the user loads from a file.
+function segment(zh) {
+  // greedy longest match: TOCFL / card words first, then CC-CEDICT
+  const out = []; const chars = [...zh]; let i = 0;
+  while (i < chars.length) {
+    if (!isHan(chars[i])) { out.push({ t: chars[i] }); i++; continue; }
+    let hit = null;
+    for (let L = Math.min(8, chars.length - i); L >= 1; L--) {
+      const w = chars.slice(i, i + L).join("");
+      const n = S.noteByWord.get(w);
+      if (n) { hit = { t: w, n }; break; }
+      if (L > 1 && S.ced && S.ced.has(w)) { hit = { t: w }; break; }
+    }
+    if (!hit) hit = { t: chars[i] };
+    out.push(hit); i += [...hit.t].length;
+  }
+  return out;
 }
-function checkDict(list) {
-  const d = S.dict, c = d.cur; const btn = $("#dcheck"); if (!c || btn.dataset.done) { nextDict(list); return; }
-  let ok = null;
-  if (d.mode === "han") ok = hanOnly($("#dans").value) === hanOnly(c.target);
-  else if (d.mode === "py") ok = fold($("#dans").value) === fold(c.useSent ? c.it.e1p : c.it.py);
-  const show = `<div class="ans"><div class="head"><div class="w ${c.useSent ? "sent" : ""}">${esc(c.target)}</div><div class="py">${esc(c.useSent ? c.it.e1p : c.it.py)}</div>
-    <div class="vn">${esc(c.useSent ? c.it.e1v : meaningOf(c.n))}</div></div><a class="link" href="#tu/${encodeURIComponent(c.it.w)}">Xem trong từ điển →</a></div>`;
-  if (ok === null) {
-    $("#dout").innerHTML = show + `<div class="actions center"><button type="button" class="g1" id="selfNo">Viết sai</button><button type="button" class="g3" id="selfYes">Viết đúng</button></div>`;
-    const fin = (v) => { d.score.total++; if (v) d.score.ok++; nextDict(list); };
+function autoPinyin(tokens) {
+  return tokens.map((k) => k.n ? itemOf(k.n).py : isHan(k.t) ? ((cedFirst(k.t) || [[k.t]])[0][0]) : k.t).join(" ").replace(/\s+([，。！？、])/g, "$1");
+}
+function sentenceBank() {
+  const out = [];
+  for (const n of S.notes) {
+    if (!n.rich && !S.vi.has(n.w)) continue;
+    const it = itemOf(n);
+    for (const k of n.kind === "grammar" ? [1, 2, 3] : [1, 2]) if (it["e" + k]) out.push({ zh: it["e" + k], py: it["e" + k + "p"], vn: it["e" + k + "v"], src: n.rich ? n.deck.name : `TOCFL ${n.band}`, own: true });
+  }
+  for (const p of S.packs || []) for (const s of p.sentences || []) out.push({ zh: s.zh, py: s.py || "", vn: s.vn || "", src: s.src || p.name, pack: p.name });
+  return out;
+}
+function weightOf(tokens) {
+  let w = 0;
+  for (const k of tokens) if (k.n) { const l = noteLevel(k.n); if (l > 0) w += 1 + (5 - l) + Math.min(4, noteLapses(k.n)); }
+  return w;
+}
+VIEWS["chinh-ta"] = () => {
+  const d = S.dict; d.score = d.score || { ok: 0, total: 0 };
+  const sources = ["Tất cả", "Câu ví dụ trong thẻ", ...(S.packs || []).map((p) => p.name)];
+  setView(`<section class="view"><div class="panel"><h2 class="h2">Chép chính tả</h2>
+    <p class="lead">Nghe một câu rồi viết lại. Trang ưu tiên câu có chứa từ bạn đang học, nhất là từ còn yếu hoặc hay quên. Chấm xong, bấm vào từ gạch chân để mở từ điển.</p>
+    <div class="row3"><label for="dm">Cách trả lời<select id="dm"><option value="han">Gõ chữ Hán</option><option value="paper">Viết ra giấy rồi tự chấm</option><option value="word">Chỉ chép từ (không cả câu)</option></select></label>
+      <label for="dsrc">Nguồn câu<select id="dsrc">${sources.map((s) => `<option>${esc(s)}</option>`).join("")}</select></label>
+      <label for="dsp">Tốc độ đọc<select id="dsp"><option value="0.9">Bình thường</option><option value="0.7">Chậm</option><option value="0.55">Rất chậm</option></select></label></div>
+    <details class="packs"><summary>Bộ câu riêng (${(S.packs || []).length})</summary>
+      <p class="sub">Câu trích từ giáo trình hay đề thi chỉ nên giữ riêng, không đăng lên web. Mở file bộ câu (.json) trong Google Drive, thư mục “10 Website học tiếng Hoa/bo-cau-rieng”. Câu được lưu trong trình duyệt của bạn.</p>
+      <div class="actions"><label class="filebtn" for="packfile">Nạp bộ câu từ file<input type="file" id="packfile" accept=".json,application/json"></label><span class="msg" id="pmsg"></span></div>
+      <div class="list">${(S.packs || []).map((p, i) => `<div class="item"><div class="meta"><div class="vn">${esc(p.name)}</div><div class="sub">${fmt(p.sentences.length)} câu</div></div><div class="side"><button type="button" class="link" data-rmpack="${i}">Gỡ</button></div></div>`).join("")}</div>
+    </details></div>
+    <div id="dict"></div></section>`);
+  $("#dm").value = d.mode || "han"; $("#dsrc").value = d.srcSel || "Tất cả"; $("#dsp").value = String(d.rate || 0.9);
+  $("#dm").onchange = (e) => { d.mode = e.target.value; nextDict(); };
+  $("#dsrc").onchange = (e) => { d.srcSel = e.target.value; nextDict(); };
+  $("#dsp").onchange = (e) => { d.rate = Number(e.target.value); };
+  $("#packfile").onchange = async (e) => {
+    const f = e.target.files[0]; if (!f) return;
+    try { const p = JSON.parse(await f.text()); if (p.app !== "so-hoc-tieng-hoa-pack" || !Array.isArray(p.sentences)) throw new Error("File không đúng định dạng bộ câu.");
+      S.packs = (S.packs || []).filter((x) => x.name !== p.name).concat([{ name: p.name, sentences: p.sentences.filter((s) => s && s.zh) }]);
+      await Store.put("kv", "packs", S.packs); route(); }
+    catch (err) { $("#pmsg").textContent = "Không nạp được: " + err.message; }
+  };
+  document.querySelectorAll("[data-rmpack]").forEach((b) => (b.onclick = async () => { if (!b.dataset.sure) { b.dataset.sure = 1; b.textContent = "Bấm lần nữa để gỡ"; return; }
+    S.packs.splice(Number(b.dataset.rmpack), 1); await Store.put("kv", "packs", S.packs); route(); }));
+  nextDict();
+};
+function nextDict() {
+  const d = S.dict, box = $("#dict"); if (!box) return;
+  if (d.mode === "word") return nextWordDict();
+  let bank = sentenceBank();
+  if (d.srcSel && d.srcSel !== "Tất cả") bank = bank.filter((s) => d.srcSel === "Câu ví dụ trong thẻ" ? s.own : s.pack === d.srcSel);
+  if (!bank.length) { box.innerHTML = `<div class="note">Chưa có câu nào ở nguồn này. Nạp bộ câu riêng hoặc chọn nguồn khác.</div>`; return; }
+  const scored = bank.map((s) => { const tokens = segment(s.zh); return { s, tokens, w: weightOf(tokens) }; });
+  const learned = scored.filter((x) => x.w > 0);
+  const pool = learned.length >= 3 ? learned : scored;
+  const total = pool.reduce((a, x) => a + (x.w || 1), 0); let r = Math.random() * total; let pick = pool[0];
+  for (const x of pool) { r -= (x.w || 1); if (r <= 0) { pick = x; break; } }
+  d.cur = pick;
+  const linked = pick.tokens.filter((k) => k.n && noteLevel(k.n) > 0).length;
+  box.innerHTML = `<article class="card"><div class="kind"><span>Đã chép ${d.score.total} câu · đúng ${d.score.ok}</span><span>${esc(pick.s.src)}</span></div>
+    <div class="front"><div class="emoji" aria-hidden="true">🎧</div>
+      <div class="actions center"><button type="button" class="speak" id="play">▶ nghe câu</button><button type="button" class="speak" id="playslow">▶ nghe chậm</button></div>
+      <div class="task">Câu có ${[...hanOnly(pick.s.zh)].length} chữ${linked ? ` · chứa ${linked} từ bạn đang học` : ""}</div>
+      ${d.mode === "paper" ? `<div class="task">Viết ra giấy, xong bấm “Xem đáp án”.</div>` : `<textarea id="dans" class="bigin han" rows="2" placeholder="Gõ chữ Hán bạn nghe được" autocomplete="off"></textarea>`}</div>
+    <button type="button" class="primary reveal" id="dcheck">${d.mode === "paper" ? "Xem đáp án" : "Kiểm tra"}</button><div id="dout"></div></article>`;
+  const play = (rate) => say(pick.s.zh, rate);
+  $("#play").onclick = () => play(d.rate || 0.9); $("#playslow").onclick = () => play(0.6);
+  play(d.rate || 0.9);
+  const inp = $("#dans"); if (inp) { inp.focus(); inp.onkeydown = (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); $("#dcheck").click(); } }; }
+  $("#dcheck").onclick = checkDict;
+}
+// mark which characters of the target the learner got (longest common subsequence)
+function diffMarks(target, typed) {
+  const a = [...target], b = [...typed]; const m = a.length, n = b.length;
+  const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+  for (let i = m - 1; i >= 0; i--) for (let j = n - 1; j >= 0; j--) dp[i][j] = a[i] === b[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
+  const ok = new Array(m).fill(false); let i = 0, j = 0;
+  while (i < m && j < n) { if (a[i] === b[j]) { ok[i] = true; i++; j++; } else if (dp[i + 1][j] >= dp[i][j + 1]) i++; else j++; }
+  return ok;
+}
+function sentenceAnswer(cur, marks) {
+  let ci = 0;
+  const html = cur.tokens.map((k) => {
+    const chars = [...k.t].map((c) => { if (!isHan(c)) return esc(c); const good = !marks || marks[ci++]; return good ? esc(c) : `<span class="wrongc">${esc(c)}</span>`; }).join("");
+    if (k.n) { const l = noteLevel(k.n); return `<a class="tok lv-u-${l}" href="#tu/${encodeURIComponent(k.n.w)}" title="${esc(itemOf(k.n).py + " · " + meaningOf(k.n) + " · " + LEVELS[l])}">${chars}</a>`; }
+    return isHan(k.t) && S.ced && S.ced.has(k.t) ? `<a class="tok" href="#tu/${encodeURIComponent(k.t)}">${chars}</a>` : chars;
+  }).join("");
+  const py = cur.s.py || autoPinyin(cur.tokens);
+  const words = cur.tokens.filter((k) => k.n && noteLevel(k.n) > 0).map((k) => k.n).filter((n, i, arr) => arr.indexOf(n) === i);
+  return `<div class="ans"><div class="sentence han">${html}</div><div class="py sub-py">${esc(py)}${cur.s.py ? "" : ` <span class="sub">(pinyin tự động, có thể sai chữ đa âm)</span>`}</div>
+    ${cur.s.vn ? `<div class="vn-s">${esc(cur.s.vn)}</div>` : ""}
+    ${words.length ? `<div class="sub center">Từ bạn đang học trong câu:</div><div class="chips center">${words.map((n) => `<a class="chip" href="#tu/${encodeURIComponent(n.w)}"><span class="han">${esc(n.w)}</span> ${esc(meaningOf(n).slice(0, 40))} ${levelPill(n)}</a>`).join("")}</div>` : `<div class="sub center">Bấm vào chữ trong câu để tra từ.</div>`}</div>`;
+}
+function checkDict() {
+  const d = S.dict, c = d.cur, btn = $("#dcheck"); if (!c) return;
+  if (btn.dataset.done) { nextDict(); return; }
+  const target = hanOnly(c.s.zh);
+  if (d.mode === "paper") {
+    $("#dout").innerHTML = sentenceAnswer(c, null) + `<div class="actions center"><button type="button" class="g1" id="selfNo">Viết sai</button><button type="button" class="g3" id="selfYes">Viết đúng</button></div>`;
+    const fin = (v) => { d.score.total++; if (v) d.score.ok++; nextDict(); };
     $("#selfNo").onclick = () => fin(false); $("#selfYes").onclick = () => fin(true); btn.hidden = true; return;
   }
+  const typed = hanOnly($("#dans").value); const marks = diffMarks(target, typed);
+  const right = marks.filter(Boolean).length; const ok = typed === target;
   d.score.total++; if (ok) d.score.ok++;
-  $("#dout").innerHTML = `<div class="verdict ${ok ? "good" : "bad"}">${ok ? "Đúng rồi!" : "Chưa đúng. Đáp án:"}</div>` + show;
+  $("#dout").innerHTML = `<div class="verdict ${ok ? "good" : "bad"}">${ok ? "Đúng hết!" : `Đúng ${right}/${target.length} chữ. Chữ đỏ là chữ còn thiếu hoặc sai.`}</div>` + sentenceAnswer(c, marks);
   btn.textContent = "Câu tiếp theo"; btn.dataset.done = "1";
+}
+function nextWordDict() {
+  const d = S.dict, box = $("#dict");
+  const pool = S.notes.filter((n) => n.kind === "vocab" && noteLevel(n) > 0);
+  const list = pool.length >= 5 ? pool : activeNotes().filter((n) => n.kind === "vocab").slice(0, 80);
+  if (!list.length) { box.innerHTML = `<div class="note">Chưa có từ nào. Vào Thư mục để đưa một band vào lịch học trước.</div>`; return; }
+  const n = list[Math.floor(Math.random() * list.length)], it = itemOf(n);
+  d.cur = { s: { zh: it.w, py: it.py, vn: meaningOf(n), src: "Từ đang học" }, tokens: [{ t: it.w, n }] };
+  box.innerHTML = `<article class="card"><div class="kind"><span>Đã chép ${d.score.total} · đúng ${d.score.ok}</span><span>Chép từ</span></div>
+    <div class="front"><div class="emoji" aria-hidden="true">🎧</div><div class="actions center"><button type="button" class="speak" id="play">▶ nghe</button></div>
+    <input id="dans" class="bigin han" placeholder="Gõ chữ Hán" autocomplete="off"></div>
+    <button type="button" class="primary reveal" id="dcheck">Kiểm tra</button><div id="dout"></div></article>`;
+  $("#play").onclick = () => say(it.w, d.rate || 0.9); say(it.w, d.rate || 0.9);
+  const inp = $("#dans"); inp.focus(); inp.onkeydown = (e) => { if (e.key === "Enter") $("#dcheck").click(); };
+  $("#dcheck").onclick = checkDict;
 }
 
 // --- Nhập từ ---
@@ -510,7 +618,7 @@ VIEWS["cai-dat"] = () => {
 async function saveSettings() { await Store.put("kv", "settings", JSON.parse(JSON.stringify(S.settings))); updateBadge(); }
 async function loadProgress() {
   S.srs = await Store.all("srs"); S.stats = await Store.all("stats"); S.inbox = await Store.all("inbox");
-  const kv = await Store.all("kv"); if (kv.get("settings")) S.settings = Object.assign({ newPerDay: 20, decks: {}, bands: {}, extra: {} }, kv.get("settings"));
+  const kv = await Store.all("kv"); S.packs = kv.get("packs") || []; if (kv.get("settings")) S.settings = Object.assign({ newPerDay: 20, decks: {}, bands: {}, extra: {} }, kv.get("settings"));
 }
 
 // ---------------- boot ----------------
