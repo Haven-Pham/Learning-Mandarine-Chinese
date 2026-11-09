@@ -96,6 +96,48 @@ function noteLevel(n) {
 }
 function noteLapses(n) { return typesOf(n).reduce((a, [t]) => a + ((S.srs.get(cardId(n, t)) || {}).lapses || 0), 0); }
 function levelPill(n) { const l = noteLevel(n); return `<span class="pill lv-${l}">${esc(LEVELS[l])}</span>` + (noteLapses(n) >= 4 ? ` <span class="pill forget">Hay quên</span>` : ""); }
+function levelPicker(n) {
+  const current = noteLevel(n);
+  return `<div class="panel"><label>Đặt mức nhớ cho cả từ
+    <select id="wordLevel"><option value="" selected disabled>Hiện tại · ${esc(LEVELS[current])}</option>
+    ${LEVELS.slice(1).map((label, i) => `<option value="${i + 1}">${esc(label)}</option>`).join("")}</select></label>
+    <div class="sub">Áp dụng cho mọi dạng thẻ của từ và đặt lại lịch ôn.</div>
+    <div role="status" id="levelStatus"></div></div>`;
+}
+function bindLevelPicker(n, afterSave) {
+  const select = $("#wordLevel");
+  if (!select) return;
+  const status = $("#levelStatus");
+  select.onchange = async () => {
+    const level = Number(select.value);
+    const now = Date.now();
+    const ivl = [0, 0, 1, 7, 21, 90][level];
+    if (!level || ivl === undefined || select.disabled) return;
+    const entries = typesOf(n).map(([type]) => {
+      const id = cardId(n, type);
+      const state = Object.assign(freshState(), S.srs.get(id));
+      Object.assign(state, { state: level === 1 ? "learn" : "review", ivl, step: 0,
+        due: level === 1 ? now + STEPS[0] : dayStart(now) + ivl * DAY,
+        firstSeen: state.firstSeen || state.last || now, last: now, w: n.w });
+      return [id, state];
+    });
+    select.disabled = true;
+    try {
+      await Store.putMany("srs", entries);
+    } catch (err) {
+      select.disabled = false; select.value = "";
+      status.textContent = "Chưa lưu được mức nhớ. Vui lòng thử lại.";
+      return;
+    }
+    for (const [id, state] of entries) S.srs.set(id, state);
+    updateBadge();
+    if (select.isConnected) {
+      afterSave();
+      const message = $("#levelStatus");
+      if (message) message.textContent = `Đã đặt ${n.w} ở mức ${LEVELS[level]}.`;
+    }
+  };
+}
 function meaningOf(n) { const it = itemOf(n); return it.vn || it.en || ""; }
 
 // ---------------- study queue ----------------
@@ -307,11 +349,15 @@ function renderCard() {
     const grades = `<div class="grades">${[1, 2, 3, 4].map((g) => { const ns = schedule(r.s, g, now);
       return `<button type="button" class="g${g}" data-g="${g}">${["", "Quên", "Khó", "Nhớ", "Dễ"][g]}<small>${esc(fmtGap(ns.due - now))}</small></button>`; }).join("")}</div>
       <div class="keys">Bàn phím: 1 Quên · 2 Khó · 3 Nhớ · 4 Dễ</div>`;
-    html += `<article class="card split"><div class="col-a">${kindRow}${frontHTML(r)}<div class="ans">${p.head}</div>${grades}${tail}</div>
+    html += `<article class="card split"><div class="col-a">${kindRow}${frontHTML(r)}<div class="ans">${p.head}</div>${grades}${levelPicker(r.n)}${tail}</div>
       <div class="col-b ans">${p.body}</div></article>`;
   } else html += `<article class="card">${kindRow}${frontHTML(r)}<button class="primary reveal" type="button" id="reveal">Xem đáp án</button><div class="keys">Bàn phím: phím cách để xem đáp án</div>${tail}</article>`;
   html += `</section>`;
   setView(html);
+  if (ss.shown) bindLevelPicker(r.n, () => {
+    ss.lastNote = r.n.key; ss.shown = false; ss.current = nextCard(Date.now()); renderCard();
+    window.scrollTo(0, 0);
+  });
   const rv = $("#reveal"); if (rv) rv.onclick = reveal;
   document.querySelectorAll("[data-g]").forEach((b) => (b.onclick = () => grade(Number(b.dataset.g))));
   $("#stop").onclick = () => { S.session = null; location.hash = "#trang-chu"; };
@@ -320,7 +366,7 @@ function renderCard() {
 function reveal() { const ss = S.session; if (!ss || !ss.current || ss.shown) return; ss.shown = true; renderCard(); window.scrollTo(0, 0);
   const r = ss.current; if (r.n.kind !== "grammar" && r.t !== "lis") say(itemOf(r.n).w); }
 async function grade(g) {
-  const ss = S.session; if (!ss || !ss.current || !ss.shown) return;
+  const ss = S.session; if (!ss || !ss.current || !ss.shown || $("#wordLevel")?.disabled) return;
   const r = ss.current, now = Date.now(); const wasNew = !r.s || r.s.state === "new";
   const ns = schedule(r.s, g, now); ns.firstSeen = wasNew ? now : (r.s.firstSeen || r.s.last || now);
   Object.assign(ns, { w: itemOf(r.n).w });
@@ -380,6 +426,7 @@ VIEWS["tu"] = (w) => {
   const containing = (c) => S.notes.filter((x) => x.kind === "vocab" && x.w.includes(c) && x.w !== w).slice(0, 16);
   setView(`<section class="view"><a class="link" href="#tu-dien">← Tra từ khác</a><div class="cols"><div class="c1">
     ${n ? detailHTML(n, { link: false }) : `<div class="ans"><div class="head"><div class="w">${esc(w)}</div><div class="py">${esc(e ? e[0][0] : "")} ${sp(w)}</div><div class="sub">ngoài bảng TOCFL</div></div>${abbrHTML(w)}</div>`}
+    ${n ? levelPicker(n) : ""}
     ${cedAbbr.length ? `<div class="abbr"><b>Theo CC-CEDICT, đây là cách nói tắt của</b> ${cedAbbr.map((x) => `<a class="han" href="#tu/${encodeURIComponent(x)}"><ruby>${esc(x)}<rt>${esc(pyOf(x))}</rt></ruby></a>`).join(", ")}</div>` : ""}
     ${n ? `<div class="actions"><span>Mức nhớ: ${levelPill(n)}</span>${n.basic ? (inLearn ? `<span class="pill lv-2">Đang trong lịch học</span>` : `<button type="button" class="primary" id="addLearn">Thêm từ này vào lịch học</button>`) : ""}</div>` : ""}
     ${e ? `<div class="panel"><div class="eyebrow">Nghĩa tiếng Anh (CC-CEDICT)</div>${e.map(([py, defs]) => `<div class="cedrow"><span class="py">${esc(py)}</span> ${esc(defs.replace(/\[[^\]]*\d\]/g, "").split("/").join("; "))}</div>`).join("")}</div>` : ""}
@@ -391,6 +438,7 @@ VIEWS["tu"] = (w) => {
       return `<div class="panel"><div class="eyebrow">Chữ ${esc(c)}</div><div class="charline"><span class="han bigc">${esc(c)}</span><span>${esc(ce ? ce.map(([py, d]) => py + ": " + d.replace(/\[[^\]]*\d\]/g, "").split("/").slice(0, 3).join("; ")).slice(0, 2).join(" | ") : "")}</span></div>
         ${cs.length ? `<div class="sub">Từ TOCFL có chữ này:</div><div class="chips">${cs.map((x) => `<a class="chip" href="#tu/${encodeURIComponent(x.w)}"><span class="han">${esc(x.w)}</span> ${esc(itemOf(x).py)}</a>`).join("")}</div>` : ""}</div>`; }).join("")}
   </div></div></section>`);
+  if (n) bindLevelPicker(n, () => VIEWS["tu"](w));
   const add = $("#addLearn"); if (add) add.onclick = async () => { S.settings.extra[n.w] = true; await saveSettings(); route(); };
   chars.forEach((c, k) => drawChar(k, c));
 };
