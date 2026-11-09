@@ -5,7 +5,7 @@
   "start_url": "./#trang-chu",
   "scope": "./",
   "display": "standalone",
-  "background_color": "#F4F6F3",
-  "theme_color": "#1C7563",
+  "background_color": "#FBF5EA",
+  "theme_color": "#A8261F",
   "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
 }
