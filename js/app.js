@@ -252,12 +252,13 @@ function detailHTML(n, opts = {}) {
       <div class="miss"><b>Lỗi hay gặp:</b> ${ruby(it.mk)}</div>
       <details class="more" open><summary>Xem thêm</summary><div class="kv">${kv([["Cách dùng", it.us], ["So sánh với mẫu gần giống", it.cmp], ["Nguồn", it.src]])}</div></details></div>`;
   }
-  const band = bandsOf(n).length ? bandLabel(n) : "ngoài bảng TOCFL";
+  const metadata = [["Từ loại", it.pos], ["Hán Việt", it.hv], ["Cấp TOCFL", bandsOf(n).join(" · ") || "Ngoài bảng TOCFL"]];
   return `<div class="ans">
-    <div class="head">${it.img ? `<div class="emoji-s" aria-hidden="true">${esc(it.img)}</div>` : ""}<div class="w">${esc(it.w)}</div>
+    <div class="head">${it.img ? `<div class="emoji-s" aria-hidden="true">${esc(it.img)}</div>` : ""}<div class="w" lang="zh-Hant">${esc(it.w)}</div>
       <div class="py">${esc(it.py)} ${sp(it.w)}</div>
-      <div class="sub">${[it.pos, it.hv ? "Hán Việt: " + it.hv : "", band].filter(Boolean).map(esc).join(" · ")}</div>
-      ${it.vn ? `<div class="vn">${esc(it.vn)}</div>` : `<div class="vn muted">Chưa có nghĩa tiếng Việt</div>`}${it.en ? `<div class="sub">${esc(it.en)}</div>` : ""}</div><!--body-->
+      <dl class="word-meta">${metadata.map(([label, value]) => `<div><dt>${label}</dt><dd>${esc(value || "—")}</dd></div>`).join("")}</dl>
+      <dl class="word-meanings"><div><dt>Nghĩa tiếng Việt</dt><dd>${esc(it.vn || "Chưa có nghĩa tiếng Việt")}</dd></div>
+      <div><dt>Nghĩa tiếng Anh</dt><dd lang="en">${esc(it.en || "—")}</dd></div></dl></div><!--body-->
     ${abbrHTML(it.w)}
     ${it.mi || it.mh || it.ms ? `<div class="tip"><b>Mẹo nhớ</b>${it.mi ? `<div><b>Hình:</b> ${ruby(it.mi)}</div>` : ""}${it.mh ? `<div><b>Hán Việt:</b> ${ruby(it.mh)}</div>` : ""}${it.ms ? `<div><b>Chuyện:</b> ${ruby(it.ms)}</div>` : ""}</div>` : ""}
     ${it.e1 ? `<div class="ex"><div class="zh">${esc(it.e1)} ${sp(it.e1)}</div><div class="exs">${esc(it.e1p || "")}<br>${esc(it.e1v || "")}</div></div>` : ""}
@@ -349,7 +350,7 @@ function renderCard() {
     const grades = `<div class="grades">${[1, 2, 3, 4].map((g) => { const ns = schedule(r.s, g, now);
       return `<button type="button" class="g${g}" data-g="${g}">${["", "Quên", "Khó", "Nhớ", "Dễ"][g]}<small>${esc(fmtGap(ns.due - now))}</small></button>`; }).join("")}</div>
       <div class="keys">Bàn phím: 1 Quên · 2 Khó · 3 Nhớ · 4 Dễ</div>`;
-    html += `<article class="card split"><div class="col-a">${kindRow}${frontHTML(r)}<div class="ans">${p.head}</div>${grades}${levelPicker(r.n)}${tail}</div>
+    html += `<article class="card split"><div class="col-a">${kindRow}<div class="ans">${p.head}</div>${grades}${levelPicker(r.n)}${tail}</div>
       <div class="col-b ans">${p.body}</div></article>`;
   } else html += `<article class="card">${kindRow}${frontHTML(r)}<button class="primary reveal" type="button" id="reveal">Xem đáp án</button><div class="keys">Bàn phím: phím cách để xem đáp án</div>${tail}</article>`;
   html += `</section>`;
