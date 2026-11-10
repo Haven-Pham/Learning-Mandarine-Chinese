@@ -16,7 +16,7 @@ const S = {
   bands: [], tocfl: [], decks: [], notes: [], noteByWord: new Map(), noteByKey: new Map(),
   ced: null, cedList: null, vi: new Map(), abbrS: new Map(), abbrF: new Map(), packs: [],
   srs: new Map(), stats: new Map(), inbox: new Map(),
-  settings: { newPerDay: 20, decks: {}, bands: {}, extra: {}, ruby: true },
+  settings: { newPerDay: 20, reviewPerDay: 50, decks: {}, bands: {}, extra: {}, ruby: true },
   session: null, dict: { mode: "han", src: "word" },
 };
 
@@ -378,15 +378,178 @@ function dailyDashboard(c, days) {
   const summary = studySummary(S.stats, Date.now());
   const metrics = [["Chuỗi hiện tại", summary.current, "ngày"], ["Chuỗi dài nhất", summary.longest, "ngày"],
     ["Tổng ngày học", summary.activeDays, "ngày"], ["Tổng lượt trả lời", summary.answers, "lượt"]];
-  const tasks = [
-    ["Giữ chuỗi ngày học", st.reviews > 0 ? "Đã trả lời thẻ hôm nay" : "Trả lời 1 thẻ trong mục Học", st.reviews > 0],
-    ["Ôn thẻ đến hạn", c.due ? `Còn ${fmt(c.due)} thẻ trong lịch hôm nay` : "Không còn thẻ đến hạn hôm nay", !c.due],
-    ["Học thẻ mới", st.newCards + c.fresh === 0 ? "Hôm nay không có thẻ mới trong lịch" : `${fmt(st.newCards)} / ${fmt(st.newCards + c.fresh)} thẻ theo lịch hôm nay`, !c.fresh]
-  ];
-  return `<section class="panel"><h2 class="h2">Lộ trình hôm nay</h2>
-    <ol class="daily-tasks">${tasks.map(([title, detail, done]) => `<li><div><strong>${title}</strong><span class="sub">${detail}</span></div>
-      ${done ? '<span class="task-done" aria-label="Đã xong">✓</span>' : '<a class="link" href="#hoc">Vào học →</a>'}</li>`).join("")}</ol>
-    </section><section class="panel"><h2 class="h2">Chuỗi ngày học</h2>
+
+  const targetNew = Math.max(1, Number(S.settings.newPerDay || 20));
+  const targetRev = Math.max(1, Number(S.settings.reviewPerDay || 50));
+
+  // Task 1: Giữ chuỗi ngày học
+  const task1Done = st.reviews > 0;
+  const task1Pct = task1Done ? 100 : 0;
+
+  // Task 2: Ôn thẻ mỗi ngày
+  const reviewedToday = Math.max(0, st.reviews - st.newCards);
+  const task2Pct = Math.min(100, Math.round((reviewedToday / targetRev) * 100));
+  const task2Done = reviewedToday >= targetRev || (c.due === 0 && reviewedToday > 0);
+  let task2Sub = "";
+  if (task2Done) {
+    task2Sub = reviewedToday >= targetRev
+      ? `✓ Đã hoàn thành mục tiêu ôn tập hôm nay (${fmt(reviewedToday)}/${fmt(targetRev)} thẻ)!`
+      : `✓ Đã ôn hết thẻ đến hạn trong lịch hôm nay (${fmt(reviewedToday)} thẻ)!`;
+  } else if (c.due > 0) {
+    task2Sub = `Còn ${fmt(c.due)} thẻ trong lịch hôm nay · Mục tiêu: ${fmt(targetRev)} thẻ`;
+  } else {
+    task2Sub = `Không còn thẻ đến hạn hôm nay · Đã ôn ${fmt(reviewedToday)}/${fmt(targetRev)} thẻ`;
+  }
+  const task2Remaining = reviewedToday >= targetRev
+    ? `✓ Đạt ${fmt(reviewedToday)} thẻ`
+    : `Còn thiếu ${fmt(targetRev - reviewedToday)} thẻ ôn`;
+
+  // Task 3: Học thẻ mới
+  const task3Pct = Math.min(100, Math.round((st.newCards / targetNew) * 100));
+  const task3Done = st.newCards >= targetNew || (c.fresh === 0 && st.newCards > 0);
+  let task3Sub = "";
+  if (st.newCards >= targetNew) {
+    task3Sub = `✓ Đã hoàn thành chỉ tiêu thẻ mới hôm nay (${fmt(st.newCards)}/${fmt(targetNew)} thẻ)!`;
+  } else if (c.fresh > 0) {
+    task3Sub = `Còn ${fmt(c.fresh)} thẻ mới chờ trong lịch hôm nay · Mục tiêu: ${fmt(targetNew)} thẻ`;
+  } else if (st.newCards === 0 && c.fresh === 0) {
+    task3Sub = `Hôm nay không có thẻ mới trong lịch (hãy bật thêm band trong Thư mục)`;
+  } else {
+    task3Sub = `Đã học hết thẻ mới hôm nay · ${fmt(st.newCards)}/${fmt(targetNew)} thẻ`;
+  }
+  const task3Remaining = st.newCards >= targetNew
+    ? `✓ Đạt ${fmt(st.newCards)} thẻ`
+    : `Còn thiếu ${fmt(targetNew - st.newCards)} thẻ mới`;
+
+  const completedCount = (task1Done ? 1 : 0) + (task2Done ? 1 : 0) + (task3Done ? 1 : 0);
+  const overallPct = Math.round((task1Pct + task2Pct + task3Pct) / 3);
+
+  return `<section class="panel daily-panel">
+    <div class="daily-head">
+      <div class="daily-title-group">
+        <h2 class="h2">Lộ trình hôm nay</h2>
+        <span class="daily-badge-pct ${completedCount === 3 ? "done" : ""}">${completedCount}/3 nhiệm vụ (${overallPct}%)</span>
+      </div>
+      <button type="button" class="btn-goal-settings" id="btnToggleGoalEdit" title="Tự đặt mục tiêu thẻ mới và thẻ ôn mỗi ngày">
+        ⚙️ Đặt mục tiêu
+      </button>
+    </div>
+
+    <!-- Overall Progress Bar -->
+    <div class="daily-overall-bar" title="Tiến độ lộ trình tổng thể: ${overallPct}%">
+      <div class="daily-overall-fill" style="width:${overallPct}%"></div>
+    </div>
+
+    <!-- Goal Setting Box (collapsible) -->
+    <div id="goalEditBox" class="goal-edit-box" style="display:none;">
+      <div class="goal-edit-title"><b>🎯 Thiết lập mục tiêu hàng ngày của bạn</b></div>
+      <div class="goal-inputs-grid">
+        <div class="goal-field">
+          <label for="goalNewCards">Thẻ mới mỗi ngày:</label>
+          <div class="goal-input-stepper">
+            <button type="button" class="btn-stepper" data-step="new" data-delta="-5">−</button>
+            <input type="number" id="goalNewCards" min="5" max="100" step="5" value="${targetNew}">
+            <button type="button" class="btn-stepper" data-step="new" data-delta="5">+</button>
+          </div>
+          <small class="sub">Số từ mới bắt đầu học mỗi ngày</small>
+        </div>
+
+        <div class="goal-field">
+          <label for="goalReviewCards">Thẻ ôn tập mỗi ngày:</label>
+          <div class="goal-input-stepper">
+            <button type="button" class="btn-stepper" data-step="rev" data-delta="-10">−</button>
+            <input type="number" id="goalReviewCards" min="10" max="300" step="10" value="${targetRev}">
+            <button type="button" class="btn-stepper" data-step="rev" data-delta="10">+</button>
+          </div>
+          <small class="sub">Số lượt ôn lại các thẻ đã học mỗi ngày</small>
+        </div>
+      </div>
+
+      <div class="goal-presets">
+        <span>Gợi ý nhanh:</span>
+        <button type="button" class="btn-preset" data-new="10" data-rev="30">Nhẹ nhàng (10 mới / 30 ôn)</button>
+        <button type="button" class="btn-preset" data-new="20" data-rev="50">Tiêu chuẩn (20 mới / 50 ôn)</button>
+        <button type="button" class="btn-preset" data-new="30" data-rev="100">Bứt phá (30 mới / 100 ôn)</button>
+      </div>
+
+      <div class="goal-edit-actions">
+        <button type="button" class="primary btn-sm" id="btnSaveGoal">Lưu mục tiêu</button>
+        <button type="button" class="btn-sm link" id="btnCancelGoal">Đóng</button>
+        <span id="goalSaveMsg" class="msg-inline"></span>
+      </div>
+    </div>
+
+    <!-- 3 Task Cards with Progress Bars -->
+    <div class="daily-tasks-list">
+      <!-- Task 1: Chuỗi ngày học -->
+      <div class="task-card ${task1Done ? "is-done" : ""}">
+        <div class="task-card-header">
+          <div class="task-info">
+            <div class="task-name">
+              <span class="task-icon">🔥</span>
+              <b>Giữ chuỗi ngày học</b>
+            </div>
+            <div class="task-sub">${task1Done ? "✓ Đã trả lời thẻ hôm nay, chuỗi được giữ vững!" : "Trả lời ít nhất 1 thẻ trong mục Học để không đứt chuỗi"}</div>
+          </div>
+          <div class="task-stat">
+            <span class="task-fraction">${task1Done ? "1 / 1" : "0 / 1"}</span>
+            ${task1Done ? '<span class="task-check-badge">✓ Xong</span>' : '<a class="task-action-btn" href="#hoc">Học ngay</a>'}
+          </div>
+        </div>
+        <div class="task-prog-bar">
+          <div class="task-prog-fill fill-streak" style="width:${task1Pct}%"></div>
+        </div>
+      </div>
+
+      <!-- Task 2: Ôn thẻ mỗi ngày -->
+      <div class="task-card ${task2Done ? "is-done" : ""}">
+        <div class="task-card-header">
+          <div class="task-info">
+            <div class="task-name">
+              <span class="task-icon">🔄</span>
+              <b>Ôn thẻ mỗi ngày</b>
+            </div>
+            <div class="task-sub">${task2Sub}</div>
+          </div>
+          <div class="task-stat">
+            <span class="task-fraction"><b>${fmt(reviewedToday)}</b> / ${fmt(targetRev)} thẻ</span>
+            ${task2Done ? '<span class="task-check-badge">✓ Đạt</span>' : (c.due ? '<a class="task-action-btn" href="#hoc">Ôn ngay</a>' : '<span class="task-check-badge">Hết thẻ</span>')}
+          </div>
+        </div>
+        <div class="task-prog-bar">
+          <div class="task-prog-fill fill-review" style="width:${task2Pct}%"></div>
+        </div>
+        <div class="task-bar-meta">
+          <span>Tiến độ: <b>${task2Pct}%</b></span>
+          <span>${task2Remaining}</span>
+        </div>
+      </div>
+
+      <!-- Task 3: Học thẻ mới -->
+      <div class="task-card ${task3Done ? "is-done" : ""}">
+        <div class="task-card-header">
+          <div class="task-info">
+            <div class="task-name">
+              <span class="task-icon">✨</span>
+              <b>Học thẻ mới</b>
+            </div>
+            <div class="task-sub">${task3Sub}</div>
+          </div>
+          <div class="task-stat">
+            <span class="task-fraction"><b>${fmt(st.newCards)}</b> / ${fmt(targetNew)} thẻ mới</span>
+            ${task3Done ? '<span class="task-check-badge">✓ Đạt</span>' : (c.fresh ? '<a class="task-action-btn" href="#hoc">Học mới</a>' : '<span class="task-check-badge">Hết mới</span>')}
+          </div>
+        </div>
+        <div class="task-prog-bar">
+          <div class="task-prog-fill fill-new" style="width:${task3Pct}%"></div>
+        </div>
+        <div class="task-bar-meta">
+          <span>Tiến độ: <b>${task3Pct}%</b></span>
+          <span>${task3Remaining}</span>
+        </div>
+      </div>
+    </div>
+  </section><section class="panel"><h2 class="h2">Chuỗi ngày học</h2>
     <div class="study-metrics">${metrics.map(([label, value, unit]) => `<div><span>${label}</span><strong>${fmt(value)} ${unit}</strong></div>`).join("")}</div>
     <p class="sub">Mỗi ngày có ít nhất một lượt trả lời thẻ được tính vào chuỗi. Ngày học mới bắt đầu lúc 04:00.</p>
     <details class="more"><summary>Chi tiết 14 ngày gần nhất</summary>
@@ -435,6 +598,59 @@ VIEWS["trang-chu"] = () => {
     <div><h2 class="h2">Thư mục của tôi</h2><p class="lead">Một từ có mặt ở nhiều thư mục vẫn là một từ: học ở đâu cũng được tính ở mọi nơi.</p></div>
     <div class="folders">${mine}</div>
   </section>`);
+
+  const btnToggle = $("#btnToggleGoalEdit");
+  if (btnToggle) {
+    btnToggle.onclick = () => {
+      const box = $("#goalEditBox");
+      if (!box) return;
+      box.hidden = !box.hidden;
+      if (!box.hidden) $("#goalNewCards")?.focus();
+    };
+  }
+  const btnCancel = $("#btnCancelGoal");
+  if (btnCancel) {
+    btnCancel.onclick = () => {
+      const box = $("#goalEditBox");
+      if (box) box.hidden = true;
+    };
+  }
+  document.querySelectorAll(".btn-stepper").forEach((btn) => {
+    btn.onclick = () => {
+      const stepType = btn.dataset.step;
+      const delta = Number(btn.dataset.delta);
+      const input = stepType === "new" ? $("#goalNewCards") : $("#goalReviewCards");
+      if (input) {
+        const min = Number(input.min) || 1;
+        const max = Number(input.max) || 500;
+        const cur = Number(input.value) || 0;
+        input.value = Math.max(min, Math.min(max, cur + delta));
+      }
+    };
+  });
+  document.querySelectorAll(".btn-preset").forEach((btn) => {
+    btn.onclick = () => {
+      const n = btn.dataset.new;
+      const r = btn.dataset.rev;
+      if ($("#goalNewCards")) $("#goalNewCards").value = n;
+      if ($("#goalReviewCards")) $("#goalReviewCards").value = r;
+    };
+  });
+  const btnSave = $("#btnSaveGoal");
+  if (btnSave) {
+    btnSave.onclick = async () => {
+      const n = Math.max(1, Math.min(200, Number($("#goalNewCards")?.value) || 20));
+      const r = Math.max(5, Math.min(500, Number($("#goalReviewCards")?.value) || 50));
+      S.settings.newPerDay = n;
+      S.settings.reviewPerDay = r;
+      await saveSettings();
+      const msg = $("#goalSaveMsg");
+      if (msg) msg.textContent = "✓ Đã lưu mục tiêu thành công!";
+      setTimeout(() => {
+        VIEWS["trang-chu"]();
+      }, 350);
+    };
+  }
 };
 
 VIEWS["muc-nho"] = (arg) => {
@@ -1032,6 +1248,8 @@ VIEWS["cai-dat"] = () => {
     <div class="panel"><h2 class="h2">Học mỗi ngày</h2>
       <label for="npd">Số thẻ mới mỗi ngày<select id="npd">${[10, 15, 20, 30, 40, 60].map((v) => `<option>${v}</option>`).join("")}</select></label>
       <div class="sub">Mỗi từ có 3–4 thẻ. Ngày đầu chỉ gặp thẻ nhận diện, các thẻ còn lại mở từ hôm sau.</div>
+      <label for="rpd" style="margin-top:12px;">Số thẻ ôn mỗi ngày<select id="rpd">${[20, 30, 50, 75, 100, 150, 200, 300].map((v) => `<option>${v}</option>`).join("")}</select></label>
+      <div class="sub">Mục tiêu số lượt ôn lại thẻ đã học trong ngày để tính tiến độ lộ trình.</div>
       <div class="eyebrow">Thư mục đang học</div><div class="decks">
       ${S.decks.map((d) => `<label><input type="checkbox" data-deck="${esc(d.id)}" ${deckOn(d.id) ? "checked" : ""}> ${esc(d.name)}</label>`).join("")}
       ${S.bands.map((b) => `<label><input type="checkbox" data-band="${esc(b)}" ${S.settings.bands[b] ? "checked" : ""}> TOCFL ${esc(b)} (cả band)</label>`).join("")}</div></div>
@@ -1226,6 +1444,7 @@ VIEWS["cai-dat"] = () => {
   }
 
   $("#npd").value = String(S.settings.newPerDay || 20); $("#npd").onchange = async (e) => { S.settings.newPerDay = Number(e.target.value); await saveSettings(); };
+  $("#rpd").value = String(S.settings.reviewPerDay || 50); $("#rpd").onchange = async (e) => { S.settings.reviewPerDay = Number(e.target.value); await saveSettings(); };
   $("#theme").value = getTheme(); $("#theme").onchange = (e) => setTheme(e.target.value);
   $("#rubyOn").checked = S.settings.ruby !== false; $("#rubyOn").onchange = async (e) => { S.settings.ruby = e.target.checked; await saveSettings(); };
   document.querySelectorAll("[data-deck]").forEach((c) => (c.onchange = async () => { S.settings.decks[c.dataset.deck] = c.checked; await saveSettings(); }));
@@ -1245,7 +1464,7 @@ VIEWS["cai-dat"] = () => {
 async function saveSettings() { await Store.put("kv", "settings", JSON.parse(JSON.stringify(S.settings))); updateBadge(); }
 async function loadProgress() {
   S.srs = await Store.all("srs"); S.stats = await Store.all("stats"); S.inbox = await Store.all("inbox");
-  const kv = await Store.all("kv"); S.packs = kv.get("packs") || []; if (kv.get("settings")) S.settings = Object.assign({ newPerDay: 20, decks: {}, bands: {}, extra: {}, ruby: true, syncToken: "", syncGistId: "", autoSync: true, lastSyncTime: "" }, kv.get("settings"));
+  const kv = await Store.all("kv"); S.packs = kv.get("packs") || []; if (kv.get("settings")) S.settings = Object.assign({ newPerDay: 20, reviewPerDay: 50, decks: {}, bands: {}, extra: {}, ruby: true, syncToken: "", syncGistId: "", autoSync: true, lastSyncTime: "" }, kv.get("settings"));
 }
 // theme lives in localStorage so it applies before the page paints (see index.html)
 function getTheme() { try { return localStorage.getItem("shth-theme") || "light"; } catch (e) { return "light"; } }
