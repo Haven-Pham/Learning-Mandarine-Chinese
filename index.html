@@ -15,9 +15,15 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top"><div class="wrap">
-  <h1><span class="han">學習本</span>Sổ học tiếng Hoa</h1>
-  <p>TOCFL · chữ Phồn thể · giọng Đài Loan</p>
+<header class="top"><div class="wrap header-wrap">
+  <div class="header-titles">
+    <h1><span class="han">學習本</span>Sổ học tiếng Hoa</h1>
+    <p>TOCFL · chữ Phồn thể · giọng Đài Loan</p>
+  </div>
+  <button type="button" class="header-sync-btn" id="headerSyncBtn" title="Đồng bộ tiến độ giữa điện thoại và máy tính">
+    <span class="sync-spin" id="headerSyncIcon">🔄</span>
+    <span class="sync-label" id="headerSyncLabel">Đồng bộ</span>
+  </button>
 </div></header>
 <nav class="tabs" aria-label="Các mục"><div class="wrap">
   <a href="#trang-chu" data-view="trang-chu">Trang chủ</a>
@@ -32,6 +38,7 @@
 <script src="vendor/hanzi-writer.min.js"></script>
 <script src="js/srs.js"></script>
 <script src="js/store.js"></script>
+<script src="js/sync.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

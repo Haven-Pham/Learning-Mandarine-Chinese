@@ -1,6 +1,6 @@
 // Offline support: app files are network-first (so updates arrive), data files are cache-first.
-const VERSION = "shtv-3";
-const SHELL = ["./", "index.html", "style.css", "js/app.js", "js/srs.js", "js/store.js", "vendor/hanzi-writer.min.js",
+const VERSION = "shtv-4";
+const SHELL = ["./", "index.html", "style.css", "js/app.js", "js/srs.js", "js/store.js", "js/sync.js", "vendor/hanzi-writer.min.js",
   "data/tocfl.json", "data/decks.json", "data/abbr.json", "manifest.webmanifest", "icon.svg"];
 self.addEventListener("install", (e) => { e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", (e) => {

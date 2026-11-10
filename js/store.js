@@ -73,9 +73,23 @@ const Store = (() => {
       for (const [k, v] of incoming) {
         const c = cur.get(k);
         if (!c) keep.push([k, v]);
-        else if (s === "srs" && (v.last || 0) > (c.last || 0)) keep.push([k, v]);
-        else if (s === "stats" && (v.reviews || 0) > (c.reviews || 0)) keep.push([k, v]);
-        else if (s === "kv" && k === "settings") keep.push([k, Object.assign({}, c, v)]);
+        else if (s === "srs") {
+          const vLast = v.last || 0, cLast = c.last || 0;
+          if (vLast > cLast || (vLast === cLast && (v.reps || 0) > (c.reps || 0))) keep.push([k, v]);
+        }
+        else if (s === "stats") {
+          keep.push([k, {
+            reviews: Math.max(c.reviews || 0, v.reviews || 0),
+            again: Math.max(c.again || 0, v.again || 0),
+            newCards: Math.max(c.newCards || 0, v.newCards || 0)
+          }]);
+        }
+        else if (s === "inbox") {
+          keep.push([k, Object.assign({}, c, v)]);
+        }
+        else if (s === "kv" && k === "settings") {
+          keep.push([k, Object.assign({}, c, v)]);
+        }
       }
       await b.putMany(s, keep);
     }

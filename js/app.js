@@ -133,6 +133,7 @@ function bindLevelPicker(n, afterSave, select = $("#wordLevel")) {
     }
     for (const [id, state] of entries) S.srs.set(id, state);
     updateBadge();
+    if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
     if (select.isConnected) {
       afterSave();
       const message = $("#levelStatus");
@@ -277,8 +278,34 @@ function detailHTML(n, opts = {}) {
 // ---------------- views ----------------
 const VIEWS = {};
 function setView(html) { $("#view").innerHTML = html; }
+async function handleSyncSetup(rawHash) {
+  const queryStr = rawHash.includes("?") ? rawHash.slice(rawHash.indexOf("?") + 1) : "";
+  const params = new URLSearchParams(queryStr);
+  const token = params.get("t");
+  const gistId = params.get("g");
+  if (token && gistId) {
+    history.replaceState(null, "", location.pathname + "#cai-dat");
+    setView(`<section class="view"><div class="panel center"><h2 class="h2">Đang kết nối đồng bộ...</h2><p class="lead">Đang thiết lập đồng bộ tiến độ từ máy tính sang điện thoại của bạn...</p><div class="sync-spin" style="font-size: 32px; margin: 16px 0;">🔄</div></div></section>`);
+    try {
+      await Sync.saveConfig({ token, gistId, autoSync: true, lastSync: new Date().toISOString() });
+      await Sync.syncNow();
+      alert("🎉 Kết nối đồng bộ thành công!\n\nĐiện thoại và máy tính của bạn đã được kết nối cùng tiến độ học. Từ bây giờ mỗi khi bạn học, dữ liệu sẽ tự động đồng bộ 2 chiều.");
+      route();
+    } catch (err) {
+      alert("Lỗi khi kết nối đồng bộ: " + err.message);
+      route();
+    }
+  } else {
+    location.hash = "#cai-dat";
+  }
+}
 function route() {
-  const h = decodeURIComponent(location.hash.slice(1) || "trang-chu");
+  const rawHash = location.hash.slice(1);
+  if (rawHash.startsWith("sync-setup")) {
+    handleSyncSetup(rawHash);
+    return;
+  }
+  const h = decodeURIComponent(rawHash || "trang-chu");
   const [name, ...rest] = h.split("/"); const arg = rest.join("/");
   document.querySelectorAll("nav.tabs a").forEach((a) => { if (a.dataset.view === name || (name === "tu" && a.dataset.view === "tu-dien") || (name === "muc-nho" && a.dataset.view === "trang-chu")) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
   const fn = VIEWS[name] || VIEWS["trang-chu"];
@@ -470,6 +497,7 @@ async function grade(g) {
   renderCard(); window.scrollTo(0, 0); updateBadge();
   try { await Store.put("srs", r.id, ns); await Store.put("stats", key, st); }
   catch (e) { const el = $("#saveErr"); if (el) el.textContent = "Chưa lưu được tiến độ vào trình duyệt: " + (e && e.message || e); }
+  if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
 }
 document.addEventListener("keydown", (e) => {
   const ss = S.session; if (!ss || !ss.current || !location.hash.startsWith("#hoc")) return;
@@ -853,7 +881,107 @@ function drawInbox() {
 
 // --- Cài đặt ---
 VIEWS["cai-dat"] = () => {
-  setView(`<section class="view"><div class="panel"><h2 class="h2">Học mỗi ngày</h2>
+  setView(`<section class="view">
+    <div class="panel" id="sync-panel">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;">
+        <h2 class="h2">Đồng bộ giữa Điện thoại và Máy tính</h2>
+        <span id="syncStatusBadge" class="sync-badge inactive">Chưa kết nối</span>
+      </div>
+      <p class="lead">Mặc định tiến độ chỉ lưu trong trình duyệt của từng máy. Để <strong>học trên điện thoại và máy tính luôn đồng bộ cùng tiến độ với nhau</strong>, bạn có thể chọn một trong hai cách dưới đây:</p>
+
+      <!-- Cách 1: Tự động qua Đám mây (GitHub Gist) -->
+      <div class="sync-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
+          <h3 style="color:var(--jade);">Cách 1: Tự động qua Đám mây (Khuyên dùng)</h3>
+          <span class="sync-badge active" style="font-size:12px;">Tự động 2 chiều</span>
+        </div>
+        <p class="sub" style="margin:4px 0 8px;">Tiến độ tự động đồng bộ ngầm lên GitHub Gist cá nhân của bạn mỗi khi học xong thẻ hoặc mở trang. Không bao giờ lo mất dữ liệu.</p>
+
+        <!-- Khung đã kết nối -->
+        <div id="syncConnectedBlock" hidden>
+          <div class="check new" style="margin-bottom:12px;">
+            <div>✓ <strong>Đã kết nối đám mây GitHub!</strong> Gist ID: <code id="displayGistId" style="font-size:13px;word-break:break-all;"></code></div>
+            <div class="sub" id="displayLastSync" style="font-size:13.5px;margin-top:4px;">Chưa đồng bộ</div>
+          </div>
+          <div class="actions" style="margin-bottom:12px;">
+            <button type="button" class="primary" id="btnSyncNow">🔄 Đồng bộ ngay bây giờ</button>
+            <button type="button" id="btnShowPhoneConnect">📱 Kết nối với điện thoại (QR / Link)</button>
+            <button type="button" class="small" id="btnDisconnectSync" style="color:var(--seal);">Ngắt kết nối</button>
+          </div>
+
+          <!-- Khung QR và Link cho điện thoại -->
+          <div id="phoneConnectModal" style="border:1px dashed var(--line);border-radius:var(--r);padding:14px;background:var(--surface);display:none;margin-top:10px;">
+            <div style="font-weight:700;font-size:16px;margin-bottom:8px;">📱 Kết nối điện thoại trong 1 bước:</div>
+            <div class="row2" style="align-items:center;gap:16px;">
+              <div style="text-align:center;">
+                <div id="qrContainer">
+                  <img id="qrImg" src="" width="180" height="180" alt="Mã QR đồng bộ" style="display:block;">
+                </div>
+                <div class="sub" style="font-size:12.5px;margin-top:6px;">Mở camera điện thoại quét mã này</div>
+              </div>
+              <div style="display:grid;gap:8px;">
+                <div class="sub">Hoặc sao chép link này gửi qua Zalo / Tin nhắn để mở trên điện thoại:</div>
+                <input type="text" id="phoneSetupUrl" readonly style="font-size:12.5px;font-family:monospace;background:var(--paper);">
+                <div class="actions">
+                  <button type="button" class="primary small" id="btnCopyPhoneUrl">📋 Sao chép link kết nối</button>
+                  <span id="copyPhoneUrlMsg" class="sub" style="font-size:13px;"></span>
+                </div>
+                <div class="sub" style="font-size:12.5px;color:var(--muted);">
+                  Khi điện thoại mở link này, máy sẽ tự động kết nối và tải tiến độ mới nhất về ngay lập tức mà không cần gõ lại mã token!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <label class="inline" style="margin-top:8px;">
+            <input type="checkbox" id="autoSyncCheck" checked> Tự động đồng bộ khi mở trang và sau mỗi lượt học
+          </label>
+        </div>
+
+        <!-- Khung chưa kết nối -->
+        <div id="syncUnconnectedBlock">
+          <div style="display:grid;gap:8px;">
+            <label for="ghTokenInput">
+              GitHub Personal Access Token:
+              <input type="password" id="ghTokenInput" placeholder="ghp_xxxxxxxxxxxx hoặc github_pat_xxxxxxxxxxxx" autocomplete="off">
+            </label>
+            <div class="sub" style="font-size:13.5px;">
+              👉 Bạn đã có tài khoản GitHub <code>Haven-Pham</code>.
+              <a href="https://github.com/settings/tokens/new?scopes=gist&description=So+hoc+tieng+Hoa+Sync" target="_blank" rel="noopener" class="link" style="font-weight:700;text-decoration:underline;">
+                Bấm vào đây để tạo Token nhanh trên GitHub
+              </a> (chỉ cần chọn quyền <code>gist</code>, bấm Generate token rồi copy dán vào đây).
+            </div>
+            <div class="actions" style="margin-top:4px;">
+              <button type="button" class="primary" id="btnConnectGist">Kết nối đám mây</button>
+            </div>
+            <div class="msg" id="gistMsg"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cách 2: Đồng bộ nhanh bằng Mã tiến độ (Không cần tài khoản) -->
+      <div class="sync-card">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
+          <h3>Cách 2: Đồng bộ nhanh bằng Mã (Không cần tài khoản)</h3>
+          <span class="sync-badge inactive" style="font-size:12px;">Thủ công 1 lần</span>
+        </div>
+        <p class="sub" style="margin:4px 0 8px;">Sao chép mã tiến độ từ máy tính rồi gửi qua Zalo/Tin nhắn, dán vào điện thoại để cập nhật ngay tức thì.</p>
+        <div class="actions">
+          <button type="button" id="btnCopyFastCode">📋 Sao chép mã tiến độ từ máy này</button>
+          <button type="button" id="btnShareFastCode">📤 Chia sẻ mã nhanh</button>
+        </div>
+        <div style="display:grid;gap:6px;margin-top:8px;">
+          <label for="pasteFastCodeInput">Dán mã tiến độ từ máy khác vào đây:</label>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <input type="text" id="pasteFastCodeInput" placeholder="Dán chuỗi mã tiến độ vào đây..." style="flex:1;min-width:200px;">
+            <button type="button" class="primary" id="btnApplyFastCode" style="white-space:nowrap;">Áp dụng mã</button>
+          </div>
+        </div>
+        <div class="msg" id="fastCodeMsg"></div>
+      </div>
+    </div>
+
+    <div class="panel"><h2 class="h2">Học mỗi ngày</h2>
       <label for="npd">Số thẻ mới mỗi ngày<select id="npd">${[10, 15, 20, 30, 40, 60].map((v) => `<option>${v}</option>`).join("")}</select></label>
       <div class="sub">Mỗi từ có 3–4 thẻ. Ngày đầu chỉ gặp thẻ nhận diện, các thẻ còn lại mở từ hôm sau.</div>
       <div class="eyebrow">Thư mục đang học</div><div class="decks">
@@ -875,6 +1003,180 @@ VIEWS["cai-dat"] = () => {
       <li>Make Me a Hanzi (nét viết), giấy phép Arphic PL / LGPL · github.com/skishore/makemeahanzi</li>
       <li>Hanzi Writer (vẽ nét), giấy phép MIT</li>
       <li>Nghĩa tiếng Việt, mẹo nhớ, ví dụ: soạn riêng cho trang này</li></ul></div></section>`);
+
+  // Bind Sync UI Controls
+  function updateSyncView() {
+    const isConn = Sync.isConfigured();
+    const cfg = Sync.getConfig();
+    const badge = $("#syncStatusBadge");
+    const connBlock = $("#syncConnectedBlock");
+    const unconnBlock = $("#syncUnconnectedBlock");
+    if (badge) {
+      badge.textContent = isConn ? "Đã kết nối (Tự động)" : "Chưa kết nối";
+      badge.className = isConn ? "sync-badge active" : "sync-badge inactive";
+    }
+    if (connBlock) connBlock.hidden = !isConn;
+    if (unconnBlock) unconnBlock.hidden = isConn;
+    if (isConn) {
+      const gid = $("#displayGistId"); if (gid) gid.textContent = cfg.gistId;
+      const lsync = $("#displayLastSync");
+      if (lsync) {
+        lsync.textContent = cfg.lastSync ? `Đồng bộ lần cuối: ${new Date(cfg.lastSync).toLocaleString("vi-VN")}` : "Chưa đồng bộ";
+      }
+      const chk = $("#autoSyncCheck"); if (chk) chk.checked = cfg.autoSync;
+    }
+  }
+  updateSyncView();
+
+  const btnConn = $("#btnConnectGist");
+  if (btnConn) {
+    btnConn.onclick = async () => {
+      const token = ($("#ghTokenInput")?.value || "").trim();
+      const msg = $("#gistMsg");
+      if (!token) {
+        if (msg) { msg.textContent = "Vui lòng dán GitHub Token."; msg.className = "msg err"; }
+        return;
+      }
+      btnConn.disabled = true;
+      if (msg) { msg.textContent = "Đang kết nối GitHub và tạo kho đồng bộ..."; msg.className = "msg"; }
+      try {
+        await Sync.connectWithToken(token);
+        if (msg) { msg.textContent = "✓ Kết nối thành công!"; msg.className = "msg"; }
+        updateSyncView();
+      } catch (err) {
+        if (msg) { msg.textContent = "Không kết nối được: " + err.message; msg.className = "msg err"; }
+      } finally {
+        btnConn.disabled = false;
+      }
+    };
+  }
+
+  const btnDisc = $("#btnDisconnectSync");
+  if (btnDisc) {
+    btnDisc.onclick = async () => {
+      if (confirm("Bạn có chắc muốn ngắt kết nối đồng bộ trên máy này?")) {
+        await Sync.disconnect();
+        updateSyncView();
+      }
+    };
+  }
+
+  const btnSyncNow = $("#btnSyncNow");
+  if (btnSyncNow) {
+    btnSyncNow.onclick = async () => {
+      btnSyncNow.disabled = true;
+      const lsync = $("#displayLastSync");
+      if (lsync) lsync.textContent = "Đang đồng bộ...";
+      try {
+        await Sync.syncNow();
+        updateSyncView();
+      } catch (err) {
+        alert("Lỗi đồng bộ: " + err.message);
+      } finally {
+        btnSyncNow.disabled = false;
+      }
+    };
+  }
+
+  const btnPhone = $("#btnShowPhoneConnect");
+  const phoneModal = $("#phoneConnectModal");
+  if (btnPhone && phoneModal) {
+    btnPhone.onclick = () => {
+      const isHidden = phoneModal.style.display === "none";
+      phoneModal.style.display = isHidden ? "block" : "none";
+      if (isHidden) {
+        const setupUrl = Sync.getSetupUrl();
+        const urlInput = $("#phoneSetupUrl");
+        if (urlInput) urlInput.value = setupUrl;
+        const qrImg = $("#qrImg");
+        if (qrImg) qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(setupUrl)}`;
+      }
+    };
+  }
+
+  const btnCopyUrl = $("#btnCopyPhoneUrl");
+  if (btnCopyUrl) {
+    btnCopyUrl.onclick = async () => {
+      const url = $("#phoneSetupUrl")?.value;
+      if (!url) return;
+      try {
+        await navigator.clipboard.writeText(url);
+        const m = $("#copyPhoneUrlMsg");
+        if (m) { m.textContent = "✓ Đã copy link!"; setTimeout(() => { m.textContent = ""; }, 3000); }
+      } catch (e) {
+        $("#phoneSetupUrl")?.select();
+        document.execCommand("copy");
+        const m = $("#copyPhoneUrlMsg");
+        if (m) { m.textContent = "✓ Đã copy link!"; setTimeout(() => { m.textContent = ""; }, 3000); }
+      }
+    };
+  }
+
+  const autoSyncCheck = $("#autoSyncCheck");
+  if (autoSyncCheck) {
+    autoSyncCheck.onchange = async () => {
+      await Sync.saveConfig({ autoSync: autoSyncCheck.checked });
+    };
+  }
+
+  const btnCopyFast = $("#btnCopyFastCode");
+  if (btnCopyFast) {
+    btnCopyFast.onclick = async () => {
+      const msg = $("#fastCodeMsg");
+      try {
+        const code = await Sync.generateFastCode();
+        await navigator.clipboard.writeText(code);
+        if (msg) { msg.textContent = `✓ Đã sao chép mã tiến độ (${fmt(code.length)} ký tự) vào bộ nhớ tạm! Bạn có thể dán gửi qua Zalo sang điện thoại.`; msg.className = "msg"; }
+      } catch (err) {
+        if (msg) { msg.textContent = "Lỗi khi tạo mã: " + err.message; msg.className = "msg err"; }
+      }
+    };
+  }
+
+  const btnShareFast = $("#btnShareFastCode");
+  if (btnShareFast) {
+    btnShareFast.onclick = async () => {
+      const msg = $("#fastCodeMsg");
+      try {
+        const code = await Sync.generateFastCode();
+        if (navigator.share) {
+          await navigator.share({
+            title: "Tiến độ học tiếng Hoa",
+            text: code,
+          });
+          if (msg) { msg.textContent = "✓ Đã chia sẻ mã thành công!"; msg.className = "msg"; }
+        } else {
+          await navigator.clipboard.writeText(code);
+          if (msg) { msg.textContent = "Trình duyệt không hỗ trợ chia sẻ trực tiếp, đã copy mã vào clipboard!"; msg.className = "msg"; }
+        }
+      } catch (err) {
+        if (err.name !== "AbortError" && msg) { msg.textContent = "Lỗi: " + err.message; msg.className = "msg err"; }
+      }
+    };
+  }
+
+  const btnApplyFast = $("#btnApplyFastCode");
+  if (btnApplyFast) {
+    btnApplyFast.onclick = async () => {
+      const code = ($("#pasteFastCodeInput")?.value || "").trim();
+      const msg = $("#fastCodeMsg");
+      if (!code) {
+        if (msg) { msg.textContent = "Vui lòng dán mã vào ô trước khi bấm áp dụng."; msg.className = "msg err"; }
+        return;
+      }
+      btnApplyFast.disabled = true;
+      try {
+        const count = await Sync.applyFastCode(code);
+        if (msg) { msg.textContent = `✓ Đã gộp thành công ${fmt(count)} thẻ từ mã tiến độ!`; msg.className = "msg"; }
+        $("#pasteFastCodeInput").value = "";
+      } catch (err) {
+        if (msg) { msg.textContent = "Không áp dụng được: " + err.message; msg.className = "msg err"; }
+      } finally {
+        btnApplyFast.disabled = false;
+      }
+    };
+  }
+
   $("#npd").value = String(S.settings.newPerDay || 20); $("#npd").onchange = async (e) => { S.settings.newPerDay = Number(e.target.value); await saveSettings(); };
   $("#theme").value = getTheme(); $("#theme").onchange = (e) => setTheme(e.target.value);
   $("#rubyOn").checked = S.settings.ruby !== false; $("#rubyOn").onchange = async (e) => { S.settings.ruby = e.target.checked; await saveSettings(); };
@@ -895,11 +1197,66 @@ VIEWS["cai-dat"] = () => {
 async function saveSettings() { await Store.put("kv", "settings", JSON.parse(JSON.stringify(S.settings))); updateBadge(); }
 async function loadProgress() {
   S.srs = await Store.all("srs"); S.stats = await Store.all("stats"); S.inbox = await Store.all("inbox");
-  const kv = await Store.all("kv"); S.packs = kv.get("packs") || []; if (kv.get("settings")) S.settings = Object.assign({ newPerDay: 20, decks: {}, bands: {}, extra: {}, ruby: true }, kv.get("settings"));
+  const kv = await Store.all("kv"); S.packs = kv.get("packs") || []; if (kv.get("settings")) S.settings = Object.assign({ newPerDay: 20, decks: {}, bands: {}, extra: {}, ruby: true, syncToken: "", syncGistId: "", autoSync: true, lastSyncTime: "" }, kv.get("settings"));
 }
 // theme lives in localStorage so it applies before the page paints (see index.html)
 function getTheme() { try { return localStorage.getItem("shth-theme") || "light"; } catch (e) { return "light"; } }
 function setTheme(v) { try { localStorage.setItem("shth-theme", v); } catch (e) {} document.documentElement.dataset.theme = v; }
+
+function initSyncUI() {
+  const btn = $("#headerSyncBtn");
+  const icon = $("#headerSyncIcon");
+  const label = $("#headerSyncLabel");
+  if (!btn) return;
+
+  btn.onclick = async () => {
+    if (!Sync.isConfigured()) {
+      location.hash = "#cai-dat";
+      setTimeout(() => {
+        const el = $("#sync-panel");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+      return;
+    }
+    try {
+      await Sync.syncNow();
+      updateBadge();
+      const h = location.hash;
+      if (h === "#trang-chu" || h === "" || h.startsWith("#cai-dat")) route();
+    } catch (e) {
+      alert("Lỗi đồng bộ: " + e.message);
+    }
+  };
+
+  Sync.onStatusChange((status, detail) => {
+    if (status === "syncing") {
+      btn.classList.add("syncing");
+      btn.classList.remove("synced");
+      if (label) label.textContent = "Đang đồng bộ...";
+    } else if (status === "success") {
+      btn.classList.remove("syncing");
+      btn.classList.add("synced");
+      if (label) label.textContent = "Đã đồng bộ";
+      setTimeout(() => {
+        if (label) label.textContent = "Đồng bộ";
+      }, 4000);
+    } else if (status === "error") {
+      btn.classList.remove("syncing");
+      btn.classList.remove("synced");
+      if (label) label.textContent = "Lỗi đồng bộ";
+      setTimeout(() => {
+        if (label) label.textContent = "Đồng bộ";
+      }, 4000);
+    } else {
+      btn.classList.remove("syncing");
+      if (label) label.textContent = "Đồng bộ";
+    }
+  });
+
+  if (Sync.isConfigured()) {
+    btn.classList.add("synced");
+  }
+}
 
 // ---------------- boot ----------------
 (async function boot() {
@@ -912,7 +1269,16 @@ function setTheme(v) { try { localStorage.setItem("shth-theme", v); } catch (e) 
     buildNotes();
     $("#view").innerHTML = `<div class="note">Đang mở tiến độ học…</div>`;
     try { await loadProgress(); } catch (e) { S.storageError = true; }
-    S.ready = true; route();
+    S.ready = true;
+    initSyncUI();
+    route();
+    if (window.Sync && Sync.isConfigured() && Sync.getConfig().autoSync) {
+      Sync.syncNow().then(() => {
+        updateBadge();
+        const h = location.hash;
+        if (h === "#trang-chu" || h === "" || h.startsWith("#cai-dat")) route();
+      }).catch((e) => console.warn("Initial sync background failed:", e));
+    }
     if (S.storageError) $("#view").insertAdjacentHTML("afterbegin", `<div class="note">Trình duyệt chưa cho lưu tiến độ (có thể đang ở chế độ ẩn danh). Bạn vẫn học được, nhưng kết quả có thể không được giữ lại.</div>`);
     fetch("data/cedict.tsv").then((r) => r.text()).then((txt) => {
       const m = new Map(); for (const line of txt.split("\n")) { const [w, py, defs] = line.split("\t"); if (!w) continue; if (!m.has(w)) m.set(w, []); m.get(w).push([py, defs]); }
