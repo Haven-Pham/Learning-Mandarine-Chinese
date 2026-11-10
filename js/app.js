@@ -386,8 +386,7 @@ async function handleSyncSetup(rawHash) {
     history.replaceState(null, "", location.pathname + "#cai-dat");
     setView(`<section class="view"><div class="panel center"><h2 class="h2">Đang kết nối đồng bộ...</h2><p class="lead">Đang thiết lập đồng bộ tiến độ từ máy tính sang điện thoại của bạn...</p><div class="sync-spin" style="font-size: 32px; margin: 16px 0;">🔄</div></div></section>`);
     try {
-      await Sync.saveConfig({ token, gistId, autoSync: true, lastSync: new Date().toISOString() });
-      await Sync.syncNow();
+      await Sync.connectWithToken(token, gistId);
       alert("🎉 Kết nối đồng bộ thành công!\n\nĐiện thoại và máy tính của bạn đã được kết nối cùng tiến độ học. Từ bây giờ mỗi khi bạn học, dữ liệu sẽ tự động đồng bộ 2 chiều.");
       route();
     } catch (err) {
@@ -1215,6 +1214,11 @@ VIEWS["cai-dat"] = () => {
             <button type="button" class="small" id="btnDisconnectSync" style="color:var(--seal);">Ngắt kết nối</button>
           </div>
 
+          <label for="replaceToken">Token mới nếu kết nối đã hết hạn
+            <input type="password" id="replaceToken" autocomplete="off" placeholder="Dán token GitHub có quyền gist">
+          </label>
+          <button type="button" class="small" id="btnReplaceToken">Kết nối lại Gist cũ</button>
+          <div class="msg" id="replaceTokenMsg" role="status"></div>
           <label class="inline" style="margin-top:8px;">
             <input type="checkbox" id="autoSyncCheck" checked> Tự động đồng bộ khi mở trang và sau mỗi lượt học
           </label>
@@ -1301,8 +1305,10 @@ VIEWS["cai-dat"] = () => {
     const connBlock = $("#syncConnectedBlock");
     const unconnBlock = $("#syncUnconnectedBlock");
     if (badge) {
-      badge.textContent = isConn ? "Đã kết nối (Tự động)" : "Chưa kết nối";
-      badge.className = isConn ? "sync-badge active" : "sync-badge inactive";
+      const state = Sync.getStatus();
+      const failed = state && state.status === "error";
+      badge.textContent = failed ? "Đồng bộ lỗi" : isConn ? "Đã cấu hình" : "Chưa kết nối";
+      badge.className = failed ? "sync-badge inactive" : isConn ? "sync-badge active" : "sync-badge inactive";
     }
     if (connBlock) connBlock.hidden = !isConn;
     if (unconnBlock) unconnBlock.hidden = isConn;
@@ -1310,7 +1316,10 @@ VIEWS["cai-dat"] = () => {
       const gid = $("#displayGistId"); if (gid) gid.textContent = cfg.gistId;
       const lsync = $("#displayLastSync");
       if (lsync) {
-        lsync.textContent = cfg.lastSync ? `Đồng bộ lần cuối: ${new Date(cfg.lastSync).toLocaleString("vi-VN")}` : "Chưa đồng bộ";
+        const state = Sync.getStatus();
+        lsync.textContent = state && state.status === "error"
+          ? `Đồng bộ lỗi: ${state.detail}. Lần thành công gần nhất: ${cfg.lastSync ? new Date(cfg.lastSync).toLocaleString("vi-VN") : "chưa có"}`
+          : cfg.lastSync ? `Đồng bộ lần cuối: ${new Date(cfg.lastSync).toLocaleString("vi-VN")}` : "Chưa đồng bộ";
       }
       const chk = $("#autoSyncCheck"); if (chk) chk.checked = cfg.autoSync;
     }
@@ -1339,6 +1348,26 @@ VIEWS["cai-dat"] = () => {
       }
     };
   }
+
+  const btnReplace = $("#btnReplaceToken");
+  if (btnReplace) btnReplace.onclick = async () => {
+    const token = $("#replaceToken").value.trim();
+    const msg = $("#replaceTokenMsg");
+    if (!token) { msg.textContent = "Hãy dán token mới."; return; }
+    btnReplace.disabled = true;
+    msg.textContent = "Đang kiểm tra Gist cũ...";
+    try {
+      await Sync.connectWithToken(token, Sync.getConfig().gistId);
+      $("#replaceToken").value = "";
+      msg.textContent = "Đã kết nối và đồng bộ lại.";
+      updateSyncView();
+    } catch (err) {
+      msg.textContent = "Chưa kết nối được: " + err.message;
+      updateSyncView();
+    } finally {
+      btnReplace.disabled = false;
+    }
+  };
 
   const btnDisc = $("#btnDisconnectSync");
   if (btnDisc) {
@@ -1536,18 +1565,17 @@ function initSyncUI() {
       btn.classList.remove("syncing");
       btn.classList.remove("synced");
       if (label) label.textContent = "Lỗi đồng bộ";
-      setTimeout(() => {
-        if (label) label.textContent = "Đồng bộ";
-      }, 4000);
+      const badge = $("#syncStatusBadge");
+      const last = $("#displayLastSync");
+      if (badge) { badge.textContent = "Đồng bộ lỗi"; badge.className = "sync-badge inactive"; }
+      if (last) last.textContent = "Đồng bộ lỗi: " + detail;
     } else {
       btn.classList.remove("syncing");
       if (label) label.textContent = "Đồng bộ";
     }
   });
 
-  if (Sync.isConfigured()) {
-    btn.classList.add("synced");
-  }
+
 }
 
 // ---------------- boot ----------------

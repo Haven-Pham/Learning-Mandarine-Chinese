@@ -3,7 +3,8 @@
 
 const Sync = (() => {
   const GIST_FILENAME = "so-hoc-tieng-hoa-sync.json";
-  let isSyncing = false;
+  let syncPromise = null;
+  let lastStatus = null;
   let listeners = [];
   let debounceTimer = null;
   let hasPendingLocalChanges = false;
@@ -13,6 +14,7 @@ const Sync = (() => {
   }
 
   function notify(status, detail) {
+    lastStatus = { status, detail };
     listeners.forEach((fn) => {
       try { fn(status, detail); } catch (e) { console.error(e); }
     });
@@ -58,23 +60,19 @@ const Sync = (() => {
 
     let gistId = (existingGistId || "").trim();
 
-    // 1. If no gistId provided, search user's gists for one created previously
+    // Find the existing progress before creating a new Gist.
     if (!gistId) {
-      try {
-        const listRes = await fetch("https://api.github.com/gists?per_page=50", { headers });
+      for (let page = 1; page <= 10; page++) {
+        const listRes = await fetch(`https://api.github.com/gists?per_page=100&page=${page}`, { headers });
         if (!listRes.ok) {
-          if (listRes.status === 401) throw new Error("Token không hợp lệ hoặc đã hết hạn. Hãy kiểm tra lại token.");
-          throw new Error(`Lỗi kết nối GitHub (Mã ${listRes.status}).`);
+          if (listRes.status === 401 || listRes.status === 403) throw new Error("Token không hợp lệ, thiếu quyền hoặc GitHub đang giới hạn yêu cầu.");
+          throw new Error(`Không kiểm tra được Gist cũ (${listRes.status}). Chưa tạo kho mới.`);
         }
         const gists = await listRes.json();
         const found = gists.find((g) => g.files && g.files[GIST_FILENAME]);
-        if (found) gistId = found.id;
-      } catch (e) {
-        if (!e.message.includes("Token không hợp lệ")) {
-          console.warn("Không tìm kiếm được danh sách gist:", e);
-        } else {
-          throw e;
-        }
+        if (found) { gistId = found.id; break; }
+        if (gists.length < 100) break;
+        if (page === 10) throw new Error("Có quá nhiều Gist để kiểm tra. Hãy nhập Gist ID cũ.");
       }
     }
 
@@ -105,8 +103,12 @@ const Sync = (() => {
       gistId = created.id;
     }
 
-    // 3. Save configuration
-    await saveConfig({ token, gistId, autoSync: true, lastSync: new Date().toISOString() });
+    // Validate access before changing the working connection on this device.
+    const checkRes = await fetch(`https://api.github.com/gists/${gistId}`, { headers });
+    if (!checkRes.ok) throw new Error(`Token không truy cập được Gist cũ (${checkRes.status}).`);
+    const checkGist = await checkRes.json();
+    if (!checkGist.files || !checkGist.files[GIST_FILENAME]) throw new Error("Gist này không chứa tiến độ học.");
+    await saveConfig({ token, gistId, autoSync: true });
 
     // 4. Run two-way sync
     await syncNow();
@@ -120,72 +122,69 @@ const Sync = (() => {
   }
 
   // Core Sync Function: Pull remote, merge locally, push merged back to remote
-  async function syncNow() {
-    if (isSyncing) return;
-    const cfg = getConfig();
-    if (!cfg.token || !cfg.gistId) {
+  function syncNow() {
+    if (syncPromise) return syncPromise;
+    if (!isConfigured()) {
       notify("unconfigured", "Chưa cấu hình đồng bộ.");
-      return;
+      return Promise.resolve();
     }
+    syncPromise = performSync().finally(() => { syncPromise = null; });
+    return syncPromise;
+  }
 
-    isSyncing = true;
+  async function performSync() {
+    const cfg = getConfig();
     notify("syncing", "Đang đồng bộ dữ liệu...");
-
     try {
       const headers = {
         Authorization: `token ${cfg.token}`,
         Accept: "application/vnd.github.v3+json",
       };
-
-      // 1. Fetch remote Gist
       const res = await fetch(`https://api.github.com/gists/${cfg.gistId}`, { headers });
       if (!res.ok) {
-        if (res.status === 404) throw new Error("Không tìm thấy Gist trên GitHub (có thể đã bị xóa).");
-        if (res.status === 401) throw new Error("Token đã hết hạn hoặc không có quyền truy cập Gist.");
-        throw new Error(`Lỗi tải dữ liệu từ GitHub (${res.status}).`);
+        if (res.status === 404) throw new Error("Không tìm thấy Gist trên GitHub.");
+        if (res.status === 401 || res.status === 403) throw new Error("Token hết hạn, thiếu quyền hoặc đã vượt giới hạn GitHub. Hãy kiểm tra Token trong Cài đặt.");
+        throw new Error(`Không tải được Gist (${res.status}).`);
       }
-
       const gist = await res.json();
       const file = gist.files && gist.files[GIST_FILENAME];
-      if (file && file.content) {
-        try {
-          const remoteData = JSON.parse(file.content);
-          // Merge remote progress into local database (newer cards win)
-          await Store.importAll(remoteData, "merge");
-          if (typeof loadProgress === "function") await loadProgress();
-        } catch (parseErr) {
-          console.warn("Không parse được nội dung Gist:", parseErr);
-        }
+      if (!file) throw new Error("Gist không có tệp tiến độ học.");
+      let content = file.content;
+      if (file.truncated) {
+        if (!file.raw_url) throw new Error("Tệp tiến độ trên Gist bị cắt, không có đường dẫn tải đầy đủ.");
+        const raw = await fetch(file.raw_url, { headers });
+        if (!raw.ok) throw new Error(`Không tải được tệp tiến độ đầy đủ (${raw.status}).`);
+        content = await raw.text();
+      }
+      if (!content) throw new Error("Tệp tiến độ trên Gist trống.");
+      let remoteData;
+      try {
+        remoteData = JSON.parse(content);
+      } catch (err) {
+        throw new Error("Tệp tiến độ trên Gist không đọc được. Chưa ghi đè dữ liệu đám mây.");
+      }
+      if (remoteData.app !== "so-hoc-tieng-hoa") {
+        throw new Error("Tệp trên Gist không đúng định dạng tiến độ học.");
       }
 
-      // 2. Export full merged state from local
+      await Store.importAll(remoteData, "merge");
+      if (typeof loadProgress === "function") await loadProgress();
       const mergedData = await Store.exportAll();
       mergedData.kv = Object.assign(mergedData.kv || {}, { settings: Store.publicSettings(S.settings) });
-
-      // 3. Update remote Gist with merged state
-      const nowStr = new Date().toLocaleString("vi-VN");
       const patchRes = await fetch(`https://api.github.com/gists/${cfg.gistId}`, {
         method: "PATCH",
         headers: Object.assign({}, headers, { "Content-Type": "application/json" }),
         body: JSON.stringify({
-          description: `Sổ học tiếng Hoa - Tiến độ học (${nowStr})`,
-          files: {
-            [GIST_FILENAME]: {
-              content: JSON.stringify(mergedData),
-            },
-          },
+          description: `Sổ học tiếng Hoa - Tiến độ học (${new Date().toLocaleString("vi-VN")})`,
+          files: { [GIST_FILENAME]: { content: JSON.stringify(mergedData) } },
         }),
       });
-
-      if (!patchRes.ok) {
-        throw new Error(`Không cập nhật được Gist (${patchRes.status}).`);
-      }
+      if (!patchRes.ok) throw new Error(`Không cập nhật được Gist (${patchRes.status}).`);
 
       const nowIso = new Date().toISOString();
       S.settings.lastSyncTime = nowIso;
       await Store.put("kv", "settings", JSON.parse(JSON.stringify(S.settings)));
       hasPendingLocalChanges = false;
-
       const timeText = new Date().toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" });
       notify("success", `Đã đồng bộ thành công lúc ${timeText}`);
       if (typeof updateBadge === "function") updateBadge();
@@ -193,8 +192,6 @@ const Sync = (() => {
       console.error("Sync error:", err);
       notify("error", err.message || String(err));
       throw err;
-    } finally {
-      isSyncing = false;
     }
   }
 
@@ -242,7 +239,7 @@ const Sync = (() => {
         syncNow().catch(() => {});
       }
     } else if (document.visibilityState === "visible") {
-      if (isConfigured() && getConfig().autoSync && !isSyncing) {
+      if (isConfigured() && getConfig().autoSync) {
         // Subtle background pull when returning to tab
         syncNow().catch(() => {});
       }
@@ -260,5 +257,6 @@ const Sync = (() => {
     generateFastCode,
     applyFastCode,
     onStatusChange,
+    getStatus: () => lastStatus,
   };
 })();
