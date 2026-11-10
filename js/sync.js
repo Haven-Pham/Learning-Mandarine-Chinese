@@ -81,7 +81,7 @@ const Sync = (() => {
     // 2. If still no gist, create a new secret gist with current progress
     if (!gistId) {
       const localData = await Store.exportAll();
-      localData.kv = Object.assign(localData.kv || {}, { settings: S.settings });
+      localData.kv = Object.assign(localData.kv || {}, { settings: Store.publicSettings(S.settings) });
       const createRes = await fetch("https://api.github.com/gists", {
         method: "POST",
         headers,
@@ -160,7 +160,7 @@ const Sync = (() => {
 
       // 2. Export full merged state from local
       const mergedData = await Store.exportAll();
-      mergedData.kv = Object.assign(mergedData.kv || {}, { settings: S.settings });
+      mergedData.kv = Object.assign(mergedData.kv || {}, { settings: Store.publicSettings(S.settings) });
 
       // 3. Update remote Gist with merged state
       const nowStr = new Date().toLocaleString("vi-VN");
@@ -213,7 +213,7 @@ const Sync = (() => {
   // Fast code: Encode full progress into a portable Base64 string
   async function generateFastCode() {
     const data = await Store.exportAll();
-    data.kv = Object.assign(data.kv || {}, { settings: S.settings });
+    data.kv = Object.assign(data.kv || {}, { settings: Store.publicSettings(S.settings) });
     const json = JSON.stringify(data);
     return btoa(encodeURIComponent(json).replace(/%([0-9A-F]{2})/g, (match, p1) => String.fromCharCode('0x' + p1)));
   }
@@ -233,20 +233,6 @@ const Sync = (() => {
     if (typeof loadProgress === "function") await loadProgress();
     if (typeof updateBadge === "function") updateBadge();
     return Object.keys(data.srs || {}).length;
-  }
-
-  // Generate 1-click connection link for phone
-  function getSetupUrl() {
-    const cfg = getConfig();
-    if (!cfg.token || !cfg.gistId) return "";
-    let origin = location.origin;
-    let pathname = location.pathname;
-    // Normalize path
-    if (origin === "file://") {
-      origin = "https://haven-pham.github.io";
-      pathname = "/Learning-Mandarine-Chinese/";
-    }
-    return `${origin}${pathname}#sync-setup?t=${encodeURIComponent(cfg.token)}&g=${encodeURIComponent(cfg.gistId)}`;
   }
 
   // Listen to visibility change (when switching back to app on phone or PC)
@@ -273,7 +259,6 @@ const Sync = (() => {
     onCardGraded,
     generateFastCode,
     applyFastCode,
-    getSetupUrl,
     onStatusChange,
   };
 })();

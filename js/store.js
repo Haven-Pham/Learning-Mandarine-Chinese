@@ -57,15 +57,22 @@ const Store = (() => {
   const del = async (store, key) => (await backend()).del(store, key);
   const kind = async () => (await backend()).kind;
 
+  // Sync secrets stay on this device only: never in backups, Gist content or progress codes.
+  const SECRET_KEYS = ["syncToken", "syncGistId", "lastSyncTime"];
+  function publicSettings(s) { const c = JSON.parse(JSON.stringify(s || {})); for (const k of SECRET_KEYS) delete c[k]; return c; }
   async function exportAll() {
     const out = { app: "so-hoc-tieng-hoa", version: 1, exportedAt: new Date().toISOString() };
     for (const s of STORES) out[s] = Object.fromEntries(await all(s));
+    if (out.kv && out.kv.settings) out.kv.settings = publicSettings(out.kv.settings);
     return out;
   }
   // mode "replace": wipe then load; "merge": keep the newer state per card
   async function importAll(data, mode) {
     if (!data || data.app !== "so-hoc-tieng-hoa") throw new Error("File này không phải bản sao lưu của Sổ học tiếng Hoa.");
     const b = await backend();
+    const localKv = await b.all("kv"); const localSettings = localKv.get("settings") || {};
+    const keepSecrets = (v) => { const c = Object.assign({}, v); for (const k of SECRET_KEYS) { delete c[k]; if (localSettings[k] !== undefined) c[k] = localSettings[k]; } return c; };
+    if (data.kv && data.kv.settings) data = Object.assign({}, data, { kv: Object.assign({}, data.kv, { settings: keepSecrets(data.kv.settings) }) });
     for (const s of STORES) {
       const incoming = Object.entries(data[s] || {});
       if (mode === "replace") { await b.clear(s); await b.putMany(s, incoming); continue; }
@@ -94,5 +101,5 @@ const Store = (() => {
       await b.putMany(s, keep);
     }
   }
-  return { all, put, del, putMany, exportAll, importAll, kind };
+  return { all, put, del, putMany, exportAll, importAll, kind, publicSettings };
 })();

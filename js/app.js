@@ -361,7 +361,7 @@ function detailHTML(n, opts = {}) {
     ${it.e2 ? `<div class="ex"><div class="zh">${esc(it.e2)} ${sp(it.e2)}</div><div class="exs">${esc(it.e2p || "")}<br>${esc(it.e2v || "")}</div></div>` : ""}
     ${it.tw ? `<div class="tw"><b>Người Đài nói thế nào</b><span class="mix">${ruby(it.tw)}</span></div>` : ""}
     ${it.mk ? `<div class="miss"><b>Lỗi hay gặp:</b> ${ruby(it.mk)}</div>` : ""}
-    ${(it.us || it.co || it.sy || it.an || it.cf || it.pa || it.fa) ? `<details class="more" open><summary>Xem thêm</summary><div class="kv">${kv([["Cách dùng", it.us], ["Cụm hay gặp", it.co], ["Đồng nghĩa, gần nghĩa", it.sy], ["Trái nghĩa", it.an], ["Dễ nhầm với", it.cf], ["Cấu tạo chữ", it.pa], ["Họ từ", it.fa], ["Nguồn", it.src]])}</div></details>` : ""}
+    ${(it.us || it.co || it.sy || it.an || it.cf || it.pa || it.fa || it.lt) ? `<details class="more" open><summary>Xem thêm</summary><div class="kv">${kv([["Lượng từ", it.lt], ["Cách dùng", it.us], ["Cụm hay gặp", it.co], ["Đồng nghĩa, gần nghĩa", it.sy], ["Trái nghĩa", it.an], ["Dễ nhầm với", it.cf], ["Cấu tạo chữ", it.pa], ["Họ từ", it.fa], ["Nguồn", it.src]])}</div></details>` : ""}
     ${opts.link !== false && n.kind === "vocab" ? `<a class="link" href="#tu/${encodeURIComponent(it.w)}">Mở trong từ điển: nét viết, chữ cấu thành →</a>` : ""}
   </div>`;
 }
@@ -1178,11 +1178,10 @@ function drawInbox() {
 // --- Cài đặt ---
 VIEWS["cai-dat"] = () => {
   setView(`<section class="view">
-    <div class="panel" id="sync-panel">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;">
-        <h2 class="h2">Đồng bộ giữa Điện thoại và Máy tính</h2>
+    <details class="panel sync-details" id="sync-panel" ${Sync.isConfigured() ? "" : "open"}>
+      <summary class="sync-summary"><h2 class="h2">Đồng bộ giữa các máy</h2>
         <span id="syncStatusBadge" class="sync-badge inactive">Chưa kết nối</span>
-      </div>
+        <span class="sub">${Sync.isConfigured() ? "Đã kết nối, tự đồng bộ khi mở trang và sau mỗi lượt học. Bấm để xem chi tiết." : ""}</span></summary>
       <p class="lead">Mặc định tiến độ chỉ lưu trong trình duyệt của từng máy. Để <strong>học trên điện thoại và máy tính luôn đồng bộ cùng tiến độ với nhau</strong>, bạn có thể chọn một trong hai cách dưới đây:</p>
 
       <!-- Cách 1: Tự động qua Đám mây (GitHub Gist) -->
@@ -1201,32 +1200,8 @@ VIEWS["cai-dat"] = () => {
           </div>
           <div class="actions" style="margin-bottom:12px;">
             <button type="button" class="primary" id="btnSyncNow">🔄 Đồng bộ ngay bây giờ</button>
-            <button type="button" id="btnShowPhoneConnect">📱 Kết nối với điện thoại (QR / Link)</button>
-            <button type="button" class="small" id="btnDisconnectSync" style="color:var(--seal);">Ngắt kết nối</button>
-          </div>
 
-          <!-- Khung QR và Link cho điện thoại -->
-          <div id="phoneConnectModal" style="border:1px dashed var(--line);border-radius:var(--r);padding:14px;background:var(--surface);display:none;margin-top:10px;">
-            <div style="font-weight:700;font-size:16px;margin-bottom:8px;">📱 Kết nối điện thoại trong 1 bước:</div>
-            <div class="row2" style="align-items:center;gap:16px;">
-              <div style="text-align:center;">
-                <div id="qrContainer">
-                  <img id="qrImg" src="" width="180" height="180" alt="Mã QR đồng bộ" style="display:block;">
-                </div>
-                <div class="sub" style="font-size:12.5px;margin-top:6px;">Mở camera điện thoại quét mã này</div>
-              </div>
-              <div style="display:grid;gap:8px;">
-                <div class="sub">Hoặc sao chép link này gửi qua Zalo / Tin nhắn để mở trên điện thoại:</div>
-                <input type="text" id="phoneSetupUrl" readonly style="font-size:12.5px;font-family:monospace;background:var(--paper);">
-                <div class="actions">
-                  <button type="button" class="primary small" id="btnCopyPhoneUrl">📋 Sao chép link kết nối</button>
-                  <span id="copyPhoneUrlMsg" class="sub" style="font-size:13px;"></span>
-                </div>
-                <div class="sub" style="font-size:12.5px;color:var(--muted);">
-                  Khi điện thoại mở link này, máy sẽ tự động kết nối và tải tiến độ mới nhất về ngay lập tức mà không cần gõ lại mã token!
-                </div>
-              </div>
-            </div>
+            <button type="button" class="small" id="btnDisconnectSync" style="color:var(--seal);">Ngắt kết nối</button>
           </div>
 
           <label class="inline" style="margin-top:8px;">
@@ -1275,7 +1250,7 @@ VIEWS["cai-dat"] = () => {
         </div>
         <div class="msg" id="fastCodeMsg"></div>
       </div>
-    </div>
+    </details>
 
     <div class="panel"><h2 class="h2">Học mỗi ngày</h2>
       <label for="npd">Số thẻ mới mỗi ngày<select id="npd">${[10, 15, 20, 30, 40, 60].map((v) => `<option>${v}</option>`).join("")}</select></label>
@@ -1298,6 +1273,7 @@ VIEWS["cai-dat"] = () => {
     <div class="panel"><h2 class="h2">Nguồn dữ liệu</h2><ul class="src">
       <li>Bảng từ TOCFL 2024 (華語八千詞表), Trung tâm SC-TOP · tocfl.edu.tw</li>
       <li>CC-CEDICT, giấy phép CC BY-SA 4.0 · mdbg.net</li>
+      <li>Nghĩa tiếng Việt và lượng từ: CVDICT (Phong Phan), giấy phép CC BY-SA 4.0 · github.com/ph0ngp/CVDICT</li>
       <li>Make Me a Hanzi (nét viết), giấy phép Arphic PL / LGPL · github.com/skishore/makemeahanzi</li>
       <li>Hanzi Writer (vẽ nét), giấy phép MIT</li>
       <li>Nghĩa tiếng Việt, mẹo nhớ, ví dụ: soạn riêng cho trang này</li></ul></div></section>`);
@@ -1377,21 +1353,6 @@ VIEWS["cai-dat"] = () => {
   }
 
   const btnPhone = $("#btnShowPhoneConnect");
-  const phoneModal = $("#phoneConnectModal");
-  if (btnPhone && phoneModal) {
-    btnPhone.onclick = () => {
-      const isHidden = phoneModal.style.display === "none";
-      phoneModal.style.display = isHidden ? "block" : "none";
-      if (isHidden) {
-        const setupUrl = Sync.getSetupUrl();
-        const urlInput = $("#phoneSetupUrl");
-        if (urlInput) urlInput.value = setupUrl;
-        const qrImg = $("#qrImg");
-        if (qrImg) qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(setupUrl)}`;
-      }
-    };
-  }
-
   const btnCopyUrl = $("#btnCopyPhoneUrl");
   if (btnCopyUrl) {
     btnCopyUrl.onclick = async () => {
@@ -1483,7 +1444,7 @@ VIEWS["cai-dat"] = () => {
   document.querySelectorAll("[data-band]").forEach((c) => (c.onchange = async () => { S.settings.bands[c.dataset.band] = c.checked; await saveSettings(); }));
   $("#vinfo").textContent = !("speechSynthesis" in window) ? "Trình duyệt này không đọc được thành tiếng." : voice ? `Đang dùng giọng ${voice.name} (${voice.lang}).` : "Chưa thấy giọng tiếng Hoa. Trên điện thoại, vào Cài đặt › Chuyển văn bản thành giọng nói và tải giọng 中文 (台灣).";
   $("#backup").onclick = async () => {
-    const data = await Store.exportAll(); data.kv = Object.assign(data.kv || {}, { settings: S.settings });
+    const data = await Store.exportAll(); data.kv = Object.assign(data.kv || {}, { settings: Store.publicSettings(S.settings) });
     const blob = new Blob([JSON.stringify(data)], { type: "application/json" }); const a = document.createElement("a");
     a.href = URL.createObjectURL(blob); a.download = `so-hoc-tieng-hoa-sao-luu-${dayKey(Date.now())}.json`; document.body.appendChild(a); a.click(); a.remove();
     $("#bmsg").textContent = `Đã tạo file sao lưu (${fmt(Object.keys(data.srs).length)} thẻ có tiến độ). Cất file vào Google Drive.`;

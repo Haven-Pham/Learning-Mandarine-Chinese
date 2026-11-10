@@ -11,6 +11,7 @@ Trang học tiếng Hoa (chữ Phồn thể, TOCFL) chạy hoàn toàn trên tr�
 - Bảng từ TOCFL 2024 (華語八千詞表), SC-TOP, tocfl.edu.tw
 - CC-CEDICT, CC BY-SA 4.0 (`data/cedict.tsv` là bản chuyển đổi, cùng giấy phép) — https://www.mdbg.net/chinese/dictionary?page=cedict
 - Make Me a Hanzi, nét viết (`data/strokes/`), Arphic Public License — https://github.com/skishore/makemeahanzi
+- Nghĩa tiếng Việt và lượng từ (`data/vi/`): CVDICT của Phong Phan, CC BY-SA 4.0 — https://github.com/ph0ngp/CVDICT (bản dịch từ CC-CEDICT, đã làm sạch: bỏ phần tiếng Anh sót, tách lượng từ). Âm Hán Việt chọn theo cách đọc của từng chữ trong từ; `data/vi/` phát hành cùng giấy phép CC BY-SA 4.0
 - Hanzi Writer, MIT — https://github.com/chanind/hanzi-writer
 - Nghĩa tiếng Việt, mẹo nhớ, ví dụ: soạn riêng cho trang này
 

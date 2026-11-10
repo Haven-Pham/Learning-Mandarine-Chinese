@@ -1,0 +1,4 @@
+CVDICT — Từ điển Hán Việt chuyển dịch từ CC-CEDICT, tác giả Phong Phan.
+https://github.com/ph0ngp/CVDICT
+Giấy phép: Creative Commons Attribution-ShareAlike 4.0 International — https://creativecommons.org/licenses/by-sa/4.0/
+Dữ liệu data/vi/ của trang này được làm sạch và chỉnh âm Hán Việt từ CVDICT, phát hành cùng giấy phép CC BY-SA 4.0.

@@ -505,3 +505,8 @@ nav.tabs a[aria-current="page"] { border-bottom-color: var(--seal); }
 }
 #qrImg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
 
+
+.sync-details > summary { cursor: pointer; display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; list-style: none; }
+.sync-details > summary::-webkit-details-marker { display: none; }
+.sync-details > summary::after { content: "▾"; margin-left: auto; color: var(--muted); }
+.sync-details[open] > summary::after { content: "▴"; }

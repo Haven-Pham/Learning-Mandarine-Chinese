@@ -1,382 +1,396 @@
 {
  "零": {
-  "vn": "zero; 0",
+  "vn": "không; số không; ký hiệu không; phân số; vụn vặt",
   "hv": "Linh"
  },
  "爺爺": {
-  "vn": "ông nội",
-  "hv": "Gia Gia"
+  "vn": "(thân mật) ông nội; ông bên nội",
+  "lt": "個",
+  "hv": "Gia gia"
  },
  "奶奶": {
-  "vn": "Bà nội",
-  "hv": "Nãi Nãi"
+  "vn": "(thân mật) bà (bà nội); (kính trọng) bà chủ nhà; (thông tục) vú; ngực",
+  "lt": "位",
+  "hv": "Nãi nãi"
  },
  "家庭": {
-  "vn": "gia đình; hộ gia đình; LT:戶|户[hu4],個|个[ge4]",
-  "hv": "Gia Đình"
+  "vn": "gia đình; hộ gia đình",
+  "lt": "戶、個",
+  "hv": "Gia đình"
  },
  "別人": {
   "vn": "người khác; những người khác",
-  "hv": "Biệt Nhân"
+  "hv": "Biệt nhân"
  },
  "大人": {
-  "vn": "đại nhân; bề trên (lời nói kính trọng)； nguoi lon",
-  "hv": "Đại Nhân"
+  "vn": "người lớn; trưởng thành; cách xưng hô tôn trọng với cấp trên",
+  "hv": "Đại nhân"
  },
  "老人": {
-  "vn": "người già; cụ già",
-  "hv": "Lão Nhân"
+  "vn": "ông già hoặc bà già; người cao tuổi; bố mẹ hoặc ông bà lớn tuổi",
+  "hv": "Lão nhân"
  },
  "年輕": {
-  "vn": "young; tuổi trẻ",
-  "hv": "Niên Khinh"
+  "vn": "trẻ",
+  "hv": "Niên khinh"
  },
  "男生": {
-  "vn": "học sinh nam; nam sinh",
-  "hv": "Nam Sinh"
+  "vn": "nam sinh; học sinh nam; con trai; chàng trai (nam thanh niên)",
+  "hv": "Nam sinh"
  },
  "女生": {
-  "vn": "học sinh nữ; nữ sinh",
-  "hv": "Nữ Sinh"
+  "vn": "nữ sinh; học sinh nữ; cô gái",
+  "hv": "Nữ sinh"
  },
  "號碼": {
-  "vn": "number; số; chữ số; con số; số thứ tự",
-  "hv": "Hào Mã"
+  "vn": "số",
+  "lt": "堆、個",
+  "hv": "Hiệu mã"
  },
  "在": {
-  "vn": "sống; tồn tại; sinh tồn; vị trí tại",
+  "vn": "tồn tại; còn sống; (ai đó hoặc cái gì đó) ở (vị trí); (dùng trước động từ để chỉ hành động đang diễn ra)",
   "hv": "Tại"
  },
  "哪": {
-  "vn": "which",
+  "vn": "như thế nào; cái nào",
   "hv": "哪"
  },
  "地址": {
-  "vn": "ddia chi\n你知道他家的地址嗎？",
-  "hv": "Địa Chỉ"
+  "vn": "địa chỉ",
+  "lt": "個",
+  "hv": "Địa chỉ"
  },
  "市": {
-  "vn": "chợ; thành phố; LT:個|个[ge4]",
+  "vn": "chợ; thành phố",
+  "lt": "個",
   "hv": "Thị"
  },
  "名": {
-  "vn": "ng",
+  "vn": "tên; danh từ (loại từ); vị trí (vd: trong danh sách trúng giải); nổi tiếng; lượng từ cho người",
   "hv": "Danh",
   "e1": "他叫什麼名字？",
   "e1p": "Tā jiào shénme míngzì?",
   "e1v": "(Anh ấy tên gì ?)"
  },
  "城市/城": {
-  "vn": "thành phố; thị trấn; LT:座[zuo4]",
-  "hv": "Thành Thị/Thành"
+  "vn": "thành phố; thị trấn; LT:座[zuo4]"
  },
  "街": {
-  "vn": "con đường (條）",
+  "vn": "đường phố",
+  "lt": "條",
   "hv": "Nhai"
  },
  "電子郵件": {
-  "vn": "Email （封)",
-  "hv": "Điện Tử Bưu Kiện"
+  "vn": "email",
+  "lt": "封、份",
+  "hv": "Điện tử bưu kiện"
  },
  "禮拜": {
-  "vn": "week",
-  "hv": "Lễ Bái"
+  "vn": "dự buổi lễ tôn giáo; (khẩu ngữ) tuần; (khẩu ngữ) Chủ Nhật",
+  "hv": "Lễ bái"
  },
  "從前": {
   "vn": "trước đây; ngày xưa; ngày xửa ngày xưa",
-  "hv": "Tòng Tiền"
+  "hv": "Tòng tiền"
  },
  "剛剛/剛": {
-  "vn": "mới đây; ngay vừa rồi",
-  "hv": "Cương Cương/Cương"
+  "vn": "mới đây; ngay vừa rồi"
  },
  "一會兒/一會": {
-  "vn": "một lúc; một thời gian; ngay lập tức; lúc thì...lúc thì...; cũng đọc là [yi1 hui3 r5]",
-  "hv": "Nhất Hội Nhi/Nhất Hội"
+  "vn": "một lúc; một thời gian; ngay lập tức; lúc thì...lúc thì...; cũng đọc là [yi1 hui3 r5]"
  },
  "結婚": {
-  "vn": "kết hôn",
-  "hv": "Kết Hôn"
+  "vn": "kết hôn; cưới",
+  "lt": "次",
+  "hv": "Kết hôn"
  },
  "春天/春": {
-  "vn": "mùa xuân; LT:個|个[ge4]",
-  "hv": "Xuân Thiên/Xuân"
+  "vn": "mùa xuân; LT:個|个[ge4]"
  },
  "夏天/夏": {
-  "vn": "mùa hè; LT:個|个[ge4]",
-  "hv": "Hạ Thiên/Hạ"
+  "vn": "mùa hè; LT:個|个[ge4]"
  },
  "秋天/秋": {
-  "vn": "mùa thu; LT:個|个[ge4]",
-  "hv": "Thu Thiên/Thu"
+  "vn": "mùa thu; LT:個|个[ge4]"
  },
  "冬天/冬": {
-  "vn": "mùa đông; LT:個|个[ge4]",
-  "hv": "Đông Thiên/Đông"
+  "vn": "mùa đông; LT:個|个[ge4]"
  },
  "笑": {
   "vn": "cười; mỉm cười; cười nhạo",
   "hv": "Tiếu"
  },
  "哭": {
-  "vn": "cry",
+  "vn": "khóc; rơi lệ",
   "hv": "Khốc"
  },
  "高興": {
-  "vn": "happy, fun; make someone happy",
-  "hv": "Cao Hưng"
+  "vn": "vui; vui vẻ; sẵn lòng (làm gì đó); tâm trạng vui vẻ",
+  "hv": "Cao hứng"
  },
  "緊張": {
-  "vn": "nervous; hồi hộp căng thẳng",
-  "hv": "Khẩn Trương"
+  "vn": "căng thẳng; hồi hộp; mạnh; mức độ cao; khẩn trương",
+  "lt": "陣",
+  "hv": "Khẩn trương"
  },
  "可愛": {
   "vn": "đáng yêu; dễ thương; đáng mến",
-  "hv": "Khả Ái"
+  "hv": "Khả ái"
  },
  "生氣": {
   "vn": "nổi giận; tức giận; sinh khí; sức sống",
-  "hv": "Sinh Khí"
+  "hv": "Sinh khí"
  },
  "難過": {
-  "vn": ". buồn; khó chịu; đau lòng; buồn bã (tâm trạng)",
-  "hv": "Nan Quá"
+  "vn": "cảm thấy buồn; cảm thấy không khỏe; (cuộc sống) cảm thấy khó khăn",
+  "hv": "Nan quá"
  },
  "聰明": {
-  "vn": "smart； thoong minh",
-  "hv": "Thông Minh"
+  "vn": "thông minh; lanh lợi; sáng dạ; nhanh nhạy (về thị giác và thính giác)",
+  "hv": "Thông minh"
  },
  "相信": {
   "vn": "tin tưởng; bị thuyết phục; chấp nhận là thật",
-  "hv": "Tương Tín"
+  "hv": "Tương tín"
  },
  "經驗": {
-  "vn": "kinh nghiệm\n你可以告訴我學中文的經驗嗎？",
-  "hv": "Kinh Nghiệm"
+  "vn": "kinh nghiệm; trải nghiệm",
+  "hv": "Kinh nghiệm"
  },
  "辛苦": {
-  "vn": "vất vả, cực nhọc",
-  "hv": "Tân Khổ"
+  "vn": "mệt nhọc; vất vả; khó khăn; gian khổ; làm việc chăm chỉ",
+  "hv": "Tân khổ"
  },
  "願意": {
   "vn": "muốn; nguyện; sẵn sàng; tự nguyện (làm gì đó)",
-  "hv": "Nguyện Ý"
+  "hv": "Nguyện ý"
  },
  "習慣": {
-  "vn": "thói quen; tập quán; thói; tập tục; tục lệ\nquen; quen với (việc làm gì đó)",
-  "hv": "Tập Quán"
+  "vn": "thói quen; phong tục; thói quen thường lệ; quen với",
+  "lt": "個",
+  "hv": "Tập quán"
  },
  "當然": {
-  "vn": "phải thế; tất nhiên; đương nhiên; dĩ nhiên; nên như thế",
-  "hv": "Đương Nhiên"
+  "vn": "đương nhiên; như lẽ ra phải thế; tất nhiên; dĩ nhiên; không nghi ngờ gì",
+  "hv": "Đương nhiên"
  },
  "更": {
-  "vn": "even (more, less, etc.); thay; đổi; thay đổi; biến đổi; \ncanh giờ; trải qua； càng hơn... + adj",
+  "vn": "thay đổi hoặc thay thế; trải qua; một trong năm khoảng thời gian hai giờ mà đêm từng được chia ra; canh (ví dụ: của lính gác hoặc bảo vệ)",
   "hv": "Canh"
  },
  "醫院": {
-  "vn": "hospital",
-  "hv": "Y Viện"
+  "vn": "bệnh viện",
+  "lt": "所、家、座",
+  "hv": "Y viện"
  },
  "公司": {
-  "vn": "công ty; hãng; tập đoàn; LT:家[jia1]",
-  "hv": "Công Ty"
+  "vn": "công ty; hãng; tập đoàn",
+  "lt": "家",
+  "hv": "Công ty"
  },
  "辦公室": {
-  "vn": "office",
-  "hv": "Bạn Công Thất"
+  "vn": "văn phòng; cơ sở kinh doanh; cục",
+  "lt": "間",
+  "hv": "Biện công thất"
  },
  "工人": {
-  "vn": "công nhân; Lượng từ: 個|个[ge4], 名[ming2]",
-  "hv": "Công Nhân"
+  "vn": "công nhân; Lượng từ: 個/个, 名",
+  "hv": "Công nhân"
  },
  "護士": {
-  "vn": "y tá; LT:個|个[ge4]",
-  "hv": "Hộ Sĩ"
+  "vn": "y tá",
+  "lt": "個",
+  "hv": "Hộ sĩ"
  },
  "司機": {
-  "vn": "driver； taif see",
-  "hv": "Ty Cơ"
+  "vn": "tài xế; người lái xe",
+  "hv": "Ty cơ"
  },
- "老闆/老板": {
-  "vn": "boss; store-owners",
-  "hv": "Lão Bản/Lão Bản"
- },
+ "老闆/老板": {},
  "上班": {
-  "vn": "ddi lam; to go to work\n我們八點半開始上班",
-  "hv": "Thượng Ban"
+  "vn": "đi làm; đi trực; bắt đầu làm việc; đến văn phòng",
+  "hv": "Thượng ban"
  },
  "下班": {
-  "vn": "tan ca 下班以後，他常跟朋友一起去跑步",
-  "hv": "Hạ Ban"
+  "vn": "tan làm; tan ca",
+  "hv": "Hạ ban"
  },
  "能力": {
-  "vn": "năng lực; khả năng; LT:個|个[ge4]",
-  "hv": "Năng Lực"
+  "vn": "năng lực; khả năng",
+  "lt": "個",
+  "hv": "Năng lực"
  },
  "努力": {
   "vn": "nỗ lực; cố gắng; phấn đấu; chăm chỉ; tận tụy",
-  "hv": "Nỗ Lực"
+  "hv": "Nỗ lực"
  },
  "準備": {
-  "vn": "chuẩn bị; sắp sửa; sẵn sàng",
-  "hv": "Chuẩn Bị"
+  "vn": "sự chuẩn bị; chuẩn bị; dự định; sắp; sẵn (quỹ)",
+  "hv": "Chuẩn bị"
  },
  "打算": {
-  "vn": "dự định; định; tính toán; lo liệu; kế hoạch\n他打算坐捷運去跟朋友見面",
-  "hv": "Đả Toán"
+  "vn": "dự định; dự tính; tính toán; kế hoạch",
+  "lt": "個",
+  "hv": "Đả toán"
  },
  "計畫/計劃": {
-  "vn": "biến thể của 計劃|计划[ji4 hua4]",
-  "hv": "Kế Họa/Kế Hoạch"
+  "vn": "biến thể của 計劃|计划[ji4 hua4]"
  },
  "機會": {
-  "vn": "opportunities",
-  "hv": "Cơ Hội"
+  "vn": "cơ hội; thời cơ; dịp",
+  "lt": "個",
+  "hv": "Cơ hội"
  },
  "如果": {
-  "vn": "nếu; nếu như; nếu mà; lỡ như; giá mà",
-  "hv": "Như Quả"
+  "vn": "nếu; trong trường hợp; nếu như",
+  "hv": "Như quả"
  },
  "小學": {
-  "vn": "tiểu học",
-  "hv": "Tiểu Học"
+  "vn": "trường tiểu học; trường cấp một",
+  "hv": "Tiểu học"
  },
  "高中": {
-  "vn": "trường trung học phổ thông; viết tắt của 高級中學|高级中学[gao1 ji2 zhong1 xue2]",
-  "hv": "Cao Trung"
+  "vn": "trường trung học phổ thông; viết tắt của 高級中學/高级中学",
+  "hv": "Cao trung"
  },
  "上學": {
-  "vn": "đến trường； đi học",
-  "hv": "Thượng Học"
+  "vn": "đi học; theo học",
+  "hv": "Thượng học"
  },
  "開學": {
-  "vn": "khai giangr",
-  "hv": "Khai Học"
+  "vn": "(đối với học sinh) bắt đầu đi học; (đối với học kỳ) bắt đầu; (cũ) sáng lập trường; sự bắt đầu của học kỳ mới",
+  "hv": "Khai học"
  },
  "班": {
-  "vn": "lớp; lớp học; ca; ban; kíp; tiểu đội\nrút; rút về (quân đội); đi làm",
+  "vn": "họ [Ban1]",
   "hv": "Ban"
  },
  "年級": {
-  "vn": "năm cấp (VD năm 3 đại học), lớp 1 lớp 2",
-  "hv": "Niên Cấp"
+  "vn": "lớp; năm (trong trường học, đại học, v.v.)",
+  "lt": "個",
+  "hv": "Niên cấp"
  },
  "作業": {
-  "vn": "bài tập",
-  "hv": "Tác Nghiệp"
+  "vn": "bài tập về nhà; bài tập; công việc; nhiệm vụ; vận hành",
+  "lt": "個",
+  "hv": "Tác nghiệp"
  },
  "成績": {
-  "vn": "thành tích; thành tích; thành tựu; kết quả; grades",
-  "hv": "Thành Tích"
+  "vn": "thành tích; kết quả học tập; điểm số",
+  "lt": "項、個",
+  "hv": "Thành tích"
  },
  "語言": {
   "vn": "ngôn ngữ",
-  "hv": "Ngữ Ngôn"
+  "lt": "門、種",
+  "hv": "Ngữ ngôn"
  },
- "華語/華文": {
-  "vn": "chinese language",
-  "hv": "Hoa Ngữ/Hoa Văn"
- },
+ "華語/華文": {},
  "黑板": {
-  "vn": "bảng. Board\n黑板上的字",
-  "hv": "Hắc Bản"
+  "vn": "bảng đen",
+  "lt": "塊、個",
+  "hv": "Hắc bản"
  },
  "課本": {
-  "vn": "Sách giáo khoa",
-  "hv": "Khóa Bổn"
+  "vn": "sách giáo khoa",
+  "lt": "本",
+  "hv": "Khóa bản"
  },
  "字典": {
-  "vn": "Từ điển chữ Hán (chứa mục từ cho từng chữ đơn, khác với 詞典|词典[ci2 dian3], chứa mục từ cho từ gồm một hoặc nhiều chữ); (thông tục) từ điển; Lượng từ: 本[ben3]",
-  "hv": "Tự Điển"
+  "vn": "Từ điển chữ Hán (chứa mục từ cho từng chữ đơn, khác với 詞典/词典, chứa mục từ cho từ gồm một hoặc nhiều chữ); (thông tục) từ điển; Lượng từ: 本",
+  "hv": "Tự điển"
  },
  "注意": {
-  "vn": "để ý; chú ý",
-  "hv": "Chú Ý"
+  "vn": "chú ý đến; quan tâm đến",
+  "hv": "Chú ý"
  },
  "讀書": {
-  "vn": "to study",
-  "hv": "Độc Thư"
+  "vn": "đọc sách; học; học ở trường",
+  "hv": "Độc thư"
  },
  "回答": {
-  "vn": "dá",
-  "hv": "Hồi Đáp",
+  "vn": "trả lời; đáp; đáp án",
+  "hv": "Hồi đáp",
   "e1": "請給我一個明確的回答。",
   "e1p": "Qǐng gěi wǒ yīgè míngquè de huí dá.",
   "e1v": ") - Xin hãy cho tôi m ột câu trả lời rõ ràng."
  },
  "答": {
-  "vn": "hình thức gắn liền có nghĩa giống như từ tự do 答[da2], dùng trong 答應|答应[da1 ying5], 答理[da1 li5] vv",
+  "vn": "hình thức gắn liền có nghĩa giống như từ tự do 答, dùng trong 答應/答应, 答理 vv",
   "hv": "Đáp"
  },
  "句": {
-  "vn": "biến thể của 勾[gou1]",
+  "vn": "câu; mệnh đề; cụm từ; lượng từ cho cụm từ hoặc câu thơ",
   "hv": "Cú"
  },
  "圖": {
-  "vn": "đất đai",
+  "vn": "sơ đồ; hình ảnh; bức vẽ; biểu đồ; bản đồ",
+  "lt": "張",
   "hv": "Đồ"
  },
  "部分/部份": {
-  "vn": "phần; cổ phần; mục; miếng; LT:個|个[ge4]",
-  "hv": "Bộ Phân/Bộ Phân"
+  "vn": "phần; cổ phần; mục; miếng; LT:個|个[ge4]"
  },
  "想法": {
-  "vn": "cách nghĩ; ý kiến; quan niệm; nghĩ cách (làm gì đó); LT:個|个[ge4]",
-  "hv": "Tưởng Pháp"
+  "vn": "cách nghĩ; ý kiến; quan niệm; nghĩ cách (làm gì đó)",
+  "lt": "個",
+  "hv": "Tưởng pháp"
  },
  "學習": {
-  "vn": "learn hoc",
-  "hv": "Học Tập"
+  "vn": "học; tìm hiểu",
+  "hv": "Học tập"
  },
  "練習": {
-  "vn": "practice； luyeen tap",
-  "hv": "Luyện Tập"
+  "vn": "luyện tập; bài tập; rèn luyện; thực hành",
+  "lt": "個",
+  "hv": "Luyện tập"
  },
  "參加": {
-  "vn": "tham gia tham du\n你要參加學校的游泳比賽嗎？",
-  "hv": "Tham Gia"
+  "vn": "tham gia; tham dự",
+  "hv": "Tham gia"
  },
  "文化": {
-  "vn": "văn hóa; nền văn minh; thuộc về văn hóa; LT:個|个[ge4],種|种[zhong3]",
-  "hv": "Văn Hóa"
+  "vn": "văn hóa; nền văn minh; thuộc về văn hóa",
+  "lt": "個、種",
+  "hv": "Văn hóa"
  },
  "認為": {
   "vn": "tin; nghĩ; xem xét; cảm thấy",
-  "hv": "Nhận Vi"
+  "hv": "Nhận vi"
  },
  "清楚": {
   "vn": "rõ ràng; minh bạch; hiểu rõ; nắm rõ",
-  "hv": "Thanh Sở"
+  "hv": "Thanh sở"
  },
  "決定": {
-  "vn": "quyết định (làm gì đó); quyết tâm; quyết định; LT:個|个[ge4],項|项[xiang4]; chắc chắn",
-  "hv": "Quyết Định"
+  "vn": "quyết định (làm gì đó); quyết tâm; quyết định; chắc chắn",
+  "lt": "個、項",
+  "hv": "Quyết định"
  },
  "記得": {
-  "vn": "remember",
-  "hv": "Kí Đắc"
+  "vn": "nhớ",
+  "hv": "Ký đắc"
  },
  "忘": {
   "vn": "quên; bỏ qua; sao nhãng",
   "hv": "Vong"
  },
  "棒": {
-  "vn": "giỏi, tuyệt",
+  "vn": "gậy; côn; dùi; giỏi; có khả năng",
   "hv": "Bổng",
   "e1": "他的足球技巧非常棒。",
   "e1p": "Tā de zúqiú jìqiǎo fēicháng bàng.",
   "e1v": "Kỹ năng đá bóng của anh ấy rất giỏi."
  },
  "行": {
-  "vn": "ng",
+  "vn": "đi; đến; du lịch; chuyến thăm; tạm thời",
   "hv": "Hành",
   "e1": "我們明天要去行走。",
   "e1p": "Wǒmen míngtiān yào qù xíngzǒu.",
   "e1v": "- Chúng tôi sẽ đi bộ vào ngày mai."
  },
  "講": {
-  "vn": "kể; nói; giảng bài\n我還沒跟父母講這件事",
+  "vn": "nói; giải thích; đàm phán; nhấn mạnh; kĩ lưỡng",
   "hv": "Giảng"
  },
  "加": {
@@ -384,236 +398,245 @@
   "hv": "Gia"
  },
  "算": {
-  "vn": "calculate; tinh toan; coi la xem la",
+  "vn": "coi như; tính toán; tính; toán",
   "hv": "Toán"
  },
  "交": {
-  "vn": "giao nộp; giao; trả (tiền); bàn giao; kết bạn; (đường) giao nhau; biến thể của 跤[jiao1]",
+  "vn": "giao nộp; giao; trả (tiền); bàn giao; kết bạn",
   "hv": "Giao"
  },
  "借": {
-  "vn": "mượn; (dùng kết hợp với 給|给[gei3] hoặc 出[chu1],...) cho mượn; tận dụng; lợi dụng; (đôi khi theo sau bởi 著|着[zhe5]) bằng; với",
+  "vn": "mượn; (dùng kết hợp với 給/给 hoặc 出,...) cho mượn; tận dụng; lợi dụng; (đôi khi theo sau bởi 著/着) bằng",
   "hv": "Tá"
  },
  "還": {
-  "vn": "still; additionally\n他上個禮拜生病了， 現在還有咳嗽了",
+  "vn": "vẫn; còn đang; càng thêm; còn nữa; thậm chí hơn",
   "hv": "Hoàn"
  },
  "辦法": {
-  "vn": "Biện pháp; cách làm\n你有什麽辦法嗎？",
-  "hv": "Bạn Pháp"
+  "vn": "cách; phương pháp; cách thức (làm gì đó)",
+  "lt": "條、個",
+  "hv": "Biện pháp"
  },
  "方法": {
-  "vn": "phương pháp; cách thức; cách; LT:個|个[ge4]",
-  "hv": "Phương Pháp"
+  "vn": "phương pháp; cách thức; cách",
+  "lt": "個",
+  "hv": "Phương pháp"
  },
  "有用": {
   "vn": "hữu ích",
-  "hv": "Hữu Dụng"
+  "hv": "Hữu dụng"
  },
  "進步": {
-  "vn": "to improve; cai thien",
-  "hv": "Tiến Bộ"
+  "vn": "tiến bộ; cải thiện",
+  "lt": "個",
+  "hv": "Tiến bộ"
  },
  "圖書館": {
-  "vn": "library thư viện",
-  "hv": "Đồ Thư Quán"
+  "vn": "thư viện",
+  "lt": "家、個",
+  "hv": "Đồ thư quán"
  },
  "洗手間/廁所": {
-  "vn": "washroom （上去）",
-  "hv": "Tẩy Thủ Gian/Xí Sở"
+  "vn": "washroom （上去）"
  },
  "宿舍": {
-  "vn": "dorm; KTX",
-  "hv": "Túc Xá"
+  "vn": "ký túc xá; phòng ký túc; chỗ ở; nhà trọ",
+  "lt": "間",
+  "hv": "Túc xá"
  },
  "屋(子)": {
-  "vn": "nhà; phòng; LT:間|间[jian1]",
-  "hv": "Ốc (Tử)"
+  "vn": "nhà; phòng; LT:間|间[jian1]"
  },
  "間": {
-  "vn": "measure word for houses,\nrooms, etc.",
+  "vn": "giữa; trong số; trong khoảng thời gian hoặc không gian nhất định; phòng; phần của một phòng hoặc không gian ngang giữa hai cặp cột",
   "hv": "Gian"
  },
  "大樓": {
-  "vn": "a multi-storey building",
-  "hv": "Đại Lâu"
+  "vn": "toà nhà (khá lớn, nhiều tầng)",
+  "lt": "幢、座",
+  "hv": "Đại lâu"
  },
  "樓上": {
-  "vn": "tầng trên; lầu trên",
-  "hv": "Lâu Thượng"
+  "vn": "tầng trên; (tiếng lóng Internet) người đăng trước trong một chủ đề diễn đàn",
+  "hv": "Lâu thượng"
  },
  "樓下": {
   "vn": "tầng dưới",
-  "hv": "Lâu Hạ"
+  "hv": "Lâu hạ"
  },
  "樓梯": {
-  "vn": "thang bộ (走樓梯）",
-  "hv": "Lâu Thê"
+  "vn": "cầu thang; bộ cầu thang",
+  "lt": "個",
+  "hv": "Lâu thê"
  },
  "電梯": {
-  "vn": "thang máy; cầu thang điện; thang điện （走電梯）",
-  "hv": "Điện Thê"
+  "vn": "thang máy; thang cuốn",
+  "lt": "臺、部",
+  "hv": "Điện thê"
  },
  "廚房": {
-  "vn": "kitchen",
-  "hv": "Trù Phòng"
+  "vn": "nhà bếp",
+  "lt": "間",
+  "hv": "Trù phòng"
  },
  "客廳": {
-  "vn": "living room",
-  "hv": "Khách Thính"
+  "vn": "phòng khách (phòng để đón khách); phòng sinh hoạt chung",
+  "lt": "間",
+  "hv": "Khách thính"
  },
  "窗(子)/窗戶": {
-  "vn": "cửa sổ",
-  "hv": "Song (Tử)/Song Hộ"
+  "vn": "cửa sổ"
  },
  "家具": {
-  "vn": "furniture nội thất",
-  "hv": "Gia Cụ"
+  "vn": "đồ nội thất",
+  "lt": " 件 、 套 ",
+  "hv": "Gia cụ"
  },
  "沙發": {
-  "vn": "ghế sofa, sô pha",
-  "hv": "Sa Phát"
+  "vn": "ghế sô pha (từ mượn); (tiếng lóng Internet) người đầu tiên trả lời một bài đăng trên diễn đàn",
+  "lt": "條、張",
+  "hv": "Sa phát"
  },
- "盒/盒(子)": {
-  "vn": "hộp nhỏ; bao",
-  "hv": "Hạp/Hạp (Tử)"
- },
+ "盒/盒(子)": {},
  "關": {
-  "vn": "closed",
+  "vn": "họ [Guan1]",
   "hv": "Quan"
  },
  "燈": {
-  "vn": "đèn （開燈)",
+  "vn": "đèn; ánh sáng; đèn lồng",
+  "lt": "盞",
   "hv": "Đăng"
  },
- "冷氣(機)": {
-  "vn": "AC；may lanh （台）",
-  "hv": "Lãnh Khí (Cơ)"
- },
+ "冷氣(機)": {},
  "冰箱": {
   "vn": "tủ lạnh; (cũ) thùng đá",
-  "hv": "Băng Tương"
+  "hv": "Băng tương"
  },
  "台": {
   "vn": "Đài Loan (viết tắt); họ [Tai2]",
-  "hv": "Thai"
+  "hv": "Đài"
  },
  "電": {
-  "vn": "Điện",
+  "vn": "sét; điện; dạng kết hợp của điện; bị (hoặc gây) điện giật; cuộc gọi điện thoại hoặc điện báo, v.v.",
   "hv": "Điện",
   "e1": "停電了，所有電器都不能用了。",
   "e1p": "Tíngdiàn le, suǒyǒu diànqì dōu bùnéng yòng le.",
   "e1v": "M ất điện rồi, tất cả các thiết bị điện không sử dụng được nữa."
  },
  "乾淨": {
-  "vn": "clean; sạch sẽ",
-  "hv": "Kiền Tịnh"
+  "vn": "sạch; gọn gàng",
+  "hv": "Can tịnh"
  },
  "房租": {
-  "vn": "tiền nhà; tiền thuê nhà",
-  "hv": "Phòng Tô"
+  "vn": "tiền thuê phòng hoặc nhà",
+  "hv": "Phòng tô"
  },
  "租": {
-  "vn": "hire; rent; tiền thuê",
+  "vn": "thuê; mướn; thuê bao; cho thuê; cho mướn",
   "hv": "Tô"
  },
  "世界": {
-  "vn": "thees gio; the world\n世界很大",
-  "hv": "Thế Giới"
+  "vn": "thế giới (LT:個/个)",
+  "hv": "Thế giới"
  },
  "火": {
-  "vn": "fire",
+  "vn": "họ [Huo3]",
   "hv": "Hỏa"
  },
  "雪": {
-  "vn": "Snow",
+  "vn": "họ [Xue3]",
   "hv": "Tuyết"
  },
  "下雪": {
   "vn": "tuyết rơi",
-  "hv": "Hạ Tuyết"
+  "hv": "Hạ tuyết"
  },
  "地": {
-  "vn": "địa đất",
+  "vn": "đất; mặt đất; ruộng; vùng; đất đai",
+  "lt": "片",
   "hv": "Địa"
  },
  "河": {
-  "vn": "river; nước (一條河",
+  "vn": "sông",
+  "lt": "條、道",
   "hv": "Hà"
  },
  "湖": {
-  "vn": "lake, cái hồ\n黑板上書著一條河，一個胡",
+  "vn": "hồ",
+  "lt": "個、片",
   "hv": "Hồ"
  },
  "馬": {
-  "vn": "ngựa （匹馬）",
+  "vn": "họ [Ma3]; viết tắt của Malaysia 馬來西亞/马来西亚[Ma3 lai2 xi1 ya4]",
   "hv": "Mã"
  },
  "鳥": {
-  "vn": "chim",
+  "vn": "chim; Lượng từ: 隻/只,群; bộ \"chim\" trong chữ Hán (bộ Khang Hy số 196); (tiếng địa phương) để ý đến; (nhấn mạnh) chết tiệt",
   "hv": "Điểu"
  },
  "貓": {
-  "vn": "mèo 隻 - zhi",
+  "vn": "mèo (LT: 隻/只); (phương ngữ) trốn; (từ mượn) (thông tục) modem",
   "hv": "Miêu"
  },
  "狗": {
-  "vn": "dog",
+  "vn": "chó",
+  "lt": "隻、條",
   "hv": "Cẩu"
  },
  "海": {
-  "vn": "sea",
+  "vn": "họ [Hai3]",
   "hv": "Hải"
  },
  "草": {
-  "vn": "cỏ; rơm; bản thảo; phác thảo (một văn kiện); cẩu thả; sơ sài; LT:棵[ke1],撮[zuo3],株[zhu1],根[gen1]",
+  "vn": "cỏ; rơm; bản thảo; phác thảo (một văn kiện); cẩu thả",
+  "lt": "棵、撮、株、根",
   "hv": "Thảo"
  },
  "樹": {
-  "vn": "cây bự （大棵樹）ke",
+  "vn": "cây; trồng; triển khai",
+  "lt": "棵",
   "hv": "Thụ"
  },
  "隻": {
-  "vn": "từ chỉ động vật",
+  "vn": "lượng từ cho chim và một số động vật, một trong một cặp, một số dụng cụ, đồ chứa, v.v.",
   "hv": "Chích"
  },
  "長": {
-  "vn": "dài",
+  "vn": "chiều dài; dài; mãi mãi; luôn luôn; liên tục",
   "hv": "Trường"
  },
  "太陽": {
-  "vn": "sun",
-  "hv": "Thái Dương"
+  "vn": "mặt trời; viết tắt của 太陽穴/太阳穴",
+  "lt": "個",
+  "hv": "Thái dương"
  },
  "洗": {
-  "vn": "giặc",
+  "vn": "rửa; tắm; rửa ảnh; xào bài (lá,...); xóa (ghi âm)",
   "hv": "Tẩy"
  },
  "洗澡": {
-  "vn": "Tắm (To take a bath/shower)",
+  "vn": "tắm; tắm vòi sen",
   "hv": "Tẩy tảo",
-  "e1": "他每天晚上都洗澡。(Tā měitiān wǎnshàng dōu xǐzǎo. Anh ấy tắm mỗi tối.)",
   "mi": "洗: 氵 (Thủy); 澡: 氵 (Thủy). \nMẹo nhớ: Tắm (洗澡) là dùng nước (氵) để rửa (洗)"
  },
  "有空/有空兒": {
-  "vn": "có thời gian (làm gì đó)",
-  "hv": "Hữu Không/Hữu Không Nhi"
+  "vn": "có thời gian (làm gì đó)"
  },
  "發現": {
-  "vn": "để ý; nhận ra; phát hiện; tìm thấy; phát giác; một khám phá",
-  "hv": "Phát Hiện"
+  "vn": "để ý; nhận ra; phát hiện; tìm thấy; phát giác",
+  "hv": "Phát hiện"
  },
  "餐": {
   "vn": "bữa ăn; ăn; lượng từ cho bữa ăn",
   "hv": "Xan"
  },
  "搬": {
-  "vn": "chuyển nhà (banjia)",
+  "vn": "di chuyển (tức là tự dời đi); di chuyển (thứ gì đó tương đối nặng hoặc cồng kềnh); chuyển; dọn sao chép mà không chọn lọc",
   "hv": "Bàn"
  },
  "掛": {
-  "vn": "treo; móc (từ móc v.v.); gác máy (điện thoại); (đường dây) bị ngắt; lo lắng; quan tâm; (tiếng địa phương) gọi điện thoại; đăng ký (bệnh viện); hẹn (bác sĩ); (tiếng lóng) giết; chết; xong; rớt (kỳ thi); lượng từ cho bộ hoặc cụm vật",
+  "vn": "treo; móc (từ móc v.v.); gác máy (điện thoại); (đường dây) bị ngắt; lo lắng",
   "hv": "Quải"
  },
  "脫": {
@@ -622,378 +645,389 @@
  },
  "過年": {
   "vn": "đón Tết Nguyên Đán",
-  "hv": "Quá Niên"
+  "hv": "Quá niên"
  },
  "新年": {
-  "vn": "new year\n你參加過什麽有趣的新年活動",
-  "hv": "Tân Niên"
+  "vn": "Năm mới; Lượng từ: 個/个",
+  "hv": "Tân niên"
  },
  "游泳": {
-  "vn": "bơi; bơi lội (động từ li hợp)",
-  "hv": "Du Vịnh"
+  "vn": "bơi lội; bơi",
+  "hv": "Du vịnh"
  },
  "跑/跑步": {
-  "vn": "(động vật) cào (mặt đất)",
-  "hv": "Bào/Bào Bộ"
+  "vn": "(động vật) cào (mặt đất)"
  },
  "踢": {
-  "vn": "đá",
+  "vn": "đá; chơi (ví dụ: bóng đá); (lóng) đồng tính nữ nam tính (trong mối quan hệ đồng tính nữ)",
   "hv": "Thích"
  },
  "足球": {
-  "vn": "Bóng đá",
-  "hv": "Túc Cầu"
+  "vn": "quả bóng đá; một quả bóng đá; môn bóng đá; bóng đá",
+  "lt": "個",
+  "hv": "Túc cầu"
  },
  "籃球": {
-  "vn": "Bóng rổ",
-  "hv": "Lam Cầu"
+  "vn": "bóng rổ",
+  "lt": "個、隻",
+  "hv": "Lam cầu"
  },
  "網球": {
-  "vn": "tennis",
-  "hv": "Võng Cầu"
+  "vn": "quần vợt; trái bóng tennis",
+  "lt": "個",
+  "hv": "Võng cầu"
  },
  "棒球": {
-  "vn": "Bóng chày",
-  "hv": "Bổng Cầu"
+  "vn": "bóng chày",
+  "lt": "個、隻",
+  "hv": "Bổng cầu"
  },
  "比賽": {
-  "vn": "thi đấu; đấu; trận thi đấu; cuộc đấu; cuộc thi\n我的學校跟他的學校比賽",
-  "hv": "Bỉ Tái"
+  "vn": "cuộc thi (thể thao, v.v.); trận đấu; thi đấu",
+  "lt": "場、次",
+  "hv": "Tỉ tái"
  },
  "開始": {
-  "vn": "to begin, to start",
-  "hv": "Khai Thủy"
+  "vn": "bắt đầu; khởi đầu; ban đầu; lúc đầu",
+  "lt": "個",
+  "hv": "Khai thủy"
  },
  "騎": {
-  "vn": "ride；cưỡi ngựa chỉ những phương tiện giao thông tự lái",
+  "vn": "ngồi cưỡi; cưỡi (ngựa, xe đạp, v.v.); lượng từ cho ngựa cưỡi",
   "hv": "Kị"
  },
  "腳踏車/自行車": {
-  "vn": "xe đạp",
-  "hv": "Cước Đạp Xa/Tự Hành Xa"
+  "vn": "xe đạp"
  },
  "上網": {
-  "vn": "on the internet",
-  "hv": "Thượng Võng"
+  "vn": "lên mạng; kết nối Internet; (tài liệu,...) được tải lên Internet; (quần vợt, bóng chuyền,...) lên lưới",
+  "hv": "Thượng võng"
  },
  "網路": {
-  "vn": "mạng lưới (máy tính, viễn thông); Internet; thuật ngữ Đài Loan cho 網絡|网络[wang3 luo4]",
-  "hv": "Võng Lộ"
+  "vn": "mạng lưới (máy tính, viễn thông); Internet; thuật ngữ Đài Loan cho 網絡/网络",
+  "hv": "Võng lộ"
  },
  "網站": {
-  "vn": "website\n學校的網站上有很多學生寫的文章",
-  "hv": "Võng Trạm"
+  "vn": "trang web",
+  "hv": "Võng trạm"
  },
  "報紙": {
-  "vn": "báo; báo giấy (份)",
-  "hv": "Báo Chỉ"
+  "vn": "báo; chất liệu in báo",
+  "lt": "份、期、張",
+  "hv": "Báo chỉ"
  },
  "次": {
-  "vn": "thứ tự lần lượt",
+  "vn": "tiếp theo; thứ hai; ngày thứ hai, lần thứ hai, v.v.; thứ cấp; phó-",
   "hv": "Thứ"
  },
  "電影院": {
-  "vn": "theater",
-  "hv": "Điện Ảnh Viện"
+  "vn": "rạp chiếu phim; rạp phim",
+  "lt": "家、座",
+  "hv": "Điện ảnh viện"
  },
  "部": {
-  "vn": "phần ;bộ",
+  "vn": "bộ; phòng; ban; phần; khoa",
   "hv": "Bộ"
  },
  "場": {
   "vn": "sân phơi; lượng từ cho sự kiện và tình huống: lượt, tập, cơn",
-  "hv": "Tràng"
+  "hv": "Trường"
  },
  "音樂": {
-  "vn": "Music",
-  "hv": "Âm Lạc"
+  "vn": "âm nhạc",
+  "lt": "張、曲、段",
+  "hv": "Âm nhạc"
  },
  "票": {
-  "vn": "vé; phiếu; tiền giấy; LT:張|张[zhang1]; người bị bắt đòi tiền chuộc; biểu diễn kinh kịch không chuyên; lượng từ cho nhóm, lô, giao dịch kinh doanh",
+  "vn": "vé; phiếu; tiền giấy; người bị bắt đòi tiền chuộc; biểu diễn kinh kịch không chuyên",
+  "lt": "張",
   "hv": "Phiếu"
  },
  "活動": {
-  "vn": "tập thể dục; di chuyển; vận hành; sử dụng mối quan hệ (ảnh hưởng cá nhân); lỏng; lung lay; chủ động; có thể di chuyển; hoạt động; chiến dịch; diễn tập; hành vi; LT:項|项[xiang4],個|个[ge4]",
-  "hv": "Hoạt Động"
+  "vn": "tập thể dục; di chuyển; vận hành; sử dụng mối quan hệ (ảnh hưởng cá nhân); lỏng",
+  "lt": "項、個",
+  "hv": "Hoạt động"
  },
  "故事": {
   "vn": "tục lệ cũ",
-  "hv": "Cố Sự"
+  "hv": "Cố sự"
  },
  "聊天/聊天兒": {
-  "vn": "nói chuyện trò chuyện\nA 跟 B 聊天\n他説話很有趣，所以每個人都喜歡跟他聊天",
-  "hv": "Liêu Thiên/Liêu Thiên Nhi"
+  "vn": "nói chuyện trò chuyện"
  },
  "有時候/有時": {
-  "vn": "đôi khi",
-  "hv": "Hữu Thì Hậu/Hữu Thì"
+  "vn": "đôi khi"
  },
  "平常": {
-  "vn": "usually",
-  "hv": "Bình Thường"
+  "vn": "bình thường; phổ biến; thường thường; thông thường",
+  "hv": "Bình thường"
  },
  "總是": {
   "vn": "luôn luôn",
-  "hv": "Tổng Thị"
+  "hv": "Tổng thị"
  },
  "已經": {
-  "vn": "already, đã rồi\n我已經寫了",
-  "hv": "Dĩ Kinh"
+  "vn": "đã",
+  "hv": "Dĩ kinh"
  },
  "後來": {
-  "vn": "sau này;\n後來下雨就沒來了",
-  "hv": "Hậu Lai"
+  "vn": "sau này; sau đó; mới đến",
+  "hv": "Hậu lai"
  },
  "各": {
   "vn": "mỗi; từng",
   "hv": "Các"
  },
  "變": {
-  "vn": "thay đổi",
+  "vn": "thay đổi; trở nên khác; biến đổi; biến hóa; nổi loạn",
   "hv": "Biến",
   "e1": "他的態度變了。",
   "e1p": "Tā de tàidù biànle.",
   "e1v": "Thái độ của anh ấy đã thay đổi. 變成 biànchéng Biến thành, trở thành Vpt 雨變成雪了。 Yǔ biànchéng xuě le. Mưa đã trở thành tuyết. 變更 biàngēng Thay đổi, biến đổi V 我們需要變更計畫。 Wǒmen xūyào biàngēng jìhuà. Chúng ta cần thay đổi kế hoạch."
  },
  "才": {
-  "vn": "khả năng; tài năng; người thuộc một kiểu nào đó; một cá nhân có năng lực; rồi thì và chỉ rồi thì; vừa mới; (trước một biểu hiện về số lượng) chỉ",
+  "vn": "khả năng; tài năng; người thuộc một kiểu nào đó; một cá nhân có năng lực; rồi thì và chỉ rồi thì",
   "hv": "Tài"
  },
  "客人": {
-  "vn": "khách thăm; khách hàng; khách; LT:位[wei4]",
-  "hv": "Khách Nhân"
+  "vn": "khách thăm; khách hàng; khách",
+  "lt": "位",
+  "hv": "Khách nhân"
  },
  "客氣": {
-  "vn": "khách sáo",
+  "vn": "lịch sự; nhã nhặn; trang trọng; khiêm tốn",
   "hv": "Khách khí",
-  "e1": "你太客氣了. (Nǐ tài kèqì le). Bạn khách sáo quá.",
   "mi": "宀 (Miên), 夂 (Chỉ); 氣 (Khí). \nMẹo nhớ: Khách (客) trong nhà (宀) luôn giữ khí (氣) chất lịch sự."
  },
  "不客氣": {
-  "vn": "không có gì; đừng khách sáo",
-  "hv": "Bất Khách Khí"
+  "vn": "không có chi; đừng nhắc đến; không lịch sự; thô lỗ; cộc cằn",
+  "hv": "Bất khách khí"
  },
  "不好意思": {
-  "vn": "xin lỗi; ngại quá\n不好意思， 我遲到了",
-  "hv": "Bất Hảo Ý Tư"
+  "vn": "cảm thấy xấu hổ; thấy ngại; ngại quá (vì làm phiền ai đó)",
+  "hv": "Bất hảo ý tư"
  },
  "喂": {
-  "vn": "a particle used in addressing people, especially over the phone",
+  "vn": "a lô (khi trả lời điện thoại)",
   "hv": "Uy"
  },
  "麻煩": {
-  "vn": "rắc rối; bất tiện; không tiện; phiền phức; gây khó chịu; làm phiền ai; làm phiền ai đó",
-  "hv": "Ma Phiền"
+  "vn": "rắc rối; bất tiện; không tiện; phiền phức; gây khó chịu",
+  "hv": "Ma phiền"
  },
  "禮物": {
-  "vn": "present; gift",
-  "hv": "Lễ Vật"
+  "vn": "quà; món quà",
+  "lt": "件、個、份",
+  "hv": "Lễ vật"
  },
  "歡迎": {
-  "vn": "chào đón; đón chào; chào mừng",
-  "hv": "Hoan Nghênh"
+  "vn": "chào đón; chào mừng",
+  "hv": "Hoan nghênh"
  },
  "寄": {
-  "vn": "gửi thư",
+  "vn": "gửi; gửi thư; giao phó; phụ thuộc; tựa vào",
   "hv": "Kí"
  },
  "接": {
-  "vn": "to pick sb up；nghe điện thoại",
+  "vn": "nhận; trả lời (điện thoại); gặp hoặc chào đón ai; kết nối; bắt",
   "hv": "Tiếp"
  },
  "郵局": {
-  "vn": "post office （傢）",
-  "hv": "Bưu Cục"
+  "vn": "bưu điện",
+  "lt": "家、個",
+  "hv": "Bưu cục"
  },
  "銀行": {
-  "vn": "bank\n下午我打算去銀行換前",
-  "hv": "Ngân Hành"
+  "vn": "ngân hàng",
+  "lt": "家、個",
+  "hv": "Ngân hàng"
  },
  "壞": {
-  "vn": "ugly；xaaus",
+  "vn": "xấu; bị hỏng; hư; hỏng; (hậu tố) cực kỳ",
   "hv": "Hoại"
  },
  "幫忙": {
-  "vn": "help\n可以請幫我一個忙嗎",
-  "hv": "Bang Mang"
+  "vn": "giúp; giúp đỡ; làm ơn; làm giúp một tay",
+  "hv": "Bang mang"
  },
  "幫助": {
-  "vn": "giúp đỡ",
-  "hv": "Bang Trợ",
+  "vn": "sự giúp đỡ; hỗ trợ; giúp đỡ",
+  "hv": "Bang trợ",
   "e1": "他常常幫助別人。",
   "e1p": "Tā chángcháng bāngzhù biérén.",
   "e1v": "Anh ấy thường xuyên giúp đỡ người khác."
  },
  "小朋友": {
-  "vn": "trẻ em; LT:個|个[ge4]",
-  "hv": "Tiểu Bằng Hữu"
+  "vn": "trẻ em",
+  "lt": "個",
+  "hv": "Tiểu bằng hữu"
  },
  "信": {
-  "vn": "thư",
+  "vn": "thư; tín; tin tưởng; tin; tín ngưỡng",
+  "lt": "封",
   "hv": "Tín"
  },
  "信封": {
-  "vn": "thư phong thư",
-  "hv": "Tín Phong"
+  "vn": "phong bì; Lượng từ:個/个",
+  "hv": "Tín phong"
  },
  "認識": {
-  "vn": "quen; biết; nhận biết; quen biết； meet\n我上個禮拜認識一位中文老師",
-  "hv": "Nhận Thức"
+  "vn": "biết; nhận ra; quen thuộc; làm quen với ai đó; kiến thức",
+  "hv": "Nhận thức"
  },
  "最近": {
-  "vn": "recently; lately",
-  "hv": "Tối Cận"
+  "vn": "gần đây; sắp; tới nhất",
+  "hv": "Tối cận"
  },
  "聽說": {
-  "vn": "nghe nói",
-  "hv": "Thính Thuyết"
+  "vn": "nghe (nói); nghe rằng; nghe đồn; nghe và nói",
+  "hv": "Thính thuyết"
  },
  "見面": {
-  "vn": "meet; gap mat\nA 跟 B 見面\n我想跟你見面",
-  "hv": "Kiến Diện"
+  "vn": "gặp mặt; gặp nhau",
+  "lt": "次",
+  "hv": "Kiến diện"
  },
  "事情": {
-  "vn": "sự việc, sự tình (件 jian)\n這件事情",
-  "hv": "Sự Tình"
+  "vn": "sự việc; vấn đề; điều; công việc",
+  "lt": "件、樁",
+  "hv": "Sự tình"
  },
  "幫": {
-  "vn": "help; giúp; giúp đỡ; trợ giúp\nthành; mép; bờ; mạn; bẹ\nnhóm; tốp; đám; bọn; đội;  for",
+  "vn": "giúp; hỗ trợ; ủng hộ; giúp ai đó (tức là như một sự giúp đỡ); thuê (làm công)",
   "hv": "Bang"
  },
  "錢包": {
-  "vn": "wallet; vi",
-  "hv": "Tiễn Bao"
+  "vn": "ví; bóp tiền",
+  "hv": "Tiền bao"
  },
  "拉": {
-  "vn": "kéo; chơi (nhạc cụ dùng vĩ kéo); kéo lê; vẽ; trò chuyện; (khẩu ngữ) đi tiêu",
+  "vn": "kéo; chơi (nhạc cụ dùng vĩ kéo); kéo lê; vẽ; trò chuyện",
   "hv": "Lạp"
  },
  "啊": {
-  "vn": "a particle indicating a realization\nnhỉ; nhá; nhé; đấy; đi thôi (dùng cuối câu, tỏ ý khẳng định, thúc giục, dặn dò)",
+  "vn": "thán từ biểu thị sự ngạc nhiên; A!; Ồ!",
   "hv": "A"
  },
  "怎麼辦": {
-  "vn": "how",
-  "hv": "Chẩm Ma Bạn"
+  "vn": "phải làm sao đây",
+  "hv": "Chẩm ma biện"
  },
  "車站": {
-  "vn": "ga; bến xe; trạm xe; nhà ga",
-  "hv": "Xa Trạm"
+  "vn": "ga tàu; dừng xe buýt",
+  "lt": "處、個",
+  "hv": "Xa trạm"
  },
  "汽車": {
-  "vn": "ô-tô; xe hơi",
-  "hv": "Khí Xa"
+  "vn": "xe hơi; xe ô tô; xe buýt",
+  "lt": "輛",
+  "hv": "Khí xa"
  },
- "飛機場/機場": {
-  "vn": "airport； saan bayt",
-  "hv": "Phi Cơ Tràng/Cơ Tràng"
- },
+ "飛機場/機場": {},
  "馬路": {
-  "vn": "đường cái",
-  "hv": "Mã Lộ"
+  "vn": "đường phố; đường",
+  "lt": "條",
+  "hv": "Mã lộ"
  },
  "路口": {
-  "vn": "interaction; ngã tư",
-  "hv": "Lộ Khẩu"
+  "vn": "giao lộ; ngã tư (của đường)",
+  "hv": "Lộ khẩu"
  },
  "十字路口": {
-  "vn": "nga tu; interaction",
-  "hv": "Thập Tự Lộ Khẩu"
+  "vn": "ngã tư; giao lộ",
+  "hv": "Thập tự lộ khẩu"
  },
  "對面": {
-  "vn": "đối diện; trước mặt",
-  "hv": "Đối Diện"
+  "vn": "(ngồi) đối diện; bên kia (đường); trực tiếp phía trước; đối mặt",
+  "hv": "Đối diện"
  },
  "旅行": {
-  "vn": "travel\n我去Hanoi旅行",
-  "hv": "Lữ Hành"
+  "vn": "du lịch; hành trình; chuyến đi",
+  "lt": "趟、次",
+  "hv": "Lữ hành"
  },
  "飯店": {
-  "vn": "quán ăn; tiệm cơm; quán cơm; hiệu ăn",
-  "hv": "Phạn Điếm"
+  "vn": "nhà hàng; khách sạn",
+  "lt": "家、個",
+  "hv": "Phạn điếm"
  },
  "旅館": {
-  "vn": "hotel, motel",
-  "hv": "Lữ Quán"
+  "vn": "khách sạn; lượng từ: 家",
+  "hv": "Lữ quán"
  },
  "袋子": {
   "vn": "túi",
-  "hv": "Đại Tử"
+  "hv": "Đại tử"
  },
  "參觀": {
-  "vn": "visit；tham quan\n老闆今天帶我去參觀了一家工廠",
-  "hv": "Tham Quan"
+  "vn": "tham quan; đi dạo quanh; thăm",
+  "hv": "Tham quan"
  },
  "地圖": {
-  "vn": "map; bản đồ (張）",
-  "hv": "Địa Đồ"
+  "vn": "bản đồ",
+  "lt": "張、本",
+  "hv": "Địa đồ"
  },
- "照相機/相機": {
-  "vn": "mays anh, may chup anh",
-  "hv": "Chiếu Tương Cơ/Tương Cơ"
- },
+ "照相機/相機": {},
  "照相": {
-  "vn": "take a picture\n我弟弟很喜歡幫人照相",
-  "hv": "Chiếu Tương"
+  "vn": "chụp ảnh",
+  "hv": "Chiếu tướng"
  },
  "照片/相片/相片兒": {
-  "vn": "bức ảnh; hình ảnh; LT:張|张[zhang1],套[tao4],幅[fu2]",
-  "hv": "Chiếu Phiến/Tương Phiến/Tương Phiến Nhi"
+  "vn": "bức ảnh; hình ảnh; LT:張|张[zhang1],套[tao4],幅[fu2]"
  },
  "風景": {
-  "vn": "sence; phong cảnh; cảnh vật; quang cảnh; cảnh quan",
-  "hv": "Phong Cảnh"
+  "vn": "phong cảnh; cảnh quan",
+  "lt": "個",
+  "hv": "Phong cảnh"
  },
  "南/南部": {
-  "vn": "họ [Nan2]",
-  "hv": "Nam/Nam Bộ"
+  "vn": "họ [Nan2]"
  },
  "西/西部": {
-  "vn": "phương Tây; viết tắt của Tây Ban Nha 西班牙[Xi1 ban1 ya2]; tiếng Tây Ban Nha",
-  "hv": "Tây/Tây Bộ"
+  "vn": "phương Tây; viết tắt của Tây Ban Nha 西班牙[Xi1 ban1 ya2]; tiếng Tây Ban Nha"
  },
  "北/北部": {
-  "vn": "phía bắc; (văn cổ) bị đánh bại",
-  "hv": "Bắc/Bắc Bộ"
+  "vn": "phía bắc; (văn cổ) bị đánh bại"
  },
  "東/東部": {
-  "vn": "họ [Dong1]",
-  "hv": "Đông/Đông Bộ"
+  "vn": "họ [Dong1]"
  },
  "中間": {
-  "vn": "ở giữa; middle; among; between",
-  "hv": "Trung Gian"
+  "vn": "ở giữa; bên trong; trong; giữa; trong số",
+  "hv": "Trung gian"
  },
  "離": {
-  "vn": "cách A離B...近/遠..\n那家新的百貨公司離這理遠嗎？",
-  "hv": "Li"
+  "vn": "họ [Li2]",
+  "hv": "Ly"
  },
  "離開": {
-  "vn": "rời khỏi",
-  "hv": "Li Khai"
+  "vn": "rời khỏi; rời đi",
+  "hv": "Ly khai"
  },
  "經過": {
-  "vn": "đi qua; trải qua; quá trình; tiến trình; LT:個|个[ge4]",
-  "hv": "Kinh Quá"
+  "vn": "đi qua; trải qua; quá trình; tiến trình",
+  "lt": "個",
+  "hv": "Kinh quá"
  },
  "往": {
-  "vn": "to; forward; đi đến hướng tới\n往 + N（place）+V 往前走",
+  "vn": "đi (một hướng); đến; hướng tới; (tàu) đi về; quá khứ",
   "hv": "Vãng"
  },
  "送": {
-  "vn": "gửi; giao; truyền; tặng (như một món quà); tiễn; đi cùng; đi theo",
+  "vn": "gửi; giao; truyền; tặng (như một món quà); tiễn",
   "hv": "Tống"
  },
  "放": {
-  "vn": "để; cất; đặt\n椅子上放著一臺手機",
+  "vn": "đặt; để; phát hành; thả; để cho đi",
   "hv": "Phóng"
  },
  "近": {
-  "vn": "gần; bên; cận; kề; kế",
+  "vn": "gần; sát; khoảng chừng",
   "hv": "Cận"
  },
  "遠": {
-  "vn": "xa; viễn",
+  "vn": "xa; xa xôi; xa xăm; (nhấn mạnh trong so sánh) hơn nhiều; thấp hơn nhiều, v.v.",
   "hv": "Viễn"
  },
  "向": {
@@ -1001,66 +1035,67 @@
   "hv": "Hướng"
  },
  "轉": {
-  "vn": "rẽ\n你先往左轉， 再往右轉",
+  "vn": "xoay; chuyển hướng; chuyển giao; chuyển tiếp (thư); (Internet) chia sẻ (nội dung của người khác)",
   "hv": "Chuyển"
  },
  "掉": {
-  "vn": "rơi; rớt; tụt lại; mất; thất lạc; giảm; rớt (giá); mất (giá trị, cân nặng v.v.); vẫy; đung đưa; quay; đổi; thay; trao đổi; khoe; rụng (tóc); (dùng sau một số động từ để biểu đạt hoàn thành, thực hiện xong, loại bỏ v.v.)",
+  "vn": "rơi; rớt; tụt lại; mất; thất lạc",
   "hv": "Điệu"
  },
  "一直": {
-  "vn": "continuously, all the way; suốt; luôn luôn; liên tục; bao giờ cũng",
-  "hv": "Nhất Trực"
+  "vn": "thẳng (theo đường thẳng); liên tục; luôn luôn; suốt",
+  "hv": "Nhất trực"
  },
  "最後": {
-  "vn": "hòu",
-  "hv": "Tối Hậu",
+  "vn": "cuối cùng; sau cùng; tối hậu",
+  "hv": "Tối hậu",
   "e1": "最後，我們一起慶祝成功。",
   "e1p": "Zuìhòu, wǒmen yīqǐ qìngzhù chénggōng.",
   "e1v": "- Cuối cùng, chúng ta cùng nhau ăn mừng thành công. 最佳 zuìjiā Vs-attr Tốt nhất 這是最佳的解決方案。 Zhè shì zuìjiā de jiějué fāng'àn. - Đây là giải pháp tốt nhất. 祖母 zǔmǔ N Bà nội 我的祖母很慈祥。 Wǒ de zǔmǔ hěn cíxiáng. - Bà nội của tôi rất hiền từ. 尊敬 zūnjìng Vst Tôn kí nh 我非常尊敬我的老師。 Wǒ fēicháng zūnjìng wǒ de lǎoshī. - Tôi rất tôn kí nh thầy giáo của mì nh. 作 zuò V Làm 我正在作一個項目。 Wǒ zhèngzài zuò yīgè xiàngmù. - Tôi đang làm một dự án."
  },
  "病人": {
-  "vn": "người bệnh; bệnh nhân; người ốm; LT:個|个[ge4]",
-  "hv": "Bệnh Nhân"
+  "vn": "người bệnh; bệnh nhân; người ốm",
+  "lt": "個",
+  "hv": "Bệnh nhân"
  },
  "頭髮/髮": {
-  "vn": "tóc (trên đầu)",
-  "hv": "Đầu Phát/Phát"
+  "vn": "tóc (trên đầu)"
  },
  "手指(頭)/指頭": {
-  "vn": "đầu ngón tay; ngón tay",
-  "hv": "Thủ Chỉ (Đầu)/Chỉ Đầu"
+  "vn": "đầu ngón tay; ngón tay"
  },
  "肚(子)": {
-  "vn": "bụng; phần bụng; dạ dày; LT:個|个[ge4]",
-  "hv": "Đỗ (Tử)"
+  "vn": "bụng; phần bụng; dạ dày; LT:個|个[ge4]"
  },
  "臉": {
-  "vn": "face mặt",
+  "vn": "khuôn mặt",
+  "lt": "張、個",
   "hv": "Kiểm"
  },
  "心": {
-  "vn": "tim; tâm; trái tim; trung tâm; lõi; LT:顆|颗[ke1],個|个[ge4]",
+  "vn": "tim; tâm; trái tim; trung tâm; lõi",
+  "lt": "顆、個",
   "hv": "Tâm"
  },
  "健康": {
   "vn": "sức khỏe; khỏe mạnh",
-  "hv": "Kiện Khang"
+  "hv": "Kiện khang"
  },
  "渴": {
-  "vn": "khát nước",
+  "vn": "khát",
   "hv": "Khát"
  },
  "舒服": {
-  "vn": "comfortable",
-  "hv": "Thư Phục"
+  "vn": "thoải mái; cảm thấy khỏe",
+  "hv": "Thư phục"
  },
  "眼鏡": {
-  "vn": "mắt kính; kính mắt; kính đeo mắt;",
-  "hv": "Nhãn Kính"
+  "vn": "kính mắt; kính đeo mắt",
+  "lt": "副",
+  "hv": "Nhãn kính"
  },
  "賣": {
-  "vn": "sell; khoe; phô trương; khoe tài",
+  "vn": "bán; phản bội; không tiếc công sức; phô trương hoặc khoe khoang",
   "hv": "Mại"
  },
  "付": {
@@ -1068,227 +1103,222 @@
   "hv": "Phó"
  },
  "希望": {
-  "vn": "hi vọng; to hope",
-  "hv": "Hi Vọng"
+  "vn": "hy vọng; một hy vọng; một điều ước (LT:個/个)",
+  "hv": "Hi vọng"
  },
  "書店": {
-  "vn": "tiệm sách book store",
-  "hv": "Thư Điếm"
+  "vn": "nhà sách",
+  "lt": "家",
+  "hv": "Thư điếm"
  },
  "商店": {
-  "vn": "cửa hàng; hiệu buôn; nhà hàng",
-  "hv": "Thương Điếm"
+  "vn": "cửa hàng; tiệm",
+  "lt": "家、個",
+  "hv": "Thương điếm"
  },
  "市場": {
-  "vn": "chợ； market",
-  "hv": "Thị Tràng"
+  "vn": "khu chợ; thị trường (cũng dùng trong nghĩa trừu tượng)",
+  "hv": "Thị trường"
  },
  "超級市場/超市": {
-  "vn": "siêu thị",
-  "hv": "Siêu Cấp Thị Tràng/Siêu Thị"
+  "vn": "siêu thị"
  },
  "信用卡": {
   "vn": "thẻ tín dụng",
-  "hv": "Tín Dụng Tạp"
+  "hv": "Tín dụng tạp"
  },
  "重要": {
-  "vn": "importance; quan trọng\n現在他覺得傢人最重要",
-  "hv": "Trọng Yếu"
+  "vn": "quan trọng; đáng kể; chính yếu",
+  "hv": "Trọng yếu"
  },
  "顏色": {
-  "vn": "màu; màu sắc",
-  "hv": "Nhan Sắc"
+  "vn": "màu sắc; diện mạo; bề ngoài; vẻ mặt; sắc tố",
+  "hv": "Nhan sắc"
  },
  "黃色": {
-  "vn": "yellow",
-  "hv": "Hoàng Sắc"
+  "vn": "màu vàng; thô tục; khiêu dâm",
+  "hv": "Hoàng sắc"
  },
  "白色": {
-  "vn": "màu trắng; trắng",
-  "hv": "Bạch Sắc"
+  "vn": "màu trắng; nghĩa bóng: phản động; chống cộng sản",
+  "hv": "Bạch sắc"
  },
  "手錶/手表/錶/表": {
-  "vn": "đồng hồ đeo tay; LT:塊|块[kuai4],隻|只[zhi1],個|个[ge4]",
-  "hv": "Thủ Biểu/Thủ Biểu/Biểu/Biểu"
+  "vn": "đồng hồ đeo tay; LT:塊|块[kuai4],隻|只[zhi1],個|个[ge4]"
  },
  "襪(子)": {
-  "vn": "tất; vớ; LT:隻|只[zhi1],對|对[dui4],雙|双[shuang1]",
-  "hv": "Miệt (Tử)"
+  "vn": "tất; vớ; LT:隻|只[zhi1],對|对[dui4],雙|双[shuang1]"
  },
  "雙": {
   "vn": "họ [Shuang1]",
   "hv": "Song"
  },
  "裙(子)": {
-  "vn": "váy; LT:條|条[tiao2]",
-  "hv": "Quần (Tử)"
+  "vn": "váy; LT:條|条[tiao2]"
  },
  "褲(子)": {
-  "vn": "quần dài; quần; LT:條|条[tiao2]",
-  "hv": "Khố (Tử)"
+  "vn": "quần dài; quần; LT:條|条[tiao2]"
  },
  "大衣": {
-  "vn": "áo khoác dài; áo măng tô; áo choàng; LT:件[jian4]",
-  "hv": "Đại Y"
+  "vn": "áo khoác dài; áo măng tô; áo choàng",
+  "lt": "件",
+  "hv": "Đại y"
  },
  "帽(子)": {
-  "vn": "mũ; nón; (bóng) nhãn; mang tiếng xấu; LT: 頂|顶[ding3]",
-  "hv": "Mạo (Tử)"
+  "vn": "mũ; nón; (bóng) nhãn; mang tiếng xấu; LT: 頂|顶[ding3]"
  },
  "皮包": {
-  "vn": "túi da",
-  "hv": "Bì Bao"
+  "vn": "túi xách; cặp tài liệu",
+  "hv": "Bì bao"
  },
  "外套": {
-  "vn": "ao khoac",
-  "hv": "Ngoại Sáo"
+  "vn": "áo khoác; áo jacket",
+  "lt": "件",
+  "hv": "Ngoại sáo"
  },
  "小心": {
-  "vn": "to be careful, to take care",
-  "hv": "Tiểu Tâm"
+  "vn": "cẩn thận; chú ý",
+  "hv": "Tiểu tâm"
  },
  "比較/較": {
-  "vn": "so sánh; đối chiếu; tương đối; khá; phân tích so sánh; sự so sánh",
-  "hv": "Bỉ Giác/Giác"
+  "vn": "so sánh; đối chiếu; tương đối; khá; phân tích so sánh; sự so sánh"
  },
  "差不多": {
-  "vn": "nhu nhau; the same 差不多+Num， xấp xỉ\n差不多七點",
-  "hv": "Soa Bất Đa"
+  "vn": "gần; suýt nữa; xấp xỉ; khoảng như nhau; đủ tốt",
+  "hv": "Sai bất đa"
  },
  "戴": {
-  "vn": "đội; đeo; cài; mang",
+  "vn": "họ [Dai4]",
   "hv": "Đái"
  },
  "試": {
-  "vn": "try",
+  "vn": "thử; thí nghiệm; thi; cuộc kiểm tra; bài kiểm tra",
   "hv": "Thí"
  },
  "輕": {
-  "vn": "nhẹ;nhẹ nhàng; đơn giản",
+  "vn": "nhẹ; dễ; dịu dàng; mềm mại; khinh suất",
   "hv": "Khinh"
  },
  "重": {
-  "vn": "heavy\n帶這麽重的東西",
+  "vn": "nặng; nghiêm trọng; coi trọng",
   "hv": "Trọng"
  },
  "樣子": {
   "vn": "dáng vẻ; tác phong; kiểu mẫu; hình mẫu",
-  "hv": "Dạng Tử"
+  "hv": "Dạng tử"
  },
  "特別": {
-  "vn": "special；đặc biệt\n這家餐廳很特別， 沒有菜單\n這家餐廳的菜特別很好吃",
-  "hv": "Đặc Biệt"
+  "vn": "khác thường; đặc biệt; rất; đặc biệt là; cho một mục đích cụ thể",
+  "hv": "Đặc biệt"
  },
  "簡單": {
-  "vn": "đơn giản",
-  "hv": "Giản Đan"
+  "vn": "đơn giản; không phức tạp",
+  "hv": "Giản đơn"
  },
  "其他/其它": {
-  "vn": "khác; (điều gì đó hoặc ai đó) khác; phần còn lại",
-  "hv": "Kì Tha/Kì Tha"
+  "vn": "khác; (điều gì đó hoặc ai đó) khác; phần còn lại"
  },
  "聲音/聲": {
-  "vn": "giọng; âm thanh; LT:個|个[ge4]",
-  "hv": "Thanh Âm/Thanh"
+  "vn": "giọng; âm thanh; LT:個|个[ge4]"
  },
  "好像": {
-  "vn": "như; hình như; dường như;  giống như; giống hệt; na ná; y như; có vẻ",
-  "hv": "Hảo Tượng"
+  "vn": "như thể; giống như",
+  "hv": "Hảo tượng"
  },
  "奇怪": {
-  "vn": "kỳ lạ; kỳ quái\n大家都覺得很奇怪",
-  "hv": "Kì Quái"
+  "vn": "kỳ lạ; lập dị; ngạc nhiên; bối rối",
+  "hv": "Kỳ quái"
  },
  "三明治": {
-  "vn": "sandwich",
-  "hv": "Tam Minh Trì"
+  "vn": "bánh sandwich (từ mượn)",
+  "lt": "個",
+  "hv": "Tam minh trị"
  },
  "漢堡": {
   "vn": "Hamburg (thành phố Đức)",
-  "hv": "Hán Bảo"
+  "hv": "Hán bảo"
  },
  "蘋果": {
-  "vn": "apple",
-  "hv": "Bình Quả"
+  "vn": "quả táo",
+  "lt": "個、顆",
+  "hv": "Bình quả"
  },
  "西瓜": {
   "vn": "dưa hấu",
-  "hv": "Tây Qua"
+  "lt": "顆、個",
+  "hv": "Tây qua"
  },
  "啤酒": {
-  "vn": "bia",
-  "hv": "啤 Tửu"
+  "vn": "bia (từ mượn)",
+  "lt": "杯、瓶、罐、桶、缸",
+  "hv": "啤 tửu"
  },
  "紅茶": {
-  "vn": "hồng trà",
-  "hv": "Hồng Trà"
+  "vn": "trà đen",
+  "lt": "杯、壺",
+  "hv": "Hồng trà"
  },
  "點心": {
-  "vn": "điểm tâm, bánh; snack light refreshments",
-  "hv": "Điểm Tâm"
+  "vn": "món ăn nhẹ; điểm tâm; bánh ngọt; dimsum (trong ẩm thực Quảng Đông); tráng miệng",
+  "hv": "Điểm tâm"
  },
  "冰淇淋": {
   "vn": "kem",
-  "hv": "Băng Kì Lâm"
+  "hv": "Băng kì lâm"
  },
  "青菜": {
   "vn": "rau xanh; cải thìa",
-  "hv": "Thanh Thái"
+  "hv": "Thanh thái"
  },
  "糖": {
-  "vn": "đường; chất đường",
+  "vn": "đường; kẹo; ngọt",
+  "lt": "顆、塊",
   "hv": "Đường"
  },
  "叉(子)": {
-  "vn": "nĩa; LT:把[ba3]",
-  "hv": "Xoa (Tử)"
+  "vn": "nĩa; LT:把[ba3]"
  },
- "刀(子)": {
-  "vn": "dao; LT:把[ba3]",
-  "hv": "Đao (Tử)"
- },
+ "刀(子)": {},
  "湯匙": {
-  "vn": "thìa canh; thìa súp; LT:把[ba3]",
-  "hv": "Thang Thi"
+  "vn": "thìa canh; thìa súp",
+  "lt": "把",
+  "hv": "Thang thi"
  },
  "盤/盤(子)": {
-  "vn": "đĩa; mâm; khay; bàn; ổ cứng (tin học); xây; quấn; kiểm tra; xem xét; chuyển nhượng (tài sản); sang nhượng; lượng từ cho đồ ăn: món, phần; lượng từ cho cuộn dây; lượng từ cho ván cờ",
-  "hv": "Bàn/Bàn (Tử)"
+  "vn": "đĩa; mâm; khay; bàn; ổ cứng (tin học); xây; quấn; kiểm tra; xem xét; chuyển nhượng (tài sản); sang nhượng; lượng từ cho đồ ăn: món, phần; lượng từ cho cuộn dây; lượng từ cho ván cờ"
  },
  "片": {
-  "vn": "tấm; bức; đĩa; phiến; phim",
+  "vn": "đĩa; tấm",
   "hv": "Phiến"
  },
  "瓶/瓶(子)": {
-  "vn": "chai; bình; ấm; LT:個|个[ge4]; lượng từ cho rượu và chất lỏng",
-  "hv": "Bình/Bình (Tử)"
+  "vn": "chai; bình; ấm; LT:個|个[ge4]; lượng từ cho rượu và chất lỏng"
  },
  "支": {
-  "vn": "đơn vị cho điện thoại; chống đỡ",
+  "vn": "họ [Zhi1]",
   "hv": "Chi"
  },
  "份": {
-  "vn": "一份報紙\n一份工作",
+  "vn": "lượng từ cho quà tặng, báo, tạp chí, giấy tờ, báo cáo, hợp đồng, v.v.",
   "hv": "Phân"
  },
  "道": {
-  "vn": "đường; con đường (LT:條|条[tiao2],股[gu3]); (hình thức kết hợp) cách; lý do; nguyên tắc; (hình thức kết hợp) một kỹ năng; một nghệ thuật; một chuyên môn; (Đạo giáo) con Đường; Đạo; nói (dùng để dẫn lời trực tiếp, như trong tiểu thuyết); (hình thức kết hợp) biểu đạt; gửi lời (lời nói lịch sự); lượng từ cho những vật dài mỏng (sông, vết nứt, v.v.), rào cản (tường, cửa, v.v.), câu hỏi (trong kỳ thi, v.v.), mệnh lệnh, món ăn trong bữa ăn, bước trong quy trình; (cũ) đạo lộ (đơn vị hành chính)",
+  "vn": "đường; con đường (LT:條/条,股); (hình thức kết hợp) cách; lý do; nguyên tắc",
   "hv": "Đạo"
  },
  "一半/一半兒": {
-  "vn": "phân nửa; một phần hai; một nửa",
-  "hv": "Nhất Bán/Nhất Bán Nhi"
+  "vn": "phân nửa; một phần hai; một nửa"
  },
  "味道": {
-  "vn": "hương vị; mùi vị; (nghĩa bóng) cảm giác (về...); cảm nhận (về...); nét (của...); (nghĩa bóng) hứng thú; thú vị; (phương ngữ) mùi; mùi hương",
-  "hv": "Vị Đạo"
+  "vn": "hương vị; mùi vị; (nghĩa bóng) cảm giác (về...); cảm nhận (về...); nét (của...)",
+  "hv": "Vị đạo"
  },
  "酸": {
-  "vn": "chua; chua xót; đau lòng; đau buồn; đau; sưng đau; qua loa; không thực tế; châm chọc; một loại axit",
+  "vn": "chua; chua xót; đau lòng; đau buồn; đau",
   "hv": "Toan"
  },
  "苦": {
-  "vn": "đắng; gian khổ; đau khổ; chịu đựng; gây khổ đau; một cách khổ sở",
+  "vn": "đắng; gian khổ; đau khổ; chịu đựng; gây khổ đau",
   "hv": "Khổ"
  },
  "鹹": {
@@ -1296,23 +1326,24 @@
   "hv": "Hàm"
  },
  "辣": {
-  "vn": "hot (spicy)",
+  "vn": "cay (nóng); hăng; (ớt, hành sống, v.v.) làm rát; nóng bỏng",
   "hv": "Lạt"
  },
  "香": {
-  "vn": "thơm; thơm tho\nhương ( Cây cỏ có mùi thơm hoặc vật gì làm bằng chất thơm)",
+  "vn": "thơm; ngửi thơm; hương thơm; ngon hoặc hấp dẫn; (ăn) ngon lành",
+  "lt": " 根",
   "hv": "Hương"
  },
  "條": {
-  "vn": "measure word for road; fish, river,...",
+  "vn": "dải; mục; điều; khoản (của luật hoặc hiệp ước); lượng từ cho những vật dài mỏng (ruy băng, sông, đường, quần dài, v.v.)",
   "hv": "Điều"
  },
  "種": {
-  "vn": "kind of",
+  "vn": "hạt; loài; loại; kiểu; lượng từ cho loại, kiểu, dạng",
   "hv": "Chủng"
  },
  "包": {
-  "vn": "gói, bao",
+  "vn": "họ [Bao1]",
   "hv": "Bao",
   "e1": "媽媽包了一些餃子。",
   "e1p": "Māmā bāole yīxiē jiǎozi.",
@@ -1320,67 +1351,62 @@
  },
  "全部": {
   "vn": "toàn bộ; tất cả",
-  "hv": "Toàn Bộ"
+  "hv": "Toàn bộ"
  },
  "所有": {
   "vn": "tất cả; có; sở hữu",
-  "hv": "Sở Hữu"
+  "hv": "Sở hữu"
  },
  "需要": {
-  "vn": "cần",
-  "hv": "Nhu Yếu"
+  "vn": "cần; muốn; yêu cầu; đòi hỏi; nhu cầu",
+  "hv": "Nhu yếu"
  },
  "烤": {
   "vn": "nướng; nướng bằng lò; nướng lửa",
   "hv": "Khảo"
  },
  "過": {
-  "vn": "qua; đi qua; chảy qua; quá; hơn; vượt\nrất; quá\nlần; lượt\nlỗi; sai lầm; sai sót",
+  "vn": "họ [Guo1]",
   "hv": "Quá"
  },
  "但是/但": {
-  "vn": "Nhưng",
-  "hv": "Đãn Thị/Đãn",
-  "e1": "我想去旅行，但我沒有時間。",
-  "e1p": "Wǒ xiǎng qù lǚxíng, dàn wǒ méiyǒu shíjiān.",
-  "e1v": "Tôi muốn đi du lịch nhưng tôi không có thời gian."
+  "vn": "Nhưng"
  },
  "或是": {
-  "vn": "hoặc; hoặc là; có lẽ là; có thể là",
-  "hv": "Hoặc Thị"
+  "vn": "hoặc; một trong hai",
+  "hv": "Hoặc thị"
  },
  "要是": {
   "vn": "(thông tục) nếu",
-  "hv": "Yếu Thị"
+  "hv": "Yếu thị"
  },
  "把": {
-  "vn": "cầm; nắm; bám; mang; đem; lấy",
+  "vn": "cầm; nắm; đỡ em bé để đi tiểu hoặc đại tiện; tay cầm; lượng từ: nắm, bó, chùm",
   "hv": "Bả"
  },
  "被": {
-  "vn": "chăn; đắp (bằng); (văn học) chịu (một điều không may); dùng để chỉ thể bị động (đặt trước người thực hiện hành động như \"bởi\" trong câu bị động tiếng Anh, hoặc, nếu không nhắc đến người thực hiện, thì đặt trước động từ); (khoảng năm 2009) (mỉa mai hoặc hài hước) dùng để chỉ rằng từ sau đó nên được hiểu là trong dấu ngoặc kép (như trong 被旅遊|被旅游[bei4 lu:3 you2] \"đi du lịch\", chẳng hạn)",
+  "vn": "chăn; đắp (bằng); (văn học) chịu (một điều không may); dùng để chỉ thể bị động (đặt trước người thực hiện hành động như \"bởi\" trong câu bị động tiếng Anh, hoặc, nếu không nhắc đến người thực hiện, thì đặt trước động từ); (khoảng năm 2009) (mỉa mai hoặc hài hước) dùng để chỉ rằng từ sau đó nên được hiểu là trong dấu ngoặc kép (như trong 被旅遊/被旅游 \"đi du lịch\", chẳng hạn)",
   "hv": "Bị"
  },
  "讓": {
-  "vn": "nhường; cho phép; để ai đó làm gì; bảo ai đó làm gì; khiến ai đó (cảm thấy buồn, v.v.); bởi (chỉ tác nhân trong câu bị động, như 被[bei4])",
+  "vn": "nhường; cho phép; để ai đó làm gì; bảo ai đó làm gì; khiến ai đó (cảm thấy buồn, v.v.)",
   "hv": "Nhượng"
  },
  "雖然": {
-  "vn": "mặc dù; cho dù (thường dùng kết hợp với 可是[ke3 shi4] hoặc 但是[dan4 shi4],...)",
-  "hv": "Tuy Nhiên"
+  "vn": "mặc dù; cho dù (thường dùng kết hợp với 可是 hoặc 但是,...)",
+  "hv": "Tuy nhiên"
  },
  "那麼": {
-  "vn": "then; sau đó",
-  "hv": "Na Ma"
+  "vn": "như vậy; theo cách đó; hoặc là; quá; rất nhiều",
+  "hv": "Na ma"
  },
  "這麼": {
-  "vn": "như vậy; so",
-  "hv": "Giá Ma"
+  "vn": "nhiều như vậy; như thế này; bao nhiêu?; theo cách này; như thế",
+  "hv": "Giá ma"
  },
  "本來": {
-  "vn": "Vốn dĩ, ban đầu (Originally, at first)",
+  "vn": "gốc gác; vốn dĩ; lúc đầu; không cần nói cũng rõ; tất nhiên",
   "hv": "Bản lai",
-  "e1": "我本來想去，但是後來沒時間了。(Wǒ běnlái xiǎng qù, dànshì hòulái méi shíjiān le.) Ban đầu tôi muốn đi, nhưng sau đó không có thời gian.",
   "mi": "本 (Bản - gốc) + 來 (Lai - đến). Mẹo nhớ: Vốn dĩ là cái gốc (本) ban đầu."
  },
  "啦": {
@@ -1393,23 +1419,22 @@
  },
  "以為": {
   "vn": "nghĩ rằng (tức là cho là đúng ...) (Thường có hàm ý rằng quan niệm đó là sai lầm – ngoại trừ khi diễn đạt ý kiến hiện tại của chính mình.)",
-  "hv": "Dĩ Vi"
+  "hv": "Dĩ vi"
  },
  "有的": {
   "vn": "(có) một số (người...); một số (tồn tại)",
-  "hv": "Hữu Đích"
+  "hv": "Hữu đích"
  },
  "替": {
-  "vn": "thay mặt; on behalf of; for",
+  "vn": "thay thế cho; thay chỗ; thay thế; cho; thay mặt",
   "hv": "Thế"
  },
  "一下(子)/一下子兒": {
-  "vn": "trong chốc lát; tất cả cùng một lúc; đột nhiên",
-  "hv": "Nhất Hạ (Tử)/Nhất Hạ Tử Nhi"
+  "vn": "trong chốc lát; tất cả cùng một lúc; đột nhiên"
  },
  "不過": {
-  "vn": "Nhưng",
-  "hv": "Bất Quá",
+  "vn": "chỉ; chỉ là; không nhiều hơn; nhưng; tuy nhiên",
+  "hv": "Bất quá",
   "e1": "我想去旅行，不過沒有時間。",
   "e1p": "Wǒ xiǎng qù lǚxíng, bùguò méiyǒu shíjiān.",
   "e1v": "Tôi muốn đi du lịch, nhưng không có thời gian. 不見(了) bùjiàn(le) Không gặp, không thấy nữa Vp 我的手機不見了。 Wǒ de shǒujī bùjiàn le. Điện thoại của tôi không thấy đâu nữa."
