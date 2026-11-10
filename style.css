@@ -182,6 +182,41 @@ details.more summary { cursor: pointer; font-weight: 700; font-size: 1.35rem; pa
 .verdict { font-size: 22px; font-weight: 700; text-align: center; }
 .verdict.good { color: var(--jade); } .verdict.bad { color: var(--seal); }
 
+/* Sentence Flashcard with Audio */
+.front-sentence {
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--ink);
+  margin: 12px auto 6px;
+  padding: 10px 16px;
+  background: var(--paper);
+  border: 1.5px dashed var(--line);
+  border-radius: 10px;
+  max-width: 600px;
+  text-align: center;
+}
+.front-audio-btn {
+  margin: 8px 0 4px;
+  display: flex;
+  justify-content: center;
+}
+.front-audio-btn button {
+  font-size: 15px;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--jade);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.front-audio-btn button:hover {
+  background: var(--jade-soft);
+  border-color: var(--jade);
+}
+
 /* Unified Grading Box - 6 Memory Levels */
 .grade-box {
   background: var(--surface);

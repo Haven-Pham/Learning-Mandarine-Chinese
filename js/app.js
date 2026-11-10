@@ -291,7 +291,15 @@ function frontHTML(r) {
     if (r.t === "bui") return `<div class="front"><div class="prompt">${esc(it.e1v)}</div><div class="task">Nói câu này bằng tiếng Trung, dùng mẫu <span class="han">${esc(it.w)}</span></div></div>`;
     return `<div class="front"><div class="cz">${esc(it.cz)}</div><div class="task">${esc(it.e2v)}<br>Điền phần còn thiếu</div></div>`;
   }
-  if (r.t === "rec") return `<div class="front"><div class="big">${esc(it.w)}</div><div class="task">Nghĩa là gì? Đọc thế nào?</div></div>`;
+  if (r.t === "rec") {
+    const ex = it.e1 || it.e2;
+    return `<div class="front">
+      <div class="big" lang="zh-Hant">${esc(it.w)}</div>
+      ${ex ? `<div class="front-sentence han">${esc(ex)}</div>` : ""}
+      <div class="front-audio-btn">${sp(ex || it.w, ex ? "▶ Nghe câu" : "▶ Nghe phát âm")}</div>
+      <div class="task">🎧 Nghe audio → 📖 Đọc chữ → 💡 Hiểu nghĩa</div>
+    </div>`;
+  }
   if (r.t === "lis") return `<div class="front"><div class="emoji" aria-hidden="true">🎧</div><div class="prompt">Nghe và đoán nghĩa</div>
     <div class="actions center">${sp(it.w, "nghe từ")}${it.e1 ? sp(it.e1, "nghe câu") : ""}</div><div class="task">Nói nghĩa của từ${it.e1 ? " và của câu ví dụ" : ""}</div></div>`;
   if (r.t === "wri") return `<div class="front">${it.img ? `<div class="emoji" aria-hidden="true">${esc(it.img)}</div>` : ""}<div class="prompt">${esc(it.vn || it.en)}</div>
@@ -784,7 +792,10 @@ function renderCard() {
   });
   const rv = $("#reveal"); if (rv) rv.onclick = reveal;
   $("#stop").onclick = () => { S.session = null; location.hash = "#trang-chu"; };
-  if (!ss.shown && r.t === "lis" && r.n.kind !== "grammar") say(itemOf(r.n).w);
+  if (!ss.shown && r.n.kind !== "grammar") {
+    const it = itemOf(r.n);
+    say((r.t === "rec" && (it.e1 || it.e2)) ? (it.e1 || it.e2) : it.w);
+  }
 }
 function reveal() { const ss = S.session; if (!ss || !ss.current || ss.shown) return; ss.shown = true; renderCard(); window.scrollTo(0, 0);
   const r = ss.current; if (r.n.kind !== "grammar" && r.t !== "lis") say(itemOf(r.n).w); }
@@ -1269,7 +1280,11 @@ VIEWS["cai-dat"] = () => {
       <div class="actions"><button type="button" class="primary" id="backup">Sao lưu ra file</button>
         <label class="filebtn" for="restore">Khôi phục từ file<input type="file" id="restore" accept="application/json,.json"></label></div>
       <div class="row2"><label><span><input type="radio" name="rmode" value="merge" checked> Gộp: giữ kết quả mới hơn của từng thẻ</span></label><label><span><input type="radio" name="rmode" value="replace"> Thay toàn bộ bằng file</span></label></div>
-      <div class="msg" id="bmsg"></div></div>
+      <div class="msg" id="bmsg"></div>
+      <div class="actions" style="margin-top:14px;border-top:1px dashed var(--line);padding-top:12px;">
+        <button type="button" id="btnForceReload" class="small">🔄 Tải lại bản mới nhất (Xóa cache)</button>
+        <span class="sub" style="font-size:12.5px;">Bấm nút này nếu trình duyệt trên điện thoại chưa hiện giao diện mới nhất.</span>
+      </div></div>
     <div class="panel"><h2 class="h2">Nguồn dữ liệu</h2><ul class="src">
       <li>Bảng từ TOCFL 2024 (華語八千詞表), Trung tâm SC-TOP · tocfl.edu.tw</li>
       <li>CC-CEDICT, giấy phép CC BY-SA 4.0 · mdbg.net</li>
@@ -1453,6 +1468,23 @@ VIEWS["cai-dat"] = () => {
     try { const data = JSON.parse(await f.text()); const mode = document.querySelector("input[name=rmode]:checked").value; await Store.importAll(data, mode); await loadProgress();
       $("#bmsg").textContent = `Đã khôi phục ${fmt(Object.keys(data.srs || {}).length)} thẻ từ ${f.name}.`; }
     catch (err) { $("#bmsg").textContent = "Không khôi phục được: " + err.message; } };
+  const btnReload = $("#btnForceReload");
+  if (btnReload) {
+    btnReload.onclick = async () => {
+      btnReload.disabled = true;
+      try {
+        if ("caches" in window) {
+          const ks = await caches.keys();
+          await Promise.all(ks.map((k) => caches.delete(k)));
+        }
+        if ("serviceWorker" in navigator) {
+          const regs = await navigator.serviceWorker.getRegistrations();
+          for (const r of regs) await r.unregister();
+        }
+      } catch (e) {}
+      location.reload(true);
+    };
+  }
 };
 async function saveSettings() { await Store.put("kv", "settings", JSON.parse(JSON.stringify(S.settings))); updateBadge(); }
 async function loadProgress() {
@@ -1551,5 +1583,12 @@ function initSyncUI() {
       S.ced = m; const h = location.hash; if (h.startsWith("#tu") || h.startsWith("#thu-muc") || h.startsWith("#nhap")) route();
     }).catch(() => {});
   } catch (e) { $("#view").innerHTML = `<div class="note">Không tải được dữ liệu: ${esc(e.message)}. Nếu mở bằng file trực tiếp trên máy, hãy dùng đường link GitHub Pages.</div>`; }
-  if ("serviceWorker" in navigator && location.protocol === "https:") navigator.serviceWorker.register("sw.js").catch(() => {});
+  if ("serviceWorker" in navigator && location.protocol === "https:") {
+    navigator.serviceWorker.register("sw.js").then((reg) => {
+      reg.update();
+    }).catch(() => {});
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      location.reload();
+    });
+  }
 })();
