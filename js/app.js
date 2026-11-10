@@ -1264,7 +1264,13 @@ function initSyncUI() {
     $("#view").innerHTML = `<div class="note">Đang tải bảng từ…</div>`;
     const [t, decks] = await Promise.all([getJSON("data/tocfl.json"), getJSON("data/decks.json")]);
     S.bands = t.bands; S.tocfl = t.words; S.decks = decks;
-    try { const vi = await getJSON("data/vi/index.json"); for (const f of vi.files || []) { const part = await getJSON("data/vi/" + f); for (const [w, v] of Object.entries(part)) S.vi.set(w, v); } } catch (e) { /* Vietnamese batches not added yet */ }
+    try {
+      const vi = await getJSON("data/vi/index.json");
+      const parts = await Promise.all((vi.files || []).map((f) => getJSON("data/vi/" + f)));
+      for (const part of parts) {
+        for (const [w, v] of Object.entries(part)) S.vi.set(w, v);
+      }
+    } catch (e) { console.warn("Vietnamese batches not loaded:", e); }
     try { for (const a of await getJSON("data/abbr.json")) { S.abbrS.set(a.s, a); if (!S.abbrF.has(a.f)) S.abbrF.set(a.f, a); } } catch (e) { /* no abbreviation list */ }
     buildNotes();
     $("#view").innerHTML = `<div class="note">Đang mở tiến độ học…</div>`;
