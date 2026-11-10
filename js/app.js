@@ -1217,7 +1217,10 @@ VIEWS["cai-dat"] = () => {
           <label for="replaceToken">Token mới nếu kết nối đã hết hạn
             <input type="password" id="replaceToken" autocomplete="off" placeholder="Dán token GitHub có quyền gist">
           </label>
-          <button type="button" class="small" id="btnReplaceToken">Kết nối lại Gist cũ</button>
+          <label for="replaceGistId">Gist ID cần dùng chung giữa các thiết bị
+            <input type="text" id="replaceGistId" autocomplete="off" spellcheck="false">
+          </label>
+          <button type="button" class="small" id="btnReplaceToken">Kết nối lại Gist này</button>
           <div class="msg" id="replaceTokenMsg" role="status"></div>
           <label class="inline" style="margin-top:8px;">
             <input type="checkbox" id="autoSyncCheck" checked> Tự động đồng bộ khi mở trang và sau mỗi lượt học
@@ -1237,6 +1240,9 @@ VIEWS["cai-dat"] = () => {
                 Bấm vào đây để tạo Token nhanh trên GitHub
               </a> (chỉ cần chọn quyền <code>gist</code>, bấm Generate token rồi copy dán vào đây).
             </div>
+            <label for="ghGistIdInput">Gist ID đang dùng trên máy khác (nếu có)
+              <input type="text" id="ghGistIdInput" autocomplete="off" spellcheck="false">
+            </label>
             <div class="actions" style="margin-top:4px;">
               <button type="button" class="primary" id="btnConnectGist">Kết nối đám mây</button>
             </div>
@@ -1314,6 +1320,7 @@ VIEWS["cai-dat"] = () => {
     if (unconnBlock) unconnBlock.hidden = isConn;
     if (isConn) {
       const gid = $("#displayGistId"); if (gid) gid.textContent = cfg.gistId;
+      const editGid = $("#replaceGistId"); if (editGid && !editGid.value) editGid.value = cfg.gistId;
       const lsync = $("#displayLastSync");
       if (lsync) {
         const state = Sync.getStatus();
@@ -1338,7 +1345,7 @@ VIEWS["cai-dat"] = () => {
       btnConn.disabled = true;
       if (msg) { msg.textContent = "Đang kết nối GitHub và tạo kho đồng bộ..."; msg.className = "msg"; }
       try {
-        await Sync.connectWithToken(token);
+        await Sync.connectWithToken(token, $("#ghGistIdInput").value.trim());
         if (msg) { msg.textContent = "✓ Kết nối thành công!"; msg.className = "msg"; }
         updateSyncView();
       } catch (err) {
@@ -1357,7 +1364,7 @@ VIEWS["cai-dat"] = () => {
     btnReplace.disabled = true;
     msg.textContent = "Đang kiểm tra Gist cũ...";
     try {
-      await Sync.connectWithToken(token, Sync.getConfig().gistId);
+      await Sync.connectWithToken(token, $("#replaceGistId").value.trim());
       $("#replaceToken").value = "";
       msg.textContent = "Đã kết nối và đồng bộ lại.";
       updateSyncView();
