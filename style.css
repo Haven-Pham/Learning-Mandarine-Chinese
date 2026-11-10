@@ -182,14 +182,14 @@ details.more summary { cursor: pointer; font-weight: 700; font-size: 1.35rem; pa
 .verdict { font-size: 22px; font-weight: 700; text-align: center; }
 .verdict.good { color: var(--jade); } .verdict.bad { color: var(--seal); }
 
-/* Unified Grading Box */
+/* Unified Grading Box - 6 Memory Levels */
 .grade-box {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--r);
   padding: 16px 14px;
   display: grid;
-  gap: 12px;
+  gap: 10px;
   box-shadow: 0 1px 3px rgba(169, 128, 31, .08);
 }
 .grade-box-head {
@@ -212,61 +212,85 @@ details.more summary { cursor: pointer; font-weight: 700; font-size: 1.35rem; pa
   font-size: 13.5px;
   color: var(--muted);
 }
-.grade-box .grades {
-  margin-top: 2px;
-}
-.grade-box-divider {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: .05em;
-  margin-top: 2px;
-}
-.grade-box-divider::before,
-.grade-box-divider::after {
-  content: "";
-  flex: 1;
-  border-bottom: 1px dashed var(--line);
-}
-.grade-box-divider:not(:empty)::before {
-  margin-right: .75em;
-}
-.grade-box-divider:not(:empty)::after {
-  margin-left: .75em;
-}
-.grade-whole-wrap {
-  display: grid;
-  gap: 8px;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 12px 14px;
-}
-.grade-whole-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 14.5px;
-  font-weight: 600;
-  color: var(--ink);
-}
-.grade-whole-select {
-  font-size: 15px;
-  padding: 9px 12px;
-  background: var(--surface);
-  border-color: var(--line);
-  cursor: pointer;
-  border-radius: 8px;
-}
-.grade-whole-wrap .sub {
+.grade-box .sub {
   font-size: 13px;
   color: var(--muted);
   line-height: 1.4;
 }
+
+/* 6-Level Grid & Buttons */
+.grades-6 {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 8px;
+  margin: 2px 0;
+}
+@media (max-width: 680px) {
+  .grades-6 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+}
+@media (max-width: 350px) {
+  .grades-6 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+}
+
+.lvl-btn {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 3px !important;
+  padding: 10px 4px !important;
+  border-radius: 8px !important;
+  border: 1.5px solid var(--line) !important;
+  background: var(--surface) !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+  min-height: 62px !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  user-select: none !important;
+}
+.lvl-btn:active {
+  transform: scale(0.97);
+}
+.lvl-btn .lvl-title {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.lvl-btn .lvl-sub {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  line-height: 1.2;
+}
+.lvl-btn.is-current {
+  box-shadow: 0 0 0 2px var(--ink);
+  font-weight: 700;
+}
+
+.lvl-btn-0 { border-color: var(--line) !important; color: var(--muted) !important; }
+.lvl-btn-0:hover { background: var(--grey-soft) !important; border-color: var(--muted) !important; }
+
+.lvl-btn-1 { border-color: var(--seal) !important; color: var(--seal) !important; }
+.lvl-btn-1:hover { background: var(--seal-soft) !important; }
+
+.lvl-btn-2 { border-color: var(--amber) !important; color: var(--amber) !important; }
+.lvl-btn-2:hover { background: var(--amber-soft) !important; }
+
+.lvl-btn-3 { border-color: var(--jade) !important; color: var(--jade) !important; }
+.lvl-btn-3:hover { background: var(--jade-soft) !important; }
+
+.lvl-btn-4 { border-color: var(--indigo) !important; color: var(--indigo) !important; }
+.lvl-btn-4:hover { background: var(--indigo-soft) !important; }
+
+.lvl-btn-5 { border-color: var(--gold) !important; color: var(--gold) !important; }
+.lvl-btn-5:hover { background: var(--gold-soft) !important; }
 
 /* lists */
 .list { display: grid; border-top: 1px solid var(--line); }

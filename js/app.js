@@ -106,82 +106,131 @@ function levelOptions(selected, withHint = false) {
 }
 function levelPicker(n) {
   const current = noteLevel(n);
-  return `<div class="panel"><label><b>Đặt mức nhớ cho cả từ</b>
-    <select id="wordLevel"><option value="" selected disabled>Hiện tại · ${esc(LEVELS[current])} ▾</option>
-    ${levelOptions(undefined, true)}</select></label>
-    <div class="sub">Áp dụng cho mọi dạng thẻ của từ và tính vào mục tiêu học hôm nay.</div>
-    <div role="status" id="levelStatus"></div></div>`;
+  const lvlHints = ["Đặt lại", "Ôn lại ngay", "1 ngày", "7 ngày", "21 ngày", "90 ngày"];
+  return `<div class="panel">
+    <div class="grade-box-head" style="margin-bottom:10px;">
+      <b>Đặt mức nhớ cho cả từ</b>
+      <span class="grade-box-meta">Mức hiện tại: ${levelPill(n)}</span>
+    </div>
+    <div class="grades-6">
+      ${[0, 1, 2, 3, 4, 5].map((lvl) => {
+        const isCur = current === lvl;
+        return `<button type="button" class="lvl-btn lvl-btn-${lvl} ${isCur ? "is-current" : ""}" data-word-level="${lvl}" title="Đặt ${esc(n.w)} ở mức ${esc(LEVELS[lvl])}">
+          <span class="lvl-title">${isCur ? "✓ " : ""}${esc(LEVELS[lvl])}</span>
+          <small class="lvl-sub">${esc(lvlHints[lvl])}</small>
+        </button>`;
+      }).join("")}
+    </div>
+    <div class="sub" style="margin-top:8px;">Áp dụng cho mọi dạng thẻ của từ và tính vào mục tiêu học hôm nay.</div>
+    <div role="status" id="levelStatus"></div>
+  </div>`;
 }
 function cardGradingBox(r, now) {
   const current = noteLevel(r.n);
-  const curLvlText = LEVELS[current] || "Chưa học";
+  const lvlHints = ["Đặt lại", "Ôn lại ngay", "1 ngày", "7 ngày", "21 ngày", "90 ngày"];
   return `<div class="grade-box">
     <div class="grade-box-head">
-      <span class="grade-box-title">Chấm điểm ghi nhớ</span>
-      <span class="grade-box-meta">Mức từ hiện tại: ${levelPill(r.n)}</span>
+      <span class="grade-box-title">Chấm điểm ghi nhớ cho cả từ</span>
+      <span class="grade-box-meta">Mức hiện tại: ${levelPill(r.n)}</span>
     </div>
-    <div class="grades">${[1, 2, 3, 4].map((g) => {
-      const ns = schedule(r.s, g, now);
-      return `<button type="button" class="g${g}" data-g="${g}">${["", "Quên", "Khó", "Nhớ", "Dễ"][g]}<small>${esc(fmtGap(ns.due - now))}</small></button>`;
-    }).join("")}</div>
-    <div class="keys">Bàn phím: 1 Quên · 2 Khó · 3 Nhớ · 4 Dễ · 5 Đặt Thông thạo</div>
-    <div class="grade-box-divider"><span>Hoặc đặt mức nhớ cho cả từ</span></div>
-    <div class="grade-whole-wrap">
-      <label for="wordLevel" class="grade-whole-label">
-        <span>Đặt nhanh mức nhớ cho cả từ:</span>
-      </label>
-      <select id="wordLevel" class="grade-whole-select">
-        <option value="" selected disabled>Hiện tại · ${esc(curLvlText)} ▾</option>
-        ${levelOptions(undefined, true)}
-      </select>
-      <div class="sub">Áp dụng cho mọi dạng thẻ của từ và tính vào mục tiêu học hôm nay.</div>
-      <div role="status" id="levelStatus"></div>
+    <div class="grades-6">
+      ${[0, 1, 2, 3, 4, 5].map((lvl) => {
+        const isCur = current === lvl;
+        return `<button type="button" class="lvl-btn lvl-btn-${lvl} ${isCur ? "is-current" : ""}" data-word-level="${lvl}" title="Đặt ${esc(r.n.w)} ở mức ${esc(LEVELS[lvl])}">
+          <span class="lvl-title">${isCur ? "✓ " : ""}${esc(LEVELS[lvl])}</span>
+          <small class="lvl-sub">${esc(lvlHints[lvl])}</small>
+        </button>`;
+      }).join("")}
     </div>
+    <div class="keys">Bàn phím: 1 Mới học · 2 Nhớ tạm · 3 Nhớ lâu · 4 Thuộc lòng · 5 Thông thạo · 0 Chưa học</div>
+    <div class="sub" style="text-align:center;">Áp dụng cho mọi dạng thẻ của từ và tính vào mục tiêu học hôm nay.</div>
+    <div role="status" id="levelStatus"></div>
   </div>`;
 }
-function bindLevelPicker(n, afterSave, select = $("#wordLevel")) {
-  if (!select) return;
-  const status = $("#levelStatus");
-  select.onchange = async () => {
-    const level = Number(select.value);
-    const now = Date.now();
-    const ivl = [0, 0, 1, 7, 21, 90][level];
-    if (!level || ivl === undefined || select.disabled) return;
-    const wasNew = noteLevel(n) === 0;
-    const entries = typesOf(n).map(([type]) => {
-      const id = cardId(n, type);
-      const state = Object.assign(freshState(), S.srs.get(id));
-      Object.assign(state, { state: level === 1 ? "learn" : "review", ivl, step: 0,
-        due: level === 1 ? now + STEPS[0] : dayStart(now) + ivl * DAY,
-        firstSeen: state.firstSeen || state.last || now, last: now, w: n.w });
+async function applyWordLevel(n, level, afterSave) {
+  if (level === undefined || level < 0 || level > 5) return;
+  const now = Date.now();
+  const ivl = [0, 0, 1, 7, 21, 90][level];
+  const wasNew = noteLevel(n) === 0;
+
+  const entries = typesOf(n).map(([type]) => {
+    const id = cardId(n, type);
+    if (level === 0) {
+      const state = freshState();
+      state.w = n.w;
       return [id, state];
-    });
-    select.disabled = true;
-
-    // Cập nhật thống kê học tập trong ngày để tính vào mục tiêu học
-    const key = dayKey(now);
-    const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats.get(key));
-    st.reviews++;
-    if (wasNew) st.newCards++;
-    if (level === 1) st.again++;
-    S.stats.set(key, st);
-    if (S.session) S.session.answered++;
-
-    try {
-      await Store.putMany("srs", entries);
-      await Store.put("stats", key, st);
-    } catch (err) {
-      select.disabled = false; select.selectedIndex = Array.from(select.options).findIndex((o) => o.defaultSelected);
-      if (status) status.textContent = "Chưa lưu được mức nhớ. Vui lòng thử lại.";
-      return;
     }
-    for (const [id, state] of entries) S.srs.set(id, state);
-    updateBadge();
-    if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
-    if (afterSave) afterSave();
-    const message = $("#levelStatus");
-    if (message) message.textContent = `Đã đặt ${n.w} ở mức ${LEVELS[level]}.`;
-  };
+    const state = Object.assign(freshState(), S.srs.get(id));
+    Object.assign(state, {
+      state: level === 1 ? "learn" : "review",
+      ivl,
+      step: 0,
+      due: level === 1 ? now + STEPS[0] : dayStart(now) + ivl * DAY,
+      firstSeen: state.firstSeen || state.last || now,
+      last: now,
+      w: n.w
+    });
+    return [id, state];
+  });
+
+  // Cập nhật thống kê học tập trong ngày để tính vào mục tiêu học
+  const key = dayKey(now);
+  const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats.get(key));
+  st.reviews++;
+  if (wasNew && level > 0) st.newCards++;
+  if (level === 1) st.again++;
+  S.stats.set(key, st);
+  if (S.session) S.session.answered++;
+
+  try {
+    await Store.putMany("srs", entries);
+    await Store.put("stats", key, st);
+  } catch (err) {
+    const el = $("#saveErr") || $("#levelStatus");
+    if (el) el.textContent = "Chưa lưu được mức nhớ: " + (err && err.message || err);
+    return;
+  }
+  for (const [id, state] of entries) S.srs.set(id, state);
+  updateBadge();
+  if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
+  if (afterSave) afterSave();
+  const message = $("#levelStatus");
+  if (message) message.textContent = `Đã đặt ${n.w} ở mức ${LEVELS[level]}.`;
+}
+function bindLevelPicker(n, afterSave, target = document) {
+  if (target && target.tagName === "SELECT") {
+    target.onchange = async () => {
+      const lvl = Number(target.value);
+      target.disabled = true;
+      try {
+        await applyWordLevel(n, lvl, afterSave);
+      } finally {
+        target.disabled = false;
+      }
+    };
+    return;
+  }
+  const root = target || document;
+  const btns = root.querySelectorAll ? root.querySelectorAll("[data-word-level]") : [];
+  btns.forEach((btn) => {
+    btn.onclick = async () => {
+      root.querySelectorAll("[data-word-level]").forEach((b) => (b.disabled = true));
+      const lvl = Number(btn.dataset.wordLevel);
+      await applyWordLevel(n, lvl, afterSave);
+    };
+  });
+  const sel = root.querySelector ? root.querySelector("#wordLevel") : null;
+  if (sel && sel.tagName === "SELECT") {
+    sel.onchange = async () => {
+      const lvl = Number(sel.value);
+      sel.disabled = true;
+      try {
+        await applyWordLevel(n, lvl, afterSave);
+      } finally {
+        sel.disabled = false;
+      }
+    };
+  }
 }
 function meaningOf(n) { const it = itemOf(n); return it.vn || it.en || ""; }
 
@@ -734,38 +783,21 @@ function renderCard() {
     window.scrollTo(0, 0);
   });
   const rv = $("#reveal"); if (rv) rv.onclick = reveal;
-  document.querySelectorAll("[data-g]").forEach((b) => (b.onclick = () => grade(Number(b.dataset.g))));
   $("#stop").onclick = () => { S.session = null; location.hash = "#trang-chu"; };
   if (!ss.shown && r.t === "lis" && r.n.kind !== "grammar") say(itemOf(r.n).w);
 }
 function reveal() { const ss = S.session; if (!ss || !ss.current || ss.shown) return; ss.shown = true; renderCard(); window.scrollTo(0, 0);
   const r = ss.current; if (r.n.kind !== "grammar" && r.t !== "lis") say(itemOf(r.n).w); }
-async function grade(g) {
-  const ss = S.session; if (!ss || !ss.current || !ss.shown || $("#wordLevel")?.disabled) return;
-  const r = ss.current, now = Date.now(); const wasNew = !r.s || r.s.state === "new";
-  const ns = schedule(r.s, g, now); ns.firstSeen = wasNew ? now : (r.s.firstSeen || r.s.last || now);
-  Object.assign(ns, { w: itemOf(r.n).w });
-  S.srs.set(r.id, ns);
-  const key = dayKey(now); const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats.get(key));
-  st.reviews++; if (wasNew) st.newCards++; if (g === 1) st.again++; S.stats.set(key, st);
-  ss.answered++; ss.lastNote = r.n.key; ss.shown = false; ss.current = nextCard(now);
-  renderCard(); window.scrollTo(0, 0); updateBadge();
-  try { await Store.put("srs", r.id, ns); await Store.put("stats", key, st); }
-  catch (e) { const el = $("#saveErr"); if (el) el.textContent = "Chưa lưu được tiến độ vào trình duyệt: " + (e && e.message || e); }
-  if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
-}
 document.addEventListener("keydown", (e) => {
   const ss = S.session; if (!ss || !ss.current || !location.hash.startsWith("#hoc")) return;
   if (["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName)) return;
   if (!ss.shown && (e.key === " " || e.key === "Enter")) { e.preventDefault(); reveal(); }
-  else if (ss.shown && ["1", "2", "3", "4"].includes(e.key)) { e.preventDefault(); grade(Number(e.key)); }
-  else if (ss.shown && e.key === "5") {
+  else if (ss.shown && ["0", "1", "2", "3", "4", "5", "6"].includes(e.key)) {
     e.preventDefault();
-    const sel = $("#wordLevel");
-    if (sel && !sel.disabled) {
-      sel.value = "5";
-      if (typeof sel.onchange === "function") sel.onchange();
-      else sel.dispatchEvent(new Event("change"));
+    const lvl = e.key === "6" ? 0 : Number(e.key);
+    const targetBtn = $(`[data-word-level="${lvl}"]`);
+    if (targetBtn && !targetBtn.disabled) {
+      targetBtn.click();
     }
   }
 });
