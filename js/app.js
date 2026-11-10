@@ -96,16 +96,48 @@ function noteLevel(n) {
 }
 function noteLapses(n) { return typesOf(n).reduce((a, [t]) => a + ((S.srs.get(cardId(n, t)) || {}).lapses || 0), 0); }
 function levelPill(n) { const l = noteLevel(n); return `<span class="pill lv-${l}">${esc(LEVELS[l])}</span>` + (noteLapses(n) >= 4 ? ` <span class="pill forget">Hay quên</span>` : ""); }
-function levelOptions(selected) {
-  return LEVELS.slice(1).map((label, i) => `<option value="${i + 1}"${selected === i + 1 ? " selected" : ""}>${esc(label)}</option>`).join("");
+function levelOptions(selected, withHint = false) {
+  const hints = ["", "ôn lại ngay", "ôn sau 1 ngày", "ôn sau 7 ngày", "ôn sau 21 ngày", "ôn sau 90 ngày"];
+  return LEVELS.slice(1).map((label, i) => {
+    const val = i + 1;
+    const txt = withHint ? `${label} (${hints[val]})` : label;
+    return `<option value="${val}"${selected === val ? " selected" : ""}>${esc(txt)}</option>`;
+  }).join("");
 }
 function levelPicker(n) {
   const current = noteLevel(n);
-  return `<div class="panel"><label>Đặt mức nhớ cho cả từ
-    <select id="wordLevel"><option value="" selected disabled>Hiện tại · ${esc(LEVELS[current])}</option>
-    ${levelOptions()}</select></label>
-    <div class="sub">Áp dụng cho mọi dạng thẻ của từ và đặt lại lịch ôn.</div>
+  return `<div class="panel"><label><b>Đặt mức nhớ cho cả từ</b>
+    <select id="wordLevel"><option value="" selected disabled>Hiện tại · ${esc(LEVELS[current])} ▾</option>
+    ${levelOptions(undefined, true)}</select></label>
+    <div class="sub">Áp dụng cho mọi dạng thẻ của từ và tính vào mục tiêu học hôm nay.</div>
     <div role="status" id="levelStatus"></div></div>`;
+}
+function cardGradingBox(r, now) {
+  const current = noteLevel(r.n);
+  const curLvlText = LEVELS[current] || "Chưa học";
+  return `<div class="grade-box">
+    <div class="grade-box-head">
+      <span class="grade-box-title">Chấm điểm ghi nhớ</span>
+      <span class="grade-box-meta">Mức từ hiện tại: ${levelPill(r.n)}</span>
+    </div>
+    <div class="grades">${[1, 2, 3, 4].map((g) => {
+      const ns = schedule(r.s, g, now);
+      return `<button type="button" class="g${g}" data-g="${g}">${["", "Quên", "Khó", "Nhớ", "Dễ"][g]}<small>${esc(fmtGap(ns.due - now))}</small></button>`;
+    }).join("")}</div>
+    <div class="keys">Bàn phím: 1 Quên · 2 Khó · 3 Nhớ · 4 Dễ · 5 Đặt Thông thạo</div>
+    <div class="grade-box-divider"><span>Hoặc đặt mức nhớ cho cả từ</span></div>
+    <div class="grade-whole-wrap">
+      <label for="wordLevel" class="grade-whole-label">
+        <span>Đặt nhanh mức nhớ cho cả từ:</span>
+      </label>
+      <select id="wordLevel" class="grade-whole-select">
+        <option value="" selected disabled>Hiện tại · ${esc(curLvlText)} ▾</option>
+        ${levelOptions(undefined, true)}
+      </select>
+      <div class="sub">Áp dụng cho mọi dạng thẻ của từ và tính vào mục tiêu học hôm nay.</div>
+      <div role="status" id="levelStatus"></div>
+    </div>
+  </div>`;
 }
 function bindLevelPicker(n, afterSave, select = $("#wordLevel")) {
   if (!select) return;
@@ -115,6 +147,7 @@ function bindLevelPicker(n, afterSave, select = $("#wordLevel")) {
     const now = Date.now();
     const ivl = [0, 0, 1, 7, 21, 90][level];
     if (!level || ivl === undefined || select.disabled) return;
+    const wasNew = noteLevel(n) === 0;
     const entries = typesOf(n).map(([type]) => {
       const id = cardId(n, type);
       const state = Object.assign(freshState(), S.srs.get(id));
@@ -124,21 +157,30 @@ function bindLevelPicker(n, afterSave, select = $("#wordLevel")) {
       return [id, state];
     });
     select.disabled = true;
+
+    // Cập nhật thống kê học tập trong ngày để tính vào mục tiêu học
+    const key = dayKey(now);
+    const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats.get(key));
+    st.reviews++;
+    if (wasNew) st.newCards++;
+    if (level === 1) st.again++;
+    S.stats.set(key, st);
+    if (S.session) S.session.answered++;
+
     try {
       await Store.putMany("srs", entries);
+      await Store.put("stats", key, st);
     } catch (err) {
       select.disabled = false; select.selectedIndex = Array.from(select.options).findIndex((o) => o.defaultSelected);
-      status.textContent = "Chưa lưu được mức nhớ. Vui lòng thử lại.";
+      if (status) status.textContent = "Chưa lưu được mức nhớ. Vui lòng thử lại.";
       return;
     }
     for (const [id, state] of entries) S.srs.set(id, state);
     updateBadge();
     if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
-    if (select.isConnected) {
-      afterSave();
-      const message = $("#levelStatus");
-      if (message) message.textContent = `Đã đặt ${n.w} ở mức ${LEVELS[level]}.`;
-    }
+    if (afterSave) afterSave();
+    const message = $("#levelStatus");
+    if (message) message.textContent = `Đã đặt ${n.w} ở mức ${LEVELS[level]}.`;
   };
 }
 function meaningOf(n) { const it = itemOf(n); return it.vn || it.en || ""; }
@@ -466,10 +508,7 @@ function renderCard() {
   let html = `<section class="view"><div class="sessbar"><span style="width:${pct}%"></span></div>`;
   if (ss.shown) {
     const now = Date.now(); const p = detailParts(r.n, { answer: r.t === "clo" });
-    const grades = `<div class="grades">${[1, 2, 3, 4].map((g) => { const ns = schedule(r.s, g, now);
-      return `<button type="button" class="g${g}" data-g="${g}">${["", "Quên", "Khó", "Nhớ", "Dễ"][g]}<small>${esc(fmtGap(ns.due - now))}</small></button>`; }).join("")}</div>
-      <div class="keys">Bàn phím: 1 Quên · 2 Khó · 3 Nhớ · 4 Dễ</div>`;
-    html += `<article class="card split"><div class="col-a">${kindRow}<div class="ans">${p.head}</div>${grades}${levelPicker(r.n)}${tail}</div>
+    html += `<article class="card split"><div class="col-a">${kindRow}<div class="ans">${p.head}</div>${cardGradingBox(r, now)}${tail}</div>
       <div class="col-b ans">${p.body}</div></article>`;
   } else html += `<article class="card">${kindRow}${frontHTML(r)}<button class="primary reveal" type="button" id="reveal">Xem đáp án</button><div class="keys">Bàn phím: phím cách để xem đáp án</div>${tail}</article>`;
   html += `</section>`;
@@ -504,6 +543,15 @@ document.addEventListener("keydown", (e) => {
   if (["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName)) return;
   if (!ss.shown && (e.key === " " || e.key === "Enter")) { e.preventDefault(); reveal(); }
   else if (ss.shown && ["1", "2", "3", "4"].includes(e.key)) { e.preventDefault(); grade(Number(e.key)); }
+  else if (ss.shown && e.key === "5") {
+    e.preventDefault();
+    const sel = $("#wordLevel");
+    if (sel && !sel.disabled) {
+      sel.value = "5";
+      if (typeof sel.onchange === "function") sel.onchange();
+      else sel.dispatchEvent(new Event("change"));
+    }
+  }
 });
 
 // --- Tra từ ---

@@ -182,6 +182,92 @@ details.more summary { cursor: pointer; font-weight: 700; font-size: 1.35rem; pa
 .verdict { font-size: 22px; font-weight: 700; text-align: center; }
 .verdict.good { color: var(--jade); } .verdict.bad { color: var(--seal); }
 
+/* Unified Grading Box */
+.grade-box {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 16px 14px;
+  display: grid;
+  gap: 12px;
+  box-shadow: 0 1px 3px rgba(169, 128, 31, .08);
+}
+.grade-box-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.grade-box-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--ink);
+  letter-spacing: .02em;
+}
+.grade-box-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+.grade-box .grades {
+  margin-top: 2px;
+}
+.grade-box-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-top: 2px;
+}
+.grade-box-divider::before,
+.grade-box-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px dashed var(--line);
+}
+.grade-box-divider:not(:empty)::before {
+  margin-right: .75em;
+}
+.grade-box-divider:not(:empty)::after {
+  margin-left: .75em;
+}
+.grade-whole-wrap {
+  display: grid;
+  gap: 8px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.grade-whole-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.grade-whole-select {
+  font-size: 15px;
+  padding: 9px 12px;
+  background: var(--surface);
+  border-color: var(--line);
+  cursor: pointer;
+  border-radius: 8px;
+}
+.grade-whole-wrap .sub {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
 /* lists */
 .list { display: grid; border-top: 1px solid var(--line); }
 .item { display: grid; grid-template-columns: minmax(90px, auto) 1fr auto; gap: 4px 14px; align-items: center; padding: 12px 2px; border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none; }
