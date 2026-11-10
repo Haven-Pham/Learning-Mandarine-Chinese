@@ -3,42 +3,291 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Sổ học tiếng Hoa</title>
-<meta name="description" content="Học từ vựng TOCFL, tra từ, nét viết, chép chính tả — chạy hoàn toàn trên trình duyệt.">
+<title>學習本 Sổ học tiếng Hoa | TOCFL Phồn thể Đài Loan</title>
+<meta name="description" content="Sổ học tiếng Hoa: Học từ vựng TOCFL 2024, Flashcards SRS, tra từ điển Khang Hy & CVDICT, luyện viết chữ Hán, chép chính tả và thi thử TOCFL chuẩn Đài Loan.">
 <meta name="theme-color" content="#A8261F">
-<script>try{document.documentElement.dataset.theme=localStorage.getItem("shth-theme")||"light";}catch(e){}</script>
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;700&display=swap">
-<link rel="stylesheet" href="style.css?v=10">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Noto+Serif:ital,wght@0,600;0,700;1,600&family=Noto+Serif+TC:wght@500;600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "tertiary-container": "#884800",
+        "outline-variant": "#e1bfba",
+        "surface-variant": "#e7e1df",
+        "on-primary": "#ffffff",
+        "paper-base": "#FDFBF7",
+        "on-secondary": "#ffffff",
+        "tertiary-fixed": "#ffdcc3",
+        "primary-container": "#a8261f",
+        "surface-tint": "#b12c24",
+        "secondary-fixed-dim": "#88d6af",
+        "surface-bright": "#fef8f6",
+        "surface-container-lowest": "#ffffff",
+        "surface-container-high": "#ede7e5",
+        "border-subtle": "#EBE2D8",
+        "on-error": "#ffffff",
+        "surface-dim": "#ded9d7",
+        "on-tertiary-fixed": "#2f1500",
+        "paper-card": "#FFFFFF",
+        "surface-container-highest": "#e7e1df",
+        "error-container": "#ffdad6",
+        "surface-container-low": "#f8f2f0",
+        "secondary-container": "#a1f0c7",
+        "on-error-container": "#93000a",
+        "paper-muted": "#F5EFEB",
+        "amber-subtle": "#FEF8ED",
+        "on-primary-container": "#ffc0b8",
+        "jade-subtle": "#F0F8F4",
+        "on-secondary-container": "#1d704f",
+        "background": "#fef8f6",
+        "on-surface": "#1d1b1a",
+        "primary": "#86090a",
+        "on-tertiary-container": "#ffc395",
+        "outline": "#8d706c",
+        "error": "#ba1a1a",
+        "on-secondary-fixed-variant": "#005236",
+        "on-tertiary": "#ffffff",
+        "on-secondary-fixed": "#002113",
+        "on-tertiary-fixed-variant": "#6e3900",
+        "surface-container": "#f2edeb",
+        "surface": "#fef8f6",
+        "on-primary-fixed-variant": "#8e110f",
+        "primary-fixed-dim": "#ffb4aa",
+        "inverse-primary": "#ffb4aa",
+        "secondary": "#176b4b",
+        "on-background": "#1d1b1a",
+        "cinnabar-subtle": "#FDF2F0",
+        "primary-fixed": "#ffdad5",
+        "on-surface-variant": "#59413e",
+        "secondary-fixed": "#a4f3ca",
+        "inverse-surface": "#32302f",
+        "tertiary-fixed-dim": "#ffb77d",
+        "inverse-on-surface": "#f5efed",
+        "tertiary": "#663400",
+        "on-primary-fixed": "#410001"
+      },
+      borderRadius: {
+        "DEFAULT": "0.5rem",
+        "sm": "0.25rem",
+        "md": "0.75rem",
+        "lg": "1rem",
+        "xl": "1.25rem",
+        "2xl": "1.5rem",
+        "full": "9999px"
+      },
+      spacing: {
+        "gutter": "1.25rem",
+        "space-xl": "2.25rem",
+        "space-sm": "0.5rem",
+        "space-md": "1rem",
+        "space-xs": "0.25rem",
+        "space-2xl": "3.5rem",
+        "margin-mobile": "1rem",
+        "margin": "1.5rem",
+        "space-lg": "1.5rem"
+      },
+      fontFamily: {
+        "body-lg": ["Be Vietnam Pro", "sans-serif"],
+        "headline-lg": ["Noto Serif", "Noto Serif TC", "serif"],
+        "label-sm": ["Be Vietnam Pro", "sans-serif"],
+        "body-md": ["Be Vietnam Pro", "sans-serif"],
+        "display": ["Noto Serif", "Noto Serif TC", "serif"],
+        "label-md": ["Be Vietnam Pro", "sans-serif"],
+        "body-sm": ["Be Vietnam Pro", "sans-serif"],
+        "code": ["JetBrains Mono", "monospace"],
+        "headline-md": ["Noto Serif", "Noto Serif TC", "serif"]
+      },
+      fontSize: {
+        "body-lg": ["16px", { lineHeight: "26px", fontWeight: "400" }],
+        "headline-lg": ["24px", { lineHeight: "32px", fontWeight: "600" }],
+        "label-sm": ["11px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "600" }],
+        "body-md": ["14px", { lineHeight: "22px", fontWeight: "400" }],
+        "display": ["32px", { lineHeight: "40px", fontWeight: "600" }],
+        "label-md": ["13px", { lineHeight: "18px", letterSpacing: "0.02em", fontWeight: "500" }],
+        "body-sm": ["12px", { lineHeight: "18px", fontWeight: "400" }],
+        "code": ["12px", { lineHeight: "18px", fontWeight: "400" }],
+        "headline-md": ["18px", { lineHeight: "26px", fontWeight: "600" }]
+      }
+    }
+  }
+};
+</script>
+<link rel="stylesheet" href="style.css?v=14">
 </head>
-<body>
-<header class="top"><div class="wrap header-wrap">
-  <div class="header-titles">
-    <h1><span class="han">學習本</span>Sổ học tiếng Hoa</h1>
-    <p>TOCFL · chữ Phồn thể · giọng Đài Loan</p>
+<body class="bg-paper-base text-on-surface antialiased min-h-screen flex flex-col font-body-md select-text">
+
+<!-- Top Fixed Modern Oriental Scholarly Header -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-paper-base/92 backdrop-blur-xl border-b border-border-subtle shadow-[0_1px_8px_rgba(44,42,41,0.04)]">
+  <div class="h-20 max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between gap-4">
+    <!-- Brand Mark -->
+    <a href="#trang-chu" class="flex items-center gap-3 group">
+      <div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary font-headline-md font-bold shadow-[0_2px_8px_-2px_rgba(168,38,31,0.35)] group-hover:scale-105 transition-transform">
+        <span>學</span>
+      </div>
+      <div class="flex flex-col">
+        <div class="flex items-center gap-1.5">
+          <span class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">學習本</span>
+          <span class="font-body-sm text-body-sm text-outline font-medium hidden sm:inline">Sổ học tiếng Hoa</span>
+        </div>
+        <div class="flex items-center gap-1.5 flex-wrap">
+          <span class="inline-flex items-center px-1.5 py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-[10px] font-semibold">TOCFL</span>
+          <span class="text-outline text-[10px]">•</span>
+          <span class="font-label-sm text-[11px] text-on-surface-variant">Phồn thể</span>
+          <span class="text-outline text-[10px]">•</span>
+          <span class="font-label-sm text-[11px] text-secondary font-medium">Giọng Đài Loan</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden xl:flex items-center gap-1 ml-4" id="mainNav">
+      <a class="nav-tab px-3 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface transition-all duration-150" data-view="trang-chu" href="#trang-chu">Trang chủ</a>
+      <a class="nav-tab px-3 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface transition-all duration-150 relative" data-view="hoc" href="#hoc">
+        Học
+        <span class="tab-badge ml-1 px-1.5 py-0.2 rounded-full bg-primary-container text-white text-[10px] font-code font-bold hidden" id="tabBadge">0</span>
+      </a>
+      <a class="nav-tab px-3 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface transition-all duration-150" data-view="tu-dien" href="#tu-dien">Tra từ</a>
+      <a class="nav-tab px-3 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface transition-all duration-150" data-view="thu-muc" href="#thu-muc">Thư mục</a>
+      <a class="nav-tab px-3 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface transition-all duration-150" data-view="chinh-ta" href="#chinh-ta">Chép chính tả</a>
+      <a class="nav-tab px-3 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface transition-all duration-150" data-view="thi-thu" href="#thi-thu">Thi thử TOCFL</a>
+      <a class="nav-tab px-3 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface transition-all duration-150" data-view="nhap" href="#nhap">Nhập từ</a>
+      <a class="nav-tab px-3 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface transition-all duration-150" data-view="cai-dat" href="#cai-dat">Cài đặt</a>
+    </nav>
+
+    <!-- Top Right Status & Action Pill -->
+    <div class="flex items-center gap-2 sm:gap-3">
+      <!-- Sync Status Button -->
+      <button type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-jade-subtle text-secondary border border-secondary/20 hover:bg-secondary-fixed transition-all text-xs font-semibold shadow-xs" id="headerSyncBtn" title="Đồng bộ tiến độ giữa điện thoại và máy tính">
+        <span class="material-symbols-outlined text-[16px] animate-none" id="headerSyncIcon">sync</span>
+        <span id="headerSyncLabel" class="hidden sm:inline">Đã đồng bộ</span>
+      </button>
+
+      <!-- User avatar link to settings -->
+      <a href="#cai-dat" class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center shadow-[0_2px_6px_rgba(168,38,31,0.25)] hover:scale-105 transition-transform" title="Cài đặt & Tài khoản">
+        <span class="material-symbols-outlined text-[18px]">person</span>
+      </a>
+
+      <!-- Mobile Hamburger Button -->
+      <button type="button" aria-label="Menu" class="xl:hidden p-2 rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" id="mobileMenuBtn">
+        <span class="material-symbols-outlined text-[24px]">menu</span>
+      </button>
+    </div>
   </div>
-  <button type="button" class="header-sync-btn" id="headerSyncBtn" title="Đồng bộ tiến độ giữa điện thoại và máy tính">
-    <span class="sync-spin" id="headerSyncIcon">🔄</span>
-    <span class="sync-label" id="headerSyncLabel">Đồng bộ</span>
-  </button>
-</div></header>
-<nav class="tabs" aria-label="Các mục"><div class="wrap">
-  <a href="#trang-chu" data-view="trang-chu">Trang chủ</a>
-  <a href="#hoc" data-view="hoc">Học<span class="badge num" id="tabBadge" hidden></span></a>
-  <a href="#tu-dien" data-view="tu-dien">Tra từ</a>
-  <a href="#thu-muc" data-view="thu-muc">Thư mục</a>
-  <a href="#chinh-ta" data-view="chinh-ta">Chép chính tả</a>
-  <a href="#nhap" data-view="nhap">Nhập từ</a>
-  <a href="#cai-dat" data-view="cai-dat">Cài đặt</a>
-</div></nav>
-<main><div class="wrap" id="view"><div class="note">Đang tải dữ liệu…</div></div></main>
+
+  <!-- Mobile Drawer Menu (Collapsible) -->
+  <div class="xl:hidden hidden border-t border-border-subtle bg-paper-card px-4 py-3 shadow-lg" id="mobileMenu">
+    <div class="grid grid-cols-2 gap-2 text-sm">
+      <a class="nav-tab-m p-2.5 rounded-lg flex items-center gap-2 hover:bg-surface-container" data-view="trang-chu" href="#trang-chu">
+        <span class="material-symbols-outlined text-primary text-[18px]">home</span> Trang chủ
+      </a>
+      <a class="nav-tab-m p-2.5 rounded-lg flex items-center gap-2 hover:bg-surface-container" data-view="hoc" href="#hoc">
+        <span class="material-symbols-outlined text-primary text-[18px]">style</span> Học Flashcards
+      </a>
+      <a class="nav-tab-m p-2.5 rounded-lg flex items-center gap-2 hover:bg-surface-container" data-view="tu-dien" href="#tu-dien">
+        <span class="material-symbols-outlined text-primary text-[18px]">search</span> Tra từ điển
+      </a>
+      <a class="nav-tab-m p-2.5 rounded-lg flex items-center gap-2 hover:bg-surface-container" data-view="thu-muc" href="#thu-muc">
+        <span class="material-symbols-outlined text-primary text-[18px]">folder</span> Thư mục từ
+      </a>
+      <a class="nav-tab-m p-2.5 rounded-lg flex items-center gap-2 hover:bg-surface-container" data-view="chinh-ta" href="#chinh-ta">
+        <span class="material-symbols-outlined text-primary text-[18px]">edit_note</span> Chép chính tả
+      </a>
+      <a class="nav-tab-m p-2.5 rounded-lg flex items-center gap-2 hover:bg-surface-container" data-view="thi-thu" href="#thi-thu">
+        <span class="material-symbols-outlined text-primary text-[18px]">assignment</span> Thi thử TOCFL
+      </a>
+      <a class="nav-tab-m p-2.5 rounded-lg flex items-center gap-2 hover:bg-surface-container" data-view="nhap" href="#nhap">
+        <span class="material-symbols-outlined text-primary text-[18px]">upload_file</span> Nhập từ mới
+      </a>
+      <a class="nav-tab-m p-2.5 rounded-lg flex items-center gap-2 hover:bg-surface-container" data-view="cai-dat" href="#cai-dat">
+        <span class="material-symbols-outlined text-primary text-[18px]">settings</span> Cài đặt & Đồng bộ
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Main Single-Page Dynamic Content Container -->
+<main class="w-full pt-20 pb-20 md:pb-12 bg-paper-base flex-1 min-h-[calc(100vh-80px)] flex flex-col" id="view">
+  <div class="max-w-7xl mx-auto px-4 py-12 w-full flex flex-col items-center justify-center text-center">
+    <div class="w-12 h-12 rounded-xl bg-cinnabar-subtle text-primary flex items-center justify-center font-headline-md font-bold mb-4 shadow-xs animate-pulse">
+      學
+    </div>
+    <h2 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2">Đang tải dữ liệu học tập...</h2>
+    <p class="font-body-md text-on-surface-variant max-w-md">Khởi tạo bộ từ vựng TOCFL 2024, từ điển Hán Việt CVDICT và kiểm tra tiến độ đồng bộ của bạn.</p>
+  </div>
+</main>
+
+<!-- Bottom Navigation Bar for Mobile Phones -->
+<nav class="xl:hidden fixed bottom-0 left-0 right-0 z-40 bg-paper-base/95 backdrop-blur-md border-t border-border-subtle shadow-[0_-2px_10px_rgba(44,42,41,0.05)] px-2 py-1.5 flex items-center justify-around" id="mobileBottomNav">
+  <a href="#trang-chu" data-view="trang-chu" class="bottom-tab flex flex-col items-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-lg">
+    <span class="material-symbols-outlined text-[20px]">home</span>
+    <span class="text-[10px] font-medium">Trang chủ</span>
+  </a>
+  <a href="#hoc" data-view="hoc" class="bottom-tab flex flex-col items-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-lg relative">
+    <span class="material-symbols-outlined text-[20px]">style</span>
+    <span class="text-[10px] font-medium">Học</span>
+    <span class="tab-badge-mob absolute top-0 right-1 w-2 h-2 rounded-full bg-primary-container hidden"></span>
+  </a>
+  <a href="#tu-dien" data-view="tu-dien" class="bottom-tab flex flex-col items-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-lg">
+    <span class="material-symbols-outlined text-[20px]">search</span>
+    <span class="text-[10px] font-medium">Tra từ</span>
+  </a>
+  <a href="#chinh-ta" data-view="chinh-ta" class="bottom-tab flex flex-col items-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-lg">
+    <span class="material-symbols-outlined text-[20px]">edit_note</span>
+    <span class="text-[10px] font-medium">Chính tả</span>
+  </a>
+  <a href="#thi-thu" data-view="thi-thu" class="bottom-tab flex flex-col items-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-lg">
+    <span class="material-symbols-outlined text-[20px]">assignment</span>
+    <span class="text-[10px] font-medium">Thi thử</span>
+  </a>
+  <a href="#cai-dat" data-view="cai-dat" class="bottom-tab flex flex-col items-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-lg">
+    <span class="material-symbols-outlined text-[20px]">settings</span>
+    <span class="text-[10px] font-medium">Cài đặt</span>
+  </a>
+</nav>
+
+<!-- Global Footer From Stitch -->
+<footer class="w-full bg-surface-container-low border-t border-border-subtle shadow-[0_-1px_6px_rgba(44,42,41,0.02)] mt-auto">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 py-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+      <div class="flex items-center gap-2 flex-wrap justify-center md:justify-start">
+        <span class="w-2 h-2 rounded-full bg-primary-container"></span>
+        <span class="font-headline-md text-headline-md text-on-surface font-semibold">學習本</span>
+        <span class="font-body-sm text-body-sm text-outline">• Khung năng lực Hoa ngữ TOCFL &amp; Phát âm Phồn thể Đài Loan</span>
+      </div>
+      <div class="font-label-sm text-label-sm text-on-surface-variant">
+        © 2024 Sổ học tiếng Hoa. Cảm hứng thư tịch Á Đông và học tập thông minh.
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Core Application Scripts -->
 <script src="vendor/hanzi-writer.min.js"></script>
-<script src="js/srs.js?v=10"></script>
-<script src="js/store.js?v=10"></script>
-<script src="js/sync.js?v=11"></script>
-<script src="js/app.js?v=12"></script>
+<script src="js/srs.js?v=14"></script>
+<script src="js/store.js?v=14"></script>
+<script src="js/sync.js?v=14"></script>
+<script src="js/app.js?v=14"></script>
+<script>
+  // Mobile drawer toggle
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  if (menuBtn && mobileMenu) {
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    // Close on any tab link click
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+  }
+</script>
 </body>
 </html>
