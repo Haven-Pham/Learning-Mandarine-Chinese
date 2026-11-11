@@ -498,3 +498,100 @@ rt { font-family: var(--f-code); font-size: 0.52em; font-weight: 600; color: var
   text-decoration: line-through !important;
   pointer-events: none !important;
 }
+
+
+/* 4 Spaced Repetition Grading Buttons (SM-2) */
+.srs-grade-grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  gap: 10px !important;
+  width: 100% !important;
+}
+@media (max-width: 640px) {
+  .srs-grade-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+}
+.srs-grade-btn {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px 8px !important;
+  border-radius: 14px !important;
+  border: 1.5px solid var(--border-subtle) !important;
+  background: var(--paper-card) !important;
+  cursor: pointer !important;
+  transition: all 0.16s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 1px 3px rgba(44,42,41,0.04) !important;
+  user-select: none !important;
+  text-align: center !important;
+}
+.srs-grade-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(44,42,41,0.08) !important;
+}
+.srs-grade-btn:active {
+  transform: scale(0.97) !important;
+}
+.srs-grade-1 {
+  background: #FFF5F5 !important;
+  border-color: rgba(168, 38, 31, 0.3) !important;
+  color: #86090A !important;
+}
+.srs-grade-1:hover {
+  background: #FFE8E8 !important;
+  border-color: #86090A !important;
+}
+.srs-grade-2 {
+  background: #FFF9F0 !important;
+  border-color: rgba(217, 119, 6, 0.3) !important;
+  color: #B45309 !important;
+}
+.srs-grade-2:hover {
+  background: #FEF0D6 !important;
+  border-color: #B45309 !important;
+}
+.srs-grade-3 {
+  background: #F0FDF4 !important;
+  border-color: rgba(22, 101, 52, 0.3) !important;
+  color: #15803D !important;
+}
+.srs-grade-3:hover {
+  background: #DCFCE7 !important;
+  border-color: #15803D !important;
+}
+.srs-grade-4 {
+  background: #F0F9FF !important;
+  border-color: rgba(2, 132, 199, 0.3) !important;
+  color: #0369A1 !important;
+}
+.srs-grade-4:hover {
+  background: #E0F2FE !important;
+  border-color: #0369A1 !important;
+}
+.srs-grade-label {
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+}
+.srs-grade-sub {
+  font-size: 11.5px !important;
+  font-weight: 600 !important;
+  margin-top: 3px !important;
+  opacity: 0.85 !important;
+}
+.srs-grade-shortcut {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 18px !important;
+  height: 18px !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  font-family: var(--f-code) !important;
+  border-radius: 4px !important;
+  background: rgba(0,0,0,0.06) !important;
+  margin-top: 4px !important;
+}

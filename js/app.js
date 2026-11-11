@@ -16,7 +16,7 @@ const S = {
   bands: [], tocfl: [], decks: [], notes: [], noteByWord: new Map(), noteByKey: new Map(),
   ced: null, cedList: null, vi: new Map(), abbrS: new Map(), abbrF: new Map(), packs: [],
   srs: new Map(), stats: new Map(), inbox: new Map(),
-  settings: { newPerDay: 8, reviewPerDay: 50, decks: {}, bands: {}, extra: {}, ruby: true },
+  settings: { newPerDay: 20, reviewPerDay: 50, decks: {}, bands: {}, extra: {}, ruby: true },
   session: null, dict: { mode: "han", src: "word" },
 };
 
@@ -147,38 +147,74 @@ function cardGradingBox(r, now) {
     <div role="status" id="levelStatus"></div>
   </div>`;
 }
-async function applyWordLevel(n, level, afterSave) {
-  if (level === undefined || level < 0 || level > 5) return;
+// --- SRS Core Functions (SM-2 Spaced Repetition & Calibrated Levels) ---
+// 1. Grade single card via SM-2: grade 1 (Quên), 2 (Khó), 3 (Nhớ tốt), 4 (Dễ)
+async function applyCardGrade(n, type, grade, afterSave) {
+  if (!grade || grade < 1 || grade > 4) return;
   const now = Date.now();
-  const ivl = [0, 0, 1, 7, 21, 90][level];
-  const wasNew = noteLevel(n) === 0;
+  const cid = cardId(n, type);
+  const prev = S.srs.get(cid);
+  const wasNew = !prev || prev.state === "new";
+  const next = schedule(prev, grade, now);
+  next.w = n.w;
+  next.firstSeen = next.firstSeen || (prev && (prev.firstSeen || prev.last)) || now;
 
-  const entries = typesOf(n).map(([type]) => {
-    const id = cardId(n, type);
-    if (level === 0) {
-      const state = freshState();
-      state.w = n.w;
-      return [id, state];
-    }
-    const state = Object.assign(freshState(), S.srs.get(id));
-    Object.assign(state, {
-      state: level === 1 ? "learn" : "review",
-      ivl,
-      step: 0,
-      due: level === 1 ? now + STEPS[0] : dayStart(now) + ivl * DAY,
-      firstSeen: state.firstSeen || state.last || now,
-      last: now,
-      w: n.w
-    });
-    return [id, state];
-  });
+  // Nếu Quên (grade 1): đưa lại vào cuối hàng đợi của phiên học hiện tại để truy xuất lại (retrieval practice)
+  if (grade === 1 && S.session && Array.isArray(S.session.queue)) {
+    S.session.queue.push({ id: cid, n, t: type, s: next });
+  }
 
-  // Cập nhật thống kê học tập trong ngày để tính vào mục tiêu học
+  const entries = [[cid, next]];
+
+  // Cập nhật thống kê trong ngày
   const key = dayKey(now);
   const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats.get(key));
   st.reviews++;
-  if (wasNew && level > 0) st.newCards++;
-  if (level === 1) st.again++;
+  if (wasNew) st.newCards++;
+  if (grade === 1) st.again++;
+  S.stats.set(key, st);
+  if (S.session) S.session.answered++;
+
+  try {
+    await Store.putMany("srs", entries);
+    await Store.put("stats", key, st);
+  } catch (err) {
+    const el = $("#saveErr") || $("#levelStatus");
+    if (el) el.textContent = "Chưa lưu được tiến độ SRS: " + (err && err.message || err);
+    return;
+  }
+  S.srs.set(cid, next);
+  updateBadge();
+  if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
+  if (afterSave) afterSave();
+}
+
+// 2. Calibrated manual level override for single skill or all skills
+async function applyCardLevel(n, type, level, applyToAll = false, afterSave) {
+  if (level === undefined || level < 0 || level > 5) return;
+  const now = Date.now();
+  const typesToUpdate = applyToAll ? typesOf(n).map(([t]) => t) : [type];
+  const entries = [];
+  let hasNew = false;
+  let hasAgain = false;
+
+  for (const t of typesToUpdate) {
+    const cid = cardId(n, t);
+    const prev = S.srs.get(cid);
+    const wasNew = !prev || prev.state === "new";
+    if (wasNew && level > 0) hasNew = true;
+    if (level === 1) hasAgain = true;
+    const next = scheduleLevel(prev, level, now);
+    next.w = n.w;
+    next.firstSeen = next.firstSeen || (prev && (prev.firstSeen || prev.last)) || now;
+    entries.push([cid, next]);
+  }
+
+  const key = dayKey(now);
+  const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats.get(key));
+  st.reviews++;
+  if (hasNew) st.newCards++;
+  if (hasAgain) st.again++;
   S.stats.set(key, st);
   if (S.session) S.session.answered++;
 
@@ -195,40 +231,14 @@ async function applyWordLevel(n, level, afterSave) {
   if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
   if (afterSave) afterSave();
   const message = $("#levelStatus");
-  if (message) message.textContent = `Đã đặt ${n.w} ở mức ${LEVELS[level]}.`;
+  if (message) message.textContent = `Đã đặt ${n.w} ở mức ${LEVELS[level]}${applyToAll ? " (tất cả kỹ năng)" : ""}.`;
 }
-// Study session: the 6 buttons grade only the card on screen (one skill); the interval grows with that card's history.
-async function gradeCard(r, level, afterSave) {
-  if (level === undefined || level < 0 || level > 5) return;
-  const now = Date.now();
-  const wasNewWord = noteLevel(r.n) === 0;
-  const prev = S.srs.get(r.id);
-  const state = scheduleLevel(prev, level, now);
-  state.w = r.n.w;
-  if (level > 0) state.firstSeen = (prev && (prev.firstSeen || prev.last)) || now;
-  const key = dayKey(now);
-  const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats.get(key));
-  st.reviews++;
-  if (wasNewWord && level > 0) st.newCards++;
-  if (level === 1) st.again++;
-  try {
-    await Store.put("srs", r.id, state);
-    await Store.put("stats", key, st);
-  } catch (err) {
-    const el = $("#levelStatus"); if (el) el.textContent = "Chưa lưu được: " + (err && err.message || err);
-    return;
-  }
-  if (S.session) S.session.answered++;
-  S.stats.set(key, st); S.srs.set(r.id, state);
-  updateBadge();
-  if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
-  if (afterSave) afterSave();
+
+// 3. Backward compatibility for dictionary / folder list bulk actions
+async function applyWordLevel(n, level, afterSave) {
+  return applyCardLevel(n, typesOf(n)[0][0], level, true, afterSave);
 }
-// What each button would schedule for this card, shown under the button.
-function gradeHints(r) {
-  const now = Date.now(), prev = S.srs.get(r.id);
-  return [0, 1, 2, 3, 4, 5].map((l) => { if (l === 0) return "Đặt lại"; const x = scheduleLevel(prev, l, now); return x.state === "review" ? fmtGap(x.ivl * DAY) : fmtGap(Math.max(MIN, x.due - now)); });
-}
+
 function bindLevelPicker(n, afterSave, target = document) {
   if (target && target.tagName === "SELECT") {
     target.onchange = async () => {
@@ -292,8 +302,7 @@ function buildQueue(now) {
   }
   learn.sort((a, b) => a.s.due - b.s.due); review.sort((a, b) => a.s.due - b.s.due);
   const left = Math.max(0, Number(S.settings.newPerDay || 8) - todayStats().newCards);
-  const sib = fresh.filter((r) => noteLevel(r.n) > 0), first = fresh.filter((r) => noteLevel(r.n) === 0);
-  return { learn, review, fresh: sib.concat(first.slice(0, left)), freshTotal: fresh.length };
+  return { learn, review, fresh: fresh.slice(0, left), freshTotal: fresh.length };
 }
 function noteFromCard(id) {
   const parts = id.split("~"); parts.pop();
@@ -453,10 +462,9 @@ function updateBadge() {
   if (mb) { mb.classList.toggle("hidden", !c); }
 }
 
-const STREAK_MIN = 10; // answers needed for a day to count in the streak
 function studySummary(stats, now) {
   const today = dayKey(now);
-  const active = [...stats].filter(([key, value]) => key <= today && value.reviews >= STREAK_MIN)
+  const active = [...stats].filter(([key, value]) => key <= today && value.reviews > 0)
     .sort(([a], [b]) => a.localeCompare(b));
   let previous = -Infinity, run = 0, longest = 0, answers = 0;
   for (const [key, value] of active) {
@@ -476,11 +484,11 @@ function dailyDashboard(c, days) {
   const metrics = [["Chuỗi hiện tại", summary.current, "ngày"], ["Chuỗi dài nhất", summary.longest, "ngày"],
     ["Tổng ngày học", summary.activeDays, "ngày"], ["Tổng lượt trả lời", summary.answers, "lượt"]];
 
-  const targetNew = Math.max(1, Number(S.settings.newPerDay || 8));
+  const targetNew = Math.max(1, Number(S.settings.newPerDay || 20));
   const targetRev = Math.max(1, Number(S.settings.reviewPerDay || 50));
 
   // Task 1: Giữ chuỗi ngày học
-  const task1Done = st.reviews >= STREAK_MIN;
+  const task1Done = st.reviews > 0;
   const task1Pct = task1Done ? 100 : 0;
 
   // Task 2: Ôn thẻ mỗi ngày
@@ -506,9 +514,9 @@ function dailyDashboard(c, days) {
   const task3Done = st.newCards >= targetNew || (c.fresh === 0 && st.newCards > 0);
   let task3Sub = "";
   if (st.newCards >= targetNew) {
-    task3Sub = `✓ Đã hoàn thành chỉ tiêu từ mới hôm nay (${fmt(st.newCards)}/${fmt(targetNew)} từ)!`;
+    task3Sub = `✓ Đã hoàn thành chỉ tiêu thẻ mới hôm nay (${fmt(st.newCards)}/${fmt(targetNew)} thẻ)!`;
   } else if (c.fresh > 0) {
-    task3Sub = `Còn ${fmt(c.fresh)} thẻ mới chờ trong lịch hôm nay · Mục tiêu: ${fmt(targetNew)} từ mới`;
+    task3Sub = `Còn ${fmt(c.fresh)} thẻ mới chờ trong lịch hôm nay · Mục tiêu: ${fmt(targetNew)} thẻ`;
   } else if (st.newCards === 0 && c.fresh === 0) {
     task3Sub = `Hôm nay không có thẻ mới trong lịch (hãy bật thêm band trong Thư mục)`;
   } else {
@@ -516,7 +524,7 @@ function dailyDashboard(c, days) {
   }
   const task3Remaining = st.newCards >= targetNew
     ? `✓ Đạt ${fmt(st.newCards)} thẻ`
-    : `Còn thiếu ${fmt(targetNew - st.newCards)} từ mới`;
+    : `Còn thiếu ${fmt(targetNew - st.newCards)} thẻ mới`;
 
   const completedCount = (task1Done ? 1 : 0) + (task2Done ? 1 : 0) + (task3Done ? 1 : 0);
   const overallPct = Math.round((task1Pct + task2Pct + task3Pct) / 3);
@@ -542,7 +550,7 @@ function dailyDashboard(c, days) {
       <div class="goal-edit-title"><b>🎯 Thiết lập mục tiêu hàng ngày của bạn</b></div>
       <div class="goal-inputs-grid">
         <div class="goal-field">
-          <label for="goalNewCards">Từ mới mỗi ngày:</label>
+          <label for="goalNewCards">Thẻ mới mỗi ngày:</label>
           <div class="goal-input-stepper">
             <button type="button" class="btn-stepper" data-step="new" data-delta="-5">−</button>
             <input type="number" id="goalNewCards" min="5" max="100" step="5" value="${targetNew}">
@@ -586,7 +594,7 @@ function dailyDashboard(c, days) {
               <span class="task-icon">🔥</span>
               <b>Giữ chuỗi ngày học</b>
             </div>
-            <div class="task-sub">${task1Done ? "✓ Đã trả lời thẻ hôm nay, chuỗi được giữ vững!" : `Trả lời ít nhất ${STREAK_MIN} thẻ trong mục Học để giữ chuỗi (hôm nay: ${st.reviews})`}</div>
+            <div class="task-sub">${task1Done ? "✓ Đã trả lời thẻ hôm nay, chuỗi được giữ vững!" : "Trả lời ít nhất 1 thẻ trong mục Học để không đứt chuỗi"}</div>
           </div>
           <div class="task-stat">
             <span class="task-fraction">${task1Done ? "1 / 1" : "0 / 1"}</span>
@@ -633,7 +641,7 @@ function dailyDashboard(c, days) {
             <div class="task-sub">${task3Sub}</div>
           </div>
           <div class="task-stat">
-            <span class="task-fraction"><b>${fmt(st.newCards)}</b> / ${fmt(targetNew)} từ mới</span>
+            <span class="task-fraction"><b>${fmt(st.newCards)}</b> / ${fmt(targetNew)} thẻ mới</span>
             ${task3Done ? '<span class="task-check-badge">✓ Đạt</span>' : (c.fresh ? '<a class="task-action-btn" href="#hoc">Học mới</a>' : '<span class="task-check-badge">Hết mới</span>')}
           </div>
         </div>
@@ -648,7 +656,7 @@ function dailyDashboard(c, days) {
     </div>
   </section><section class="panel"><h2 class="h2">Chuỗi ngày học</h2>
     <div class="study-metrics">${metrics.map(([label, value, unit]) => `<div><span>${label}</span><strong>${fmt(value)} ${unit}</strong></div>`).join("")}</div>
-    <p class="sub">Ngày có ít nhất 10 lượt trả lời thẻ mới được tính vào chuỗi. Ngày học mới bắt đầu lúc 04:00.</p>
+    <p class="sub">Mỗi ngày có ít nhất một lượt trả lời thẻ được tính vào chuỗi. Ngày học mới bắt đầu lúc 04:00.</p>
     <details class="more"><summary>Chi tiết 14 ngày gần nhất</summary>
       <table class="study-history"><thead><tr><th>Ngày</th><th>Lượt trả lời</th><th>Thẻ mới</th><th>Lượt Quên</th></tr></thead><tbody>
       ${days.slice().reverse().map(([key, date]) => { const row = S.stats.get(key) || {};
@@ -734,12 +742,12 @@ VIEWS["trang-chu"] = () => {
   const summary = studySummary(S.stats, Date.now());
 
   const targetNew = Math.max(1, Number(S.settings.newPerDay || 8));
-  const targetRev = Math.max(1, Number(S.settings.reviewPerDay || 50));
+  const targetRev = Math.max(1, Number(S.settings.reviewPerDay || 30));
   const reviewedToday = Math.max(0, st.reviews - st.newCards);
   const studyMinutes = Math.max(1, Math.round(st.reviews * 0.45));
 
   // 3 Tasks Progress Calculations
-  const task1Done = st.reviews >= STREAK_MIN;
+  const task1Done = st.reviews > 0;
   const task1Pct = task1Done ? 100 : 0;
 
   const task2Pct = Math.min(100, Math.round((reviewedToday / targetRev) * 100));
@@ -938,7 +946,7 @@ VIEWS["trang-chu"] = () => {
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
             <!-- Thẻ mới input with steppers -->
             <div class="bg-paper-card p-3 rounded-xl border border-border-subtle flex flex-col gap-2">
-              <label class="text-xs font-semibold text-on-surface-variant">Từ mới mỗi ngày (tối đa 200):</label>
+              <label class="text-xs font-semibold text-on-surface-variant">Thẻ mới mỗi ngày (tối đa 200):</label>
               <div class="flex items-center gap-2">
                 <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-primary font-bold text-base flex items-center justify-center btn-stepper" data-step="new" data-delta="-5">-</button>
                 <input type="number" id="goalNewCards" min="1" max="200" value="${targetNew}" class="flex-1 py-1 px-3 text-center rounded-lg border border-border-subtle font-code font-bold text-primary text-base">
@@ -960,9 +968,9 @@ VIEWS["trang-chu"] = () => {
           <!-- Presets -->
           <div class="flex items-center gap-2 flex-wrap text-xs">
             <span class="text-outline font-medium">Gợi ý nhanh:</span>
-            <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle btn-preset" data-new="10" data-rev="30">Nhẹ nhàng (10 mới / 30 ôn)</button>
-            <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle btn-preset" data-new="20" data-rev="50">Tiêu chuẩn (20 mới / 50 ôn)</button>
-            <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle btn-preset" data-new="40" data-rev="100">Bứt phá (40 mới / 100 ôn)</button>
+            <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-secondary-fixed text-secondary border border-secondary/30 btn-preset font-semibold" data-new="8" data-rev="30">🎯 Band B Khuyến nghị (8 mới / 30 ôn)</button>
+            <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle btn-preset" data-new="5" data-rev="20">🌱 Nhẹ nhàng (5 mới / 20 ôn)</button>
+            <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-primary border border-primary/30 btn-preset" data-new="15" data-rev="50">🚀 Tăng tốc (15 mới / 50 ôn)</button>
           </div>
 
           <div class="flex items-center justify-between pt-2 border-t border-border-subtle">
@@ -1026,7 +1034,7 @@ VIEWS["trang-chu"] = () => {
                 <span class="material-symbols-outlined text-[18px] ${task3Done ? 'text-secondary' : 'text-outline'}">${task3Done ? 'check_circle' : 'radio_button_unchecked'}</span>
               </div>
               <h3 class="font-headline-md font-bold text-base text-on-surface">Học thẻ mới hôm nay</h3>
-              <p class="text-xs text-on-surface-variant">${task3Done ? `Đã học đủ ${fmt(st.newCards)}/${fmt(targetNew)} từ mới!` : `Đã học ${fmt(st.newCards)} / ${fmt(targetNew)} từ mới.`}</p>
+              <p class="text-xs text-on-surface-variant">${task3Done ? `Đã nạp đủ ${fmt(st.newCards)}/${fmt(targetNew)} thẻ mới!` : `Đã học ${fmt(st.newCards)} / ${fmt(targetNew)} thẻ mới.`}</p>
             </div>
             <div class="flex flex-col gap-1">
               <div class="flex justify-between text-xs font-semibold">
@@ -1143,8 +1151,8 @@ VIEWS["trang-chu"] = () => {
   const btnSave = $("#btnSaveGoal");
   if (btnSave) {
     btnSave.onclick = async () => {
-      const n = Math.max(1, Math.min(200, Number($("#goalNewCards")?.value) || 20));
-      const r = Math.max(5, Math.min(500, Number($("#goalReviewCards")?.value) || 50));
+      const n = Math.max(1, Math.min(200, Number($("#goalNewCards")?.value) || 8));
+      const r = Math.max(5, Math.min(500, Number($("#goalReviewCards")?.value) || 30));
       S.settings.newPerDay = n;
       S.settings.reviewPerDay = r;
       await saveSettings();
@@ -1319,7 +1327,7 @@ VIEWS["hoc"] = () => {
   if (!S.session) {
     const c = todayCounts();
     const st = todayStats();
-    const targetNew = Math.max(1, Number(S.settings.newPerDay || 8));
+    const targetNew = Math.max(1, Number(S.settings.newPerDay || 20));
     const targetRev = Math.max(1, Number(S.settings.reviewPerDay || 50));
 
     setView(`
@@ -1417,8 +1425,37 @@ function renderCard() {
   const types = typesOf(r.n);
   const typeLabel = (types.find(([t]) => t === r.t) || [r.t, r.t])[1];
   const curLvl = noteLevel(r.n);
-  const cardLvl = cardLevel(S.srs.get(r.id));
-  const clozeMissed = r.t === "clo" && (r._wrongChoices || []).length > 0;
+
+  const curCid = cardId(r.n, r.t);
+  const curCardState = S.srs.get(curCid) || freshState();
+  const curSkillLvl = cardLevel(curCardState);
+  const curSkillIvl = curCardState.ivl || 0;
+
+  const now = Date.now();
+  const srsNext1 = schedule(curCardState, 1, now);
+  const srsNext2 = schedule(curCardState, 2, now);
+  const srsNext3 = schedule(curCardState, 3, now);
+  const srsNext4 = schedule(curCardState, 4, now);
+
+  const fmtNextIvl = (s) => {
+    if (s.state === "learn" || s.state === "relearn") {
+      const diff = Math.max(0, s.due - now);
+      return fmtGap(diff);
+    }
+    return `${s.ivl} ngày`;
+  };
+
+  const skillBadgesHTML = types.map(([t, label]) => {
+    const cState = S.srs.get(cardId(r.n, t));
+    const lvl = cardLevel(cState);
+    const isCur = t === r.t;
+    return `
+      <div class="px-2.5 py-1 rounded-xl border text-xs flex items-center gap-1.5 transition-all ${isCur ? 'border-secondary bg-jade-subtle text-secondary font-bold shadow-2xs ring-1 ring-secondary/30' : 'border-border-subtle bg-surface-container-low text-outline'}">
+        <span>${label}:</span>
+        <span class="${isCur ? 'text-secondary' : 'text-on-surface'}">${LEVELS[lvl]}</span>
+      </div>
+    `;
+  }).join('');
 
   const totalCards = Math.max(ss.start, ss.answered + 1);
   const cardIndex = ss.answered + 1;
@@ -1755,28 +1792,86 @@ function renderCard() {
                 </div>
               ` : ''}
 
-              <!-- 6 UNIFIED MEMORY RATING BUTTONS (CHẤM ĐIỂM GHI NHỚ CHO CẢ TỪ) -->
-              <div class="pt-space-md flex flex-col gap-space-sm border-t border-border-subtle mt-2">
-                <div class="flex items-center justify-between text-outline px-1">
-                  <span class="font-label-sm text-xs uppercase tracking-wider font-semibold">Chấm thẻ này · ${esc(typeLabel)}${cardLvl ? ` · đang ở ${esc(LEVELS[cardLvl])}` : ""}</span>
-                  <span class="font-code text-xs hidden sm:inline">Phím tắt: 1 - 5, 0</span>
+              <!-- SECTION: SRS EVALUATION & SKILL MASTERY -->
+              <div class="pt-space-md flex flex-col gap-space-md border-t border-border-subtle mt-2">
+                <!-- Skill Progress Bar & Badges -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-surface-container-low p-3 rounded-xl border border-border-subtle">
+                  <div class="flex items-center gap-2">
+                    <span class="font-label-sm text-xs font-semibold uppercase text-outline">Kỹ năng đang luyện:</span>
+                    <span class="px-2.5 py-0.5 rounded-lg bg-secondary text-white font-bold text-xs shadow-2xs">${typeLabel}</span>
+                    <span class="text-xs text-on-surface-variant font-medium">(Mức: <strong>${LEVELS[curSkillLvl]}</strong>${curSkillIvl ? ` • ${curSkillIvl} ngày` : ''})</span>
+                  </div>
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <span class="text-[11px] text-outline uppercase font-semibold mr-1">Tất cả kỹ năng:</span>
+                    ${skillBadgesHTML}
+                  </div>
                 </div>
-                <div class="grades-6">
-                  ${[0, 1, 2, 3, 4, 5].map((lvl) => {
-                    const isCur = cardLvl === lvl;
-                    const hints = gradeHints(r);
-                    const locked = clozeMissed && lvl > 2;
-                    return `
-                      <button type="button" class="lvl-btn lvl-btn-${lvl} ${isCur ? "is-current" : ""}" data-grade="${lvl}" ${locked ? "disabled" : ""} title="${locked ? "Đã chọn sai đáp án, tối đa Nhớ tạm" : `Lần ôn tới: ${hints[lvl]}`}">
-                        <span class="lvl-title">${isCur ? "✓ " : ""}${esc(LEVELS[lvl])}</span>
-                        <small class="lvl-sub">${hints[lvl]}</small>
-                      </button>
-                    `;
-                  }).join('')}
+
+                <!-- 4 Primary SRS Auto-Buttons (SM-2) -->
+                <div class="flex flex-col gap-1.5">
+                  <div class="flex items-center justify-between text-outline px-1">
+                    <span class="font-label-sm text-xs uppercase tracking-wider font-semibold text-on-surface">Đánh giá khả năng nhớ (Thuật toán SRS Spaced Repetition):</span>
+                    <span class="font-code text-xs hidden sm:inline">Phím tắt: 1 - 4</span>
+                  </div>
+                  <div class="srs-grade-grid">
+                    <button type="button" class="srs-grade-btn srs-grade-1" data-srs-grade="1" title="Quên thẻ này - ôn lại sau ${fmtNextIvl(srsNext1)}">
+                      <span class="srs-grade-label">Quên</span>
+                      <span class="srs-grade-sub">${fmtNextIvl(srsNext1)}</span>
+                      <span class="srs-grade-shortcut">1</span>
+                    </button>
+                    <button type="button" class="srs-grade-btn srs-grade-2" data-srs-grade="2" title="Nhớ khó khăn - ôn lại sau ${fmtNextIvl(srsNext2)}">
+                      <span class="srs-grade-label">Khó</span>
+                      <span class="srs-grade-sub">${fmtNextIvl(srsNext2)}</span>
+                      <span class="srs-grade-shortcut">2</span>
+                    </button>
+                    <button type="button" class="srs-grade-btn srs-grade-3" data-srs-grade="3" title="Nhớ tốt đúng hạn - ôn lại sau ${fmtNextIvl(srsNext3)}">
+                      <span class="srs-grade-label">Nhớ tốt</span>
+                      <span class="srs-grade-sub">${fmtNextIvl(srsNext3)}</span>
+                      <span class="srs-grade-shortcut">3</span>
+                    </button>
+                    <button type="button" class="srs-grade-btn srs-grade-4" data-srs-grade="4" title="Rất dễ dàng - ôn lại sau ${fmtNextIvl(srsNext4)}">
+                      <span class="srs-grade-label">Dễ</span>
+                      <span class="srs-grade-sub">${fmtNextIvl(srsNext4)}</span>
+                      <span class="srs-grade-shortcut">4</span>
+                    </button>
+                  </div>
+                  <div class="text-[11px] text-outline text-center mt-0.5">
+                    Hệ thống sẽ tự động tính chu kỳ ôn tối ưu cho riêng kỹ năng <strong>${typeLabel}</strong> theo thuật toán SM-2.
+                  </div>
                 </div>
-                <div class="text-xs text-outline text-center mt-1">
-                  ${clozeMissed ? "Bạn đã chọn sai đáp án nên chỉ chấm được tới Nhớ tạm. " : ""}Chỉ áp dụng cho dạng thẻ này. Số dưới mỗi ô là lần ôn tới; lịch tự giãn dần khi bạn nhớ tốt nhiều lần.
-                </div>
+
+                <!-- Manual Level Override Collapsible -->
+                <details class="group rounded-xl border border-border-subtle bg-paper-card p-3 transition-all" id="detailsManualLevel">
+                  <summary class="flex items-center justify-between cursor-pointer text-xs font-semibold text-outline hover:text-on-surface select-none">
+                    <span class="flex items-center gap-1.5">
+                      <span class="material-symbols-outlined text-[16px] transition-transform group-open:rotate-90">tune</span>
+                      <span>Tuỳ chỉnh mức thủ công (Manual Level Override)</span>
+                    </span>
+                    <span class="text-[11px] font-normal text-secondary font-mono">Bấm để chỉnh 6 mức</span>
+                  </summary>
+                  <div class="flex flex-col gap-2.5 pt-3 mt-2 border-t border-border-subtle">
+                    <label class="flex items-center gap-2 text-xs text-on-surface cursor-pointer select-none">
+                      <input type="checkbox" id="chkAllSkills" class="w-4 h-4 rounded text-primary">
+                      <span class="font-medium">Áp dụng mức này cho cả từ (tất cả các kỹ năng đọc, nghe, viết, điền từ)</span>
+                    </label>
+                    <div class="grades-6">
+                      ${[0, 1, 2, 3, 4, 5].map((lvl) => {
+                        const isCur = curSkillLvl === lvl;
+                        const hints = ["Đặt lại", "Ôn lại ngay", "1 ngày", "7 ngày", "21 ngày", "90 ngày"];
+                        return `
+                          <button type="button" class="lvl-btn lvl-btn-${lvl} ${isCur ? "is-current" : ""}" data-word-level="${lvl}" title="Đặt ở mức ${esc(LEVELS[lvl])}">
+                            <span class="lvl-title">${isCur ? "✓ " : ""}${esc(LEVELS[lvl])}</span>
+                            <small class="lvl-sub">${hints[lvl]}</small>
+                          </button>
+                        `;
+                      }).join('')}
+                    </div>
+                    <div class="text-[11px] text-outline text-center">
+                      Mức thủ công được kiểm soát cận khoảng cách theo lịch sử học, chống nhảy cóc sai lệch tiến độ.
+                    </div>
+                  </div>
+                </details>
+
                 <div role="status" id="levelStatus" class="text-xs text-secondary text-center font-semibold"></div>
               </div>
             </div>
@@ -1805,8 +1900,13 @@ function renderCard() {
         ${ss.shown ? `
           <span>•</span>
           <div class="flex items-center gap-1">
-            <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">1 - 5, 0</kbd>
-            <span>Chọn mức nhớ</span>
+            <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">1 - 4</kbd>
+            <span>Đánh giá SRS</span>
+          </div>
+          <span>•</span>
+          <div class="flex items-center gap-1">
+            <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">5 / 0</kbd>
+            <span>Thuộc / Đặt lại</span>
           </div>
         ` : ''}
       </footer>
@@ -1883,18 +1983,43 @@ function renderCard() {
   const rv = $("#btnReveal");
   if (rv) rv.onclick = reveal;
 
-  // Bind level grading buttons
+  // Bind SRS grading and manual level buttons
   if (ss.shown) {
-    document.querySelectorAll("[data-grade]").forEach((btn) => {
+    document.querySelectorAll("[data-srs-grade]").forEach((btn) => {
       btn.onclick = async () => {
-        document.querySelectorAll("[data-grade]").forEach((b) => (b.disabled = true));
-        await gradeCard(r, Number(btn.dataset.grade), () => {
-          ss.lastNote = r.n.key;
-          ss.shown = false;
-          ss.current = nextCard(Date.now());
-          renderCard();
-          window.scrollTo(0, 0);
-        });
+        const grade = Number(btn.dataset.srsGrade);
+        document.querySelectorAll("[data-srs-grade], [data-word-level]").forEach((b) => (b.disabled = true));
+        try {
+          await applyCardGrade(r.n, r.t, grade, () => {
+            ss.lastNote = r.n.key;
+            ss.shown = false;
+            ss.current = nextCard(Date.now());
+            renderCard();
+            window.scrollTo(0, 0);
+          });
+        } finally {
+          document.querySelectorAll("[data-srs-grade], [data-word-level]").forEach((b) => (b.disabled = false));
+        }
+      };
+    });
+
+    document.querySelectorAll("[data-word-level]").forEach((btn) => {
+      btn.onclick = async () => {
+        const lvl = Number(btn.dataset.wordLevel);
+        const chkAll = $("#chkAllSkills");
+        const applyToAll = !!(chkAll && chkAll.checked);
+        document.querySelectorAll("[data-srs-grade], [data-word-level]").forEach((b) => (b.disabled = true));
+        try {
+          await applyCardLevel(r.n, r.t, lvl, applyToAll, () => {
+            ss.lastNote = r.n.key;
+            ss.shown = false;
+            ss.current = nextCard(Date.now());
+            renderCard();
+            window.scrollTo(0, 0);
+          });
+        } finally {
+          document.querySelectorAll("[data-srs-grade], [data-word-level]").forEach((b) => (b.disabled = false));
+        }
       };
     });
   }
@@ -1945,10 +2070,16 @@ document.addEventListener("keydown", (e) => {
         targetBtn.click();
       }
     }
-  } else if (ss.shown && ["0", "1", "2", "3", "4", "5", "6"].includes(e.key)) {
+  } else if (ss.shown && ["1", "2", "3", "4"].includes(e.key)) {
+    e.preventDefault();
+    const targetBtn = document.querySelector(`[data-srs-grade="${e.key}"]`);
+    if (targetBtn && !targetBtn.disabled) {
+      targetBtn.click();
+    }
+  } else if (ss.shown && ["0", "5", "6"].includes(e.key)) {
     e.preventDefault();
     const lvl = e.key === "6" ? 0 : Number(e.key);
-    const targetBtn = $(`[data-grade="${lvl}"]`);
+    const targetBtn = document.querySelector(`[data-word-level="${lvl}"]`);
     if (targetBtn && !targetBtn.disabled) {
       targetBtn.click();
     }
@@ -3101,9 +3232,9 @@ VIEWS["thi-thu"] = () => {
           <div>
             <div class="flex items-center gap-2">
               <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
-              <h1 class="font-headline-lg text-xl md:text-2xl font-bold text-on-surface">Khảo thí Mô phỏng TOCFL CAT-B</h1>
+              <h1 class="font-headline-lg text-xl md:text-2xl font-bold text-on-surface">Luyện tập Định dạng Đề thi TOCFL Band B (Demo 4 câu)</h1>
             </div>
-            <p class="text-xs text-on-surface-variant mt-0.5">Mô phỏng bài thi Định dạng CAT Chuẩn hóa 2024 · SC-TOP Đài Loan</p>
+            <p class="text-xs text-on-surface-variant mt-0.5">Làm quen cấu trúc đề &amp; ngữ cảnh giao tiếp Đài Loan · Mô phỏng câu hỏi SC-TOP</p>
           </div>
           <div class="flex items-center gap-3">
             <div class="font-code text-xl font-bold text-primary bg-cinnabar-subtle px-4 py-1.5 rounded-xl border border-primary/20 flex items-center gap-1.5 shadow-2xs">
@@ -3112,6 +3243,14 @@ VIEWS["thi-thu"] = () => {
             <button type="button" class="px-5 py-2 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary shadow-xs transition-colors" id="btnSubmitExam">
               Nộp bài (繳卷)
             </button>
+          </div>
+        </div>
+
+        <!-- Informative Context Note -->
+        <div class="p-3.5 rounded-xl bg-amber-subtle/80 border border-amber-300 text-tertiary text-xs flex items-start gap-2.5">
+          <span class="material-symbols-outlined text-[18px] shrink-0 text-tertiary mt-0.5">info</span>
+          <div>
+            <strong>Lưu ý về bài luyện tập:</strong> Đây là bộ câu hỏi mẫu (4 câu) giúp bạn làm quen với cấu trúc ngữ cảnh và dạng câu hỏi thực tế của TOCFL Band B (B1/B2). Kỳ thi CAT chính thức của SC-TOP Đài Loan gồm ~70 câu (35 câu nghe + 35 câu đọc) sử dụng giải thuật thích ứng để xếp loại trình độ.
           </div>
         </div>
 
@@ -3199,10 +3338,109 @@ VIEWS["thi-thu"] = () => {
     if (submitBtn) {
       submitBtn.onclick = () => {
         let correctCount = 0;
+        let listenCorrect = 0, listenTotal = 0;
+        let readCorrect = 0, readTotal = 0;
+
         sampleQuestions.forEach((sq, i) => {
-          if (userAnswers[i] === sq.correct) correctCount++;
+          const isCorrect = userAnswers[i] === sq.correct;
+          if (isCorrect) correctCount++;
+          if (sq.part.includes("Nghe")) {
+            listenTotal++;
+            if (isCorrect) listenCorrect++;
+          } else {
+            readTotal++;
+            if (isCorrect) readCorrect++;
+          }
         });
-        alert(`KẾT QUẢ BÀI MẪU ${total} CÂU\n\n• Số câu đúng: ${correctCount} / ${total}\n\nĐây chỉ là bài mẫu để làm quen dạng câu hỏi, không quy ra điểm hay cấp TOCFL.`);
+
+        const pct = Math.round((correctCount / total) * 100);
+
+        setView(`
+          <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
+            <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-sm flex flex-col gap-space-md">
+              <div class="flex items-center gap-2">
+                <span class="w-2 h-5 rounded-full bg-primary-container"></span>
+                <h1 class="font-headline-lg text-2xl md:text-3xl font-bold text-on-surface">Kết Quả Luyện Tập Định Dạng TOCFL Band B</h1>
+              </div>
+              <p class="text-xs md:text-sm text-outline">Bài kiểm tra mẫu 4 câu mô phỏng phân môn Nghe &amp; Đọc hiểu chuẩn SC-TOP Đài Loan</p>
+
+              <!-- Overall Score Bento -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md my-2">
+                <div class="bg-surface-container-low p-4 rounded-xl border border-border-subtle flex flex-col items-center justify-center text-center">
+                  <span class="text-xs text-outline font-semibold uppercase">Tổng số câu đúng</span>
+                  <span class="text-3xl font-bold font-code text-primary mt-1">${correctCount} / ${total}</span>
+                  <span class="text-xs text-on-surface-variant font-medium mt-0.5">Tỷ lệ chính xác: ${pct}%</span>
+                </div>
+                <div class="bg-surface-container-low p-4 rounded-xl border border-border-subtle flex flex-col items-center justify-center text-center">
+                  <span class="text-xs text-outline font-semibold uppercase">Phân môn Đọc hiểu (閱讀)</span>
+                  <span class="text-3xl font-bold font-code text-secondary mt-1">${readCorrect} / ${readTotal}</span>
+                  <span class="text-xs text-on-surface-variant font-medium mt-0.5">3 câu đọc hiểu</span>
+                </div>
+                <div class="bg-surface-container-low p-4 rounded-xl border border-border-subtle flex flex-col items-center justify-center text-center">
+                  <span class="text-xs text-outline font-semibold uppercase">Phân môn Nghe hiểu (聽力)</span>
+                  <span class="text-3xl font-bold font-code text-tertiary mt-1">${listenCorrect} / ${listenTotal}</span>
+                  <span class="text-xs text-on-surface-variant font-medium mt-0.5">1 câu hội thoại</span>
+                </div>
+              </div>
+
+              <!-- Important Pedagogical Disclaimer Notice -->
+              <div class="p-4 rounded-xl bg-amber-subtle/80 border border-amber-300 text-tertiary text-xs md:text-sm leading-relaxed flex items-start gap-3">
+                <span class="material-symbols-outlined text-[22px] shrink-0 text-tertiary mt-0.5">info</span>
+                <div>
+                  <strong>Thông tin chuẩn hóa khảo thí TOCFL:</strong>
+                  <p class="mt-1">
+                    Đây là bộ đề 4 câu demo định dạng để bạn làm quen với ngữ cảnh đời sống Đài Loan. Kỳ thi chính thức TOCFL CAT gồm ~70 câu (35 câu nghe + 35 câu đọc), sử dụng thuật toán khảo thí thích ứng máy tính (CAT - Computer Adaptive Testing) và thang điểm chuẩn 0 - 80 của Ủy ban SC-TOP. Kết quả 4 câu này không phản ánh đậu/rớt mà là chỉ số tham khảo để tiếp tục bồi dưỡng từ vựng.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Question-by-Question Review with Explanations -->
+              <div class="flex flex-col gap-3 mt-2">
+                <h2 class="font-headline-md text-base font-bold text-on-surface">Chi tiết từng câu &amp; Giải thích ngữ cảnh:</h2>
+                ${sampleQuestions.map((sq, i) => {
+                  const isRight = userAnswers[i] === sq.correct;
+                  const userAnsLabel = userAnswers[i] !== undefined ? String.fromCharCode(65 + userAnswers[i]) : "Chưa chọn";
+                  const rightAnsLabel = String.fromCharCode(65 + sq.correct);
+                  return `
+                    <div class="p-4 rounded-xl border ${isRight ? 'border-secondary/40 bg-jade-subtle/40' : 'border-primary/40 bg-cinnabar-subtle/40'} flex flex-col gap-2">
+                      <div class="flex items-center justify-between text-xs font-semibold">
+                        <span class="${isRight ? 'text-secondary' : 'text-primary'} flex items-center gap-1 font-bold">
+                          <span class="material-symbols-outlined text-[16px]">${isRight ? 'check_circle' : 'cancel'}</span>
+                          Câu ${i + 1}: ${esc(sq.part)} — ${isRight ? 'Đúng' : 'Chưa đúng'}
+                        </span>
+                        <span class="font-code text-outline">Bạn chọn: <strong>${userAnsLabel}</strong> | Đáp án: <strong class="text-secondary">${rightAnsLabel}</strong></span>
+                      </div>
+                      <div class="font-serif text-sm font-medium text-on-surface">${esc(sq.zh)}</div>
+                      <div class="text-xs font-semibold text-on-surface-variant">${esc(sq.q)}</div>
+                      <div class="text-xs text-outline bg-paper-card p-2.5 rounded-lg border border-border-subtle/50 mt-1">
+                        💡 <strong>Giải nghĩa:</strong> ${esc(sq.explain)}
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+
+              <!-- Action buttons -->
+              <div class="flex items-center justify-end gap-3 pt-4 border-t border-border-subtle mt-2">
+                <a href="#trang-chu" class="px-5 py-2.5 rounded-xl border border-border-subtle bg-paper-card hover:bg-surface-container text-xs font-semibold text-on-surface">
+                  Về Trang chủ
+                </a>
+                <button type="button" class="px-6 py-2.5 rounded-xl bg-primary-container text-white text-xs font-semibold hover:bg-primary shadow-xs" id="btnRetryExam">
+                  Làm lại bài luyện tập
+                </button>
+              </div>
+            </div>
+          </div>
+        `);
+
+        const retryBtn = $("#btnRetryExam");
+        if (retryBtn) {
+          retryBtn.onclick = () => {
+            userAnswers = {};
+            curQ = 0;
+            renderExam();
+          };
+        }
       };
     }
   }
@@ -3472,16 +3710,35 @@ VIEWS["cai-dat"] = () => {
           </div>
         </div>
 
+        <!-- Goal Presets Recommendation for Band B -->
+        <div class="flex flex-col gap-2">
+          <span class="text-xs font-semibold text-outline uppercase tracking-wider">Gợi ý lộ trình mục tiêu theo thời gian:</span>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <button type="button" class="btn-setting-preset p-3 rounded-xl border border-secondary/40 bg-jade-subtle text-secondary text-left text-xs font-medium hover:bg-secondary-fixed transition-all" data-preset-new="8" data-preset-rev="30">
+              <div class="font-bold flex items-center gap-1.5"><span>🎯 Band B Khuyến nghị</span></div>
+              <div class="text-[11px] opacity-85 mt-0.5">8 từ mới • 30 lượt ôn (15-25p/ngày)</div>
+            </button>
+            <button type="button" class="btn-setting-preset p-3 rounded-xl border border-border-subtle bg-surface-container-low text-on-surface text-left text-xs font-medium hover:bg-surface-container transition-all" data-preset-new="5" data-preset-rev="20">
+              <div class="font-bold flex items-center gap-1.5"><span>🌱 Nhẹ nhàng duy trì</span></div>
+              <div class="text-[11px] text-outline mt-0.5">5 từ mới • 20 lượt ôn (10-15p/ngày)</div>
+            </button>
+            <button type="button" class="btn-setting-preset p-3 rounded-xl border border-primary/30 bg-cinnabar-subtle text-primary text-left text-xs font-medium hover:bg-primary-container hover:text-white transition-all" data-preset-new="15" data-preset-rev="50">
+              <div class="font-bold flex items-center gap-1.5"><span>🚀 Tăng tốc cấp tốc</span></div>
+              <div class="text-[11px] opacity-85 mt-0.5">15 từ mới • 50 lượt ôn (35-45p/ngày)</div>
+            </button>
+          </div>
+        </div>
+
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
           <label class="flex flex-col gap-1.5 p-3.5 rounded-xl bg-surface-container-low border border-border-subtle">
-            <span class="text-xs font-semibold text-on-surface">Từ mới mỗi ngày:</span>
+            <span class="text-xs font-semibold text-on-surface">Thẻ mới mỗi ngày (newPerDay):</span>
             <input type="number" id="setNewPerDay" min="1" max="200" value="${S.settings.newPerDay || 8}" class="p-2 rounded-xl bg-paper-card border border-border-subtle text-sm font-code font-bold text-primary">
-            <span class="text-[11px] text-outline">Giới hạn số từ mới đưa vào học mỗi ngày</span>
+            <span class="text-[11px] text-outline">Khuyến nghị 8 từ/ngày để ôn sâu và không bị quá tải</span>
           </label>
 
           <label class="flex flex-col gap-1.5 p-3.5 rounded-xl bg-surface-container-low border border-border-subtle">
             <span class="text-xs font-semibold text-on-surface">Chỉ tiêu ôn mỗi ngày (reviewPerDay):</span>
-            <input type="number" id="setRevPerDay" min="5" max="500" value="${S.settings.reviewPerDay || 50}" class="p-2 rounded-xl bg-paper-card border border-border-subtle text-sm font-code font-bold text-secondary">
+            <input type="number" id="setRevPerDay" min="5" max="500" value="${S.settings.reviewPerDay || 30}" class="p-2 rounded-xl bg-paper-card border border-border-subtle text-sm font-code font-bold text-secondary">
             <span class="text-[11px] text-outline">Dùng để tính thanh tiến độ nhiệm vụ ngày</span>
           </label>
         </div>
@@ -3549,10 +3806,20 @@ VIEWS["cai-dat"] = () => {
     </div>
   `);
 
+  // Bind Setting Presets
+  document.querySelectorAll(".btn-setting-preset").forEach((btn) => {
+    btn.onclick = () => {
+      const n = btn.dataset.presetNew;
+      const r = btn.dataset.presetRev;
+      if ($("#setNewPerDay")) $("#setNewPerDay").value = n;
+      if ($("#setRevPerDay")) $("#setRevPerDay").value = r;
+    };
+  });
+
   // Save Goals & Preferences
   $("#btnSaveGoals").onclick = async () => {
-    S.settings.newPerDay = Math.max(1, Math.min(200, Number($("#setNewPerDay").value) || 20));
-    S.settings.reviewPerDay = Math.max(5, Math.min(500, Number($("#setRevPerDay").value) || 50));
+    S.settings.newPerDay = Math.max(1, Math.min(200, Number($("#setNewPerDay").value) || 8));
+    S.settings.reviewPerDay = Math.max(5, Math.min(500, Number($("#setRevPerDay").value) || 30));
     S.settings.ruby = $("#setRuby").checked;
     await saveSettings();
     alert("✓ Đã lưu cài đặt thành công!");
@@ -3693,7 +3960,7 @@ VIEWS["cai-dat"] = () => {
 async function saveSettings() { await Store.put("kv", "settings", JSON.parse(JSON.stringify(S.settings))); updateBadge(); }
 async function loadProgress() {
   S.srs = await Store.all("srs"); S.stats = await Store.all("stats"); S.inbox = await Store.all("inbox");
-  const kv = await Store.all("kv"); S.packs = kv.get("packs") || []; if (kv.get("settings")) S.settings = Object.assign({ newPerDay: 8, reviewPerDay: 50, decks: {}, bands: {}, extra: {}, ruby: true, syncToken: "", syncGistId: "", autoSync: true, lastSyncTime: "" }, kv.get("settings"));
+  const kv = await Store.all("kv"); S.packs = kv.get("packs") || []; if (kv.get("settings")) S.settings = Object.assign({ newPerDay: 8, reviewPerDay: 30, decks: {}, bands: {}, extra: {}, ruby: true, syncToken: "", syncGistId: "", autoSync: true, lastSyncTime: "" }, kv.get("settings"));
 }
 // theme lives in localStorage so it applies before the page paints (see index.html)
 function getTheme() { try { return localStorage.getItem("shth-theme") || "light"; } catch (e) { return "light"; } }
