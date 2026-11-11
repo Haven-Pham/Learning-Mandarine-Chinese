@@ -1675,6 +1675,43 @@ function renderCard() {
   }
 }
 
+function reveal() {
+  const ss = S.session;
+  if (!ss || !ss.current || ss.shown) return;
+  ss.shown = true;
+  renderCard();
+  window.scrollTo(0, 0);
+  const r = ss.current;
+  if (r.n.kind !== "grammar" && r.t !== "lis") say(itemOf(r.n).w);
+}
+
+document.addEventListener("keydown", (e) => {
+  const ss = S.session;
+  if (!ss || !ss.current || !location.hash.startsWith("#hoc")) return;
+  if (["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName)) return;
+  if (e.key.toLowerCase() === "r") {
+    e.preventDefault();
+    const r = ss.current;
+    if (r && r.n && r.n.kind !== "grammar") {
+      const it = itemOf(r.n);
+      say((r.t === "rec" && (it.e1 || it.e2)) ? (it.e1 || it.e2) : it.w);
+    }
+    return;
+  }
+  if (!ss.shown && (e.key === " " || e.key === "Enter")) {
+    e.preventDefault();
+    reveal();
+  } else if (ss.shown && ["0", "1", "2", "3", "4", "5", "6"].includes(e.key)) {
+    e.preventDefault();
+    const lvl = e.key === "6" ? 0 : Number(e.key);
+    const targetBtn = $(`[data-word-level="${lvl}"]`);
+    if (targetBtn && !targetBtn.disabled) {
+      targetBtn.click();
+    }
+  }
+});
+
+
 // =========================================================================
 // 3. THƯ MỤC TỪ VỰNG & 4. LỌC NHANH (Stitch Design)
 // =========================================================================
@@ -2083,6 +2120,25 @@ async function triUndo() {
   T.shown = false;
   renderTri();
 }
+
+document.addEventListener("keydown", (e) => {
+  if (!location.hash.startsWith("#loc-nhanh") || !S.tri || ["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName)) return;
+  const k = e.key.toLowerCase();
+  if (k === " ") {
+    e.preventDefault();
+    S.tri.shown = true;
+    renderTri();
+  } else if (k === "1") {
+    triage("known");
+  } else if (k === "2") {
+    triage("some");
+  } else if (k === "3") {
+    triage("unknown");
+  } else if (k === "z") {
+    triUndo();
+  }
+});
+
 
 // =========================================================================
 // 5. TRA TỪ & CHI TIẾT TỪ (Stitch Design)
