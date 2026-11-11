@@ -235,9 +235,9 @@ function bindLevelPicker(n, afterSave, target = document) {
 function meaningOf(n) { const it = itemOf(n); return it.vn || it.en || ""; }
 
 // ---------------- study queue ----------------
-const deckOn = (id) => S.settings.decks[id] !== false;
-const bandOn = (n) => bandsOf(n).some((b) => S.settings.bands[b]);
-const inLearning = (n) => n.rich ? (deckOn(n.deck.id) || bandOn(n)) : (bandOn(n) || !!S.settings.extra[n.w]);
+const deckOn = (id) => (!S.settings.decks || S.settings.decks[id] !== false);
+const bandOn = (n) => bandsOf(n).some((b) => S.settings.bands && S.settings.bands[b]);
+const inLearning = (n) => n.rich ? (deckOn(n.deck.id) || bandOn(n)) : (bandOn(n) || !!(S.settings.extra && S.settings.extra[n.w]));
 function activeNotes() { return S.notes.filter(inLearning); }
 function todayStats() { return S.stats.get(dayKey(Date.now())) || { reviews: 0, newCards: 0, again: 0 }; }
 function buildQueue(now) {
@@ -624,6 +624,68 @@ function dailyDashboard(c, days) {
 }
 
 // --- Trang chủ ---
+
+
+// --- Folders & Learning Utilities ---
+function folderNotes(id) {
+  if (S.bands.includes(id)) return S.notes.filter((n) => n.kind === "vocab" && inBand(n, id));
+  if (id === "cua-toi") return S.notes.filter((n) => n.rich);
+  if (id === "viet-tat") { const set = new Set(); for (const w of S.abbrS.keys()) { const n = S.noteByWord.get(w); if (n) set.add(n); } return [...set]; }
+  return S.notes.filter((n) => n.rich && n.deck.id === id);
+}
+function folderOn(id) {
+  if (S.bands.includes(id)) return !!(S.settings.bands && S.settings.bands[id]);
+  if (id === "cua-toi") return S.decks.every((d) => deckOn(d.id));
+  if (id === "viet-tat") return folderNotes(id).every(inLearning);
+  return deckOn(id);
+}
+function setFolderOn(id, v) {
+  if (!S.settings.bands) S.settings.bands = {};
+  if (!S.settings.decks) S.settings.decks = {};
+  if (!S.settings.extra) S.settings.extra = {};
+  if (S.bands.includes(id)) S.settings.bands[id] = v;
+  else if (id === "cua-toi") for (const d of S.decks) S.settings.decks[d.id] = v;
+  else if (id === "viet-tat") { for (const n of folderNotes(id)) { if (n.rich) S.settings.decks[n.deck.id] = v || deckOn(n.deck.id); else if (v) S.settings.extra[n.w] = true; else delete S.settings.extra[n.w]; } }
+  else S.settings.decks[id] = v;
+}
+const hasProgress = (n) => typesOf(n).some(([t]) => S.srs.has(cardId(n, t)));
+
+// --- NLP & Sentence Helpers for Dictation & Search ---
+function segment(zh) {
+  const out = []; const chars = [...zh]; let i = 0;
+  while (i < chars.length) {
+    if (!isHan(chars[i])) { out.push({ t: chars[i] }); i++; continue; }
+    let hit = null;
+    for (let L = Math.min(8, chars.length - i); L >= 1; L--) {
+      const w = chars.slice(i, i + L).join("");
+      const n = S.noteByWord.get(w);
+      if (n) { hit = { t: w, n }; break; }
+      if (L > 1 && S.ced && S.ced.has(w)) { hit = { t: w }; break; }
+    }
+    if (!hit) hit = { t: chars[i] };
+    out.push(hit); i += [...hit.t].length;
+  }
+  return out;
+}
+function autoPinyin(tokens) {
+  return tokens.map((k) => k.n ? itemOf(k.n).py : isHan(k.t) ? ((cedFirst(k.t) || [[k.t]])[0][0]) : k.t).join(" ").replace(/\s+([，。！？、])/g, "$1");
+}
+function sentenceBank() {
+  const out = [];
+  for (const n of S.notes) {
+    if (!n.rich && !S.vi.has(n.w)) continue;
+    const it = itemOf(n);
+    for (const k of n.kind === "grammar" ? [1, 2, 3] : [1, 2]) if (it["e" + k]) out.push({ zh: it["e" + k], py: it["e" + k + "p"], vn: it["e" + k + "v"], src: n.rich ? n.deck.name : bandLabel(n), own: true, note: n });
+  }
+  for (const p of S.packs || []) for (const s of p.sentences || []) out.push({ zh: s.zh, py: s.py || "", vn: s.vn || "", src: s.src || p.name, pack: p.name });
+  return out;
+}
+function weightOf(tokens) {
+  let w = 0;
+  for (const k of tokens) if (k.n) { const l = noteLevel(k.n); if (l > 0) w += 1 + (5 - l) + Math.min(4, noteLapses(k.n)); }
+  return w;
+}
+
 
 // =========================================================================
 // 1. TRANG CHỦ (Modern Oriental Scholarly - Stitch Design)
@@ -1613,6 +1675,37 @@ function renderCard() {
   }
 }
 
+function reveal() {
+  const ss = S.session;
+  if (!ss || !ss.current || ss.shown) return;
+  const current = ss.current;
+  ss.shown = true;
+  renderCard();
+  window.scrollTo(0, 0);
+  if (current.n.kind !== "grammar" && current.t !== "lis") {
+    say(itemOf(current.n).w);
+  }
+}
+
+document.addEventListener("keydown", (event) => {
+  const ss = S.session;
+  if (!ss || !ss.current || isInput(event.target)) return;
+
+  if (!ss.shown && (event.key === " " || event.key === "Enter")) {
+    event.preventDefault();
+    reveal();
+    return;
+  }
+
+  if (ss.shown && /^[1-6]$/.test(event.key)) {
+    const button = document.querySelector(`[data-word-level="${event.key}"]`);
+    if (button) {
+      event.preventDefault();
+      button.click();
+    }
+  }
+});
+
 // =========================================================================
 // 3. THƯ MỤC TỪ VỰNG & 4. LỌC NHANH (Stitch Design)
 // =========================================================================
@@ -2451,7 +2544,7 @@ VIEWS["chinh-ta"] = () => {
               <h3 class="font-headline-md font-bold text-base text-on-surface">Bộ câu tự nhập (${(S.packs || []).length})</h3>
             </div>
             <p class="text-xs text-on-surface-variant leading-relaxed">
-              Bạn có thể nạp các bộ câu `.json` trích từ giáo trình hay đề thi riêng vào trình duyệt của bạn.
+              Bạn có thể nạp các bộ câu .json trích từ giáo trình hay đề thi riêng vào trình duyệt của bạn.
             </p>
             <div class="flex flex-col gap-2 pt-2 border-t border-border-subtle">
               <label class="cursor-pointer inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-on-surface transition-colors">
@@ -3297,6 +3390,15 @@ VIEWS["cai-dat"] = () => {
     location.reload(true);
   };
 };
+
+async function saveSettings() { await Store.put("kv", "settings", JSON.parse(JSON.stringify(S.settings))); updateBadge(); }
+async function loadProgress() {
+  S.srs = await Store.all("srs"); S.stats = await Store.all("stats"); S.inbox = await Store.all("inbox");
+  const kv = await Store.all("kv"); S.packs = kv.get("packs") || []; if (kv.get("settings")) S.settings = Object.assign({ newPerDay: 20, reviewPerDay: 50, decks: {}, bands: {}, extra: {}, ruby: true, syncToken: "", syncGistId: "", autoSync: true, lastSyncTime: "" }, kv.get("settings"));
+}
+// theme lives in localStorage so it applies before the page paints (see index.html)
+function getTheme() { try { return localStorage.getItem("shth-theme") || "light"; } catch (e) { return "light"; } }
+function setTheme(v) { try { localStorage.setItem("shth-theme", v); } catch (e) {} document.documentElement.dataset.theme = v; }
 
 function initSyncUI() {
   const btn = $("#headerSyncBtn");
