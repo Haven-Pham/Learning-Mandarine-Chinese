@@ -35,6 +35,50 @@ const sp = (t, label) => t ? `<button type="button" class="speak" data-say="${es
 
 // ---------------- data loading ----------------
 async function getJSON(url) { const r = await fetch(url); if (!r.ok) throw new Error(url + " " + r.status); return r.json(); }
+const strokeCache = new Map();
+async function strokeData(char) {
+  const key = String(char.codePointAt(0) % 64).padStart(2, "0");
+  if (!strokeCache.has(key)) strokeCache.set(key, getJSON(`data/strokes/${key}.json`));
+  const chunk = await strokeCache.get(key);
+  if (!chunk[char]) throw new Error("Không có dữ liệu nét cho chữ " + char);
+  return chunk[char];
+}
+
+function diffMarks(target, typed) {
+  const expected = [...String(target || "")];
+  const actual = [...String(typed || "")];
+  const rows = expected.length;
+  const cols = actual.length;
+  const dp = Array.from({ length: rows + 1 }, () => new Array(cols + 1).fill(0));
+
+  for (let i = rows - 1; i >= 0; i--) {
+    for (let j = cols - 1; j >= 0; j--) {
+      dp[i][j] = expected[i] === actual[j]
+        ? dp[i + 1][j + 1] + 1
+        : Math.max(dp[i + 1][j], dp[i][j + 1]);
+    }
+  }
+
+  const matched = new Array(rows).fill(false);
+  let i = 0;
+  let j = 0;
+  while (i < rows && j < cols) {
+    if (expected[i] === actual[j]) {
+      matched[i] = true;
+      i++;
+      j++;
+    } else if (dp[i + 1][j] >= dp[i][j + 1]) {
+      i++;
+    } else {
+      j++;
+    }
+  }
+
+  return expected.map((char, index) => matched[index]
+    ? esc(char)
+    : `<span class="text-primary font-bold underline decoration-primary/30">${esc(char)}</span>`
+  ).join("");
+}
 function formsOf(w) {
   const out = [];
   for (let f of String(w).split("/")) { f = f.trim(); if (!f) continue;
