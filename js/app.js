@@ -35,50 +35,6 @@ const sp = (t, label) => t ? `<button type="button" class="speak" data-say="${es
 
 // ---------------- data loading ----------------
 async function getJSON(url) { const r = await fetch(url); if (!r.ok) throw new Error(url + " " + r.status); return r.json(); }
-const strokeCache = new Map();
-async function strokeData(char) {
-  const key = String(char.codePointAt(0) % 64).padStart(2, "0");
-  if (!strokeCache.has(key)) strokeCache.set(key, getJSON(`data/strokes/${key}.json`));
-  const chunk = await strokeCache.get(key);
-  if (!chunk[char]) throw new Error("Không có dữ liệu nét cho chữ " + char);
-  return chunk[char];
-}
-
-function diffMarks(target, typed) {
-  const expected = [...String(target || "")];
-  const actual = [...String(typed || "")];
-  const rows = expected.length;
-  const cols = actual.length;
-  const dp = Array.from({ length: rows + 1 }, () => new Array(cols + 1).fill(0));
-
-  for (let i = rows - 1; i >= 0; i--) {
-    for (let j = cols - 1; j >= 0; j--) {
-      dp[i][j] = expected[i] === actual[j]
-        ? dp[i + 1][j + 1] + 1
-        : Math.max(dp[i + 1][j], dp[i][j + 1]);
-    }
-  }
-
-  const matched = new Array(rows).fill(false);
-  let i = 0;
-  let j = 0;
-  while (i < rows && j < cols) {
-    if (expected[i] === actual[j]) {
-      matched[i] = true;
-      i++;
-      j++;
-    } else if (dp[i + 1][j] >= dp[i][j + 1]) {
-      i++;
-    } else {
-      j++;
-    }
-  }
-
-  return expected.map((char, index) => matched[index]
-    ? esc(char)
-    : `<span class="text-primary font-bold underline decoration-primary/30">${esc(char)}</span>`
-  ).join("");
-}
 function formsOf(w) {
   const out = [];
   for (let f of String(w).split("/")) { f = f.trim(); if (!f) continue;
@@ -1719,37 +1675,6 @@ function renderCard() {
   }
 }
 
-function reveal() {
-  const ss = S.session;
-  if (!ss || !ss.current || ss.shown) return;
-  const current = ss.current;
-  ss.shown = true;
-  renderCard();
-  window.scrollTo(0, 0);
-  if (current.n.kind !== "grammar" && current.t !== "lis") {
-    say(itemOf(current.n).w);
-  }
-}
-
-document.addEventListener("keydown", (event) => {
-  const ss = S.session;
-  if (!ss || !ss.current || isInput(event.target)) return;
-
-  if (!ss.shown && (event.key === " " || event.key === "Enter")) {
-    event.preventDefault();
-    reveal();
-    return;
-  }
-
-  if (ss.shown && /^[1-6]$/.test(event.key)) {
-    const button = document.querySelector(`[data-word-level="${event.key}"]`);
-    if (button) {
-      event.preventDefault();
-      button.click();
-    }
-  }
-});
-
 // =========================================================================
 // 3. THƯ MỤC TỪ VỰNG & 4. LỌC NHANH (Stitch Design)
 // =========================================================================
@@ -3204,6 +3129,11 @@ VIEWS["cai-dat"] = () => {
           <div class="flex items-center justify-between pt-2 flex-wrap gap-2">
             <span class="text-xs text-secondary font-semibold" id="gistMsg"></span>
             <div class="flex items-center gap-2">
+              ${isConnected ? `
+                <button type="button" class="px-3.5 py-2 rounded-xl bg-paper-card border border-border-subtle hover:bg-surface-container text-xs font-semibold text-outline hover:text-primary" id="btnDisconnectSync">
+                  Ngắt kết nối
+                </button>
+              ` : ''}
               <button type="button" class="px-4 py-2 rounded-xl bg-paper-card border border-border-subtle hover:bg-surface-container text-xs font-semibold text-on-surface" id="btnTestSync">
                 Kiểm tra kết nối
               </button>
@@ -3338,17 +3268,23 @@ VIEWS["cai-dat"] = () => {
       alert("Vui lòng nhập GitHub Token.");
       return;
     }
-    Sync.configure({ token, gistId, autoSync: true });
-    $("#gistMsg").textContent = "Đang đồng bộ...";
+    const msg = $("#gistMsg");
+    if (msg) msg.textContent = "Đang kết nối GitHub và tạo/cập nhật kho đồng bộ...";
     try {
-      await Sync.syncNow();
-      $("#gistMsg").textContent = "✓ Đồng bộ thành công!";
-      $("#syncStatusBadge").className = "text-xs px-2.5 py-1 rounded-full font-semibold bg-jade-subtle text-secondary";
-      $("#syncStatusBadge").textContent = "✓ Đã kết nối Đám mây";
+      const gid = await Sync.connectWithToken(token, gistId);
+      if (msg) msg.textContent = "✓ Đồng bộ thành công!";
+      const badge = $("#syncStatusBadge");
+      if (badge) {
+        badge.className = "text-xs px-2.5 py-1 rounded-full font-semibold bg-jade-subtle text-secondary";
+        badge.textContent = "✓ Đã kết nối Đám mây";
+      }
       const cfg = Sync.getConfig();
-      $("#ghGistId").value = cfg.gistId;
+      $("#ghGistId").value = cfg.gistId || gid;
+      alert("🎉 Kết nối đồng bộ thành công! Tiến độ của bạn đã được kết nối với GitHub Gist.");
+      VIEWS["cai-dat"]();
     } catch (err) {
-      $("#gistMsg").textContent = "Lỗi: " + err.message;
+      if (msg) msg.textContent = "Lỗi: " + err.message;
+      alert("Không kết nối được: " + err.message);
     }
   };
 
@@ -3359,39 +3295,60 @@ VIEWS["cai-dat"] = () => {
       alert("Vui lòng nhập Token để kiểm tra.");
       return;
     }
-    Sync.configure({ token, gistId, autoSync: true });
-    $("#gistMsg").textContent = "Đang kiểm tra kết nối...";
+    const msg = $("#gistMsg");
+    if (msg) msg.textContent = "Đang kiểm tra kết nối GitHub...";
     try {
-      const res = await Sync.testConnection();
-      $("#gistMsg").textContent = "✓ Kết nối tốt: " + res.message;
+      await Sync.connectWithToken(token, gistId);
+      if (msg) msg.textContent = "✓ Kết nối tốt và đã đồng bộ tiến độ!";
+      const badge = $("#syncStatusBadge");
+      if (badge) {
+        badge.className = "text-xs px-2.5 py-1 rounded-full font-semibold bg-jade-subtle text-secondary";
+        badge.textContent = "✓ Đã kết nối Đám mây";
+      }
     } catch (e) {
-      $("#gistMsg").textContent = "Lỗi: " + e.message;
+      if (msg) msg.textContent = "Lỗi: " + e.message;
+      alert("Lỗi kiểm tra: " + e.message);
     }
   };
 
+  const btnDisc = $("#btnDisconnectSync");
+  if (btnDisc) {
+    btnDisc.onclick = async () => {
+      if (confirm("Bạn có chắc muốn ngắt kết nối đồng bộ trên máy này?")) {
+        await Sync.disconnect();
+        VIEWS["cai-dat"]();
+      }
+    };
+  }
+
   // Fast Code Sync
-  $("#btnCopyFastCode").onclick = () => {
-    if (!Sync.isConfigured()) {
-      alert("Bạn cần kết nối Gist (Cách 1) trước để tạo mã đồng bộ.");
-      return;
+  $("#btnCopyFastCode").onclick = async () => {
+    const msg = $("#fastCodeMsg");
+    try {
+      const code = await Sync.generateFastCode();
+      await navigator.clipboard.writeText(code);
+      if (msg) msg.textContent = `✓ Đã sao chép mã tiến độ (${code.length} ký tự) vào clipboard! Dán mã này sang thiết bị khác để đồng bộ.`;
+      alert("✓ Đã sao chép mã đồng bộ nhanh vào clipboard! Bạn có thể dán mã này vào điện thoại hoặc máy khác.");
+    } catch (err) {
+      if (msg) msg.textContent = "Lỗi tạo mã: " + err.message;
     }
-    const code = Sync.getSyncCode();
-    navigator.clipboard.writeText(code).then(() => {
-      $("#fastCodeMsg").textContent = "✓ Đã sao chép mã đồng bộ vào clipboard!";
-    }).catch(() => {
-      prompt("Sao chép mã này:", code);
-    });
   };
 
   $("#btnApplyFastCode").onclick = async () => {
     const code = $("#pasteFastCode").value.trim();
-    if (!code) return;
+    const msg = $("#fastCodeMsg");
+    if (!code) {
+      alert("Vui lòng dán mã đồng bộ vào ô trước khi bấm áp dụng.");
+      return;
+    }
     try {
-      Sync.applySyncCode(code);
-      await Sync.syncNow();
-      alert("✓ Đã áp dụng mã và đồng bộ thành công!");
+      const count = await Sync.applyFastCode(code);
+      if (msg) msg.textContent = `✓ Đã nạp thành công ${count} thẻ tiến độ!`;
+      $("#pasteFastCode").value = "";
+      alert(`🎉 Đã gộp thành công ${count} thẻ tiến độ từ thiết bị khác!`);
       VIEWS["cai-dat"]();
     } catch (e) {
+      if (msg) msg.textContent = "Lỗi áp dụng mã: " + e.message;
       alert("Lỗi áp dụng mã: " + e.message);
     }
   };
