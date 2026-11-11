@@ -717,7 +717,7 @@ function sentenceBank() {
   for (const n of S.notes) {
     if (!n.rich && !S.vi.has(n.w)) continue;
     const it = itemOf(n);
-    for (const k of n.kind === "grammar" ? [1, 2, 3] : [1, 2]) if (it["e" + k]) out.push({ zh: it["e" + k], py: it["e" + k + "p"], vn: it["e" + k + "v"], src: n.rich ? n.deck.name : bandLabel(n), own: true, note: n });
+    for (const k of n.kind === "grammar" ? [1, 2, 3] : [1, 2]) if (it["e" + k]) out.push({ zh: it["e" + k], py: it["e" + k + "p"], vn: it["e" + k + "v"], src: n.rich ? (n.deck && n.deck.name || "Của tôi") : bandLabel(n), own: true, note: n });
   }
   for (const p of S.packs || []) for (const s of p.sentences || []) out.push({ zh: s.zh, py: s.py || "", vn: s.vn || "", src: s.src || p.name, pack: p.name });
   return out;
@@ -2997,6 +2997,44 @@ VIEWS["chinh-ta"] = () => {
     };
   });
 
+  // Longest Common Subsequence (LCS) comparison for dictation
+  function diffMarks(target, typed) {
+    const cleanTarget = clean(target);
+    const cleanTyped = clean(typed);
+    if (!cleanTyped) {
+      return `<span class="text-on-surface font-semibold">${esc(target)}</span>`;
+    }
+
+    const a = [...cleanTarget], b = [...cleanTyped];
+    const m = a.length, n = b.length;
+    const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
+    for (let i = m - 1; i >= 0; i--) {
+      for (let j = n - 1; j >= 0; j--) {
+        dp[i][j] = (a[i] === b[j]) ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
+      }
+    }
+
+    const ok = new Array(m).fill(false);
+    let i = 0, j = 0;
+    while (i < m && j < n) {
+      if (a[i] === b[j]) {
+        ok[i] = true;
+        i++; j++;
+      } else if (dp[i + 1][j] >= dp[i][j + 1]) {
+        i++;
+      } else {
+        j++;
+      }
+    }
+
+    let cleanIdx = 0;
+    return [...target].map((c) => {
+      if (!clean(c)) return `<span class="text-outline font-normal">${esc(c)}</span>`;
+      const isOk = ok[cleanIdx++];
+      return isOk ? `<span class="text-secondary font-bold">${esc(c)}</span>` : `<span class="wrongc font-bold">${esc(c)}</span>`;
+    }).join("");
+  }
+
   // Pick weighted sentence
   function pickSentence() {
     const bank = sentenceBank();
@@ -3021,13 +3059,16 @@ VIEWS["chinh-ta"] = () => {
     d.checked = false;
 
     renderExercise();
+
+    const target = (mode === "word" && cur.note) ? cur.note.w : cur.zh;
+    say(target, d.speed || 0.9);
   }
 
   function renderExercise() {
     const cur = d.cur;
     if (!cur) return;
     const mode = d.mode || "han";
-    const target = mode === "word" ? cur.word : cur.zh;
+    const target = (mode === "word" && cur.note) ? cur.note.w : cur.zh;
 
     const area = $("#dictExerciseArea");
     if (!d.checked) {
@@ -3066,13 +3107,21 @@ VIEWS["chinh-ta"] = () => {
       const btnCheck = $("#btnCheckDict");
       if (btnCheck) {
         btnCheck.onclick = () => {
-          const userText = clean(inp?.value || "");
+          const rawVal = inp?.value || "";
+          const userText = clean(rawVal);
+          const cleanTarget = clean(target);
           d.checked = true;
-          d.userText = userText;
-          const isCorrect = userText === target;
+          d.userText = rawVal;
+          const isCorrect = userText && (userText === cleanTarget);
           d.score.total++;
-          if (isCorrect) d.score.ok++;
+          if (isCorrect) {
+            d.score.ok++;
+            playChime(true);
+          } else {
+            playChime(false);
+          }
           renderExercise();
+          say(target, d.speed || 0.9);
         };
       }
 
@@ -3082,13 +3131,14 @@ VIEWS["chinh-ta"] = () => {
           d.checked = true;
           d.userText = "";
           renderExercise();
+          say(target, d.speed || 0.9);
         };
       }
     } else {
       // Checked view
       const userText = d.userText || "";
       const diffHTML = diffMarks(target, userText);
-      const isCorrect = userText === target;
+      const isCorrect = clean(userText) === clean(target);
       const segmented = segment(target);
 
       area.innerHTML = `
@@ -3096,7 +3146,7 @@ VIEWS["chinh-ta"] = () => {
           <div class="p-4 rounded-xl ${isCorrect ? 'bg-jade-subtle border border-jade-subtle text-secondary' : 'bg-paper-muted border border-border-subtle text-on-surface'} flex flex-col gap-2">
             <div class="flex items-center justify-between text-xs font-bold uppercase">
               <span class="${isCorrect ? 'text-secondary' : 'text-primary'}">${isCorrect ? '✓ Hoàn toàn chính xác!' : 'Đáp án đối chiếu (chữ đỏ là chưa khớp):'}</span>
-              <span class="font-code">${userText ? `${userText.length}/${target.length} chữ` : ''}</span>
+              <span class="font-code">${clean(userText) ? `${clean(userText).length}/${clean(target).length} chữ` : ''}</span>
             </div>
             <div class="font-serif text-2xl md:text-3xl font-medium leading-relaxed">${diffHTML}</div>
             ${cur.py ? `<div class="font-code text-sm text-tertiary font-semibold">${esc(cur.py)}</div>` : ''}
@@ -3115,18 +3165,51 @@ VIEWS["chinh-ta"] = () => {
             </div>
           </div>
 
-          <div class="flex items-center justify-between pt-2 border-t border-border-subtle">
-            <span class="text-xs font-semibold text-outline">Điểm số: <strong class="text-secondary">${d.score.ok}/${d.score.total}</strong></span>
-            <button type="button" class="py-2.5 px-6 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary shadow-xs" id="btnNextEx">
-              Luyện câu tiếp theo →
-            </button>
-          </div>
+          ${mode === "paper" ? `
+            <div class="flex items-center justify-between pt-2 border-t border-border-subtle">
+              <span class="text-xs font-semibold text-outline">Điểm số: <strong class="text-secondary">${d.score.ok}/${d.score.total}</strong></span>
+              <div class="flex items-center gap-2">
+                <button type="button" class="py-2.5 px-4 rounded-xl bg-surface-container hover:bg-cinnabar-subtle text-primary font-semibold text-xs transition-colors" id="btnPaperWrong">
+                  ✕ Tự nhận: Viết sai
+                </button>
+                <button type="button" class="py-2.5 px-5 rounded-xl bg-secondary hover:bg-secondary-fixed text-white font-semibold text-xs shadow-xs transition-colors" id="btnPaperRight">
+                  ✓ Tự nhận: Viết đúng
+                </button>
+              </div>
+            </div>
+          ` : `
+            <div class="flex items-center justify-between pt-2 border-t border-border-subtle">
+              <span class="text-xs font-semibold text-outline">Điểm số: <strong class="text-secondary">${d.score.ok}/${d.score.total}</strong></span>
+              <button type="button" class="py-2.5 px-6 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary shadow-xs" id="btnNextEx">
+                Luyện câu tiếp theo →
+              </button>
+            </div>
+          `}
         </div>
       `;
 
       $("#dictScore").textContent = `${d.score.ok}/${d.score.total}`;
       const btnNext = $("#btnNextEx");
-      if (btnNext) btnNext.onclick = pickSentence;
+      if (btnNext) {
+        btnNext.focus();
+        btnNext.onclick = pickSentence;
+      }
+      const btnPaperWrong = $("#btnPaperWrong");
+      if (btnPaperWrong) {
+        btnPaperWrong.onclick = () => {
+          d.score.total++;
+          pickSentence();
+        };
+      }
+      const btnPaperRight = $("#btnPaperRight");
+      if (btnPaperRight) {
+        btnPaperRight.onclick = () => {
+          d.score.total++;
+          d.score.ok++;
+          playChime(true);
+          pickSentence();
+        };
+      }
     }
 
     // Bind audio button
@@ -3139,9 +3222,32 @@ VIEWS["chinh-ta"] = () => {
   }
 
   $("#btnPlaySentence").onclick = () => {
-    if (d.cur) say(d.cur.zh, d.speed || 0.9);
+    if (d.cur) {
+      const mode = d.mode || "han";
+      const target = (mode === "word" && d.cur.note) ? d.cur.note.w : d.cur.zh;
+      say(target, d.speed || 0.9);
+    }
   };
   $("#btnNextSentence").onclick = pickSentence;
+
+  // Handle keydown for Chép chính tả (R to replay, Enter/Space to advance)
+  if (!window._dictKeyBound) {
+    window._dictKeyBound = true;
+    document.addEventListener("keydown", (e) => {
+      if (!location.hash.startsWith("#chinh-ta")) return;
+      const isInput = ["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName);
+      if (!isInput && e.key.toLowerCase() === "r") {
+        e.preventDefault();
+        $("#btnPlaySentence")?.click();
+      } else if (!isInput && (e.key === "Enter" || e.key === " ")) {
+        const btnNext = $("#btnNextEx");
+        if (btnNext) {
+          e.preventDefault();
+          btnNext.click();
+        }
+      }
+    });
+  }
 
   pickSentence();
 };
