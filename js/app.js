@@ -2842,12 +2842,272 @@ VIEWS["tu"] = (w) => {
 };
 
 // =========================================================================
-// 6. CHÉP CHÍNH TẢ & 7. THI THỬ TOCFL (Stitch Design)
+// 6. CHÉP CHÍNH TẢ THEO BÀI ĐỌC & ĐOẠN VĂN NGỮ CẢNH (Stitch Design)
 // =========================================================================
+
+const BUILTIN_PASSAGES = [
+  {
+    id: "p1_shilin",
+    title: "士林夜市初體驗",
+    desc: "Lần đầu đi chợ đêm Sĩ Lâm (Đài Bắc)",
+    band: "TOCFL A2/B1",
+    sentences: [
+      {
+        zh: "今天晚上我和朋友一起去逛台北很有名的士林夜市。",
+        py: "Jīntiān wǎnshang wǒ hàn péngyou yīqǐ qù guàng Táiběi hěn yǒumíng de Shìlín yèshì.",
+        vn: "Tối nay tôi cùng bạn đi dạo chợ đêm Sĩ Lâm rất nổi tiếng ở Đài Bắc."
+      },
+      {
+        zh: "一走進夜市，就聞到各種台灣小吃撲鼻而來的香味。",
+        py: "Yī zǒujìn yèshì, jiù wéndào gèzhǒng Táiwān xiǎochī pūbí ér lái de xiāngwèi.",
+        vn: "Vừa bước vào chợ đêm là ngửi thấy mùi hương thơm nức mũi của các món ăn vặt Đài Loan."
+      },
+      {
+        zh: "我們排隊買了一杯微糖少冰的珍珠奶茶，口感非常Ｑ彈。",
+        py: "Wǒmen páiduì mǎile yībēi wéitáng shǎobīng de zhēnzhū nǎichá, kǒugǎn fēicháng Q-tán.",
+        vn: "Chúng tôi xếp hàng mua một ly trà sữa trân châu ít đường ít đá, trân châu rất dai ngon."
+      },
+      {
+        zh: "接著我們又買了一份很大塊的大雞排和一份現炸臭豆腐。",
+        py: "Jiēzhe wǒmen yòu mǎile yīfèn hěn dà kuài de dà jīpái hàn yīfèn xiànzhà chòudòufu.",
+        vn: "Tiếp đó chúng tôi mua một miếng gà rán khổng lồ và một phần đậu hũ thối vừa chiên nóng."
+      },
+      {
+        zh: "雖然夜市的人潮非常擁擠，但是熱鬧的氣氛讓我們感到很開心。",
+        py: "Suīrán yèshì de réncháo fēicháng yǒngjǐ, dànshì rènào de qìfēn ràng wǒmen gǎndào hěn kāixīn.",
+        vn: "Tuy dòng người ở chợ đêm rất đông đúc, nhưng không khí náo nhiệt khiến chúng tôi cảm thấy rất vui vẻ."
+      },
+      {
+        zh: "回家前我還買了幾盒鳳梨酥，打算寄回越南送給家人。",
+        py: "Huíjiā qián wǒ hái mǎile jǐ hé fènglísū, dǎsuàn jì huí Yuènán sòng gěi jiārén.",
+        vn: "Trước khi về nhà tôi còn mua vài hộp bánh dứa, dự định gửi về Việt Nam tặng gia đình."
+      }
+    ]
+  },
+  {
+    id: "p2_renting",
+    title: "在台北租房子的經歷",
+    desc: "Kinh nghiệm tìm và thuê phòng trọ ở Đài Bắc",
+    band: "TOCFL B1",
+    sentences: [
+      {
+        zh: "剛來台灣留學的時候，找合適的房子是我最煩惱的事。",
+        py: "Gāng lái Táiwān liúxué de shíhou, zhǎo héshì de fángzi shì wǒ zuì fánnǎo de shì.",
+        vn: "Khi mới sang Đài Loan du học, tìm phòng thích hợp là điều làm tôi đau đầu nhất."
+      },
+      {
+        zh: "我透過網路租屋平台，看了一間離捷運站走路只要五分鐘的獨立套房。",
+        py: "Wǒ tòuguò wǎnglù zūwū píngtái, kànle yījiān lí jiéyùn zhàn zǒulù zhǐ yào wǔ fēnzhōng de dúlì tàofáng.",
+        vn: "Tôi qua trang web tìm trọ xem một căn phòng khép kín đi bộ ra ga tàu điện ngầm chỉ 5 phút."
+      },
+      {
+        zh: "房東太太為人親切，房間裡有對外窗、書桌、冷氣和洗衣機。",
+        py: "Fángdōng tàitai wéirén qīnqiè, fángjiān lǐ yǒu duìwàichuāng, shūzhuō, lěngqì hàn xǐyījī.",
+        vn: "Bác chủ nhà tính tình thân thiện, phòng có cửa sổ thoáng, bàn học, máy lạnh và máy giặt."
+      },
+      {
+        zh: "簽約時房東說明每個月的租金包含網路費，水電費則依電表度數計算。",
+        py: "Qiānyuē shí fángdōng shuōmíng měi ge yuè de zūjīn bāohán wǎnglùfèi, shuǐdiànfèi zé yī diànbiǎo dùshù jìsuàn.",
+        vn: "Khi ký hợp đồng, chủ nhà nói rõ tiền nhà gồm tiền mạng, tiền điện nước tính theo số công tơ."
+      },
+      {
+        zh: "我付了兩個月的押金和第一個月的租金，順利搬進了新家。",
+        py: "Wǒ fùle liǎng ge yuè de yājīn hàn dì-yī ge yuè de zūjīn, shùnlì bānjìnle xīn jiā.",
+        vn: "Tôi nộp 2 tháng tiền cọc và tháng tiền nhà đầu tiên, thuận lợi dọn vào nhà mới."
+      },
+      {
+        zh: "現在住在這裡交通很方便，周圍生活機能也相當完善。",
+        py: "Xiànzài zhù zài zhèlǐ jiāotōng hěn fāngbiàn, zhōuwéi shēnghuó jīnéng yě xiāngdāng wánshàn.",
+        vn: "Hiện tại ở đây đi lại rất tiện, tiện ích sinh hoạt xung quanh cũng rất đầy đủ."
+      }
+    ]
+  },
+  {
+    id: "p3_work",
+    title: "台灣公司的第一天上班",
+    desc: "Ngày đầu tiên nhận việc tại doanh nghiệp Đài Loan",
+    band: "TOCFL B1/B2",
+    sentences: [
+      {
+        zh: "今天是我到這家科技公司報到的第一天，心裡既期待又有些緊張。",
+        py: "Jīntiān shì wǒ dào zhè jiā kējì gōngsī bàodào de dì-yī tiān, xīnlǐ jì qídài yòu yǒuxiē jǐnzhāng.",
+        vn: "Hôm nay là ngày đầu tiên tôi đến nhận việc tại công ty công nghệ này, lòng vừa háo hức vừa hồi hộp."
+      },
+      {
+        zh: "人事部門的同事先帶我認識辦公室環境，並熱情介紹團隊的成員。",
+        py: "Rénshì bùmén de tóngshì xiān dài wǒ rènshí bàngōngshì huánjìng, bìng rèqíng jièshào tuánduì de chéngyuán.",
+        vn: "Đồng nghiệp phòng nhân sự dẫn tôi đi làm quen văn phòng và nhiệt tình giới thiệu các thành viên trong nhóm."
+      },
+      {
+        zh: "部門主管向我詳細說明了專案進度，並鼓勵我有疑問隨時提出討論。",
+        py: "Bùmén zhǔguǎn xiàng wǒ xiángxì shuōmíngle zhuān'àn jìndù, bìng gǔlì wǒ yǒu yíwèn suíshí tíchū tǎolùn.",
+        vn: "Trưởng bộ phận giải thích chi tiết tiến độ dự án và động viên tôi nếu có thắc mắc cứ thoải mái trao đổi."
+      },
+      {
+        zh: "下午三點休息時間，前輩主動幫大家點了台灣道地的手搖飲料。",
+        py: "Xiàwǔ sān diǎn xiūxí shíjiān, qiánbèi zhǔdòng bāng dàjiā diǎnle Táiwān dàodì de shǒuyáo yǐnliào.",
+        vn: "Ba giờ chiều giờ giải lao, tiền bối chủ động đặt trà sữa pha tay chuẩn vị Đài cho cả phòng."
+      },
+      {
+        zh: "雖然有許多專業詞彙需要學習，但我會努力盡快適應工作步調。",
+        py: "Suīrán yǒu xǔduō zhuānyè cíhuì xūyào xuéxí, dàn wǒ huì nǔlì jǐnkuài shìyìng gōngzuò bùdiào.",
+        vn: "Tuy có nhiều từ ngữ chuyên môn cần học, nhưng tôi sẽ nỗ lực nhanh chóng thích nghi với nhịp làm việc."
+      }
+    ]
+  },
+  {
+    id: "p4_hospital",
+    title: "在台灣看醫生與健保卡",
+    desc: "Quy trình khám bệnh và sử dụng thẻ BHYT Đài Loan",
+    band: "TOCFL B1",
+    sentences: [
+      {
+        zh: "前天我因為喉嚨痛和持續發燒，決定去學校附近的耳鼻喉科診所看診。",
+        py: "Qiántiān wǒ yīnwèi hóulóng tòng hàn chíxù fāshāo, juédìng qù xuéxiào fùjìn de ěrbíhóukē zhěnsuǒ kànzhěn.",
+        vn: "Hôm kia vì đau họng và sốt liên tục, tôi quyết định tới phòng khám tai mũi họng gần trường khám."
+      },
+      {
+        zh: "在櫃檯掛號的時候只要出示健保卡和居留證，手續非常簡單迅速。",
+        py: "Zài guìtái guàhào de shíhou zhǐ yào chūshì jiànbǎokǎ hàn jūliúzhèng, shǒuxù fēicháng jiǎndān xùnsù.",
+        vn: "Khi đăng ký tại quầy chỉ cần xuất trình thẻ bảo hiểm y tế và thẻ cư trú ARC, thủ tục rất nhanh gọn."
+      },
+      {
+        zh: "醫生仔細檢查了我的喉嚨，安慰我只是普通感冒並叮嚀要多喝溫水休息。",
+        py: "Yīshēng zǐxì jiǎnchále wǒ de hóulóng, ānwèi wǒ zhǐshì pǔtōng gǎnmào bìng dīngníng yào duō hē wēnshuǐ xiūxi.",
+        vn: "Bác sĩ kiểm tra kỹ họng, an ủi tôi chỉ là cảm cúm thông thường và dặn uống nhiều nước ấm nghỉ ngơi."
+      },
+      {
+        zh: "我拿著處方箋到隔壁的藥局領藥，藥師清楚標註了飯後服用的時間與劑量。",
+        py: "Wǒ názhe chùfāngjiān dào gébì de yàojú lǐng yào, yàoshī qīngchu biāozhùle fànhòu fúyòng de shíjiān hàn jìliàng.",
+        vn: "Tôi cầm đơn thuốc sang nhà thuốc bên cạnh lấy thuốc, dược sĩ ghi rõ giờ uống và liều lượng sau bữa ăn."
+      },
+      {
+        zh: "因為有健保補助，醫藥費非常便宜，台灣的醫療體系確實既便民又貼心。",
+        py: "Yīnwèi yǒu jiànbǎo bǔzhù, yīyàofèi fēicháng piányi, Táiwān de yīliáo tǐxì quèshí jì biànmín yòu tiēxīn.",
+        vn: "Nhờ có BHYT chi trả, tiền thuốc men rất rẻ, hệ thống y tế Đài Loan thực sự vừa tiện lợi vừa chu đáo."
+      }
+    ]
+  },
+  {
+    id: "p5_hsr",
+    title: "搭高鐵暢遊南台灣高雄",
+    desc: "Chuyến du lịch Cao Hùng bằng tàu cao tốc HSR",
+    band: "TOCFL B1",
+    sentences: [
+      {
+        zh: "趁著這次連假假期，我和同學約好一起搭台灣高鐵到高雄旅遊。",
+        py: "Chènzhe zhè cì liánjià jiàqī, wǒ hàn tóngxué yuē hǎo yīqǐ dā Táiwān Gāotiě dào Gāoxióng lǚyóu.",
+        vn: "Nhân dịp nghỉ lễ dài này, tôi hẹn bạn cùng đi tàu cao tốc xuống thành phố Cao Hùng du lịch."
+      },
+      {
+        zh: "我們在手機上預先完成訂票與劃位，進站時只要感應二維碼即可。",
+        py: "Wǒmen zài shǒujī shàng yùxiān wánchéng dìngpiào hàn huàwèi, jìnzhàn shí zhǐ yào gǎnyìng èrwéimǎ jíkě.",
+        vn: "Chúng tôi đặt vé và chọn chỗ trước trên điện thoại, lúc vào ga chỉ cần quét mã QR là xong."
+      },
+      {
+        zh: "高鐵行駛得非常平穩安靜，從台北出發只要一個半小時就順利抵達左營站。",
+        py: "Gāotiě xíngshǐ de fēicháng píngwěn ānjìng, cóng Táiběi chūfā zhǐ yào yī ge bàn xiǎoshí jiù shùnlì dǐdá Zuǒyíng zhàn.",
+        vn: "Tàu cao tốc chạy rất êm và yên tĩnh, từ Đài Bắc chỉ mất 1 tiếng rưỡi là đã đến ga Tả Doanh."
+      },
+      {
+        zh: "下午我們轉搭高雄輕軌前往駁二藝術特區，參觀許多有趣的文創展覽與裝置藝術。",
+        py: "Xiàwǔ wǒmen zhuǎn dā Gāoxióng qīngguǐ qiánwǎng Bó'èr yìshù tèqū, cānguān xǔduō yǒuqù de wénchuàng zhǎnlǎn hàn zhuāngzhì yìshù.",
+        vn: "Chiều đến chúng tôi chuyển sang tàu điện nhẹ đi Khu nghệ thuật Pier-2, xem nhiều triển lãm sáng tạo và nghệ thuật sắp đặt thú vị."
+      },
+      {
+        zh: "傍晚漫步在美麗的愛河畔，高雄宜人的氣候和熱情的人情味讓我們流連忘返。",
+        py: "Bàngwǎn mànbù zài měilì de Àihé pàn, Gāoxióng yírén de qìhòu hàn rèqíng de rénqíngwèi ràng wǒmen liúlián-wàngfǎn.",
+        vn: "Chiều muộn dạo bước bên bờ Ái Hà tuyệt đẹp, khí hậu dễ chịu và tình người nồng hậu nơi đây khiến chúng tôi chẳng muốn về."
+      }
+    ]
+  },
+  {
+    id: "p6_garbage",
+    title: "台灣的倒垃圾與資源回收",
+    desc: "Nét văn hóa đổ rác và phân loại tái chế độc đáo",
+    band: "TOCFL A2/B1",
+    sentences: [
+      {
+        zh: "在台灣生活，每當晚上聽到《少女的祈禱》音樂聲響起，大家就會準備出門倒垃圾。",
+        py: "Zài Táiwān shēnghuó, měidāng wǎnshang tīngdào 'Shàonǚ de Qídǎo' yīnyuè shēng xiǎngqǐ, dàjiā jiù huì zhǔnbèi chūmén dào lājī.",
+        vn: "Sống ở Đài Loan, mỗi khi nghe thấy tiếng nhạc 'Lời cầu nguyện của trinh nữ' vang lên vào buổi tối, mọi người sẽ chuẩn bị ra đổ rác."
+      },
+      {
+        zh: "街坊鄰居都會提著分類好的各色垃圾袋，提早到巷口的指定地點排隊等候。",
+        py: "Jiēfāng línjū dōu huì tízhe fēnlèi hǎo de gèsè lājīdài, tízǎo dào xiàngkǒu de zhǐdìng dìdiǎn páiduì děnghòu.",
+        vn: "Bà con lối xóm đều xách các túi rác đã phân loại, ra điểm hẹn đầu ngõ xếp hàng chờ đợi."
+      },
+      {
+        zh: "丟一般生活垃圾必須使用市府規定的專用垃圾袋，落實垃圾費隨袋徵收。",
+        py: "Diū yībān shēnghuó lājī bìxū shǐyòng shìfǔ guīdìng de lánsè zhuānyòng lājīdài, luòshí lājīfèi suí dài zhēngshōu.",
+        vn: "Bỏ rác sinh hoạt thông thường bắt buộc phải dùng túi rác chuyên dụng màu xanh do thành phố quy định."
+      },
+      {
+        zh: "乾淨的紙類、塑膠瓶、玻璃與廚餘都需要分開交給資源回收車清運處理。",
+        py: "Gānjìng de zhǐlèi, sùjiāopíng, bōlí hàn chúyú dōu xūyào fēnkāi jiāogěi zīyuán huíshōuchē qīngyùn chǔlǐ.",
+        vn: "Giấy sạch, chai nhựa, thủy tinh và rác thực phẩm đều phải phân riêng giao cho xe gom tái chế xử lý."
+      },
+      {
+        zh: "大家共同維持良好的回收習慣，才能讓我們的居住環境常保整潔與美麗。",
+        py: "Dàjiā gòngtóng wéichí liánghǎo de huíshōu xíguàn, cáinéng ràng wǒmen de jūzhù huánjìng cháng bǎo zhěngjié hàn měilì.",
+        vn: "Mọi người cùng duy trì thói quen phân loại tốt thì môi trường sống của chúng ta mới luôn sạch đẹp."
+      }
+    ]
+  },
+  {
+    id: "p7_tocfl_prep",
+    title: "準備 TOCFL 華語文測驗的心得",
+    desc: "Bí quyết ôn luyện thi chứng chỉ TOCFL Band B",
+    band: "TOCFL B2",
+    sentences: [
+      {
+        zh: "為了順利申請台灣的研究所與工作證，我給自己設定了通過 TOCFL Band B 的目標。",
+        py: "Wèile shùnlì shēnqǐng Táiwān de yánjiūsuǒ hàn gōngzuòzhèng, wǒ gěi zìjǐ shèdìngle tōngguò TOCFL Band B de mùbiāo.",
+        vn: "Để thuận lợi nộp đơn học cao học và xin giấy phép đi làm ở Đài Loan, tôi đặt mục tiêu thi đỗ TOCFL Band B."
+      },
+      {
+        zh: "每天早晨我會固定收聽台灣廣播節目，訓練自己適應在地人自然的說話語速與語調。",
+        py: "Měitiān zǎochén wǒ huì gùdìng shōutīng Táiwān guǎngbō jiémù, xùnliàn zìjǐ shìyìng zàidìrén zìrán de shuōhuà yǔsù hàn yǔdiào.",
+        vn: "Mỗi sáng tôi đều đặn nghe chương trình phát thanh Đài Loan để luyện làm quen với tốc độ và ngữ điệu tự nhiên của người bản xứ."
+      },
+      {
+        zh: "利用聽寫練習掌握繁體字的字形與結構，可以大幅減少在閱讀時認錯字的機率。",
+        py: "Lìyòng tīngxiě liànxí zhǎngwò fántǐzì de zìxíng hàn jiégòu, kěyǐ dàfú jiǎnshǎo zài yuèdú shí rèncuò zì de jīlǜ.",
+        vn: "Luyện chép chính tả giúp ghi nhớ sâu cấu trúc chữ Phồn thể, giảm thiểu đáng kể việc đọc nhầm chữ."
+      },
+      {
+        zh: "閱讀測驗的文章篇幅較長，平常要多培養抓取關鍵字與快速理解段落大意的技巧。",
+        py: "Yuèdú cèyàn de wénzhāng piānfú jiào cháng, píngcháng yào duō péiyǎng zhuāqǔ guānjiànzì hàn kuàisù lǐjiě duànluò dàyì de jìqiǎo.",
+        vn: "Bài đọc hiểu khá dài, ngày thường cần rèn kỹ năng bắt từ khóa và nắm nhanh ý chính từng đoạn văn."
+      },
+      {
+        zh: "只要持之以恆、按部就班地累積實力，考取高階級證書絕對不是遙不可及的夢想。",
+        py: "Zhǐ yào chízhīyǐhéng, ànbù-jiùbān de lěijī shílì, kǎoqǔ gāojiējí zhèngshū juéduì bùshì yáobùkějí de mèngxiǎng.",
+        vn: "Chỉ cần kiên trì, từng bước tích lũy thực lực thì lấy chứng chỉ cao cấp hoàn toàn nằm trong tầm tay."
+      }
+    ]
+  }
+];
+
 VIEWS["chinh-ta"] = () => {
   const d = S.dict;
   d.score = d.score || { ok: 0, total: 0 };
-  const sources = ["Tất cả", "Câu ví dụ trong thẻ", ...(S.packs || []).map((p) => p.name)];
+  
+  // Collect all passages (builtin + custom imported packs)
+  const customPassages = (S.packs || []).map((p, idx) => ({
+    id: `pack_${idx}`,
+    title: p.name,
+    desc: `Bộ câu tự nạp (${(p.items || []).length} câu)`,
+    band: "Tự nạp",
+    sentences: (p.items || []).map(s => typeof s === "string" ? { zh: s, py: "", vn: "" } : s)
+  }));
+  const allPassages = [...BUILTIN_PASSAGES, ...customPassages];
+
+  d.passageMode = d.passageMode || "passage";
+  d.passageId = d.passageId || allPassages[0].id;
+  d.sentenceIdx = (d.sentenceIdx !== undefined) ? d.sentenceIdx : 0;
+
+  const curPassage = allPassages.find(p => p.id === d.passageId) || allPassages[0];
 
   setView(`
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
@@ -2859,10 +3119,10 @@ VIEWS["chinh-ta"] = () => {
             <span>Luyện Thính Lực &amp; Viết • 聽寫訓練</span>
           </div>
           <h1 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
-            Chép chính tả tiếng Hoa Phồn thể
+            Chép chính tả theo Đoạn văn &amp; Bài đọc
           </h1>
           <p class="font-body-md text-sm text-on-surface-variant mt-1">
-            Nghe câu rồi viết lại. Hệ thống ưu tiên câu chứa từ bạn đang học hoặc hay quên, so sánh từng ký tự sai bằng thuật toán LCS.
+            Nghe các câu liên tiếp trong cùng một bài đọc hoàn chỉnh để hiểu trọn vẹn ngữ cảnh đời sống Đài Loan. Nhấn phím <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-primary font-bold text-xs border border-primary/20">Shift</kbd> để nghe lại bất cứ lúc nào.
           </p>
         </div>
         <div class="flex items-center gap-2">
@@ -2873,28 +3133,27 @@ VIEWS["chinh-ta"] = () => {
       </div>
 
       <!-- Controls Ribbon -->
-      <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle shadow-xs grid grid-cols-2 sm:grid-cols-4 gap-space-sm">
+      <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle shadow-xs grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm">
+        <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
+          <span>Chế độ bài luyện:</span>
+          <select id="dpassageMode" class="py-2 px-2.5 rounded-xl bg-surface-container-low border border-border-subtle text-xs font-bold text-primary">
+            <option value="passage" ${d.passageMode === "passage" ? "selected" : ""}>📖 Theo bài đọc ngữ cảnh</option>
+            <option value="random" ${d.passageMode === "random" ? "selected" : ""}>🔀 Ngẫu nhiên từng câu lẻ</option>
+          </select>
+        </label>
+
+        <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant ${d.passageMode === 'random' ? 'opacity-40' : ''}" id="lblPassageSelect">
+          <span>Chọn bài đọc / Đoạn văn:</span>
+          <select id="dpassageSelect" class="py-2 px-2.5 rounded-xl bg-surface-container-low border border-border-subtle text-xs font-medium" ${d.passageMode === 'random' ? 'disabled' : ''}>
+            ${allPassages.map((p) => `<option value="${p.id}" ${d.passageId === p.id ? "selected" : ""}>${esc(p.title)} (${p.sentences.length} câu · ${esc(p.band || '')})</option>`).join("")}
+          </select>
+        </label>
+
         <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
           <span>Cách trả lời:</span>
           <select id="dm" class="py-2 px-2.5 rounded-xl bg-surface-container-low border border-border-subtle text-xs font-medium">
-            <option value="han" ${d.mode === "han" ? "selected" : ""}>Gõ chữ Hán</option>
+            <option value="han" ${d.mode === "han" ? "selected" : ""}>Gõ chữ Hán Phồn thể</option>
             <option value="paper" ${d.mode === "paper" ? "selected" : ""}>Viết ra giấy rồi tự chấm</option>
-            <option value="word" ${d.mode === "word" ? "selected" : ""}>Chỉ chép từ (không cả câu)</option>
-          </select>
-        </label>
-
-        <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
-          <span>Theo Band TOCFL:</span>
-          <select id="dband" class="py-2 px-2.5 rounded-xl bg-surface-container-low border border-border-subtle text-xs font-medium">
-            <option value="all" ${d.band === "all" ? "selected" : ""}>Mọi band</option>
-            ${S.bands.map((b) => `<option value="${esc(b)}" ${d.band === b ? "selected" : ""}>TOCFL ${esc(b)}</option>`).join("")}
-          </select>
-        </label>
-
-        <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
-          <span>Nguồn câu:</span>
-          <select id="dsrc" class="py-2 px-2.5 rounded-xl bg-surface-container-low border border-border-subtle text-xs font-medium">
-            ${sources.map((s) => `<option ${d.src === s ? "selected" : ""}>${esc(s)}</option>`).join("")}
           </select>
         </label>
 
@@ -2913,20 +3172,42 @@ VIEWS["chinh-ta"] = () => {
         <!-- Left: Dictation Workspace -->
         <div class="lg:col-span-8 flex flex-col gap-space-md">
           <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-lg" id="dictCard">
+            
+            <!-- Current Passage Context Banner (when in passage mode) -->
+            ${d.passageMode === "passage" ? `
+              <div class="bg-surface-container-low p-3.5 rounded-2xl border border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="w-2 h-4 rounded-full bg-secondary"></span>
+                  <span class="font-headline-md text-sm font-bold text-on-surface">${esc(curPassage.title)}</span>
+                  <span class="px-2 py-0.5 rounded-md bg-secondary text-white text-[10px] font-bold">${esc(curPassage.band || "TOCFL")}</span>
+                  <span class="text-xs text-outline hidden sm:inline">• ${esc(curPassage.desc)}</span>
+                </div>
+                <div class="flex items-center gap-2 shrink-0">
+                  <span class="font-code text-xs font-bold text-secondary bg-jade-subtle px-2.5 py-1 rounded-lg border border-secondary/30">
+                    Câu ${Math.min(curPassage.sentences.length, d.sentenceIdx + 1)} / ${curPassage.sentences.length}
+                  </span>
+                </div>
+              </div>
+            ` : ''}
+
             <!-- Audio Player Banner -->
             <div class="p-space-md md:p-space-lg rounded-2xl bg-paper-muted border border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-space-md">
               <div class="flex items-center gap-space-md">
-                <button type="button" class="w-14 h-14 rounded-2xl bg-primary-container text-white flex items-center justify-center hover:bg-primary transition-all shadow-sm active:scale-95 shrink-0" id="btnPlaySentence">
+                <button type="button" class="w-14 h-14 rounded-2xl bg-primary-container text-white flex items-center justify-center hover:bg-primary transition-all shadow-sm active:scale-95 shrink-0" id="btnPlaySentence" title="Bấm nút hoặc nhấn phím Shift để nghe lại">
                   <span class="material-symbols-outlined text-[28px]">volume_up</span>
                 </button>
                 <div class="flex flex-col">
                   <span class="font-headline-md font-bold text-base text-on-surface">Đoạn âm tiếng Đài Chuẩn</span>
-                  <span class="text-xs text-outline mt-0.5">Bấm nút hoặc nhấn phím <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">R</kbd> để nghe lại</span>
+                  <span class="text-xs text-outline mt-0.5 flex items-center gap-1.5 flex-wrap">
+                    <span>Bấm loa hoặc nhấn phím</span>
+                    <kbd class="font-code px-2 py-0.5 rounded bg-surface-container text-primary font-bold border border-primary/20 text-xs">Shift</kbd>
+                    <span>để nghe lại</span>
+                  </span>
                 </div>
               </div>
               <div class="flex items-center gap-2">
                 <button type="button" class="px-3.5 py-2 rounded-xl bg-paper-card border border-border-subtle hover:bg-surface-container text-xs font-semibold text-on-surface transition-colors" id="btnNextSentence">
-                  Bỏ qua / Câu khác →
+                  Bỏ qua câu này →
                 </button>
               </div>
             </div>
@@ -2936,20 +3217,52 @@ VIEWS["chinh-ta"] = () => {
           </div>
         </div>
 
-        <!-- Right: Custom Packs & Info -->
+        <!-- Right: Story Context & Custom Packs -->
         <div class="lg:col-span-4 flex flex-col gap-space-md">
+          <!-- Story Progression Box (when in passage mode) -->
+          ${d.passageMode === "passage" ? `
+            <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col gap-space-md">
+              <div class="flex items-center justify-between pb-2 border-b border-border-subtle">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-secondary text-[20px]">auto_stories</span>
+                  <h3 class="font-headline-md font-bold text-base text-on-surface">Dòng câu chuyện</h3>
+                </div>
+                <span class="text-xs text-outline font-code">${d.sentenceIdx + (d.checked ? 1 : 0)}/${curPassage.sentences.length} câu</span>
+              </div>
+              
+              <div class="flex flex-col gap-2 max-h-[380px] overflow-y-auto pr-1">
+                ${curPassage.sentences.map((s, idx) => {
+                  const isDone = idx < d.sentenceIdx || (idx === d.sentenceIdx && d.checked);
+                  const isCurrent = idx === d.sentenceIdx && !d.checked;
+                  return `
+                    <div class="p-2.5 rounded-xl border transition-all text-xs flex items-start gap-2.5 ${isDone ? 'border-secondary/30 bg-jade-subtle/30 text-on-surface' : (isCurrent ? 'border-primary bg-cinnabar-subtle/40 text-primary font-bold shadow-2xs' : 'border-border-subtle/40 bg-surface-container-low opacity-60 text-outline')}">
+                      <span class="w-5 h-5 rounded-full flex items-center justify-center font-code text-[11px] font-bold shrink-0 mt-0.5 ${isDone ? 'bg-secondary text-white' : (isCurrent ? 'bg-primary text-white' : 'bg-surface-container text-outline')}">
+                        ${isDone ? '✓' : idx + 1}
+                      </span>
+                      <div class="flex flex-col">
+                        <span class="font-serif text-sm ${isDone ? 'font-medium text-on-surface' : (isCurrent ? 'font-bold text-primary' : 'text-outline')}">${isDone ? esc(s.zh) : (isCurrent ? 'Đang nghe và chép câu này...' : 'Câu tiếp theo')}</span>
+                        ${isDone ? `<span class="text-[11px] text-on-surface-variant mt-0.5">${esc(s.vn)}</span>` : ''}
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </div>
+          ` : ''}
+
+          <!-- Custom Packs Uploader -->
           <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col gap-space-md">
             <div class="flex items-center gap-2">
               <span class="material-symbols-outlined text-secondary text-[20px]">folder_special</span>
-              <h3 class="font-headline-md font-bold text-base text-on-surface">Bộ câu tự nhập (${(S.packs || []).length})</h3>
+              <h3 class="font-headline-md font-bold text-base text-on-surface">Bộ bài đọc tự nạp (${(S.packs || []).length})</h3>
             </div>
             <p class="text-xs text-on-surface-variant leading-relaxed">
-              Bạn có thể nạp các bộ câu .json trích từ giáo trình hay đề thi riêng vào trình duyệt của bạn.
+              Bạn có thể nạp thêm tệp bài đọc .json để tự động chia thành các câu liên tiếp theo ngữ cảnh.
             </p>
             <div class="flex flex-col gap-2 pt-2 border-t border-border-subtle">
               <label class="cursor-pointer inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-on-surface transition-colors">
                 <span class="material-symbols-outlined text-[18px]">upload_file</span>
-                <span>Nạp tệp bộ câu (.json)</span>
+                <span>Nạp tệp bài đọc (.json)</span>
                 <input type="file" id="dpackFile" accept=".json,application/json" class="hidden">
               </label>
               ${(S.packs || []).map((p, idx) => `
@@ -2966,9 +3279,20 @@ VIEWS["chinh-ta"] = () => {
   `);
 
   // Bind settings change
-  $("#dm").onchange = (e) => { d.mode = e.target.value; pickSentence(); };
-  $("#dband").onchange = (e) => { d.band = e.target.value; pickSentence(); };
-  $("#dsrc").onchange = (e) => { d.src = e.target.value; pickSentence(); };
+  $("#dpassageMode").onchange = (e) => {
+    d.passageMode = e.target.value;
+    d.sentenceIdx = 0;
+    VIEWS["chinh-ta"]();
+  };
+  const selPassage = $("#dpassageSelect");
+  if (selPassage) {
+    selPassage.onchange = (e) => {
+      d.passageId = e.target.value;
+      d.sentenceIdx = 0;
+      pickSentence();
+    };
+  }
+  $("#dm").onchange = (e) => { d.mode = e.target.value; renderExercise(); };
   $("#dsp").onchange = (e) => { d.speed = Number(e.target.value); };
 
   // Pack file uploader
@@ -2978,10 +3302,13 @@ VIEWS["chinh-ta"] = () => {
     try {
       const text = await f.text();
       const obj = JSON.parse(text);
-      if (!Array.isArray(obj.items)) throw new Error("File phải có trường 'items' là mảng các câu.");
+      const items = obj.items || obj.sentences;
+      if (!Array.isArray(items)) throw new Error("File JSON phải có mảng 'items' hoặc 'sentences'.");
       S.packs = S.packs || [];
-      S.packs.push({ name: obj.name || f.name.replace(/\.json$/i, ""), items: obj.items });
+      S.packs.push({ name: obj.name || obj.title || f.name.replace(/\.json$/i, ""), items });
       await Store.put("kv", "packs", S.packs);
+      d.passageId = `pack_${S.packs.length - 1}`;
+      d.sentenceIdx = 0;
       VIEWS["chinh-ta"]();
     } catch (err) {
       alert("Lỗi đọc file bộ câu: " + err.message);
@@ -2993,6 +3320,8 @@ VIEWS["chinh-ta"] = () => {
       const idx = Number(btn.dataset.rmpack);
       S.packs.splice(idx, 1);
       await Store.put("kv", "packs", S.packs);
+      d.passageId = BUILTIN_PASSAGES[0].id;
+      d.sentenceIdx = 0;
       VIEWS["chinh-ta"]();
     };
   });
@@ -3035,40 +3364,91 @@ VIEWS["chinh-ta"] = () => {
     }).join("");
   }
 
-  // Pick weighted sentence
+  // Pick next sentence
   function pickSentence() {
-    const bank = sentenceBank();
-    const mode = d.mode || "han";
-    const band = d.band || "all";
-    const src = d.src || "Tất cả";
-
-    let candidates = bank.filter((s) => {
-      if (src !== "Tất cả" && (src === "Câu ví dụ trong thẻ" ? s.src !== "cards" : s.src !== src)) return false;
-      if (band !== "all" && s.note && !inBand(s.note, band)) return false;
-      return true;
-    });
-
-    if (!candidates.length) candidates = bank;
-    if (!candidates.length) {
-      $("#dictExerciseArea").innerHTML = `<div class="p-6 text-center text-sm text-outline">Chưa có câu ví dụ nào trong các thẻ đang học.</div>`;
-      return;
+    if (d.passageMode === "passage") {
+      const p = allPassages.find(x => x.id === d.passageId) || allPassages[0];
+      if (d.sentenceIdx >= p.sentences.length) {
+        // Completed passage!
+        d.cur = null;
+        d.checked = true;
+        renderPassageComplete(p);
+        return;
+      }
+      d.cur = Object.assign({}, p.sentences[d.sentenceIdx], { passage: p, total: p.sentences.length, idx: d.sentenceIdx });
+      d.checked = false;
+      renderExercise();
+      say(d.cur.zh, d.speed || 0.9);
+    } else {
+      // Random mode
+      const bank = sentenceBank();
+      if (!bank.length) {
+        $("#dictExerciseArea").innerHTML = `<div class="p-6 text-center text-sm text-outline">Chưa có câu nào trong kho.</div>`;
+        return;
+      }
+      const cur = bank[Math.floor(Math.random() * bank.length)];
+      d.cur = cur;
+      d.checked = false;
+      renderExercise();
+      say(cur.zh, d.speed || 0.9);
     }
+  }
 
-    const cur = candidates[Math.floor(Math.random() * candidates.length)];
-    d.cur = cur;
-    d.checked = false;
+  // Render when a whole passage is finished
+  function renderPassageComplete(p) {
+    const area = $("#dictExerciseArea");
+    if (!area) return;
+    const fullZh = p.sentences.map(s => s.zh).join(" ");
+    area.innerHTML = `
+      <div class="p-6 rounded-2xl bg-jade-subtle border-2 border-secondary/40 flex flex-col gap-4">
+        <div class="flex items-center gap-3 text-secondary">
+          <span class="w-12 h-12 rounded-xl bg-secondary text-white flex items-center justify-center font-bold text-2xl shadow-xs">✓</span>
+          <div>
+            <h2 class="font-headline-md text-xl font-bold text-on-surface">Xuất sắc! Bạn đã chép xong toàn bộ bài đọc:</h2>
+            <div class="text-sm font-semibold text-secondary">${esc(p.title)} (${p.sentences.length}/${p.sentences.length} câu)</div>
+          </div>
+        </div>
 
-    renderExercise();
+        <div class="p-4 rounded-xl bg-paper-card border border-border-subtle font-serif text-lg md:text-xl text-on-surface leading-loose">
+          ${p.sentences.map(s => esc(s.zh)).join(" ")}
+        </div>
 
-    const target = (mode === "word" && cur.note) ? cur.note.w : cur.zh;
-    say(target, d.speed || 0.9);
+        <div class="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-secondary/20">
+          <button type="button" class="py-2.5 px-4 rounded-xl bg-paper-card hover:bg-surface-container border border-border-subtle text-secondary font-bold text-xs flex items-center gap-1.5 transition-colors" id="btnPlayFullPassage">
+            <span class="material-symbols-outlined text-[18px]">volume_up</span>
+            <span>▶ Nghe liền mạch toàn bài</span>
+          </button>
+          <div class="flex items-center gap-2">
+            <button type="button" class="py-2.5 px-4 rounded-xl bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-on-surface" id="btnReplayPassage">
+              Luyện lại bài này
+            </button>
+            <button type="button" class="py-2.5 px-5 rounded-xl bg-primary-container text-white font-bold text-xs hover:bg-primary shadow-xs" id="btnNextPassage">
+              Sang bài đọc tiếp theo →
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    $("#btnPlayFullPassage")?.addEventListener("click", () => say(fullZh, d.speed || 0.9));
+    $("#btnReplayPassage")?.addEventListener("click", () => {
+      d.sentenceIdx = 0;
+      pickSentence();
+    });
+    $("#btnNextPassage")?.addEventListener("click", () => {
+      const curIdx = allPassages.findIndex(x => x.id === d.passageId);
+      const nextP = allPassages[(curIdx + 1) % allPassages.length];
+      d.passageId = nextP.id;
+      d.sentenceIdx = 0;
+      VIEWS["chinh-ta"]();
+    });
   }
 
   function renderExercise() {
     const cur = d.cur;
     if (!cur) return;
     const mode = d.mode || "han";
-    const target = (mode === "word" && cur.note) ? cur.note.w : cur.zh;
+    const target = cur.zh;
 
     const area = $("#dictExerciseArea");
     if (!d.checked) {
@@ -3084,7 +3464,7 @@ VIEWS["chinh-ta"] = () => {
           ` : `
             <label class="flex flex-col gap-1.5">
               <span class="text-xs font-semibold text-outline">Gõ lại bằng chữ Hán Phồn thể:</span>
-              <input type="text" id="dictInput" class="w-full p-3.5 rounded-xl bg-surface-container-low border border-border-subtle text-lg font-serif text-on-surface focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary/20" placeholder="Gõ câu nghe được vào đây..." autocomplete="off">
+              <input type="text" id="dictInput" class="w-full p-3.5 rounded-xl bg-surface-container-low border border-border-subtle text-lg font-serif text-on-surface focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary/20" placeholder="Gõ câu nghe được vào đây (bấm Shift để nghe lại)..." autocomplete="off">
             </label>
             <button type="button" class="py-3 px-6 rounded-xl bg-primary-container text-white font-semibold text-sm hover:bg-primary shadow-xs" id="btnCheckDict">
               Kiểm tra câu trả lời
@@ -3097,7 +3477,11 @@ VIEWS["chinh-ta"] = () => {
       if (inp) {
         inp.focus();
         inp.onkeydown = (e) => {
-          if (e.key === "Enter") {
+          if (e.key === "Shift") {
+            // Replay audio instantly from input
+            const btnPlay = $("#btnPlaySentence");
+            if (btnPlay) btnPlay.click();
+          } else if (e.key === "Enter") {
             e.preventDefault();
             $("#btnCheckDict")?.click();
           }
@@ -3181,7 +3565,7 @@ VIEWS["chinh-ta"] = () => {
             <div class="flex items-center justify-between pt-2 border-t border-border-subtle">
               <span class="text-xs font-semibold text-outline">Điểm số: <strong class="text-secondary">${d.score.ok}/${d.score.total}</strong></span>
               <button type="button" class="py-2.5 px-6 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary shadow-xs" id="btnNextEx">
-                Luyện câu tiếp theo →
+                ${(d.passageMode === "passage" && cur.total) ? `Luyện câu tiếp theo trong bài (${Math.min(cur.total, cur.idx + 2)}/${cur.total}) →` : `Luyện câu tiếp theo →`}
               </button>
             </div>
           `}
@@ -3192,12 +3576,18 @@ VIEWS["chinh-ta"] = () => {
       const btnNext = $("#btnNextEx");
       if (btnNext) {
         btnNext.focus();
-        btnNext.onclick = pickSentence;
+        btnNext.onclick = () => {
+          if (d.passageMode === "passage") {
+            d.sentenceIdx++;
+          }
+          pickSentence();
+        };
       }
       const btnPaperWrong = $("#btnPaperWrong");
       if (btnPaperWrong) {
         btnPaperWrong.onclick = () => {
           d.score.total++;
+          if (d.passageMode === "passage") d.sentenceIdx++;
           pickSentence();
         };
       }
@@ -3207,6 +3597,7 @@ VIEWS["chinh-ta"] = () => {
           d.score.total++;
           d.score.ok++;
           playChime(true);
+          if (d.passageMode === "passage") d.sentenceIdx++;
           pickSentence();
         };
       }
@@ -3222,19 +3613,28 @@ VIEWS["chinh-ta"] = () => {
   }
 
   $("#btnPlaySentence").onclick = () => {
-    if (d.cur) {
-      const mode = d.mode || "han";
-      const target = (mode === "word" && d.cur.note) ? d.cur.note.w : d.cur.zh;
-      say(target, d.speed || 0.9);
-    }
+    if (d.cur) say(d.cur.zh, d.speed || 0.9);
   };
-  $("#btnNextSentence").onclick = pickSentence;
+  $("#btnNextSentence").onclick = () => {
+    if (d.passageMode === "passage") d.sentenceIdx++;
+    pickSentence();
+  };
 
-  // Handle keydown for Chép chính tả (R to replay, Enter/Space to advance)
+  // Handle keydown for Chép chính tả (Shift to replay, Enter/Space to advance)
   if (!window._dictKeyBound) {
     window._dictKeyBound = true;
     document.addEventListener("keydown", (e) => {
       if (!location.hash.startsWith("#chinh-ta")) return;
+      if (e.key === "Shift") {
+        // Shift key replays audio immediately anywhere
+        const btnPlay = $("#btnPlaySentence");
+        if (btnPlay) {
+          btnPlay.click();
+          btnPlay.classList.add("ring-4", "ring-primary/40");
+          setTimeout(() => btnPlay.classList.remove("ring-4", "ring-primary/40"), 250);
+        }
+        return;
+      }
       const isInput = ["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName);
       if (!isInput && e.key.toLowerCase() === "r") {
         e.preventDefault();
