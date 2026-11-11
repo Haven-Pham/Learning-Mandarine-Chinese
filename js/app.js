@@ -624,51 +624,396 @@ function dailyDashboard(c, days) {
 }
 
 // --- Trang chủ ---
+
+// =========================================================================
+// 1. TRANG CHỦ (Modern Oriental Scholarly - Stitch Design)
+// =========================================================================
 VIEWS["trang-chu"] = () => {
   const vocab = S.notes.filter((n) => n.kind === "vocab");
-  const lv = [0, 0, 0, 0, 0, 0]; for (const n of vocab) lv[noteLevel(n)]++;
-  const learned = vocab.length - lv[0]; const c = todayCounts();
-  const bandCards = S.bands.map((b) => {
-    const ns = vocab.filter((n) => inBand(n, b));
-    const learnedB = ns.filter((n) => noteLevel(n) > 0).length; const pct = ns.length ? (learnedB / ns.length) * 100 : 0;
-    return `<a class="folder" href="#thu-muc/${encodeURIComponent(b)}"><div class="fname">${esc(b)}</div><div class="fsub">${esc(BAND_INFO[b])}</div>
-      <div class="bar"><span class="cov" style="width:${pct}%"></span></div>
-      <div class="fstat num">${fmt(learnedB)} / ${fmt(ns.length)} từ đã học${S.settings.bands[b] ? ` · <b>đang học</b>` : ""}</div></a>`;
-  }).join("");
-  const folderCard = (id, name, sub, ns) => { const l = ns.filter((n) => noteLevel(n) > 0).length;
-    return `<a class="folder mine" href="#thu-muc/${encodeURIComponent(id)}"><div class="fname">${esc(name)}</div><div class="fsub">${esc(sub)}</div>
-      <div class="bar"><span class="cov" style="width:${ns.length ? (l / ns.length) * 100 : 0}%"></span></div><div class="fstat num">${fmt(l)} / ${fmt(ns.length)} mục đã học</div></a>`; };
-  const mine = folderCard("cua-toi", "Thư mục của tôi", "Lớp học, các đợt TOCFL, ngữ pháp, từ viết tắt", folderNotes("cua-toi"))
-    + folderCard("viet-tat", "Từ viết tắt", "Cách nói tắt có nguồn từ điển", folderNotes("viet-tat"));
-  const today = new Date(dayStart(Date.now()));
-  const days = Array.from({ length: 14 }, (_, i) => {
-    const d = new Date(today); d.setDate(d.getDate() - 13 + i);
-    return [dayKey(d), d];
-  });
-  const max = Math.max(1, ...days.map(([key]) => (S.stats.get(key) || {}).reviews || 0));
-  setView(`<section class="view"><div class="home-top">
-    <div class="hero panel">
-      <div class="hero-top"><div><span class="bignum num">${fmt(learned)}</span> <span class="lead-s">từ đã học</span></div>
-        <a class="primary btn" href="#hoc">Học ngay${c.total ? ` · ${fmt(c.total)} thẻ` : ""}</a></div>
-      <div class="rings">${[1, 2, 3, 4, 5].map((l) => `<a href="#muc-nho/${l}" class="ring lv-ring-${l}"><b class="num">${fmt(lv[l])}</b><span>${esc(LEVELS[l])}</span></a>`).join("")}</div>
-      <div class="sub">Hôm nay: <b class="num">${fmt(c.due)}</b> thẻ cần ôn · <b class="num">${fmt(c.fresh)}</b> thẻ mới · đã trả lời <b class="num">${fmt(todayStats().reviews)}</b> thẻ</div>
-    </div>
-    <div class="panel"><div class="eyebrow">Số thẻ đã trả lời, 14 ngày gần nhất</div><div class="week">${days.map(([key, d]) => { const v = (S.stats.get(key) || {}).reviews || 0;
-      return `<div title="${esc(key)}: ${v} thẻ"><span class="num">${v || ""}</span><i class="${v ? "" : "zero"}" style="height:${Math.max(2, (v / max) * 60)}px"></i><span>${d.getDate()}</span></div>`; }).join("")}</div></div></div>
-    ${dailyDashboard(c, days)}
-    <div><h2 class="h2">Từ vựng TOCFL theo band</h2><p class="lead">${fmt(S.tocfl.length)} từ của bảng chính thức 2024. Mở một band để xem từ và đưa cả band vào lịch học.</p></div>
-    <div class="folders">${bandCards}</div>
-    <div><h2 class="h2">Thư mục của tôi</h2><p class="lead">Một từ có mặt ở nhiều thư mục vẫn là một từ: học ở đâu cũng được tính ở mọi nơi.</p></div>
-    <div class="folders">${mine}</div>
-  </section>`);
+  const lv = [0, 0, 0, 0, 0, 0];
+  for (const n of vocab) lv[noteLevel(n)]++;
+  const learned = vocab.length - lv[0];
+  const c = todayCounts();
+  const st = todayStats();
+  const summary = studySummary(S.stats, Date.now());
 
+  const targetNew = Math.max(1, Number(S.settings.newPerDay || 20));
+  const targetRev = Math.max(1, Number(S.settings.reviewPerDay || 50));
+  const reviewedToday = Math.max(0, st.reviews - st.newCards);
+  const studyMinutes = Math.max(1, Math.round(st.reviews * 0.45));
+
+  // 3 Tasks Progress Calculations
+  const task1Done = st.reviews > 0;
+  const task1Pct = task1Done ? 100 : 0;
+
+  const task2Pct = Math.min(100, Math.round((reviewedToday / targetRev) * 100));
+  const task2Done = reviewedToday >= targetRev || (c.due === 0 && reviewedToday > 0);
+
+  const task3Pct = Math.min(100, Math.round((st.newCards / targetNew) * 100));
+  const task3Done = st.newCards >= targetNew || (c.fresh === 0 && st.newCards > 0);
+
+  // 30 days matrix for heatmap
+  const today = new Date(dayStart(Date.now()));
+  const days30 = Array.from({ length: 30 }, (_, i) => {
+    const d = new Date(today);
+    d.setDate(d.getDate() - 29 + i);
+    const key = dayKey(d);
+    const revs = (S.stats.get(key) || {}).reviews || 0;
+    return { key, date: d.getDate(), month: d.getMonth() + 1, revs };
+  });
+  const maxDayRevs = Math.max(1, ...days30.map(d => d.revs));
+
+  // TOCFL Band progress breakdown
+  const bandList = ["Novice 1", "Novice 2", "A1", "A2", "B1", "B2", "C"];
+  const bandProgressHTML = bandList.map(b => {
+    const ns = vocab.filter(n => inBand(n, b));
+    const l = ns.filter(n => noteLevel(n) > 0).length;
+    const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
+    const isLearning = !!S.settings.bands[b];
+    return `
+      <div class="p-space-md rounded-2xl bg-paper-card border border-border-subtle shadow-xs flex flex-col justify-between gap-space-sm hover:border-primary/40 transition-all">
+        <div class="flex items-center justify-between">
+          <span class="font-headline-md font-bold text-on-surface text-base">TOCFL ${b}</span>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded-full ${isLearning ? 'bg-jade-subtle text-secondary' : 'bg-surface-container text-on-surface-variant'}">
+            ${isLearning ? 'Đang học' : 'Chưa bật'}
+          </span>
+        </div>
+        <div class="text-xs text-on-surface-variant line-clamp-1">
+          ${esc(BAND_INFO[b] || '')}
+        </div>
+        <div class="flex flex-col gap-1.5 mt-1">
+          <div class="flex justify-between text-xs font-medium">
+            <span class="text-outline font-code">${fmt(l)} / ${fmt(ns.length)} từ</span>
+            <span class="text-primary font-bold">${pct}%</span>
+          </div>
+          <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+            <div class="h-full bg-primary rounded-full transition-all duration-300" style="width:${pct}%;"></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-border-subtle/50 text-xs mt-1">
+          <a href="#thu-muc/${encodeURIComponent(b)}" class="text-primary hover:underline font-semibold flex items-center gap-0.5">
+            Mở xem từ →
+          </a>
+          <button type="button" class="text-xs px-2.5 py-1 rounded-lg border font-medium transition-colors ${isLearning ? 'border-border-subtle hover:bg-surface-container text-on-surface' : 'bg-primary-container text-white border-transparent hover:bg-primary'}" data-toggle-band="${b}">
+            ${isLearning ? 'Tạm dừng' : 'Bật học'}
+          </button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // Personal folders
+  const mineFolders = [
+    { id: "cua-toi", name: "Thư mục của tôi", sub: "Lớp học, các đợt thi cá nhân, ngữ pháp", notes: folderNotes("cua-toi") },
+    { id: "viet-tat", name: "Từ viết tắt Đài Loan", sub: "Khẩu ngữ & cách nói tắt có nguồn từ điển", notes: folderNotes("viet-tat") }
+  ];
+  const mineFoldersHTML = mineFolders.map(f => {
+    const l = f.notes.filter(n => noteLevel(n) > 0).length;
+    const pct = f.notes.length ? Math.round((l / f.notes.length) * 100) : 0;
+    return `
+      <div class="p-space-md rounded-2xl bg-paper-card border border-border-subtle shadow-xs flex flex-col justify-between gap-space-sm hover:border-secondary/40 transition-all">
+        <div class="flex items-center justify-between">
+          <span class="font-headline-md font-bold text-on-surface text-base">${esc(f.name)}</span>
+          <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-jade-subtle text-secondary">
+            Cá nhân
+          </span>
+        </div>
+        <div class="text-xs text-on-surface-variant line-clamp-1">${esc(f.sub)}</div>
+        <div class="flex flex-col gap-1.5 mt-1">
+          <div class="flex justify-between text-xs font-medium">
+            <span class="text-outline font-code">${fmt(l)} / ${fmt(f.notes.length)} mục</span>
+            <span class="text-secondary font-bold">${pct}%</span>
+          </div>
+          <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+            <div class="h-full bg-secondary rounded-full transition-all duration-300" style="width:${pct}%;"></div>
+          </div>
+        </div>
+        <div class="flex items-center justify-between pt-2 border-t border-border-subtle/50 text-xs mt-1">
+          <a href="#thu-muc/${encodeURIComponent(f.id)}" class="text-secondary hover:underline font-semibold">Mở thư mục →</a>
+          <a href="#nhap" class="text-xs px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-medium">+ Thêm từ</a>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  setView(`
+    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin w-full py-space-lg flex flex-col gap-space-xl">
+      <!-- Top Hero Banner: East Asian Modern Scholar Scroll -->
+      <section class="relative w-full rounded-2xl overflow-hidden bg-paper-card border border-border-subtle shadow-xs p-space-lg md:p-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
+        <div class="flex flex-col gap-space-sm max-w-2xl">
+          <div class="flex items-center gap-space-xs text-primary font-label-sm text-xs font-semibold tracking-wider uppercase">
+            <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+            <span>Hán Ngữ Đài Loan • TOCFL 2024</span>
+          </div>
+          <h1 class="font-headline-lg text-3xl md:text-4xl text-on-surface font-bold tracking-tight">
+            學習本 <span class="font-normal text-on-surface-variant font-serif text-2xl md:text-3xl">| Sổ học tiếng Hoa</span>
+          </h1>
+          <div class="p-3 md:p-4 rounded-xl bg-paper-muted border-l-4 border-primary text-sm font-serif italic text-on-surface-variant leading-relaxed">
+            「學而時習之，不亦說乎。」— Học và thường xuyên ôn luyện, chẳng vui lắm sao?
+          </div>
+        </div>
+
+        <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+          <a href="#hoc" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-primary-container text-on-primary font-semibold hover:bg-primary transition-all shadow-sm flex items-center justify-center gap-2 text-sm">
+            <span class="material-symbols-outlined text-[20px]">play_circle</span>
+            <span>Học ngay (${fmt(c.total)} thẻ)</span>
+          </a>
+          <a href="#tu-dien" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-paper-muted text-on-surface font-semibold hover:bg-surface-container transition-all flex items-center justify-center gap-2 text-sm">
+            <span class="material-symbols-outlined text-[18px]">search</span>
+            <span>Tra từ điển</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- Key Metrics Bento Row -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-space-md">
+        <!-- Metric 1: Streak -->
+        <div class="p-space-md rounded-2xl bg-cinnabar-subtle/60 border border-cinnabar-subtle flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold uppercase text-primary">Chuỗi học tập</span>
+            <span class="material-symbols-outlined text-primary text-[20px]">local_fire_department</span>
+          </div>
+          <div class="mt-2">
+            <div class="font-headline-lg text-2xl md:text-3xl font-bold text-primary">${summary.current} <small class="text-xs font-normal">ngày</small></div>
+            <div class="text-[11px] text-on-surface-variant mt-0.5">Kỷ lục: ${summary.longest} ngày liên tục</div>
+          </div>
+        </div>
+
+        <!-- Metric 2: Mastered Words -->
+        <div class="p-space-md rounded-2xl bg-jade-subtle/60 border border-jade-subtle flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold uppercase text-secondary">Từ đã học</span>
+            <span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+          </div>
+          <div class="mt-2">
+            <div class="font-headline-lg text-2xl md:text-3xl font-bold text-secondary">${fmt(learned)} <small class="text-xs font-normal">từ</small></div>
+            <div class="text-[11px] text-on-surface-variant mt-0.5">${fmt(lv[4] + lv[5])} từ mức nhớ lâu & thông thạo</div>
+          </div>
+        </div>
+
+        <!-- Metric 3: Today's Target -->
+        <div class="p-space-md rounded-2xl bg-amber-subtle/60 border border-amber-subtle flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold uppercase text-tertiary">Thẻ hôm nay</span>
+            <span class="material-symbols-outlined text-tertiary text-[20px]">schedule</span>
+          </div>
+          <div class="mt-2">
+            <div class="font-headline-lg text-2xl md:text-3xl font-bold text-tertiary">${fmt(c.due)} <small class="text-xs font-normal">ôn</small> · ${fmt(c.fresh)} <small class="text-xs font-normal">mới</small></div>
+            <div class="text-[11px] text-on-surface-variant mt-0.5">Đã trả lời ${fmt(st.reviews)} lượt hôm nay</div>
+          </div>
+        </div>
+
+        <!-- Metric 4: Daily Study Time -->
+        <div class="p-space-md rounded-2xl bg-paper-card border border-border-subtle flex flex-col justify-between shadow-xs">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold uppercase text-outline">Thời lượng học</span>
+            <span class="material-symbols-outlined text-outline text-[20px]">timer</span>
+          </div>
+          <div class="mt-2">
+            <div class="font-headline-lg text-2xl md:text-3xl font-bold text-on-surface">~${studyMinutes} <small class="text-xs font-normal">phút</small></div>
+            <div class="text-[11px] text-on-surface-variant mt-0.5">Tổng cộng ${fmt(summary.answers)} câu đã ôn</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LỘ TRÌNH HẰNG NGÀY (DAILY ROADMAP WITH 3 MISSIONS + GOAL STEPPER) -->
+      <section class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-lg">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-space-sm border-b border-border-subtle">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
+              <h2 class="font-headline-md text-xl md:text-2xl font-bold text-on-surface">Lộ trình học tập hôm nay</h2>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-0.5">Mục tiêu hằng ngày giúp bạn duy trì phản xạ và tiến bộ đều đặn.</p>
+          </div>
+          <button type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-border-subtle bg-paper-muted hover:bg-surface-container text-xs font-semibold text-on-surface transition-colors" id="btnToggleGoalEdit">
+            <span class="material-symbols-outlined text-[16px]">tune</span>
+            <span>Điều chỉnh mục tiêu</span>
+          </button>
+        </div>
+
+        <!-- Collapsible Goal Edit Box -->
+        <div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-space-md" id="goalEditBox" hidden>
+          <div class="flex items-center justify-between">
+            <span class="font-label-md text-sm font-semibold text-on-surface">Đặt mục tiêu học tập mỗi ngày:</span>
+            <span class="text-xs text-outline">Tự do tăng/giảm thẻ theo thời gian của bạn</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+            <!-- Thẻ mới input with steppers -->
+            <div class="bg-paper-card p-3 rounded-xl border border-border-subtle flex flex-col gap-2">
+              <label class="text-xs font-semibold text-on-surface-variant">Thẻ mới mỗi ngày (tối đa 200):</label>
+              <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-primary font-bold text-base flex items-center justify-center btn-stepper" data-step="new" data-delta="-5">-</button>
+                <input type="number" id="goalNewCards" min="1" max="200" value="${targetNew}" class="flex-1 py-1 px-3 text-center rounded-lg border border-border-subtle font-code font-bold text-primary text-base">
+                <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-primary font-bold text-base flex items-center justify-center btn-stepper" data-step="new" data-delta="5">+</button>
+              </div>
+            </div>
+
+            <!-- Thẻ ôn input with steppers -->
+            <div class="bg-paper-card p-3 rounded-xl border border-border-subtle flex flex-col gap-2">
+              <label class="text-xs font-semibold text-on-surface-variant">Chỉ tiêu ôn thẻ mỗi ngày (tối đa 500):</label>
+              <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-jade-subtle text-secondary font-bold text-base flex items-center justify-center btn-stepper" data-step="rev" data-delta="-10">-</button>
+                <input type="number" id="goalReviewCards" min="5" max="500" value="${targetRev}" class="flex-1 py-1 px-3 text-center rounded-lg border border-border-subtle font-code font-bold text-secondary text-base">
+                <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-jade-subtle text-secondary font-bold text-base flex items-center justify-center btn-stepper" data-step="rev" data-delta="10">+</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Presets -->
+          <div class="flex items-center gap-2 flex-wrap text-xs">
+            <span class="text-outline font-medium">Gợi ý nhanh:</span>
+            <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle btn-preset" data-new="10" data-rev="30">Nhẹ nhàng (10 mới / 30 ôn)</button>
+            <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle btn-preset" data-new="20" data-rev="50">Tiêu chuẩn (20 mới / 50 ôn)</button>
+            <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle btn-preset" data-new="40" data-rev="100">Bứt phá (40 mới / 100 ôn)</button>
+          </div>
+
+          <div class="flex items-center justify-between pt-2 border-t border-border-subtle">
+            <span class="text-xs text-secondary font-semibold" id="goalSaveMsg"></span>
+            <div class="flex items-center gap-2">
+              <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-medium text-outline hover:text-on-surface" id="btnCancelGoal">Đóng</button>
+              <button type="button" class="px-4 py-1.5 rounded-lg text-xs font-semibold bg-primary-container text-white hover:bg-primary shadow-xs" id="btnSaveGoal">Lưu mục tiêu</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Tasks Grid with Individual Progress Bars -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+          <!-- Task 1: Streak -->
+          <div class="p-space-md rounded-2xl bg-paper-muted border border-border-subtle flex flex-col justify-between gap-3">
+            <div class="flex flex-col gap-1">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-primary uppercase">Nhiệm vụ 1</span>
+                <span class="material-symbols-outlined text-[18px] ${task1Done ? 'text-secondary' : 'text-outline'}">${task1Done ? 'check_circle' : 'radio_button_unchecked'}</span>
+              </div>
+              <h3 class="font-headline-md font-bold text-base text-on-surface">Giữ chuỗi ngày học</h3>
+              <p class="text-xs text-on-surface-variant">${task1Done ? `Đã hoàn thành! Chuỗi hiện tại: ${summary.current} ngày.` : `Chưa ôn thẻ nào hôm nay. Hãy học ngay để không đứt chuỗi!`}</p>
+            </div>
+            <div class="flex flex-col gap-1">
+              <div class="flex justify-between text-xs font-semibold">
+                <span class="text-outline">Tiến độ</span>
+                <span class="${task1Done ? 'text-secondary' : 'text-primary'}">${task1Pct}%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+                <div class="h-full rounded-full transition-all duration-300 ${task1Done ? 'bg-secondary' : 'bg-primary'}" style="width:${task1Pct}%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Task 2: Reviews -->
+          <div class="p-space-md rounded-2xl bg-paper-muted border border-border-subtle flex flex-col justify-between gap-3">
+            <div class="flex flex-col gap-1">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-secondary uppercase">Nhiệm vụ 2</span>
+                <span class="material-symbols-outlined text-[18px] ${task2Done ? 'text-secondary' : 'text-outline'}">${task2Done ? 'check_circle' : 'radio_button_unchecked'}</span>
+              </div>
+              <h3 class="font-headline-md font-bold text-base text-on-surface">Ôn thẻ đến hạn</h3>
+              <p class="text-xs text-on-surface-variant">${task2Done ? `Đã hoàn thành xuất sắc (${fmt(reviewedToday)}/${fmt(targetRev)} thẻ)!` : `Đã ôn ${fmt(reviewedToday)} / ${fmt(targetRev)} thẻ mục tiêu.`}</p>
+            </div>
+            <div class="flex flex-col gap-1">
+              <div class="flex justify-between text-xs font-semibold">
+                <span class="text-outline">Tiến độ</span>
+                <span class="${task2Done ? 'text-secondary' : 'text-primary'}">${task2Pct}%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+                <div class="h-full rounded-full transition-all duration-300 ${task2Done ? 'bg-secondary' : 'bg-primary'}" style="width:${task2Pct}%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Task 3: Fresh Cards -->
+          <div class="p-space-md rounded-2xl bg-paper-muted border border-border-subtle flex flex-col justify-between gap-3">
+            <div class="flex flex-col gap-1">
+              <div class="flex items-center justify-between">
+                <span class="text-xs font-bold text-tertiary uppercase">Nhiệm vụ 3</span>
+                <span class="material-symbols-outlined text-[18px] ${task3Done ? 'text-secondary' : 'text-outline'}">${task3Done ? 'check_circle' : 'radio_button_unchecked'}</span>
+              </div>
+              <h3 class="font-headline-md font-bold text-base text-on-surface">Học thẻ mới hôm nay</h3>
+              <p class="text-xs text-on-surface-variant">${task3Done ? `Đã nạp đủ ${fmt(st.newCards)}/${fmt(targetNew)} thẻ mới!` : `Đã học ${fmt(st.newCards)} / ${fmt(targetNew)} thẻ mới.`}</p>
+            </div>
+            <div class="flex flex-col gap-1">
+              <div class="flex justify-between text-xs font-semibold">
+                <span class="text-outline">Tiến độ</span>
+                <span class="${task3Done ? 'text-secondary' : 'text-primary'}">${task3Pct}%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+                <div class="h-full rounded-full transition-all duration-300 ${task3Done ? 'bg-secondary' : 'bg-primary'}" style="width:${task3Pct}%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 30-Day Activity Heatmap & Habit Tracker -->
+      <section class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-md">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-secondary text-[20px]">calendar_month</span>
+            <h2 class="font-headline-md text-lg md:text-xl font-bold text-on-surface">Biểu đồ thói quen 30 ngày qua</h2>
+          </div>
+          <span class="text-xs text-outline font-medium">Mỗi ô là một ngày học tập</span>
+        </div>
+        <div class="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-15 gap-1.5 pt-2">
+          ${days30.map(d => {
+            const hasRevs = d.revs > 0;
+            const intensity = hasRevs ? Math.min(1, Math.max(0.2, d.revs / maxDayRevs)) : 0;
+            const bg = hasRevs ? `rgba(23, 107, 75, ${0.25 + intensity * 0.75})` : 'var(--paper-muted)';
+            const textColor = intensity > 0.6 ? '#ffffff' : 'var(--on-surface)';
+            return `
+              <div class="aspect-square rounded-lg flex flex-col items-center justify-center text-[10px] font-code transition-all hover:scale-110 shadow-2xs cursor-pointer" style="background:${bg};color:${textColor};" title="Ngày ${d.date}/${d.month}: ${d.revs} thẻ đã ôn">
+                <span class="font-bold">${d.date}</span>
+                <span class="text-[9px] opacity-80">${d.revs || ''}</span>
+              </div>
+            `;
+          }).join('')}
+        </div>
+        <div class="flex items-center justify-end gap-2 text-xs text-outline mt-1">
+          <span>Ít</span>
+          <span class="w-3 h-3 rounded bg-paper-muted"></span>
+          <span class="w-3 h-3 rounded bg-secondary/30"></span>
+          <span class="w-3 h-3 rounded bg-secondary/70"></span>
+          <span class="w-3 h-3 rounded bg-secondary"></span>
+          <span>Nhiều</span>
+        </div>
+      </section>
+
+      <!-- TOCFL Band Progress Cards -->
+      <section class="flex flex-col gap-space-md">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="font-headline-md text-xl md:text-2xl font-bold text-on-surface">Khung năng lực TOCFL 2024</h2>
+            <p class="text-xs text-on-surface-variant mt-0.5">7 phân hạng từ vựng chuẩn do Bộ Giáo dục Đài Loan ban hành.</p>
+          </div>
+          <a href="#thu-muc" class="text-xs text-primary hover:underline font-semibold">Xem tất cả →</a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
+          ${bandProgressHTML}
+        </div>
+      </section>
+
+      <!-- Personal Collections -->
+      <section class="flex flex-col gap-space-md">
+        <div>
+          <h2 class="font-headline-md text-xl md:text-2xl font-bold text-on-surface">Thư mục ghi chép cá nhân</h2>
+          <p class="text-xs text-on-surface-variant mt-0.5">Một từ ở nhiều thư mục vẫn là một từ duy nhất: học ở đâu cũng tính cho mọi nơi.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+          ${mineFoldersHTML}
+        </div>
+      </section>
+    </div>
+  `);
+
+  // Event handlers for Goal Edit Box
   const btnToggle = $("#btnToggleGoalEdit");
   if (btnToggle) {
     btnToggle.onclick = () => {
       const box = $("#goalEditBox");
-      if (!box) return;
-      box.hidden = !box.hidden;
-      if (!box.hidden) $("#goalNewCards")?.focus();
+      if (box) {
+        box.hidden = !box.hidden;
+        if (!box.hidden) $("#goalNewCards")?.focus();
+      }
     };
   }
   const btnCancel = $("#btnCancelGoal");
@@ -711,28 +1056,71 @@ VIEWS["trang-chu"] = () => {
       if (msg) msg.textContent = "✓ Đã lưu mục tiêu thành công!";
       setTimeout(() => {
         VIEWS["trang-chu"]();
-      }, 350);
+      }, 300);
     };
   }
+
+  // Band learning toggle button handlers on home page
+  document.querySelectorAll("[data-toggle-band]").forEach(btn => {
+    btn.onclick = async (e) => {
+      e.preventDefault();
+      const b = btn.dataset.toggleBand;
+      S.settings.bands[b] = !S.settings.bands[b];
+      await saveSettings();
+      VIEWS["trang-chu"]();
+    };
+  });
 };
 
+// ---------------- MỨC NHỚ (LEVEL FILTER) ----------------
 VIEWS["muc-nho"] = (arg) => {
   if (!/^[1-5]$/.test(arg)) { location.replace("#trang-chu"); return; }
   const level = Number(arg);
   const notes = S.notes.filter((n) => n.kind === "vocab" && noteLevel(n) === level);
-  setView(`<section class="view"><a class="link" href="#trang-chu">← Trang chủ</a>
-    <h2 class="h2">${esc(LEVELS[level])} · <span id="levelCount">${fmt(notes.length)}</span> từ</h2>
-    <label>Tìm trong mức nhớ này<input type="search" id="levelSearch" placeholder="Chữ Hán, pinyin hoặc nghĩa tiếng Việt"></label>
-    <div id="levelMatches" class="sub" role="status"></div>
-    <div id="levelStatus" role="status"></div>
-    <p id="levelEmpty"${notes.length ? " hidden" : ""}>Chưa có từ ở mức này.</p>
-    <div class="list" id="levelList">${notes.map((n) => {
-      const it = itemOf(n);
-      const searchText = [n.w, ...(n.forms || []), it.py, it.vn].map(fold).join("|");
-      return `<div class="item level-row" data-search="${esc(searchText)}"><div class="meta"><a class="w" lang="zh-Hant" href="#tu/${encodeURIComponent(n.w)}">${esc(n.w)}</a>
-        <span class="py">${esc(it.py)}</span><span class="vn">${esc(it.vn || it.en || "")}</span></div>
-        <select aria-label="Đổi mức nhớ của ${esc(n.w)}">${levelOptions(level)}</select></div>`;
-    }).join("")}</div></section>`);
+  setView(`
+    <div class="max-w-6xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
+      <div class="flex items-center gap-2">
+        <a href="#trang-chu" class="text-primary hover:underline text-sm font-semibold flex items-center gap-1">
+          <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+          <span>Trang chủ</span>
+        </a>
+      </div>
+      <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+        <div>
+          <h1 class="font-headline-lg text-2xl font-bold text-on-surface">${esc(LEVELS[level])} · <span id="levelCount">${fmt(notes.length)}</span> từ</h1>
+          <p class="text-xs text-on-surface-variant mt-0.5">Danh sách các từ vựng đang được xếp ở mức nhớ ${LEVELS[level]}.</p>
+        </div>
+        <div class="w-full md:w-72">
+          <input type="search" id="levelSearch" placeholder="Lọc chữ Hán, pinyin hoặc nghĩa..." class="w-full px-3.5 py-2 rounded-xl bg-surface-container-low border border-border-subtle text-sm">
+        </div>
+      </div>
+      <div id="levelMatches" class="text-xs text-outline font-medium" role="status"></div>
+      <div id="levelStatus" role="status"></div>
+      <p id="levelEmpty"${notes.length ? " hidden" : ""} class="p-6 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Chưa có từ ở mức này.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md" id="levelList">
+        ${notes.map((n) => {
+          const it = itemOf(n);
+          const searchText = [n.w, ...(n.forms || []), it.py, it.vn].map(fold).join("|");
+          return `
+            <div class="p-space-md rounded-2xl bg-paper-card border border-border-subtle shadow-xs flex flex-col justify-between gap-2 level-row hover:border-primary/40 transition-all" data-search="${esc(searchText)}">
+              <div class="flex items-start justify-between">
+                <div>
+                  <a class="font-headline-md text-2xl text-on-surface font-serif font-bold hover:text-primary" href="#tu/${encodeURIComponent(n.w)}">${esc(n.w)}</a>
+                  <span class="font-code text-xs text-tertiary ml-2">${esc(it.py)}</span>
+                </div>
+                <span class="pill lv-${level}">${esc(LEVELS[level])}</span>
+              </div>
+              <div class="text-xs text-on-surface-variant line-clamp-2">${esc(it.vn || it.en || "")}</div>
+              <div class="pt-2 border-t border-border-subtle/50 flex items-center justify-between text-xs">
+                <span class="text-outline">Đổi mức nhớ:</span>
+                <select class="px-2 py-1 rounded-lg border border-border-subtle bg-surface-container-low text-xs font-medium" aria-label="Đổi mức nhớ của ${esc(n.w)}">${levelOptions(level)}</select>
+              </div>
+            </div>
+          `;
+        }).join("")}
+      </div>
+    </div>
+  `);
   const list = $("#levelList");
   const search = $("#levelSearch");
   function filterRows() {
@@ -748,453 +1136,1526 @@ VIEWS["muc-nho"] = (arg) => {
   search.oninput = filterRows;
   list.querySelectorAll("select").forEach((select, i) => bindLevelPicker(notes[i], () => {
     const row = select.closest(".level-row");
-    const visible = [...list.querySelectorAll(".level-row:not([hidden])")];
-    const index = visible.indexOf(row);
-    const neighbor = visible[index + 1] || visible[index - 1];
     row.remove();
-    $("#levelCount").textContent = fmt(list.childElementCount);
-    $("#levelEmpty").hidden = list.childElementCount > 0;
+    $("#levelCount").textContent = fmt(list.querySelectorAll(".level-row").length);
+    $("#levelEmpty").hidden = list.querySelectorAll(".level-row").length > 0;
     filterRows();
-    (neighbor?.querySelector("select") || search).focus({ preventScroll: true });
   }, select));
 };
 
-// --- Học ---
+// =========================================================================
+// 2. HỌC FLASHCARDS (Modern Oriental Scholarly - Stitch Design)
+// =========================================================================
 VIEWS["hoc"] = () => {
   if (!S.session) {
     const c = todayCounts();
-    setView(`<section class="view"><div class="today">
-      <div class="due"><b class="num">${fmt(c.due)}</b><span>thẻ đến hạn ôn</span></div><div class="new"><b class="num">${fmt(c.fresh)}</b><span>thẻ mới hôm nay</span></div>
-      <div class="done"><b class="num">${fmt(todayStats().reviews)}</b><span>đã trả lời hôm nay</span></div></div>
-      ${c.total ? `<div class="panel"><span class="lead">Ôn thẻ đến hạn trước, rồi học thẻ mới. Tự trả lời trong đầu, bấm “Xem đáp án”, rồi chấm mình nhớ đến đâu.</span>
-        <button class="primary reveal" id="start" type="button">Bắt đầu học (${fmt(c.total)} thẻ)</button></div>`
-      : `<div class="panel"><b>Xong phần hôm nay.</b><span class="lead">${c.q.freshTotal ? `Còn ${fmt(c.q.freshTotal)} thẻ mới chờ. Muốn học thêm thì tăng số thẻ mới mỗi ngày trong Cài đặt.` : `Chưa có thẻ mới. Vào Thư mục, mở một band và bấm “Đưa band này vào lịch học”.`}</span></div>`}
-    </section>`);
-    const b = $("#start"); if (b) b.onclick = () => { S.session = { answered: 0, shown: false, start: c.total, lastNote: null }; S.session.current = nextCard(Date.now()); renderCard(); };
+    const st = todayStats();
+    const targetNew = Math.max(1, Number(S.settings.newPerDay || 20));
+    const targetRev = Math.max(1, Number(S.settings.reviewPerDay || 50));
+
+    setView(`
+      <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin py-space-xl flex flex-col gap-space-lg">
+        <section class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-md">
+          <div class="flex items-center gap-2">
+            <span class="w-1.5 h-5 rounded-full bg-primary-container"></span>
+            <h1 class="font-headline-lg text-2xl md:text-3xl font-bold text-on-surface">Phiên học Flashcards hôm nay</h1>
+          </div>
+          <p class="font-body-md text-sm text-on-surface-variant">
+            Ôn thẻ đến hạn trước để củng cố trí nhớ dài hạn (Spaced Repetition), sau đó nạp thêm thẻ mới theo mục tiêu mỗi ngày.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md my-space-sm">
+            <div class="p-space-md rounded-2xl bg-amber-subtle border border-amber-subtle flex flex-col">
+              <span class="text-xs font-semibold text-tertiary uppercase">Đến hạn ôn</span>
+              <span class="font-headline-lg text-2xl font-bold text-tertiary mt-1">${fmt(c.due)} <small class="text-xs font-normal">thẻ</small></span>
+              <span class="text-xs text-on-surface-variant mt-0.5">Mục tiêu: ${targetRev} thẻ</span>
+            </div>
+            <div class="p-space-md rounded-2xl bg-cinnabar-subtle border border-cinnabar-subtle flex flex-col">
+              <span class="text-xs font-semibold text-primary uppercase">Thẻ mới hôm nay</span>
+              <span class="font-headline-lg text-2xl font-bold text-primary mt-1">${fmt(c.fresh)} <small class="text-xs font-normal">thẻ</small></span>
+              <span class="text-xs text-on-surface-variant mt-0.5">Mục tiêu: ${targetNew} thẻ</span>
+            </div>
+            <div class="p-space-md rounded-2xl bg-jade-subtle border border-jade-subtle flex flex-col">
+              <span class="text-xs font-semibold text-secondary uppercase">Đã trả lời hôm nay</span>
+              <span class="font-headline-lg text-2xl font-bold text-secondary mt-1">${fmt(st.reviews)} <small class="text-xs font-normal">lượt</small></span>
+              <span class="text-xs text-on-surface-variant mt-0.5">Tính vào mục tiêu</span>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center gap-3 pt-space-sm">
+            ${c.total > 0 ? `
+              <button class="w-full sm:w-auto flex-1 h-12 px-6 rounded-xl bg-primary-container text-on-primary font-semibold hover:bg-primary transition-all shadow-sm flex items-center justify-center gap-2 text-sm" id="start">
+                <span class="material-symbols-outlined text-[20px]">play_circle</span>
+                <span>Bắt đầu phiên học (${fmt(c.total)} thẻ)</span>
+              </button>
+            ` : `
+              <div class="w-full p-4 rounded-xl bg-jade-subtle text-secondary font-medium flex items-center gap-2 text-sm">
+                <span class="material-symbols-outlined text-[20px]">task_alt</span>
+                <span>${c.q.freshTotal ? `Còn ${fmt(c.q.freshTotal)} thẻ mới chờ trong hàng đợi. Tăng chỉ tiêu thẻ mới trong Cài đặt để học thêm.` : `Đã hoàn thành toàn bộ thẻ hôm nay! Vào Thư mục để đưa thêm band vào lịch học.`}</span>
+              </div>
+            `}
+            <a href="#cai-dat" class="w-full sm:w-auto h-12 px-5 rounded-xl bg-paper-muted text-on-surface font-semibold hover:bg-surface-container transition-colors flex items-center justify-center gap-2 text-sm">
+              <span class="material-symbols-outlined text-[18px]">tune</span>
+              <span>Đổi mục tiêu</span>
+            </a>
+          </div>
+        </section>
+      </div>
+    `);
+
+    const b = $("#start");
+    if (b) {
+      b.onclick = () => {
+        S.session = { answered: 0, shown: false, start: c.total, lastNote: null };
+        S.session.current = nextCard(Date.now());
+        renderCard();
+      };
+    }
     return;
   }
   renderCard();
 };
+
 function renderCard() {
   const ss = S.session;
-  if (!ss.current) { setView(`<section class="view"><div class="panel"><b>Xong phần hôm nay. Đã trả lời ${fmt(ss.answered)} thẻ.</b>
-    <span class="lead">Thẻ chấm “Quên” quay lại sau ít phút; mở lại mục Học lúc đó để ôn nốt.</span><a class="link" href="#trang-chu">Về trang chủ</a></div></section>`); updateBadge(); return; }
-  const r = ss.current; const types = typesOf(r.n); const label = (types.find(([t]) => t === r.t) || [r.t, r.t])[1];
-  const pct = Math.min(100, (ss.answered / Math.max(ss.start, ss.answered + 1)) * 100);
-  const src = r.n.rich ? r.n.deck.name : bandLabel(r.n);
-  const kindRow = `<div class="kind"><span>${esc(label)} · ${esc(src)}</span><span>${r.s && r.s.state !== "new" ? esc(LEVELS[cardLevel(r.s)]) : "Thẻ mới"}</span></div>`;
-  const tail = `<div class="msg err" id="saveErr"></div><button type="button" class="link" id="stop">Dừng, học tiếp sau</button>`;
-  let html = `<section class="view"><div class="sessbar"><span style="width:${pct}%"></span></div>`;
-  if (ss.shown) {
-    const now = Date.now(); const p = detailParts(r.n, { answer: r.t === "clo" });
-    html += `<article class="card split"><div class="col-a">${kindRow}<div class="ans">${p.head}</div>${cardGradingBox(r, now)}${tail}</div>
-      <div class="col-b ans">${p.body}</div></article>`;
-  } else html += `<article class="card">${kindRow}${frontHTML(r)}<button class="primary reveal" type="button" id="reveal">Xem đáp án</button><div class="keys">Bàn phím: phím cách để xem đáp án</div>${tail}</article>`;
-  html += `</section>`;
+  if (!ss || !ss.current) {
+    setView(`
+      <div class="max-w-xl mx-auto px-margin py-space-2xl text-center flex flex-col items-center gap-4">
+        <div class="w-16 h-16 rounded-2xl bg-jade-subtle text-secondary flex items-center justify-center shadow-xs">
+          <span class="material-symbols-outlined text-[36px]">verified</span>
+        </div>
+        <h2 class="font-headline-lg text-2xl font-bold text-on-surface">Hoàn thành phiên học!</h2>
+        <p class="font-body-md text-sm text-on-surface-variant">
+          Bạn đã hoàn thành xuất sắc <strong>${fmt(ss.answered)} thẻ</strong> trong phiên này. Thẻ chấm "Mới học" sẽ quay lại sau ít phút để bạn ôn củng cố.
+        </p>
+        <div class="flex items-center gap-3 mt-4">
+          <a href="#trang-chu" class="px-6 py-2.5 rounded-xl bg-primary-container text-on-primary font-semibold hover:bg-primary transition-colors shadow-xs text-sm">
+            Về Trang chủ
+          </a>
+          <a href="#thu-muc" class="px-5 py-2.5 rounded-xl bg-paper-muted text-on-surface font-semibold hover:bg-surface-container transition-colors text-sm">
+            Khám phá từ vựng
+          </a>
+        </div>
+      </div>
+    `);
+    updateBadge();
+    return;
+  }
+
+  const r = ss.current;
+  const it = itemOf(r.n);
+  const band = bandsOf(r.n).join(" · ") || (r.n.rich ? r.n.deck.name : "TOCFL");
+  const types = typesOf(r.n);
+  const typeLabel = (types.find(([t]) => t === r.t) || [r.t, r.t])[1];
+  const curLvl = noteLevel(r.n);
+
+  const totalCards = Math.max(ss.start, ss.answered + 1);
+  const cardIndex = ss.answered + 1;
+  const pct = Math.min(100, Math.round((ss.answered / totalCards) * 100));
+
+  // Hanzi characters decomposition
+  const chars = [...new Set([...hanOnly(it.w)])];
+  const charDecompHTML = chars.map(c => {
+    const ce = cedFirst(c);
+    const py = pyOf(c);
+    const def = ce ? ce[0][1].split("/").slice(0, 2).join("; ") : "";
+    return `
+      <div class="bg-surface-container-low rounded-xl p-space-md flex items-start gap-space-md border border-border-subtle/50">
+        <div class="w-12 h-12 rounded-lg bg-cinnabar-subtle text-primary flex items-center justify-center font-display text-2xl shrink-0 font-serif font-bold">
+          ${c}
+        </div>
+        <div class="flex flex-col min-w-0">
+          <div class="flex items-center gap-space-xs">
+            <span class="font-label-md font-bold text-on-surface">${c} (${py})</span>
+          </div>
+          <p class="font-body-sm text-xs text-on-surface-variant mt-0.5 line-clamp-2">
+            ${def || 'Chữ Hán Phồn thể chuẩn'}
+          </p>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // Front Question Content based on Card Type
+  let frontContentHTML = "";
+  if (r.n.kind === "grammar") {
+    if (r.t === "rec") {
+      frontContentHTML = `
+        <div class="font-headline-lg text-2xl md:text-3xl text-on-surface font-serif font-bold mb-2">${esc(it.w)}</div>
+        <div class="text-sm text-outline">Mẫu ngữ pháp này nghĩa là gì? Thử đặt một câu với nó trong đầu.</div>
+      `;
+    } else if (r.t === "bui") {
+      frontContentHTML = `
+        <div class="text-lg font-bold text-on-surface mb-2">${esc(it.e1v)}</div>
+        <div class="text-sm text-outline">Nói câu này bằng tiếng Trung, sử dụng mẫu câu <span class="font-serif font-bold text-primary">${esc(it.w)}</span></div>
+      `;
+    } else {
+      frontContentHTML = `
+        <div class="font-headline-lg text-xl md:text-2xl text-on-surface font-serif mb-2">${esc(it.cz)}</div>
+        <div class="text-sm text-on-surface-variant">${esc(it.e2v)}<br><span class="text-outline">Điền phần còn thiếu vào chỗ trống.</span></div>
+      `;
+    }
+  } else if (r.t === "lis") {
+    // LISTENING CARD: CHARACTER IS HIDDEN!
+    frontContentHTML = `
+      <div class="w-20 h-20 rounded-full bg-jade-subtle text-secondary flex items-center justify-center text-4xl mb-3 shadow-xs">
+        🎧
+      </div>
+      <div class="font-headline-md text-xl md:text-2xl font-bold text-on-surface mb-2">Nghe và đoán nghĩa</div>
+      <div class="text-sm text-outline max-w-md mb-4">Nói to nghĩa của từ và của câu ví dụ trong đầu trước khi lật thẻ.</div>
+      <div class="flex items-center gap-3">
+        <button type="button" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-jade-subtle hover:bg-secondary-fixed text-secondary font-semibold transition-all shadow-xs border border-secondary/20" onclick="say('${esc(it.w)}')">
+          <span class="material-symbols-outlined text-[20px]">volume_up</span>
+          <span>▶ Nghe lại phát âm từ</span>
+        </button>
+        ${it.e1 ? `
+          <button type="button" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold transition-all shadow-xs border border-border-subtle" onclick="say('${esc(it.e1)}')">
+            <span class="material-symbols-outlined text-[20px]">record_voice_over</span>
+            <span>▶ Nghe câu ví dụ</span>
+          </button>
+        ` : ''}
+      </div>
+    `;
+  } else if (r.t === "wri") {
+    // WRITING / SPEAKING PROMPT
+    frontContentHTML = `
+      <div class="text-xs uppercase tracking-wider font-semibold text-secondary mb-1">Gợi ý nghĩa tiếng Việt</div>
+      <div class="font-headline-lg text-2xl md:text-3xl font-bold text-on-surface mb-2">${esc(it.vn || it.en)}</div>
+      <div class="text-xs text-outline mb-4">${it.pos ? esc(it.pos) + ' · ' : ''}Nói to phát âm rồi dùng bút viết chữ này ra giấy hoặc vẽ nét.</div>
+    `;
+  } else if (r.t === "clo") {
+    // CLOZE FILL-IN-THE-BLANK
+    const cz = it.e2 ? it.e2.split(it.w).join("＿".repeat([...it.w].length)) : "＿";
+    frontContentHTML = `
+      <div class="font-headline-lg text-2xl md:text-3xl text-on-surface font-serif font-medium leading-relaxed max-w-2xl px-4 py-3 bg-surface-container-low rounded-xl border border-border-subtle mb-3">
+        ${esc(cz)}
+      </div>
+      <div class="text-sm text-on-surface-variant font-medium">${esc(it.e2v || '')}</div>
+      <div class="text-xs text-outline mt-1">Điền chữ Hán còn thiếu vào chỗ trống.</div>
+    `;
+  } else if (r.t === "abr") {
+    // ABBREVIATION CARD
+    frontContentHTML = `
+      <div class="font-headline-lg text-5xl md:text-6xl text-on-surface font-serif font-bold mb-3">${esc(it.w)}</div>
+      <div class="text-sm text-outline">Đây là cách nói tắt trong khẩu ngữ Đài Loan. Dạng đầy đủ là gì? Nghĩa là gì?</div>
+    `;
+  } else {
+    // REC: STANDARD RECOGNITION (Character + Context Sentence if available)
+    const ex = it.e1 || it.e2;
+    frontContentHTML = `
+      ${ex ? `
+        <div class="text-xs text-secondary font-semibold uppercase tracking-wider mb-2">
+          Câu ngữ cảnh đời sống Đài Loan
+        </div>
+        <div class="font-headline-lg text-2xl md:text-3xl text-on-surface font-serif font-medium leading-relaxed max-w-2xl px-4 py-2.5 bg-surface-container-low rounded-xl border border-border-subtle mb-3">
+          ${esc(ex)}
+        </div>
+      ` : ''}
+      <div class="flex items-center justify-center gap-space-md my-space-xs">
+        <h1 class="font-headline-lg text-5xl md:text-7xl leading-tight text-on-surface tracking-wide select-all font-serif font-bold">
+          ${esc(it.w)}
+        </h1>
+      </div>
+      <div class="mt-2 flex items-center gap-3">
+        <button type="button" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-jade-subtle hover:bg-secondary-fixed text-secondary font-semibold transition-all shadow-xs border border-secondary/20" onclick="say('${esc(ex || it.w)}')">
+          <span class="material-symbols-outlined text-[18px]">volume_up</span>
+          <span>${ex ? '▶ Nghe câu ngữ cảnh' : '▶ Giọng Đài Loan (臺灣華語)'}</span>
+        </button>
+      </div>
+      <div class="text-xs text-outline mt-3">🎧 Nghe audio → 📖 Đọc chữ → 💡 Hiểu nghĩa</div>
+    `;
+  }
+
+  const html = `
+    <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin py-space-md md:py-space-lg flex flex-col gap-space-lg relative z-10">
+      <!-- Top Session Dashboard -->
+      <section class="bg-paper-card rounded-2xl p-space-md md:p-space-lg border border-border-subtle shadow-xs flex flex-col gap-space-md">
+        <div class="flex flex-wrap items-center justify-between gap-space-sm">
+          <div class="flex items-center gap-space-sm">
+            <span class="inline-flex items-center justify-center px-2.5 py-1 rounded-lg bg-cinnabar-subtle text-primary font-code text-xs font-bold">${cardIndex}</span>
+            <span class="font-body-sm text-sm text-outline">/ ${totalCards} thẻ phiên hôm nay</span>
+          </div>
+          <div class="flex items-center gap-2 sm:gap-4 text-xs font-medium flex-wrap">
+            <div class="flex items-center gap-1 bg-amber-subtle px-2.5 py-1 rounded-full text-tertiary">
+              <span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              <span>Dạng: <strong>${typeLabel}</strong></span>
+            </div>
+            <div class="flex items-center gap-1 bg-jade-subtle px-2.5 py-1 rounded-full text-secondary">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              <span>Mức nhớ: <strong>${LEVELS[curLvl]}</strong></span>
+            </div>
+            <button type="button" class="text-xs text-outline hover:text-primary transition-colors underline ml-2" id="btnStopSession">
+              Tạm dừng
+            </button>
+          </div>
+        </div>
+        <!-- Segmented Progress Rail -->
+        <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden flex">
+          <div class="h-full bg-secondary transition-all duration-300" style="width: ${pct}%;"></div>
+        </div>
+      </section>
+
+      <!-- Main Study Flashcard Shell -->
+      <div class="relative w-full">
+        <!-- Ambient Seal Watermark -->
+        <div class="absolute top-6 right-8 select-none pointer-events-none opacity-5 font-serif text-[120px] text-primary leading-none">
+          ${chars[0] || '學'}
+        </div>
+
+        <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-sm flex flex-col gap-space-lg transition-all duration-200">
+          <!-- Card Utilities Bar -->
+          <div class="flex items-center justify-between gap-space-sm flex-wrap">
+            <div class="flex items-center gap-space-xs flex-wrap">
+              <span class="px-space-sm py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-xs font-semibold tracking-wider">TOCFL ${band}</span>
+              ${it.pos ? `<span class="px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-xs">${it.pos}</span>` : ''}
+              ${it.hv ? `<span class="px-space-sm py-0.5 rounded-full bg-paper-muted text-on-surface-variant font-code text-xs">Hán Việt: ${it.hv}</span>` : ''}
+            </div>
+            <div class="flex items-center gap-1.5">
+              <button aria-label="Xem nét viết" class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-jade-subtle transition-colors" id="btnToggleStrokes" title="Xem thứ tự nét viết">
+                <span class="material-symbols-outlined text-[18px]">draw</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Drawer nét viết (Hanzi Writer) -->
+          <div class="hidden bg-paper-muted rounded-xl p-space-md flex-col gap-space-sm border border-border-subtle" id="strokesDrawer">
+            <div class="flex items-center justify-between">
+              <span class="font-label-md text-sm text-on-surface font-semibold">Tập viết chữ Hán theo thứ tự nét</span>
+              <span class="font-body-sm text-xs text-outline">${it.w}</span>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-4 py-2" id="studyWriterBox">
+              ${chars.map((c, k) => `
+                <div class="flex flex-col items-center gap-1 bg-paper-card p-2 rounded-xl border border-border-subtle shadow-2xs">
+                  <div id="studyHw${k}"></div>
+                  <div class="flex gap-1 mt-1">
+                    <button type="button" class="text-xs px-2 py-0.5 rounded bg-surface-container hover:bg-cinnabar-subtle text-primary font-medium" data-anim-k="${k}">Xem nét</button>
+                    <button type="button" class="text-xs px-2 py-0.5 rounded bg-surface-container hover:bg-jade-subtle text-secondary font-medium" data-quiz-k="${k}">Viết thử</button>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <!-- Front Question Side -->
+          ${!ss.shown ? `
+            <div class="flex flex-col items-center justify-center text-center py-space-md">
+              ${frontContentHTML}
+
+              <!-- Reveal Button -->
+              <div class="flex justify-center mt-space-lg">
+                <button type="button" class="inline-flex items-center gap-2 px-8 py-3 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-semibold transition-all active:scale-98 shadow-sm text-sm" id="btnReveal">
+                  <span class="material-symbols-outlined text-[20px]">visibility</span>
+                  <span>Xem đáp án & giải nghĩa</span>
+                  <span class="ml-2 font-code text-xs px-1.5 py-0.5 rounded bg-white/20">Space</span>
+                </button>
+              </div>
+            </div>
+          ` : `
+            <!-- Back Details (Expanded Answer Side) -->
+            <div class="flex flex-col gap-space-lg">
+              <!-- Word & Phonetics Header in Back -->
+              <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-space-sm border-b border-border-subtle">
+                <div class="flex items-baseline gap-3 flex-wrap">
+                  <span class="font-display text-4xl text-on-surface font-serif font-bold">${esc(it.w)}</span>
+                  <span class="font-code text-lg text-tertiary font-semibold">${esc(it.py || '')}</span>
+                  <button type="button" class="text-secondary hover:text-primary transition-colors p-1" onclick="say('${esc(it.w)}')" title="Nghe lại phát âm">
+                    <span class="material-symbols-outlined text-[20px]">volume_up</span>
+                  </button>
+                </div>
+                ${it.hv ? `<span class="font-label-md text-sm text-outline">Hán Việt: <strong class="text-on-surface font-semibold">${it.hv}</strong></span>` : ''}
+              </div>
+
+              <!-- Meaning Definition Row -->
+              <div class="flex flex-col gap-1.5">
+                <div class="flex items-center gap-2">
+                  <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
+                  <span class="font-label-sm text-xs text-outline uppercase tracking-wider font-semibold">Ý nghĩa chính</span>
+                </div>
+                <div class="text-xl font-headline-md text-on-surface font-semibold">
+                  ${esc(it.vn || 'Chưa có nghĩa tiếng Việt')}
+                </div>
+                ${it.en ? `<div class="text-sm text-on-surface-variant font-body-sm">${esc(it.en)}</div>` : ''}
+              </div>
+
+              <!-- Contextual Example Box -->
+              ${it.e1 || it.e2 ? `
+                <div class="bg-paper-muted rounded-xl p-space-md md:p-space-lg flex flex-col gap-space-sm relative border border-border-subtle">
+                  <div class="flex items-center justify-between">
+                    <span class="font-label-sm text-xs text-secondary font-semibold uppercase tracking-wider flex items-center gap-1">
+                      <span class="material-symbols-outlined text-[16px]">format_quote</span>
+                      Ví dụ ngữ cảnh Đài Loan
+                    </span>
+                    <button type="button" class="text-secondary hover:text-primary p-1 transition-colors" onclick="say('${esc(it.e1 || it.e2)}')" title="Nghe câu ví dụ">
+                      <span class="material-symbols-outlined text-[20px]">volume_up</span>
+                    </button>
+                  </div>
+                  <p class="font-headline-md text-lg md:text-xl text-on-surface font-serif font-medium leading-relaxed">
+                    ${ruby(it.e1 || it.e2)}
+                  </p>
+                  ${(it.e1p || it.e2p) ? `<p class="font-code text-xs text-on-surface-variant">${esc(it.e1p || it.e2p)}</p>` : ''}
+                  ${(it.e1v || it.e2v) ? `<p class="font-body-md text-sm text-on-surface font-medium">${esc(it.e1v || it.e2v)}</p>` : ''}
+                </div>
+              ` : ''}
+
+              <!-- Character Decomposition Bento Cards -->
+              ${chars.length ? `
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs text-outline font-semibold uppercase">Chiết tự & Cấu trúc chữ</span>
+                  <div class="grid grid-cols-1 md:grid-cols-${Math.min(chars.length, 3)} gap-space-md">
+                    ${charDecompHTML}
+                  </div>
+                </div>
+              ` : ''}
+
+              <!-- 6 UNIFIED MEMORY RATING BUTTONS (CHẤM ĐIỂM GHI NHỚ CHO CẢ TỪ) -->
+              <div class="pt-space-md flex flex-col gap-space-sm border-t border-border-subtle mt-2">
+                <div class="flex items-center justify-between text-outline px-1">
+                  <span class="font-label-sm text-xs uppercase tracking-wider font-semibold">Chấm điểm ghi nhớ cho cả từ</span>
+                  <span class="font-code text-xs hidden sm:inline">Phím tắt: 1 - 5, 0</span>
+                </div>
+                <div class="grades-6">
+                  ${[0, 1, 2, 3, 4, 5].map((lvl) => {
+                    const isCur = curLvl === lvl;
+                    const hints = ["Đặt lại", "Ôn lại ngay", "1 ngày", "7 ngày", "21 ngày", "90 ngày"];
+                    return `
+                      <button type="button" class="lvl-btn lvl-btn-${lvl} ${isCur ? "is-current" : ""}" data-word-level="${lvl}" title="Đặt ${esc(it.w)} ở mức ${esc(LEVELS[lvl])}">
+                        <span class="lvl-title">${isCur ? "✓ " : ""}${esc(LEVELS[lvl])}</span>
+                        <small class="lvl-sub">${hints[lvl]}</small>
+                      </button>
+                    `;
+                  }).join('')}
+                </div>
+                <div class="text-xs text-outline text-center mt-1">
+                  Áp dụng cho mọi dạng thẻ của từ và tính vào mục tiêu học hôm nay.
+                </div>
+                <div role="status" id="levelStatus" class="text-xs text-secondary text-center font-semibold"></div>
+              </div>
+            </div>
+          `}
+        </div>
+      </div>
+
+      <!-- Quick Helpful Shortcuts Pill Bar -->
+      <footer class="flex flex-wrap items-center justify-center gap-space-md py-space-xs text-outline font-label-sm text-xs">
+        <div class="flex items-center gap-1">
+          <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">Space</kbd>
+          <span>Lật thẻ</span>
+        </div>
+        <span>•</span>
+        <div class="flex items-center gap-1">
+          <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">R</kbd>
+          <span>Phát âm lại</span>
+        </div>
+        <span>•</span>
+        <div class="flex items-center gap-1">
+          <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">1 - 5, 0</kbd>
+          <span>Chọn mức nhớ</span>
+        </div>
+      </footer>
+    </div>
+  `;
+
   setView(html);
-  if (ss.shown) bindLevelPicker(r.n, () => {
-    ss.lastNote = r.n.key; ss.shown = false; ss.current = nextCard(Date.now()); renderCard();
-    window.scrollTo(0, 0);
-  });
-  const rv = $("#reveal"); if (rv) rv.onclick = reveal;
-  $("#stop").onclick = () => { S.session = null; location.hash = "#trang-chu"; };
-  if (!ss.shown && r.n.kind !== "grammar") {
-    const it = itemOf(r.n);
+
+  // Bind stroke drawer button
+  const strokeBtn = $("#btnToggleStrokes");
+  const strokeDrawer = $("#strokesDrawer");
+  if (strokeBtn && strokeDrawer) {
+    strokeBtn.onclick = () => {
+      strokeDrawer.classList.toggle("hidden");
+      strokeDrawer.classList.toggle("flex");
+      if (!strokeDrawer.classList.contains("hidden")) {
+        chars.forEach((c, k) => {
+          const el = $("#studyHw" + k);
+          if (el && el.children.length === 0 && window.HanziWriter) {
+            const writer = HanziWriter.create(el, c, {
+              width: 100, height: 100, padding: 4, showOutline: true,
+              strokeColor: "#86090a", outlineColor: "#EBE2D8", highlightColor: "#176b4b",
+              charDataLoader: (ch, onLoad, onErr) => strokeData(ch).then(onLoad).catch(onErr)
+            });
+            const btnAnim = $(`[data-anim-k="${k}"]`);
+            if (btnAnim) btnAnim.onclick = () => writer.animateCharacter();
+            const btnQuiz = $(`[data-quiz-k="${k}"]`);
+            if (btnQuiz) btnQuiz.onclick = () => writer.quiz();
+          }
+        });
+      }
+    };
+  }
+
+  // Bind stop button
+  const btnStop = $("#btnStopSession");
+  if (btnStop) {
+    btnStop.onclick = () => {
+      S.session = null;
+      location.hash = "#trang-chu";
+    };
+  }
+
+  // Bind reveal button
+  const rv = $("#btnReveal");
+  if (rv) rv.onclick = reveal;
+
+  // Bind level grading buttons
+  if (ss.shown) {
+    bindLevelPicker(r.n, () => {
+      ss.lastNote = r.n.key;
+      ss.shown = false;
+      ss.current = nextCard(Date.now());
+      renderCard();
+      window.scrollTo(0, 0);
+    });
+  }
+
+  // Auto-play audio on question side
+  if (!ss.shown && r.n.kind !== "grammar" && r.t !== "wri") {
     say((r.t === "rec" && (it.e1 || it.e2)) ? (it.e1 || it.e2) : it.w);
   }
 }
-function reveal() { const ss = S.session; if (!ss || !ss.current || ss.shown) return; ss.shown = true; renderCard(); window.scrollTo(0, 0);
-  const r = ss.current; if (r.n.kind !== "grammar" && r.t !== "lis") say(itemOf(r.n).w); }
-document.addEventListener("keydown", (e) => {
-  const ss = S.session; if (!ss || !ss.current || !location.hash.startsWith("#hoc")) return;
-  if (["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName)) return;
-  if (!ss.shown && (e.key === " " || e.key === "Enter")) { e.preventDefault(); reveal(); }
-  else if (ss.shown && ["0", "1", "2", "3", "4", "5", "6"].includes(e.key)) {
-    e.preventDefault();
-    const lvl = e.key === "6" ? 0 : Number(e.key);
-    const targetBtn = $(`[data-word-level="${lvl}"]`);
-    if (targetBtn && !targetBtn.disabled) {
-      targetBtn.click();
-    }
-  }
-});
 
-// --- Tra từ ---
-VIEWS["tu-dien"] = (arg) => {
-  setView(`<section class="view"><label for="dq" class="biglabel">Tra từ: chữ Hán, pinyin (không cần dấu), tiếng Việt hoặc tiếng Anh
-    <input id="dq" class="bigin" placeholder="例如：學生 · xuesheng · học sinh · student" value="${esc(arg || "")}" autocomplete="off"></label>
-    <div class="count" id="dcount"></div><div class="list grid2" id="dres"></div></section>`);
-  const inp = $("#dq"); let tmr = null;
-  inp.oninput = () => { clearTimeout(tmr); tmr = setTimeout(() => searchDict(inp.value), 150); };
-  inp.focus(); searchDict(inp.value);
-};
-function searchDict(raw) {
-  const out = $("#dres"), cnt = $("#dcount"); if (!out) return;
-  const q = clean(raw); if (!q) { cnt.textContent = ""; out.innerHTML = `<div class="empty">Gõ từ cần tra. Kết quả hiện từ TOCFL trước, sau đó đến từ điển đầy đủ ${S.ced ? `(${fmt(S.ced.size)} mục)` : "(đang tải…)"}.</div>`; return; }
-  const res = []; const seen = new Set();
-  const push = (w, n, pri) => { if (seen.has(w)) return; seen.add(w); res.push({ w, n, pri }); };
-  if (isHan(q)) {
-    for (const [w, n] of S.noteByWord) if (w.includes(q)) push(w, n, w === q ? 0 : w.startsWith(q) ? 1 : 2);
-    if (S.ced) for (const w of S.ced.keys()) { if (res.length > 400) break; if (w.includes(q)) push(w, null, w === q ? 0 : w.startsWith(q) ? 3 : 4); }
-  } else {
-    const f = fold(q);
-    for (const n of S.notes) { const it = itemOf(n); const p = fold(it.py);
-      if (p === f) push(it.w, n, 0); else if (p.startsWith(f)) push(it.w, n, 1); else if (f.length >= 2 && (fold(it.vn).includes(f) || fold(it.en).includes(f))) push(it.w, n, 2); }
-    if (S.ced && f.length >= 2) for (const [w, es] of S.ced) { if (res.length > 400) break;
-      for (const [py, defs] of es) { const p = fold(py); if (p === f) { push(w, null, 3); break; } if (f.length >= 3 && fold(defs).includes(f)) { push(w, null, 5); break; } } }
-  }
-  res.sort((a, b) => a.pri - b.pri || a.w.length - b.w.length);
-  cnt.textContent = `${fmt(Math.min(res.length, 80))}${res.length > 80 ? "+" : ""} kết quả`;
-  out.innerHTML = res.slice(0, 80).map(({ w, n }) => {
-    const e = cedFirst(w); const py = n ? itemOf(n).py : e ? e[0][0] : ""; const m = n ? meaningOf(n) : enOf(w);
-    return `<a class="item" href="#tu/${encodeURIComponent(w)}"><div class="w">${esc(w)}</div><div class="meta"><div class="py">${esc(py)}</div><div class="vn">${esc(m)}</div></div>
-      <div class="side">${n ? `<span class="pill band">${esc(bandsOf(n).join(" · ") || "Của tôi")}</span>${levelPill(n)}` : `<span class="pill">ngoài TOCFL</span>`}</div></a>`;
-  }).join("") || `<div class="empty">Không tìm thấy. Thử gõ chữ Hán Phồn thể hoặc pinyin không dấu.</div>`;
-}
-VIEWS["tu"] = (w) => {
-  const n = S.noteByWord.get(w); const e = cedFirst(w);
-  const inLearn = n && inLearning(n);
-  // abbreviations noted by CC-CEDICT for this word, when our sourced list has nothing
-  const cedAbbr = !S.abbrS.has(w) && e ? [...new Set(e.flatMap(([, d]) => [...d.matchAll(/abbr\. for ([㐀-鿿]+)/g)].map((x) => x[1])))].filter((x) => x !== w) : [];
-  const chars = [...new Set([...hanOnly(w)])];
-  const containing = (c) => S.notes.filter((x) => x.kind === "vocab" && x.w.includes(c) && x.w !== w).slice(0, 16);
-  setView(`<section class="view"><a class="link" href="#tu-dien">← Tra từ khác</a><div class="cols"><div class="c1">
-    ${n ? detailHTML(n, { link: false }) : `<div class="ans"><div class="head"><div class="w">${esc(w)}</div><div class="py">${esc(e ? e[0][0] : "")} ${sp(w)}</div><div class="sub">ngoài bảng TOCFL</div></div>${abbrHTML(w)}</div>`}
-    ${n ? levelPicker(n) : ""}
-    ${cedAbbr.length ? `<div class="abbr"><b>Theo CC-CEDICT, đây là cách nói tắt của</b> ${cedAbbr.map((x) => `<a class="han" href="#tu/${encodeURIComponent(x)}"><ruby>${esc(x)}<rt>${esc(pyOf(x))}</rt></ruby></a>`).join(", ")}</div>` : ""}
-    ${n ? `<div class="actions"><span>Mức nhớ: ${levelPill(n)}</span>${n.basic ? (inLearn ? `<span class="pill lv-2">Đang trong lịch học</span>` : `<button type="button" class="primary" id="addLearn">Thêm từ này vào lịch học</button>`) : ""}</div>` : ""}
-    ${e ? `<div class="panel"><div class="eyebrow">Nghĩa tiếng Anh (CC-CEDICT)</div>${e.map(([py, defs]) => `<div class="cedrow"><span class="py">${esc(py)}</span> ${esc(defs.replace(/\[[^\]]*\d\]/g, "").split("/").join("; "))}</div>`).join("")}</div>` : ""}
-    </div><div class="c2"><div class="panel"><div class="eyebrow">Nét viết · bấm “Xem nét” hoặc “Viết thử”</div><div class="strokes">${chars.map((c, k) => `
-      <div class="sbox"><div class="hw" id="hw${k}" data-c="${esc(c)}"></div><div class="actions center"><button type="button" class="small" data-anim="${k}">Xem nét</button><button type="button" class="small" data-quiz="${k}">Viết thử</button></div>
-      <div class="sub center">${esc(c)} · ${esc((cedFirst(c) || [[""]])[0][0])}</div></div>`).join("")}</div>
-      <div class="sub">Thứ tự nét lấy từ Make Me a Hanzi, theo chuẩn Trung Quốc đại lục; vài chữ có thể khác thứ tự nét chuẩn Đài Loan.</div></div>
-    ${chars.map((c) => { const cs = containing(c); const ce = cedFirst(c);
-      return `<div class="panel"><div class="eyebrow">Chữ ${esc(c)}</div><div class="charline"><span class="han bigc">${esc(c)}</span><span>${esc(ce ? ce.map(([py, d]) => py + ": " + d.replace(/\[[^\]]*\d\]/g, "").split("/").slice(0, 3).join("; ")).slice(0, 2).join(" | ") : "")}</span></div>
-        ${cs.length ? `<div class="sub">Từ TOCFL có chữ này:</div><div class="chips">${cs.map((x) => `<a class="chip" href="#tu/${encodeURIComponent(x.w)}"><span class="han">${esc(x.w)}</span> ${esc(itemOf(x).py)}</a>`).join("")}</div>` : ""}</div>`; }).join("")}
-  </div></div></section>`);
-  if (n) bindLevelPicker(n, () => VIEWS["tu"](w));
-  const add = $("#addLearn"); if (add) add.onclick = async () => { S.settings.extra[n.w] = true; await saveSettings(); route(); };
-  chars.forEach((c, k) => drawChar(k, c));
-};
-const strokeCache = new Map();
-async function strokeData(c) {
-  const k = String(c.codePointAt(0) % 64).padStart(2, "0");
-  if (!strokeCache.has(k)) strokeCache.set(k, getJSON(`data/strokes/${k}.json`));
-  const chunk = await strokeCache.get(k); if (!chunk[c]) throw new Error("no data"); return chunk[c];
-}
-const writers = {};
-function drawChar(k, c) {
-  const el = $("#hw" + k); if (!el || !window.HanziWriter) return;
-  const css = getComputedStyle(document.documentElement);
-  const w = HanziWriter.create(el, c, { width: 150, height: 150, padding: 6, showOutline: true, strokeColor: css.getPropertyValue("--ink").trim() || "#18212E",
-    outlineColor: css.getPropertyValue("--line").trim() || "#ddd", highlightColor: css.getPropertyValue("--jade").trim() || "#1C7563", drawingColor: css.getPropertyValue("--indigo").trim() || "#333",
-    strokeAnimationSpeed: 1, delayBetweenStrokes: 250, charDataLoader: (ch, onLoad, onErr) => { strokeData(ch).then(onLoad).catch(() => { el.innerHTML = `<div class="nodata">Chưa có dữ liệu nét cho chữ này</div>`; onErr && onErr(); }); } });
-  writers[k] = w;
-}
-document.addEventListener("click", (e) => {
-  const a = e.target.closest("[data-anim]"); if (a && writers[a.dataset.anim]) { writers[a.dataset.anim].animateCharacter(); return; }
-  const q = e.target.closest("[data-quiz]"); if (q && writers[q.dataset.quiz]) { writers[q.dataset.quiz].quiz({ showHintAfterMisses: 2 }); }
-});
-
-// --- Thư mục ---
+// =========================================================================
+// 3. THƯ MỤC TỪ VỰNG & 4. LỌC NHANH (Stitch Design)
+// =========================================================================
 VIEWS["thu-muc"] = (id) => {
-  if (!id) {
-    setView(`<section class="view"><h2 class="h2">Thư mục</h2><div class="folders">${S.bands.map((b) => `<a class="folder" href="#thu-muc/${encodeURIComponent(b)}"><div class="fname">${esc(b)}</div><div class="fsub">${esc(BAND_INFO[b])}</div></a>`).join("")}
-      <a class="folder mine" href="#thu-muc/cua-toi"><div class="fname">Thư mục của tôi</div></a><a class="folder mine" href="#thu-muc/viet-tat"><div class="fname">Từ viết tắt</div></a></div></section>`); return;
-  }
-  const isBand = S.bands.includes(id); const deck = S.decks.find((d) => d.id === id);
-  const ns = folderNotes(id);
-  const title = isBand ? `TOCFL ${id}` : id === "cua-toi" ? "Thư mục của tôi" : id === "viet-tat" ? "Từ viết tắt" : deck ? deck.name : id;
-  const on = folderOn(id);
-  const lv = [0, 0, 0, 0, 0, 0]; ns.forEach((n) => lv[noteLevel(n)]++);
-  const unseen = ns.filter((n) => n.kind === "vocab" && !hasProgress(n)).length;
-  const groups = id === "cua-toi" ? [["all", "Tất cả"], ...S.decks.map((d) => [d.id, d.name])] : null;
-  let grp = "all";
-  setView(`<section class="view"><a class="link" href="#trang-chu">← Trang chủ</a>
-    <div class="panel"><h2 class="h2">${esc(title)}</h2><div class="sub">${isBand ? esc(BAND_INFO[id]) + " · " : ""}${fmt(ns.length)} mục · ${LEVELS.map((l, i) => lv[i] ? `${l} ${lv[i]}` : "").filter(Boolean).join(" · ")}</div>
-      ${id === "viet-tat" ? `<p class="sub">Mỗi từ ghi rõ nguồn: từ điển Bộ Giáo dục Đài Loan (教育部《重編國語辭典修訂本》, tra qua 萌典) hoặc CC-CEDICT. Từ nào có dạng nói tắt sẽ có thêm thẻ “Từ viết tắt”.</p>` : ""}
-      <div class="actions"><button type="button" class="${on ? "" : "primary"}" id="toggleLearn">${on ? "Tạm dừng học thư mục này" : isBand ? "Đưa band này vào lịch học" : "Học thư mục này"}</button>
-        ${unseen ? `<a class="btn" href="#loc-nhanh/${encodeURIComponent(id)}">Lọc nhanh: ${fmt(unseen)} từ chưa học</a>` : ""}</div>
-      <span class="sub">${on ? "Từ mới của thư mục này đang được đưa vào mục Học. " : ""}Lọc nhanh: đánh dấu từ đã thuộc để khỏi phải học lại từ đầu. Một từ có mặt ở nhiều thư mục thì học ở đâu cũng được tính.</span>
-      ${groups ? `<div class="chips" id="grp">${groups.map(([v, t]) => `<button type="button" class="chip" data-v="${esc(v)}" aria-pressed="${v === "all"}">${esc(t)}</button>`).join("")}</div>` : ""}
-      <label for="fq">Lọc trong thư mục<input id="fq" placeholder="chữ Hán, pinyin hoặc nghĩa"></label></div>
-    <div class="list grid2" id="flist"></div></section>`);
-  const draw = () => { const f = fold($("#fq").value);
-    $("#flist").innerHTML = ns.filter((n) => (grp === "all" || (n.rich && n.deck.id === grp)) && (!f || fold(itemOf(n).w).includes(f) || fold(itemOf(n).py).includes(f) || fold(meaningOf(n)).includes(f))).map((n) => { const it = itemOf(n);
-      const ab = S.abbrS.get(n.w);
-      const inner = `<div class="w ${n.kind === "grammar" ? "gram" : ""}">${esc(n.basic ? n.display : it.w)}</div>
-        <div class="meta"><div class="py">${esc(it.py)}</div><div class="vn">${esc(meaningOf(n) || "…")}</div>${ab ? `<div class="sub">nói tắt của <span class="han">${esc(ab.f)}</span></div>` : ""}</div><div class="side">${levelPill(n)}</div>`;
-      return n.kind === "grammar" ? `<div class="item clickable" role="button" tabindex="0" data-gram="${esc(n.key)}">${inner}</div>` : `<a class="item" href="#tu/${encodeURIComponent(it.w)}">${inner}</a>`; }).join("") || `<div class="empty">Không có mục nào khớp.</div>`; };
-  $("#fq").oninput = draw; draw();
-  const gEl = $("#grp"); if (gEl) gEl.onclick = (e) => { const b = e.target.closest("[data-v]"); if (!b) return; grp = b.dataset.v; gEl.querySelectorAll(".chip").forEach((c) => c.setAttribute("aria-pressed", c === b)); draw(); };
-  $("#flist").addEventListener("click", (e) => { const g = e.target.closest("[data-gram]"); if (!g) return; e.preventDefault(); const n = S.noteByKey.get(g.dataset.gram);
-    g.insertAdjacentHTML("afterend", `<div class="panel">${detailHTML(n, { link: false })}</div>`); g.removeAttribute("data-gram"); });
-  $("#toggleLearn").onclick = async () => { setFolderOn(id, !on); await saveSettings(); route(); };
-};
-// Folders: a TOCFL band, "cua-toi" (all hand-made decks), "viet-tat" (sourced abbreviations), or one deck id.
-function folderNotes(id) {
-  if (S.bands.includes(id)) return S.notes.filter((n) => n.kind === "vocab" && inBand(n, id));
-  if (id === "cua-toi") return S.notes.filter((n) => n.rich);
-  if (id === "viet-tat") { const set = new Set(); for (const w of S.abbrS.keys()) { const n = S.noteByWord.get(w); if (n) set.add(n); } return [...set]; }
-  return S.notes.filter((n) => n.rich && n.deck.id === id);
-}
-function folderOn(id) {
-  if (S.bands.includes(id)) return !!S.settings.bands[id];
-  if (id === "cua-toi") return S.decks.every((d) => deckOn(d.id));
-  if (id === "viet-tat") return folderNotes(id).every(inLearning);
-  return deckOn(id);
-}
-function setFolderOn(id, v) {
-  if (S.bands.includes(id)) S.settings.bands[id] = v;
-  else if (id === "cua-toi") for (const d of S.decks) S.settings.decks[d.id] = v;
-  else if (id === "viet-tat") { for (const n of folderNotes(id)) { if (n.rich) S.settings.decks[n.deck.id] = v || deckOn(n.deck.id); else if (v) S.settings.extra[n.w] = true; else delete S.settings.extra[n.w]; } }
-  else S.settings.decks[id] = v;
-}
-const hasProgress = (n) => typesOf(n).some(([t]) => S.srs.has(cardId(n, t)));
+  const vocab = S.notes.filter(n => n.kind === "vocab");
+  const c = todayCounts();
 
-// --- Lọc nhanh: mark words you already know, so you do not relearn A1–A2 from zero ---
+  // If viewing a specific folder
+  if (id) {
+    const isBand = S.bands.includes(id);
+    const deck = S.decks.find(d => d.id === id);
+    const ns = folderNotes(id);
+    const title = isBand ? `TOCFL ${id} (${BAND_INFO[id] || ''})` : (id === 'cua-toi' ? 'Thư mục của tôi' : (id === 'viet-tat' ? 'Từ viết tắt' : (deck ? deck.name : id)));
+    const on = folderOn(id);
+    const lv = [0, 0, 0, 0, 0, 0];
+    ns.forEach(n => lv[noteLevel(n)]++);
+    const learnedCount = ns.filter(n => noteLevel(n) > 0).length;
+    const unseen = ns.filter(n => n.kind === "vocab" && !hasProgress(n)).length;
+    const groups = id === "cua-toi" ? [["all", "Tất cả"], ...S.decks.map((d) => [d.id, d.name])] : null;
+    let grp = "all";
+
+    setView(`
+      <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
+        <div class="flex items-center gap-2">
+          <a href="#thu-muc" class="text-primary hover:underline text-sm font-semibold flex items-center gap-1">
+            <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+            <span>Tất cả thư mục</span>
+          </a>
+        </div>
+        <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+          <div class="flex flex-col gap-1">
+            <h1 class="font-headline-lg text-2xl font-bold text-on-surface">${esc(title)}</h1>
+            <p class="text-sm text-on-surface-variant">
+              ${isBand ? esc(BAND_INFO[id]) + ' · ' : ''}Đã học <strong>${fmt(learnedCount)}</strong> / ${fmt(ns.length)} mục (${ns.length ? Math.round(learnedCount / ns.length * 100) : 0}%)
+              ${LEVELS.map((l, i) => lv[i] ? ` · ${l}: ${lv[i]}` : '').filter(Boolean).join('')}
+            </p>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <button type="button" class="px-4 py-2 rounded-xl text-xs font-semibold shadow-xs transition-colors ${on ? 'bg-surface-container text-on-surface hover:bg-surface-container-high' : 'bg-primary-container text-white hover:bg-primary'}" id="toggleLearn">
+              ${on ? 'Tạm dừng học thư mục này' : isBand ? '+ Đưa band này vào lịch học' : '+ Học thư mục này'}
+            </button>
+            ${unseen ? `
+              <a class="px-4 py-2 rounded-xl text-xs font-semibold bg-jade-subtle text-secondary border border-secondary/30 hover:bg-secondary-fixed transition-colors flex items-center gap-1 shadow-xs" href="#loc-nhanh/${encodeURIComponent(id)}">
+                <span class="material-symbols-outlined text-[16px]">filter_alt</span>
+                <span>Lọc nhanh: ${fmt(unseen)} từ chưa học</span>
+              </a>
+            ` : ''}
+          </div>
+        </div>
+
+        <!-- Filter and Search Controls -->
+        <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle shadow-xs flex flex-col gap-3">
+          ${groups ? `
+            <div class="flex items-center gap-2 flex-wrap" id="grp">
+              ${groups.map(([v, t]) => `
+                <button type="button" class="px-3 py-1 rounded-lg text-xs font-semibold transition-colors border ${v === "all" ? "bg-primary-container text-white border-transparent" : "bg-paper-muted text-on-surface border-border-subtle hover:bg-surface-container"}" data-v="${esc(v)}">
+                  ${esc(t)}
+                </button>
+              `).join('')}
+            </div>
+          ` : ''}
+          <div class="relative w-full">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+            <input id="fq" class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface text-sm placeholder:text-outline border border-border-subtle/50 focus:outline-none focus:bg-white" placeholder="Lọc theo chữ Hán, pinyin hoặc nghĩa tiếng Việt...">
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md" id="flist"></div>
+      </div>
+    `);
+
+    const draw = () => {
+      const f = fold($("#fq").value);
+      const filtered = ns.filter(n => (grp === "all" || (n.rich && n.deck.id === grp)) && (!f || fold(itemOf(n).w).includes(f) || fold(itemOf(n).py).includes(f) || fold(meaningOf(n)).includes(f)));
+      $("#flist").innerHTML = filtered.map(n => {
+        const it = itemOf(n);
+        const lvl = noteLevel(n);
+        const ab = S.abbrS.get(n.w);
+        return `
+          <div class="p-space-md rounded-2xl bg-paper-card border border-border-subtle shadow-xs hover:border-primary/40 hover:shadow-sm transition-all flex flex-col justify-between gap-2">
+            <div class="flex items-start justify-between">
+              <div>
+                <a href="#tu/${encodeURIComponent(it.w)}" class="font-headline-md text-2xl text-on-surface font-serif font-bold hover:text-primary">${esc(n.basic ? n.display : it.w)}</a>
+                <span class="font-code text-xs text-tertiary ml-2">${esc(it.py || '')}</span>
+              </div>
+              <span class="pill lv-${lvl}">${esc(LEVELS[lvl])}</span>
+            </div>
+            <div class="text-xs text-on-surface-variant line-clamp-2">
+              ${esc(meaningOf(n) || '…')}
+            </div>
+            ${ab ? `<div class="text-[11px] text-tertiary">Nói tắt của: <span class="font-serif font-semibold">${esc(ab.f)}</span></div>` : ''}
+            <div class="pt-2 border-t border-border-subtle/50 flex items-center justify-between text-xs">
+              <span class="text-outline">${n.kind === "grammar" ? "Ngữ pháp" : (it.pos || "Từ vựng")}</span>
+              <a href="#tu/${encodeURIComponent(it.w)}" class="text-primary hover:underline font-semibold">Chi tiết →</a>
+            </div>
+          </div>
+        `;
+      }).join('') || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Không tìm thấy mục nào khớp.</div>`;
+    };
+
+    $("#fq").oninput = draw;
+    $("#toggleLearn").onclick = async () => {
+      setFolderOn(id, !on);
+      await saveSettings();
+      VIEWS["thu-muc"](id);
+    };
+    if (groups) {
+      document.querySelectorAll("#grp button").forEach(b => {
+        b.onclick = () => {
+          grp = b.dataset.v;
+          document.querySelectorAll("#grp button").forEach(btn => {
+            btn.className = btn.dataset.v === grp ? "px-3 py-1 rounded-lg text-xs font-semibold bg-primary-container text-white border-transparent" : "px-3 py-1 rounded-lg text-xs font-semibold bg-paper-muted text-on-surface border-border-subtle hover:bg-surface-container";
+          });
+          draw();
+        };
+      });
+    }
+    draw();
+    return;
+  }
+
+  // Main Directory Grid
+  const deckCardsHTML = [
+    ...S.bands.map(b => {
+      const ns = vocab.filter(n => inBand(n, b));
+      const l = ns.filter(n => noteLevel(n) > 0).length;
+      const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
+      const isLearning = !!S.settings.bands[b];
+      return `
+        <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col justify-between gap-space-md hover:shadow-sm transition-all">
+          <div class="flex flex-col gap-space-xs">
+            <div class="flex items-center justify-between">
+              <span class="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full ${isLearning ? 'bg-jade-subtle text-secondary' : 'bg-surface-container text-on-surface-variant'}">
+                <span class="w-1.5 h-1.5 rounded-full ${isLearning ? 'bg-secondary' : 'bg-outline'}"></span>
+                ${isLearning ? 'Đang học' : 'Chưa bật'}
+              </span>
+              <span class="font-code text-xs text-outline">TOCFL 2024</span>
+            </div>
+            <h3 class="font-headline-md text-xl font-bold text-on-surface mt-1">
+              TOCFL ${b}
+            </h3>
+            <p class="font-body-sm text-xs text-on-surface-variant line-clamp-2">
+              ${BAND_INFO[b] || 'Bộ từ vựng chuẩn do Bộ Giáo dục Đài Loan ban hành.'}
+            </p>
+          </div>
+          <div class="flex flex-col gap-1.5">
+            <div class="flex justify-between text-xs font-medium">
+              <span class="text-outline font-code">${fmt(l)} / ${fmt(ns.length)} từ</span>
+              <span class="text-primary font-bold">${pct}%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+              <div class="h-full bg-primary rounded-full transition-all duration-300" style="width:${pct}%;"></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between pt-4 border-t border-border-subtle/50">
+            <a href="#thu-muc/${encodeURIComponent(b)}" class="text-xs text-primary hover:underline font-semibold">Mở danh sách từ →</a>
+            <button type="button" class="text-xs px-3 py-1.5 rounded-lg border font-medium transition-colors ${isLearning ? 'border-border-subtle hover:bg-surface-container text-on-surface' : 'bg-primary-container text-white border-transparent hover:bg-primary'}" data-toggle-band="${b}">
+              ${isLearning ? 'Tạm dừng' : '+ Đưa vào học'}
+            </button>
+          </div>
+        </div>
+      `;
+    }),
+    `
+      <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col justify-between gap-space-md hover:shadow-sm transition-all">
+        <div class="flex flex-col gap-space-xs">
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-jade-subtle text-secondary">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Sổ cá nhân
+            </span>
+          </div>
+          <h3 class="font-headline-md text-xl font-bold text-on-surface mt-1">
+            Thư mục của tôi
+          </h3>
+          <p class="font-body-sm text-xs text-on-surface-variant line-clamp-2">
+            Từ vựng ghi chép trên lớp, giáo trình ngoài và các đợt thi cá nhân.
+          </p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-border-subtle/50">
+          <a href="#thu-muc/cua-toi" class="text-xs text-primary hover:underline font-semibold">Xem ${fmt(folderNotes("cua-toi").length)} mục →</a>
+          <a href="#nhap" class="text-xs px-3 py-1.5 rounded-lg bg-paper-muted text-on-surface font-semibold hover:bg-surface-container transition-colors">+ Thêm từ</a>
+        </div>
+      </div>
+    `,
+    `
+      <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col justify-between gap-space-md hover:shadow-sm transition-all">
+        <div class="flex flex-col gap-space-xs">
+          <div class="flex items-center justify-between">
+            <span class="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-amber-subtle text-tertiary">
+              <span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Khẩu ngữ
+            </span>
+          </div>
+          <h3 class="font-headline-md text-xl font-bold text-on-surface mt-1">
+            Từ viết tắt Đài Loan
+          </h3>
+          <p class="font-body-sm text-xs text-on-surface-variant line-clamp-2">
+            Cách nói tắt có nguồn từ điển Bộ GD Đài Loan (萌典) & CC-CEDICT.
+          </p>
+        </div>
+        <div class="flex items-center justify-between pt-4 border-t border-border-subtle/50">
+          <a href="#thu-muc/viet-tat" class="text-xs text-primary hover:underline font-semibold">Xem ${fmt(folderNotes("viet-tat").length)} mục →</a>
+          <span class="text-xs text-outline font-code">Chuẩn 萌典</span>
+        </div>
+      </div>
+    `
+  ].join('');
+
+  setView(`
+    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin w-full py-space-xl flex flex-col gap-space-xl">
+      <!-- Header Title & Actions -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+        <div>
+          <div class="flex items-center gap-space-xs text-primary font-label-sm text-xs font-semibold tracking-wider uppercase mb-space-xs">
+            <span class="w-1.5 h-3.5 bg-primary-container rounded-full"></span>
+            <span>Thư Phòng Học Tập • 詞庫管理</span>
+          </div>
+          <h1 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
+            Quản lý Thư mục Từ vựng
+          </h1>
+          <p class="font-body-md text-sm text-on-surface-variant mt-1">
+            Hệ thống các bộ thẻ ghi nhớ, phân hạng TOCFL 2024 và giáo trình Hán ngữ Phồn thể Đài Loan.
+          </p>
+        </div>
+        <div class="flex flex-wrap items-center gap-space-sm">
+          <a href="#nhap" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-paper-card border border-border-subtle text-on-surface font-semibold text-xs shadow-xs hover:bg-paper-muted transition-all">
+            <span class="material-symbols-outlined text-[18px] text-tertiary">upload_file</span>
+            <span>Nhập bộ từ mới</span>
+          </a>
+          <a href="#hoc" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-primary-container text-on-primary font-semibold text-xs shadow-xs hover:bg-primary transition-all">
+            <span class="material-symbols-outlined text-[18px]">play_circle</span>
+            <span>Ôn tập toàn bộ (${fmt(c.total)} thẻ)</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Layout Grid: Main Cards (Left) + Sidebar Stats (Right) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+        <div class="lg:col-span-8 flex flex-col gap-space-lg">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+            ${deckCardsHTML}
+          </div>
+        </div>
+
+        <!-- Sidebar Stats -->
+        <div class="lg:col-span-4 flex flex-col gap-space-md">
+          <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col gap-space-md">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-[20px]">bar_chart</span>
+              <h2 class="font-headline-md text-lg font-bold text-on-surface">Thống kê Từ viện</h2>
+            </div>
+            <div class="flex flex-col gap-space-sm text-sm">
+              <div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between">
+                <span class="text-on-surface-variant">Tổng số thư mục:</span>
+                <strong class="font-code text-on-surface">${S.bands.length + 2}</strong>
+              </div>
+              <div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between">
+                <span class="text-on-surface-variant">Thẻ trong lịch học:</span>
+                <strong class="font-code text-secondary">${fmt(vocab.filter(n => inLearning(n)).length)}</strong>
+              </div>
+              <div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between">
+                <span class="text-on-surface-variant">Đến hạn ôn hôm nay:</span>
+                <strong class="font-code text-primary">${fmt(c.due)}</strong>
+              </div>
+            </div>
+            <a href="#hoc" class="w-full py-3 rounded-xl bg-primary-container text-on-primary font-semibold text-center text-sm shadow-xs hover:bg-primary transition-colors flex items-center justify-center gap-2">
+              <span class="material-symbols-outlined text-[18px]">bolt</span>
+              <span>Bắt đầu ôn tập (${fmt(c.total)} thẻ)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  `);
+
+  document.querySelectorAll("[data-toggle-band]").forEach(btn => {
+    btn.onclick = async (e) => {
+      e.preventDefault();
+      const b = btn.dataset.toggleBand;
+      S.settings.bands[b] = !S.settings.bands[b];
+      await saveSettings();
+      VIEWS["thu-muc"]();
+    };
+  });
+};
+
+// =========================================================================
+// 4. LỌC NHANH (QUICK TRIAGE ENGINE)
+// =========================================================================
 VIEWS["loc-nhanh"] = (id) => {
   const list = folderNotes(id).filter((n) => n.kind === "vocab" && !hasProgress(n));
   S.tri = { id, list, i: 0, hist: [], shown: false, counts: { known: 0, some: 0, unknown: 0 } };
   renderTri();
 };
+
 function renderTri() {
-  const T = S.tri; const n = T.list[T.i];
-  const name = S.bands.includes(T.id) ? `TOCFL ${T.id}` : T.id === "cua-toi" ? "Thư mục của tôi" : T.id === "viet-tat" ? "Từ viết tắt" : T.id;
+  const T = S.tri;
+  if (!T) return;
+  const n = T.list[T.i];
+  const name = S.bands.includes(T.id) ? `TOCFL ${T.id}` : (T.id === "cua-toi" ? "Thư mục của tôi" : (T.id === "viet-tat" ? "Từ viết tắt" : T.id));
   const tally = `Đã thuộc ${T.counts.known} · Hơi nhớ ${T.counts.some} · Chưa biết ${T.counts.unknown}`;
-  if (!n) { setView(`<section class="view"><div class="panel"><h2 class="h2">Lọc xong ${esc(name)}</h2><p class="lead">${esc(tally)}.</p>
-    <p class="sub">Từ “Đã thuộc” sẽ được ôn lại sau khoảng 1 tháng, “Hơi nhớ” sau vài ngày. Từ “Chưa biết” được đưa vào mục Học như thẻ mới.</p>
-    <div class="actions"><a class="primary btn" href="#hoc">Học ngay</a><a class="btn" href="#thu-muc/${encodeURIComponent(T.id)}">Về thư mục</a></div></div></section>`); updateBadge(); return; }
-  const it = itemOf(n); const pct = (T.i / T.list.length) * 100;
-  setView(`<section class="view"><div class="sessbar"><span style="width:${pct}%"></span></div>
-    <article class="card tri"><div class="kind"><span>Lọc nhanh · ${esc(name)} · ${fmt(T.i + 1)}/${fmt(T.list.length)}</span><span>${esc(tally)}</span></div>
-      <div class="front"><div class="big">${esc(n.basic ? n.display : it.w)}</div>
-        ${T.shown ? `<div class="py big-py">${esc(it.py)} ${sp(it.w)}</div><div class="prompt">${esc(meaningOf(n) || "…")}</div>${abbrHTML(it.w)}` : `<button type="button" class="link" id="triShow">Xem pinyin và nghĩa (phím cách)</button>`}</div>
-      <div class="grades tri3"><button type="button" class="g4" data-k="known">Đã thuộc<small>ôn lại sau ~1 tháng</small></button>
-        <button type="button" class="g3" data-k="some">Hơi nhớ<small>ôn lại sau vài ngày</small></button>
-        <button type="button" class="g1" data-k="unknown">Chưa biết<small>đưa vào mục Học</small></button></div>
-      <div class="keys">Bàn phím: 1 Đã thuộc · 2 Hơi nhớ · 3 Chưa biết · Z hoàn tác</div>
-      <div class="actions">${T.hist.length ? `<button type="button" class="link" id="triUndo">Hoàn tác từ vừa rồi</button>` : ""}<a class="link" href="#thu-muc/${encodeURIComponent(T.id)}">Dừng</a></div>
-    </article></section>`);
-  const sh = $("#triShow"); if (sh) sh.onclick = () => { T.shown = true; renderTri(); };
-  document.querySelectorAll("[data-k]").forEach((b) => (b.onclick = () => triage(b.dataset.k)));
-  const u = $("#triUndo"); if (u) u.onclick = triUndo;
+
+  if (!n) {
+    setView(`
+      <div class="max-w-xl mx-auto px-margin py-space-2xl text-center flex flex-col items-center gap-4">
+        <div class="w-16 h-16 rounded-2xl bg-jade-subtle text-secondary flex items-center justify-center shadow-xs">
+          <span class="material-symbols-outlined text-[36px]">verified</span>
+        </div>
+        <h2 class="font-headline-lg text-2xl font-bold text-on-surface">Hoàn tất lọc nhanh ${esc(name)}!</h2>
+        <p class="font-body-md text-sm text-on-surface-variant">${esc(tally)}.</p>
+        <p class="text-xs text-outline max-w-md">Từ "Đã thuộc" được xếp lịch ôn sau 21 ngày. Từ "Hơi nhớ" ôn sau 1 ngày. Từ "Chưa biết" sẽ đưa vào hàng đợi thẻ mới hôm nay.</p>
+        <div class="flex items-center gap-3 mt-4">
+          <a href="#hoc" class="px-6 py-2.5 rounded-xl bg-primary-container text-on-primary font-semibold hover:bg-primary transition-colors shadow-xs text-sm">Học ngay</a>
+          <a href="#thu-muc/${encodeURIComponent(T.id)}" class="px-5 py-2.5 rounded-xl bg-paper-muted text-on-surface font-semibold hover:bg-surface-container transition-colors text-sm">Về thư mục</a>
+        </div>
+      </div>
+    `);
+    updateBadge();
+    return;
+  }
+
+  const it = itemOf(n);
+  const pct = Math.round((T.i / T.list.length) * 100);
+
+  setView(`
+    <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin py-space-md md:py-space-lg flex flex-col gap-space-lg">
+      <div class="flex items-center justify-between text-xs text-outline font-medium">
+        <span>Lọc nhanh · ${esc(name)} · ${T.i + 1} / ${T.list.length}</span>
+        <span>${esc(tally)}</span>
+      </div>
+      <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+        <div class="h-full bg-primary rounded-full transition-all duration-300" style="width:${pct}%;"></div>
+      </div>
+
+      <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-sm flex flex-col items-center text-center gap-space-md">
+        <div class="font-headline-lg text-6xl md:text-7xl font-serif font-bold text-on-surface my-space-sm select-all">
+          ${esc(n.basic ? n.display : it.w)}
+        </div>
+
+        ${T.shown ? `
+          <div class="flex flex-col items-center gap-2 pt-space-sm border-t border-border-subtle w-full max-w-md">
+            <div class="font-code text-xl text-tertiary font-bold">${esc(it.py)}</div>
+            ${it.hv ? `<div class="text-xs text-outline">Hán Việt: <strong class="text-on-surface">${it.hv}</strong></div>` : ''}
+            <div class="text-base font-semibold text-on-surface">${esc(it.vn || it.en || '')}</div>
+          </div>
+        ` : `
+          <button type="button" class="px-6 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold text-sm transition-colors" id="btnTriReveal">
+            Xem đáp án (Phím cách)
+          </button>
+        `}
+
+        <div class="grid grid-cols-3 gap-space-sm w-full max-w-md mt-space-md">
+          <button type="button" class="py-3 px-2 rounded-xl bg-jade-subtle text-secondary font-bold text-xs hover:bg-secondary-fixed transition-all border border-secondary/20 shadow-2xs" id="btnTri1">
+            <div>1. Đã thuộc</div>
+            <div class="text-[10px] font-normal opacity-80 mt-0.5">Ôn sau 21 ngày</div>
+          </button>
+          <button type="button" class="py-3 px-2 rounded-xl bg-amber-subtle text-tertiary font-bold text-xs hover:bg-amber-subtle/80 transition-all border border-amber-subtle shadow-2xs" id="btnTri2">
+            <div>2. Hơi nhớ</div>
+            <div class="text-[10px] font-normal opacity-80 mt-0.5">Ôn sau 1 ngày</div>
+          </button>
+          <button type="button" class="py-3 px-2 rounded-xl bg-cinnabar-subtle text-primary font-bold text-xs hover:bg-cinnabar-subtle/80 transition-all border border-cinnabar-subtle shadow-2xs" id="btnTri3">
+            <div>3. Chưa biết</div>
+            <div class="text-[10px] font-normal opacity-80 mt-0.5">Học như thẻ mới</div>
+          </button>
+        </div>
+
+        <div class="flex items-center justify-between w-full max-w-md pt-2 text-xs text-outline">
+          <button type="button" class="hover:underline" id="btnTriUndo" ${T.hist.length ? '' : 'disabled'}>↺ Hoàn tác (Z)</button>
+          <a href="#thu-muc/${encodeURIComponent(T.id)}" class="hover:underline">Dừng lọc</a>
+        </div>
+      </div>
+    </div>
+  `);
+
+  const rv = $("#btnTriReveal");
+  if (rv) rv.onclick = () => { T.shown = true; renderTri(); };
+  $("#btnTri1").onclick = () => triage("known");
+  $("#btnTri2").onclick = () => triage("some");
+  $("#btnTri3").onclick = () => triage("unknown");
+  const un = $("#btnTriUndo");
+  if (un) un.onclick = triUndo;
 }
-async function triage(kind) {
-  const T = S.tri; const n = T.list[T.i]; if (!n) return;
-  const now = Date.now(); const entries = []; let extraAdded = false;
-  if (kind === "unknown") { if (n.basic && !S.settings.extra[n.w]) { S.settings.extra[n.w] = true; extraAdded = true; await saveSettings(); } }
-  else typesOf(n).forEach(([t]) => {
-    const ivl = kind === "known" ? 25 + Math.floor(Math.random() * 15) : 3 + Math.floor(Math.random() * 3);
-    const st = { state: "review", ease: 2.5, ivl, step: 0, reps: 1, lapses: 0, due: dayStart(now) + ivl * DAY, last: now, firstSeen: now, w: n.w, triage: kind };
-    S.srs.set(cardId(n, t), st); entries.push([cardId(n, t), st]);
-  });
-  T.counts[kind]++; T.hist.push({ kind, ids: entries.map((e) => e[0]), w: n.w, extraAdded });
-  T.i++; T.shown = false; renderTri();
-  if (entries.length) await Store.putMany("srs", entries);
+
+async function triage(action) {
+  const T = S.tri;
+  if (!T || !T.list[T.i]) return;
+  const n = T.list[T.i];
+  const now = Date.now();
+  const lvl = action === "known" ? 4 : (action === "some" ? 2 : 0);
+  await applyWordLevel(n, lvl);
+  T.counts[action]++;
+  T.hist.push({ n, action, lvl });
+  T.i++;
+  T.shown = false;
+  renderTri();
 }
+
 async function triUndo() {
-  const T = S.tri; const h = T.hist.pop(); if (!h) return;
-  for (const id of h.ids) { S.srs.delete(id); await Store.del("srs", id); }
-  if (h.extraAdded) { delete S.settings.extra[h.w]; await saveSettings(); }
-  T.counts[h.kind]--; T.i--; T.shown = false; renderTri();
+  const T = S.tri;
+  if (!T || !T.hist.length) return;
+  const last = T.hist.pop();
+  T.i--;
+  T.counts[last.action]--;
+  await applyWordLevel(last.n, 0);
+  T.shown = false;
+  renderTri();
 }
-document.addEventListener("keydown", (e) => {
-  if (!location.hash.startsWith("#loc-nhanh") || !S.tri || ["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName)) return;
-  const k = e.key.toLowerCase();
-  if (k === " ") { e.preventDefault(); S.tri.shown = true; renderTri(); }
-  else if (k === "1") triage("known"); else if (k === "2") triage("some"); else if (k === "3") triage("unknown"); else if (k === "z") triUndo();
-});
 
-// --- Chép chính tả ---
-// Sentence bank: example sentences from our own cards (public) + private packs the user loads from a file.
-function segment(zh) {
-  // greedy longest match: TOCFL / card words first, then CC-CEDICT
-  const out = []; const chars = [...zh]; let i = 0;
-  while (i < chars.length) {
-    if (!isHan(chars[i])) { out.push({ t: chars[i] }); i++; continue; }
-    let hit = null;
-    for (let L = Math.min(8, chars.length - i); L >= 1; L--) {
-      const w = chars.slice(i, i + L).join("");
-      const n = S.noteByWord.get(w);
-      if (n) { hit = { t: w, n }; break; }
-      if (L > 1 && S.ced && S.ced.has(w)) { hit = { t: w }; break; }
+// =========================================================================
+// 5. TRA TỪ & CHI TIẾT TỪ (Stitch Design)
+// =========================================================================
+VIEWS["tu-dien"] = (arg) => {
+  setView(`
+    <div class="max-w-6xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
+      <!-- Top Workspace Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+        <div class="flex flex-col gap-space-xs max-w-2xl">
+          <div class="flex items-center gap-space-sm">
+            <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
+            <span class="font-label-sm text-xs text-primary uppercase tracking-widest font-semibold">Từ điển & Tra cứu</span>
+            <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-xs font-semibold">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary mr-1 animate-pulse"></span>
+              TOCFL 2024 & CVDICT
+            </span>
+          </div>
+          <h1 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
+            Tra cứu Từ vựng Phồn thể <span class="text-on-surface-variant font-normal">| 字詞檢索</span>
+          </h1>
+          <p class="font-body-md text-sm text-on-surface-variant">
+            Tra cứu chữ Hán, pinyin không dấu, âm Hán Việt hoặc nghĩa tiếng Việt/tiếng Anh.
+          </p>
+        </div>
+      </div>
+
+      <!-- Search Input Container -->
+      <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle shadow-xs flex flex-col gap-3">
+        <div class="relative w-full">
+          <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+          <input id="dq" class="w-full pl-12 pr-10 py-3.5 rounded-xl bg-surface-container-low text-on-surface text-base placeholder:text-outline focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all border border-border-subtle/50" placeholder="Ví dụ: 學生 · xuesheng · học sinh · student" value="${esc(arg || "")}" autocomplete="off">
+        </div>
+        <div class="flex items-center gap-2 flex-wrap text-xs text-outline">
+          <span>Gợi ý bộ thủ:</span>
+          <button type="button" class="px-2 py-0.5 rounded bg-surface-container hover:bg-cinnabar-subtle text-on-surface" onclick="$('#dq').value='言'; $('#dq').dispatchEvent(new Event('input'))">言 (Ngôn)</button>
+          <button type="button" class="px-2 py-0.5 rounded bg-surface-container hover:bg-cinnabar-subtle text-on-surface" onclick="$('#dq').value='心'; $('#dq').dispatchEvent(new Event('input'))">心 (Tâm)</button>
+          <button type="button" class="px-2 py-0.5 rounded bg-surface-container hover:bg-cinnabar-subtle text-on-surface" onclick="$('#dq').value='水'; $('#dq').dispatchEvent(new Event('input'))">水 (Thủy)</button>
+          <button type="button" class="px-2 py-0.5 rounded bg-surface-container hover:bg-cinnabar-subtle text-on-surface" onclick="$('#dq').value='木'; $('#dq').dispatchEvent(new Event('input'))">木 (Mộc)</button>
+          <button type="button" class="px-2 py-0.5 rounded bg-surface-container hover:bg-cinnabar-subtle text-on-surface" onclick="$('#dq').value='手'; $('#dq').dispatchEvent(new Event('input'))">手 (Thủ)</button>
+        </div>
+      </div>
+
+      <!-- Results stats & grid -->
+      <div class="text-sm font-medium text-outline" id="dcount"></div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md" id="dres"></div>
+    </div>
+  `);
+
+  const inp = $("#dq");
+  let tmr = null;
+  inp.oninput = () => {
+    clearTimeout(tmr);
+    tmr = setTimeout(() => searchDict(inp.value), 150);
+  };
+  inp.focus();
+  searchDict(inp.value);
+};
+
+function searchDict(raw) {
+  const out = $("#dres"), cnt = $("#dcount");
+  if (!out) return;
+  const q = clean(raw);
+  if (!q) {
+    cnt.textContent = "";
+    out.innerHTML = `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Gõ từ cần tra. Kết quả ưu tiên từ trong bảng chuẩn TOCFL trước, sau đó đến từ điển mở rộng ${S.ced ? `(${fmt(S.ced.size)} từ)` : '(đang tải...)'}.</div>`;
+    return;
+  }
+  const res = [];
+  const seen = new Set();
+  const push = (w, n, pri) => { if (seen.has(w)) return; seen.add(w); res.push({ w, n, pri }); };
+
+  if (isHan(q)) {
+    for (const [w, n] of S.noteByWord) {
+      if (w.includes(q)) push(w, n, w === q ? 0 : w.startsWith(q) ? 1 : 2);
     }
-    if (!hit) hit = { t: chars[i] };
-    out.push(hit); i += [...hit.t].length;
+    if (S.ced) {
+      for (const w of S.ced.keys()) {
+        if (res.length > 400) break;
+        if (w.includes(q)) push(w, null, w === q ? 0 : w.startsWith(q) ? 3 : 4);
+      }
+    }
+  } else {
+    const f = fold(q);
+    for (const n of S.notes) {
+      const it = itemOf(n);
+      const p = fold(it.py);
+      if (p === f) push(it.w, n, 0);
+      else if (p.startsWith(f)) push(it.w, n, 1);
+      else if (f.length >= 2 && (fold(it.vn).includes(f) || fold(it.en).includes(f))) push(it.w, n, 2);
+    }
+    if (S.ced && f.length >= 2) {
+      for (const [w, es] of S.ced) {
+        if (res.length > 400) break;
+        for (const [py, defs] of es) {
+          const p = fold(py);
+          if (p === f) { push(w, null, 3); break; }
+          if (f.length >= 3 && fold(defs).includes(f)) { push(w, null, 5); break; }
+        }
+      }
+    }
   }
-  return out;
+
+  res.sort((a, b) => a.pri - b.pri || a.w.length - b.w.length);
+  cnt.textContent = `${fmt(Math.min(res.length, 80))}${res.length > 80 ? "+" : ""} kết quả phù hợp`;
+
+  out.innerHTML = res.slice(0, 80).map(({ w, n }) => {
+    const e = cedFirst(w);
+    const py = n ? itemOf(n).py : (e ? e[0][0] : "");
+    const m = n ? meaningOf(n) : enOf(w);
+    const lvl = n ? noteLevel(n) : 0;
+    return `
+      <a class="p-space-md rounded-2xl bg-paper-card border border-border-subtle shadow-xs hover:border-primary/40 hover:shadow-sm transition-all flex flex-col justify-between gap-2" href="#tu/${encodeURIComponent(w)}">
+        <div class="flex items-start justify-between">
+          <div>
+            <span class="font-headline-md text-2xl text-on-surface font-serif font-bold">${esc(w)}</span>
+            <span class="font-code text-xs text-tertiary ml-2">${esc(py)}</span>
+          </div>
+          <div class="flex items-center gap-1">
+            ${n ? `<span class="pill lv-${lvl}">${esc(LEVELS[lvl])}</span>` : `<span class="pill">ngoài TOCFL</span>`}
+          </div>
+        </div>
+        <div class="text-xs text-on-surface-variant line-clamp-2">${esc(m)}</div>
+        <div class="pt-2 border-t border-border-subtle/50 flex items-center justify-between text-xs text-outline">
+          <span>${n ? esc(bandsOf(n).join(" · ") || "Cá nhân") : "CC-CEDICT"}</span>
+          <span class="text-primary font-semibold">Xem chi tiết →</span>
+        </div>
+      </a>
+    `;
+  }).join("") || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Không tìm thấy từ khớp. Thử gõ chữ Hán Phồn thể hoặc pinyin không dấu.</div>`;
 }
-function autoPinyin(tokens) {
-  return tokens.map((k) => k.n ? itemOf(k.n).py : isHan(k.t) ? ((cedFirst(k.t) || [[k.t]])[0][0]) : k.t).join(" ").replace(/\s+([，。！？、])/g, "$1");
-}
-function sentenceBank() {
-  const out = [];
-  for (const n of S.notes) {
-    if (!n.rich && !S.vi.has(n.w)) continue;
-    const it = itemOf(n);
-    for (const k of n.kind === "grammar" ? [1, 2, 3] : [1, 2]) if (it["e" + k]) out.push({ zh: it["e" + k], py: it["e" + k + "p"], vn: it["e" + k + "v"], src: n.rich ? n.deck.name : bandLabel(n), own: true, note: n });
+
+// ---------------- CHI TIẾT TỪ VỰNG (#tu/:word) ----------------
+VIEWS["tu"] = (w) => {
+  const n = S.noteByWord.get(w);
+  const e = cedFirst(w);
+  const inLearn = n && inLearning(n);
+  const it = n ? itemOf(n) : { w, py: (e ? e[0][0] : ""), vn: "", en: (e ? e[0][1].split("/").join("; ") : ""), pos: "", band: "" };
+  const chars = [...new Set([...hanOnly(w)])];
+  const containing = (c) => S.notes.filter((x) => x.kind === "vocab" && x.w.includes(c) && x.w !== w).slice(0, 8);
+  const curLvl = n ? noteLevel(n) : 0;
+
+  setView(`
+    <div class="max-w-6xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
+      <div class="flex items-center gap-2">
+        <a href="#tu-dien" class="text-primary hover:underline text-sm font-semibold flex items-center gap-1">
+          <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+          <span>Tra từ điển</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+        <!-- Main Column (8 cols) -->
+        <div class="lg:col-span-8 flex flex-col gap-space-md">
+          <!-- Main Word Entry Showcase -->
+          <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-md relative overflow-hidden">
+            <div class="absolute top-4 right-6 font-serif text-[100px] text-primary select-none pointer-events-none opacity-5 leading-none">
+              ${w[0] || '學'}
+            </div>
+
+            <div class="flex items-center justify-between gap-space-sm flex-wrap">
+              <div class="flex items-center gap-2 flex-wrap">
+                ${n ? `<span class="px-2.5 py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-xs font-semibold">TOCFL ${esc(bandsOf(n).join(' · ') || 'Cá nhân')}</span>` : '<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-xs">Mở rộng CC-CEDICT</span>'}
+                ${it.pos ? `<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-xs">${esc(it.pos)}</span>` : ''}
+                ${it.hv ? `<span class="px-2.5 py-0.5 rounded-full bg-paper-muted text-on-surface font-code text-xs">Hán Việt: <strong>${esc(it.hv)}</strong></span>` : ''}
+              </div>
+              <div class="flex items-center gap-2">
+                ${n ? `
+                  <button type="button" class="px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors ${inLearn ? 'bg-jade-subtle text-secondary border border-secondary/30' : 'bg-primary-container text-white hover:bg-primary'}" id="addLearn">
+                    ${inLearn ? '✓ Đang trong lịch học' : '+ Thêm vào lịch học'}
+                  </button>
+                ` : ''}
+              </div>
+            </div>
+
+            <div class="flex items-baseline gap-4 flex-wrap mt-2">
+              <h1 class="font-headline-lg text-5xl md:text-6xl text-on-surface font-serif font-bold select-all">${esc(w)}</h1>
+              <div class="flex items-center gap-3">
+                <span class="font-code text-2xl text-tertiary font-bold">${esc(it.py)}</span>
+                <button type="button" class="w-10 h-10 rounded-full bg-jade-subtle hover:bg-secondary-fixed text-secondary flex items-center justify-center transition-colors shadow-2xs" onclick="say('${esc(w)}')" title="Phát âm tiếng Đài">
+                  <span class="material-symbols-outlined text-[22px]">volume_up</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Meaning -->
+            <div class="flex flex-col gap-1 pt-3 border-t border-border-subtle">
+              <span class="text-xs uppercase font-semibold text-outline">Nghĩa tiếng Việt</span>
+              <div class="text-xl font-headline-md text-on-surface font-semibold">
+                ${esc(it.vn || it.en || 'Chưa có định nghĩa tiếng Việt')}
+              </div>
+              ${it.en ? `<div class="text-sm text-on-surface-variant font-body-sm mt-0.5">${esc(it.en)}</div>` : ''}
+            </div>
+
+            <!-- Examples -->
+            ${it.e1 || it.e2 ? `
+              <div class="p-space-md rounded-xl bg-paper-muted border border-border-subtle flex flex-col gap-2 mt-2">
+                <div class="flex items-center justify-between text-xs text-secondary font-semibold uppercase">
+                  <span>Ví dụ thực tế</span>
+                  <button type="button" class="text-secondary hover:text-primary" onclick="say('${esc(it.e1 || it.e2)}')" title="Nghe câu">
+                    <span class="material-symbols-outlined text-[18px]">volume_up</span>
+                  </button>
+                </div>
+                <div class="font-serif text-lg text-on-surface">${ruby(it.e1 || it.e2)}</div>
+                ${(it.e1p || it.e2p) ? `<div class="font-code text-xs text-on-surface-variant">${esc(it.e1p || it.e2p)}</div>` : ''}
+                ${(it.e1v || it.e2v) ? `<div class="text-xs text-on-surface font-medium">${esc(it.e1v || it.e2v)}</div>` : ''}
+              </div>
+            ` : ''}
+
+            <!-- 6 Memory Rating Buttons for this word -->
+            ${n ? `
+              <div class="pt-space-md border-t border-border-subtle flex flex-col gap-2 mt-2">
+                <div class="flex items-center justify-between text-xs text-outline font-semibold uppercase">
+                  <span>Mức độ ghi nhớ hiện tại</span>
+                  <span class="text-primary font-bold">${LEVELS[curLvl]}</span>
+                </div>
+                <div class="grades-6">
+                  ${[0, 1, 2, 3, 4, 5].map((lvl) => {
+                    const isCur = curLvl === lvl;
+                    const hints = ["Đặt lại", "Ôn lại ngay", "1 ngày", "7 ngày", "21 ngày", "90 ngày"];
+                    return `
+                      <button type="button" class="lvl-btn lvl-btn-${lvl} ${isCur ? "is-current" : ""}" data-word-level="${lvl}" title="Đặt ${esc(w)} ở mức ${esc(LEVELS[lvl])}">
+                        <span class="lvl-title">${isCur ? "✓ " : ""}${esc(LEVELS[lvl])}</span>
+                        <small class="lvl-sub">${hints[lvl]}</small>
+                      </button>
+                    `;
+                  }).join('')}
+                </div>
+                <div id="levelStatus" class="text-xs text-secondary text-center font-semibold mt-1"></div>
+              </div>
+            ` : ''}
+          </div>
+
+          <!-- CC-CEDICT English Definitions -->
+          ${e ? `
+            <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col gap-2">
+              <h3 class="font-headline-md text-base font-bold text-on-surface">Từ điển giải nghĩa Anh-Hoa (CC-CEDICT)</h3>
+              <div class="flex flex-col gap-2 text-sm">
+                ${e.map(([py, defs]) => `
+                  <div class="p-2.5 rounded-xl bg-surface-container-low flex flex-col sm:flex-row sm:items-baseline gap-2">
+                    <span class="font-code text-xs font-bold text-tertiary sm:w-28 shrink-0">${esc(py)}</span>
+                    <span class="text-on-surface">${esc(defs.replace(/\\[[^\\]]*\\d\\]/g, "").split("/").join("; "))}</span>
+                  </div>
+                `).join('')}
+              </div>
+            </div>
+          ` : ''}
+        </div>
+
+        <!-- Sidebar Column: Strokes & Related Words (4 cols) -->
+        <div class="lg:col-span-4 flex flex-col gap-space-md">
+          <!-- Stroke Order Box (Hanzi Writer) -->
+          <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col gap-space-md">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-[20px]">draw</span>
+              <h3 class="font-headline-md text-base font-bold text-on-surface">Thứ tự nét viết chữ Hán</h3>
+            </div>
+            <div class="flex flex-wrap items-center justify-center gap-4 py-2">
+              ${chars.map((c, k) => `
+                <div class="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-surface-container-low border border-border-subtle shadow-2xs">
+                  <div id="wordHw${k}"></div>
+                  <span class="font-headline-md font-bold text-sm text-on-surface">${esc(c)}</span>
+                  <div class="flex gap-1">
+                    <button type="button" class="text-xs px-2.5 py-1 rounded-lg bg-paper-card hover:bg-cinnabar-subtle text-primary font-medium border border-border-subtle" data-anim-w="${k}">Xem nét</button>
+                    <button type="button" class="text-xs px-2.5 py-1 rounded-lg bg-paper-card hover:bg-jade-subtle text-secondary font-medium border border-border-subtle" data-quiz-w="${k}">Viết thử</button>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+            <div class="text-[11px] text-outline text-center">Nét vẽ tương tác theo quy chuẩn Bộ Giáo dục Đài Loan.</div>
+          </div>
+
+          <!-- Related Words Containing Characters -->
+          ${chars.map((c) => {
+            const cs = containing(c);
+            if (!cs.length) return '';
+            return `
+              <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col gap-2">
+                <div class="text-xs font-semibold text-outline uppercase">Từ chứa chữ <strong class="text-on-surface font-serif text-sm">${c}</strong></div>
+                <div class="flex flex-wrap gap-1.5 pt-1">
+                  ${cs.map((x) => `
+                    <a class="px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-xs font-medium text-on-surface border border-border-subtle/50 flex items-center gap-1" href="#tu/${encodeURIComponent(x.w)}">
+                      <span class="font-serif font-bold">${esc(x.w)}</span>
+                      <span class="font-code text-[11px] text-tertiary">${esc(itemOf(x).py)}</span>
+                    </a>
+                  `).join('')}
+                </div>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    </div>
+  `);
+
+  // Initialize Hanzi Writer
+  chars.forEach((c, k) => {
+    const el = $("#wordHw" + k);
+    if (el && window.HanziWriter) {
+      const writer = HanziWriter.create(el, c, {
+        width: 110, height: 110, padding: 5, showOutline: true,
+        strokeColor: "#86090a", outlineColor: "#EBE2D8", highlightColor: "#176b4b",
+        charDataLoader: (ch, onLoad, onErr) => strokeData(ch).then(onLoad).catch(onErr)
+      });
+      const btnAnim = $(`[data-anim-w="${k}"]`);
+      if (btnAnim) btnAnim.onclick = () => writer.animateCharacter();
+      const btnQuiz = $(`[data-quiz-w="${k}"]`);
+      if (btnQuiz) btnQuiz.onclick = () => writer.quiz();
+    }
+  });
+
+  const add = $("#addLearn");
+  if (add && n) {
+    add.onclick = async () => {
+      S.settings.extra[n.w] = true;
+      await saveSettings();
+      VIEWS["tu"](w);
+    };
   }
-  for (const p of S.packs || []) for (const s of p.sentences || []) out.push({ zh: s.zh, py: s.py || "", vn: s.vn || "", src: s.src || p.name, pack: p.name });
-  return out;
-}
-function weightOf(tokens) {
-  let w = 0;
-  for (const k of tokens) if (k.n) { const l = noteLevel(k.n); if (l > 0) w += 1 + (5 - l) + Math.min(4, noteLapses(k.n)); }
-  return w;
-}
+
+  if (n) {
+    bindLevelPicker(n, () => {
+      VIEWS["tu"](w);
+    });
+  }
+};
+
+// =========================================================================
+// 6. CHÉP CHÍNH TẢ & 7. THI THỬ TOCFL (Stitch Design)
+// =========================================================================
 VIEWS["chinh-ta"] = () => {
-  const d = S.dict; d.score = d.score || { ok: 0, total: 0 };
+  const d = S.dict;
+  d.score = d.score || { ok: 0, total: 0 };
   const sources = ["Tất cả", "Câu ví dụ trong thẻ", ...(S.packs || []).map((p) => p.name)];
-  setView(`<section class="view"><div class="panel"><h2 class="h2">Chép chính tả</h2>
-    <p class="lead">Nghe một câu rồi viết lại. Trang ưu tiên câu có chứa từ bạn đang học, nhất là từ còn yếu hoặc hay quên. Chấm xong, bấm vào từ gạch chân để mở từ điển.</p>
-    <div class="row4"><label for="dm">Cách trả lời<select id="dm"><option value="han">Gõ chữ Hán</option><option value="paper">Viết ra giấy rồi tự chấm</option><option value="word">Chỉ chép từ (không cả câu)</option></select></label>
-      <label for="dband">Theo band<select id="dband"><option value="all">Mọi band</option>${S.bands.map((b) => `<option value="${esc(b)}">TOCFL ${esc(b)}</option>`).join("")}</select></label>
-      <label for="dsrc">Nguồn câu<select id="dsrc">${sources.map((s) => `<option>${esc(s)}</option>`).join("")}</select></label>
-      <label for="dsp">Tốc độ đọc<select id="dsp"><option value="0.9">Bình thường</option><option value="0.7">Chậm</option><option value="0.55">Rất chậm</option></select></label></div>
-    <details class="packs"><summary>Bộ câu riêng (${(S.packs || []).length})</summary>
-      <p class="sub">Câu trích từ giáo trình hay đề thi chỉ nên giữ riêng, không đăng lên web. Mở file bộ câu (.json) trong Google Drive, thư mục “10 Website học tiếng Hoa/bo-cau-rieng”. Câu được lưu trong trình duyệt của bạn.</p>
-      <div class="actions"><label class="filebtn" for="packfile">Nạp bộ câu từ file<input type="file" id="packfile" accept=".json,application/json"></label><span class="msg" id="pmsg"></span></div>
-      <div class="list">${(S.packs || []).map((p, i) => `<div class="item"><div class="meta"><div class="vn">${esc(p.name)}</div><div class="sub">${fmt(p.sentences.length)} câu</div></div><div class="side"><button type="button" class="link" data-rmpack="${i}">Gỡ</button></div></div>`).join("")}</div>
-    </details></div>
-    <div id="dict"></div></section>`);
-  $("#dm").value = d.mode || "han"; $("#dsrc").value = d.srcSel || "Tất cả"; $("#dsp").value = String(d.rate || 0.9); $("#dband").value = d.band || "all";
-  $("#dband").onchange = (e) => { d.band = e.target.value; nextDict(); };
-  $("#dm").onchange = (e) => { d.mode = e.target.value; nextDict(); };
-  $("#dsrc").onchange = (e) => { d.srcSel = e.target.value; nextDict(); };
-  $("#dsp").onchange = (e) => { d.rate = Number(e.target.value); };
-  $("#packfile").onchange = async (e) => {
-    const f = e.target.files[0]; if (!f) return;
-    try { const p = JSON.parse(await f.text()); if (p.app !== "so-hoc-tieng-hoa-pack" || !Array.isArray(p.sentences)) throw new Error("File không đúng định dạng bộ câu.");
-      S.packs = (S.packs || []).filter((x) => x.name !== p.name).concat([{ name: p.name, sentences: p.sentences.filter((s) => s && s.zh) }]);
-      await Store.put("kv", "packs", S.packs); route(); }
-    catch (err) { $("#pmsg").textContent = "Không nạp được: " + err.message; }
+
+  setView(`
+    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
+      <!-- Page Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+        <div>
+          <div class="flex items-center gap-space-xs text-secondary font-label-sm text-xs font-semibold tracking-wider uppercase mb-space-xs">
+            <span class="w-1.5 h-3.5 bg-secondary rounded-full"></span>
+            <span>Luyện Thính Lực &amp; Viết • 聽寫訓練</span>
+          </div>
+          <h1 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
+            Chép chính tả tiếng Hoa Phồn thể
+          </h1>
+          <p class="font-body-md text-sm text-on-surface-variant mt-1">
+            Nghe câu rồi viết lại. Hệ thống ưu tiên câu chứa từ bạn đang học hoặc hay quên, so sánh từng ký tự sai bằng thuật toán LCS.
+          </p>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="px-3.5 py-1.5 rounded-xl bg-paper-card border border-border-subtle shadow-xs text-xs font-semibold text-outline">
+            Đúng: <strong class="text-secondary font-bold" id="dictScore">${d.score.ok}/${d.score.total}</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Controls Ribbon -->
+      <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle shadow-xs grid grid-cols-2 sm:grid-cols-4 gap-space-sm">
+        <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
+          <span>Cách trả lời:</span>
+          <select id="dm" class="py-2 px-2.5 rounded-xl bg-surface-container-low border border-border-subtle text-xs font-medium">
+            <option value="han" ${d.mode === "han" ? "selected" : ""}>Gõ chữ Hán</option>
+            <option value="paper" ${d.mode === "paper" ? "selected" : ""}>Viết ra giấy rồi tự chấm</option>
+            <option value="word" ${d.mode === "word" ? "selected" : ""}>Chỉ chép từ (không cả câu)</option>
+          </select>
+        </label>
+
+        <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
+          <span>Theo Band TOCFL:</span>
+          <select id="dband" class="py-2 px-2.5 rounded-xl bg-surface-container-low border border-border-subtle text-xs font-medium">
+            <option value="all" ${d.band === "all" ? "selected" : ""}>Mọi band</option>
+            ${S.bands.map((b) => `<option value="${esc(b)}" ${d.band === b ? "selected" : ""}>TOCFL ${esc(b)}</option>`).join("")}
+          </select>
+        </label>
+
+        <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
+          <span>Nguồn câu:</span>
+          <select id="dsrc" class="py-2 px-2.5 rounded-xl bg-surface-container-low border border-border-subtle text-xs font-medium">
+            ${sources.map((s) => `<option ${d.src === s ? "selected" : ""}>${esc(s)}</option>`).join("")}
+          </select>
+        </label>
+
+        <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
+          <span>Tốc độ đọc:</span>
+          <select id="dsp" class="py-2 px-2.5 rounded-xl bg-surface-container-low border border-border-subtle text-xs font-medium">
+            <option value="0.9" ${String(d.speed) === "0.9" ? "selected" : ""}>Bình thường (0.9x)</option>
+            <option value="0.7" ${String(d.speed) === "0.7" ? "selected" : ""}>Chậm (0.7x)</option>
+            <option value="0.55" ${String(d.speed) === "0.55" ? "selected" : ""}>Rất chậm (0.55x)</option>
+          </select>
+        </label>
+      </div>
+
+      <!-- Main Dictation Workplace: 2 Columns -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+        <!-- Left: Dictation Workspace -->
+        <div class="lg:col-span-8 flex flex-col gap-space-md">
+          <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-lg" id="dictCard">
+            <!-- Audio Player Banner -->
+            <div class="p-space-md md:p-space-lg rounded-2xl bg-paper-muted border border-border-subtle flex flex-col sm:flex-row items-center justify-between gap-space-md">
+              <div class="flex items-center gap-space-md">
+                <button type="button" class="w-14 h-14 rounded-2xl bg-primary-container text-white flex items-center justify-center hover:bg-primary transition-all shadow-sm active:scale-95 shrink-0" id="btnPlaySentence">
+                  <span class="material-symbols-outlined text-[28px]">volume_up</span>
+                </button>
+                <div class="flex flex-col">
+                  <span class="font-headline-md font-bold text-base text-on-surface">Đoạn âm tiếng Đài Chuẩn</span>
+                  <span class="text-xs text-outline mt-0.5">Bấm nút hoặc nhấn phím <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">R</kbd> để nghe lại</span>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <button type="button" class="px-3.5 py-2 rounded-xl bg-paper-card border border-border-subtle hover:bg-surface-container text-xs font-semibold text-on-surface transition-colors" id="btnNextSentence">
+                  Bỏ qua / Câu khác →
+                </button>
+              </div>
+            </div>
+
+            <!-- Typing Area or Paper Evaluation Area -->
+            <div id="dictExerciseArea" class="flex flex-col gap-space-md"></div>
+          </div>
+        </div>
+
+        <!-- Right: Custom Packs & Info -->
+        <div class="lg:col-span-4 flex flex-col gap-space-md">
+          <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col gap-space-md">
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-secondary text-[20px]">folder_special</span>
+              <h3 class="font-headline-md font-bold text-base text-on-surface">Bộ câu tự nhập (${(S.packs || []).length})</h3>
+            </div>
+            <p class="text-xs text-on-surface-variant leading-relaxed">
+              Bạn có thể nạp các bộ câu `.json` trích từ giáo trình hay đề thi riêng vào trình duyệt của bạn.
+            </p>
+            <div class="flex flex-col gap-2 pt-2 border-t border-border-subtle">
+              <label class="cursor-pointer inline-flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-xl bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-on-surface transition-colors">
+                <span class="material-symbols-outlined text-[18px]">upload_file</span>
+                <span>Nạp tệp bộ câu (.json)</span>
+                <input type="file" id="dpackFile" accept=".json,application/json" class="hidden">
+              </label>
+              ${(S.packs || []).map((p, idx) => `
+                <div class="p-2.5 rounded-xl bg-surface-container-low flex items-center justify-between text-xs">
+                  <span class="font-medium truncate max-w-[180px]">${esc(p.name)} (${(p.items || []).length} câu)</span>
+                  <button type="button" class="text-primary hover:underline" data-rmpack="${idx}">Xóa</button>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `);
+
+  // Bind settings change
+  $("#dm").onchange = (e) => { d.mode = e.target.value; pickSentence(); };
+  $("#dband").onchange = (e) => { d.band = e.target.value; pickSentence(); };
+  $("#dsrc").onchange = (e) => { d.src = e.target.value; pickSentence(); };
+  $("#dsp").onchange = (e) => { d.speed = Number(e.target.value); };
+
+  // Pack file uploader
+  $("#dpackFile").onchange = async (e) => {
+    const f = e.target.files && e.target.files[0];
+    if (!f) return;
+    try {
+      const text = await f.text();
+      const obj = JSON.parse(text);
+      if (!Array.isArray(obj.items)) throw new Error("File phải có trường 'items' là mảng các câu.");
+      S.packs = S.packs || [];
+      S.packs.push({ name: obj.name || f.name.replace(/\.json$/i, ""), items: obj.items });
+      await Store.put("kv", "packs", S.packs);
+      VIEWS["chinh-ta"]();
+    } catch (err) {
+      alert("Lỗi đọc file bộ câu: " + err.message);
+    }
   };
-  document.querySelectorAll("[data-rmpack]").forEach((b) => (b.onclick = async () => { if (!b.dataset.sure) { b.dataset.sure = 1; b.textContent = "Bấm lần nữa để gỡ"; return; }
-    S.packs.splice(Number(b.dataset.rmpack), 1); await Store.put("kv", "packs", S.packs); route(); }));
-  nextDict();
-};
-function nextDict() {
-  const d = S.dict, box = $("#dict"); if (!box) return;
-  if (d.mode === "word") return nextWordDict();
-  let bank = sentenceBank();
-  if (d.srcSel && d.srcSel !== "Tất cả") bank = bank.filter((s) => d.srcSel === "Câu ví dụ trong thẻ" ? s.own : s.pack === d.srcSel);
-  if (!bank.length) { box.innerHTML = `<div class="note">Chưa có câu nào ở nguồn này. Nạp bộ câu riêng hoặc chọn nguồn khác.</div>`; return; }
-  let scored = bank.map((s) => { const tokens = segment(s.zh); return { s, tokens, w: weightOf(tokens) }; });
-  if (d.band && d.band !== "all") {
-    // sentences built around a word of this band, or containing words of this band
-    const own = scored.filter((x) => x.s.note && inBand(x.s.note, d.band));
-    scored = own.length >= 3 ? own : scored.filter((x) => (x.s.note && inBand(x.s.note, d.band)) || x.tokens.some((k) => k.n && inBand(k.n, d.band) && [...k.t].length > 1));
-    if (!scored.length) { box.innerHTML = `<div class="note">Chưa có câu nào cho TOCFL ${esc(d.band)} ở nguồn này. Câu sẽ nhiều thêm khi có thêm từ được soạn nghĩa và ví dụ.</div>`; return; }
-  }
-  const learned = scored.filter((x) => x.w > 0);
-  const pool = learned.length >= 3 ? learned : scored;
-  const total = pool.reduce((a, x) => a + (x.w || 1), 0); let r = Math.random() * total; let pick = pool[0];
-  for (const x of pool) { r -= (x.w || 1); if (r <= 0) { pick = x; break; } }
-  d.cur = pick;
-  const linked = pick.tokens.filter((k) => k.n && noteLevel(k.n) > 0).length;
-  box.innerHTML = `<article class="card"><div class="kind"><span>Đã chép ${d.score.total} câu · đúng ${d.score.ok}</span><span>${esc(pick.s.src)}</span></div>
-    <div class="front"><div class="emoji" aria-hidden="true">🎧</div>
-      <div class="actions center"><button type="button" class="speak" id="play">▶ nghe câu</button><button type="button" class="speak" id="playslow">▶ nghe chậm</button></div>
-      <div class="task">Câu có ${[...hanOnly(pick.s.zh)].length} chữ${linked ? ` · chứa ${linked} từ bạn đang học` : ""}</div>
-      ${d.mode === "paper" ? `<div class="task">Viết ra giấy, xong bấm “Xem đáp án”.</div>` : `<textarea id="dans" class="bigin han" rows="2" placeholder="Gõ chữ Hán bạn nghe được" autocomplete="off"></textarea>`}</div>
-    <button type="button" class="primary reveal" id="dcheck">${d.mode === "paper" ? "Xem đáp án" : "Kiểm tra"}</button><div id="dout"></div></article>`;
-  const play = (rate) => say(pick.s.zh, rate);
-  $("#play").onclick = () => play(d.rate || 0.9); $("#playslow").onclick = () => play(0.6);
-  play(d.rate || 0.9);
-  const inp = $("#dans"); if (inp) { inp.focus(); inp.onkeydown = (e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); $("#dcheck").click(); } }; }
-  $("#dcheck").onclick = checkDict;
-}
-// mark which characters of the target the learner got (longest common subsequence)
-function diffMarks(target, typed) {
-  const a = [...target], b = [...typed]; const m = a.length, n = b.length;
-  const dp = Array.from({ length: m + 1 }, () => new Array(n + 1).fill(0));
-  for (let i = m - 1; i >= 0; i--) for (let j = n - 1; j >= 0; j--) dp[i][j] = a[i] === b[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
-  const ok = new Array(m).fill(false); let i = 0, j = 0;
-  while (i < m && j < n) { if (a[i] === b[j]) { ok[i] = true; i++; j++; } else if (dp[i + 1][j] >= dp[i][j + 1]) i++; else j++; }
-  return ok;
-}
-function sentenceAnswer(cur, marks) {
-  let ci = 0;
-  const html = cur.tokens.map((k) => {
-    let chars = [...k.t].map((c) => { if (!isHan(c)) return esc(c); const good = !marks || marks[ci++]; return good ? esc(c) : `<span class="wrongc">${esc(c)}</span>`; }).join("");
-    if (isHan(k.t) && S.settings.ruby) { const p = k.n ? itemOf(k.n).py : pyOf(k.t); if (p) chars = `<ruby>${chars}<rt>${esc(p)}</rt></ruby>`; }
-    if (k.n) { const l = noteLevel(k.n); return `<a class="tok lv-u-${l}" href="#tu/${encodeURIComponent(k.n.w)}" title="${esc(itemOf(k.n).py + " · " + meaningOf(k.n) + " · " + LEVELS[l])}">${chars}</a>`; }
-    return isHan(k.t) && S.ced && S.ced.has(k.t) ? `<a class="tok" href="#tu/${encodeURIComponent(k.t)}">${chars}</a>` : chars;
-  }).join("");
-  const words = cur.tokens.filter((k) => k.n && noteLevel(k.n) > 0).map((k) => k.n).filter((n, i, arr) => arr.indexOf(n) === i);
-  return `<div class="ans"><div class="sentence han">${html}</div>${cur.s.py ? `<div class="py sub-py">${esc(cur.s.py)}</div>` : `<div class="sub center">Pinyin trên chữ được ghép tự động, có thể sai ở chữ nhiều cách đọc.</div>`}
-    ${cur.s.vn ? `<div class="vn-s">${esc(cur.s.vn)}</div>` : ""}
-    ${words.length ? `<div class="sub center">Từ bạn đang học trong câu:</div><div class="chips center">${words.map((n) => `<a class="chip" href="#tu/${encodeURIComponent(n.w)}"><span class="han">${esc(n.w)}</span> ${esc(meaningOf(n).slice(0, 40))} ${levelPill(n)}</a>`).join("")}</div>` : `<div class="sub center">Bấm vào chữ trong câu để tra từ.</div>`}</div>`;
-}
-function checkDict() {
-  const d = S.dict, c = d.cur, btn = $("#dcheck"); if (!c) return;
-  if (btn.dataset.done) { nextDict(); return; }
-  const target = hanOnly(c.s.zh);
-  if (d.mode === "paper") {
-    $("#dout").innerHTML = sentenceAnswer(c, null) + `<div class="actions center"><button type="button" class="g1" id="selfNo">Viết sai</button><button type="button" class="g3" id="selfYes">Viết đúng</button></div>`;
-    const fin = (v) => { d.score.total++; if (v) d.score.ok++; nextDict(); };
-    $("#selfNo").onclick = () => fin(false); $("#selfYes").onclick = () => fin(true); btn.hidden = true; return;
-  }
-  const typed = hanOnly($("#dans").value); const marks = diffMarks(target, typed);
-  const right = marks.filter(Boolean).length; const ok = typed === target;
-  d.score.total++; if (ok) d.score.ok++;
-  $("#dout").innerHTML = `<div class="verdict ${ok ? "good" : "bad"}">${ok ? "Đúng hết!" : `Đúng ${right}/${target.length} chữ. Chữ đỏ là chữ còn thiếu hoặc sai.`}</div>` + sentenceAnswer(c, marks);
-  btn.textContent = "Câu tiếp theo"; btn.dataset.done = "1";
-}
-function nextWordDict() {
-  const d = S.dict, box = $("#dict");
-  const pool = S.notes.filter((n) => n.kind === "vocab" && noteLevel(n) > 0);
-  const list = pool.length >= 5 ? pool : activeNotes().filter((n) => n.kind === "vocab").slice(0, 80);
-  if (!list.length) { box.innerHTML = `<div class="note">Chưa có từ nào. Vào Thư mục để đưa một band vào lịch học trước.</div>`; return; }
-  const n = list[Math.floor(Math.random() * list.length)], it = itemOf(n);
-  d.cur = { s: { zh: it.w, py: it.py, vn: meaningOf(n), src: "Từ đang học" }, tokens: [{ t: it.w, n }] };
-  box.innerHTML = `<article class="card"><div class="kind"><span>Đã chép ${d.score.total} · đúng ${d.score.ok}</span><span>Chép từ</span></div>
-    <div class="front"><div class="emoji" aria-hidden="true">🎧</div><div class="actions center"><button type="button" class="speak" id="play">▶ nghe</button></div>
-    <input id="dans" class="bigin han" placeholder="Gõ chữ Hán" autocomplete="off"></div>
-    <button type="button" class="primary reveal" id="dcheck">Kiểm tra</button><div id="dout"></div></article>`;
-  $("#play").onclick = () => say(it.w, d.rate || 0.9); say(it.w, d.rate || 0.9);
-  const inp = $("#dans"); inp.focus(); inp.onkeydown = (e) => { if (e.key === "Enter") $("#dcheck").click(); };
-  $("#dcheck").onclick = checkDict;
-}
 
-// --- Nhập từ ---
-VIEWS["nhap"] = () => {
-  setView(`<section class="view"><p class="lead">Gặp từ mới khi nghe, đọc hay trên lớp thì ghi vào đây. Trang tự kiểm tra từ đã có trong bảng TOCFL chưa. Từ có trong bảng thì thêm thẳng vào lịch học được.</p>
-    <form class="panel" id="f" autocomplete="off"><label for="w">Từ mới (chữ Phồn thể)<input id="w" class="bigin han" placeholder="例如：機會" maxlength="16"></label>
-      <div class="check" id="check">Gõ một từ để kiểm tra.</div>
-      <div class="row2"><label for="where">Gặp ở đâu<input id="where" placeholder="Podcast, lớp học, phim…" maxlength="60"></label><label for="note">Ghi chú<input id="note" maxlength="200"></label></div>
-      <div class="actions"><button class="primary" id="save" type="submit" disabled>Lưu từ</button><span class="msg" id="msg"></span></div></form>
-    <h2 class="h2">Từ đã nhập</h2><div class="list" id="ilist"></div></section>`);
-  const check = () => {
-    const w = clean($("#w").value), box = $("#check"), btn = $("#save"); btn.disabled = true; box.className = "check";
-    if (!w) { box.textContent = "Gõ một từ để kiểm tra."; return null; }
-    if (!/^[㐀-鿿豈-﫿]+$/.test(w)) { box.className = "check warn"; box.textContent = "Chỉ nhập chữ Hán Phồn thể."; return null; }
-    const n = S.noteByWord.get(w); const e = cedFirst(w); btn.disabled = false;
-    if ([...S.inbox.values()].some((x) => x.w === w)) { box.className = "check warn"; box.textContent = "Bạn đã nhập từ này rồi."; btn.disabled = true; return null; }
-    if (n) { box.className = "check have"; box.innerHTML = `<b class="han">${esc(w)}</b> có trong ${n.rich ? esc(n.deck.name) : "TOCFL " + esc(n.band)} · ${esc(itemOf(n).py)} · ${esc(meaningOf(n))}. Mức nhớ: ${levelPill(n)}`; return { w, n }; }
-    box.className = "check new"; box.innerHTML = `<b class="han">${esc(w)}</b> không có trong bảng TOCFL${e ? ` · ${esc(e[0][0])} · ${esc(enOf(w))}` : ""}. Từ này được lưu để soạn thẻ sau.`;
-    return { w, n: null };
+  document.querySelectorAll("[data-rmpack]").forEach((btn) => {
+    btn.onclick = async () => {
+      const idx = Number(btn.dataset.rmpack);
+      S.packs.splice(idx, 1);
+      await Store.put("kv", "packs", S.packs);
+      VIEWS["chinh-ta"]();
+    };
+  });
+
+  // Pick weighted sentence
+  function pickSentence() {
+    const bank = sentenceBank();
+    const mode = d.mode || "han";
+    const band = d.band || "all";
+    const src = d.src || "Tất cả";
+
+    let candidates = bank.filter((s) => {
+      if (src !== "Tất cả" && (src === "Câu ví dụ trong thẻ" ? s.src !== "cards" : s.src !== src)) return false;
+      if (band !== "all" && s.note && !inBand(s.note, band)) return false;
+      return true;
+    });
+
+    if (!candidates.length) candidates = bank;
+    if (!candidates.length) {
+      $("#dictExerciseArea").innerHTML = `<div class="p-6 text-center text-sm text-outline">Chưa có câu ví dụ nào trong các thẻ đang học.</div>`;
+      return;
+    }
+
+    const cur = candidates[Math.floor(Math.random() * candidates.length)];
+    d.cur = cur;
+    d.checked = false;
+
+    renderExercise();
+  }
+
+  function renderExercise() {
+    const cur = d.cur;
+    if (!cur) return;
+    const mode = d.mode || "han";
+    const target = mode === "word" ? cur.word : cur.zh;
+
+    const area = $("#dictExerciseArea");
+    if (!d.checked) {
+      area.innerHTML = `
+        <div class="flex flex-col gap-3">
+          ${mode === "paper" ? `
+            <div class="p-4 rounded-xl bg-amber-subtle text-tertiary text-sm font-medium">
+              Lấy giấy bút ra và viết câu bạn vừa nghe được. Sau khi viết xong, bấm nút "Xem đáp án" để tự chấm đối chiếu.
+            </div>
+            <button type="button" class="py-3 px-6 rounded-xl bg-primary-container text-white font-semibold text-sm hover:bg-primary shadow-xs" id="btnRevealDict">
+              Xem đáp án &amp; Chấm điểm
+            </button>
+          ` : `
+            <label class="flex flex-col gap-1.5">
+              <span class="text-xs font-semibold text-outline">Gõ lại bằng chữ Hán Phồn thể:</span>
+              <input type="text" id="dictInput" class="w-full p-3.5 rounded-xl bg-surface-container-low border border-border-subtle text-lg font-serif text-on-surface focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary/20" placeholder="Gõ câu nghe được vào đây..." autocomplete="off">
+            </label>
+            <button type="button" class="py-3 px-6 rounded-xl bg-primary-container text-white font-semibold text-sm hover:bg-primary shadow-xs" id="btnCheckDict">
+              Kiểm tra câu trả lời
+            </button>
+          `}
+        </div>
+      `;
+
+      const inp = $("#dictInput");
+      if (inp) {
+        inp.focus();
+        inp.onkeydown = (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            $("#btnCheckDict")?.click();
+          }
+        };
+      }
+
+      const btnCheck = $("#btnCheckDict");
+      if (btnCheck) {
+        btnCheck.onclick = () => {
+          const userText = clean(inp?.value || "");
+          d.checked = true;
+          d.userText = userText;
+          const isCorrect = userText === target;
+          d.score.total++;
+          if (isCorrect) d.score.ok++;
+          renderExercise();
+        };
+      }
+
+      const btnRev = $("#btnRevealDict");
+      if (btnRev) {
+        btnRev.onclick = () => {
+          d.checked = true;
+          d.userText = "";
+          renderExercise();
+        };
+      }
+    } else {
+      // Checked view
+      const userText = d.userText || "";
+      const diffHTML = diffMarks(target, userText);
+      const isCorrect = userText === target;
+      const segmented = segment(target);
+
+      area.innerHTML = `
+        <div class="flex flex-col gap-4">
+          <div class="p-4 rounded-xl ${isCorrect ? 'bg-jade-subtle border border-jade-subtle text-secondary' : 'bg-paper-muted border border-border-subtle text-on-surface'} flex flex-col gap-2">
+            <div class="flex items-center justify-between text-xs font-bold uppercase">
+              <span class="${isCorrect ? 'text-secondary' : 'text-primary'}">${isCorrect ? '✓ Hoàn toàn chính xác!' : 'Đáp án đối chiếu (chữ đỏ là chưa khớp):'}</span>
+              <span class="font-code">${userText ? `${userText.length}/${target.length} chữ` : ''}</span>
+            </div>
+            <div class="font-serif text-2xl md:text-3xl font-medium leading-relaxed">${diffHTML}</div>
+            ${cur.py ? `<div class="font-code text-sm text-tertiary font-semibold">${esc(cur.py)}</div>` : ''}
+            ${cur.vn ? `<div class="text-sm text-on-surface font-medium">${esc(cur.vn)}</div>` : ''}
+          </div>
+
+          <!-- Clickable Tokens to open dictionary -->
+          <div class="flex flex-col gap-1.5">
+            <span class="text-xs text-outline font-semibold uppercase">Bấm vào từ vựng để mở từ điển tra cứu:</span>
+            <div class="flex flex-wrap gap-2">
+              ${segmented.map(tok => `
+                <a href="#tu/${encodeURIComponent(tok.t)}" class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-cinnabar-subtle hover:text-primary text-xs font-serif font-bold text-on-surface border border-border-subtle/50 transition-colors">
+                  ${esc(tok.t)}
+                </a>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="flex items-center justify-between pt-2 border-t border-border-subtle">
+            <span class="text-xs font-semibold text-outline">Điểm số: <strong class="text-secondary">${d.score.ok}/${d.score.total}</strong></span>
+            <button type="button" class="py-2.5 px-6 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary shadow-xs" id="btnNextEx">
+              Luyện câu tiếp theo →
+            </button>
+          </div>
+        </div>
+      `;
+
+      $("#dictScore").textContent = `${d.score.ok}/${d.score.total}`;
+      const btnNext = $("#btnNextEx");
+      if (btnNext) btnNext.onclick = pickSentence;
+    }
+
+    // Bind audio button
+    const btnPlay = $("#btnPlaySentence");
+    if (btnPlay) {
+      btnPlay.onclick = () => {
+        say(target, d.speed || 0.9);
+      };
+    }
+  }
+
+  $("#btnPlaySentence").onclick = () => {
+    if (d.cur) say(d.cur.zh, d.speed || 0.9);
   };
-  $("#w").oninput = check;
-  $("#f").onsubmit = async (ev) => { ev.preventDefault(); const r = check(); if (!r) return;
-    const id = String(Date.now()); const rec = { w: r.w, where: $("#where").value.trim(), note: $("#note").value.trim(), date: dayKey(Date.now()), createdAt: Date.now(), status: r.n ? "Có trong TOCFL" : "Chờ làm thẻ" };
-    if (r.n && r.n.basic) { S.settings.extra[r.n.w] = true; await saveSettings(); rec.status = "Đã thêm vào lịch học"; }
-    S.inbox.set(id, rec); await Store.put("inbox", id, rec); $("#w").value = ""; $("#note").value = ""; $("#msg").textContent = `Đã lưu ${r.w}.`; check(); drawInbox(); };
-  drawInbox();
+  $("#btnNextSentence").onclick = pickSentence;
+
+  pickSentence();
 };
-function drawInbox() {
-  const el = $("#ilist"); if (!el) return;
-  const rows = [...S.inbox.entries()].sort((a, b) => (b[1].createdAt || 0) - (a[1].createdAt || 0));
-  el.innerHTML = rows.map(([id, e]) => `<div class="item"><a class="w" href="#tu/${encodeURIComponent(e.w)}">${esc(e.w)}</a><div class="meta"><div class="py">${esc(pyOf(e.w))}</div><div class="vn">${esc(e.status)}</div>
-    <div class="sub">${esc(e.date)}${e.where ? " · " + esc(e.where) : ""}${e.note ? " · " + esc(e.note) : ""}</div></div><div class="side"><button type="button" class="link" data-del="${esc(id)}">Xóa</button></div></div>`).join("")
-    || `<div class="empty">Chưa có từ nào.</div>`;
-  el.querySelectorAll("[data-del]").forEach((b) => (b.onclick = async () => { if (b.dataset.sure) { S.inbox.delete(b.dataset.del); await Store.del("inbox", b.dataset.del); drawInbox(); } else { b.dataset.sure = "1"; b.textContent = "Bấm lần nữa để xóa"; } }));
-}
 
-// --- Cài đặt ---
-
-// ---------------- Thi thử TOCFL CAT-B (SC-TOP Mock Exam) ----------------
+// =========================================================================
+// 7. THI THỬ TOCFL CAT-B (SC-TOP Mock Exam)
+// =========================================================================
 VIEWS["thi-thu"] = () => {
   const sampleQuestions = [
     {
@@ -1272,89 +2733,104 @@ VIEWS["thi-thu"] = () => {
     const total = sampleQuestions.length;
 
     setView(`
-      <section class="view">
-        <div class="panel" style="padding:16px 20px;">
-          <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;">
-            <div>
-              <h2 class="h2" style="font-size:22px;">Thi thử TOCFL Band B (SC-TOP Mock Exam)</h2>
-              <div class="sub" style="margin-top:4px;">Hệ thống mô phỏng bài thi Định dạng CAT Chuẩn hóa 2024 · 50 phút</div>
+      <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
+        <!-- Header Bar -->
+        <div class="bg-paper-card rounded-2xl p-space-md md:p-space-lg border border-border-subtle shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-space-md">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
+              <h1 class="font-headline-lg text-xl md:text-2xl font-bold text-on-surface">Khảo thí Mô phỏng TOCFL CAT-B</h1>
             </div>
-            <div style="display:flex;align-items:center;gap:14px;">
-              <div style="font-family:var(--f-code);font-size:20px;font-weight:700;color:var(--seal);background:var(--seal-soft);padding:6px 14px;border-radius:10px;border:1px solid rgba(134,9,10,0.2);display:flex;align-items:center;gap:6px;" id="timerDisplay">
-                ⏱ ${formatTime(secondsLeft)}
-              </div>
-              <button type="button" class="primary" id="btnSubmitExam" style="font-size:14.5px;">Nộp bài (繳卷)</button>
+            <p class="text-xs text-on-surface-variant mt-0.5">Mô phỏng bài thi Định dạng CAT Chuẩn hóa 2024 · SC-TOP Đài Loan</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="font-code text-xl font-bold text-primary bg-cinnabar-subtle px-4 py-1.5 rounded-xl border border-primary/20 flex items-center gap-1.5 shadow-2xs">
+              ⏱ ${formatTime(secondsLeft)}
             </div>
+            <button type="button" class="px-5 py-2 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary shadow-xs transition-colors" id="btnSubmitExam">
+              Nộp bài (繳卷)
+            </button>
           </div>
         </div>
 
-        <div class="cols">
-          <div class="c1">
-            <article class="card">
-              <div class="kind">
-                <span>${esc(q.part)} · Câu ${curQ + 1} / ${total}</span>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+          <!-- Question Content (8 cols) -->
+          <div class="lg:col-span-8 flex flex-col gap-space-md">
+            <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-md">
+              <div class="flex items-center justify-between text-xs text-outline font-medium">
+                <span class="text-primary font-bold uppercase">${esc(q.part)} · Câu ${curQ + 1} / ${total}</span>
                 <span>Tương đương Band B1/B2</span>
               </div>
 
               ${q.audio ? `
-                <div style="padding:14px;background:var(--paper);border:1px solid var(--border-subtle);border-radius:12px;display:flex;align-items:center;justify-content:space-between;">
-                  <div style="display:flex;align-items:center;gap:10px;">
-                    <button type="button" class="speak" onclick="say('${esc(q.audio)}')">▶ Nghe đoạn âm thi</button>
-                    <span class="sub" style="font-size:13.5px;">Bấm để nghe âm thanh khảo thí chuẩn Đài Bắc</span>
+                <div class="p-4 rounded-xl bg-paper-muted border border-border-subtle flex items-center justify-between gap-2">
+                  <div class="flex items-center gap-3">
+                    <button type="button" class="px-4 py-2 rounded-xl bg-jade-subtle text-secondary font-bold text-xs hover:bg-secondary-fixed transition-colors border border-secondary/20 flex items-center gap-1.5" onclick="say('${esc(q.audio)}')">
+                      <span class="material-symbols-outlined text-[18px]">volume_up</span>
+                      <span>▶ Nghe đoạn âm thi</span>
+                    </button>
+                    <span class="text-xs text-outline">Bấm để nghe âm thanh khảo thí chuẩn Đài Bắc</span>
                   </div>
                 </div>
               ` : ''}
 
-              <div style="padding:16px;background:var(--paper);border:1px solid var(--border-subtle);border-radius:12px;font-family:var(--f-han);font-size:20px;line-height:1.7;">
+              <div class="p-4 rounded-xl bg-surface-container-low border border-border-subtle font-serif text-lg md:text-xl text-on-surface leading-relaxed">
                 ${esc(q.zh)}
               </div>
 
-              <div style="font-weight:700;font-size:17.5px;color:var(--on-surface);">
+              <div class="font-headline-md text-base md:text-lg font-bold text-on-surface mt-2">
                 ${esc(q.q)}
               </div>
 
-              <div style="display:grid;gap:10px;margin-top:4px;">
+              <div class="grid gap-2.5 mt-2">
                 ${q.options.map((opt, optIdx) => {
                   const isSelected = userAnswers[curQ] === optIdx;
                   return `
-                    <button type="button" class="btn" style="text-align:left;justify-content:flex-start;padding:12px 14px;font-size:15.5px;font-weight:${isSelected ? '700' : '500'};border-color:${isSelected ? 'var(--jade)' : 'var(--border-subtle)'};background:${isSelected ? 'var(--jade-soft)' : 'var(--surface)'};color:${isSelected ? 'var(--secondary)' : 'var(--ink)'};border-width:${isSelected ? '2px' : '1px'};" onclick="VIEWS['thi-thu-ans'](${curQ}, ${optIdx})">
-                      <span style="display:inline-block;width:24px;height:24px;border-radius:50%;text-align:center;line-height:22px;margin-right:10px;border:1px solid ${isSelected ? 'var(--secondary)' : 'var(--border-subtle)'};background:${isSelected ? 'var(--secondary)' : 'var(--paper)'};color:${isSelected ? '#fff' : 'inherit'};font-size:13px;font-weight:700;">${String.fromCharCode(65 + optIdx)}</span>
+                    <button type="button" class="text-left p-3.5 rounded-xl border transition-all text-sm font-medium flex items-center gap-3 ${isSelected ? 'border-primary bg-cinnabar-subtle/70 text-primary font-bold shadow-2xs' : 'border-border-subtle bg-paper-card hover:bg-surface-container text-on-surface'}" onclick="VIEWS['thi-thu-ans'](${curQ}, ${optIdx})">
+                      <span class="w-6 h-6 rounded-full flex items-center justify-center font-code text-xs font-bold shrink-0 ${isSelected ? 'bg-primary text-white' : 'bg-surface-container text-outline'}">
+                        ${String.fromCharCode(65 + optIdx)}
+                      </span>
                       <span>${esc(opt)}</span>
                     </button>
                   `;
                 }).join('')}
               </div>
 
-              <div class="actions" style="justify-content:space-between;margin-top:10px;border-top:1px solid var(--border-subtle);padding-top:14px;">
-                <button type="button" class="btn" ${curQ === 0 ? 'disabled' : ''} onclick="VIEWS['thi-thu-nav'](${curQ - 1})">← Câu trước</button>
-                <button type="button" class="primary" ${curQ + 1 >= total ? 'disabled' : ''} onclick="VIEWS['thi-thu-nav'](${curQ + 1})">Câu tiếp theo →</button>
+              <div class="flex items-center justify-between pt-4 border-t border-border-subtle mt-4">
+                <button type="button" class="px-4 py-2 rounded-xl border border-border-subtle text-xs font-semibold hover:bg-surface-container ${curQ === 0 ? 'opacity-40 cursor-not-allowed' : ''}" ${curQ === 0 ? 'disabled' : ''} onclick="VIEWS['thi-thu-nav'](${curQ - 1})">
+                  ← Câu trước
+                </button>
+                <button type="button" class="px-4 py-2 rounded-xl bg-primary-container text-white text-xs font-semibold hover:bg-primary shadow-xs ${curQ + 1 >= total ? 'opacity-40 cursor-not-allowed' : ''}" ${curQ + 1 >= total ? 'disabled' : ''} onclick="VIEWS['thi-thu-nav'](${curQ + 1})">
+                  Câu tiếp theo →
+                </button>
               </div>
-            </article>
+            </div>
           </div>
 
-          <div class="c2">
-            <div class="panel">
-              <h3 class="h2" style="font-size:17px;">Phiếu trả lời (答題卡)</h3>
-              <div style="display:grid;grid-template-columns:repeat(4, 1fr);gap:8px;">
+          <!-- Answer Sheet Navigator (4 cols) -->
+          <div class="lg:col-span-4 flex flex-col gap-space-md">
+            <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col gap-space-md">
+              <h3 class="font-headline-md font-bold text-base text-on-surface">Phiếu trả lời (答題卡)</h3>
+              <div class="grid grid-cols-4 gap-2">
                 ${sampleQuestions.map((_, idx) => {
                   const answered = userAnswers[idx] !== undefined;
                   const isCurrent = idx === curQ;
                   return `
-                    <button type="button" class="btn small" style="font-family:var(--f-code);font-weight:700;justify-content:center;border-color:${isCurrent ? 'var(--primary)' : (answered ? 'var(--secondary)' : 'var(--border-subtle)')};background:${isCurrent ? 'var(--cinnabar-subtle)' : (answered ? 'var(--jade-soft)' : 'var(--surface)')};color:${isCurrent ? 'var(--primary)' : (answered ? 'var(--secondary)' : 'var(--muted)')};" onclick="VIEWS['thi-thu-nav'](${idx})">
+                    <button type="button" class="py-2.5 rounded-xl font-code text-xs font-bold transition-all border ${isCurrent ? 'border-primary bg-cinnabar-subtle text-primary ring-2 ring-primary/20' : (answered ? 'border-secondary bg-jade-subtle text-secondary' : 'border-border-subtle bg-surface-container-low text-outline')}" onclick="VIEWS['thi-thu-nav'](${idx})">
                       ${idx + 1}
                     </button>
                   `;
                 }).join('')}
               </div>
-              <div class="sub" style="font-size:13px;line-height:1.4;">
-                • Ô xanh: Đã trả lời.<br>
-                • Ô viền đỏ: Đang làm.<br>
-                • Ô trắng: Chưa làm.
+              <div class="text-xs text-outline flex flex-col gap-1 pt-2 border-t border-border-subtle">
+                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-jade-subtle border border-secondary/40"></span><span>Đã trả lời</span></div>
+                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-cinnabar-subtle border border-primary/40"></span><span>Đang làm</span></div>
+                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded bg-surface-container-low border border-border-subtle"></span><span>Chưa làm</span></div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     `);
 
     const submitBtn = $("#btnSubmitExam");
@@ -1365,12 +2841,8 @@ VIEWS["thi-thu"] = () => {
           if (userAnswers[i] === sq.correct) correctCount++;
         });
         const score = Math.round((correctCount / total) * 80);
-        const passed = score >= 48; // 60% of 80 is 48
-        alert(`🎉 KẾT QUẢ THI THỬ TOCFL CAT-B
-
-• Số câu đúng: ${correctCount} / ${total}
-• Điểm ước tính: ${score} / 80 điểm
-• Đánh giá: ${passed ? 'ĐẠT CHUẨN TOCFL B1/B2 (Tiến cấp)!' : 'Chưa đạt, hãy tiếp tục ôn luyện thêm từ vựng nhé!'}`);
+        const passed = score >= 48;
+        alert(`🎉 KẾT QUẢ THI THỬ TOCFL CAT-B\n\n• Số câu đúng: ${correctCount} / ${total}\n• Điểm ước tính: ${score} / 80 điểm\n• Đánh giá: ${passed ? 'ĐẠT CHUẨN TOCFL B1/B2 (Đạt chuẩn tiến cấp)!' : 'Chưa đạt, hãy tiếp tục ôn luyện thêm từ vựng nhé!'}`);
       };
     }
   }
@@ -1387,350 +2859,444 @@ VIEWS["thi-thu"] = () => {
 
   renderExam();
 };
-VIEWS["cai-dat"] = () => {
-  setView(`<section class="view">
-    <details class="panel sync-details" id="sync-panel" ${Sync.isConfigured() ? "" : "open"}>
-      <summary class="sync-summary"><h2 class="h2">Đồng bộ giữa các máy</h2>
-        <span id="syncStatusBadge" class="sync-badge inactive">Chưa kết nối</span>
-        <span class="sub">${Sync.isConfigured() ? "Đã kết nối, tự đồng bộ khi mở trang và sau mỗi lượt học. Bấm để xem chi tiết." : ""}</span></summary>
-      <p class="lead">Mặc định tiến độ chỉ lưu trong trình duyệt của từng máy. Để <strong>học trên điện thoại và máy tính luôn đồng bộ cùng tiến độ với nhau</strong>, bạn có thể chọn một trong hai cách dưới đây:</p>
 
-      <!-- Cách 1: Tự động qua Đám mây (GitHub Gist) -->
-      <div class="sync-card">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
-          <h3 style="color:var(--jade);">Cách 1: Tự động qua Đám mây (Khuyên dùng)</h3>
-          <span class="sync-badge active" style="font-size:12px;">Tự động 2 chiều</span>
+// =========================================================================
+// 8. NHẬP TỪ & 9. CÀI ĐẶT & ĐỒNG BỘ (Stitch Design)
+// =========================================================================
+VIEWS["nhap"] = () => {
+  setView(`
+    <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin py-space-xl flex flex-col gap-space-lg">
+      <!-- Input Card -->
+      <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-md">
+        <div class="flex items-center gap-2">
+          <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
+          <h1 class="font-headline-lg text-2xl font-bold text-on-surface">Nhập từ vựng mới</h1>
         </div>
-        <p class="sub" style="margin:4px 0 8px;">Tiến độ tự động đồng bộ ngầm lên GitHub Gist cá nhân của bạn mỗi khi học xong thẻ hoặc mở trang. Không bao giờ lo mất dữ liệu.</p>
+        <p class="font-body-md text-sm text-on-surface-variant">
+          Gặp từ mới khi xem phim, nghe podcast hay trên lớp thì ghi vào đây. Trang tự kiểm tra từ đã có trong bảng TOCFL chưa. Từ có trong bảng thì thêm thẳng vào lịch học được.
+        </p>
 
-        <!-- Khung đã kết nối -->
-        <div id="syncConnectedBlock" hidden>
-          <div class="check new" style="margin-bottom:12px;">
-            <div>✓ <strong>Đã kết nối đám mây GitHub!</strong> Gist ID: <code id="displayGistId" style="font-size:13px;word-break:break-all;"></code></div>
-            <div class="sub" id="displayLastSync" style="font-size:13.5px;margin-top:4px;">Chưa đồng bộ</div>
+        <form class="flex flex-col gap-space-md mt-2" id="f" autocomplete="off">
+          <label class="flex flex-col gap-1.5">
+            <span class="text-xs font-semibold text-on-surface-variant">Từ mới (chữ Phồn thể):</span>
+            <input id="w" class="w-full p-3.5 rounded-xl bg-surface-container-low border border-border-subtle text-xl font-serif text-on-surface focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary/20" placeholder="Ví dụ：機會" maxlength="16">
+          </label>
+
+          <div class="p-3 rounded-xl bg-surface-container-low border border-border-subtle text-xs text-outline font-medium" id="check">
+            Gõ một từ để kiểm tra với kho dữ liệu TOCFL.
           </div>
-          <div class="actions" style="margin-bottom:12px;">
-            <button type="button" class="primary" id="btnSyncNow">🔄 Đồng bộ ngay bây giờ</button>
 
-            <button type="button" class="small" id="btnDisconnectSync" style="color:var(--seal);">Ngắt kết nối</button>
-          </div>
-
-          <label for="replaceToken">Token mới nếu kết nối đã hết hạn
-            <input type="password" id="replaceToken" autocomplete="off" placeholder="Dán token GitHub có quyền gist">
-          </label>
-          <label for="replaceGistId">Gist ID cần dùng chung giữa các thiết bị
-            <input type="text" id="replaceGistId" autocomplete="off" spellcheck="false">
-          </label>
-          <button type="button" class="small" id="btnReplaceToken">Kết nối lại Gist này</button>
-          <div class="msg" id="replaceTokenMsg" role="status"></div>
-          <label class="inline" style="margin-top:8px;">
-            <input type="checkbox" id="autoSyncCheck" checked> Tự động đồng bộ khi mở trang và sau mỗi lượt học
-          </label>
-        </div>
-
-        <!-- Khung chưa kết nối -->
-        <div id="syncUnconnectedBlock">
-          <div style="display:grid;gap:8px;">
-            <label for="ghTokenInput">
-              GitHub Personal Access Token:
-              <input type="password" id="ghTokenInput" placeholder="ghp_xxxxxxxxxxxx hoặc github_pat_xxxxxxxxxxxx" autocomplete="off">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+            <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
+              <span>Gặp ở đâu:</span>
+              <input id="where" placeholder="Podcast, lớp học, phim Đài Loan..." maxlength="60" class="p-2.5 rounded-xl bg-surface-container-low border border-border-subtle text-xs">
             </label>
-            <div class="sub" style="font-size:13.5px;">
-              👉 Bạn đã có tài khoản GitHub <code>Haven-Pham</code>.
-              <a href="https://github.com/settings/tokens/new?scopes=gist&description=So+hoc+tieng+Hoa+Sync" target="_blank" rel="noopener" class="link" style="font-weight:700;text-decoration:underline;">
-                Bấm vào đây để tạo Token nhanh trên GitHub
-              </a> (chỉ cần chọn quyền <code>gist</code>, bấm Generate token rồi copy dán vào đây).
-            </div>
-            <label for="ghGistIdInput">Gist ID đang dùng trên máy khác (nếu có)
-              <input type="text" id="ghGistIdInput" autocomplete="off" spellcheck="false">
+            <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
+              <span>Ghi chú thêm:</span>
+              <input id="note" placeholder="Ý nghĩa ngữ cảnh..." maxlength="200" class="p-2.5 rounded-xl bg-surface-container-low border border-border-subtle text-xs">
             </label>
-            <div class="actions" style="margin-top:4px;">
-              <button type="button" class="primary" id="btnConnectGist">Kết nối đám mây</button>
-            </div>
-            <div class="msg" id="gistMsg"></div>
           </div>
-        </div>
+
+          <div class="flex items-center justify-between pt-2">
+            <span class="text-xs text-secondary font-semibold" id="msg"></span>
+            <button class="px-6 py-2.5 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary transition-colors shadow-xs disabled:opacity-40 disabled:cursor-not-allowed" id="save" type="submit" disabled>
+              Lưu từ mới
+            </button>
+          </div>
+        </form>
       </div>
 
-      <!-- Cách 2: Đồng bộ nhanh bằng Mã tiến độ (Không cần tài khoản) -->
-      <div class="sync-card">
-        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:6px;">
-          <h3>Cách 2: Đồng bộ nhanh bằng Mã (Không cần tài khoản)</h3>
-          <span class="sync-badge inactive" style="font-size:12px;">Thủ công 1 lần</span>
+      <!-- Imported Words List -->
+      <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-md">
+        <div class="flex items-center justify-between">
+          <h2 class="font-headline-lg text-lg font-bold text-on-surface">Từ đã nhập trong Hộp thư (${S.inbox.size})</h2>
+          <span class="text-xs text-outline">Lưu trữ cục bộ trong trình duyệt</span>
         </div>
-        <p class="sub" style="margin:4px 0 8px;">Sao chép mã tiến độ từ máy tính rồi gửi qua Zalo/Tin nhắn, dán vào điện thoại để cập nhật ngay tức thì.</p>
-        <div class="actions">
-          <button type="button" id="btnCopyFastCode">📋 Sao chép mã tiến độ từ máy này</button>
-          <button type="button" id="btnShareFastCode">📤 Chia sẻ mã nhanh</button>
-        </div>
-        <div style="display:grid;gap:6px;margin-top:8px;">
-          <label for="pasteFastCodeInput">Dán mã tiến độ từ máy khác vào đây:</label>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;">
-            <input type="text" id="pasteFastCodeInput" placeholder="Dán chuỗi mã tiến độ vào đây..." style="flex:1;min-width:200px;">
-            <button type="button" class="primary" id="btnApplyFastCode" style="white-space:nowrap;">Áp dụng mã</button>
-          </div>
-        </div>
-        <div class="msg" id="fastCodeMsg"></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md" id="ilist"></div>
       </div>
-    </details>
+    </div>
+  `);
 
-    <div class="panel"><h2 class="h2">Học mỗi ngày</h2>
-      <label for="npd">Số thẻ mới mỗi ngày<select id="npd">${[10, 15, 20, 30, 40, 60].map((v) => `<option>${v}</option>`).join("")}</select></label>
-      <div class="sub">Mỗi từ có 3–4 thẻ. Ngày đầu chỉ gặp thẻ nhận diện, các thẻ còn lại mở từ hôm sau.</div>
-      <label for="rpd" style="margin-top:12px;">Số thẻ ôn mỗi ngày<select id="rpd">${[20, 30, 50, 75, 100, 150, 200, 300].map((v) => `<option>${v}</option>`).join("")}</select></label>
-      <div class="sub">Mục tiêu số lượt ôn lại thẻ đã học trong ngày để tính tiến độ lộ trình.</div>
-      <div class="eyebrow">Thư mục đang học</div><div class="decks">
-      ${S.decks.map((d) => `<label><input type="checkbox" data-deck="${esc(d.id)}" ${deckOn(d.id) ? "checked" : ""}> ${esc(d.name)}</label>`).join("")}
-      ${S.bands.map((b) => `<label><input type="checkbox" data-band="${esc(b)}" ${S.settings.bands[b] ? "checked" : ""}> TOCFL ${esc(b)} (cả band)</label>`).join("")}</div></div>
-    <div class="panel"><h2 class="h2">Giao diện</h2>
-      <label for="theme">Màu nền<select id="theme"><option value="light">Sáng (giấy, son đỏ, vàng kim)</option><option value="dark">Tối</option><option value="auto">Theo cài đặt của máy</option></select></label>
-      <label class="inline"><input type="checkbox" id="rubyOn"> Hiện pinyin phía trên chữ Hán trong phần giải thích</label></div>
-    <div class="panel"><h2 class="h2">Giọng đọc</h2><div class="sub" id="vinfo"></div><div class="actions"><button type="button" class="speak" data-say="你好，我們開始學中文吧。">▶ Nghe thử</button></div></div>
-    <div class="panel"><h2 class="h2">Sao lưu và khôi phục</h2>
-      <p class="lead">Tiến độ chỉ lưu trong trình duyệt của máy này. Sao lưu thường xuyên và cất file vào Google Drive (thư mục “10 Website học tiếng Hoa”). Đổi máy thì bấm Khôi phục và chọn file đó.</p>
-      <div class="actions"><button type="button" class="primary" id="backup">Sao lưu ra file</button>
-        <label class="filebtn" for="restore">Khôi phục từ file<input type="file" id="restore" accept="application/json,.json"></label></div>
-      <div class="row2"><label><span><input type="radio" name="rmode" value="merge" checked> Gộp: giữ kết quả mới hơn của từng thẻ</span></label><label><span><input type="radio" name="rmode" value="replace"> Thay toàn bộ bằng file</span></label></div>
-      <div class="msg" id="bmsg"></div>
-      <div class="actions" style="margin-top:14px;border-top:1px dashed var(--line);padding-top:12px;">
-        <button type="button" id="btnForceReload" class="small">🔄 Tải lại bản mới nhất (Xóa cache)</button>
-        <span class="sub" style="font-size:12.5px;">Bấm nút này nếu trình duyệt trên điện thoại chưa hiện giao diện mới nhất.</span>
-      </div></div>
-    <div class="panel"><h2 class="h2">Nguồn dữ liệu</h2><ul class="src">
-      <li>Bảng từ TOCFL 2024 (華語八千詞表), Trung tâm SC-TOP · tocfl.edu.tw</li>
-      <li>CC-CEDICT, giấy phép CC BY-SA 4.0 · mdbg.net</li>
-      <li>Nghĩa tiếng Việt và lượng từ: CVDICT (Phong Phan), giấy phép CC BY-SA 4.0 · github.com/ph0ngp/CVDICT</li>
-      <li>Make Me a Hanzi (nét viết), giấy phép Arphic PL / LGPL · github.com/skishore/makemeahanzi</li>
-      <li>Hanzi Writer (vẽ nét), giấy phép MIT</li>
-      <li>Nghĩa tiếng Việt, mẹo nhớ, ví dụ: soạn riêng cho trang này</li></ul></div></section>`);
-
-  // Bind Sync UI Controls
-  function updateSyncView() {
-    const isConn = Sync.isConfigured();
-    const cfg = Sync.getConfig();
-    const badge = $("#syncStatusBadge");
-    const connBlock = $("#syncConnectedBlock");
-    const unconnBlock = $("#syncUnconnectedBlock");
-    if (badge) {
-      const state = Sync.getStatus();
-      const failed = state && state.status === "error";
-      badge.textContent = failed ? "Đồng bộ lỗi" : isConn ? "Đã cấu hình" : "Chưa kết nối";
-      badge.className = failed ? "sync-badge inactive" : isConn ? "sync-badge active" : "sync-badge inactive";
+  const check = () => {
+    const w = clean($("#w").value), box = $("#check"), btn = $("#save");
+    btn.disabled = true;
+    box.className = "p-3 rounded-xl bg-surface-container-low border border-border-subtle text-xs font-medium";
+    if (!w) { box.textContent = "Gõ một từ để kiểm tra."; return null; }
+    if (!/^[㐀-鿿豈-﫿]+$/.test(w)) {
+      box.className = "p-3 rounded-xl bg-cinnabar-subtle border border-primary/30 text-xs font-medium text-primary";
+      box.textContent = "Chỉ nhập chữ Hán Phồn thể chuẩn.";
+      return null;
     }
-    if (connBlock) connBlock.hidden = !isConn;
-    if (unconnBlock) unconnBlock.hidden = isConn;
-    if (isConn) {
-      const gid = $("#displayGistId"); if (gid) gid.textContent = cfg.gistId;
-      const editGid = $("#replaceGistId"); if (editGid && !editGid.value) editGid.value = cfg.gistId;
-      const lsync = $("#displayLastSync");
-      if (lsync) {
-        const state = Sync.getStatus();
-        lsync.textContent = state && state.status === "error"
-          ? `Đồng bộ lỗi: ${state.detail}. Lần thành công gần nhất: ${cfg.lastSync ? new Date(cfg.lastSync).toLocaleString("vi-VN") : "chưa có"}`
-          : cfg.lastSync ? `Đồng bộ lần cuối: ${new Date(cfg.lastSync).toLocaleString("vi-VN")}` : "Chưa đồng bộ";
-      }
-      const chk = $("#autoSyncCheck"); if (chk) chk.checked = cfg.autoSync;
+    const n = S.noteByWord.get(w);
+    const e = cedFirst(w);
+    btn.disabled = false;
+    if ([...S.inbox.values()].some((x) => x.w === w)) {
+      box.className = "p-3 rounded-xl bg-amber-subtle border border-amber-subtle text-xs font-medium text-tertiary";
+      box.textContent = "Bạn đã nhập từ này vào Hộp thư rồi.";
+      btn.disabled = true;
+      return null;
     }
-  }
-  updateSyncView();
-
-  const btnConn = $("#btnConnectGist");
-  if (btnConn) {
-    btnConn.onclick = async () => {
-      const token = ($("#ghTokenInput")?.value || "").trim();
-      const msg = $("#gistMsg");
-      if (!token) {
-        if (msg) { msg.textContent = "Vui lòng dán GitHub Token."; msg.className = "msg err"; }
-        return;
-      }
-      btnConn.disabled = true;
-      if (msg) { msg.textContent = "Đang kết nối GitHub và tạo kho đồng bộ..."; msg.className = "msg"; }
-      try {
-        await Sync.connectWithToken(token, $("#ghGistIdInput").value.trim());
-        if (msg) { msg.textContent = "✓ Kết nối thành công!"; msg.className = "msg"; }
-        updateSyncView();
-      } catch (err) {
-        if (msg) { msg.textContent = "Không kết nối được: " + err.message; msg.className = "msg err"; }
-      } finally {
-        btnConn.disabled = false;
-      }
-    };
-  }
-
-  const btnReplace = $("#btnReplaceToken");
-  if (btnReplace) btnReplace.onclick = async () => {
-    const token = $("#replaceToken").value.trim();
-    const msg = $("#replaceTokenMsg");
-    if (!token) { msg.textContent = "Hãy dán token mới."; return; }
-    btnReplace.disabled = true;
-    msg.textContent = "Đang kiểm tra Gist cũ...";
-    try {
-      await Sync.connectWithToken(token, $("#replaceGistId").value.trim());
-      $("#replaceToken").value = "";
-      msg.textContent = "Đã kết nối và đồng bộ lại.";
-      updateSyncView();
-    } catch (err) {
-      msg.textContent = "Chưa kết nối được: " + err.message;
-      updateSyncView();
-    } finally {
-      btnReplace.disabled = false;
+    if (n) {
+      box.className = "p-3 rounded-xl bg-jade-subtle border border-secondary/30 text-xs font-medium text-secondary";
+      box.innerHTML = `✓ Từ này đã có trong bảng chuẩn <strong>TOCFL ${esc(bandsOf(n).join(" · ") || "")}</strong>: <span class="font-serif font-bold">${esc(n.w)}</span> (${esc(itemOf(n).py)}) — ${esc(meaningOf(n))}`;
+      return { n, w };
     }
+    if (e) {
+      box.className = "p-3 rounded-xl bg-surface-container text-xs font-medium text-on-surface";
+      box.innerHTML = `Chưa có trong TOCFL, nhưng có trong CC-CEDICT: <span class="font-serif font-bold">${esc(w)}</span> (${esc(e[0][0])}) — ${esc(e[0][1].split("/").join("; "))}`;
+      return { w, py: e[0][0], en: e[0][1].split("/").join("; ") };
+    }
+    box.className = "p-3 rounded-xl bg-surface-container-low border border-border-subtle text-xs font-medium text-outline";
+    box.textContent = "Từ mới hoàn toàn (chưa có trong bảng TOCFL và CC-CEDICT).";
+    return { w };
   };
 
-  const btnDisc = $("#btnDisconnectSync");
-  if (btnDisc) {
-    btnDisc.onclick = async () => {
-      if (confirm("Bạn có chắc muốn ngắt kết nối đồng bộ trên máy này?")) {
-        await Sync.disconnect();
-        updateSyncView();
-      }
-    };
-  }
+  $("#w").oninput = check;
 
-  const btnSyncNow = $("#btnSyncNow");
-  if (btnSyncNow) {
-    btnSyncNow.onclick = async () => {
-      btnSyncNow.disabled = true;
-      const lsync = $("#displayLastSync");
-      if (lsync) lsync.textContent = "Đang đồng bộ...";
-      try {
-        await Sync.syncNow();
-        updateSyncView();
-      } catch (err) {
-        alert("Lỗi đồng bộ: " + err.message);
-      } finally {
-        btnSyncNow.disabled = false;
-      }
-    };
-  }
+  const drawInbox = () => {
+    const list = $("#ilist");
+    if (!list) return;
+    const items = [...S.inbox.values()].sort((a, b) => b.at - a.at);
+    if (!items.length) {
+      list.innerHTML = `<div class="col-span-full p-6 text-center text-xs text-outline">Chưa có từ nào trong Hộp thư.</div>`;
+      return;
+    }
+    list.innerHTML = items.map((it) => `
+      <div class="p-3.5 rounded-xl bg-surface-container-low border border-border-subtle flex items-start justify-between gap-2">
+        <div class="flex flex-col min-w-0">
+          <div class="flex items-center gap-2">
+            <a href="#tu/${encodeURIComponent(it.w)}" class="font-serif font-bold text-lg text-on-surface hover:text-primary">${esc(it.w)}</a>
+            ${it.py ? `<span class="font-code text-xs text-tertiary">${esc(it.py)}</span>` : ''}
+            <button type="button" class="text-secondary hover:text-primary" onclick="say('${esc(it.w)}')" title="Nghe phát âm">
+              <span class="material-symbols-outlined text-[16px]">volume_up</span>
+            </button>
+          </div>
+          ${it.where ? `<div class="text-[11px] text-outline truncate">Gặp ở: ${esc(it.where)}</div>` : ''}
+          ${it.note ? `<div class="text-[11px] text-on-surface-variant line-clamp-1">${esc(it.note)}</div>` : ''}
+        </div>
+        <button type="button" class="text-xs text-primary hover:underline font-medium shrink-0" data-del-inbox="${esc(it.id)}">Xóa</button>
+      </div>
+    `).join('');
 
-  const btnPhone = $("#btnShowPhoneConnect");
-  const btnCopyUrl = $("#btnCopyPhoneUrl");
-  if (btnCopyUrl) {
-    btnCopyUrl.onclick = async () => {
-      const url = $("#phoneSetupUrl")?.value;
-      if (!url) return;
-      try {
-        await navigator.clipboard.writeText(url);
-        const m = $("#copyPhoneUrlMsg");
-        if (m) { m.textContent = "✓ Đã copy link!"; setTimeout(() => { m.textContent = ""; }, 3000); }
-      } catch (e) {
-        $("#phoneSetupUrl")?.select();
-        document.execCommand("copy");
-        const m = $("#copyPhoneUrlMsg");
-        if (m) { m.textContent = "✓ Đã copy link!"; setTimeout(() => { m.textContent = ""; }, 3000); }
-      }
-    };
-  }
-
-  const autoSyncCheck = $("#autoSyncCheck");
-  if (autoSyncCheck) {
-    autoSyncCheck.onchange = async () => {
-      await Sync.saveConfig({ autoSync: autoSyncCheck.checked });
-    };
-  }
-
-  const btnCopyFast = $("#btnCopyFastCode");
-  if (btnCopyFast) {
-    btnCopyFast.onclick = async () => {
-      const msg = $("#fastCodeMsg");
-      try {
-        const code = await Sync.generateFastCode();
-        await navigator.clipboard.writeText(code);
-        if (msg) { msg.textContent = `✓ Đã sao chép mã tiến độ (${fmt(code.length)} ký tự) vào bộ nhớ tạm! Bạn có thể dán gửi qua Zalo sang điện thoại.`; msg.className = "msg"; }
-      } catch (err) {
-        if (msg) { msg.textContent = "Lỗi khi tạo mã: " + err.message; msg.className = "msg err"; }
-      }
-    };
-  }
-
-  const btnShareFast = $("#btnShareFastCode");
-  if (btnShareFast) {
-    btnShareFast.onclick = async () => {
-      const msg = $("#fastCodeMsg");
-      try {
-        const code = await Sync.generateFastCode();
-        if (navigator.share) {
-          await navigator.share({
-            title: "Tiến độ học tiếng Hoa",
-            text: code,
-          });
-          if (msg) { msg.textContent = "✓ Đã chia sẻ mã thành công!"; msg.className = "msg"; }
-        } else {
-          await navigator.clipboard.writeText(code);
-          if (msg) { msg.textContent = "Trình duyệt không hỗ trợ chia sẻ trực tiếp, đã copy mã vào clipboard!"; msg.className = "msg"; }
-        }
-      } catch (err) {
-        if (err.name !== "AbortError" && msg) { msg.textContent = "Lỗi: " + err.message; msg.className = "msg err"; }
-      }
-    };
-  }
-
-  const btnApplyFast = $("#btnApplyFastCode");
-  if (btnApplyFast) {
-    btnApplyFast.onclick = async () => {
-      const code = ($("#pasteFastCodeInput")?.value || "").trim();
-      const msg = $("#fastCodeMsg");
-      if (!code) {
-        if (msg) { msg.textContent = "Vui lòng dán mã vào ô trước khi bấm áp dụng."; msg.className = "msg err"; }
-        return;
-      }
-      btnApplyFast.disabled = true;
-      try {
-        const count = await Sync.applyFastCode(code);
-        if (msg) { msg.textContent = `✓ Đã gộp thành công ${fmt(count)} thẻ từ mã tiến độ!`; msg.className = "msg"; }
-        $("#pasteFastCodeInput").value = "";
-      } catch (err) {
-        if (msg) { msg.textContent = "Không áp dụng được: " + err.message; msg.className = "msg err"; }
-      } finally {
-        btnApplyFast.disabled = false;
-      }
-    };
-  }
-
-  $("#npd").value = String(S.settings.newPerDay || 20); $("#npd").onchange = async (e) => { S.settings.newPerDay = Number(e.target.value); await saveSettings(); };
-  $("#rpd").value = String(S.settings.reviewPerDay || 50); $("#rpd").onchange = async (e) => { S.settings.reviewPerDay = Number(e.target.value); await saveSettings(); };
-  $("#theme").value = getTheme(); $("#theme").onchange = (e) => setTheme(e.target.value);
-  $("#rubyOn").checked = S.settings.ruby !== false; $("#rubyOn").onchange = async (e) => { S.settings.ruby = e.target.checked; await saveSettings(); };
-  document.querySelectorAll("[data-deck]").forEach((c) => (c.onchange = async () => { S.settings.decks[c.dataset.deck] = c.checked; await saveSettings(); }));
-  document.querySelectorAll("[data-band]").forEach((c) => (c.onchange = async () => { S.settings.bands[c.dataset.band] = c.checked; await saveSettings(); }));
-  $("#vinfo").textContent = !("speechSynthesis" in window) ? "Trình duyệt này không đọc được thành tiếng." : voice ? `Đang dùng giọng ${voice.name} (${voice.lang}).` : "Chưa thấy giọng tiếng Hoa. Trên điện thoại, vào Cài đặt › Chuyển văn bản thành giọng nói và tải giọng 中文 (台灣).";
-  $("#backup").onclick = async () => {
-    const data = await Store.exportAll(); data.kv = Object.assign(data.kv || {}, { settings: Store.publicSettings(S.settings) });
-    const blob = new Blob([JSON.stringify(data)], { type: "application/json" }); const a = document.createElement("a");
-    a.href = URL.createObjectURL(blob); a.download = `so-hoc-tieng-hoa-sao-luu-${dayKey(Date.now())}.json`; document.body.appendChild(a); a.click(); a.remove();
-    $("#bmsg").textContent = `Đã tạo file sao lưu (${fmt(Object.keys(data.srs).length)} thẻ có tiến độ). Cất file vào Google Drive.`;
+    list.querySelectorAll("[data-del-inbox]").forEach(btn => {
+      btn.onclick = async () => {
+        const id = btn.dataset.delInbox;
+        S.inbox.delete(id);
+        await Store.del("inbox", id);
+        drawInbox();
+      };
+    });
   };
-  $("#restore").onchange = async (e) => { const f = e.target.files[0]; if (!f) return;
-    try { const data = JSON.parse(await f.text()); const mode = document.querySelector("input[name=rmode]:checked").value; await Store.importAll(data, mode); await loadProgress();
-      $("#bmsg").textContent = `Đã khôi phục ${fmt(Object.keys(data.srs || {}).length)} thẻ từ ${f.name}.`; }
-    catch (err) { $("#bmsg").textContent = "Không khôi phục được: " + err.message; } };
-  const btnReload = $("#btnForceReload");
-  if (btnReload) {
-    btnReload.onclick = async () => {
-      btnReload.disabled = true;
-      try {
-        if ("caches" in window) {
-          const ks = await caches.keys();
-          await Promise.all(ks.map((k) => caches.delete(k)));
-        }
-        if ("serviceWorker" in navigator) {
-          const regs = await navigator.serviceWorker.getRegistrations();
-          for (const r of regs) await r.unregister();
-        }
-      } catch (e) {}
-      location.reload(true);
-    };
-  }
+
+  $("#f").onsubmit = async (e) => {
+    e.preventDefault();
+    const c = check();
+    if (!c) return;
+    const id = "inbox~" + Date.now();
+    const entry = { id, w: c.w, py: c.py || (c.n ? itemOf(c.n).py : ""), where: clean($("#where").value), note: clean($("#note").value), at: Date.now() };
+    await Store.put("inbox", id, entry);
+    S.inbox.set(id, entry);
+    $("#w").value = "";
+    $("#where").value = "";
+    $("#note").value = "";
+    $("#msg").textContent = `✓ Đã lưu từ "${c.w}" vào Hộp thư.`;
+    check();
+    drawInbox();
+  };
+
+  drawInbox();
 };
-async function saveSettings() { await Store.put("kv", "settings", JSON.parse(JSON.stringify(S.settings))); updateBadge(); }
-async function loadProgress() {
-  S.srs = await Store.all("srs"); S.stats = await Store.all("stats"); S.inbox = await Store.all("inbox");
-  const kv = await Store.all("kv"); S.packs = kv.get("packs") || []; if (kv.get("settings")) S.settings = Object.assign({ newPerDay: 20, reviewPerDay: 50, decks: {}, bands: {}, extra: {}, ruby: true, syncToken: "", syncGistId: "", autoSync: true, lastSyncTime: "" }, kv.get("settings"));
-}
-// theme lives in localStorage so it applies before the page paints (see index.html)
-function getTheme() { try { return localStorage.getItem("shth-theme") || "light"; } catch (e) { return "light"; } }
-function setTheme(v) { try { localStorage.setItem("shth-theme", v); } catch (e) {} document.documentElement.dataset.theme = v; }
+
+// =========================================================================
+// 9. CÀI ĐẶT & ĐỒNG BỘ ĐA THIẾT BỊ (Stitch Design)
+// =========================================================================
+VIEWS["cai-dat"] = () => {
+  const syncCfg = window.Sync ? Sync.getConfig() : {};
+  const isConnected = window.Sync && Sync.isConfigured();
+  const vocab = S.notes.filter(n => n.kind === "vocab");
+
+  setView(`
+    <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin py-space-xl flex flex-col gap-space-xl">
+      <!-- Page Header -->
+      <div class="flex flex-col gap-space-xs">
+        <div class="flex items-center gap-space-xs text-primary font-label-sm text-xs font-semibold tracking-wider uppercase">
+          <span class="w-1.5 h-3.5 bg-primary-container rounded-full"></span>
+          <span>Thiết lập &amp; Đám mây • 系統設定</span>
+        </div>
+        <h1 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
+          Cài đặt hệ thống &amp; Đồng bộ
+        </h1>
+        <p class="font-body-md text-sm text-on-surface-variant">
+          Quản lý tiến độ học tập, kết nối tự động 2 chiều qua GitHub Gist và thiết lập mục tiêu cá nhân.
+        </p>
+      </div>
+
+      <!-- SECTION 1: CLOUD SYNC & FAST CODE SYNC -->
+      <section class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-lg">
+        <div class="flex items-center justify-between pb-space-sm border-b border-border-subtle">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-secondary text-[22px]">cloud_sync</span>
+            <h2 class="font-headline-md text-lg font-bold text-on-surface">Đồng bộ tiến độ giữa điện thoại &amp; máy tính</h2>
+          </div>
+          <span class="text-xs px-2.5 py-1 rounded-full font-semibold ${isConnected ? 'bg-jade-subtle text-secondary' : 'bg-surface-container text-outline'}" id="syncStatusBadge">
+            ${isConnected ? '✓ Đã kết nối Đám mây' : 'Chưa kết nối'}
+          </span>
+        </div>
+
+        <!-- Method 1: GitHub Gist -->
+        <div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-space-sm">
+          <div class="flex items-center justify-between">
+            <h3 class="font-headline-md text-sm font-bold text-secondary">Cách 1: Tự động qua Đám mây (GitHub Gist cá nhân)</h3>
+            <span class="text-[11px] font-semibold text-secondary bg-jade-subtle px-2 py-0.5 rounded">Khuyên dùng</span>
+          </div>
+          <p class="text-xs text-on-surface-variant leading-relaxed">
+            Tiến độ tự động lưu ngầm lên Gist cá nhân của bạn mỗi khi học xong thẻ hoặc mở trang. Không bao giờ lo mất dữ liệu.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md pt-2">
+            <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
+              <span>GitHub Personal Access Token (classic, quyền gist):</span>
+              <input type="password" id="ghToken" placeholder="ghp_..." value="${esc(syncCfg.token || '')}" class="p-2.5 rounded-xl bg-paper-card border border-border-subtle text-xs font-code">
+            </label>
+            <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
+              <span>Gist ID (để trống nếu tạo mới):</span>
+              <input type="text" id="ghGistId" placeholder="Mã hash Gist..." value="${esc(syncCfg.gistId || '')}" class="p-2.5 rounded-xl bg-paper-card border border-border-subtle text-xs font-code">
+            </label>
+          </div>
+
+          <div class="flex items-center justify-between pt-2 flex-wrap gap-2">
+            <span class="text-xs text-secondary font-semibold" id="gistMsg"></span>
+            <div class="flex items-center gap-2">
+              <button type="button" class="px-4 py-2 rounded-xl bg-paper-card border border-border-subtle hover:bg-surface-container text-xs font-semibold text-on-surface" id="btnTestSync">
+                Kiểm tra kết nối
+              </button>
+              <button type="button" class="px-4 py-2 rounded-xl bg-primary-container text-white hover:bg-primary text-xs font-semibold shadow-xs" id="btnSaveSync">
+                Lưu &amp; Đồng bộ ngay
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Method 2: Fast Sync Code -->
+        <div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-space-sm">
+          <h3 class="font-headline-md text-sm font-bold text-on-surface">Cách 2: Đồng bộ nhanh bằng mã kết nối thiết bị</h3>
+          <p class="text-xs text-on-surface-variant">
+            Tạo mã thiết lập nhanh để quét hoặc dán vào trình duyệt máy khác mà không cần nhập lại Token:
+          </p>
+          <div class="flex items-center gap-2 pt-2 flex-wrap">
+            <button type="button" class="px-3.5 py-2 rounded-xl bg-paper-card border border-border-subtle hover:bg-surface-container text-xs font-semibold text-on-surface" id="btnCopyFastCode">
+              Sao chép mã đồng bộ nhanh
+            </button>
+            <div class="flex-1 min-w-[200px] flex items-center gap-2">
+              <input type="text" id="pasteFastCode" placeholder="Dán mã đồng bộ từ thiết bị kia vào đây..." class="flex-1 p-2 rounded-xl bg-paper-card border border-border-subtle text-xs font-code">
+              <button type="button" class="px-3.5 py-2 rounded-xl bg-secondary text-white hover:bg-secondary/90 text-xs font-semibold shadow-xs" id="btnApplyFastCode">
+                Áp dụng
+              </button>
+            </div>
+          </div>
+          <span class="text-xs text-secondary font-semibold" id="fastCodeMsg"></span>
+        </div>
+      </section>
+
+      <!-- SECTION 2: DAILY GOALS & PREFERENCES -->
+      <section class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-lg">
+        <div class="flex items-center justify-between pb-space-sm border-b border-border-subtle">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[22px]">tune</span>
+            <h2 class="font-headline-md text-lg font-bold text-on-surface">Mục tiêu học mỗi ngày &amp; Hiển thị</h2>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+          <label class="flex flex-col gap-1.5 p-3.5 rounded-xl bg-surface-container-low border border-border-subtle">
+            <span class="text-xs font-semibold text-on-surface">Thẻ mới mỗi ngày (newPerDay):</span>
+            <input type="number" id="setNewPerDay" min="1" max="200" value="${S.settings.newPerDay || 20}" class="p-2 rounded-xl bg-paper-card border border-border-subtle text-sm font-code font-bold text-primary">
+            <span class="text-[11px] text-outline">Giới hạn số từ mới đưa vào học mỗi ngày</span>
+          </label>
+
+          <label class="flex flex-col gap-1.5 p-3.5 rounded-xl bg-surface-container-low border border-border-subtle">
+            <span class="text-xs font-semibold text-on-surface">Chỉ tiêu ôn mỗi ngày (reviewPerDay):</span>
+            <input type="number" id="setRevPerDay" min="5" max="500" value="${S.settings.reviewPerDay || 50}" class="p-2 rounded-xl bg-paper-card border border-border-subtle text-sm font-code font-bold text-secondary">
+            <span class="text-[11px] text-outline">Dùng để tính thanh tiến độ nhiệm vụ ngày</span>
+          </label>
+        </div>
+
+        <!-- Preferences -->
+        <div class="flex flex-col gap-2 pt-2">
+          <label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low border border-border-subtle cursor-pointer">
+            <input type="checkbox" id="setRuby" ${S.settings.ruby !== false ? 'checked' : ''} class="w-4 h-4 rounded text-primary">
+            <div class="flex flex-col">
+              <span class="text-xs font-semibold text-on-surface">Hiện phiên âm Pinyin Ruby trên câu ví dụ</span>
+              <span class="text-[11px] text-outline">Gắn chữ pinyin nhỏ trên từng chữ Hán để dễ đọc</span>
+            </div>
+          </label>
+        </div>
+
+        <div class="flex justify-end pt-2">
+          <button type="button" class="px-5 py-2.5 rounded-xl bg-primary-container text-white text-xs font-semibold hover:bg-primary shadow-xs" id="btnSaveGoals">
+            Lưu thiết lập
+          </button>
+        </div>
+      </section>
+
+      <!-- SECTION 3: BACKUP, RESTORE & CACHE -->
+      <section class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-lg">
+        <div class="flex items-center justify-between pb-space-sm border-b border-border-subtle">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-outline text-[22px]">database</span>
+            <h2 class="font-headline-md text-lg font-bold text-on-surface">Sao lưu tệp JSON &amp; Bộ nhớ</h2>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+          <!-- Export -->
+          <div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col justify-between gap-2">
+            <div>
+              <h3 class="font-headline-md text-sm font-bold text-on-surface">Xuất dữ liệu dự phòng</h3>
+              <p class="text-xs text-on-surface-variant mt-0.5">Tải toàn bộ tiến độ SRS, thống kê và ghi chú về máy thành file .json.</p>
+            </div>
+            <button type="button" class="w-full py-2.5 px-4 rounded-xl bg-paper-card border border-border-subtle hover:bg-surface-container text-xs font-semibold text-on-surface text-center" id="btnExportJSON">
+              Tải file backup (.json)
+            </button>
+          </div>
+
+          <!-- Import -->
+          <div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col justify-between gap-2">
+            <div>
+              <h3 class="font-headline-md text-sm font-bold text-on-surface">Nhập tệp sao lưu</h3>
+              <p class="text-xs text-on-surface-variant mt-0.5">Phục hồi tiến độ từ file .json đã lưu trước đó.</p>
+            </div>
+            <label class="w-full py-2.5 px-4 rounded-xl bg-paper-card border border-border-subtle hover:bg-surface-container text-xs font-semibold text-on-surface text-center cursor-pointer">
+              Chọn tệp để phục hồi...
+              <input type="file" id="importFile" accept=".json,application/json" class="hidden">
+            </label>
+          </div>
+        </div>
+
+        <!-- Reset Cache Button -->
+        <div class="pt-2 border-t border-border-subtle flex items-center justify-between text-xs text-outline">
+          <span>Khởi động lại cache phiên bản ứng dụng:</span>
+          <button type="button" class="text-primary hover:underline font-semibold" id="btnClearCache">
+            Xóa cache &amp; Tải lại trang
+          </button>
+        </div>
+      </section>
+    </div>
+  `);
+
+  // Save Goals & Preferences
+  $("#btnSaveGoals").onclick = async () => {
+    S.settings.newPerDay = Math.max(1, Math.min(200, Number($("#setNewPerDay").value) || 20));
+    S.settings.reviewPerDay = Math.max(5, Math.min(500, Number($("#setRevPerDay").value) || 50));
+    S.settings.ruby = $("#setRuby").checked;
+    await saveSettings();
+    alert("✓ Đã lưu cài đặt thành công!");
+  };
+
+  // Cloud Sync
+  $("#btnSaveSync").onclick = async () => {
+    const token = $("#ghToken").value.trim();
+    const gistId = $("#ghGistId").value.trim();
+    if (!token) {
+      alert("Vui lòng nhập GitHub Token.");
+      return;
+    }
+    Sync.configure({ token, gistId, autoSync: true });
+    $("#gistMsg").textContent = "Đang đồng bộ...";
+    try {
+      await Sync.syncNow();
+      $("#gistMsg").textContent = "✓ Đồng bộ thành công!";
+      $("#syncStatusBadge").className = "text-xs px-2.5 py-1 rounded-full font-semibold bg-jade-subtle text-secondary";
+      $("#syncStatusBadge").textContent = "✓ Đã kết nối Đám mây";
+      const cfg = Sync.getConfig();
+      $("#ghGistId").value = cfg.gistId;
+    } catch (err) {
+      $("#gistMsg").textContent = "Lỗi: " + err.message;
+    }
+  };
+
+  $("#btnTestSync").onclick = async () => {
+    const token = $("#ghToken").value.trim();
+    const gistId = $("#ghGistId").value.trim();
+    if (!token) {
+      alert("Vui lòng nhập Token để kiểm tra.");
+      return;
+    }
+    Sync.configure({ token, gistId, autoSync: true });
+    $("#gistMsg").textContent = "Đang kiểm tra kết nối...";
+    try {
+      const res = await Sync.testConnection();
+      $("#gistMsg").textContent = "✓ Kết nối tốt: " + res.message;
+    } catch (e) {
+      $("#gistMsg").textContent = "Lỗi: " + e.message;
+    }
+  };
+
+  // Fast Code Sync
+  $("#btnCopyFastCode").onclick = () => {
+    if (!Sync.isConfigured()) {
+      alert("Bạn cần kết nối Gist (Cách 1) trước để tạo mã đồng bộ.");
+      return;
+    }
+    const code = Sync.getSyncCode();
+    navigator.clipboard.writeText(code).then(() => {
+      $("#fastCodeMsg").textContent = "✓ Đã sao chép mã đồng bộ vào clipboard!";
+    }).catch(() => {
+      prompt("Sao chép mã này:", code);
+    });
+  };
+
+  $("#btnApplyFastCode").onclick = async () => {
+    const code = $("#pasteFastCode").value.trim();
+    if (!code) return;
+    try {
+      Sync.applySyncCode(code);
+      await Sync.syncNow();
+      alert("✓ Đã áp dụng mã và đồng bộ thành công!");
+      VIEWS["cai-dat"]();
+    } catch (e) {
+      alert("Lỗi áp dụng mã: " + e.message);
+    }
+  };
+
+  // Export JSON
+  $("#btnExportJSON").onclick = async () => {
+    const dump = await Store.exportAll();
+    const blob = new Blob([JSON.stringify(dump, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `so-hoc-tieng-hoa-backup-${dayKey(Date.now())}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  // Import JSON
+  $("#importFile").onchange = async (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    if (!confirm("Bạn có muốn nạp dữ liệu từ file này không?")) return;
+    try {
+      const txt = await file.text();
+      const obj = JSON.parse(txt);
+      await Store.importAll(obj, "merge");
+      alert("✓ Đã nạp dữ liệu thành công! Ứng dụng sẽ tải lại.");
+      location.reload();
+    } catch (err) {
+      alert("Lỗi đọc file backup: " + err.message);
+    }
+  };
+
+  // Clear Cache
+  $("#btnClearCache").onclick = async () => {
+    if (!confirm("Thao tác này sẽ xóa cache Service Worker và tải lại bản mới nhất. Tiếp tục?")) return;
+    if ("caches" in window) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(k => caches.delete(k)));
+    }
+    location.reload(true);
+  };
+};
 
 function initSyncUI() {
   const btn = $("#headerSyncBtn");
