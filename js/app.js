@@ -1208,6 +1208,79 @@ VIEWS["muc-nho"] = (arg) => {
 // =========================================================================
 // 2. HỌC FLASHCARDS (Modern Oriental Scholarly - Stitch Design)
 // =========================================================================
+
+function playChime(success = true) {
+  try {
+    const AudioCtx = window.AudioContext || window.webkitAudioContext;
+    if (!AudioCtx) return;
+    const ctx = new AudioCtx();
+    const now = ctx.currentTime;
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    
+    if (success) {
+      // 2-tone chime: C5 (523.25Hz) -> G5 (783.99Hz)
+      osc.type = "sine";
+      osc.frequency.setValueAtTime(523.25, now);
+      osc.frequency.setValueAtTime(783.99, now + 0.1);
+      gain.gain.setValueAtTime(0.25, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.38);
+      osc.start(now);
+      osc.stop(now + 0.38);
+    } else {
+      // Gentle buzz for wrong choice: 220Hz -> 160Hz
+      osc.type = "triangle";
+      osc.frequency.setValueAtTime(220, now);
+      osc.frequency.linearRampToValueAtTime(160, now + 0.18);
+      gain.gain.setValueAtTime(0.2, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+      osc.start(now);
+      osc.stop(now + 0.18);
+    }
+  } catch (e) {
+    // AudioContext blocked or not supported
+  }
+}
+
+function getClozeChoices(targetWord, targetBand) {
+  const targetLen = [...targetWord].length;
+  const poolSameLen = [];
+  const poolOther = [];
+
+  for (const n of S.notes) {
+    if (n.kind !== "vocab" || !n.w || n.w === targetWord) continue;
+    if ([...n.w].length === targetLen) {
+      if (targetBand && inBand(n, targetBand)) {
+        poolSameLen.unshift(n.w);
+      } else {
+        poolSameLen.push(n.w);
+      }
+    } else {
+      poolOther.push(n.w);
+    }
+  }
+
+  const shuffledSame = poolSameLen.sort(() => Math.random() - 0.5);
+  const picked = new Set();
+  for (const w of shuffledSame) {
+    if (picked.size >= 3) break;
+    picked.add(w);
+  }
+
+  if (picked.size < 3) {
+    const shuffledOther = poolOther.sort(() => Math.random() - 0.5);
+    for (const w of shuffledOther) {
+      if (picked.size >= 3) break;
+      picked.add(w);
+    }
+  }
+
+  const choices = [targetWord, ...picked];
+  return choices.sort(() => Math.random() - 0.5);
+}
+
 VIEWS["hoc"] = () => {
   if (!S.session) {
     const c = todayCounts();
@@ -1386,14 +1459,91 @@ function renderCard() {
       <div class="text-xs text-outline mb-4">${it.pos ? esc(it.pos) + ' · ' : ''}Nói to phát âm rồi dùng bút viết chữ này ra giấy hoặc vẽ nét.</div>
     `;
   } else if (r.t === "clo") {
-    // CLOZE FILL-IN-THE-BLANK
-    const cz = it.e2 ? it.e2.split(it.w).join("＿".repeat([...it.w].length)) : "＿";
+    // CLOZE FILL-IN-THE-BLANK (4 Multiple Choice Options)
+    if (!r._choices) {
+      r._choices = getClozeChoices(it.w, r.n.band);
+      r._isCorrect = false;
+      r._selected = null;
+      r._wrongChoices = [];
+    }
+
+    const rawSentence = (it.e2 && it.e2.includes(it.w)) ? it.e2 : ((it.e1 && it.e1.includes(it.w)) ? it.e1 : (it.e2 || it.e1 || ""));
+    const vietSentence = (rawSentence === it.e2) ? (it.e2v || it.e1v || "") : (it.e1v || it.e2v || "");
+    const blankLength = Math.max(2, [...it.w].length);
+    const blankStr = "＿＿".repeat(Math.ceil(blankLength / 2));
+
+    let sentenceDisplay = "";
+    if (rawSentence.includes(it.w)) {
+      const parts = rawSentence.split(it.w);
+      if (r._isCorrect) {
+        sentenceDisplay = `${esc(parts[0])}<span class="inline-block px-3 py-1 rounded-xl bg-jade-subtle text-secondary font-bold border-2 border-secondary/40 text-2xl md:text-3xl shadow-xs transition-all">${esc(it.w)}</span>${esc(parts.slice(1).join(it.w))}`;
+      } else {
+        sentenceDisplay = `${esc(parts[0])}<span id="clozeBlank" class="inline-block px-4 py-1 rounded-xl bg-paper-card border-2 border-dashed border-primary text-primary font-bold min-w-[4rem] text-center tracking-widest text-xl shadow-2xs">${blankStr}</span>${esc(parts.slice(1).join(it.w))}`;
+      }
+    } else {
+      sentenceDisplay = r._isCorrect ? esc(it.w) : blankStr;
+    }
+
     frontContentHTML = `
-      <div class="font-headline-lg text-2xl md:text-3xl text-on-surface font-serif font-medium leading-relaxed max-w-2xl px-4 py-3 bg-surface-container-low rounded-xl border border-border-subtle mb-3">
-        ${esc(cz)}
+      <div class="font-headline-lg text-2xl md:text-3xl text-on-surface font-serif font-medium leading-relaxed max-w-2xl px-5 py-4 bg-surface-container-low rounded-2xl border border-border-subtle mb-2 text-center" id="clozeSentenceBox">
+        ${sentenceDisplay}
       </div>
-      <div class="text-sm text-on-surface-variant font-medium">${esc(it.e2v || '')}</div>
-      <div class="text-xs text-outline mt-1">Điền chữ Hán còn thiếu vào chỗ trống.</div>
+      ${vietSentence ? `<div class="text-sm md:text-base text-on-surface-variant font-medium text-center max-w-xl mb-1">${esc(vietSentence)}</div>` : ''}
+      <div class="text-xs text-outline mb-4 text-center">
+        ${r._isCorrect ? '✓ Đã chọn đúng từ!' : 'Chọn từ chữ Hán đúng trong 4 đáp án bên dưới:'}
+      </div>
+
+      <!-- 4 Choices Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-xl mx-auto my-2" id="clozeChoicesArea">
+        ${r._choices.map((choice, idx) => {
+          const keyLabel = ["A", "B", "C", "D"][idx];
+          const isWrong = (r._wrongChoices || []).includes(choice);
+          const isRight = r._isCorrect && (choice === it.w);
+
+          let btnCls = "cloze-opt";
+          let badgeCls = "w-7 h-7 rounded-lg flex items-center justify-center font-code text-xs font-bold transition-colors";
+          if (isRight) {
+            btnCls += " is-correct";
+            badgeCls += " bg-secondary text-white font-bold";
+          } else if (isWrong) {
+            btnCls += " is-wrong";
+            badgeCls += " bg-surface-container-high text-outline line-through";
+          } else {
+            badgeCls += " bg-surface-container text-outline group-hover:bg-primary-container group-hover:text-white";
+          }
+
+          return `
+            <button type="button"
+                    class="${btnCls}"
+                    data-cloze-val="${esc(choice)}"
+                    data-cloze-idx="${idx}"
+                    ${(isWrong || r._isCorrect) ? 'disabled' : ''}>
+              <div class="flex items-center gap-3">
+                <span class="${badgeCls}">
+                  ${isRight ? '✓' : (isWrong ? '✕' : keyLabel)}
+                </span>
+                <span class="font-serif font-bold text-2xl tracking-wide">${esc(choice)}</span>
+              </div>
+              <span class="font-code text-xs text-outline opacity-40 group-hover:opacity-100">${idx + 1}</span>
+            </button>
+          `;
+        }).join('')}
+      </div>
+
+      <!-- Feedback Area -->
+      <div id="clozeFeedback" class="min-h-[28px] text-xs font-semibold text-center mt-1">
+        ${r._isCorrect ? `
+          <span class="text-secondary font-bold inline-flex items-center gap-1.5 text-sm">
+            <span class="material-symbols-outlined text-[20px]">check_circle</span>
+            Chính xác! Nhấn phím Space hoặc bấm nút đỏ bên dưới để lật thẻ xem giải nghĩa.
+          </span>
+        ` : (r._wrongChoices && r._wrongChoices.length ? `
+          <span class="text-primary font-medium inline-flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">cancel</span>
+            Chưa đúng rồi, hãy thử chọn lại một từ khác nhé!
+          </span>
+        ` : '')}
+      </div>
     `;
   } else if (r.t === "abr") {
     // ABBREVIATION CARD
@@ -1599,6 +1749,13 @@ function renderCard() {
 
       <!-- Quick Helpful Shortcuts Pill Bar -->
       <footer class="flex flex-wrap items-center justify-center gap-space-md py-space-xs text-outline font-label-sm text-xs">
+        ${(!ss.shown && r.t === "clo") ? `
+          <div class="flex items-center gap-1">
+            <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">1 - 4</kbd>
+            <span>Chọn đáp án</span>
+          </div>
+          <span>•</span>
+        ` : ''}
         <div class="flex items-center gap-1">
           <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">Space</kbd>
           <span>Lật thẻ</span>
@@ -1608,16 +1765,47 @@ function renderCard() {
           <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">R</kbd>
           <span>Phát âm lại</span>
         </div>
-        <span>•</span>
-        <div class="flex items-center gap-1">
-          <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">1 - 5, 0</kbd>
-          <span>Chọn mức nhớ</span>
-        </div>
+        ${ss.shown ? `
+          <span>•</span>
+          <div class="flex items-center gap-1">
+            <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">1 - 5, 0</kbd>
+            <span>Chọn mức nhớ</span>
+          </div>
+        ` : ''}
       </footer>
     </div>
   `;
 
   setView(html);
+
+  // Bind cloze multiple choice buttons
+  if (!ss.shown && r.t === "clo") {
+    document.querySelectorAll(".cloze-opt").forEach((btn) => {
+      btn.onclick = () => {
+        const val = btn.dataset.clozeVal;
+        if (!val || r._isCorrect) return;
+        if (val === it.w) {
+          r._isCorrect = true;
+          r._selected = val;
+          playChime(true);
+          say(it.w);
+          renderCard();
+          const rv = $("#btnReveal");
+          if (rv) {
+            rv.classList.add("ring-4", "ring-primary/40");
+            rv.focus();
+          }
+        } else {
+          r._wrongChoices = r._wrongChoices || [];
+          if (!r._wrongChoices.includes(val)) {
+            r._wrongChoices.push(val);
+          }
+          playChime(false);
+          renderCard();
+        }
+      };
+    });
+  }
 
   // Bind stroke drawer button
   const strokeBtn = $("#btnToggleStrokes");
@@ -1669,8 +1857,8 @@ function renderCard() {
     });
   }
 
-  // Auto-play audio on question side
-  if (!ss.shown && r.n.kind !== "grammar" && r.t !== "wri") {
+  // Auto-play audio on question side (do not speak word before user answers cloze!)
+  if (!ss.shown && r.n.kind !== "grammar" && r.t !== "wri" && r.t !== "clo") {
     say((r.t === "rec" && (it.e1 || it.e2)) ? (it.e1 || it.e2) : it.w);
   }
 }
@@ -1701,6 +1889,20 @@ document.addEventListener("keydown", (e) => {
   if (!ss.shown && (e.key === " " || e.key === "Enter")) {
     e.preventDefault();
     reveal();
+  } else if (!ss.shown && ss.current.t === "clo") {
+    const k = e.key.toLowerCase();
+    let idx = -1;
+    if (["1", "a"].includes(k)) idx = 0;
+    else if (["2", "b"].includes(k)) idx = 1;
+    else if (["3", "c"].includes(k)) idx = 2;
+    else if (["4", "d"].includes(k)) idx = 3;
+    if (idx !== -1) {
+      e.preventDefault();
+      const targetBtn = document.querySelector(`[data-cloze-idx="${idx}"]`);
+      if (targetBtn && !targetBtn.disabled) {
+        targetBtn.click();
+      }
+    }
   } else if (ss.shown && ["0", "1", "2", "3", "4", "5", "6"].includes(e.key)) {
     e.preventDefault();
     const lvl = e.key === "6" ? 0 : Number(e.key);

@@ -458,3 +458,43 @@ rt { font-family: var(--f-code); font-size: 0.52em; font-weight: 600; color: var
   .card.split .col-b.ans { border-top: 0; padding-top: 0; border-left: 1px solid var(--border-subtle); padding-left: 22px; }
   .list.grid2 { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 24px; }
 }
+
+
+/* 4 Multiple Choice Options for Cloze Fill-in-the-blank */
+.cloze-opt {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 12px 16px !important;
+  border-radius: 14px !important;
+  border: 1.5px solid var(--border-subtle) !important;
+  background: var(--paper-card) !important;
+  cursor: pointer !important;
+  transition: all 0.16s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 1px 3px rgba(44, 42, 41, 0.04) !important;
+  text-decoration: none !important;
+  user-select: none !important;
+}
+.cloze-opt:hover:not(:disabled) {
+  border-color: var(--secondary) !important;
+  background: var(--paper-base) !important;
+  transform: translateY(-1.5px) !important;
+  box-shadow: 0 4px 12px rgba(23, 107, 75, 0.08) !important;
+}
+.cloze-opt:active:not(:disabled) {
+  transform: scale(0.98) !important;
+}
+.cloze-opt.is-correct {
+  border-color: var(--secondary) !important;
+  background: var(--jade-soft) !important;
+  color: var(--secondary) !important;
+  box-shadow: 0 0 0 2px rgba(23, 107, 75, 0.25) !important;
+}
+.cloze-opt.is-wrong {
+  border-color: var(--border-subtle) !important;
+  background: var(--cinnabar-subtle) !important;
+  color: var(--muted) !important;
+  opacity: 0.55 !important;
+  text-decoration: line-through !important;
+  pointer-events: none !important;
+}
