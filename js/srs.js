@@ -43,6 +43,32 @@ function schedule(prev, grade, now) {
   }
   return s;
 }
+// Six-level answer for ONE card. The level you press is how well you remembered this time;
+// the interval grows from the card's history and never goes past that level's range,
+// so a word reaches "Thông thạo" only after several good reviews.
+// 0 reset · 1 Mới học (quên) · 2 Nhớ tạm · 3 Nhớ lâu · 4 Thuộc lòng · 5 Thông thạo
+const LEVEL_MAX = [0, 0, 6, 20, 89, 365];
+const FIRST_IVL = [0, 0, 1, 3, 4, 7];
+function scheduleLevel(prev, level, now) {
+  if (level === 0) return freshState();
+  const s = Object.assign(freshState(), prev || {});
+  const isReview = s.state === "review";
+  s.reps += 1; s.last = now; s.step = 0;
+  if (level === 1) {
+    if (isReview) { s.lapses += 1; s.ease = Math.max(1.3, s.ease - 0.2); s.ivl = Math.max(1, Math.round(s.ivl * 0.25)); s.state = "relearn"; s.due = now + RELEARN[0]; }
+    else { s.state = "learn"; s.due = now + STEPS[0]; }
+    return s;
+  }
+  let ivl;
+  if (s.state === "relearn" && s.ivl) ivl = level === 2 ? 1 : s.ivl; // just forgot: restart from the shortened interval
+  else if (!isReview || !s.ivl) ivl = FIRST_IVL[level];
+  else if (level === 2) { s.ease = Math.max(1.3, s.ease - 0.15); ivl = Math.max(s.ivl + 1, Math.round(s.ivl * 1.2)); }
+  else if (level === 3) ivl = Math.max(s.ivl + 1, Math.round(s.ivl * s.ease));
+  else { ivl = Math.max(s.ivl + 1, Math.round(s.ivl * s.ease * (level === 4 ? 1.3 : 1.6))); s.ease = Math.min(3.5, s.ease + 0.1); }
+  ivl = Math.min(ivl, LEVEL_MAX[level]);
+  s.state = "review"; s.ivl = ivl; s.due = dayStart(now) + ivl * DAY;
+  return s;
+}
 function fmtGap(ms) {
   if (ms < 60 * MIN) return `${Math.max(1, Math.round(ms / MIN))} phút`;
   if (ms < DAY) return `${Math.round(ms / (60 * MIN))} giờ`;
