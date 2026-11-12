@@ -169,6 +169,7 @@ const Sync = (() => {
 
       await Store.importAll(remoteData, "merge");
       if (typeof loadProgress === "function") await loadProgress();
+      if (typeof syncAllInboxNotes === "function") syncAllInboxNotes();
       const mergedData = await Store.exportAll();
       mergedData.kv = Object.assign(mergedData.kv || {}, { settings: Store.publicSettings(S.settings) });
       const patchRes = await fetch(`https://api.github.com/gists/${cfg.gistId}`, {
@@ -228,6 +229,7 @@ const Sync = (() => {
     const data = JSON.parse(json);
     await Store.importAll(data, "merge");
     if (typeof loadProgress === "function") await loadProgress();
+    if (typeof syncAllInboxNotes === "function") syncAllInboxNotes();
     if (typeof updateBadge === "function") updateBadge();
     return Object.keys(data.srs || {}).length;
   }
