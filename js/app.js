@@ -3066,7 +3066,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 // =========================================================================
-// 5. TRA TỪ & CHI TIẾT TỪ (Stitch Design)
+// 5. TRA TỪ & CHI TIẾT TỪ (Stitch Design + Hanzii VIP Link & Auto-Translate)
 // =========================================================================
 VIEWS["tu-dien"] = (arg) => {
   setView(`
@@ -3196,6 +3196,39 @@ function searchDict(raw) {
   }).join("") || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Không tìm thấy từ khớp. Thử gõ chữ Hán Phồn thể hoặc pinyin không dấu.</div>`;
 }
 
+// ---------------- HỖ TRỢ DỊCH TỰ ĐỘNG CHỮ HÁN / TIẾNG ANH SANG TIẾNG VIỆT ----------------
+async function autoTranslateZhToVi(text) {
+  try {
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=zh-TW&tl=vi&dt=t&q=${encodeURIComponent(text)}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+    if (data && data[0]) {
+      return data[0].map(item => item[0]).join("").trim();
+    }
+    return "";
+  } catch (e) {
+    console.error("Auto-translate Zh->Vi error:", e);
+    return "";
+  }
+}
+
+async function autoTranslateEnToVi(text) {
+  try {
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&q=${encodeURIComponent(text)}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+    if (data && data[0]) {
+      return data[0].map(item => item[0]).join("").trim();
+    }
+    return "";
+  } catch (e) {
+    console.error("Auto-translate En->Vi error:", e);
+    return "";
+  }
+}
+
 // ---------------- CHI TIẾT TỪ VỰNG (#tu/:word) ----------------
 VIEWS["tu"] = (w) => {
   const n = S.noteByWord.get(w);
@@ -3231,11 +3264,9 @@ VIEWS["tu"] = (w) => {
                 ${it.hv ? `<span class="px-2.5 py-0.5 rounded-full bg-paper-muted text-on-surface font-code text-xs">Hán Việt: <strong>${esc(it.hv)}</strong></span>` : ''}
               </div>
               <div class="flex items-center gap-2">
-                ${n ? `
-                  <button type="button" class="px-3 py-1.5 rounded-xl text-xs font-semibold transition-colors ${inLearn ? 'bg-jade-subtle text-secondary border border-secondary/30' : 'bg-primary-container text-white hover:bg-primary'}" id="addLearn">
-                    ${inLearn ? '✓ Đang trong lịch học' : '+ Thêm vào lịch học'}
-                  </button>
-                ` : ''}
+                <button type="button" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-colors ${inLearn ? 'bg-jade-subtle text-secondary border border-secondary/30' : 'bg-primary-container text-white hover:bg-primary shadow-2xs'}" id="addLearn">
+                  ${inLearn ? '✓ Đang trong lịch học' : '+ Thêm vào lịch học'}
+                </button>
               </div>
             </div>
 
@@ -3249,13 +3280,83 @@ VIEWS["tu"] = (w) => {
               </div>
             </div>
 
-            <!-- Meaning -->
-            <div class="flex flex-col gap-1 pt-3 border-t border-border-subtle">
-              <span class="text-xs uppercase font-semibold text-outline">Nghĩa tiếng Việt</span>
-              <div class="text-xl font-headline-md text-on-surface font-semibold">
-                ${esc(it.vn || it.en || 'Chưa có định nghĩa tiếng Việt')}
+            <!-- Meaning Section & Actions -->
+            <div class="flex flex-col gap-1.5 pt-3 border-t border-border-subtle">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <span class="text-xs uppercase font-semibold text-outline">Nghĩa tiếng Việt</span>
+                <div class="flex items-center gap-2">
+                  <button type="button" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/20 border border-emerald-500/30 flex items-center gap-1 transition-colors shadow-2xs" id="btnAutoTranslate" title="Tự động dịch sang tiếng Việt">
+                    <span class="material-symbols-outlined text-[15px]">translate</span>
+                    <span>Dịch tự động</span>
+                  </button>
+                  <button type="button" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-paper-muted text-on-surface hover:bg-surface-container border border-border-subtle flex items-center gap-1 transition-colors shadow-2xs" id="btnEditMeaning">
+                    <span class="material-symbols-outlined text-[15px]">edit</span>
+                    <span>${it.vn ? 'Sửa nghĩa' : '+ Thêm nghĩa TV'}</span>
+                  </button>
+                </div>
               </div>
-              ${it.en ? `<div class="text-sm text-on-surface-variant font-body-sm mt-0.5">${esc(it.en)}</div>` : ''}
+
+              <!-- Main Meaning Display -->
+              <div class="text-xl font-headline-md text-on-surface font-semibold" id="meaningDisplay">
+                ${it.vn ? esc(it.vn) : (it.en ? `<span class="text-zinc-600 dark:text-zinc-400 font-normal text-base italic">${esc(it.en)} <small class="text-amber-600 not-italic block text-xs mt-1 font-sans">⚠️ Từ này chỉ mới có nghĩa tiếng Anh. Bấm "Dịch tự động" hoặc "Sửa nghĩa" để cập nhật tiếng Việt!</small></span>` : '<span class="text-outline text-base">Chưa có định nghĩa tiếng Việt. Bấm "+ Thêm nghĩa TV" để bổ sung.</span>')}
+              </div>
+              ${(it.vn && it.en) ? `<div class="text-sm text-on-surface-variant font-body-sm mt-0.5">${esc(it.en)}</div>` : ''}
+            </div>
+
+            <!-- Inline Meaning Editor (Hidden by default) -->
+            <div id="editMeaningBox" class="hidden p-4 rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-3 mt-2 transition-all">
+              <div class="flex items-center justify-between border-b border-border-subtle pb-2">
+                <span class="text-xs font-bold text-on-surface flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[16px] text-primary">edit_note</span>
+                  <span>Chỉnh sửa nghĩa Tiếng Việt & Hán Việt</span>
+                </span>
+                <button type="button" class="text-xs text-outline hover:text-on-surface" id="btnCancelEdit">Đóng ✕</button>
+              </div>
+              <div class="flex flex-col gap-1">
+                <label class="text-[11px] font-semibold text-on-surface-variant">Nghĩa tiếng Việt:</label>
+                <input id="editVn" class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-sm text-on-surface focus:outline-none focus:border-primary" value="${esc(it.vn || '')}" placeholder="VD: con nhện; loài nhện">
+              </div>
+              <div class="grid grid-cols-2 gap-2">
+                <div class="flex flex-col gap-1">
+                  <label class="text-[11px] font-semibold text-on-surface-variant">Âm Hán Việt:</label>
+                  <input id="editHv" class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-sm text-on-surface focus:outline-none focus:border-primary" value="${esc(it.hv || '')}" placeholder="VD: Tri chu">
+                </div>
+                <div class="flex flex-col gap-1">
+                  <label class="text-[11px] font-semibold text-on-surface-variant">Từ loại:</label>
+                  <input id="editPos" class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-sm text-on-surface focus:outline-none focus:border-primary" value="${esc(it.pos || '')}" placeholder="VD: Danh từ">
+                </div>
+              </div>
+              <div class="flex items-center justify-between gap-2 pt-2 border-t border-border-subtle/50">
+                <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" id="btnAutoFillTranslate">
+                  Lấy bản dịch gợi ý
+                </button>
+                <button type="button" class="px-4 py-2 rounded-xl text-xs font-bold bg-primary-container text-white hover:bg-primary transition-all shadow-2xs" id="btnSaveMeaning">
+                  Lưu vào từ điển
+                </button>
+              </div>
+            </div>
+
+            <!-- Prominent External Dictionaries Box (Hanzii VIP, Moedict, Trichdan) -->
+            <div class="p-3.5 md:p-4 rounded-2xl bg-paper-muted border border-border-subtle flex flex-col gap-2.5 mt-2">
+              <div class="flex items-center justify-between text-xs text-outline font-semibold uppercase">
+                <span class="flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[16px] text-tertiary">open_in_new</span>
+                  <span>Tra cứu nâng cao trên các từ điển lớn</span>
+                </span>
+                <span class="text-[11px] text-zinc-400">Xem dữ liệu VIP & Ngữ cảnh</span>
+              </div>
+              <div class="flex items-center gap-2 flex-wrap">
+                <a href="https://hanzii.net/search/word/${encodeURIComponent(w)}?hl=vi" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-xl bg-[#e63946]/10 hover:bg-[#e63946]/20 text-[#e63946] border border-[#e63946]/30 text-xs font-bold transition-all flex items-center gap-1.5 shadow-2xs group" title="Mở trang tra cứu trên Hanzii (dành cho tài khoản VIP)">
+                  <span class="w-2 h-2 rounded-full bg-[#e63946] group-hover:scale-125 transition-transform"></span>
+                  <span>Tra trên Hanzii VIP ↗</span>
+                </a>
+                <a href="https://www.moedict.tw/${encodeURIComponent(w)}" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface border border-border-subtle text-xs font-medium transition-all flex items-center gap-1.5" title="Từ điển chuẩn của Bộ Giáo dục Đài Loan (萌典)">
+                  <span>🇹🇼 Từ điển Đài Loan (萌典) ↗</span>
+                </a>
+                <a href="https://trichdan.net/tu-dien/han-viet/${encodeURIComponent(w)}" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface border border-border-subtle text-xs font-medium transition-all flex items-center gap-1.5" title="Tra cứu âm Hán Việt cổ điển và các từ liên quan">
+                  <span>📖 Tra Hán Việt (Trích Dẫn) ↗</span>
+                </a>
+              </div>
             </div>
 
             <!-- Examples -->
@@ -3375,12 +3476,135 @@ VIEWS["tu"] = (w) => {
     }
   });
 
+  // Action: Add to Learning (Supports both TOCFL notes & non-TOCFL words)
   const add = $("#addLearn");
-  if (add && n) {
+  if (add) {
     add.onclick = async () => {
-      S.settings.extra[n.w] = true;
-      await saveSettings();
+      if (n) {
+        if (!S.settings.extra) S.settings.extra = {};
+        S.settings.extra[n.w] = true;
+        await saveSettings();
+      } else {
+        const entry = {
+          w,
+          py: it.py,
+          note: it.vn || it.en || "",
+          hv: it.hv || "",
+          pos: it.pos || "Từ vựng",
+          where: "Từ điển tra cứu",
+          at: Date.now()
+        };
+        if (!S.inbox) S.inbox = new Map();
+        S.inbox.set("inbox_" + w, entry);
+        try {
+          await Store.put("inbox", "inbox_" + w, entry);
+        } catch (e) {}
+        if (typeof syncInboxWordToLearning === "function") {
+          syncInboxWordToLearning(entry, true);
+        }
+      }
+      if (typeof updateBadge === "function") updateBadge();
       VIEWS["tu"](w);
+    };
+  }
+
+  // Action: Meaning Edit & Auto-Translate
+  const btnEdit = $("#btnEditMeaning");
+  const editBox = $("#editMeaningBox");
+  const btnCancel = $("#btnCancelEdit");
+  const btnSave = $("#btnSaveMeaning");
+  const btnAuto = $("#btnAutoTranslate");
+  const btnAutoFill = $("#btnAutoFillTranslate");
+
+  if (btnEdit && editBox) {
+    btnEdit.onclick = () => {
+      editBox.classList.toggle("hidden");
+      if (!editBox.classList.contains("hidden")) {
+        const inp = $("#editVn");
+        if (inp) inp.focus();
+      }
+    };
+  }
+  if (btnCancel && editBox) {
+    btnCancel.onclick = () => {
+      editBox.classList.add("hidden");
+    };
+  }
+
+  async function saveCustomMeaning(word, vn, hv, pos) {
+    if (!S.vi) S.vi = new Map();
+    const prevVi = S.vi.get(word) || {};
+    const newVi = Object.assign({}, prevVi, { vn, hv, py: it.py, pos });
+    S.vi.set(word, newVi);
+
+    const entry = {
+      w: word,
+      py: it.py,
+      note: vn,
+      hv: hv || prevVi.hv || "",
+      pos: pos || prevVi.pos || "Từ vựng",
+      where: "Từ điển cá nhân",
+      at: Date.now()
+    };
+    if (!S.inbox) S.inbox = new Map();
+    S.inbox.set("inbox_" + word, entry);
+    try {
+      await Store.put("inbox", "inbox_" + word, entry);
+      await Store.put("kv", "vi_" + word, newVi);
+    } catch (e) {}
+
+    if (typeof syncInboxWordToLearning === "function") {
+      syncInboxWordToLearning(entry, false);
+    }
+    VIEWS["tu"](word);
+  }
+
+  async function doAutoTranslate() {
+    const statusEl = $("#meaningDisplay");
+    if (statusEl) statusEl.innerHTML = '<span class="text-secondary text-sm font-normal animate-pulse flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">sync</span> Đang tự động dịch nghĩa sang tiếng Việt...</span>';
+    
+    let trans = await autoTranslateZhToVi(w);
+    if ((!trans || trans.toLowerCase() === w.toLowerCase()) && it.en) {
+      const transEn = await autoTranslateEnToVi(it.en);
+      if (transEn) trans = transEn;
+    }
+    
+    if (trans) {
+      const editVn = $("#editVn");
+      if (editVn) editVn.value = trans;
+      await saveCustomMeaning(w, trans, $("#editHv") ? $("#editHv").value : "", $("#editPos") ? $("#editPos").value : "");
+    } else {
+      alert("Không thể dịch tự động lúc này. Bạn có thể bấm nút 'Tra trên Hanzii VIP' để xem nghĩa chuẩn!");
+      VIEWS["tu"](w);
+    }
+  }
+
+  if (btnAuto) btnAuto.onclick = doAutoTranslate;
+  if (btnAutoFill) {
+    btnAutoFill.onclick = async () => {
+      btnAutoFill.textContent = "Đang dịch...";
+      let trans = await autoTranslateZhToVi(w);
+      if ((!trans || trans.toLowerCase() === w.toLowerCase()) && it.en) {
+        const transEn = await autoTranslateEnToVi(it.en);
+        if (transEn) trans = transEn;
+      }
+      if (trans && $("#editVn")) {
+        $("#editVn").value = trans;
+      }
+      btnAutoFill.textContent = "Lấy bản dịch gợi ý";
+    };
+  }
+
+  if (btnSave) {
+    btnSave.onclick = async () => {
+      const vn = $("#editVn") ? $("#editVn").value.trim() : "";
+      const hv = $("#editHv") ? $("#editHv").value.trim() : "";
+      const pos = $("#editPos") ? $("#editPos").value.trim() : "";
+      if (!vn) {
+        alert("Vui lòng nhập nghĩa tiếng Việt!");
+        return;
+      }
+      await saveCustomMeaning(w, vn, hv, pos);
     };
   }
 
