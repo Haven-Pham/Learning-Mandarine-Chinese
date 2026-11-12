@@ -101,7 +101,7 @@ body {
 
 .han { font-family: var(--f-han); }
 .num { font-variant-numeric: tabular-nums; }
-a { color: var(--jade); }
+.view a:not([class]) { color: var(--jade); }
 .muted { color: var(--muted) !important; font-weight: 500 !important; }
 
 /* Navigation Tab Active States */
@@ -138,9 +138,9 @@ a { color: var(--jade); }
 .center { text-align: center; justify-content: center; }
 .panel { background: var(--paper-card); border: 1px solid var(--border-subtle); border-radius: var(--r); padding: 20px; display: grid; gap: 14px; box-shadow: 0 1px 3px rgba(44,42,41,0.03); }
 .note { font-size: 15px; color: var(--muted); background: var(--paper-card); border: 1px dashed var(--border-subtle); border-radius: var(--r); padding: 14px; }
-label { display: grid; gap: 5px; font-size: 14px; font-weight: 600; color: var(--muted); }
-input, select, textarea { font: inherit; color: var(--ink); background: var(--paper-base); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 10px 12px; width: 100%; }
-input:focus, select:focus, textarea:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(168,38,31,0.1); background: #fff; }
+.view label:not([class]) { display: grid; gap: 5px; font-size: 14px; font-weight: 600; color: var(--muted); }
+.view input:not([class]), .view select:not([class]), .view textarea:not([class]) { font: inherit; color: var(--ink); background: var(--paper-base); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 10px 12px; width: 100%; }
+.view input:not([class]):focus, .view select:not([class]):focus, .view textarea:not([class]):focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(168,38,31,0.1); background: #fff; }
 input[type=checkbox], input[type=radio] { width: auto; }
 .bigin { font-size: 20px; padding: 12px 14px; }
 .bigin.han { font-size: 28px; letter-spacing: 0.04em; }
@@ -152,8 +152,8 @@ input[type=checkbox], input[type=radio] { width: auto; }
 @media (max-width: 900px) { .row4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .row4 { grid-template-columns: 1fr; } }
 
-button, .btn, .filebtn { font: inherit; font-weight: 600; cursor: pointer; border-radius: 10px; border: 1px solid var(--border-subtle); background: var(--paper-card); color: var(--ink); padding: 9px 15px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.15s ease; }
-button:hover, .btn:hover { background: var(--paper-muted); }
+.btn, .filebtn { font: inherit; font-weight: 600; cursor: pointer; border-radius: 10px; border: 1px solid var(--border-subtle); background: var(--paper-card); color: var(--ink); padding: 9px 15px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: all 0.15s ease; }
+.btn:hover { background: var(--paper-muted); }
 button.primary, .btn.primary { background: var(--primary-container); border-color: var(--primary-container); color: #fff; }
 button.primary:hover, .btn.primary:hover { background: var(--primary); }
 button.small, .btn.small { padding: 5px 10px; font-size: 13.5px; }
@@ -595,3 +595,23 @@ rt { font-family: var(--f-code); font-size: 0.52em; font-weight: 600; color: var
   background: rgba(0,0,0,0.06) !important;
   margin-top: 4px !important;
 }
+
+
+/* Stitch Design Helpers */
+.hanzi-grid, .mi-zi-ge {
+  background-color: #FAF6F0;
+  background-image:
+    linear-gradient(to right, rgba(141, 112, 108, 0.16) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(141, 112, 108, 0.16) 1px, transparent 1px),
+    linear-gradient(45deg, transparent 49.5%, rgba(141, 112, 108, 0.12) 49.5%, rgba(141, 112, 108, 0.12) 50.5%, transparent 50.5%),
+    linear-gradient(-45deg, transparent 49.5%, rgba(141, 112, 108, 0.12) 49.5%, rgba(141, 112, 108, 0.12) 50.5%, transparent 50.5%);
+  background-size: 100% 100%;
+}
+.paper-card {
+  background: #FFFFFF;
+  border: 1px solid #EBE2D8;
+  box-shadow: 0 2px 10px -2px rgba(29, 27, 26, 0.04);
+}
+.custom-scrollbar::-webkit-scrollbar, .exam-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
+.custom-scrollbar::-webkit-scrollbar-track, .exam-scroll::-webkit-scrollbar-track { background: #f2edeb; border-radius: 9999px; }
+.custom-scrollbar::-webkit-scrollbar-thumb, .exam-scroll::-webkit-scrollbar-thumb { background: #d5c5c0; border-radius: 9999px; }

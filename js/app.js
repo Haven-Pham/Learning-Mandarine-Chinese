@@ -475,9 +475,9 @@ function route() {
   const [name, ...rest] = h.split("/"); const arg = rest.join("/");
   document.querySelectorAll("[data-view]").forEach((a) => {
     if (a.dataset.view === name || 
-       (name === "tu" && a.dataset.view === "tu-dien") ||
+       ((name === "tu" || name === "nhap") && a.dataset.view === "tu-dien") ||
        (name === "muc-nho" && a.dataset.view === "trang-chu") ||
-       (name === "thu-muc" && a.dataset.view === "thu-muc") ||
+       ((name === "thu-muc" || name === "hoc" || name === "loc-nhanh") && a.dataset.view === "thu-muc") ||
        (name === "ngu-phap" && a.dataset.view === "ngu-phap")) {
       a.setAttribute("aria-current", "page");
     } else {
@@ -860,7 +860,7 @@ function weightOf(tokens) {
 
 
 // =========================================================================
-// 1. TRANG CHỦ (Modern Oriental Scholarly - Stitch Design)
+// 1. TRANG CHỦ (Modern Oriental Scholarly - Exact Stitch Design)
 // =========================================================================
 VIEWS["trang-chu"] = () => {
   const vocab = S.notes.filter((n) => n.kind === "vocab");
@@ -873,8 +873,12 @@ VIEWS["trang-chu"] = () => {
 
   const targetNew = Math.max(1, Number(S.settings.newPerDay || 8));
   const targetRev = Math.max(1, Number(S.settings.reviewPerDay || 30));
+  const totalGoal = targetNew + targetRev;
   const reviewedToday = Math.max(0, st.reviews - st.newCards);
+  const doneToday = st.reviews;
+  const pctOverall = Math.min(100, Math.round((doneToday / Math.max(1, totalGoal)) * 100));
   const studyMinutes = Math.max(1, Math.round(st.reviews * 0.45));
+  const estMinutes = Math.max(5, Math.round(c.total * 0.25));
 
   // 3 Tasks Progress Calculations
   const task1Done = st.reviews > 0;
@@ -886,28 +890,44 @@ VIEWS["trang-chu"] = () => {
   const task3Pct = Math.min(100, Math.round((st.newCards / targetNew) * 100));
   const task3Done = st.newCards >= targetNew || (c.fresh === 0 && st.newCards > 0);
 
-  // 30 days matrix for heatmap
+  // TOCFL B1 stats for Stitch Pathway widget
+  const b1Notes = vocab.filter((n) => inBand(n, "B1"));
+  const b1Total = Math.max(1, b1Notes.length);
+  const b1Learned = b1Notes.filter((n) => noteLevel(n) > 0).length;
+  const b1Pct = Math.round((b1Learned / b1Total) * 100);
+  const b1Remain = Math.max(0, b1Total - b1Learned);
+
+  // 30 days matrix for Stitch Heatmap (3 rows x 10 cols = 30 days)
   const today = new Date(dayStart(Date.now()));
   const days30 = Array.from({ length: 30 }, (_, i) => {
     const d = new Date(today);
     d.setDate(d.getDate() - 29 + i);
     const key = dayKey(d);
     const revs = (S.stats.get(key) || {}).reviews || 0;
-    return { key, date: d.getDate(), month: d.getMonth() + 1, revs };
+    const isToday = i === 29;
+    return { key, date: String(d.getDate()).padStart(2, "0"), month: d.getMonth() + 1, revs, isToday };
   });
-  const maxDayRevs = Math.max(1, ...days30.map(d => d.revs));
+  const monthTotalRevs = days30.reduce((acc, d) => acc + d.revs, 0);
+  const activeDays30 = days30.filter((d) => d.revs > 0).length;
+  const habitPct = Math.round((activeDays30 / 30) * 1000) / 10;
+
+  // Weak words count
+  let weakCount = 0;
+  for (const n of vocab) {
+    if ((n.lapses || 0) > 0 || noteLevel(n) === 1) weakCount++;
+  }
 
   // TOCFL Band progress breakdown
   const bandList = ["Novice 1", "Novice 2", "A1", "A2", "B1", "B2", "C"];
-  const bandProgressHTML = bandList.map(b => {
-    const ns = vocab.filter(n => inBand(n, b));
-    const l = ns.filter(n => noteLevel(n) > 0).length;
+  const bandProgressHTML = bandList.map((b) => {
+    const ns = vocab.filter((n) => inBand(n, b));
+    const l = ns.filter((n) => noteLevel(n) > 0).length;
     const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
     const isLearning = !!S.settings.bands[b];
     return `
-      <div class="p-space-md rounded-2xl bg-paper-card border border-border-subtle shadow-xs flex flex-col justify-between gap-space-sm hover:border-primary/40 transition-all">
+      <div class="p-space-md rounded-xl bg-paper-card border border-border-subtle shadow-sm flex flex-col justify-between gap-space-sm hover:shadow-md transition-all">
         <div class="flex items-center justify-between">
-          <span class="font-headline-md font-bold text-on-surface text-base">TOCFL ${b}</span>
+          <span class="font-headline-md font-semibold text-on-surface text-base">TOCFL ${b}</span>
           <span class="text-xs font-semibold px-2 py-0.5 rounded-full ${isLearning ? 'bg-jade-subtle text-secondary' : 'bg-surface-container text-on-surface-variant'}">
             ${isLearning ? 'Đang học' : 'Chưa bật'}
           </span>
@@ -921,7 +941,7 @@ VIEWS["trang-chu"] = () => {
             <span class="text-primary font-bold">${pct}%</span>
           </div>
           <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
-            <div class="h-full bg-primary rounded-full transition-all duration-300" style="width:${pct}%;"></div>
+            <div class="h-full bg-primary-container rounded-full transition-all duration-300" style="width:${pct}%;"></div>
           </div>
         </div>
         <div class="flex items-center justify-between pt-2 border-t border-border-subtle/50 text-xs mt-1">
@@ -936,308 +956,449 @@ VIEWS["trang-chu"] = () => {
     `;
   }).join('');
 
-  // Personal folders
-  const mineFolders = [
-    { id: "cua-toi", name: "Thư mục của tôi", sub: "Lớp học, các đợt thi cá nhân, ngữ pháp", notes: folderNotes("cua-toi") },
-    { id: "viet-tat", name: "Từ viết tắt Đài Loan", sub: "Khẩu ngữ & cách nói tắt có nguồn từ điển", notes: folderNotes("viet-tat") }
-  ];
-  const mineFoldersHTML = mineFolders.map(f => {
-    const l = f.notes.filter(n => noteLevel(n) > 0).length;
-    const pct = f.notes.length ? Math.round((l / f.notes.length) * 100) : 0;
-    return `
-      <div class="p-space-md rounded-2xl bg-paper-card border border-border-subtle shadow-xs flex flex-col justify-between gap-space-sm hover:border-secondary/40 transition-all">
-        <div class="flex items-center justify-between">
-          <span class="font-headline-md font-bold text-on-surface text-base">${esc(f.name)}</span>
-          <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-jade-subtle text-secondary">
-            Cá nhân
-          </span>
-        </div>
-        <div class="text-xs text-on-surface-variant line-clamp-1">${esc(f.sub)}</div>
-        <div class="flex flex-col gap-1.5 mt-1">
-          <div class="flex justify-between text-xs font-medium">
-            <span class="text-outline font-code">${fmt(l)} / ${fmt(f.notes.length)} mục</span>
-            <span class="text-secondary font-bold">${pct}%</span>
-          </div>
-          <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
-            <div class="h-full bg-secondary rounded-full transition-all duration-300" style="width:${pct}%;"></div>
-          </div>
-        </div>
-        <div class="flex items-center justify-between pt-2 border-t border-border-subtle/50 text-xs mt-1">
-          <a href="#thu-muc/${encodeURIComponent(f.id)}" class="text-secondary hover:underline font-semibold">Mở thư mục →</a>
-          <a href="#nhap" class="text-xs px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-medium">+ Thêm từ</a>
-        </div>
-      </div>
-    `;
-  }).join('');
-
   setView(`
-    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin w-full py-space-lg flex flex-col gap-space-xl">
-      <!-- Top Hero Banner: East Asian Modern Scholar Scroll -->
-      <section class="relative w-full rounded-2xl overflow-hidden bg-paper-card border border-border-subtle shadow-xs p-space-lg md:p-space-xl flex flex-col md:flex-row items-center justify-between gap-space-lg">
-        <div class="flex flex-col gap-space-sm max-w-2xl">
-          <div class="flex items-center gap-space-xs text-primary font-label-sm text-xs font-semibold tracking-wider uppercase">
-            <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-            <span>Hán Ngữ Đài Loan • TOCFL 2024</span>
+    <div class="max-w-7xl mx-auto px-margin w-full py-space-lg flex flex-col gap-space-xl">
+      <!-- Top Hero Banner: East Asian Modern Scholar Scroll (Exact Stitch) -->
+      <section class="relative w-full rounded-xl overflow-hidden bg-surface-container-low shadow-sm border border-border-subtle/60">
+        <div class="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-primary-container/5 blur-3xl pointer-events-none"></div>
+        <div class="absolute -left-10 -top-10 w-64 h-64 rounded-full bg-secondary/5 blur-2xl pointer-events-none"></div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg p-space-lg lg:p-space-xl items-center relative z-10">
+          <!-- Calligraphic Quote Block -->
+          <div class="lg:col-span-8 flex flex-col gap-space-md">
+            <div class="flex items-center gap-space-sm flex-wrap">
+              <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
+              <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">Khởi tâm mỗi ngày • 每日格言</span>
+              <span class="px-space-xs py-0.5 rounded-full bg-cinnabar-subtle text-primary font-code text-code text-[11px]">Luận Ngữ • Học Nhi</span>
+            </div>
+            <div class="flex flex-col gap-space-xs">
+              <h1 class="font-display text-display text-on-surface tracking-wide leading-tight">
+                學而時習之，不亦說乎
+              </h1>
+              <p class="font-code text-body-md text-primary font-medium tracking-wide">
+                Xué ér shí xí zhī, bù yì yuè hū?
+              </p>
+              <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mt-1">
+                "Học tập rồi thường xuyên ôn luyện lại, chẳng cũng vui thích lắm sao?"
+              </p>
+            </div>
+            <div class="flex flex-wrap items-center gap-space-md pt-space-xs">
+              <div class="flex items-center gap-space-xs bg-paper-card px-space-md py-space-xs rounded-full shadow-sm border border-border-subtle/50">
+                <span class="material-symbols-outlined text-[18px] text-tertiary">local_fire_department</span>
+                <span class="font-label-md text-label-md text-on-surface">Đạt chuỗi <strong class="text-primary font-semibold">${summary.current} ngày</strong> chuyên cần</span>
+              </div>
+              <div class="flex items-center gap-space-xs bg-paper-card px-space-md py-space-xs rounded-full shadow-sm border border-border-subtle/50">
+                <span class="material-symbols-outlined text-[18px] text-secondary">verified</span>
+                <span class="font-label-md text-label-md text-on-surface">Mục tiêu: <strong class="text-secondary font-semibold">TOCFL B1 (Band 3)</strong></span>
+              </div>
+            </div>
           </div>
-          <h1 class="font-headline-lg text-3xl md:text-4xl text-on-surface font-bold tracking-tight">
-            學習本 <span class="font-normal text-on-surface-variant font-serif text-2xl md:text-3xl">| Sổ học tiếng Hoa</span>
-          </h1>
-          <div class="p-3 md:p-4 rounded-xl bg-paper-muted border-l-4 border-primary text-sm font-serif italic text-on-surface-variant leading-relaxed">
-            「學而時習之，不亦說乎。」— Học và thường xuyên ôn luyện, chẳng vui lắm sao?
+          <!-- Visual Mini Seal & Traditional Taiwanese Motif Card -->
+          <div class="lg:col-span-4 flex justify-center lg:justify-end">
+            <div class="relative w-full max-w-[280px] p-space-md rounded-xl bg-paper-card shadow-sm border border-border-subtle/60 flex flex-col gap-space-sm items-center text-center">
+              <div class="w-full h-32 rounded-lg overflow-hidden relative shadow-inner bg-gradient-to-br from-[#86090a] via-[#a8261f] to-[#176b4b]">
+                <img class="w-full h-full object-cover" alt="Traditional Taiwanese scholar academy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNrrJS5EWvXrfUfuqf6jRirtcPq8A0T9qskRMGVNUhyBYYX96nFGt7OnHUCJEtD0U0DDWu2wL17K6ib1DMsrYW6kq-V0DxW2-4ONeKvCxjTBS3dDNz4snVBmHqxJtFiQykCNVZK91j2eTjWjdoBftFeg43DtoNilEWexOB9xGWtcBMDHgj3GyjeIw4__p-RPkrwDxIYtMzmvGI_BDf9tNZ-l8NJyMPApV76iWTy1xc" onerror="this.style.display='none'">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+                <div class="absolute bottom-2 left-3 text-left">
+                  <span class="font-headline-md text-headline-md text-white font-semibold">臺灣華語</span>
+                  <p class="font-label-sm text-label-sm text-white/90">Phồn thể Đài Bắc • 拼音</p>
+                </div>
+              </div>
+              <div class="w-full flex items-center justify-between px-space-xs pt-1">
+                <span class="font-label-sm text-label-sm text-outline">Phiên âm song song</span>
+                <span class="inline-flex items-center gap-1 font-code text-code text-on-surface-variant font-medium bg-paper-muted px-2 py-0.5 rounded">Pīnyīn</span>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
-          <a href="#hoc" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-primary-container text-on-primary font-semibold hover:bg-primary transition-all shadow-sm flex items-center justify-center gap-2 text-sm">
-            <span class="material-symbols-outlined text-[20px]">play_circle</span>
-            <span>Học ngay (${fmt(c.total)} thẻ)</span>
-          </a>
-          <a href="#tu-dien" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-paper-muted text-on-surface font-semibold hover:bg-surface-container transition-all flex items-center justify-center gap-2 text-sm">
-            <span class="material-symbols-outlined text-[18px]">search</span>
-            <span>Tra từ điển</span>
-          </a>
         </div>
       </section>
 
-      <!-- Key Metrics Bento Row -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-space-md">
+      <!-- Key Metrics Bento Row (Exact Stitch 4 Cards) -->
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-space-md">
         <!-- Metric 1: Streak -->
-        <div class="p-space-md rounded-2xl bg-cinnabar-subtle/60 border border-cinnabar-subtle flex flex-col justify-between">
+        <div class="p-space-lg rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-semibold uppercase text-primary">Chuỗi học tập</span>
-            <span class="material-symbols-outlined text-primary text-[20px]">local_fire_department</span>
+            <span class="font-label-md text-label-md text-on-surface-variant">Chuỗi liên tục</span>
+            <div class="w-9 h-9 rounded-lg bg-cinnabar-subtle flex items-center justify-center">
+              <span class="material-symbols-outlined text-[20px] text-primary" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+            </div>
           </div>
-          <div class="mt-2">
-            <div class="font-headline-lg text-2xl md:text-3xl font-bold text-primary">${summary.current} <small class="text-xs font-normal">ngày</small></div>
-            <div class="text-[11px] text-on-surface-variant mt-0.5">Kỷ lục: ${summary.longest} ngày liên tục</div>
+          <div class="mt-space-md">
+            <div class="flex items-baseline gap-space-xs">
+              <span class="font-display text-display text-on-surface">${summary.current}</span>
+              <span class="font-label-md text-label-md text-on-surface-variant font-medium">ngày</span>
+            </div>
+            <p class="font-body-sm text-body-sm text-secondary mt-1 flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">trending_up</span> Kỷ lục cá nhân: ${summary.longest} ngày
+            </p>
           </div>
         </div>
-
         <!-- Metric 2: Mastered Words -->
-        <div class="p-space-md rounded-2xl bg-jade-subtle/60 border border-jade-subtle flex flex-col justify-between">
+        <div class="p-space-lg rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-semibold uppercase text-secondary">Từ đã học</span>
-            <span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+            <span class="font-label-md text-label-md text-on-surface-variant">Tổng từ đã thuộc</span>
+            <div class="w-9 h-9 rounded-lg bg-jade-subtle flex items-center justify-center">
+              <span class="material-symbols-outlined text-[20px] text-secondary" style="font-variation-settings: 'FILL' 1;">auto_stories</span>
+            </div>
           </div>
-          <div class="mt-2">
-            <div class="font-headline-lg text-2xl md:text-3xl font-bold text-secondary">${fmt(learned)} <small class="text-xs font-normal">từ</small></div>
-            <div class="text-[11px] text-on-surface-variant mt-0.5">${fmt(lv[4] + lv[5])} từ mức nhớ lâu & thông thạo</div>
+          <div class="mt-space-md">
+            <div class="flex items-baseline gap-space-xs">
+              <span class="font-display text-display text-on-surface">${fmt(learned)}</span>
+              <span class="font-label-md text-label-md text-on-surface-variant font-medium">từ vựng</span>
+            </div>
+            <p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              ${fmt(lv[4] + lv[5])} từ mức nhớ lâu & thông thạo
+            </p>
           </div>
         </div>
-
         <!-- Metric 3: Today's Target -->
-        <div class="p-space-md rounded-2xl bg-amber-subtle/60 border border-amber-subtle flex flex-col justify-between">
+        <div class="p-space-lg rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-semibold uppercase text-tertiary">Thẻ hôm nay</span>
-            <span class="material-symbols-outlined text-tertiary text-[20px]">schedule</span>
+            <span class="font-label-md text-label-md text-on-surface-variant">Mục tiêu hôm nay</span>
+            <div class="w-9 h-9 rounded-lg bg-amber-subtle flex items-center justify-center">
+              <span class="material-symbols-outlined text-[20px] text-tertiary" style="font-variation-settings: 'FILL' 1;">pie_chart</span>
+            </div>
           </div>
-          <div class="mt-2">
-            <div class="font-headline-lg text-2xl md:text-3xl font-bold text-tertiary">${fmt(c.due)} <small class="text-xs font-normal">ôn</small> · ${fmt(c.fresh)} <small class="text-xs font-normal">mới</small></div>
-            <div class="text-[11px] text-on-surface-variant mt-0.5">Đã trả lời ${fmt(st.reviews)} lượt hôm nay</div>
+          <div class="mt-space-md">
+            <div class="flex items-baseline justify-between">
+              <div class="flex items-baseline gap-space-xs">
+                <span class="font-display text-display text-on-surface">${pctOverall}</span>
+                <span class="font-label-md text-label-md text-on-surface-variant font-medium">%</span>
+              </div>
+              <span class="font-code text-body-sm text-on-surface-variant">${fmt(doneToday)}/${fmt(totalGoal)} thẻ</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-surface-container mt-2 overflow-hidden">
+              <div class="h-full bg-primary-container rounded-full transition-all duration-500" style="width: ${pctOverall}%;"></div>
+            </div>
           </div>
         </div>
-
         <!-- Metric 4: Daily Study Time -->
-        <div class="p-space-md rounded-2xl bg-paper-card border border-border-subtle flex flex-col justify-between shadow-xs">
+        <div class="p-space-lg rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
           <div class="flex items-center justify-between">
-            <span class="text-xs font-semibold uppercase text-outline">Thời lượng học</span>
-            <span class="material-symbols-outlined text-outline text-[20px]">timer</span>
+            <span class="font-label-md text-label-md text-on-surface-variant">Thời gian hôm nay</span>
+            <div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center">
+              <span class="material-symbols-outlined text-[20px] text-on-surface-variant">timer</span>
+            </div>
           </div>
-          <div class="mt-2">
-            <div class="font-headline-lg text-2xl md:text-3xl font-bold text-on-surface">~${studyMinutes} <small class="text-xs font-normal">phút</small></div>
-            <div class="text-[11px] text-on-surface-variant mt-0.5">Tổng cộng ${fmt(summary.answers)} câu đã ôn</div>
+          <div class="mt-space-md">
+            <div class="flex items-baseline gap-space-xs">
+              <span class="font-display text-display text-on-surface">${studyMinutes}</span>
+              <span class="font-label-md text-label-md text-on-surface-variant font-medium">phút</span>
+            </div>
+            <p class="font-body-sm text-body-sm text-secondary mt-1 flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">check_circle</span> Tổng ${fmt(summary.answers)} câu đã ôn
+            </p>
           </div>
         </div>
+      </section>
+
+      <!-- Main Dual Panel: Action Center (7 cols) + TOCFL Pathway Progress Widget (5 cols) -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
+        <!-- Primary Action: SRS Quick Launch -->
+        <section class="lg:col-span-7 p-space-lg lg:p-space-xl rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between gap-space-md">
+          <div class="flex flex-col gap-space-md">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-space-sm">
+                <span class="w-1 h-4 rounded-full bg-primary-container"></span>
+                <h2 class="font-headline-md text-headline-md text-on-surface">Bắt đầu học ngay</h2>
+              </div>
+              <span class="font-label-sm text-label-sm text-secondary font-semibold bg-jade-subtle px-space-sm py-0.5 rounded-full flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Sẵn sàng ôn luyện
+              </span>
+            </div>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Thuật toán Lặp lại ngắt quãng (Spaced Repetition) đã phân bổ tập thẻ tối ưu cho nhịp sinh học hôm nay của bạn.
+            </p>
+            <!-- Card Count Visual Breakdown -->
+            <div class="grid grid-cols-3 gap-space-sm my-space-xs">
+              <div class="p-space-md rounded-lg bg-cinnabar-subtle flex flex-col">
+                <span class="font-label-sm text-label-sm text-primary font-semibold">TỪ MỚI</span>
+                <span class="font-headline-lg text-headline-lg text-primary font-semibold mt-1">${fmt(c.fresh)}</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Mục tiêu: ${fmt(targetNew)}/ngày</span>
+              </div>
+              <div class="p-space-md rounded-lg bg-amber-subtle flex flex-col">
+                <span class="font-label-sm text-label-sm text-tertiary font-semibold">CẦN ÔN TẬP</span>
+                <span class="font-headline-lg text-headline-lg text-tertiary font-semibold mt-1">${fmt(c.due)}</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Đến hạn nhắc lại</span>
+              </div>
+              <div class="p-space-md rounded-lg bg-paper-muted flex flex-col">
+                <span class="font-label-sm text-label-sm text-on-surface font-semibold">TỔNG CỘNG</span>
+                <span class="font-headline-lg text-headline-lg text-on-surface font-semibold mt-1">${fmt(c.total)}</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Ước tính: ${estMinutes} phút</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-space-sm flex flex-col sm:flex-row items-center gap-space-md">
+            <button type="button" class="w-full sm:w-auto flex-1 h-12 px-space-xl rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold hover:bg-primary transition-all duration-200 shadow-sm flex items-center justify-center gap-space-sm" id="btn-start-study">
+              <span class="material-symbols-outlined text-[20px]">play_circle</span>
+              <span>Bắt đầu ôn tập (${fmt(c.total)} thẻ)</span>
+            </button>
+            <button type="button" class="w-full sm:w-auto h-12 px-space-lg rounded-lg bg-paper-muted text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-high transition-colors flex items-center justify-center gap-space-xs" id="btnToggleGoalEdit">
+              <span class="material-symbols-outlined text-[18px] text-outline">tune</span>
+              <span>Tùy chỉnh số lượng</span>
+            </button>
+          </div>
+
+          <!-- Collapsible Goal Edit Box -->
+          <div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-space-md" id="goalEditBox" hidden>
+            <div class="flex items-center justify-between">
+              <span class="font-label-md text-sm font-semibold text-on-surface">Đặt mục tiêu học tập mỗi ngày:</span>
+              <span class="text-xs text-outline">Tự do tăng/giảm thẻ theo thời gian của bạn</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+              <div class="bg-paper-card p-3 rounded-xl border border-border-subtle flex flex-col gap-2">
+                <label class="text-xs font-semibold text-on-surface-variant">Thẻ mới mỗi ngày (tối đa 200):</label>
+                <div class="flex items-center gap-2">
+                  <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-primary font-bold text-base flex items-center justify-center btn-stepper" data-step="new" data-delta="-5">-</button>
+                  <input type="number" id="goalNewCards" min="1" max="200" value="${targetNew}" class="flex-1 py-1 px-3 text-center rounded-lg border border-border-subtle font-code font-bold text-primary text-base">
+                  <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-primary font-bold text-base flex items-center justify-center btn-stepper" data-step="new" data-delta="5">+</button>
+                </div>
+              </div>
+              <div class="bg-paper-card p-3 rounded-xl border border-border-subtle flex flex-col gap-2">
+                <label class="text-xs font-semibold text-on-surface-variant">Chỉ tiêu ôn thẻ mỗi ngày (tối đa 500):</label>
+                <div class="flex items-center gap-2">
+                  <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-jade-subtle text-secondary font-bold text-base flex items-center justify-center btn-stepper" data-step="rev" data-delta="-10">-</button>
+                  <input type="number" id="goalReviewCards" min="5" max="500" value="${targetRev}" class="flex-1 py-1 px-3 text-center rounded-lg border border-border-subtle font-code font-bold text-secondary text-base">
+                  <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-jade-subtle text-secondary font-bold text-base flex items-center justify-center btn-stepper" data-step="rev" data-delta="10">+</button>
+                </div>
+              </div>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap text-xs">
+              <span class="text-outline font-medium">Gợi ý nhanh:</span>
+              <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-secondary-fixed text-secondary border border-secondary/30 btn-preset font-semibold" data-new="8" data-rev="30">🎯 Band B Khuyến nghị (8 mới / 30 ôn)</button>
+              <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle btn-preset" data-new="5" data-rev="20">🌱 Nhẹ nhàng (5 mới / 20 ôn)</button>
+              <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-primary border border-primary/30 btn-preset" data-new="15" data-rev="50">🚀 Tăng tốc (15 mới / 50 ôn)</button>
+            </div>
+            <div class="flex items-center justify-between pt-2 border-t border-border-subtle">
+              <span class="text-xs text-secondary font-semibold" id="goalSaveMsg"></span>
+              <div class="flex items-center gap-2">
+                <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-medium text-outline hover:text-on-surface" id="btnCancelGoal">Đóng</button>
+                <button type="button" class="px-4 py-1.5 rounded-lg text-xs font-semibold bg-primary-container text-white hover:bg-primary shadow-xs" id="btnSaveGoal">Lưu mục tiêu</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 Compact Daily Missions Row -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-1 border-t border-border-subtle/50">
+            <div class="p-2.5 rounded-lg bg-paper-muted/70 flex items-center justify-between text-xs">
+              <span class="font-medium text-on-surface">1. Giữ chuỗi (${summary.current}d)</span>
+              <span class="font-code font-bold ${task1Done ? 'text-secondary' : 'text-primary'}">${task1Pct}%</span>
+            </div>
+            <div class="p-2.5 rounded-lg bg-paper-muted/70 flex items-center justify-between text-xs">
+              <span class="font-medium text-on-surface">2. Ôn thẻ (${reviewedToday}/${targetRev})</span>
+              <span class="font-code font-bold ${task2Done ? 'text-secondary' : 'text-primary'}">${task2Pct}%</span>
+            </div>
+            <div class="p-2.5 rounded-lg bg-paper-muted/70 flex items-center justify-between text-xs">
+              <span class="font-medium text-on-surface">3. Từ mới (${st.newCards}/${targetNew})</span>
+              <span class="font-code font-bold ${task3Done ? 'text-secondary' : 'text-primary'}">${task3Pct}%</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- TOCFL Pathway Progress Widget (Exact Stitch 5 cols) -->
+        <section class="lg:col-span-5 p-space-lg rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between">
+          <div class="flex flex-col gap-space-md">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-space-sm">
+                <span class="w-1 h-4 rounded-full bg-secondary"></span>
+                <h2 class="font-headline-md text-headline-md text-on-surface">Lộ trình TOCFL</h2>
+              </div>
+              <span class="font-code text-code text-on-surface-variant bg-surface-container px-2 py-0.5 rounded">Band B • Tiến cấp</span>
+            </div>
+            <div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-space-sm">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-space-xs">
+                  <span class="w-6 h-6 rounded bg-primary-container text-on-primary font-code text-code flex items-center justify-center font-semibold">B1</span>
+                  <span class="font-label-md text-label-md text-on-surface font-semibold">TOCFL Tiến cấp (Band B1)</span>
+                </div>
+                <span class="font-code text-body-sm text-primary font-semibold">${b1Pct}%</span>
+              </div>
+              <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+                <div class="h-full bg-secondary rounded-full transition-all duration-500" style="width: ${b1Pct}%;"></div>
+              </div>
+              <div class="flex items-center justify-between font-body-sm text-body-sm text-on-surface-variant pt-1">
+                <span>Đã hoàn tất: <strong>${fmt(b1Learned)}</strong> / ${fmt(b1Total)} từ</span>
+                <span>Còn ${fmt(b1Remain)} từ</span>
+              </div>
+            </div>
+            <!-- Next Milestone Preview -->
+            <div class="flex items-center justify-between p-space-md rounded-lg bg-paper-muted">
+              <div class="flex items-center gap-space-sm">
+                <span class="w-6 h-6 rounded bg-outline text-white font-code text-code flex items-center justify-center font-semibold">B2</span>
+                <div class="flex flex-col">
+                  <span class="font-label-md text-label-md text-on-surface font-medium">TOCFL Cao cấp (Band B2)</span>
+                  <span class="font-body-sm text-body-sm text-outline">Yêu cầu bổ sung ~1,500 từ chuyên sâu</span>
+                </div>
+              </div>
+              <a href="#thu-muc/B2" class="text-primary hover:underline text-xs font-semibold">Mở B2 →</a>
+            </div>
+          </div>
+          <div class="pt-space-md flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant">
+            <span class="flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px] text-secondary">event</span>
+              Mục tiêu trọng tâm: Band B1 & B2
+            </span>
+            <a class="text-primary hover:underline font-medium" href="#thi-thu">Thi thử CAT →</a>
+          </div>
+        </section>
       </div>
 
-      <!-- LỘ TRÌNH HẰNG NGÀY (DAILY ROADMAP WITH 3 MISSIONS + GOAL STEPPER) -->
-      <section class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-lg">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-space-sm border-b border-border-subtle">
-          <div>
-            <div class="flex items-center gap-2">
-              <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
-              <h2 class="font-headline-md text-xl md:text-2xl font-bold text-on-surface">Lộ trình học tập hôm nay</h2>
-            </div>
-            <p class="text-xs text-on-surface-variant mt-0.5">Mục tiêu hằng ngày giúp bạn duy trì phản xạ và tiến bộ đều đặn.</p>
+      <!-- 30-Day Activity Heatmap & Habit Tracker (Exact Stitch 10-col Cinnabar Grid) -->
+      <section class="w-full p-space-lg rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+          <div class="flex items-center gap-space-sm">
+            <span class="w-1 h-4 rounded-full bg-primary-container"></span>
+            <h2 class="font-headline-md text-headline-md text-on-surface">Nhịp điệu học tập 30 ngày qua</h2>
+            <span class="font-body-sm text-body-sm text-on-surface-variant hidden md:inline">| Biểu đồ chuyên cần</span>
           </div>
-          <button type="button" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-border-subtle bg-paper-muted hover:bg-surface-container text-xs font-semibold text-on-surface transition-colors" id="btnToggleGoalEdit">
-            <span class="material-symbols-outlined text-[16px]">tune</span>
-            <span>Điều chỉnh mục tiêu</span>
-          </button>
+          <div class="flex items-center gap-space-sm text-label-sm font-label-sm text-on-surface-variant">
+            <span>Ít</span>
+            <span class="w-3 h-3 rounded bg-surface-container"></span>
+            <span class="w-3 h-3 rounded bg-cinnabar-subtle"></span>
+            <span class="w-3 h-3 rounded bg-primary-fixed-dim"></span>
+            <span class="w-3 h-3 rounded bg-primary-container"></span>
+            <span>Nhiều (≥ 60 thẻ)</span>
+          </div>
         </div>
-
-        <!-- Collapsible Goal Edit Box -->
-        <div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-space-md" id="goalEditBox" hidden>
-          <div class="flex items-center justify-between">
-            <span class="font-label-md text-sm font-semibold text-on-surface">Đặt mục tiêu học tập mỗi ngày:</span>
-            <span class="text-xs text-outline">Tự do tăng/giảm thẻ theo thời gian của bạn</span>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-            <!-- Thẻ mới input with steppers -->
-            <div class="bg-paper-card p-3 rounded-xl border border-border-subtle flex flex-col gap-2">
-              <label class="text-xs font-semibold text-on-surface-variant">Thẻ mới mỗi ngày (tối đa 200):</label>
-              <div class="flex items-center gap-2">
-                <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-primary font-bold text-base flex items-center justify-center btn-stepper" data-step="new" data-delta="-5">-</button>
-                <input type="number" id="goalNewCards" min="1" max="200" value="${targetNew}" class="flex-1 py-1 px-3 text-center rounded-lg border border-border-subtle font-code font-bold text-primary text-base">
-                <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-primary font-bold text-base flex items-center justify-center btn-stepper" data-step="new" data-delta="5">+</button>
-              </div>
+        <!-- Clean Grid Heatmap Container -->
+        <div class="overflow-x-auto pb-1">
+          <div class="min-w-[640px] flex flex-col gap-1.5">
+            <!-- Days of week indicator -->
+            <div class="grid grid-cols-10 gap-1.5 text-center font-code text-[11px] text-outline">
+              <span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span><span>CN</span><span>T2</span><span>T3</span><span>T4</span>
             </div>
-
-            <!-- Thẻ ôn input with steppers -->
-            <div class="bg-paper-card p-3 rounded-xl border border-border-subtle flex flex-col gap-2">
-              <label class="text-xs font-semibold text-on-surface-variant">Chỉ tiêu ôn thẻ mỗi ngày (tối đa 500):</label>
-              <div class="flex items-center gap-2">
-                <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-jade-subtle text-secondary font-bold text-base flex items-center justify-center btn-stepper" data-step="rev" data-delta="-10">-</button>
-                <input type="number" id="goalReviewCards" min="5" max="500" value="${targetRev}" class="flex-1 py-1 px-3 text-center rounded-lg border border-border-subtle font-code font-bold text-secondary text-base">
-                <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-jade-subtle text-secondary font-bold text-base flex items-center justify-center btn-stepper" data-step="rev" data-delta="10">+</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Presets -->
-          <div class="flex items-center gap-2 flex-wrap text-xs">
-            <span class="text-outline font-medium">Gợi ý nhanh:</span>
-            <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-secondary-fixed text-secondary border border-secondary/30 btn-preset font-semibold" data-new="8" data-rev="30">🎯 Band B Khuyến nghị (8 mới / 30 ôn)</button>
-            <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle btn-preset" data-new="5" data-rev="20">🌱 Nhẹ nhàng (5 mới / 20 ôn)</button>
-            <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-primary border border-primary/30 btn-preset" data-new="15" data-rev="50">🚀 Tăng tốc (15 mới / 50 ôn)</button>
-          </div>
-
-          <div class="flex items-center justify-between pt-2 border-t border-border-subtle">
-            <span class="text-xs text-secondary font-semibold" id="goalSaveMsg"></span>
-            <div class="flex items-center gap-2">
-              <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-medium text-outline hover:text-on-surface" id="btnCancelGoal">Đóng</button>
-              <button type="button" class="px-4 py-1.5 rounded-lg text-xs font-semibold bg-primary-container text-white hover:bg-primary shadow-xs" id="btnSaveGoal">Lưu mục tiêu</button>
+            <!-- 30 squares matrix -->
+            <div class="grid grid-cols-10 gap-1.5">
+              ${days30.map((d) => {
+                if (d.isToday) {
+                  return `
+                    <div class="h-8 rounded bg-cinnabar-subtle shadow-sm flex items-center justify-center font-code text-[11px] text-primary font-bold relative" title="Hôm nay (${d.date}/${d.month}): Đã học ${d.revs} thẻ">
+                      <span class="relative z-10">Hôm nay</span>
+                      <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-primary-container"></span>
+                    </div>
+                  `;
+                }
+                let cls = "bg-surface-container text-outline";
+                if (d.revs >= 60) cls = "bg-primary-container text-white font-medium";
+                else if (d.revs >= 30) cls = "bg-primary-fixed-dim text-primary";
+                else if (d.revs > 0) cls = "bg-cinnabar-subtle text-primary";
+                return `<div class="h-8 rounded ${cls} flex items-center justify-center font-code text-[11px]" title="Ngày ${d.date}/${d.month}: ${d.revs} thẻ">${d.date}</div>`;
+              }).join("")}
             </div>
           </div>
         </div>
-
-        <!-- 3 Tasks Grid with Individual Progress Bars -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
-          <!-- Task 1: Streak -->
-          <div class="p-space-md rounded-2xl bg-paper-muted border border-border-subtle flex flex-col justify-between gap-3">
-            <div class="flex flex-col gap-1">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-primary uppercase">Nhiệm vụ 1</span>
-                <span class="material-symbols-outlined text-[18px] ${task1Done ? 'text-secondary' : 'text-outline'}">${task1Done ? 'check_circle' : 'radio_button_unchecked'}</span>
-              </div>
-              <h3 class="font-headline-md font-bold text-base text-on-surface">Giữ chuỗi ngày học</h3>
-              <p class="text-xs text-on-surface-variant">${task1Done ? `Đã hoàn thành! Chuỗi hiện tại: ${summary.current} ngày.` : `Chưa ôn thẻ nào hôm nay. Hãy học ngay để không đứt chuỗi!`}</p>
-            </div>
-            <div class="flex flex-col gap-1">
-              <div class="flex justify-between text-xs font-semibold">
-                <span class="text-outline">Tiến độ</span>
-                <span class="${task1Done ? 'text-secondary' : 'text-primary'}">${task1Pct}%</span>
-              </div>
-              <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-                <div class="h-full rounded-full transition-all duration-300 ${task1Done ? 'bg-secondary' : 'bg-primary'}" style="width:${task1Pct}%;"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Task 2: Reviews -->
-          <div class="p-space-md rounded-2xl bg-paper-muted border border-border-subtle flex flex-col justify-between gap-3">
-            <div class="flex flex-col gap-1">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-secondary uppercase">Nhiệm vụ 2</span>
-                <span class="material-symbols-outlined text-[18px] ${task2Done ? 'text-secondary' : 'text-outline'}">${task2Done ? 'check_circle' : 'radio_button_unchecked'}</span>
-              </div>
-              <h3 class="font-headline-md font-bold text-base text-on-surface">Ôn thẻ đến hạn</h3>
-              <p class="text-xs text-on-surface-variant">${task2Done ? `Đã hoàn thành xuất sắc (${fmt(reviewedToday)}/${fmt(targetRev)} thẻ)!` : `Đã ôn ${fmt(reviewedToday)} / ${fmt(targetRev)} thẻ mục tiêu.`}</p>
-            </div>
-            <div class="flex flex-col gap-1">
-              <div class="flex justify-between text-xs font-semibold">
-                <span class="text-outline">Tiến độ</span>
-                <span class="${task2Done ? 'text-secondary' : 'text-primary'}">${task2Pct}%</span>
-              </div>
-              <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-                <div class="h-full rounded-full transition-all duration-300 ${task2Done ? 'bg-secondary' : 'bg-primary'}" style="width:${task2Pct}%;"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Task 3: Fresh Cards -->
-          <div class="p-space-md rounded-2xl bg-paper-muted border border-border-subtle flex flex-col justify-between gap-3">
-            <div class="flex flex-col gap-1">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-tertiary uppercase">Nhiệm vụ 3</span>
-                <span class="material-symbols-outlined text-[18px] ${task3Done ? 'text-secondary' : 'text-outline'}">${task3Done ? 'check_circle' : 'radio_button_unchecked'}</span>
-              </div>
-              <h3 class="font-headline-md font-bold text-base text-on-surface">Học thẻ mới hôm nay</h3>
-              <p class="text-xs text-on-surface-variant">${task3Done ? `Đã nạp đủ ${fmt(st.newCards)}/${fmt(targetNew)} thẻ mới!` : `Đã học ${fmt(st.newCards)} / ${fmt(targetNew)} thẻ mới.`}</p>
-            </div>
-            <div class="flex flex-col gap-1">
-              <div class="flex justify-between text-xs font-semibold">
-                <span class="text-outline">Tiến độ</span>
-                <span class="${task3Done ? 'text-secondary' : 'text-primary'}">${task3Pct}%</span>
-              </div>
-              <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-                <div class="h-full rounded-full transition-all duration-300 ${task3Done ? 'bg-secondary' : 'bg-primary'}" style="width:${task3Pct}%;"></div>
-              </div>
-            </div>
-          </div>
+        <div class="flex items-center justify-between pt-space-xs font-body-sm text-body-sm text-on-surface-variant">
+          <span>Tổng cộng <strong>${fmt(monthTotalRevs)} lượt ôn</strong> trong 30 ngày qua</span>
+          <span class="text-secondary font-medium">Tỷ lệ duy trì thói quen: ${habitPct}%</span>
         </div>
       </section>
 
-      <!-- 30-Day Activity Heatmap & Habit Tracker -->
-      <section class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-md">
-        <div class="flex items-center justify-between flex-wrap gap-2">
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-secondary text-[20px]">calendar_month</span>
-            <h2 class="font-headline-md text-lg md:text-xl font-bold text-on-surface">Biểu đồ thói quen 30 ngày qua</h2>
-          </div>
-          <span class="text-xs text-outline font-medium">Mỗi ô là một ngày học tập</span>
-        </div>
-        <div class="grid grid-cols-6 sm:grid-cols-10 md:grid-cols-15 gap-1.5 pt-2">
-          ${days30.map(d => {
-            const hasRevs = d.revs > 0;
-            const intensity = hasRevs ? Math.min(1, Math.max(0.2, d.revs / maxDayRevs)) : 0;
-            const bg = hasRevs ? `rgba(23, 107, 75, ${0.25 + intensity * 0.75})` : 'var(--paper-muted)';
-            const textColor = intensity > 0.6 ? '#ffffff' : 'var(--on-surface)';
-            return `
-              <div class="aspect-square rounded-lg flex flex-col items-center justify-center text-[10px] font-code transition-all hover:scale-110 shadow-2xs cursor-pointer" style="background:${bg};color:${textColor};" title="Ngày ${d.date}/${d.month}: ${d.revs} thẻ đã ôn">
-                <span class="font-bold">${d.date}</span>
-                <span class="text-[9px] opacity-80">${d.revs || ''}</span>
-              </div>
-            `;
-          }).join('')}
-        </div>
-        <div class="flex items-center justify-end gap-2 text-xs text-outline mt-1">
-          <span>Ít</span>
-          <span class="w-3 h-3 rounded bg-paper-muted"></span>
-          <span class="w-3 h-3 rounded bg-secondary/30"></span>
-          <span class="w-3 h-3 rounded bg-secondary/70"></span>
-          <span class="w-3 h-3 rounded bg-secondary"></span>
-          <span>Nhiều</span>
-        </div>
-      </section>
-
-      <!-- TOCFL Band Progress Cards -->
+      <!-- Quick Practice Modules: Taiwan Accent, Dictation, Weak Words (Exact Stitch) -->
       <section class="flex flex-col gap-space-md">
         <div class="flex items-center justify-between">
-          <div>
-            <h2 class="font-headline-md text-xl md:text-2xl font-bold text-on-surface">Khung năng lực TOCFL 2024</h2>
-            <p class="text-xs text-on-surface-variant mt-0.5">7 phân hạng từ vựng chuẩn do Bộ Giáo dục Đài Loan ban hành.</p>
+          <div class="flex items-center gap-space-sm">
+            <span class="w-1 h-4 rounded-full bg-primary-container"></span>
+            <h2 class="font-headline-md text-headline-md text-on-surface">Lối tắt luyện tập chuyên sâu</h2>
           </div>
-          <a href="#thu-muc" class="text-xs text-primary hover:underline font-semibold">Xem tất cả →</a>
+          <span class="font-label-sm text-label-sm text-outline">Bài tập vi mô 5 - 15 phút</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+          <!-- Module 1: Taiwan Voice Audio Training -->
+          <a href="#chinh-ta" class="p-space-lg rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between hover:shadow-md transition-all group cursor-pointer no-underline">
+            <div class="flex flex-col gap-space-sm">
+              <div class="w-12 h-12 rounded-lg bg-jade-subtle flex items-center justify-center group-hover:scale-105 transition-transform">
+                <span class="material-symbols-outlined text-[24px] text-secondary">hearing</span>
+              </div>
+              <h3 class="font-headline-md text-headline-md text-on-surface mt-1 group-hover:text-primary transition-colors">
+                Luyện nghe giọng Đài Loan
+              </h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                Tập phản xạ với ngữ điệu tự nhiên Đài Bắc, biến âm nhẹ (兒 hóa tối giản), tốc độ đàm thoại thực tế.
+              </p>
+            </div>
+            <div class="pt-space-md flex items-center justify-between font-label-md text-label-md text-secondary font-semibold">
+              <span>${fmt((window.DICTATION_PASSAGES || []).length || 15)} đoạn hội thoại</span>
+              <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </div>
+          </a>
+          <!-- Module 2: 10-Minute Dictation Challenge -->
+          <a href="#chinh-ta" class="p-space-lg rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between hover:shadow-md transition-all group cursor-pointer no-underline">
+            <div class="flex flex-col gap-space-sm">
+              <div class="w-12 h-12 rounded-lg bg-cinnabar-subtle flex items-center justify-center group-hover:scale-105 transition-transform">
+                <span class="material-symbols-outlined text-[24px] text-primary">draw</span>
+              </div>
+              <h3 class="font-headline-md text-headline-md text-on-surface mt-1 group-hover:text-primary transition-colors">
+                Thử thách chính tả 10 phút
+              </h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                Luyện viết đúng thứ tự nét chữ Hán Phồn thể (筆順), chống nhầm lẫn các bộ thủ tương cận.
+              </p>
+            </div>
+            <div class="pt-space-md flex items-center justify-between font-label-md text-label-md text-primary font-semibold">
+              <span>20 chữ/phiên</span>
+              <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </div>
+          </a>
+          <!-- Module 3: Weak Words / Troublemakers -->
+          <a href="#thu-muc/hay-quen" class="p-space-lg rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between hover:shadow-md transition-all group cursor-pointer no-underline">
+            <div class="flex flex-col gap-space-sm">
+              <div class="w-12 h-12 rounded-lg bg-amber-subtle flex items-center justify-center group-hover:scale-105 transition-transform">
+                <span class="material-symbols-outlined text-[24px] text-tertiary">priority_high</span>
+              </div>
+              <h3 class="font-headline-md text-headline-md text-on-surface mt-1 group-hover:text-primary transition-colors">
+                Sổ tay từ hay quên
+              </h3>
+              <p class="font-body-sm text-body-sm text-on-surface-variant">
+                Tổng hợp các từ vựng hay nhầm lẫn hoặc ở mức nhớ thấp để rèn luyện tập trung ngay.
+              </p>
+            </div>
+            <div class="pt-space-md flex items-center justify-between font-label-md text-label-md text-tertiary font-semibold">
+              <span>${fmt(weakCount)} từ cần phục hồi</span>
+              <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Cultural Reflection & Idiom of the Day (Exact Stitch) -->
+      <section class="p-space-lg rounded-xl bg-surface-container-low border border-border-subtle/60 flex flex-col md:flex-row items-center justify-between gap-space-md shadow-sm">
+        <div class="flex items-center gap-space-md">
+          <div class="w-10 h-10 rounded-full bg-paper-card flex items-center justify-center shadow-sm shrink-0">
+            <span class="material-symbols-outlined text-primary text-[20px]">lightbulb</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-label-md text-label-md text-on-surface font-semibold">Thành ngữ hôm nay: 日積月累 (Rì jī yuè lěi)</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">"Ngày tích tháng lũy" — Mỗi ngày học đều đặn, một năm bạn đã nắm vững toàn bộ vốn từ TOCFL B2.</span>
+          </div>
+        </div>
+        <a href="#tu-dien" class="shrink-0 px-space-md py-space-xs rounded-lg bg-paper-card text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors shadow-sm no-underline">
+          Xem kho thành ngữ
+        </a>
+      </section>
+
+      <!-- Khung năng lực TOCFL 2024 (Interactive Band Toggles) -->
+      <section class="flex flex-col gap-space-md">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-space-sm">
+            <span class="w-1 h-4 rounded-full bg-secondary"></span>
+            <h2 class="font-headline-md text-headline-md text-on-surface">Khung năng lực TOCFL 2024 (7 Cấp độ)</h2>
+          </div>
+          <a href="#thu-muc" class="text-xs text-primary hover:underline font-semibold">Mở Trung tâm Từ vựng →</a>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
           ${bandProgressHTML}
         </div>
       </section>
-
-      <!-- Personal Collections -->
-      <section class="flex flex-col gap-space-md">
-        <div>
-          <h2 class="font-headline-md text-xl md:text-2xl font-bold text-on-surface">Thư mục ghi chép cá nhân</h2>
-          <p class="text-xs text-on-surface-variant mt-0.5">Một từ ở nhiều thư mục vẫn là một từ duy nhất: học ở đâu cũng tính cho mọi nơi.</p>
-        </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-          ${mineFoldersHTML}
-        </div>
-      </section>
     </div>
   `);
+
+  // Start study button handler
+  const startBtn = $("#btn-start-study");
+  if (startBtn) {
+    startBtn.onclick = () => {
+      location.hash = "#hoc";
+    };
+  }
 
   // Event handlers for Goal Edit Box
   const btnToggle = $("#btnToggleGoalEdit");
@@ -1295,7 +1456,7 @@ VIEWS["trang-chu"] = () => {
   }
 
   // Band learning toggle button handlers on home page
-  document.querySelectorAll("[data-toggle-band]").forEach(btn => {
+  document.querySelectorAll("[data-toggle-band]").forEach((btn) => {
     btn.onclick = async (e) => {
       e.preventDefault();
       const b = btn.dataset.toggleBand;
@@ -2218,30 +2379,73 @@ document.addEventListener("keydown", (e) => {
 
 
 // =========================================================================
-// 3. THƯ MỤC TỪ VỰNG THEO CHỦ ĐỀ & THEO BAND (Stitch Luxury Emerald Design)
+// 3. THƯ MỤC TỪ VỰNG & FLASHCARD SRS (Exact Stitch Design + Luxury Emerald Topics)
 // =========================================================================
 VIEWS["thu-muc"] = (id) => {
-  const vocab = S.notes.filter(n => n.kind === "vocab");
+  const vocab = S.notes.filter((n) => n.kind === "vocab");
   const c = todayCounts();
 
   // -------------------------------------------------------------
   // TRƯỜNG HỢP 1: XEM CHI TIẾT MỘT THƯ MỤC CỤ THỂ (id)
   // -------------------------------------------------------------
   if (id) {
+    if (id === "hay-quen") {
+      const weakNotes = vocab.filter((n) => (n.lapses || 0) > 0 || noteLevel(n) === 1);
+      setView(`
+        <div class="max-w-7xl mx-auto px-margin py-space-lg flex flex-col gap-space-lg">
+          <div class="flex items-center gap-2">
+            <a href="#thu-muc" class="text-primary hover:underline text-sm font-semibold flex items-center gap-1">
+              <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+              <span>Trung tâm Từ vựng</span>
+            </a>
+          </div>
+          <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+            <div>
+              <h1 class="font-headline-lg text-2xl font-bold text-on-surface">Sổ tay từ hay quên (${fmt(weakNotes.length)} từ)</h1>
+              <p class="text-sm text-on-surface-variant">Các từ vựng bạn từng trả lời sai hoặc đang ở mức Mới học (Cấp 1).</p>
+            </div>
+            <a href="#hoc" class="px-4 py-2.5 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary transition-colors no-underline">Ôn tập ngay</a>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md">
+            ${weakNotes.map((n) => {
+              const it = itemOf(n);
+              const lvl = noteLevel(n);
+              return `
+                <div class="p-space-md rounded-2xl bg-paper-card border border-border-subtle shadow-xs flex flex-col justify-between gap-2">
+                  <div class="flex items-start justify-between">
+                    <div>
+                      <a href="#tu/${encodeURIComponent(it.w)}" class="font-headline-md text-2xl text-on-surface font-serif font-bold hover:text-primary">${esc(it.w)}</a>
+                      <span class="font-code text-xs text-tertiary ml-2">${esc(it.py || "")}</span>
+                    </div>
+                    <span class="pill lv-${lvl}">${esc(LEVELS[lvl])}</span>
+                  </div>
+                  <div class="text-xs text-on-surface-variant">${esc(meaningOf(n))}</div>
+                  <div class="pt-2 border-t border-border-subtle/50 flex justify-between text-xs">
+                    <span class="text-outline">Quên: ${n.lapses || 0} lần</span>
+                    <button type="button" class="text-secondary hover:underline font-semibold" onclick="startStudyWord('${esc(it.w)}')">Học từ này →</button>
+                  </div>
+                </div>
+              `;
+            }).join("") || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Tuyệt vời! Hiện chưa có từ nào trong danh sách hay quên.</div>`}
+          </div>
+        </div>
+      `);
+      return;
+    }
+
     const isBand = S.bands.includes(id);
-    const deck = S.decks.find(d => d.id === id);
+    const deck = S.decks.find((d) => d.id === id);
     const isTopic = deck && (deck.category === "topic" || deck.id.startsWith("band-"));
     const ns = folderNotes(id);
-    const title = isBand ? `TOCFL ${id} (${BAND_INFO[id] || ''})` : (id === 'cua-toi' ? 'Thư mục của tôi' : (id === 'viet-tat' ? 'Từ viết tắt' : (deck ? deck.name : id)));
+    const title = isBand ? `TOCFL ${id} (${BAND_INFO[id] || ""})` : (id === "cua-toi" ? "Thư mục của tôi" : (id === "viet-tat" ? "Từ viết tắt" : (deck ? deck.name : id)));
     const on = folderOn(id);
     const lv = [0, 0, 0, 0, 0, 0];
-    ns.forEach(n => lv[noteLevel(n)]++);
-    const learnedCount = ns.filter(n => noteLevel(n) > 0).length;
-    const unseen = ns.filter(n => n.kind === "vocab" && !hasProgress(n)).length;
-    
-    // Đếm số từ cần ôn hôm nay trong thư mục này
+    ns.forEach((n) => lv[noteLevel(n)]++);
+    const learnedCount = ns.filter((n) => noteLevel(n) > 0).length;
+    const unseen = ns.filter((n) => n.kind === "vocab" && !hasProgress(n)).length;
+
     const now = Date.now();
-    const needReviewCount = ns.filter(n => {
+    const needReviewCount = ns.filter((n) => {
       const types = typesOf(n);
       return types.some(([t]) => {
         const cid = cardId(n, t);
@@ -2250,13 +2454,12 @@ VIEWS["thu-muc"] = (id) => {
       });
     }).length;
 
-    let filterLvl = -1; // -1: all
-    let searchQuery = "";
+    let filterLvl = -1;
 
     // GIAO DIỆN CHỦ ĐỀ THEO BAND (Emerald Green Header + Dark 3-Column Grid)
     if (isTopic) {
-      const badgeCode = deck.badge || `${deck.band || 'Band A'} - ${deck.theme || '主題'}`;
-      const emojiIcon = deck.emoji || '🌻';
+      const badgeCode = deck.badge || `${deck.band || "Band A"} - ${deck.theme || "主題"}`;
+      const emojiIcon = deck.emoji || "🌻";
 
       setView(`
         <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-md md:py-space-lg flex flex-col gap-space-md">
@@ -2269,25 +2472,22 @@ VIEWS["thu-muc"] = (id) => {
             <span class="text-xs text-outline font-code">Chủ đề chuẩn TOCFL 2024</span>
           </div>
 
-          <!-- EMERALD HEADER BANNER (Mô phỏng 100% Header ảnh mẫu của người dùng) -->
+          <!-- EMERALD HEADER BANNER -->
           <div class="bg-gradient-to-r from-[#0d6832] via-[#0f7638] to-[#14532d] text-white p-5 md:p-6 rounded-3xl shadow-md border border-[#1b7a3e]/50 flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div class="flex items-center gap-4">
-              <!-- Sunflower Circular Icon Badge with Green border ring -->
               <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-white/80 bg-[#094721] flex items-center justify-center text-3xl md:text-4xl shrink-0 shadow-inner">
                 <span>${emojiIcon}</span>
               </div>
-              
               <div class="flex flex-col gap-1.5">
                 <div class="flex items-center gap-2">
                   <h1 class="text-2xl md:text-3xl font-extrabold font-headline-lg tracking-wide text-white">
                     ${esc(badgeCode)}
                   </h1>
                 </div>
-                <!-- Progress Badges: ✔ Đã học | ⏱ Cần ôn -->
                 <div class="flex items-center gap-2.5 flex-wrap text-xs md:text-sm font-medium">
                   <span class="inline-flex items-center gap-1.5 bg-black/25 px-3 py-1 rounded-full border border-white/15 text-emerald-100">
                     <span class="material-symbols-outlined text-[16px] text-[#4ade80]">check_circle</span>
-                    <span><strong>${fmt(learnedCount)}/${fmt(ns.length)}</strong> 已學單字 (${ns.length ? Math.round(learnedCount / ns.length * 100) : 0}%)</span>
+                    <span><strong>${fmt(learnedCount)}/${fmt(ns.length)}</strong> 已學單字 (${ns.length ? Math.round((learnedCount / ns.length) * 100) : 0}%)</span>
                   </span>
                   <span class="inline-flex items-center gap-1.5 bg-black/25 px-3 py-1 rounded-full border border-white/15 text-amber-100">
                     <span class="material-symbols-outlined text-[16px] text-amber-300">schedule</span>
@@ -2300,7 +2500,6 @@ VIEWS["thu-muc"] = (id) => {
               </div>
             </div>
 
-            <!-- Action buttons in header -->
             <div class="flex items-center gap-2 flex-wrap md:justify-end">
               <button type="button" class="px-5 py-2.5 rounded-xl font-bold text-xs bg-white text-[#0d6832] hover:bg-emerald-50 transition-all shadow-sm flex items-center gap-2 shrink-0 active:scale-95" id="btnStartStudyTopic">
                 <span class="material-symbols-outlined text-[20px]">play_circle</span>
@@ -2311,10 +2510,10 @@ VIEWS["thu-muc"] = (id) => {
                   <span class="material-symbols-outlined text-[17px]">filter_alt</span>
                   <span>Lọc ${fmt(unseen)} từ mới</span>
                 </a>
-              ` : ''}
+              ` : ""}
               <button type="button" class="px-3.5 py-2.5 rounded-xl font-semibold text-xs border border-white/25 text-white hover:bg-white/10 transition-all flex items-center gap-1.5" id="toggleLearnTopic">
-                <span class="material-symbols-outlined text-[17px]">${on ? 'pause' : 'add'}</span>
-                <span>${on ? 'Đang bật SRS' : '+ Thêm vào SRS'}</span>
+                <span class="material-symbols-outlined text-[17px]">${on ? "pause" : "add"}</span>
+                <span>${on ? "Đang bật SRS" : "+ Thêm vào SRS"}</span>
               </button>
             </div>
           </div>
@@ -2322,13 +2521,11 @@ VIEWS["thu-muc"] = (id) => {
           <!-- CONTROLS & FILTER BAR (Dark Theme Container) -->
           <div class="bg-[#121614] p-4 md:p-5 rounded-3xl border border-[#232f28] shadow-sm flex flex-col gap-4">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
-              <!-- Search box -->
               <div class="relative flex-1">
                 <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-emerald-500/70 text-[20px]">search</span>
                 <input id="topicSearch" class="w-full pl-11 pr-4 py-2.5 rounded-xl bg-[#181d1a] text-zinc-100 placeholder:text-zinc-500 border border-[#2b3931] focus:border-[#4ade80] focus:outline-none text-sm transition-colors" placeholder="Tìm theo chữ Hán Phồn thể, pinyin hoặc nghĩa tiếng Việt, tiếng Anh...">
               </div>
 
-              <!-- Filter by memory level -->
               <div class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0" id="topicLevelFilter">
                 <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border ${filterLvl === -1 ? 'bg-[#22c55e] text-zinc-950 border-transparent' : 'bg-[#181d1a] text-zinc-300 border-[#2b3931] hover:bg-[#202723]'}" data-lvl="-1">
                   Tất cả (${ns.length})
@@ -2345,7 +2542,7 @@ VIEWS["thu-muc"] = (id) => {
               </div>
             </div>
 
-            <!-- 3-COLUMN LUXURY EMERALD CARDS GRID (Match screenshot) -->
+            <!-- 3-COLUMN LUXURY EMERALD CARDS GRID -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4" id="topicCardsGrid"></div>
           </div>
         </div>
@@ -2353,74 +2550,68 @@ VIEWS["thu-muc"] = (id) => {
 
       const drawTopicCards = () => {
         const q = fold($("#topicSearch").value);
-        const filtered = ns.filter(n => {
+        const filtered = ns.filter((n) => {
           const it = itemOf(n);
           const lvl = noteLevel(n);
           if (filterLvl !== -1 && lvl !== filterLvl) return false;
           if (!q) return true;
-          return fold(it.w).includes(q) || fold(it.py || '').includes(q) || fold(meaningOf(n)).includes(q) || fold(it.hv || '').includes(q) || fold(it.en || '').includes(q);
+          return fold(it.w).includes(q) || fold(it.py || "").includes(q) || fold(meaningOf(n)).includes(q) || fold(it.hv || "").includes(q) || fold(it.en || "").includes(q);
         });
 
-        $("#topicCardsGrid").innerHTML = filtered.map(n => {
+        $("#topicCardsGrid").innerHTML = filtered.map((n) => {
           const it = itemOf(n);
           const lvl = noteLevel(n);
           return `
             <div class="group relative bg-[#181d1a] hover:bg-[#1f2622] rounded-2xl p-4 border border-[#27352d] hover:border-[#4ade80]/60 transition-all shadow-xs flex items-center justify-between gap-3">
-              <!-- Left: Sunflower circular icon with double border -->
               <div class="w-12 h-12 rounded-full border-2 border-[#22c55e] flex items-center justify-center shrink-0 bg-[#0d2a1a] shadow-xs">
                 <span class="text-2xl">${emojiIcon}</span>
               </div>
 
-              <!-- Center: Word details -->
               <div class="flex-1 min-w-0 flex flex-col justify-center">
                 <div class="flex items-baseline gap-2 flex-wrap">
                   <a href="#tu/${encodeURIComponent(it.w)}" class="text-[#4ade80] font-bold text-xl md:text-2xl hover:underline font-serif tracking-wide truncate">
                     ${esc(it.w)}
                   </a>
-                  <span class="text-xs text-emerald-300/80 font-code">${esc(it.py || '')}</span>
-                  <span class="text-[10px] text-zinc-400 bg-white/5 px-1.5 py-0.5 rounded border border-white/10 font-code">${esc(it.band || 'A0')}</span>
+                  <span class="text-xs text-emerald-300/80 font-code">${esc(it.py || "")}</span>
+                  <span class="text-[10px] text-zinc-400 bg-white/5 px-1.5 py-0.5 rounded border border-white/10 font-code">${esc(it.band || "A0")}</span>
                 </div>
                 <div class="text-xs text-zinc-300 mt-1 line-clamp-1">
-                  <span class="text-emerald-400/90 font-medium">${it.pos ? `(${esc(it.pos)}) ` : ''}</span>
+                  <span class="text-emerald-400/90 font-medium">${it.pos ? `(${esc(it.pos)}) ` : ""}</span>
                   <span>${esc(meaningOf(n))}</span>
-                  ${it.en ? `<span class="text-zinc-500 text-[11px] ml-1">· ${esc(it.en)}</span>` : ''}
+                  ${it.en ? `<span class="text-zinc-500 text-[11px] ml-1">· ${esc(it.en)}</span>` : ""}
                 </div>
-                ${it.hv ? `<div class="text-[11px] text-zinc-400 mt-0.5">Hán Việt: <span class="text-zinc-300 font-medium">${esc(it.hv)}</span></div>` : ''}
+                ${it.hv ? `<div class="text-[11px] text-zinc-400 mt-0.5">Hán Việt: <span class="text-zinc-300 font-medium">${esc(it.hv)}</span></div>` : ""}
               </div>
 
-              <!-- Right: Action buttons (Pronounce + Study Bookmark) -->
               <div class="flex flex-col items-center gap-1.5 shrink-0">
-                <!-- Audio speaker -->
                 <button type="button" class="w-8 h-8 rounded-full bg-white/5 hover:bg-[#22c55e]/20 text-zinc-300 hover:text-[#4ade80] flex items-center justify-center transition-colors" title="Phát âm tiếng Đài Loan" onclick="event.stopPropagation(); if(typeof speak==='function') speak('${esc(it.w)}');">
                   <span class="material-symbols-outlined text-[18px]">volume_up</span>
                 </button>
-                <!-- Quick study bookmark -->
                 <button type="button" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white flex items-center justify-center transition-colors" title="Học từ này ngay (Flashcard)" onclick="event.stopPropagation(); if(typeof startStudyWord==='function') startStudyWord('${esc(it.w)}');">
-                  <span class="material-symbols-outlined text-[18px] ${lvl > 0 ? 'text-[#4ade80]' : 'text-zinc-500'}">bookmark</span>
+                  <span class="material-symbols-outlined text-[18px] ${lvl > 0 ? "text-[#4ade80]" : "text-zinc-500"}">bookmark</span>
                 </button>
               </div>
             </div>
           `;
-        }).join('') || `<div class="col-span-full p-8 text-center text-sm text-zinc-400 bg-[#181d1a] rounded-2xl border border-[#27352d]">Không tìm thấy từ nào khớp với từ khóa tìm kiếm.</div>`;
+        }).join("") || `<div class="col-span-full p-8 text-center text-sm text-zinc-400 bg-[#181d1a] rounded-2xl border border-[#27352d]">Không tìm thấy từ nào khớp với từ khóa tìm kiếm.</div>`;
       };
 
       $("#topicSearch").oninput = drawTopicCards;
-      document.querySelectorAll("#topicLevelFilter button").forEach(btn => {
+      document.querySelectorAll("#topicLevelFilter button").forEach((btn) => {
         btn.onclick = () => {
           filterLvl = Number(btn.dataset.lvl);
-          document.querySelectorAll("#topicLevelFilter button").forEach(b => {
-            b.className = Number(b.dataset.lvl) === filterLvl ? "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border bg-[#22c55e] text-zinc-950 border-transparent" : "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border bg-[#181d1a] text-zinc-300 border-[#2b3931] hover:bg-[#202723]";
+          document.querySelectorAll("#topicLevelFilter button").forEach((b) => {
+            b.className = Number(b.dataset.lvl) === filterLvl
+              ? "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border bg-[#22c55e] text-zinc-950 border-transparent"
+              : "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border bg-[#181d1a] text-zinc-300 border-[#2b3931] hover:bg-[#202723]";
           });
           drawTopicCards();
         };
       });
 
       $("#btnStartStudyTopic").onclick = () => {
-        if (typeof window.startStudyFolder === "function") {
-          window.startStudyFolder(id);
-        } else {
-          location.hash = "#hoc";
-        }
+        if (typeof window.startStudyFolder === "function") window.startStudyFolder(id);
+        else location.hash = "#hoc";
       };
 
       $("#toggleLearnTopic").onclick = async () => {
@@ -2434,7 +2625,7 @@ VIEWS["thu-muc"] = (id) => {
     }
 
     // GIAO DIỆN CHUẨN CHO BANDS TOCFL VÀ SỔ CÁ NHÂN
-    const groups = id === "cua-toi" ? [["all", "Tất cả"], ...S.decks.filter(d => !d.id.startsWith("band-")).map((d) => [d.id, d.name])] : null;
+    const groups = id === "cua-toi" ? [["all", "Tất cả"], ...S.decks.filter((d) => !d.id.startsWith("band-")).map((d) => [d.id, d.name])] : null;
     let grp = "all";
 
     setView(`
@@ -2449,13 +2640,13 @@ VIEWS["thu-muc"] = (id) => {
           <div class="flex flex-col gap-1">
             <h1 class="font-headline-lg text-2xl font-bold text-on-surface">${esc(title)}</h1>
             <p class="text-sm text-on-surface-variant">
-              ${isBand ? esc(BAND_INFO[id]) + ' · ' : ''}Đã học <strong>${fmt(learnedCount)}</strong> / ${fmt(ns.length)} mục (${ns.length ? Math.round(learnedCount / ns.length * 100) : 0}%)
-              ${LEVELS.map((l, i) => lv[i] ? ` · ${l}: ${lv[i]}` : '').filter(Boolean).join('')}
+              ${isBand ? esc(BAND_INFO[id]) + " · " : ""}Đã học <strong>${fmt(learnedCount)}</strong> / ${fmt(ns.length)} mục (${ns.length ? Math.round((learnedCount / ns.length) * 100) : 0}%)
+              ${LEVELS.map((l, i) => (lv[i] ? ` · ${l}: ${lv[i]}` : "")).filter(Boolean).join("")}
             </p>
           </div>
           <div class="flex items-center gap-2 flex-wrap">
-            <button type="button" class="px-4 py-2 rounded-xl text-xs font-semibold shadow-xs transition-colors ${on ? 'bg-surface-container text-on-surface hover:bg-surface-container-high' : 'bg-primary-container text-white hover:bg-primary'}" id="toggleLearn">
-              ${on ? 'Tạm dừng học thư mục này' : isBand ? '+ Đưa band này vào lịch học' : '+ Học thư mục này'}
+            <button type="button" class="px-4 py-2 rounded-xl text-xs font-semibold shadow-xs transition-colors ${on ? "bg-surface-container text-on-surface hover:bg-surface-container-high" : "bg-primary-container text-white hover:bg-primary"}" id="toggleLearn">
+              ${on ? "Tạm dừng học thư mục này" : isBand ? "+ Đưa band này vào lịch học" : "+ Học thư mục này"}
             </button>
             <button type="button" class="px-4 py-2 rounded-xl text-xs font-semibold bg-secondary text-white hover:bg-secondary-fixed transition-colors flex items-center gap-1 shadow-xs" onclick="startStudyFolder('${esc(id)}')">
               <span class="material-symbols-outlined text-[16px]">play_circle</span>
@@ -2466,11 +2657,10 @@ VIEWS["thu-muc"] = (id) => {
                 <span class="material-symbols-outlined text-[16px]">filter_alt</span>
                 <span>Lọc nhanh: ${fmt(unseen)} từ chưa học</span>
               </a>
-            ` : ''}
+            ` : ""}
           </div>
         </div>
 
-        <!-- Filter and Search Controls -->
         <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle shadow-xs flex flex-col gap-3">
           ${groups ? `
             <div class="flex items-center gap-2 flex-wrap" id="grp">
@@ -2478,9 +2668,9 @@ VIEWS["thu-muc"] = (id) => {
                 <button type="button" class="px-3 py-1 rounded-lg text-xs font-semibold transition-colors border ${v === "all" ? "bg-primary-container text-white border-transparent" : "bg-paper-muted text-on-surface border-border-subtle hover:bg-surface-container"}" data-v="${esc(v)}">
                   ${esc(t)}
                 </button>
-              `).join('')}
+              `).join("")}
             </div>
-          ` : ''}
+          ` : ""}
           <div class="relative w-full">
             <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
             <input id="fq" class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface text-sm placeholder:text-outline border border-border-subtle/50 focus:outline-none focus:bg-white" placeholder="Lọc theo chữ Hán, pinyin hoặc nghĩa tiếng Việt...">
@@ -2493,8 +2683,8 @@ VIEWS["thu-muc"] = (id) => {
 
     const draw = () => {
       const f = fold($("#fq").value);
-      const filtered = ns.filter(n => (grp === "all" || (n.rich && n.deck.id === grp)) && (!f || fold(itemOf(n).w).includes(f) || fold(itemOf(n).py).includes(f) || fold(meaningOf(n)).includes(f)));
-      $("#flist").innerHTML = filtered.map(n => {
+      const filtered = ns.filter((n) => (grp === "all" || (n.rich && n.deck.id === grp)) && (!f || fold(itemOf(n).w).includes(f) || fold(itemOf(n).py).includes(f) || fold(meaningOf(n)).includes(f)));
+      $("#flist").innerHTML = filtered.map((n) => {
         const it = itemOf(n);
         const lvl = noteLevel(n);
         const ab = S.abbrS.get(n.w);
@@ -2503,14 +2693,14 @@ VIEWS["thu-muc"] = (id) => {
             <div class="flex items-start justify-between">
               <div>
                 <a href="#tu/${encodeURIComponent(it.w)}" class="font-headline-md text-2xl text-on-surface font-serif font-bold hover:text-primary">${esc(n.basic ? n.display : it.w)}</a>
-                <span class="font-code text-xs text-tertiary ml-2">${esc(it.py || '')}</span>
+                <span class="font-code text-xs text-tertiary ml-2">${esc(it.py || "")}</span>
               </div>
               <span class="pill lv-${lvl}">${esc(LEVELS[lvl])}</span>
             </div>
             <div class="text-xs text-on-surface-variant line-clamp-2">
-              ${esc(meaningOf(n) || '…')}
+              ${esc(meaningOf(n) || "…")}
             </div>
-            ${ab ? `<div class="text-[11px] text-tertiary">Nói tắt của: <span class="font-serif font-semibold">${esc(ab.f)}</span></div>` : ''}
+            ${ab ? `<div class="text-[11px] text-tertiary">Nói tắt của: <span class="font-serif font-semibold">${esc(ab.f)}</span></div>` : ""}
             <div class="pt-2 border-t border-border-subtle/50 flex items-center justify-between text-xs">
               <span class="text-outline">${n.kind === "grammar" ? "Ngữ pháp" : (it.pos || "Từ vựng")}</span>
               <div class="flex items-center gap-2">
@@ -2520,7 +2710,7 @@ VIEWS["thu-muc"] = (id) => {
             </div>
           </div>
         `;
-      }).join('') || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Không tìm thấy mục nào khớp.</div>`;
+      }).join("") || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Không tìm thấy mục nào khớp.</div>`;
     };
 
     $("#fq").oninput = draw;
@@ -2530,10 +2720,10 @@ VIEWS["thu-muc"] = (id) => {
       VIEWS["thu-muc"](id);
     };
     if (groups) {
-      document.querySelectorAll("#grp button").forEach(b => {
+      document.querySelectorAll("#grp button").forEach((b) => {
         b.onclick = () => {
           grp = b.dataset.v;
-          document.querySelectorAll("#grp button").forEach(btn => {
+          document.querySelectorAll("#grp button").forEach((btn) => {
             btn.className = btn.dataset.v === grp ? "px-3 py-1 rounded-lg text-xs font-semibold bg-primary-container text-white border-transparent" : "px-3 py-1 rounded-lg text-xs font-semibold bg-paper-muted text-on-surface border-border-subtle hover:bg-surface-container";
           });
           draw();
@@ -2545,319 +2735,756 @@ VIEWS["thu-muc"] = (id) => {
   }
 
   // -------------------------------------------------------------
-  // TRƯỜNG HỢP 2: TẤT CẢ THƯ MỤC (OVERVIEW DIRECTORY)
+  // TRƯỜNG HỢP 2: TRUNG TÂM TỪ VỰNG & FLASHCARD SRS (EXACT STITCH OVERVIEW)
   // -------------------------------------------------------------
-  const topicDecks = S.decks.filter(d => d.category === "topic" || d.id.startsWith("band-"));
+  const topicDecks = S.decks.filter((d) => d.category === "topic" || d.id.startsWith("band-"));
+  const summary = studySummary(S.stats, Date.now());
+  const lvAll = [0, 0, 0, 0, 0, 0];
+  vocab.forEach((n) => lvAll[noteLevel(n)]++);
+  const totalVocab = Math.max(1, vocab.length);
+  const activeVocabCount = vocab.filter((n) => inLearning(n)).length;
+  const totalFoldersCount = topicDecks.length + S.bands.length + 2;
 
-  // HTML cho các bộ chủ đề theo Band
-  const topicCardsHTML = topicDecks.map(d => {
-    const ns = folderNotes(d.id);
-    const l = ns.filter(n => noteLevel(n) > 0).length;
-    const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
-    const isLearning = folderOn(d.id);
-    const badgeCode = d.badge || `${d.band || 'Band A'} - ${d.theme || '主題'}`;
-    const emojiIcon = d.emoji || '🌻';
+  // Build Flashcard pool for the integrated Stitch Flashcard Canvas
+  const flashPool = vocab.filter((n) => inLearning(n) && (meaningOf(n) || itemOf(n).py)).slice(0, 80);
+  if (!flashPool.length && vocab.length) flashPool.push(...vocab.slice(0, 30));
+  let fcIdx = 0;
+  // Find 謙虛 if available or start at 0
+  const qianXuIdx = flashPool.findIndex((n) => n.w === "謙虛");
+  if (qianXuIdx >= 0) fcIdx = qianXuIdx;
 
-    return `
-      <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs hover:border-[#22c55e]/50 hover:shadow-sm transition-all flex flex-col justify-between gap-space-md">
-        <div class="flex flex-col gap-2">
-          <!-- Top Badge & Learning Status -->
-          <div class="flex items-center justify-between">
-            <span class="inline-flex items-center gap-1.5 text-xs font-bold px-2.5 py-0.5 rounded-full bg-[#0d6832]/10 text-[#0d6832] border border-[#0d6832]/20">
-              <span>${emojiIcon}</span>
-              <span>${esc(badgeCode)}</span>
-            </span>
-            <span class="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full ${isLearning ? 'bg-jade-subtle text-secondary' : 'bg-surface-container text-on-surface-variant'}">
-              <span class="w-1.5 h-1.5 rounded-full ${isLearning ? 'bg-secondary' : 'bg-outline'}"></span>
-              ${isLearning ? 'Đang học' : 'Chưa bật'}
-            </span>
-          </div>
+  // Build unified Folder Items list for the Stitch 2-Col Folder Grid
+  const allFolderItems = [
+    // Topic decks first + TOCFL bands + Personal folders
+    ...S.bands.map((b) => {
+      const ns = vocab.filter((n) => inBand(n, b));
+      const l = ns.filter((n) => noteLevel(n) > 0).length;
+      const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
+      const isLearning = !!S.settings.bands[b];
+      const iconBg = b.startsWith("B") ? "bg-amber-subtle text-tertiary" : (b.startsWith("C") ? "bg-jade-subtle text-secondary" : "bg-cinnabar-subtle text-primary");
+      const barBg = b.startsWith("B") ? "bg-tertiary" : (b.startsWith("C") ? "bg-secondary" : "bg-primary-container");
+      return {
+        id: b,
+        cat: "bands",
+        tag: "TOCFL Chuẩn",
+        iconText: b.replace("Novice ", "N"),
+        iconBg,
+        barBg,
+        title: `TOCFL ${b} • ${BAND_INFO[b] || "Từ vựng chuẩn"}`,
+        sub: `${fmt(ns.length)} từ vựng chuẩn kỳ thi năng lực Hoa ngữ Đài Loan cấp ${b}.`,
+        learned: l,
+        total: ns.length,
+        pct,
+        isLearning,
+        isBand: true
+      };
+    }),
+    ...topicDecks.map((d) => {
+      const ns = folderNotes(d.id);
+      const l = ns.filter((n) => noteLevel(n) > 0).length;
+      const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
+      const isLearning = folderOn(d.id);
+      return {
+        id: d.id,
+        cat: "topics",
+        tag: d.badge || "Chủ đề",
+        iconText: d.emoji || "🌻",
+        iconBg: "bg-jade-subtle text-secondary",
+        barBg: "bg-secondary",
+        title: d.name,
+        sub: d.sub || "Bộ từ vựng theo chủ đề thực tế Đài Loan.",
+        learned: l,
+        total: ns.length,
+        pct,
+        isLearning,
+        isBand: false
+      };
+    }),
+    (() => {
+      const ns = folderNotes("cua-toi");
+      const l = ns.filter((n) => noteLevel(n) > 0).length;
+      const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
+      return {
+        id: "cua-toi",
+        cat: "personal",
+        tag: "Bộ của tôi",
+        iconText: "我",
+        iconBg: "bg-surface-container text-on-surface",
+        barBg: "bg-secondary",
+        title: "Thư mục của tôi • 個人詞庫",
+        sub: "Từ vựng ghi chép trên lớp, giáo trình Đương Đại và các đợt thi cá nhân.",
+        learned: l,
+        total: ns.length,
+        pct,
+        isLearning: folderOn("cua-toi"),
+        isBand: false
+      };
+    })(),
+    (() => {
+      const ns = folderNotes("viet-tat");
+      const l = ns.filter((n) => noteLevel(n) > 0).length;
+      const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
+      return {
+        id: "viet-tat",
+        cat: "personal",
+        tag: "Bộ của tôi",
+        iconText: "臺",
+        iconBg: "bg-cinnabar-subtle text-primary",
+        barBg: "bg-primary-container",
+        title: "Khẩu ngữ & Từ viết tắt Đài Loan",
+        sub: "Các từ viết tắt chuẩn từ điển 萌典 như 北車, 健保, 高鐵, 公車...",
+        learned: l,
+        total: ns.length,
+        pct,
+        isLearning: folderOn("viet-tat"),
+        isBand: false
+      };
+    })()
+  ];
 
-          <!-- Title & Subtitle -->
-          <h3 class="font-headline-md text-lg font-bold text-on-surface mt-1">
-            ${esc(d.name)}
-          </h3>
-          <p class="font-body-sm text-xs text-on-surface-variant line-clamp-2">
-            ${esc(d.sub || 'Bộ từ vựng theo chủ đề được biên soạn kèm ví dụ ngữ cảnh thực tế Đài Loan.')}
-          </p>
-        </div>
-
-        <!-- Progress Bar -->
-        <div class="flex flex-col gap-1.5">
-          <div class="flex justify-between text-xs font-medium">
-            <span class="text-outline font-code">${fmt(l)} / ${fmt(ns.length)} từ</span>
-            <span class="text-secondary font-bold">${pct}%</span>
-          </div>
-          <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-            <div class="h-full bg-secondary rounded-full transition-all duration-300" style="width:${pct}%;"></div>
-          </div>
-        </div>
-
-        <!-- Action Links -->
-        <div class="flex items-center justify-between pt-3 border-t border-border-subtle/50">
-          <a href="#thu-muc/${encodeURIComponent(d.id)}" class="text-xs text-secondary hover:underline font-bold flex items-center gap-1">
-            <span>Xem ${fmt(ns.length)} từ</span>
-            <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-          </a>
-          <button type="button" class="px-3 py-1.5 rounded-lg font-bold text-xs bg-secondary text-white hover:bg-secondary-fixed transition-colors flex items-center gap-1 shadow-2xs" onclick="startStudyFolder('${esc(d.id)}')">
-            <span class="material-symbols-outlined text-[15px]">play_circle</span>
-            <span>Học ngay</span>
-          </button>
-        </div>
-      </div>
-    `;
-  }).join('');
-
-  // HTML cho TOCFL Bands A1-C
-  const bandCardsHTML = S.bands.map(b => {
-    const ns = vocab.filter(n => inBand(n, b));
-    const l = ns.filter(n => noteLevel(n) > 0).length;
-    const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
-    const isLearning = !!S.settings.bands[b];
-    return `
-      <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col justify-between gap-space-md hover:shadow-sm transition-all">
+  // Roadmap stats for A1, A2, B1
+  const getBandStat = (b) => {
+    const ns = vocab.filter((n) => inBand(n, b));
+    const l = ns.filter((n) => noteLevel(n) > 0).length;
+    const pct = ns.length ? Math.round((l / ns.length) * 1000) / 10 : 0;
+    return { l, total: ns.length, pct };
+  };
+  const stA1 = getBandStat("A1");
+  const stA2 = getBandStat("A2");
+  const stB1 = getBandStat("B1");
+  const buildFolderCardsHTML = (catFilter = "all", qStr = "") => {
+    const q = fold(qStr || "");
+    const filtered = allFolderItems.filter((f) => {
+      if (catFilter !== "all" && f.cat !== catFilter) return false;
+      if (!q) return true;
+      return fold(f.title).includes(q) || fold(f.sub).includes(q) || fold(f.tag).includes(q);
+    });
+    return filtered.map((f) => `
+      <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_8px_rgba(44,42,41,0.03)] hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
         <div class="flex flex-col gap-space-xs">
-          <div class="flex items-center justify-between">
-            <span class="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full ${isLearning ? 'bg-jade-subtle text-secondary' : 'bg-surface-container text-on-surface-variant'}">
-              <span class="w-1.5 h-1.5 rounded-full ${isLearning ? 'bg-secondary' : 'bg-outline'}"></span>
-              ${isLearning ? 'Đang học' : 'Chưa bật'}
-            </span>
-            <span class="font-code text-xs text-outline">TOCFL 2024</span>
+          <div class="flex items-start justify-between">
+            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="w-10 h-10 rounded-xl ${f.iconBg} flex items-center justify-center no-underline">
+              <span class="font-headline-md font-bold text-lg">${esc(f.iconText)}</span>
+            </a>
+            <div class="flex items-center gap-1.5">
+              <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-[11px] font-semibold">${esc(f.tag)}</span>
+              ${f.isBand ? `
+                <button type="button" class="px-2 py-0.5 rounded text-[11px] font-semibold border transition-colors ${f.isLearning ? "bg-jade-subtle text-secondary border-secondary/30" : "bg-paper-muted text-outline border-border-subtle"}" data-toggle-band="${esc(f.id)}">
+                  ${f.isLearning ? "Đang học" : "+ Bật"}
+                </button>
+              ` : ""}
+            </div>
           </div>
-          <h3 class="font-headline-md text-xl font-bold text-on-surface mt-1">
-            TOCFL ${b}
-          </h3>
-          <p class="font-body-sm text-xs text-on-surface-variant line-clamp-2">
-            ${BAND_INFO[b] || 'Bộ từ vựng chuẩn do Bộ Giáo dục Đài Loan ban hành.'}
-          </p>
+          <div class="mt-1">
+            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="no-underline">
+              <h3 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+                ${esc(f.title)}
+              </h3>
+            </a>
+            <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
+              ${esc(f.sub)}
+            </p>
+          </div>
         </div>
-        <div class="flex flex-col gap-1.5">
-          <div class="flex justify-between text-xs font-medium">
-            <span class="text-outline font-code">${fmt(l)} / ${fmt(ns.length)} từ</span>
-            <span class="text-primary font-bold">${pct}%</span>
+        <div class="mt-space-md pt-space-xs">
+          <div class="flex justify-between items-center text-label-sm font-label-sm mb-1.5">
+            <span class="text-outline">Tiến độ nắm vững</span>
+            <span class="font-code text-on-surface font-semibold">${fmt(f.learned)} / ${fmt(f.total)} từ (${f.pct}%)</span>
           </div>
           <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-            <div class="h-full bg-primary rounded-full transition-all duration-300" style="width:${pct}%;"></div>
+            <div class="h-full rounded-full ${f.barBg}" style="width: ${f.pct}%"></div>
+          </div>
+          <div class="flex items-center justify-between mt-space-md pt-space-xs border-t border-border-subtle/50">
+            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="font-code text-xs text-primary hover:underline font-semibold flex items-center gap-1 no-underline">
+              <span>Xem ${fmt(f.total)} từ →</span>
+            </a>
+            <button type="button" class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary text-label-sm font-label-sm font-semibold hover:bg-primary transition-colors flex items-center gap-1 shadow-sm" onclick="startStudyFolder('${esc(f.id)}')">
+              <span class="material-symbols-outlined text-[16px]">play_arrow</span>
+              <span>Học ngay</span>
+            </button>
           </div>
         </div>
-        <div class="flex items-center justify-between pt-4 border-t border-border-subtle/50">
-          <a href="#thu-muc/${encodeURIComponent(b)}" class="text-xs text-primary hover:underline font-semibold">Mở danh sách từ →</a>
-          <button type="button" class="text-xs px-3 py-1.5 rounded-lg border font-medium transition-colors ${isLearning ? 'border-border-subtle hover:bg-surface-container text-on-surface' : 'bg-primary-container text-white border-transparent hover:bg-primary'}" data-toggle-band="${b}">
-            ${isLearning ? 'Tạm dừng' : '+ Đưa vào học'}
-          </button>
-        </div>
       </div>
-    `;
-  }).join('');
-
-  // Sổ cá nhân & Viết tắt
-  const personalCardsHTML = `
-    <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col justify-between gap-space-md hover:shadow-sm transition-all">
-      <div class="flex flex-col gap-space-xs">
-        <div class="flex items-center justify-between">
-          <span class="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-jade-subtle text-secondary">
-            <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
-            Sổ cá nhân
-          </span>
-        </div>
-        <h3 class="font-headline-md text-xl font-bold text-on-surface mt-1">
-          Thư mục của tôi
-        </h3>
-        <p class="font-body-sm text-xs text-on-surface-variant line-clamp-2">
-          Từ vựng ghi chép trên lớp, giáo trình ngoài và các đợt thi cá nhân đã nhập.
-        </p>
-      </div>
-      <div class="flex items-center justify-between pt-4 border-t border-border-subtle/50">
-        <a href="#thu-muc/cua-toi" class="text-xs text-primary hover:underline font-semibold">Xem ${fmt(folderNotes("cua-toi").length)} mục →</a>
-        <a href="#nhap" class="text-xs px-3 py-1.5 rounded-lg bg-paper-muted text-on-surface font-semibold hover:bg-surface-container transition-colors">+ Thêm từ</a>
-      </div>
-    </div>
-    <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col justify-between gap-space-md hover:shadow-sm transition-all">
-      <div class="flex flex-col gap-space-xs">
-        <div class="flex items-center justify-between">
-          <span class="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-amber-subtle text-tertiary">
-            <span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
-            Khẩu ngữ
-          </span>
-        </div>
-        <h3 class="font-headline-md text-xl font-bold text-on-surface mt-1">
-          Từ viết tắt Đài Loan
-        </h3>
-        <p class="font-body-sm text-xs text-on-surface-variant line-clamp-2">
-          Cách nói tắt có nguồn từ điển Bộ GD Đài Loan (萌典) & CC-CEDICT.
-        </p>
-      </div>
-      <div class="flex items-center justify-between pt-4 border-t border-border-subtle/50">
-        <a href="#thu-muc/viet-tat" class="text-xs text-primary hover:underline font-semibold">Xem ${fmt(folderNotes("viet-tat").length)} mục →</a>
-        <span class="text-xs text-outline font-code">Chuẩn 萌典</span>
-      </div>
-    </div>
-  `;
+    `).join("") || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Không tìm thấy thư mục nào khớp.</div>`;
+  };
 
   setView(`
-    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin w-full py-space-xl flex flex-col gap-space-xl">
-      <!-- Header Title & Actions -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-        <div>
-          <div class="flex items-center gap-space-xs text-secondary font-label-sm text-xs font-bold tracking-wider uppercase mb-space-xs">
-            <span class="w-1.5 h-3.5 bg-secondary rounded-full"></span>
-            <span>Thư Phòng Học Tập • 分類詞庫管理</span>
+    <div class="relative w-full overflow-hidden">
+      <div class="absolute -top-24 -left-20 w-96 h-96 rounded-full bg-cinnabar-subtle blur-3xl opacity-60 pointer-events-none"></div>
+      <div class="absolute top-80 -right-24 w-96 h-96 rounded-full bg-jade-subtle blur-3xl opacity-50 pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto px-margin py-space-lg flex flex-col gap-space-xl relative">
+        <!-- ================= HEADER / CONTROL PANEL (Exact Stitch) ================= -->
+        <section class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md pb-space-md border-b border-border-subtle/70">
+          <div class="flex flex-col gap-space-xs max-w-2xl">
+            <div class="flex items-center gap-space-xs text-primary font-label-sm text-label-sm tracking-wider uppercase">
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-primary-container"></span>
+              <span>Thư phòng học tập</span>
+              <span class="text-outline/40">•</span>
+              <span class="font-headline-md font-semibold tracking-normal">詞庫與單字卡</span>
+            </div>
+            <h1 class="font-display text-display text-on-surface tracking-tight font-semibold">
+              Trung tâm Từ vựng &amp; Flashcard SRS
+            </h1>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Hệ thống quản lý kho từ phồn thể, phân loại chu kỳ Spaced Repetition (SRS 6 cấp độ) và chế độ phản xạ phát âm chuẩn Đài Loan.
+            </p>
           </div>
-          <h1 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
-            Quản lý Thư mục & Chủ đề Từ vựng
-          </h1>
-          <p class="font-body-md text-sm text-on-surface-variant mt-1">
-            Học theo chủ đề sinh động (Động vật, Ẩm thực, Giao thông...) hoặc theo cấp độ TOCFL 2024.
-          </p>
-        </div>
-        <div class="flex flex-wrap items-center gap-space-sm">
-          <a href="#nhap" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-paper-card border border-border-subtle text-on-surface font-semibold text-xs shadow-xs hover:bg-paper-muted transition-all">
-            <span class="material-symbols-outlined text-[18px] text-tertiary">upload_file</span>
-            <span>Nhập bộ từ mới</span>
-          </a>
-          <a href="#hoc" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-primary-container text-on-primary font-semibold text-xs shadow-xs hover:bg-primary transition-all">
-            <span class="material-symbols-outlined text-[18px]">play_circle</span>
-            <span>Ôn tập toàn bộ (${fmt(c.total)} thẻ)</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Navigation Tabs for Folders -->
-      <div class="flex items-center gap-2 border-b border-border-subtle pb-3 overflow-x-auto" id="folderTabs">
-        <button type="button" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#0d6832] text-white shadow-2xs" data-tab="topics">
-          🌸 Chủ đề theo Band (${topicDecks.length})
-        </button>
-        <button type="button" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-paper-card text-on-surface border border-border-subtle hover:bg-paper-muted" data-tab="bands">
-          🎯 Phân cấp TOCFL (${S.bands.length})
-        </button>
-        <button type="button" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-paper-card text-on-surface border border-border-subtle hover:bg-paper-muted" data-tab="personal">
-          📂 Sổ cá nhân & Khẩu ngữ
-        </button>
-        <button type="button" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-paper-card text-on-surface border border-border-subtle hover:bg-paper-muted" data-tab="all">
-          Tất cả thư mục
-        </button>
-      </div>
-
-      <!-- Main Layout: Cards (Left) + Stats (Right) -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
-        <div class="lg:col-span-8 flex flex-col gap-space-lg" id="tabContent">
-          <!-- TOPIC SECTION -->
-          <div id="sec-topics" class="flex flex-col gap-4">
-            <div class="flex items-center justify-between">
-              <h2 class="font-headline-md text-lg font-bold text-on-surface flex items-center gap-2">
-                <span class="text-xl">🌸</span>
-                <span>Thư mục theo Chủ đề & Band (Stitch Topics)</span>
-              </h2>
-              <span class="text-xs text-outline font-code">${topicDecks.length} chủ đề</span>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-              ${topicCardsHTML}
-            </div>
-          </div>
-
-          <!-- BANDS SECTION -->
-          <div id="sec-bands" class="flex flex-col gap-4">
-            <div class="flex items-center justify-between">
-              <h2 class="font-headline-md text-lg font-bold text-on-surface flex items-center gap-2">
-                <span class="text-xl">🎯</span>
-                <span>Phân cấp chuẩn TOCFL 2024</span>
-              </h2>
-              <span class="text-xs text-outline font-code">${S.bands.length} cấp độ</span>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-              ${bandCardsHTML}
-            </div>
-          </div>
-
-          <!-- PERSONAL SECTION -->
-          <div id="sec-personal" class="flex flex-col gap-4">
-            <div class="flex items-center justify-between">
-              <h2 class="font-headline-md text-lg font-bold text-on-surface flex items-center gap-2">
-                <span class="text-xl">📂</span>
-                <span>Sổ cá nhân & Từ khẩu ngữ</span>
-              </h2>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-              ${personalCardsHTML}
-            </div>
-          </div>
-        </div>
-
-        <!-- Sidebar Stats -->
-        <div class="lg:col-span-4 flex flex-col gap-space-md">
-          <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col gap-space-md">
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-secondary text-[20px]">bar_chart</span>
-              <h2 class="font-headline-md text-lg font-bold text-on-surface">Thống kê Từ viện</h2>
-            </div>
-            <div class="flex flex-col gap-space-sm text-sm">
-              <div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between">
-                <span class="text-on-surface-variant">Bộ chủ đề theo Band:</span>
-                <strong class="font-code text-secondary font-bold">${topicDecks.length} chủ đề</strong>
-              </div>
-              <div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between">
-                <span class="text-on-surface-variant">Cấp độ TOCFL chuẩn:</span>
-                <strong class="font-code text-on-surface">${S.bands.length} cấp</strong>
-              </div>
-              <div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between">
-                <span class="text-on-surface-variant">Thẻ trong lịch học:</span>
-                <strong class="font-code text-secondary">${fmt(vocab.filter(n => inLearning(n)).length)}</strong>
-              </div>
-              <div class="p-3 rounded-xl bg-surface-container-low flex items-center justify-between">
-                <span class="text-on-surface-variant">Đến hạn ôn hôm nay:</span>
-                <strong class="font-code text-primary">${fmt(c.due)}</strong>
-              </div>
-            </div>
-            <a href="#hoc" class="w-full py-3 rounded-xl bg-[#0d6832] text-white font-semibold text-center text-sm shadow-xs hover:bg-[#0f7638] transition-colors flex items-center justify-center gap-2">
-              <span class="material-symbols-outlined text-[18px]">bolt</span>
-              <span>Bắt đầu ôn tập (${fmt(c.total)} thẻ)</span>
+          <!-- Action cluster -->
+          <div class="flex flex-wrap items-center gap-space-sm pt-space-xs lg:pt-0">
+            <a href="#thu-muc/cua-toi" class="px-space-md py-2.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface hover:bg-paper-muted text-label-md font-label-md shadow-sm transition-all duration-150 flex items-center gap-1.5 no-underline" id="quick-add-btn">
+              <span class="material-symbols-outlined text-[18px] text-outline">folder_open</span>
+              <span>+ Mở sổ từ của tôi</span>
+            </a>
+            <a href="#nhap" class="px-space-md py-2.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface hover:bg-paper-muted text-label-md font-label-md shadow-sm transition-all duration-150 flex items-center gap-1.5 no-underline">
+              <span class="material-symbols-outlined text-[18px] text-outline">file_upload</span>
+              <span>+ Nhập bộ từ</span>
+            </a>
+            <a href="#hoc" class="px-space-lg py-2.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary text-label-md font-label-md shadow-[0_2px_8px_rgba(168,38,31,0.25)] hover:shadow-md transition-all duration-150 flex items-center gap-2 no-underline">
+              <span class="material-symbols-outlined text-[18px]">play_circle</span>
+              <span class="font-semibold">Học ngay hôm nay</span>
+              <span class="px-1.5 py-0.5 rounded-full bg-on-primary/20 text-on-primary font-code text-code text-[11px]">${fmt(c.total)} thẻ</span>
             </a>
           </div>
+        </section>
+
+        <!-- ================= TAB NAVIGATION (Exact Stitch) ================= -->
+        <div class="flex items-center justify-between gap-space-md flex-wrap">
+          <div class="inline-flex p-1 rounded-xl bg-surface-container-high/80 shadow-inner flex-wrap">
+            <button type="button" class="view-tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md font-semibold transition-all duration-150 flex items-center gap-2 bg-paper-card text-primary shadow-sm" id="view-tab-integrated">
+              <span class="material-symbols-outlined text-[18px]">splitscreen</span>
+              <span>Chế độ tích hợp (Flashcard + Kho từ)</span>
+            </button>
+            <button type="button" class="view-tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface transition-all duration-150 flex items-center gap-2" id="view-tab-library">
+              <span class="material-symbols-outlined text-[18px]">folder_special</span>
+              <span>Thư mục &amp; Kho từ vựng (${totalFoldersCount})</span>
+            </button>
+            <button type="button" class="view-tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface transition-all duration-150 flex items-center gap-2" id="view-tab-focus">
+              <span class="material-symbols-outlined text-[18px]">style</span>
+              <span>Phiên học Flashcard hiện tại</span>
+              <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
+            </button>
+          </div>
+          <div class="flex items-center gap-space-sm font-label-sm text-label-sm text-outline">
+            <span class="flex items-center gap-1">
+              <kbd class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-code text-code text-[11px] shadow-sm">Space</kbd>
+              <span>Đổi thẻ</span>
+            </span>
+            <span class="text-outline/40">•</span>
+            <span class="flex items-center gap-1">
+              <kbd class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-code text-code text-[11px] shadow-sm">Shift</kbd>
+              <span>Phát âm</span>
+            </span>
+            <span class="text-outline/40">•</span>
+            <span class="flex items-center gap-1">
+              <kbd class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-code text-code text-[11px] shadow-sm">Alt + D</kbd>
+              <span>Tra nhanh</span>
+            </span>
+          </div>
         </div>
+
+        <!-- ================= SECTION 1: FLASHCARD SRS & TRA CỨU NHANH (Exact Stitch 8+4) ================= -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg" id="flashcard-section">
+          <!-- Left: Flashcard Interactive Canvas (8 Cols) -->
+          <div class="lg:col-span-8 flex flex-col gap-space-md" id="stitch-flashcard-box"></div>
+
+          <!-- Right: Real-time Quick Lookup Sidebar Panel (隨堂快查) (4 Cols) -->
+          <div class="lg:col-span-4 flex flex-col gap-space-md">
+            <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_12px_rgba(44,42,41,0.04)] flex flex-col gap-space-md h-full">
+              <div class="flex items-center justify-between pb-2 border-b border-border-subtle/50">
+                <div class="flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-[18px] text-tertiary">search_insights</span>
+                  <span class="font-headline-md text-headline-md text-on-surface font-semibold">Tra từ nhanh</span>
+                  <span class="font-headline-md text-xs text-outline font-normal">隨堂快查</span>
+                </div>
+                <kbd class="px-1.5 py-0.5 rounded bg-surface-container text-outline font-code text-code text-[10px]">Alt + D</kbd>
+              </div>
+              <!-- Instant search box -->
+              <div class="relative">
+                <input class="w-full pl-9 pr-8 py-2 rounded-xl bg-paper-base border border-border-subtle focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 text-body-md text-on-surface outline-none transition-all font-body-md" id="quick-search-input" placeholder="Nhập chữ Hán, Pinyin hoặc nghĩa..." type="text" value="客氣"/>
+                <span class="material-symbols-outlined absolute left-2.5 top-2.5 text-outline text-[18px]">search</span>
+                <button type="button" class="absolute right-2.5 top-2.5 text-outline hover:text-on-surface" id="btn-clear-quick-search">
+                  <span class="material-symbols-outlined text-[16px]">cancel</span>
+                </button>
+              </div>
+              <!-- Instant Lookup Preview Card -->
+              <div class="flex flex-col gap-space-sm p-space-sm rounded-xl bg-surface-container-low/80 flex-1 overflow-y-auto" id="quick-search-preview"></div>
+              <!-- Mini Daily Streak Badge -->
+              <div class="flex items-center justify-between p-2.5 rounded-xl bg-jade-subtle/60 text-secondary">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[20px] text-secondary">local_fire_department</span>
+                  <div class="flex flex-col">
+                    <span class="font-label-sm text-label-sm font-bold">Chuỗi học tập: ${summary.current} ngày</span>
+                    <span class="font-body-sm text-[11px] text-secondary/80">Mục tiêu: ${S.settings.newPerDay || 8} từ mới mỗi ngày</span>
+                  </div>
+                </div>
+                <a href="#hoc" class="font-code text-code font-bold text-secondary hover:underline">Ôn ngay →</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= SECTION 2: KHO TỪ VỰNG & THƯ MỤC CHỦ ĐỀ (Exact Stitch) ================= -->
+        <section class="flex flex-col gap-space-lg" id="library-section">
+          <!-- Filter bar, search and statistics summary -->
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pt-space-xs">
+            <!-- Category Filter Pills -->
+            <div class="flex items-center gap-space-xs flex-wrap" id="folderTabs">
+              <button type="button" class="px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-semibold shadow-sm" data-tab="all">
+                Tất cả (${allFolderItems.length})
+              </button>
+              <button type="button" class="px-3.5 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-md text-label-md transition-colors shadow-sm" data-tab="topics">
+                🌸 Chủ đề theo Band (${topicDecks.length})
+              </button>
+              <button type="button" class="px-3.5 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-md text-label-md transition-colors shadow-sm" data-tab="bands">
+                TOCFL Chuẩn (${S.bands.length})
+              </button>
+              <button type="button" class="px-3.5 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-md text-label-md transition-colors shadow-sm" data-tab="personal">
+                Bộ từ của tôi (2)
+              </button>
+            </div>
+            <!-- Search Folder Input -->
+            <div class="relative w-full md:w-72">
+              <input id="folderSearchInput" class="w-full pl-9 pr-3 py-1.5 rounded-xl bg-paper-card border border-border-subtle focus:border-primary-container text-body-md text-on-surface outline-none transition-all shadow-sm" placeholder="Tìm kiếm bộ từ hoặc nhãn..." type="text"/>
+              <span class="material-symbols-outlined absolute left-2.5 top-2 text-outline text-[18px]">filter_list</span>
+            </div>
+          </div>
+
+          <!-- Bento Grid: Main Vocabulary Folders (8 Cols) & Sidebar Stats (4 Cols) -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+            <!-- Main Folder Grid (8 Cols) -->
+            <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-space-md" id="stitch-folders-grid">${buildFolderCardsHTML("all", "")}</div>
+
+            <!-- Right: Sidebar Statistics & TOCFL Progress Chart (4 Cols) -->
+            <div class="lg:col-span-4 flex flex-col gap-space-md">
+              <!-- Thống kê Từ viện (Stats) -->
+              <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_12px_rgba(44,42,41,0.04)] flex flex-col gap-space-md">
+                <div class="flex items-center justify-between pb-2 border-b border-border-subtle/50">
+                  <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-primary-container"></span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Tổng quan Từ viện</h3>
+                  </div>
+                  <span class="font-label-sm text-label-sm text-outline">Thời gian thực</span>
+                </div>
+                <!-- Metric tiles -->
+                <div class="grid grid-cols-2 gap-space-sm">
+                  <div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col">
+                    <span class="font-label-sm text-label-sm text-outline">Tổng thư mục</span>
+                    <span class="font-code text-2xl font-bold text-on-surface mt-1">${totalFoldersCount}</span>
+                    <span class="font-body-sm text-[11px] text-secondary mt-0.5">${topicDecks.length} chủ đề · ${S.bands.length} band</span>
+                  </div>
+                  <div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col">
+                    <span class="font-label-sm text-label-sm text-outline">Thẻ hoạt động</span>
+                    <span class="font-code text-2xl font-bold text-on-surface mt-1">${fmt(activeVocabCount)}</span>
+                    <span class="font-body-sm text-[11px] text-tertiary mt-0.5">SRS hoạt động</span>
+                  </div>
+                  <div class="p-space-sm rounded-xl bg-cinnabar-subtle flex flex-col col-span-2">
+                    <div class="flex items-center justify-between">
+                      <span class="font-label-sm text-label-sm text-primary font-semibold">Thẻ đến hạn hôm nay</span>
+                      <span class="material-symbols-outlined text-primary text-[18px]">alarm</span>
+                    </div>
+                    <div class="flex items-baseline gap-2 mt-1">
+                      <span class="font-code text-3xl font-bold text-primary">${fmt(c.total)}</span>
+                      <span class="font-body-sm text-body-sm text-on-surface-variant">từ cần lặp lại phản xạ (${fmt(c.due)} ôn · ${fmt(c.fresh)} mới)</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- Spaced Repetition Distribution Chart -->
+                <div class="flex flex-col gap-1.5 pt-2 border-t border-border-subtle/40">
+                  <span class="font-label-sm text-label-sm text-outline">Phân bổ 6 cấp độ SRS:</span>
+                  <div class="w-full h-3 rounded-full bg-surface-container flex overflow-hidden">
+                    <div class="h-full bg-outline/40" style="width: ${Math.round((lvAll[0] / totalVocab) * 100)}%" title="Cấp 1: Chưa học (${lvAll[0]})"></div>
+                    <div class="h-full bg-tertiary-fixed-dim" style="width: ${Math.round((lvAll[1] / totalVocab) * 100)}%" title="Cấp 2: Mới học (${lvAll[1]})"></div>
+                    <div class="h-full bg-tertiary" style="width: ${Math.round((lvAll[2] / totalVocab) * 100)}%" title="Cấp 3: Nhớ tạm (${lvAll[2]})"></div>
+                    <div class="h-full bg-secondary-fixed-dim" style="width: ${Math.round((lvAll[3] / totalVocab) * 100)}%" title="Cấp 4: Nhớ lâu (${lvAll[3]})"></div>
+                    <div class="h-full bg-secondary" style="width: ${Math.round((lvAll[4] / totalVocab) * 100)}%" title="Cấp 5: Thuộc lòng (${lvAll[4]})"></div>
+                    <div class="h-full bg-primary-container" style="width: ${Math.round((lvAll[5] / totalVocab) * 100)}%" title="Cấp 6: Thông thạo (${lvAll[5]})"></div>
+                  </div>
+                  <div class="flex justify-between items-center text-[10px] font-code text-outline pt-1">
+                    <span>Chưa học (${fmt(lvAll[0])})</span>
+                    <span>Đã ghi nhớ (${fmt(totalVocab - lvAll[0])})</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Lộ trình TOCFL Đài Loan (TOCFL Roadmap) -->
+              <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_12px_rgba(44,42,41,0.04)] flex flex-col gap-space-md">
+                <div class="flex items-center justify-between pb-2 border-b border-border-subtle/50">
+                  <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[20px] text-primary">school</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Lộ trình TOCFL</h3>
+                  </div>
+                  <span class="px-2 py-0.5 rounded-full bg-jade-subtle text-secondary font-code text-code text-[11px] font-semibold">Chuẩn 2024</span>
+                </div>
+                <div class="flex flex-col gap-space-sm">
+                  <a href="#thu-muc/A1" class="p-space-sm rounded-xl bg-surface-container-low/60 hover:bg-surface-container flex flex-col gap-1 no-underline transition-colors">
+                    <div class="flex justify-between items-center">
+                      <span class="font-headline-md text-sm font-semibold text-on-surface">Band A (A1) • Nhập môn</span>
+                      <span class="font-code text-code font-bold text-secondary">${stA1.pct}%</span>
+                    </div>
+                    <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+                      <div class="h-full bg-secondary rounded-full" style="width: ${stA1.pct}%"></div>
+                    </div>
+                    <span class="font-code text-[11px] text-outline">${fmt(stA1.l)} / ${fmt(stA1.total)} từ chuẩn</span>
+                  </a>
+                  <a href="#thu-muc/A2" class="p-space-sm rounded-xl bg-surface-container-low/60 hover:bg-surface-container flex flex-col gap-1 no-underline transition-colors">
+                    <div class="flex justify-between items-center">
+                      <span class="font-headline-md text-sm font-semibold text-on-surface">Band A (A2) • Căn bản</span>
+                      <span class="font-code text-code font-bold text-secondary">${stA2.pct}%</span>
+                    </div>
+                    <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+                      <div class="h-full bg-secondary rounded-full" style="width: ${stA2.pct}%"></div>
+                    </div>
+                    <span class="font-code text-[11px] text-outline">${fmt(stA2.l)} / ${fmt(stA2.total)} từ chuẩn</span>
+                  </a>
+                  <a href="#thu-muc/B1" class="p-space-sm rounded-xl bg-surface-container-low/60 hover:bg-surface-container flex flex-col gap-1 no-underline transition-colors">
+                    <div class="flex justify-between items-center">
+                      <span class="font-headline-md text-sm font-semibold text-on-surface">Band B (B1) • Tiến giai</span>
+                      <span class="font-code text-code font-bold text-tertiary">${stB1.pct}%</span>
+                    </div>
+                    <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+                      <div class="h-full bg-tertiary rounded-full" style="width: ${stB1.pct}%"></div>
+                    </div>
+                    <span class="font-code text-[11px] text-outline">${fmt(stB1.l)} / ${fmt(stB1.total)} từ chuẩn</span>
+                  </a>
+                </div>
+                <div class="p-space-sm rounded-xl bg-cinnabar-subtle/80 flex items-start gap-2 text-primary">
+                  <span class="material-symbols-outlined text-[18px] mt-0.5">flag</span>
+                  <div class="text-body-sm text-xs">
+                    <span class="font-semibold">Mục tiêu trọng tâm:</span> Kết hợp học Chủ đề theo Band và làm đề thi thử CAT.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Scholar Book/Resource Promo -->
+              <div class="relative rounded-2xl overflow-hidden shadow-sm bg-gradient-to-br from-paper-muted to-surface-container p-space-md border border-border-subtle/70">
+                <div class="flex items-center gap-space-sm mb-2">
+                  <span class="material-symbols-outlined text-secondary text-[20px]">auto_stories</span>
+                  <span class="font-headline-md text-sm font-semibold text-on-surface">Tài liệu học kèm</span>
+                </div>
+                <p class="font-body-sm text-body-sm text-on-surface-variant">
+                  Nghe hội thoại Đài Loan song ngữ và làm đề thi thử trực tuyến mô phỏng giao diện CAT.
+                </p>
+                <a href="#thi-thu" class="mt-3 text-primary hover:text-primary-container font-label-md text-label-md font-semibold flex items-center gap-1 no-underline">
+                  <span>Vào phòng thi thử CAT</span>
+                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   `);
 
-  // Tab switching logic
-  document.querySelectorAll("#folderTabs button").forEach(btn => {
+  // Render Live Stitch Flashcard Canvas
+  const renderFlashcardCanvas = () => {
+    const box = $("#stitch-flashcard-box");
+    if (!box || !flashPool.length) return;
+    const n = flashPool[fcIdx % flashPool.length];
+    const it = itemOf(n);
+    const lvl = noteLevel(n);
+    const bandLabel = it.band ? `TOCFL ${it.band}` : "TOCFL B1";
+    const posLabel = it.pos || "TỪ VỰNG";
+    const hvLabel = it.hv ? it.hv.toUpperCase() : "PHỒN THỂ ĐÀI LOAN";
+    const exZh = it.ex ? it.ex.split("\n")[0] : `我們在日常生活中經常使用「${it.w}」這個詞。`;
+    const exVn = it.exVn || it.ex?.split("\n")[1] || `Từ "${it.w}" (${meaningOf(n)}) rất thông dụng trong giao tiếp tại Đài Loan.`;
+    const lvlDays = ["0 ngày", "1 ngày", "3 ngày", "7 ngày", "14 ngày", "30 ngày"];
+
+    box.innerHTML = `
+      <div class="relative bg-paper-card rounded-2xl p-space-lg border border-border-subtle/70 shadow-[0_2px_12px_rgba(44,42,41,0.04)] flex flex-col justify-between min-h-[440px] overflow-hidden group">
+        <!-- Traditional watermarked red seal accent -->
+        <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full border border-primary/10 flex items-center justify-center pointer-events-none select-none">
+          <span class="font-headline-lg text-primary/10 text-4xl font-bold">${esc((it.w || "學")[0])}</span>
+        </div>
+        <!-- Top card info bar -->
+        <div class="flex items-center justify-between pb-space-sm border-b border-border-subtle/50 flex-wrap gap-2">
+          <div class="flex items-center gap-space-xs">
+            <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
+            <span class="font-headline-md text-headline-md text-on-surface font-semibold">${esc(bandLabel)} • 進階詞庫</span>
+            <span class="text-outline/40">•</span>
+            <span class="font-code text-code text-outline">Thẻ ${(fcIdx % flashPool.length) + 1} / ${flashPool.length}</span>
+          </div>
+          <div class="flex items-center gap-space-xs">
+            <span class="px-2 py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">psychology</span>
+              <span>SRS Cấp ${lvl + 1} • ${esc(LEVELS[lvl])}</span>
+            </span>
+            <button type="button" class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-on-surface transition-colors" id="btn-fc-prev" title="Thẻ trước">←</button>
+            <button type="button" class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-on-surface transition-colors" id="btn-fc-next" title="Thẻ tiếp theo (Space)">Tiếp →</button>
+            <a href="#tu/${encodeURIComponent(it.w)}" class="p-1 rounded text-outline hover:text-primary transition-colors" title="Mở chi tiết từ điển">
+              <span class="material-symbols-outlined text-[20px]">open_in_new</span>
+            </a>
+          </div>
+        </div>
+        <!-- Center flashcard body with symmetrical layout -->
+        <div class="py-space-md flex flex-col items-center justify-center my-auto text-center relative z-10">
+          <!-- Symmetrical metadata banner -->
+          <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-space-md items-center mb-space-md px-space-sm">
+            <!-- Left: Part of Speech & Level -->
+            <div class="flex flex-col md:items-start text-left bg-surface-container-low/60 p-space-sm rounded-xl">
+              <span class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Từ tính &amp; Cấp bậc</span>
+              <div class="flex items-center gap-1.5 mt-0.5">
+                <span class="font-label-md text-label-md text-primary font-semibold">${esc(posLabel.toUpperCase())}</span>
+                <span class="px-1.5 py-0.5 rounded bg-cinnabar-subtle text-primary text-[10px] font-semibold">${esc(bandLabel)}</span>
+              </div>
+            </div>
+            <!-- Right: Sino-Vietnamese Han Viet -->
+            <div class="flex flex-col md:items-end text-right bg-surface-container-low/60 p-space-sm rounded-xl">
+              <span class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Hán Việt giải nghĩa</span>
+              <div class="flex items-center gap-1.5 mt-0.5">
+                <span class="font-headline-md text-headline-md text-on-surface font-semibold tracking-wide">${esc(hvLabel)}</span>
+              </div>
+            </div>
+          </div>
+          <!-- Main Hanzi Phồn Thể Display -->
+          <div class="flex flex-col items-center gap-1 my-2">
+            <a href="#tu/${encodeURIComponent(it.w)}" class="font-headline-lg text-[64px] leading-[74px] text-on-surface hover:text-primary font-semibold tracking-widest select-all no-underline transition-colors">
+              ${esc(it.w)}
+            </a>
+            <!-- Pinyin and Audio (Taiwan accent) -->
+            <div class="flex items-center gap-space-sm mt-2">
+              <span class="font-code text-lg text-tertiary-container font-medium tracking-wide">${esc(it.py || "")}</span>
+              <button type="button" class="flex items-center gap-1 px-space-sm py-1 rounded-full bg-paper-muted hover:bg-surface-container-high text-on-surface-variant transition-colors text-label-sm font-label-sm" id="tts-audio-btn" title="Nghe phát âm chuẩn Đài Bắc (Shift)">
+                <span class="material-symbols-outlined text-[16px] text-primary">volume_up</span>
+                <span>Đài Bắc</span>
+                <kbd class="text-[10px] text-outline font-code">Shift</kbd>
+              </button>
+            </div>
+          </div>
+          <!-- Definition & Sentence Example -->
+          <div class="max-w-xl mx-auto mt-space-md text-center w-full">
+            <p class="font-body-lg text-body-lg text-on-surface font-medium">
+              ${esc(meaningOf(n))}
+            </p>
+            <div class="mt-2 p-space-sm rounded-lg bg-paper-base border border-border-subtle/50 text-left flex items-start gap-space-xs">
+              <span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">format_quote</span>
+              <div class="flex-1">
+                <p class="font-headline-md text-sm text-on-surface font-normal">
+                  ${esc(exZh)}
+                </p>
+                <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
+                  ${esc(exVn)}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Bottom: 6 SRS Mastery Levels Rating Bar -->
+        <div class="pt-space-md border-t border-border-subtle/50 flex flex-col gap-space-xs">
+          <div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+            <span>Cập nhật cấp độ Spaced Repetition (Phím 1 - 6):</span>
+            <span class="font-code text-secondary font-medium">Chu kỳ hiện tại: ${lvlDays[lvl]}</span>
+          </div>
+          <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+            ${LEVELS.map((lName, idx) => {
+              const isCur = idx === lvl;
+              return `
+                <button type="button" data-fc-lvl="${idx}" class="p-2 rounded-xl transition-all flex flex-col items-center gap-0.5 ${isCur ? "bg-jade-subtle text-secondary shadow-[0_1px_4px_rgba(23,107,75,0.12)] ring-1 ring-secondary/30" : "bg-surface-container-low hover:bg-surface-container text-outline hover:text-on-surface"}">
+                  <span class="font-label-sm text-[11px] ${isCur ? "font-semibold text-secondary" : ""}">${idx + 1}. ${esc(lName)}</span>
+                  <span class="font-code text-[10px] ${isCur ? "text-secondary font-medium" : "text-outline/60"}">${lvlDays[idx]}</span>
+                </button>
+              `;
+            }).join("")}
+          </div>
+        </div>
+      </div>
+    `;
+
+    const btnPrev = $("#btn-fc-prev");
+    if (btnPrev) btnPrev.onclick = () => { fcIdx = (fcIdx - 1 + flashPool.length) % flashPool.length; renderFlashcardCanvas(); };
+    const btnNext = $("#btn-fc-next");
+    if (btnNext) btnNext.onclick = () => { fcIdx = (fcIdx + 1) % flashPool.length; renderFlashcardCanvas(); };
+    const btnTts = $("#tts-audio-btn");
+    if (btnTts) btnTts.onclick = () => { if (typeof speak === "function") speak(it.w); };
+
+    box.querySelectorAll("[data-fc-lvl]").forEach((btn) => {
+      btn.onclick = async () => {
+        const newLvl = Number(btn.dataset.fcLvl);
+        await applyWordLevel(n, newLvl);
+        fcIdx = (fcIdx + 1) % flashPool.length;
+        renderFlashcardCanvas();
+      };
+    });
+  };
+
+  // Render Live Quick Search Sidebar
+  const renderQuickLookup = () => {
+    const inp = $("#quick-search-input");
+    const box = $("#quick-search-preview");
+    if (!inp || !box) return;
+    const q = fold(inp.value.trim() || "客氣");
+    const match = vocab.find((n) => fold(n.w) === q) || vocab.find((n) => fold(n.w).includes(q) || fold(itemOf(n).py || "").includes(q) || fold(meaningOf(n)).includes(q)) || vocab[0];
+    if (!match) {
+      box.innerHTML = `<div class="text-xs text-outline p-4 text-center">Không tìm thấy từ khớp.</div>`;
+      return;
+    }
+    const it = itemOf(match);
+    const lvl = noteLevel(match);
+    box.innerHTML = `
+      <div class="flex items-start justify-between">
+        <div>
+          <div class="flex items-baseline gap-2">
+            <a href="#tu/${encodeURIComponent(it.w)}" class="font-headline-lg text-2xl font-bold text-on-surface hover:text-primary no-underline">${esc(it.w)}</a>
+            <span class="font-code text-code text-tertiary-container font-medium">${esc(it.py || "")}</span>
+            <button type="button" class="text-primary hover:scale-110 transition-transform" onclick="if(typeof speak==='function') speak('${esc(it.w)}')" title="Phát âm">
+              <span class="material-symbols-outlined text-[16px]">volume_up</span>
+            </button>
+          </div>
+          <span class="font-label-sm text-label-sm text-outline">Hán Việt: <strong class="text-on-surface font-medium">${esc((it.hv || "Đang cập nhật").toUpperCase())}</strong></span>
+        </div>
+        <span class="px-2 py-0.5 rounded bg-cinnabar-subtle text-primary text-[11px] font-semibold">${esc(it.band ? `TOCFL ${it.band}` : "Từ vựng")}</span>
+      </div>
+      <div class="text-body-sm text-body-sm text-on-surface space-y-1 mt-1">
+        <p><span class="font-semibold text-primary">Nghĩa:</span> ${esc(meaningOf(match))}</p>
+        ${it.en ? `<p><span class="font-semibold text-outline">Tiếng Anh:</span> ${esc(it.en)}</p>` : ""}
+      </div>
+      <div class="p-2 rounded bg-amber-subtle/80 flex items-start gap-1.5 text-tertiary text-body-sm mt-1">
+        <span class="material-symbols-outlined text-[16px] mt-0.5 text-tertiary">tips_and_updates</span>
+        <span>Mức nhớ hiện tại: <strong>${esc(LEVELS[lvl])}</strong>. Bấm Chi tiết để xem nét viết và ví dụ.</span>
+      </div>
+      <div class="pt-2 mt-auto border-t border-border-subtle/40 flex items-center justify-between">
+        <a href="#tu/${encodeURIComponent(it.w)}" class="font-label-sm text-label-sm text-secondary flex items-center gap-1 font-semibold no-underline hover:underline">
+          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
+          <span>Mở từ điển chi tiết</span>
+        </a>
+        <button type="button" class="px-2.5 py-1 rounded bg-paper-card border border-border-subtle text-on-surface hover:bg-surface-container text-label-sm font-label-sm shadow-sm transition-colors flex items-center gap-1" onclick="startStudyWord('${esc(it.w)}')">
+          <span class="material-symbols-outlined text-[14px]">play_arrow</span>
+          <span>Học ngay</span>
+        </button>
+      </div>
+    `;
+  };
+
+  // Render Folder Cards Grid
+  let curCat = "all";
+  const renderFolderCards = () => {
+    const q = fold($("#folderSearchInput")?.value || "");
+    const grid = $("#stitch-folders-grid");
+    if (!grid) return;
+    const filtered = allFolderItems.filter((f) => {
+      if (curCat !== "all" && f.cat !== curCat) return false;
+      if (!q) return true;
+      return fold(f.title).includes(q) || fold(f.sub).includes(q) || fold(f.tag).includes(q);
+    });
+
+    grid.innerHTML = filtered.map((f) => `
+      <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_8px_rgba(44,42,41,0.03)] hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
+        <div class="flex flex-col gap-space-xs">
+          <div class="flex items-start justify-between">
+            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="w-10 h-10 rounded-xl ${f.iconBg} flex items-center justify-center no-underline">
+              <span class="font-headline-md font-bold text-lg">${esc(f.iconText)}</span>
+            </a>
+            <div class="flex items-center gap-1.5">
+              <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-[11px] font-semibold">${esc(f.tag)}</span>
+              ${f.isBand ? `
+                <button type="button" class="px-2 py-0.5 rounded text-[11px] font-semibold border transition-colors ${f.isLearning ? "bg-jade-subtle text-secondary border-secondary/30" : "bg-paper-muted text-outline border-border-subtle"}" data-toggle-band="${esc(f.id)}">
+                  ${f.isLearning ? "Đang học" : "+ Bật"}
+                </button>
+              ` : ""}
+            </div>
+          </div>
+          <div class="mt-1">
+            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="no-underline">
+              <h3 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
+                ${esc(f.title)}
+              </h3>
+            </a>
+            <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
+              ${esc(f.sub)}
+            </p>
+          </div>
+        </div>
+        <!-- Progress bar -->
+        <div class="mt-space-md pt-space-xs">
+          <div class="flex justify-between items-center text-label-sm font-label-sm mb-1.5">
+            <span class="text-outline">Tiến độ nắm vững</span>
+            <span class="font-code text-on-surface font-semibold">${fmt(f.learned)} / ${fmt(f.total)} từ (${f.pct}%)</span>
+          </div>
+          <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+            <div class="h-full rounded-full ${f.barBg}" style="width: ${f.pct}%"></div>
+          </div>
+          <div class="flex items-center justify-between mt-space-md pt-space-xs border-t border-border-subtle/50">
+            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="font-code text-xs text-primary hover:underline font-semibold flex items-center gap-1 no-underline">
+              <span>Xem ${fmt(f.total)} từ →</span>
+            </a>
+            <button type="button" class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary text-label-sm font-label-sm font-semibold hover:bg-primary transition-colors flex items-center gap-1 shadow-sm" onclick="startStudyFolder('${esc(f.id)}')">
+              <span class="material-symbols-outlined text-[16px]">play_arrow</span>
+              <span>Học ngay</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    `).join("") || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Không tìm thấy thư mục nào khớp.</div>`;
+
+    grid.querySelectorAll("[data-toggle-band]").forEach((btn) => {
+      btn.onclick = async (e) => {
+        e.preventDefault();
+        const b = btn.dataset.toggleBand;
+        S.settings.bands[b] = !S.settings.bands[b];
+        await saveSettings();
+        VIEWS["thu-muc"]();
+      };
+    });
+  };
+
+  renderFlashcardCanvas();
+  renderQuickLookup();
+  renderFolderCards();
+
+  // Wire up Quick Search events
+  const qInput = $("#quick-search-input");
+  if (qInput) qInput.oninput = renderQuickLookup;
+  const qClear = $("#btn-clear-quick-search");
+  if (qClear) qClear.onclick = () => { if (qInput) { qInput.value = ""; qInput.focus(); renderQuickLookup(); } };
+
+  // Wire up Folder Filter tabs & search
+  const fSearch = $("#folderSearchInput");
+  if (fSearch) fSearch.oninput = renderFolderCards;
+
+  document.querySelectorAll("#folderTabs button").forEach((btn) => {
     btn.onclick = () => {
-      const tab = btn.dataset.tab;
-      document.querySelectorAll("#folderTabs button").forEach(b => {
-        b.className = b.dataset.tab === tab ? "px-4 py-2 rounded-xl text-xs font-bold transition-all bg-[#0d6832] text-white shadow-2xs" : "px-4 py-2 rounded-xl text-xs font-bold transition-all bg-paper-card text-on-surface border border-border-subtle hover:bg-paper-muted";
+      curCat = btn.dataset.tab || "all";
+      document.querySelectorAll("#folderTabs button").forEach((b) => {
+        b.className = b.dataset.tab === curCat
+          ? "px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-semibold shadow-sm"
+          : "px-3.5 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-md text-label-md transition-colors shadow-sm";
       });
-      const secTopics = $("#sec-topics");
-      const secBands = $("#sec-bands");
-      const secPersonal = $("#sec-personal");
-
-      if (tab === "topics") {
-        if (secTopics) secTopics.style.display = "flex";
-        if (secBands) secBands.style.display = "none";
-        if (secPersonal) secPersonal.style.display = "none";
-      } else if (tab === "bands") {
-        if (secTopics) secTopics.style.display = "none";
-        if (secBands) secBands.style.display = "flex";
-        if (secPersonal) secPersonal.style.display = "none";
-      } else if (tab === "personal") {
-        if (secTopics) secTopics.style.display = "none";
-        if (secBands) secBands.style.display = "none";
-        if (secPersonal) secPersonal.style.display = "flex";
-      } else {
-        if (secTopics) secTopics.style.display = "flex";
-        if (secBands) secBands.style.display = "flex";
-        if (secPersonal) secPersonal.style.display = "flex";
-      }
+      renderFolderCards();
     };
   });
 
-  document.querySelectorAll("[data-toggle-band]").forEach(btn => {
-    btn.onclick = async (e) => {
-      e.preventDefault();
-      const b = btn.dataset.toggleBand;
-      S.settings.bands[b] = !S.settings.bands[b];
-      await saveSettings();
-      VIEWS["thu-muc"]();
-    };
-  });
+  // Wire up Stitch 3-mode view switcher
+  const setMainMode = (mode) => {
+    const flashSec = $("#flashcard-section");
+    const libSec = $("#library-section");
+    const tInt = $("#view-tab-integrated");
+    const tLib = $("#view-tab-library");
+    const tFoc = $("#view-tab-focus");
+    [tInt, tLib, tFoc].forEach((t) => {
+      if (!t) return;
+      t.classList.remove("bg-paper-card", "text-primary", "shadow-sm", "font-semibold");
+      t.classList.add("text-on-surface-variant", "font-medium");
+    });
+    if (mode === "integrated") {
+      if (flashSec) flashSec.classList.remove("hidden");
+      if (libSec) libSec.classList.remove("hidden");
+      if (tInt) { tInt.classList.add("bg-paper-card", "text-primary", "shadow-sm", "font-semibold"); tInt.classList.remove("text-on-surface-variant"); }
+    } else if (mode === "library") {
+      if (flashSec) flashSec.classList.add("hidden");
+      if (libSec) libSec.classList.remove("hidden");
+      if (tLib) { tLib.classList.add("bg-paper-card", "text-primary", "shadow-sm", "font-semibold"); tLib.classList.remove("text-on-surface-variant"); }
+    } else if (mode === "focus") {
+      if (flashSec) flashSec.classList.remove("hidden");
+      if (libSec) libSec.classList.add("hidden");
+      if (tFoc) { tFoc.classList.add("bg-paper-card", "text-primary", "shadow-sm", "font-semibold"); tFoc.classList.remove("text-on-surface-variant"); }
+    }
+  };
+  const tInt = $("#view-tab-integrated");
+  const tLib = $("#view-tab-library");
+  const tFoc = $("#view-tab-focus");
+  if (tInt) tInt.onclick = () => setMainMode("integrated");
+  if (tLib) tLib.onclick = () => setMainMode("library");
+  if (tFoc) tFoc.onclick = () => setMainMode("focus");
 };
 
 // =========================================================================
@@ -2916,8 +3543,8 @@ function renderTri() {
         ${T.shown ? `
           <div class="flex flex-col items-center gap-2 pt-space-sm border-t border-border-subtle w-full max-w-md">
             <div class="font-code text-xl text-tertiary font-bold">${esc(it.py)}</div>
-            ${it.hv ? `<div class="text-xs text-outline">Hán Việt: <strong class="text-on-surface">${it.hv}</strong></div>` : ''}
-            <div class="text-base font-semibold text-on-surface">${esc(it.vn || it.en || '')}</div>
+            ${it.hv ? `<div class="text-xs text-outline">Hán Việt: <strong class="text-on-surface">${it.hv}</strong></div>` : ""}
+            <div class="text-base font-semibold text-on-surface">${esc(it.vn || it.en || "")}</div>
           </div>
         ` : `
           <button type="button" class="px-6 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold text-sm transition-colors" id="btnTriReveal">
@@ -2941,7 +3568,7 @@ function renderTri() {
         </div>
 
         <div class="flex items-center justify-between w-full max-w-md pt-2 text-xs text-outline">
-          <button type="button" class="hover:underline" id="btnTriUndo" ${T.hist.length ? '' : 'disabled'}>↺ Hoàn tác (Z)</button>
+          <button type="button" class="hover:underline" id="btnTriUndo" ${T.hist.length ? "" : "disabled"}>↺ Hoàn tác (Z)</button>
           <a href="#thu-muc/${encodeURIComponent(T.id)}" class="hover:underline">Dừng lọc</a>
         </div>
       </div>
@@ -2961,7 +3588,6 @@ async function triage(action) {
   const T = S.tri;
   if (!T || !T.list[T.i]) return;
   const n = T.list[T.i];
-  const now = Date.now();
   const lvl = action === "known" ? 4 : (action === "some" ? 2 : 0);
   await applyWordLevel(n, lvl);
   T.counts[action]++;
@@ -4045,90 +4671,723 @@ VIEWS["ngu-phap"] = () => {
 };
 
 // =========================================================================
-// 5. TRA TỪ & CHI TIẾT TỪ (Stitch Design + Hanzii VIP Link & Auto-Translate)
+// 5. TRA CỨU & NHẬP TỪ VỰNG (Exact Stitch Design + Hanzii VIP & Auto-Translate)
 // =========================================================================
+
+// ---------------- HỖ TRỢ DỊCH TỰ ĐỘNG CHỮ HÁN / TIẾNG ANH SANG TIẾNG VIỆT ----------------
+async function autoTranslateZhToVi(text) {
+  try {
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=zh-TW&tl=vi&dt=t&q=${encodeURIComponent(text)}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+    if (data && data[0]) {
+      return data[0].map((item) => item[0]).join("").trim();
+    }
+    return "";
+  } catch (e) {
+    console.error("Auto-translate Zh->Vi error:", e);
+    return "";
+  }
+}
+
+async function autoTranslateEnToVi(text) {
+  try {
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&q=${encodeURIComponent(text)}`;
+    const res = await fetch(url);
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    const data = await res.json();
+    if (data && data[0]) {
+      return data[0].map((item) => item[0]).join("").trim();
+    }
+    return "";
+  } catch (e) {
+    console.error("Auto-translate En->Vi error:", e);
+    return "";
+  }
+}
+
+// Shared helper to render the Stitch 7+5 Master Dictionary Showcase for any word `w`
+function buildStitchWordShowcaseHTML(w) {
+  const n = S.noteByWord.get(w);
+  const e = cedFirst(w);
+  const inLearn = n && inLearning(n);
+  const customVi = S.vi ? S.vi.get(w) : null;
+  const it = n
+    ? itemOf(n)
+    : {
+        w,
+        py: (customVi && customVi.py) || (e ? e[0][0] : (w === "璀璨" ? "cuǐ càn" : "")),
+        vn: (customVi && customVi.vn) || (w === "璀璨" ? "Mô tả sắc ngọc quý toả ánh sáng lấp lánh rạng ngời, hoa lệ rực rỡ tuyệt mỹ." : ""),
+        hv: (customVi && customVi.hv) || (w === "璀璨" ? "Tuy Xán" : ""),
+        en: e ? e[0][1].split("/").join("; ") : (w === "璀璨" ? "bright and resplendent; glittering" : ""),
+        pos: (customVi && customVi.pos) || (w === "璀璨" ? "Tính từ (形容詞)" : "Từ vựng"),
+        band: w === "璀璨" ? "C1 • Lưu loát" : ""
+      };
+  const chars = [...new Set([...hanOnly(w)])];
+  if (!chars.length && w) chars.push(w[0]);
+  const containing = (c) => S.notes.filter((x) => x.kind === "vocab" && x.w.includes(c) && x.w !== w).slice(0, 8);
+  const curLvl = n ? noteLevel(n) : 0;
+  const unicodeHex = chars.map((ch) => "U+" + ch.codePointAt(0).toString(16).toUpperCase()).join(" ");
+  const bandLabel = n ? `TOCFL ${bandsOf(n).join(" · ") || "Chuẩn"}` : (it.band ? `TOCFL ${it.band}` : "Mở rộng CC-CEDICT");
+
+  return `
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+      <!-- Left: Word Card Showcase & Hanzi Stroke Breakdown (7 cols) -->
+      <div class="lg:col-span-7 flex flex-col gap-space-lg">
+        <!-- Master Dictionary Showcase Card -->
+        <div class="bg-paper-card p-space-lg md:p-space-xl rounded-2xl border border-border-subtle/70 shadow-sm relative overflow-hidden flex flex-col gap-space-lg">
+          <!-- Traditional Red Seal Background Stamp -->
+          <div class="absolute -right-8 -top-8 w-44 h-44 rounded-full bg-cinnabar-subtle opacity-60 pointer-events-none flex items-center justify-center">
+            <span class="font-display text-primary text-[88px] opacity-25 select-none font-bold">${esc(chars[0] || "學")}</span>
+          </div>
+
+          <!-- Header of Entry Card -->
+          <div class="flex items-start justify-between relative z-10 gap-2 flex-wrap">
+            <div class="flex items-center gap-space-sm flex-wrap">
+              <span class="px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold tracking-wide">
+                ${esc(bandLabel)}
+              </span>
+              <span class="px-2 py-0.5 rounded-md bg-amber-subtle text-tertiary font-label-sm text-label-sm">
+                Từ tính: ${esc(it.pos || "Từ vựng")}
+              </span>
+              <span class="px-2 py-0.5 rounded-md bg-paper-base text-outline font-code text-body-sm">
+                Unicode: ${esc(unicodeHex)}
+              </span>
+            </div>
+            <!-- Quick Direct Save Actions -->
+            <div class="flex items-center gap-space-xs">
+              <button type="button" class="px-space-md py-1.5 rounded-xl ${inLearn ? "bg-jade-subtle text-secondary" : "bg-cinnabar-subtle hover:bg-primary-fixed text-primary"} font-label-md text-label-md font-semibold transition-all duration-150 flex items-center gap-1.5 shadow-sm" id="addLearn">
+                <span class="material-symbols-outlined text-[18px]">${inLearn ? "bookmark_added" : "bookmark_add"}</span>
+                <span>${inLearn ? "✓ Đang trong lịch học" : "+ Lưu vào sổ"}</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Calligraphic Mi-zi-ge (米字格) Character Display + HanziWriter -->
+          <div class="flex flex-col sm:flex-row items-center sm:items-start gap-space-lg py-space-sm relative z-10">
+            <!-- Rice Grid Boxes Container -->
+            <div class="flex items-center gap-space-md flex-wrap justify-center">
+              ${chars.map((c, k) => `
+                <div class="flex flex-col items-center gap-1.5">
+                  <div class="relative w-28 h-28 bg-[#FFFDF9] rounded-xl border border-border-subtle flex items-center justify-center shadow-inner overflow-hidden group cursor-pointer" data-anim-w="${k}" title="Nhấn để xem diễn hoạ bút thuận chữ ${esc(c)}">
+                    <svg class="absolute inset-0 w-full h-full text-surface-container-highest stroke-current pointer-events-none" stroke-dasharray="2,3" stroke-width="0.8" viewBox="0 0 100 100">
+                      <line x1="0" x2="100" y1="0" y2="100"></line>
+                      <line x1="100" x2="0" y1="0" y2="100"></line>
+                      <line x1="50" x2="50" y1="0" y2="100"></line>
+                      <line x1="0" x2="100" y1="50" y2="50"></line>
+                    </svg>
+                    <div id="wordHw${k}" class="relative z-10 flex items-center justify-center">
+                      <span class="font-display text-[60px] text-on-surface select-none leading-none">${esc(c)}</span>
+                    </div>
+                  </div>
+                  <div class="flex gap-1">
+                    <button type="button" class="text-[11px] px-2 py-0.5 rounded bg-paper-base hover:bg-cinnabar-subtle text-primary border border-border-subtle" data-anim-w="${k}">Xem nét</button>
+                    <button type="button" class="text-[11px] px-2 py-0.5 rounded bg-paper-base hover:bg-jade-subtle text-secondary border border-border-subtle" data-quiz-w="${k}">Tập viết</button>
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+
+            <!-- Pronunciation, Han-Viet, and Meaning -->
+            <div class="flex flex-col gap-space-xs text-center sm:text-left justify-center flex-1 min-w-0">
+              <div class="flex items-center justify-center sm:justify-start gap-space-sm flex-wrap">
+                <h2 class="font-headline-lg text-3xl font-bold text-on-surface font-serif select-all mr-1">${esc(w)}</h2>
+                <span class="font-body-lg text-[22px] font-semibold text-primary">${esc(it.py || "")}</span>
+                <button type="button" class="w-8 h-8 rounded-full bg-cinnabar-subtle hover:bg-primary-fixed text-primary flex items-center justify-center transition-transform active:scale-95 shadow-sm" onclick="say('${esc(w)}')" title="Phát âm chuẩn Đài Bắc (Quốc ngữ)">
+                  <span class="material-symbols-outlined text-[18px]">volume_up</span>
+                </button>
+                <span class="text-outline text-body-sm font-code">Đài Loan [Chuẩn]</span>
+              </div>
+
+              <div class="flex items-center justify-center sm:justify-start gap-space-md text-on-surface-variant flex-wrap">
+                <div class="flex items-center gap-1 font-body-md text-body-md">
+                  <span class="text-outline font-label-sm">Hán Việt:</span>
+                  <span class="font-semibold text-on-surface">${esc(it.hv || "Đang cập nhật")}</span>
+                </div>
+              </div>
+
+              <!-- Meaning Section & Actions -->
+              <div class="flex flex-col gap-1.5 pt-2 border-t border-border-subtle/60 mt-1">
+                <div class="flex items-center justify-between flex-wrap gap-2">
+                  <span class="text-xs uppercase font-semibold text-outline">Nghĩa tiếng Việt</span>
+                  <div class="flex items-center gap-1.5">
+                    <button type="button" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-jade-subtle text-secondary hover:bg-secondary-container border border-secondary/30 flex items-center gap-1 transition-colors" id="btnAutoTranslate" title="Tự động dịch sang tiếng Việt">
+                      <span class="material-symbols-outlined text-[15px]">translate</span>
+                      <span>Dịch tự động</span>
+                    </button>
+                    <button type="button" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-paper-muted text-on-surface hover:bg-surface-container border border-border-subtle flex items-center gap-1 transition-colors" id="btnEditMeaning">
+                      <span class="material-symbols-outlined text-[15px]">edit</span>
+                      <span>${it.vn ? "Sửa nghĩa" : "+ Thêm nghĩa TV"}</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="font-body-md text-base text-on-surface font-semibold leading-relaxed" id="meaningDisplay">
+                  ${it.vn
+                    ? esc(it.vn)
+                    : it.en
+                      ? `<span class="text-on-surface-variant font-normal text-sm italic">${esc(it.en)} <small class="text-tertiary not-italic block text-xs mt-1 font-sans">⚠️ Từ này hiện có nghĩa tiếng Anh. Bấm "Dịch tự động" hoặc "Tra trên Hanzii VIP ↗" để cập nhật tiếng Việt!</small></span>`
+                      : '<span class="text-outline text-sm">Chưa có định nghĩa tiếng Việt. Bấm "Dịch tự động" hoặc "+ Thêm nghĩa TV".</span>'}
+                </div>
+                ${it.vn && it.en ? `<div class="text-xs text-outline">${esc(it.en)}</div>` : ""}
+              </div>
+            </div>
+          </div>
+
+          <!-- Inline Meaning Editor (Hidden by default) -->
+          <div id="editMeaningBox" class="hidden p-4 rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-3 transition-all relative z-10">
+            <div class="flex items-center justify-between border-b border-border-subtle pb-2">
+              <span class="text-xs font-bold text-on-surface flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px] text-primary">edit_note</span>
+                <span>Chỉnh sửa nghĩa Tiếng Việt &amp; Hán Việt cho "${esc(w)}"</span>
+              </span>
+              <button type="button" class="text-xs text-outline hover:text-on-surface" id="btnCancelEdit">Đóng ✕</button>
+            </div>
+            <div class="flex flex-col gap-1">
+              <label class="text-[11px] font-semibold text-on-surface-variant">Nghĩa tiếng Việt:</label>
+              <input id="editVn" class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-sm text-on-surface focus:outline-none focus:border-primary" value="${esc(it.vn || "")}" placeholder="VD: con nhện; rực rỡ lấp lánh">
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div class="flex flex-col gap-1">
+                <label class="text-[11px] font-semibold text-on-surface-variant">Âm Hán Việt:</label>
+                <input id="editHv" class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-sm text-on-surface focus:outline-none focus:border-primary" value="${esc(it.hv || "")}" placeholder="VD: Tri chu">
+              </div>
+              <div class="flex flex-col gap-1">
+                <label class="text-[11px] font-semibold text-on-surface-variant">Từ loại:</label>
+                <input id="editPos" class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-sm text-on-surface focus:outline-none focus:border-primary" value="${esc(it.pos || "")}" placeholder="VD: Danh từ">
+              </div>
+            </div>
+            <div class="flex items-center justify-between gap-2 pt-2 border-t border-border-subtle/50">
+              <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" id="btnAutoFillTranslate">
+                Lấy bản dịch gợi ý
+              </button>
+              <button type="button" class="px-4 py-2 rounded-xl text-xs font-bold bg-primary-container text-white hover:bg-primary transition-all shadow-2xs" id="btnSaveMeaning">
+                Lưu vào từ điển
+              </button>
+            </div>
+          </div>
+
+          <!-- Prominent External Dictionaries Box (Hanzii VIP, Moedict, Trichdan) -->
+          <div class="p-3.5 rounded-xl bg-paper-base border border-border-subtle flex flex-col gap-2 relative z-10">
+            <div class="flex items-center justify-between text-xs text-outline font-semibold uppercase">
+              <span class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px] text-tertiary">open_in_new</span>
+                <span>Tra cứu chuyên sâu trên Hanzii VIP &amp; Bộ GD Đài Loan</span>
+              </span>
+              <span class="text-[11px] text-outline">Hỗ trợ tài khoản VIP</span>
+            </div>
+            <div class="flex items-center gap-2 flex-wrap">
+              <a href="https://hanzii.net/search/word/${encodeURIComponent(w)}?hl=vi" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-cinnabar-subtle hover:bg-primary-fixed text-primary border border-primary/20 text-xs font-bold transition-all flex items-center gap-1.5 no-underline">
+                <span class="w-2 h-2 rounded-full bg-primary"></span>
+                <span>Tra trên Hanzii VIP ↗</span>
+              </a>
+              <a href="https://www.moedict.tw/${encodeURIComponent(w)}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle text-xs font-medium transition-all flex items-center gap-1.5 no-underline">
+                <span>🇹🇼 Từ điển Đài Loan (萌典) ↗</span>
+              </a>
+              <a href="https://trichdan.net/tu-dien/han-viet/${encodeURIComponent(w)}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle text-xs font-medium transition-all flex items-center gap-1.5 no-underline">
+                <span>📖 Tra Hán Việt (Trích Dẫn) ↗</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Radical Deconstruction (Chiết tự bộ thủ - Exact Stitch) -->
+          <div class="p-space-md bg-paper-base rounded-xl flex flex-col gap-space-sm relative z-10">
+            <div class="flex items-center justify-between">
+              <span class="font-label-md text-label-md font-semibold text-on-surface flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-tertiary text-[18px]">account_tree</span>
+                Chiết tự &amp; Nguồn gốc chữ Hán
+              </span>
+              <span class="font-label-sm text-label-sm text-outline">Bộ thủ 214 Khang Hy</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm font-body-sm text-body-sm text-on-surface-variant">
+              ${chars.map((ch) => `
+                <div class="p-2.5 rounded-lg bg-paper-card border border-border-subtle/50">
+                  <strong class="text-primary font-display text-base">${esc(ch)}</strong>: Chữ Hán Phồn thể chuẩn Đài Loan (Mã <span class="font-code text-xs">${"U+" + ch.codePointAt(0).toString(16).toUpperCase()}</span>). Bấm vào ô mễ phía trên để luyện viết từng nét.
+                </div>
+              `).join("")}
+            </div>
+          </div>
+
+          <!-- Real-World Taiwanese Context Examples with Audio -->
+          <div class="flex flex-col gap-space-sm relative z-10">
+            <div class="flex items-center justify-between">
+              <span class="font-label-md text-label-md font-semibold text-on-surface flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-primary text-[18px]">format_quote</span>
+                Ví dụ câu chuẩn ngữ cảnh Đài Loan
+              </span>
+              <span class="font-label-sm text-label-sm text-outline">Nguồn: Bộ Giáo dục Đài Loan (MOE)</span>
+            </div>
+            <div class="flex flex-col gap-space-sm">
+              <div class="p-space-md rounded-xl bg-paper-base hover:bg-surface-container-low transition-colors flex flex-col gap-space-xs">
+                <div class="flex items-center justify-between gap-2">
+                  <p class="font-headline-md text-headline-md text-on-surface font-normal">
+                    ${it.e1 ? ruby(it.e1) : (w === "璀璨" ? '台北101的跨年煙火在夜空中綻放出<span class="text-primary font-semibold">璀璨</span>的光芒。' : `在臺灣的日常生活中，我們很常使用「<span class="text-primary font-semibold">${esc(w)}</span>」這個詞彙。`)}
+                  </p>
+                  <button type="button" class="p-1 rounded-full text-on-surface-variant hover:text-primary hover:bg-paper-card transition-colors shrink-0" onclick="say('${esc(it.e1 || (w === "璀璨" ? "台北101的跨年煙火在夜空中綻放出璀璨的光芒。" : `在臺灣的日常生活中，我們很常使用${w}這個詞彙。`))}')" title="Nghe câu ví dụ">
+                    <span class="material-symbols-outlined text-[18px]">volume_up</span>
+                  </button>
+                </div>
+                <p class="font-code text-body-sm text-outline">
+                  ${esc(it.e1p || (w === "璀璨" ? "Táiběi 101 de kuànián yānhuǒ zài yèkōng zhōng zhànfàng chū cuǐcàn de guāngmáng." : `Pinyin: ${it.py || w}`))}
+                </p>
+                <p class="font-body-md text-body-md text-on-surface-variant">
+                  ${esc(it.e1v || (w === "璀璨" ? "Pháo hoa đón năm mới của tòa tháp Taipei 101 bung nở những luồng sáng rực rỡ rạng ngời giữa bầu trời đêm." : `Trong đời sống hằng ngày tại Đài Loan, chúng ta rất thường sử dụng từ "${w}" (${it.vn || it.en || ""}).`))}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6 Memory Rating Buttons for this word -->
+          ${n ? `
+            <div class="pt-space-md border-t border-border-subtle flex flex-col gap-2 relative z-10">
+              <div class="flex items-center justify-between text-xs text-outline font-semibold uppercase">
+                <span>Mức độ ghi nhớ hiện tại</span>
+                <span class="text-primary font-bold">${LEVELS[curLvl]}</span>
+              </div>
+              <div class="grades-6">
+                ${[0, 1, 2, 3, 4, 5].map((lvl) => {
+                  const isCur = curLvl === lvl;
+                  const hints = ["Đặt lại", "Ôn lại ngay", "1 ngày", "7 ngày", "21 ngày", "90 ngày"];
+                  return `
+                    <button type="button" class="lvl-btn lvl-btn-${lvl} ${isCur ? "is-current" : ""}" data-word-level="${lvl}" title="Đặt ${esc(w)} ở mức ${esc(LEVELS[lvl])}">
+                      <span class="lvl-title">${isCur ? "✓ " : ""}${esc(LEVELS[lvl])}</span>
+                      <small class="lvl-sub">${hints[lvl]}</small>
+                    </button>
+                  `;
+                }).join("")}
+              </div>
+              <div id="levelStatus" class="text-xs text-secondary text-center font-semibold mt-1"></div>
+            </div>
+          ` : ""}
+        </div>
+      </div>
+
+      <!-- Right: Word Details, Radicals, Collocations & Quick Entry Drawer (5 cols) -->
+      <div class="lg:col-span-5 flex flex-col gap-space-lg">
+        <!-- Visual Context Card with Traditional Photography (Exact Stitch) -->
+        <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
+          <div class="relative w-full h-44 rounded-xl overflow-hidden shadow-inner bg-gradient-to-br from-[#1d1b1a] via-[#86090a] to-[#a8261f]">
+            <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Taipei Night Glow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCONGiO5xNHCtbctmkiavM9bxHBFiFWWrXz15aBdQHgmYDW-3X4yC18OBJp0H8qQBxbr_-zvdTyo4_vyBF7ruCOD_DrKaDq6oAImE9HAHQLW1bTuJOWvBsC2dYHBJ_irMGED1eR4wODspBtVFJDAJbAE-o0txMAZpMzQDGz_dPzNP9inSV8QyEFGizVqYMImnJaTCEOtREbHFhXTtXJX60jyT_yIYAb_6TnVtaFvbk2" onerror="this.style.display='none'">
+            <div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent flex items-end p-space-md">
+              <span class="text-on-primary font-headline-md text-headline-md font-semibold tracking-wide">
+                ${esc(w)} • 臺灣語境 • Ngữ cảnh Đài Loan
+              </span>
+            </div>
+          </div>
+          <!-- Collocation Combos -->
+          <div class="flex flex-col gap-space-xs">
+            <span class="font-label-md text-label-md font-semibold text-on-surface">Từ vựng liên quan cùng chữ Hán (相關詞彙):</span>
+            <div class="flex flex-wrap gap-space-xs">
+              ${chars.flatMap((c) => containing(c)).slice(0, 6).map((x) => `
+                <a href="#tu/${encodeURIComponent(x.w)}" class="px-2.5 py-1 rounded-lg bg-paper-base text-on-surface font-body-sm text-body-sm hover:bg-cinnabar-subtle hover:text-primary transition-colors no-underline">
+                  <strong class="font-serif">${esc(x.w)}</strong> <span class="text-outline text-xs">(${esc(itemOf(x).py || "")})</span>
+                </a>
+              `).join("") || `
+                <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-base text-on-surface font-body-sm text-body-sm" onclick="location.hash='#tu/璀璨'">璀璨 (cuǐcàn)</button>
+                <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-base text-on-surface font-body-sm text-body-sm" onclick="location.hash='#tu/謙虛'">謙虛 (qiānxū)</button>
+                <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-base text-on-surface font-body-sm text-body-sm" onclick="location.hash='#tu/客氣'">客氣 (kèqi)</button>
+              `}
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Append to Custom Notebook Module (Exact Stitch) -->
+        <div class="bg-paper-card p-space-lg rounded-2xl border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-space-xs">
+              <span class="w-1.5 h-3.5 rounded-full bg-secondary"></span>
+              <h3 class="font-headline-md text-label-md font-semibold text-on-surface">Gán vào mục tiêu học tập</h3>
+            </div>
+            <span class="font-label-sm text-label-sm text-secondary">Đồng bộ Flashcard SRS</span>
+          </div>
+          <div class="flex flex-col gap-space-sm">
+            <label class="font-label-sm text-label-sm text-on-surface-variant">Chọn Thư mục đích:</label>
+            <select id="quickAssignDeck" class="w-full px-space-md py-2 rounded-xl bg-paper-base border border-border-subtle text-on-surface font-body-md text-body-md focus:outline-none">
+              <option value="Sổ từ của tôi">📖 Thư mục của tôi (個人詞庫)</option>
+              <option value="TOCFL Band B">🎯 Mục tiêu TOCFL Band B1/B2</option>
+              <option value="Báo chí & Đời sống Đài Loan">📰 Báo chí &amp; Đời sống Đài Bắc</option>
+            </select>
+            <label class="font-label-sm text-label-sm text-on-surface-variant pt-1">Ghi chú cá nhân / Nghĩa bổ sung:</label>
+            <textarea id="quickAssignNote" class="w-full px-space-md py-2 rounded-xl bg-paper-base border border-border-subtle text-on-surface font-body-sm text-body-sm focus:outline-none placeholder:text-outline/60 resize-none" placeholder="Ghi chú mẹo nhớ bộ thủ hoặc ngữ cảnh gặp từ này..." rows="2">${esc(it.vn || it.en || "")}</textarea>
+            <div class="flex items-center justify-between pt-1">
+              <span id="quickAssignMsg" class="text-xs font-semibold text-secondary"></span>
+              <button type="button" id="btnQuickAssignSave" class="px-space-lg py-2 rounded-xl bg-secondary hover:bg-secondary/90 text-on-secondary font-label-md text-label-md font-semibold shadow-sm transition-all">
+                Lưu từ ngay
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CC-CEDICT English Definitions if available -->
+        ${e ? `
+          <div class="bg-paper-card p-space-lg rounded-2xl border border-border-subtle/70 shadow-sm flex flex-col gap-space-sm">
+            <div class="flex items-center justify-between">
+              <span class="font-label-md text-label-md font-semibold text-on-surface">Từ điển Anh-Hoa (CC-CEDICT)</span>
+              <span class="font-label-sm text-label-sm text-outline">${e.length} mục</span>
+            </div>
+            <div class="flex flex-col gap-1.5 text-xs">
+              ${e.map(([py, defs]) => `
+                <div class="p-2 rounded-lg bg-paper-base flex flex-col sm:flex-row sm:items-baseline gap-1.5">
+                  <span class="font-code font-bold text-tertiary shrink-0">${esc(py)}</span>
+                  <span class="text-on-surface">${esc(defs.replace(/\\[[^\\]]*\\d\\]/g, "").split("/").join("; "))}</span>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        ` : ""}
+      </div>
+    </div>
+  `;
+}
+
+function renderStitchWordShowcase(w, containerSelector, onRefresh) {
+  const host = $(containerSelector);
+  if (!host) return;
+  const n = S.noteByWord.get(w);
+  const e = cedFirst(w);
+  const inLearn = n && inLearning(n);
+  const customVi = S.vi ? S.vi.get(w) : null;
+  const it = n
+    ? itemOf(n)
+    : {
+        w,
+        py: (customVi && customVi.py) || (e ? e[0][0] : (w === "璀璨" ? "cuǐ càn" : "")),
+        vn: (customVi && customVi.vn) || (w === "璀璨" ? "Mô tả sắc ngọc quý toả ánh sáng lấp lánh rạng ngời, hoa lệ rực rỡ tuyệt mỹ." : ""),
+        hv: (customVi && customVi.hv) || (w === "璀璨" ? "Tuy Xán" : ""),
+        en: e ? e[0][1].split("/").join("; ") : (w === "璀璨" ? "bright and resplendent; glittering" : ""),
+        pos: (customVi && customVi.pos) || (w === "璀璨" ? "Tính từ (形容詞)" : "Từ vựng"),
+        band: w === "璀璨" ? "C1 • Lưu loát" : ""
+      };
+  const chars = [...new Set([...hanOnly(w)])];
+  if (!chars.length && w) chars.push(w[0]);
+  host.innerHTML = buildStitchWordShowcaseHTML(w);
+
+  // Initialize Hanzi Writer inside the Mi-zi-ge boxes
+  chars.forEach((c, k) => {
+    const el = $("#wordHw" + k);
+    if (el && window.HanziWriter) {
+      el.innerHTML = "";
+      const writer = HanziWriter.create(el, c, {
+        width: 96, height: 96, padding: 4, showOutline: true,
+        strokeColor: "#86090a", outlineColor: "#EBE2D8", highlightColor: "#176b4b",
+        charDataLoader: (ch, onLoad, onErr) => strokeData(ch).then(onLoad).catch(onErr)
+      });
+      host.querySelectorAll(`[data-anim-w="${k}"]`).forEach((btn) => {
+        btn.onclick = () => writer.animateCharacter();
+      });
+      host.querySelectorAll(`[data-quiz-w="${k}"]`).forEach((btn) => {
+        btn.onclick = () => writer.quiz();
+      });
+    }
+  });
+
+  // Action: Add to Learning
+  const add = $("#addLearn");
+  if (add) {
+    add.onclick = async () => {
+      if (n) {
+        if (!S.settings.extra) S.settings.extra = {};
+        S.settings.extra[n.w] = true;
+        await saveSettings();
+      } else {
+        const entry = {
+          w,
+          py: it.py,
+          note: it.vn || it.en || "",
+          hv: it.hv || "",
+          pos: it.pos || "Từ vựng",
+          where: "Từ điển tra cứu",
+          at: Date.now()
+        };
+        if (!S.inbox) S.inbox = new Map();
+        S.inbox.set("inbox_" + w, entry);
+        try { await Store.put("inbox", "inbox_" + w, entry); } catch (err) {}
+        if (typeof syncInboxWordToLearning === "function") syncInboxWordToLearning(entry, true);
+      }
+      if (typeof updateBadge === "function") updateBadge();
+      if (onRefresh) onRefresh(w);
+    };
+  }
+
+  // Action: Quick Assign to Notebook & SRS
+  const btnQuickSave = $("#btnQuickAssignSave");
+  if (btnQuickSave) {
+    btnQuickSave.onclick = async () => {
+      const where = $("#quickAssignDeck")?.value || "Sổ từ của tôi";
+      const note = $("#quickAssignNote")?.value.trim() || it.vn || it.en || "";
+      const entry = { w, py: it.py, note, hv: it.hv || "", pos: it.pos || "Từ vựng", where, at: Date.now() };
+      if (!S.inbox) S.inbox = new Map();
+      S.inbox.set("inbox_" + w, entry);
+      try { await Store.put("inbox", "inbox_" + w, entry); } catch (err) {}
+      if (typeof syncInboxWordToLearning === "function") syncInboxWordToLearning(entry, true);
+      if (typeof updateBadge === "function") updateBadge();
+      const msg = $("#quickAssignMsg");
+      if (msg) msg.textContent = `✓ Đã lưu "${w}" vào sổ & lịch học!`;
+    };
+  }
+
+  // Action: Meaning Edit & Auto-Translate
+  const btnEdit = $("#btnEditMeaning");
+  const editBox = $("#editMeaningBox");
+  const btnCancel = $("#btnCancelEdit");
+  const btnSave = $("#btnSaveMeaning");
+  const btnAuto = $("#btnAutoTranslate");
+  const btnAutoFill = $("#btnAutoFillTranslate");
+
+  if (btnEdit && editBox) {
+    btnEdit.onclick = () => {
+      editBox.classList.toggle("hidden");
+      if (!editBox.classList.contains("hidden")) $("#editVn")?.focus();
+    };
+  }
+  if (btnCancel && editBox) {
+    btnCancel.onclick = () => editBox.classList.add("hidden");
+  }
+
+  async function saveCustomMeaning(word, vn, hv, pos) {
+    if (!S.vi) S.vi = new Map();
+    const prevVi = S.vi.get(word) || {};
+    const newVi = Object.assign({}, prevVi, { vn, hv, py: it.py, pos });
+    S.vi.set(word, newVi);
+
+    const entry = {
+      w: word,
+      py: it.py,
+      note: vn,
+      hv: hv || prevVi.hv || "",
+      pos: pos || prevVi.pos || "Từ vựng",
+      where: "Từ điển cá nhân",
+      at: Date.now()
+    };
+    if (!S.inbox) S.inbox = new Map();
+    S.inbox.set("inbox_" + word, entry);
+    try {
+      await Store.put("inbox", "inbox_" + word, entry);
+      await Store.put("kv", "vi_" + word, newVi);
+    } catch (err) {}
+
+    if (typeof syncInboxWordToLearning === "function") syncInboxWordToLearning(entry, false);
+    if (onRefresh) onRefresh(word);
+  }
+
+  async function doAutoTranslate() {
+    const statusEl = $("#meaningDisplay");
+    if (statusEl) statusEl.innerHTML = '<span class="text-secondary text-sm font-normal animate-pulse flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">sync</span> Đang tự động dịch nghĩa sang tiếng Việt...</span>';
+
+    let trans = await autoTranslateZhToVi(w);
+    if ((!trans || trans.toLowerCase() === w.toLowerCase()) && it.en) {
+      const transEn = await autoTranslateEnToVi(it.en);
+      if (transEn) trans = transEn;
+    }
+
+    if (trans) {
+      const editVn = $("#editVn");
+      if (editVn) editVn.value = trans;
+      await saveCustomMeaning(w, trans, $("#editHv") ? $("#editHv").value : "", $("#editPos") ? $("#editPos").value : "");
+    } else {
+      alert("Không thể dịch tự động lúc này. Bạn có thể bấm nút 'Tra trên Hanzii VIP' để xem nghĩa chuẩn!");
+      if (onRefresh) onRefresh(w);
+    }
+  }
+
+  if (btnAuto) btnAuto.onclick = doAutoTranslate;
+  if (btnAutoFill) {
+    btnAutoFill.onclick = async () => {
+      btnAutoFill.textContent = "Đang dịch...";
+      let trans = await autoTranslateZhToVi(w);
+      if ((!trans || trans.toLowerCase() === w.toLowerCase()) && it.en) {
+        const transEn = await autoTranslateEnToVi(it.en);
+        if (transEn) trans = transEn;
+      }
+      if (trans && $("#editVn")) $("#editVn").value = trans;
+      btnAutoFill.textContent = "Lấy bản dịch gợi ý";
+    };
+  }
+
+  if (btnSave) {
+    btnSave.onclick = async () => {
+      const vn = $("#editVn") ? $("#editVn").value.trim() : "";
+      const hv = $("#editHv") ? $("#editHv").value.trim() : "";
+      const pos = $("#editPos") ? $("#editPos").value.trim() : "";
+      if (!vn) {
+        alert("Vui lòng nhập nghĩa tiếng Việt!");
+        return;
+      }
+      await saveCustomMeaning(w, vn, hv, pos);
+    };
+  }
+
+  if (n) {
+    bindLevelPicker(n, () => {
+      if (onRefresh) onRefresh(w);
+    });
+  }
+}
+
+// ---------------- VIEW: TRA & NHẬP TỪ (#tu-dien) ----------------
 VIEWS["tu-dien"] = (arg) => {
+  const vocabCount = S.notes.filter((n) => n.kind === "vocab").length;
+  const initialWord = arg && isHan(arg) ? arg : "璀璨";
+
   setView(`
-    <div class="max-w-6xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
-      <!-- Top Workspace Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
+    <div class="relative w-full max-w-6xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-xl">
+      <!-- Top Workspace Header & Mode Switcher (Exact Stitch) -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
         <div class="flex flex-col gap-space-xs max-w-2xl">
-          <div class="flex items-center gap-space-sm">
-            <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
-            <span class="font-label-sm text-xs text-primary uppercase tracking-widest font-semibold">Từ điển & Tra cứu</span>
-            <span class="inline-flex items-center px-2 py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-xs font-semibold">
+          <div class="flex items-center gap-space-sm flex-wrap">
+            <span class="w-1.5 h-4 rounded-full bg-primary"></span>
+            <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Từ điển &amp; Quản trị Từ vựng</span>
+            <span class="inline-flex items-center px-space-xs py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-label-sm">
               <span class="w-1.5 h-1.5 rounded-full bg-secondary mr-1 animate-pulse"></span>
-              TOCFL 2024 & CVDICT
+              TOCFL Đài Loan chuẩn
             </span>
           </div>
-          <h1 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
-            Tra cứu Từ vựng Phồn thể <span class="text-on-surface-variant font-normal">| 字詞檢索</span>
+          <h1 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">
+            Tra cứu &amp; Nhập từ vựng <span class="text-on-surface-variant font-normal">| 字詞檢索與錄入</span>
           </h1>
-          <p class="font-body-md text-sm text-on-surface-variant">
-            Tra cứu chữ Hán, pinyin không dấu, âm Hán Việt hoặc nghĩa tiếng Việt/tiếng Anh.
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Tra cứu chiết tự Khang Hy, chú âm Đài Loan hoặc phân giải nạp văn bản hàng loạt vào sổ học SRS.
           </p>
         </div>
+        <!-- Quick Metrics & Notebook Pill -->
+        <div class="flex items-center gap-space-md bg-paper-card border border-border-subtle/70 p-space-sm rounded-xl shadow-sm self-start md:self-auto">
+          <div class="flex items-center gap-space-sm px-space-sm py-1 border-r border-surface-container-high">
+            <span class="material-symbols-outlined text-primary text-[20px]">collections_bookmark</span>
+            <div class="flex flex-col">
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Sổ từ hiện tại</span>
+              <span class="font-headline-md text-label-md font-semibold text-on-surface">${fmt(vocabCount)} <span class="font-normal text-outline text-[11px]">từ</span></span>
+            </div>
+          </div>
+          <div class="flex items-center gap-space-sm px-space-sm py-1">
+            <span class="material-symbols-outlined text-secondary text-[20px]">bolt</span>
+            <div class="flex flex-col">
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Hanzii &amp; AI</span>
+              <span class="font-label-md text-label-md font-semibold text-secondary">Vô hạn (PRO)</span>
+            </div>
+          </div>
+        </div>
       </div>
 
-      <!-- Mode Navigation Tabs: Tra cứu vs Nhập từ -->
-      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-sm p-1.5 bg-surface-container-low rounded-xl border border-border-subtle/50">
-        <div class="flex items-center gap-1 p-1 bg-surface-container rounded-lg">
-          <a href="#tu-dien" class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-label-md text-xs transition-all bg-paper-card text-primary shadow-xs font-semibold">
-            <span class="material-symbols-outlined text-[16px]">menu_book</span>
+      <!-- Mode Navigation Tabs -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md p-1.5 bg-surface-container-low rounded-xl border border-border-subtle/60">
+        <div class="flex items-center gap-space-xs p-1 bg-surface-container rounded-lg">
+          <a href="#tu-dien" class="flex items-center gap-space-sm px-space-lg py-2 rounded-lg font-label-md text-label-md transition-all duration-200 bg-paper-card text-primary shadow-sm font-semibold no-underline" id="tab-btn-lookup">
+            <span class="material-symbols-outlined text-[18px]">menu_book</span>
             <span>Tra cứu từ điển (辭典檢索)</span>
           </a>
-          <a href="#nhap" class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-label-md text-xs transition-all text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">
-            <span class="material-symbols-outlined text-[16px]">post_add</span>
-            <span>Nhập từ mới & Hộp thư</span>
-            <span class="px-1.5 py-0.2 rounded-full bg-cinnabar-subtle text-primary text-[10px]">Mới</span>
+          <a href="#nhap" class="flex items-center gap-space-sm px-space-lg py-2 rounded-lg font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high no-underline" id="tab-btn-import">
+            <span class="material-symbols-outlined text-[18px]">post_add</span>
+            <span>Nhập từ hàng loạt (批量錄入)</span>
+            <span class="px-1.5 py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-[10px]">Mới</span>
           </a>
         </div>
-        <div class="hidden sm:flex items-center gap-1.5 px-3 text-on-surface-variant text-xs">
+        <div class="flex items-center gap-space-sm px-space-md text-on-surface-variant font-label-sm text-label-sm">
           <span class="material-symbols-outlined text-[16px]">info</span>
-          <span>Ký âm: <strong>Pinyin & Zhuyin Chú âm</strong></span>
+          <span>Hệ thống ký âm: <strong>Phiên âm Pinyin chuẩn &amp; Hán Việt</strong></span>
         </div>
       </div>
 
-      <!-- Search Input Container -->
-      <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle shadow-xs flex flex-col gap-3">
-        <div class="relative w-full">
-          <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
-          <input id="dq" class="w-full pl-12 pr-10 py-3.5 rounded-xl bg-surface-container-low text-on-surface text-base placeholder:text-outline focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary/20 transition-all border border-border-subtle/50" placeholder="Ví dụ: 學生 · xuesheng · học sinh · student" value="${esc(arg || "")}" autocomplete="off">
+      <!-- ================= MODE 1: TRA CỨU TỪ ĐIỂN CHUYÊN SÂU (Exact Stitch) ================= -->
+      <div class="flex flex-col gap-space-xl" id="section-lookup">
+        <!-- Unified Universal Search Bar -->
+        <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
+          <div class="flex flex-col lg:flex-row items-stretch gap-space-sm">
+            <!-- Text input with integrated helper controls -->
+            <div class="relative flex-1 flex items-center bg-paper-base border border-border-subtle rounded-xl px-space-md">
+              <span class="material-symbols-outlined text-outline text-[22px] mr-2">search</span>
+              <input class="w-full bg-transparent py-3 text-on-surface font-body-lg text-body-lg focus:outline-none placeholder:text-outline/70" id="dq" placeholder="Nhập Hán tự, Pinyin, hoặc nghĩa tiếng Việt (vd: 璀璨, 蜘蛛, xuesheng, học sinh)..." type="text" value="${esc(arg || "")}" autocomplete="off">
+              <button type="button" class="text-outline hover:text-on-surface p-1 rounded-full hover:bg-surface-container" id="btn-clear-dq">
+                <span class="material-symbols-outlined text-[18px]">cancel</span>
+              </button>
+            </div>
+            <!-- Auxiliary Tools Bar -->
+            <div class="flex items-center gap-space-xs overflow-x-auto pb-1 lg:pb-0">
+              <button type="button" class="flex items-center gap-1.5 px-space-md py-2.5 rounded-xl bg-paper-base border border-border-subtle/60 hover:bg-surface-container text-on-surface-variant font-label-md text-label-md transition-colors whitespace-nowrap" onclick="$('#wordHw0')?.scrollIntoView({behavior:'smooth'})">
+                <span class="material-symbols-outlined text-[18px] text-tertiary">draw</span>
+                <span>Viết tay nét</span>
+              </button>
+              <button type="button" class="flex items-center gap-1.5 px-space-md py-2.5 rounded-xl bg-paper-base border border-border-subtle/60 hover:bg-surface-container text-on-surface-variant font-label-md text-label-md transition-colors whitespace-nowrap" onclick="$('#dq').value='玉'; $('#dq').dispatchEvent(new Event('input'))">
+                <span class="material-symbols-outlined text-[18px] text-secondary">menu</span>
+                <span>Bộ thủ Khang Hy (214)</span>
+              </button>
+              <button type="button" class="px-space-xl py-2.5 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-all duration-200 shadow-sm flex items-center gap-1.5" id="btn-run-dq">
+                <span>Tìm kiếm</span>
+              </button>
+            </div>
+          </div>
+          <!-- Radical & History Shortcuts -->
+          <div class="flex flex-wrap items-center gap-space-sm pt-space-xs font-label-sm text-label-sm text-on-surface-variant">
+            <span class="text-outline flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">history</span>
+              Đã tra gần đây:
+            </span>
+            <button type="button" class="px-2 py-0.5 rounded-md bg-paper-base hover:bg-surface-container-high text-on-surface transition-colors" data-quick-q="璀璨">璀璨 <span class="text-outline text-[10px]">cuǐcàn</span></button>
+            <button type="button" class="px-2 py-0.5 rounded-md bg-paper-base hover:bg-surface-container-high text-on-surface transition-colors" data-quick-q="蜘蛛">蜘蛛 <span class="text-outline text-[10px]">zhīzhū</span></button>
+            <button type="button" class="px-2 py-0.5 rounded-md bg-paper-base hover:bg-surface-container-high text-on-surface transition-colors" data-quick-q="謙虛">謙虛 <span class="text-outline text-[10px]">qiānxū</span></button>
+            <button type="button" class="px-2 py-0.5 rounded-md bg-paper-base hover:bg-surface-container-high text-on-surface transition-colors" data-quick-q="學生">學生 <span class="text-outline text-[10px]">xuéshēng</span></button>
+            <span class="mx-1 text-surface-container-high">|</span>
+            <span class="text-outline">Gợi ý bộ:</span>
+            <button type="button" class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-display" data-quick-q="玉">玉 (Ngọc - 5 nét)</button>
+            <button type="button" class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-display" data-quick-q="言">言 (Ngôn - 7 nét)</button>
+            <button type="button" class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-display" data-quick-q="心">心 (Tâm - 4 nét)</button>
+          </div>
         </div>
-        <div class="flex items-center gap-2 flex-wrap text-xs text-outline">
-          <span>Gợi ý bộ thủ:</span>
-          <button type="button" class="px-2 py-0.5 rounded bg-surface-container hover:bg-cinnabar-subtle text-on-surface" onclick="$('#dq').value='言'; $('#dq').dispatchEvent(new Event('input'))">言 (Ngôn)</button>
-          <button type="button" class="px-2 py-0.5 rounded bg-surface-container hover:bg-cinnabar-subtle text-on-surface" onclick="$('#dq').value='心'; $('#dq').dispatchEvent(new Event('input'))">心 (Tâm)</button>
-          <button type="button" class="px-2 py-0.5 rounded bg-surface-container hover:bg-cinnabar-subtle text-on-surface" onclick="$('#dq').value='水'; $('#dq').dispatchEvent(new Event('input'))">水 (Thủy)</button>
-          <button type="button" class="px-2 py-0.5 rounded bg-surface-container hover:bg-cinnabar-subtle text-on-surface" onclick="$('#dq').value='木'; $('#dq').dispatchEvent(new Event('input'))">木 (Mộc)</button>
-          <button type="button" class="px-2 py-0.5 rounded bg-surface-container hover:bg-cinnabar-subtle text-on-surface" onclick="$('#dq').value='手'; $('#dq').dispatchEvent(new Event('input'))">手 (Thủ)</button>
-        </div>
-      </div>
 
-      <!-- Results stats & grid -->
-      <div class="text-sm font-medium text-outline" id="dcount"></div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md" id="dres"></div>
+        <!-- Live Search Results Grid (When user types a query) -->
+        <div class="flex flex-col gap-space-sm" id="search-results-wrap">
+          <div class="text-xs font-semibold text-outline" id="dcount"></div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm" id="dres"></div>
+        </div>
+
+        <!-- Master 7+5 Dictionary Showcase Card (Exact Stitch) -->
+        <div id="stitch-dict-showcase">${buildStitchWordShowcaseHTML(initialWord)}</div>
+      </div>
     </div>
   `);
 
   const inp = $("#dq");
+  const clearBtn = $("#btn-clear-dq");
+  const runBtn = $("#btn-run-dq");
+
+  const updateAll = (qVal) => {
+    const topMatch = searchDict(qVal);
+    const showcaseWord = topMatch || (isHan(clean(qVal)) ? clean(qVal) : initialWord);
+    renderStitchWordShowcase(showcaseWord, "#stitch-dict-showcase", (newW) => renderStitchWordShowcase(newW, "#stitch-dict-showcase"));
+  };
+
   let tmr = null;
   inp.oninput = () => {
     clearTimeout(tmr);
-    tmr = setTimeout(() => searchDict(inp.value), 150);
+    tmr = setTimeout(() => updateAll(inp.value), 120);
   };
-  inp.focus();
-  searchDict(inp.value);
+  if (clearBtn) {
+    clearBtn.onclick = () => {
+      inp.value = "";
+      inp.focus();
+      updateAll("");
+    };
+  }
+  if (runBtn) {
+    runBtn.onclick = () => updateAll(inp.value);
+  }
+  document.querySelectorAll("[data-quick-q]").forEach((btn) => {
+    btn.onclick = () => {
+      inp.value = btn.dataset.quickQ;
+      updateAll(inp.value);
+    };
+  });
+
+  updateAll(inp.value);
 };
 
 function searchDict(raw) {
   const out = $("#dres"), cnt = $("#dcount");
-  if (!out) return;
+  if (!out) return null;
   const q = clean(raw);
   if (!q) {
     cnt.textContent = "";
-    out.innerHTML = `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Gõ từ cần tra. Kết quả ưu tiên từ trong bảng chuẩn TOCFL trước, sau đó đến từ điển mở rộng ${S.ced ? `(${fmt(S.ced.size)} từ)` : '(đang tải...)'}.</div>`;
-    return;
+    out.innerHTML = "";
+    return null;
   }
   const res = [];
   const seen = new Set();
@@ -4166,7 +5425,7 @@ function searchDict(raw) {
   }
 
   res.sort((a, b) => a.pri - b.pri || a.w.length - b.w.length);
-  cnt.textContent = `${fmt(Math.min(res.length, 80))}${res.length > 80 ? "+" : ""} kết quả phù hợp`;
+  cnt.textContent = `${fmt(Math.min(res.length, 80))}${res.length > 80 ? "+" : ""} kết quả phù hợp (Bấm vào thẻ từ để xem chi tiết bên dưới)`;
 
   out.innerHTML = res.slice(0, 80).map(({ w, n }) => {
     const e = cedFirst(w);
@@ -4174,443 +5433,43 @@ function searchDict(raw) {
     const m = n ? meaningOf(n) : enOf(w);
     const lvl = n ? noteLevel(n) : 0;
     return `
-      <a class="p-space-md rounded-2xl bg-paper-card border border-border-subtle shadow-xs hover:border-primary/40 hover:shadow-sm transition-all flex flex-col justify-between gap-2" href="#tu/${encodeURIComponent(w)}">
+      <a class="p-3 rounded-xl bg-paper-card border border-border-subtle shadow-xs hover:border-primary/40 hover:shadow-sm transition-all flex flex-col justify-between gap-1.5 no-underline" href="#tu/${encodeURIComponent(w)}">
         <div class="flex items-start justify-between">
           <div>
-            <span class="font-headline-md text-2xl text-on-surface font-serif font-bold">${esc(w)}</span>
-            <span class="font-code text-xs text-tertiary ml-2">${esc(py)}</span>
+            <span class="font-headline-md text-xl text-on-surface font-serif font-bold">${esc(w)}</span>
+            <span class="font-code text-xs text-tertiary ml-1.5">${esc(py)}</span>
           </div>
           <div class="flex items-center gap-1">
             ${n ? `<span class="pill lv-${lvl}">${esc(LEVELS[lvl])}</span>` : `<span class="pill">ngoài TOCFL</span>`}
           </div>
         </div>
-        <div class="text-xs text-on-surface-variant line-clamp-2">${esc(m)}</div>
-        <div class="pt-2 border-t border-border-subtle/50 flex items-center justify-between text-xs text-outline">
+        <div class="text-xs text-on-surface-variant line-clamp-1">${esc(m)}</div>
+        <div class="pt-1 border-t border-border-subtle/50 flex items-center justify-between text-[11px] text-outline">
           <span>${n ? esc(bandsOf(n).join(" · ") || "Cá nhân") : "CC-CEDICT"}</span>
-          <span class="text-primary font-semibold">Xem chi tiết →</span>
+          <span class="text-primary font-semibold">Chi tiết →</span>
         </div>
       </a>
     `;
-  }).join("") || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Không tìm thấy từ khớp. Thử gõ chữ Hán Phồn thể hoặc pinyin không dấu.</div>`;
-}
+  }).join("") || `<div class="col-span-full p-6 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Không tìm thấy từ khớp. Thử gõ chữ Hán Phồn thể hoặc pinyin không dấu.</div>`;
 
-// ---------------- HỖ TRỢ DỊCH TỰ ĐỘNG CHỮ HÁN / TIẾNG ANH SANG TIẾNG VIỆT ----------------
-async function autoTranslateZhToVi(text) {
-  try {
-    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=zh-TW&tl=vi&dt=t&q=${encodeURIComponent(text)}`;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error("HTTP " + res.status);
-    const data = await res.json();
-    if (data && data[0]) {
-      return data[0].map(item => item[0]).join("").trim();
-    }
-    return "";
-  } catch (e) {
-    console.error("Auto-translate Zh->Vi error:", e);
-    return "";
-  }
-}
-
-async function autoTranslateEnToVi(text) {
-  try {
-    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=vi&dt=t&q=${encodeURIComponent(text)}`;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error("HTTP " + res.status);
-    const data = await res.json();
-    if (data && data[0]) {
-      return data[0].map(item => item[0]).join("").trim();
-    }
-    return "";
-  } catch (e) {
-    console.error("Auto-translate En->Vi error:", e);
-    return "";
-  }
+  return res.length ? res[0].w : null;
 }
 
 // ---------------- CHI TIẾT TỪ VỰNG (#tu/:word) ----------------
 VIEWS["tu"] = (w) => {
-  const n = S.noteByWord.get(w);
-  const e = cedFirst(w);
-  const inLearn = n && inLearning(n);
-  const it = n ? itemOf(n) : { w, py: (e ? e[0][0] : ""), vn: "", en: (e ? e[0][1].split("/").join("; ") : ""), pos: "", band: "" };
-  const chars = [...new Set([...hanOnly(w)])];
-  const containing = (c) => S.notes.filter((x) => x.kind === "vocab" && x.w.includes(c) && x.w !== w).slice(0, 8);
-  const curLvl = n ? noteLevel(n) : 0;
-
   setView(`
     <div class="max-w-6xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
-      <div class="flex items-center gap-2">
-        <a href="#tu-dien" class="text-primary hover:underline text-sm font-semibold flex items-center gap-1">
+      <div class="flex items-center justify-between">
+        <a href="#tu-dien" class="text-primary hover:underline text-sm font-semibold flex items-center gap-1 no-underline">
           <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-          <span>Tra từ điển</span>
+          <span>Quay lại Tra cứu &amp; Nhập từ</span>
         </a>
+        <a href="#nhap" class="text-secondary hover:underline text-xs font-semibold no-underline">+ Nhập từ hàng loạt →</a>
       </div>
-
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
-        <!-- Main Column (8 cols) -->
-        <div class="lg:col-span-8 flex flex-col gap-space-md">
-          <!-- Main Word Entry Showcase -->
-          <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-md relative overflow-hidden">
-            <div class="absolute top-4 right-6 font-serif text-[100px] text-primary select-none pointer-events-none opacity-5 leading-none">
-              ${w[0] || '學'}
-            </div>
-
-            <div class="flex items-center justify-between gap-space-sm flex-wrap">
-              <div class="flex items-center gap-2 flex-wrap">
-                ${n ? `<span class="px-2.5 py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-xs font-semibold">TOCFL ${esc(bandsOf(n).join(' · ') || 'Cá nhân')}</span>` : '<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-xs">Mở rộng CC-CEDICT</span>'}
-                ${it.pos ? `<span class="px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant text-xs">${esc(it.pos)}</span>` : ''}
-                ${it.hv ? `<span class="px-2.5 py-0.5 rounded-full bg-paper-muted text-on-surface font-code text-xs">Hán Việt: <strong>${esc(it.hv)}</strong></span>` : ''}
-              </div>
-              <div class="flex items-center gap-2">
-                <button type="button" class="px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-colors ${inLearn ? 'bg-jade-subtle text-secondary border border-secondary/30' : 'bg-primary-container text-white hover:bg-primary shadow-2xs'}" id="addLearn">
-                  ${inLearn ? '✓ Đang trong lịch học' : '+ Thêm vào lịch học'}
-                </button>
-              </div>
-            </div>
-
-            <div class="flex items-baseline gap-4 flex-wrap mt-2">
-              <h1 class="font-headline-lg text-5xl md:text-6xl text-on-surface font-serif font-bold select-all">${esc(w)}</h1>
-              <div class="flex items-center gap-3">
-                <span class="font-code text-2xl text-tertiary font-bold">${esc(it.py)}</span>
-                <button type="button" class="w-10 h-10 rounded-full bg-jade-subtle hover:bg-secondary-fixed text-secondary flex items-center justify-center transition-colors shadow-2xs" onclick="say('${esc(w)}')" title="Phát âm tiếng Đài">
-                  <span class="material-symbols-outlined text-[22px]">volume_up</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Meaning Section & Actions -->
-            <div class="flex flex-col gap-1.5 pt-3 border-t border-border-subtle">
-              <div class="flex items-center justify-between flex-wrap gap-2">
-                <span class="text-xs uppercase font-semibold text-outline">Nghĩa tiếng Việt</span>
-                <div class="flex items-center gap-2">
-                  <button type="button" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-emerald-500/10 text-emerald-700 hover:bg-emerald-500/20 border border-emerald-500/30 flex items-center gap-1 transition-colors shadow-2xs" id="btnAutoTranslate" title="Tự động dịch sang tiếng Việt">
-                    <span class="material-symbols-outlined text-[15px]">translate</span>
-                    <span>Dịch tự động</span>
-                  </button>
-                  <button type="button" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-paper-muted text-on-surface hover:bg-surface-container border border-border-subtle flex items-center gap-1 transition-colors shadow-2xs" id="btnEditMeaning">
-                    <span class="material-symbols-outlined text-[15px]">edit</span>
-                    <span>${it.vn ? 'Sửa nghĩa' : '+ Thêm nghĩa TV'}</span>
-                  </button>
-                </div>
-              </div>
-
-              <!-- Main Meaning Display -->
-              <div class="text-xl font-headline-md text-on-surface font-semibold" id="meaningDisplay">
-                ${it.vn ? esc(it.vn) : (it.en ? `<span class="text-zinc-600 dark:text-zinc-400 font-normal text-base italic">${esc(it.en)} <small class="text-amber-600 not-italic block text-xs mt-1 font-sans">⚠️ Từ này chỉ mới có nghĩa tiếng Anh. Bấm "Dịch tự động" hoặc "Sửa nghĩa" để cập nhật tiếng Việt!</small></span>` : '<span class="text-outline text-base">Chưa có định nghĩa tiếng Việt. Bấm "+ Thêm nghĩa TV" để bổ sung.</span>')}
-              </div>
-              ${(it.vn && it.en) ? `<div class="text-sm text-on-surface-variant font-body-sm mt-0.5">${esc(it.en)}</div>` : ''}
-            </div>
-
-            <!-- Inline Meaning Editor (Hidden by default) -->
-            <div id="editMeaningBox" class="hidden p-4 rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-3 mt-2 transition-all">
-              <div class="flex items-center justify-between border-b border-border-subtle pb-2">
-                <span class="text-xs font-bold text-on-surface flex items-center gap-1.5">
-                  <span class="material-symbols-outlined text-[16px] text-primary">edit_note</span>
-                  <span>Chỉnh sửa nghĩa Tiếng Việt & Hán Việt</span>
-                </span>
-                <button type="button" class="text-xs text-outline hover:text-on-surface" id="btnCancelEdit">Đóng ✕</button>
-              </div>
-              <div class="flex flex-col gap-1">
-                <label class="text-[11px] font-semibold text-on-surface-variant">Nghĩa tiếng Việt:</label>
-                <input id="editVn" class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-sm text-on-surface focus:outline-none focus:border-primary" value="${esc(it.vn || '')}" placeholder="VD: con nhện; loài nhện">
-              </div>
-              <div class="grid grid-cols-2 gap-2">
-                <div class="flex flex-col gap-1">
-                  <label class="text-[11px] font-semibold text-on-surface-variant">Âm Hán Việt:</label>
-                  <input id="editHv" class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-sm text-on-surface focus:outline-none focus:border-primary" value="${esc(it.hv || '')}" placeholder="VD: Tri chu">
-                </div>
-                <div class="flex flex-col gap-1">
-                  <label class="text-[11px] font-semibold text-on-surface-variant">Từ loại:</label>
-                  <input id="editPos" class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-sm text-on-surface focus:outline-none focus:border-primary" value="${esc(it.pos || '')}" placeholder="VD: Danh từ">
-                </div>
-              </div>
-              <div class="flex items-center justify-between gap-2 pt-2 border-t border-border-subtle/50">
-                <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" id="btnAutoFillTranslate">
-                  Lấy bản dịch gợi ý
-                </button>
-                <button type="button" class="px-4 py-2 rounded-xl text-xs font-bold bg-primary-container text-white hover:bg-primary transition-all shadow-2xs" id="btnSaveMeaning">
-                  Lưu vào từ điển
-                </button>
-              </div>
-            </div>
-
-            <!-- Prominent External Dictionaries Box (Hanzii VIP, Moedict, Trichdan) -->
-            <div class="p-3.5 md:p-4 rounded-2xl bg-paper-muted border border-border-subtle flex flex-col gap-2.5 mt-2">
-              <div class="flex items-center justify-between text-xs text-outline font-semibold uppercase">
-                <span class="flex items-center gap-1.5">
-                  <span class="material-symbols-outlined text-[16px] text-tertiary">open_in_new</span>
-                  <span>Tra cứu nâng cao trên các từ điển lớn</span>
-                </span>
-                <span class="text-[11px] text-zinc-400">Xem dữ liệu VIP & Ngữ cảnh</span>
-              </div>
-              <div class="flex items-center gap-2 flex-wrap">
-                <a href="https://hanzii.net/search/word/${encodeURIComponent(w)}?hl=vi" target="_blank" rel="noopener noreferrer" class="px-3.5 py-2 rounded-xl bg-[#e63946]/10 hover:bg-[#e63946]/20 text-[#e63946] border border-[#e63946]/30 text-xs font-bold transition-all flex items-center gap-1.5 shadow-2xs group" title="Mở trang tra cứu trên Hanzii (dành cho tài khoản VIP)">
-                  <span class="w-2 h-2 rounded-full bg-[#e63946] group-hover:scale-125 transition-transform"></span>
-                  <span>Tra trên Hanzii VIP ↗</span>
-                </a>
-                <a href="https://www.moedict.tw/${encodeURIComponent(w)}" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface border border-border-subtle text-xs font-medium transition-all flex items-center gap-1.5" title="Từ điển chuẩn của Bộ Giáo dục Đài Loan (萌典)">
-                  <span>🇹🇼 Từ điển Đài Loan (萌典) ↗</span>
-                </a>
-                <a href="https://trichdan.net/tu-dien/han-viet/${encodeURIComponent(w)}" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface border border-border-subtle text-xs font-medium transition-all flex items-center gap-1.5" title="Tra cứu âm Hán Việt cổ điển và các từ liên quan">
-                  <span>📖 Tra Hán Việt (Trích Dẫn) ↗</span>
-                </a>
-              </div>
-            </div>
-
-            <!-- Examples -->
-            ${it.e1 || it.e2 ? `
-              <div class="p-space-md rounded-xl bg-paper-muted border border-border-subtle flex flex-col gap-2 mt-2">
-                <div class="flex items-center justify-between text-xs text-secondary font-semibold uppercase">
-                  <span>Ví dụ thực tế</span>
-                  <button type="button" class="text-secondary hover:text-primary" onclick="say('${esc(it.e1 || it.e2)}')" title="Nghe câu">
-                    <span class="material-symbols-outlined text-[18px]">volume_up</span>
-                  </button>
-                </div>
-                <div class="font-serif text-lg text-on-surface">${ruby(it.e1 || it.e2)}</div>
-                ${(it.e1p || it.e2p) ? `<div class="font-code text-xs text-on-surface-variant">${esc(it.e1p || it.e2p)}</div>` : ''}
-                ${(it.e1v || it.e2v) ? `<div class="text-xs text-on-surface font-medium">${esc(it.e1v || it.e2v)}</div>` : ''}
-              </div>
-            ` : ''}
-
-            <!-- 6 Memory Rating Buttons for this word -->
-            ${n ? `
-              <div class="pt-space-md border-t border-border-subtle flex flex-col gap-2 mt-2">
-                <div class="flex items-center justify-between text-xs text-outline font-semibold uppercase">
-                  <span>Mức độ ghi nhớ hiện tại</span>
-                  <span class="text-primary font-bold">${LEVELS[curLvl]}</span>
-                </div>
-                <div class="grades-6">
-                  ${[0, 1, 2, 3, 4, 5].map((lvl) => {
-                    const isCur = curLvl === lvl;
-                    const hints = ["Đặt lại", "Ôn lại ngay", "1 ngày", "7 ngày", "21 ngày", "90 ngày"];
-                    return `
-                      <button type="button" class="lvl-btn lvl-btn-${lvl} ${isCur ? "is-current" : ""}" data-word-level="${lvl}" title="Đặt ${esc(w)} ở mức ${esc(LEVELS[lvl])}">
-                        <span class="lvl-title">${isCur ? "✓ " : ""}${esc(LEVELS[lvl])}</span>
-                        <small class="lvl-sub">${hints[lvl]}</small>
-                      </button>
-                    `;
-                  }).join('')}
-                </div>
-                <div id="levelStatus" class="text-xs text-secondary text-center font-semibold mt-1"></div>
-              </div>
-            ` : ''}
-          </div>
-
-          <!-- CC-CEDICT English Definitions -->
-          ${e ? `
-            <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col gap-2">
-              <h3 class="font-headline-md text-base font-bold text-on-surface">Từ điển giải nghĩa Anh-Hoa (CC-CEDICT)</h3>
-              <div class="flex flex-col gap-2 text-sm">
-                ${e.map(([py, defs]) => `
-                  <div class="p-2.5 rounded-xl bg-surface-container-low flex flex-col sm:flex-row sm:items-baseline gap-2">
-                    <span class="font-code text-xs font-bold text-tertiary sm:w-28 shrink-0">${esc(py)}</span>
-                    <span class="text-on-surface">${esc(defs.replace(/\\[[^\\]]*\\d\\]/g, "").split("/").join("; "))}</span>
-                  </div>
-                `).join('')}
-              </div>
-            </div>
-          ` : ''}
-        </div>
-
-        <!-- Sidebar Column: Strokes & Related Words (4 cols) -->
-        <div class="lg:col-span-4 flex flex-col gap-space-md">
-          <!-- Stroke Order Box (Hanzi Writer) -->
-          <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col gap-space-md">
-            <div class="flex items-center gap-2">
-              <span class="material-symbols-outlined text-primary text-[20px]">draw</span>
-              <h3 class="font-headline-md text-base font-bold text-on-surface">Thứ tự nét viết chữ Hán</h3>
-            </div>
-            <div class="flex flex-wrap items-center justify-center gap-4 py-2">
-              ${chars.map((c, k) => `
-                <div class="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-surface-container-low border border-border-subtle shadow-2xs">
-                  <div id="wordHw${k}"></div>
-                  <span class="font-headline-md font-bold text-sm text-on-surface">${esc(c)}</span>
-                  <div class="flex gap-1">
-                    <button type="button" class="text-xs px-2.5 py-1 rounded-lg bg-paper-card hover:bg-cinnabar-subtle text-primary font-medium border border-border-subtle" data-anim-w="${k}">Xem nét</button>
-                    <button type="button" class="text-xs px-2.5 py-1 rounded-lg bg-paper-card hover:bg-jade-subtle text-secondary font-medium border border-border-subtle" data-quiz-w="${k}">Viết thử</button>
-                  </div>
-                </div>
-              `).join('')}
-            </div>
-            <div class="text-[11px] text-outline text-center">Nét vẽ tương tác theo quy chuẩn Bộ Giáo dục Đài Loan.</div>
-          </div>
-
-          <!-- Related Words Containing Characters -->
-          ${chars.map((c) => {
-            const cs = containing(c);
-            if (!cs.length) return '';
-            return `
-              <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col gap-2">
-                <div class="text-xs font-semibold text-outline uppercase">Từ chứa chữ <strong class="text-on-surface font-serif text-sm">${c}</strong></div>
-                <div class="flex flex-wrap gap-1.5 pt-1">
-                  ${cs.map((x) => `
-                    <a class="px-2.5 py-1 rounded-lg bg-surface-container-low hover:bg-surface-container text-xs font-medium text-on-surface border border-border-subtle/50 flex items-center gap-1" href="#tu/${encodeURIComponent(x.w)}">
-                      <span class="font-serif font-bold">${esc(x.w)}</span>
-                      <span class="font-code text-[11px] text-tertiary">${esc(itemOf(x).py)}</span>
-                    </a>
-                  `).join('')}
-                </div>
-              </div>
-            `;
-          }).join('')}
-        </div>
-      </div>
+      <div id="tu-detail-host">${buildStitchWordShowcaseHTML(w)}</div>
     </div>
   `);
-
-  // Initialize Hanzi Writer
-  chars.forEach((c, k) => {
-    const el = $("#wordHw" + k);
-    if (el && window.HanziWriter) {
-      const writer = HanziWriter.create(el, c, {
-        width: 110, height: 110, padding: 5, showOutline: true,
-        strokeColor: "#86090a", outlineColor: "#EBE2D8", highlightColor: "#176b4b",
-        charDataLoader: (ch, onLoad, onErr) => strokeData(ch).then(onLoad).catch(onErr)
-      });
-      const btnAnim = $(`[data-anim-w="${k}"]`);
-      if (btnAnim) btnAnim.onclick = () => writer.animateCharacter();
-      const btnQuiz = $(`[data-quiz-w="${k}"]`);
-      if (btnQuiz) btnQuiz.onclick = () => writer.quiz();
-    }
-  });
-
-  // Action: Add to Learning (Supports both TOCFL notes & non-TOCFL words)
-  const add = $("#addLearn");
-  if (add) {
-    add.onclick = async () => {
-      if (n) {
-        if (!S.settings.extra) S.settings.extra = {};
-        S.settings.extra[n.w] = true;
-        await saveSettings();
-      } else {
-        const entry = {
-          w,
-          py: it.py,
-          note: it.vn || it.en || "",
-          hv: it.hv || "",
-          pos: it.pos || "Từ vựng",
-          where: "Từ điển tra cứu",
-          at: Date.now()
-        };
-        if (!S.inbox) S.inbox = new Map();
-        S.inbox.set("inbox_" + w, entry);
-        try {
-          await Store.put("inbox", "inbox_" + w, entry);
-        } catch (e) {}
-        if (typeof syncInboxWordToLearning === "function") {
-          syncInboxWordToLearning(entry, true);
-        }
-      }
-      if (typeof updateBadge === "function") updateBadge();
-      VIEWS["tu"](w);
-    };
-  }
-
-  // Action: Meaning Edit & Auto-Translate
-  const btnEdit = $("#btnEditMeaning");
-  const editBox = $("#editMeaningBox");
-  const btnCancel = $("#btnCancelEdit");
-  const btnSave = $("#btnSaveMeaning");
-  const btnAuto = $("#btnAutoTranslate");
-  const btnAutoFill = $("#btnAutoFillTranslate");
-
-  if (btnEdit && editBox) {
-    btnEdit.onclick = () => {
-      editBox.classList.toggle("hidden");
-      if (!editBox.classList.contains("hidden")) {
-        const inp = $("#editVn");
-        if (inp) inp.focus();
-      }
-    };
-  }
-  if (btnCancel && editBox) {
-    btnCancel.onclick = () => {
-      editBox.classList.add("hidden");
-    };
-  }
-
-  async function saveCustomMeaning(word, vn, hv, pos) {
-    if (!S.vi) S.vi = new Map();
-    const prevVi = S.vi.get(word) || {};
-    const newVi = Object.assign({}, prevVi, { vn, hv, py: it.py, pos });
-    S.vi.set(word, newVi);
-
-    const entry = {
-      w: word,
-      py: it.py,
-      note: vn,
-      hv: hv || prevVi.hv || "",
-      pos: pos || prevVi.pos || "Từ vựng",
-      where: "Từ điển cá nhân",
-      at: Date.now()
-    };
-    if (!S.inbox) S.inbox = new Map();
-    S.inbox.set("inbox_" + word, entry);
-    try {
-      await Store.put("inbox", "inbox_" + word, entry);
-      await Store.put("kv", "vi_" + word, newVi);
-    } catch (e) {}
-
-    if (typeof syncInboxWordToLearning === "function") {
-      syncInboxWordToLearning(entry, false);
-    }
-    VIEWS["tu"](word);
-  }
-
-  async function doAutoTranslate() {
-    const statusEl = $("#meaningDisplay");
-    if (statusEl) statusEl.innerHTML = '<span class="text-secondary text-sm font-normal animate-pulse flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">sync</span> Đang tự động dịch nghĩa sang tiếng Việt...</span>';
-    
-    let trans = await autoTranslateZhToVi(w);
-    if ((!trans || trans.toLowerCase() === w.toLowerCase()) && it.en) {
-      const transEn = await autoTranslateEnToVi(it.en);
-      if (transEn) trans = transEn;
-    }
-    
-    if (trans) {
-      const editVn = $("#editVn");
-      if (editVn) editVn.value = trans;
-      await saveCustomMeaning(w, trans, $("#editHv") ? $("#editHv").value : "", $("#editPos") ? $("#editPos").value : "");
-    } else {
-      alert("Không thể dịch tự động lúc này. Bạn có thể bấm nút 'Tra trên Hanzii VIP' để xem nghĩa chuẩn!");
-      VIEWS["tu"](w);
-    }
-  }
-
-  if (btnAuto) btnAuto.onclick = doAutoTranslate;
-  if (btnAutoFill) {
-    btnAutoFill.onclick = async () => {
-      btnAutoFill.textContent = "Đang dịch...";
-      let trans = await autoTranslateZhToVi(w);
-      if ((!trans || trans.toLowerCase() === w.toLowerCase()) && it.en) {
-        const transEn = await autoTranslateEnToVi(it.en);
-        if (transEn) trans = transEn;
-      }
-      if (trans && $("#editVn")) {
-        $("#editVn").value = trans;
-      }
-      btnAutoFill.textContent = "Lấy bản dịch gợi ý";
-    };
-  }
-
-  if (btnSave) {
-    btnSave.onclick = async () => {
-      const vn = $("#editVn") ? $("#editVn").value.trim() : "";
-      const hv = $("#editHv") ? $("#editHv").value.trim() : "";
-      const pos = $("#editPos") ? $("#editPos").value.trim() : "";
-      if (!vn) {
-        alert("Vui lòng nhập nghĩa tiếng Việt!");
-        return;
-      }
-      await saveCustomMeaning(w, vn, hv, pos);
-    };
-  }
-
-  if (n) {
-    bindLevelPicker(n, () => {
-      VIEWS["tu"](w);
-    });
-  }
+  renderStitchWordShowcase(w, "#tu-detail-host", (newW) => VIEWS["tu"](newW));
 };
 
 // =========================================================================
@@ -18223,19 +19082,23 @@ VIEWS["chinh-ta"] = async () => {
 };
 
 // =========================================================================
-// 7. VIEW THI THỬ TOCFL (MOCK EXAMS & REVIEW - STITCH DESIGN)
+// 7. VIEW THI THỬ TOCFL (MOCK EXAMS & REVIEW - STITCH CAT-B DESIGN)
 // =========================================================================
 VIEWS["thi-thu"] = async () => {
   const exam = S.exam = Object.assign({
-    subview: "overview",
+    subview: "review",
     testId: "mock_b1",
     bandFilter: "all",
     curQuestionIdx: 0,
     answers: {},
+    flagged: {},
     history: [],
     timerLeft: 3600,
-    isExamMode: false,
-    historyModalOpen: false
+    isExamMode: true,
+    historyModalOpen: false,
+    submitModalOpen: false,
+    fontSizeClass: "text-headline-md",
+    showZhuyin: false
   }, S.exam || {});
 
   const allTests = await getMockTests();
@@ -18248,13 +19111,28 @@ VIEWS["thi-thu"] = async () => {
   } catch (e) {}
 
   const curQ = curTest.questions[exam.curQuestionIdx] || curTest.questions[0];
+  const totalQ = curTest.questions.length || 50;
+  const listeningQs = curTest.questions.filter(q => q.section === "listening");
+  const readingQs = curTest.questions.filter(q => q.section !== "listening");
+  const doneListening = listeningQs.filter(q => exam.answers[q.id] !== undefined).length;
+  const doneReading = readingQs.filter(q => exam.answers[q.id] !== undefined).length;
+  const totalDone = Object.keys(exam.answers).length;
+  const totalUnanswered = Math.max(0, totalQ - totalDone);
+  const totalFlagged = Object.keys(exam.flagged || {}).filter(k => exam.flagged[k]).length;
+
+  const listenDonePct = Math.round((doneListening / Math.max(1, totalQ)) * 100);
+  const listenLeftPct = Math.max(0, Math.round((listeningQs.length / Math.max(1, totalQ)) * 100) - listenDonePct);
+  const readDonePct = Math.round((doneReading / Math.max(1, totalQ)) * 100);
+  const readLeftPct = Math.max(0, 100 - listenDonePct - listenLeftPct - readDonePct);
+
+  const mins = Math.floor((exam.timerLeft || 3600) / 60);
+  const secs = (exam.timerLeft || 3600) % 60;
+  const timerStr = `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
 
   function playExamAudio() {
     if (!curQ) return;
     const segs = curQ.dialogueSegments && curQ.dialogueSegments.length ? curQ.dialogueSegments : curQ.dialogue || curQ.audio;
     if (!segs) return;
-    
-    // Play with alternating male/female voices, no speaker prefixes spoken
     playDialogueAudio(segs, 0.9);
     const btn = $("#btn-play-exam-audio");
     if (btn) {
@@ -18264,40 +19142,103 @@ VIEWS["thi-thu"] = async () => {
   }
 
   setView(`
-    <div class="w-full bg-paper-base pb-16">
+    <div class="w-full bg-paper-base pb-8">
       <div class="flex flex-col w-full">
 
-        <!-- Top Navigation Sub-header -->
-        <div class="w-full bg-paper-base border-b border-border-subtle/50">
-          <div class="max-w-7xl mx-auto px-margin py-space-md flex flex-col md:flex-row md:items-center justify-between gap-space-md">
-            <div>
-              <div class="flex items-center gap-space-xs text-primary font-label-sm text-xs font-bold tracking-wider uppercase mb-1">
-                <span class="w-2.5 h-2.5 rounded-full bg-primary inline-block"></span>
-                <span>Khảo thí Trực tuyến • 華語文能力測驗 (SC-TOP)</span>
+        <!-- Top Ambient Banner: TOCFL Exam Context -->
+        <div class="w-full bg-surface-container-high px-margin py-space-sm shadow-xs border-b border-border-subtle/60">
+          <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-space-sm">
+            <div class="flex items-center gap-space-sm">
+              <span class="inline-flex items-center px-space-xs py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-label-sm font-semibold">
+                國家華語測驗推動工作委員會 SC-TOP
+              </span>
+              <span class="text-outline text-body-sm">•</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Hệ thống Thi Mô phỏng Trực tuyến TOCFL CAT Computer-Adaptive Test</span>
+            </div>
+            <div class="flex items-center gap-space-md">
+              <div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm">
+                <span class="material-symbols-outlined text-[16px]">verified_user</span>
+                <span>Phòng thi tiêu chuẩn SC-TOP (${allTests.length} Bộ đề chính thức)</span>
               </div>
-              <h1 class="font-headline-lg text-2xl md:text-3xl font-bold text-on-surface">Thi thử TOCFL Chuẩn CAT (${allTests.length} Đề thi)</h1>
-              <p class="font-body-sm text-xs text-on-surface-variant mt-0.5">Tích hợp đầy đủ các đề thi chính thức: Giọng Nam &amp; Nữ xen kẽ tự nhiên, không đọc tên vai, bấm Shift nghe lại tức thì.</p>
+              <div class="hidden sm:flex items-center gap-space-xs text-on-surface-variant font-code text-code">
+                <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                <span>Giọng Đài Bắc • Shift nghe lại</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Primary Exam App Control Bar (Test Header Bar) -->
+        <header class="w-full bg-paper-card shadow-md border-b border-border-subtle">
+          <div class="max-w-7xl mx-auto px-margin py-space-md flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md">
+            <!-- Title & Test Identifier -->
+            <div class="flex items-center gap-space-md">
+              <div class="w-12 h-12 rounded-xl bg-primary flex flex-col items-center justify-center text-on-primary shadow-md shrink-0">
+                <span class="font-headline-md text-headline-md leading-none font-bold">測</span>
+                <span class="font-label-sm text-[9px] uppercase tracking-wider">CAT-B</span>
+              </div>
+              <div>
+                <div class="flex items-center gap-space-xs flex-wrap">
+                  <h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">${esc(curTest.title)}</h1>
+                  <span class="px-space-xs py-0.5 rounded bg-amber-subtle text-tertiary-container font-code text-code font-semibold">${esc(curTest.id.toUpperCase())}-2024</span>
+                  <span class="px-space-xs py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-label-sm font-semibold flex items-center gap-0.5">
+                    <span class="material-symbols-outlined text-[13px]">timer</span>
+                    <span id="examTimerDisplay">${timerStr}</span>
+                  </span>
+                </div>
+                <div class="flex items-center gap-2 flex-wrap mt-1">
+                  <p class="font-body-sm text-body-sm text-on-surface-variant">Cấp 3 &amp; Cấp 4 (進階級 &amp; 高階級) • Thang điểm chuẩn 80 điểm SC-TOP</p>
+                  <div class="flex items-center gap-1 ml-1">
+                    ${allTests.slice(0, 6).map((t, i) => `
+                      <button class="px-2 py-0.5 rounded text-[11px] font-code font-bold transition-all ${t.id === curTest.id ? 'bg-primary text-white shadow-2xs' : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high'}" data-quick-test="${esc(t.id)}">
+                        Đề ${i + 1}
+                      </button>
+                    `).join("")}
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="flex items-center gap-space-sm flex-wrap">
+            <!-- Real-time Exam Actions & Subview Switcher -->
+            <div class="flex flex-wrap items-center gap-space-sm w-full lg:w-auto justify-between lg:justify-end">
               <div class="flex items-center gap-1 bg-surface-container p-1 rounded-lg">
-                <button class="flex items-center gap-1.5 px-space-md py-1.5 rounded-lg ${exam.subview === 'overview' ? 'bg-paper-card text-on-surface font-semibold shadow-sm' : 'text-on-surface-variant hover:text-on-surface'} font-label-md text-xs transition-all" id="tabOverviewBtn">
-                  <span class="material-symbols-outlined text-[16px]">grid_view</span>
-                  <span>Tổng quan đề thi</span>
-                </button>
                 <button class="flex items-center gap-1.5 px-space-md py-1.5 rounded-lg ${exam.subview === 'review' ? 'bg-paper-card text-on-surface font-semibold shadow-sm' : 'text-on-surface-variant hover:text-on-surface'} font-label-md text-xs transition-all" id="tabReviewBtn">
                   <span class="material-symbols-outlined text-[16px]">assignment</span>
-                  <span>Làm đề &amp; Xem lại</span>
+                  <span>Phòng thi CAT</span>
+                </button>
+                <button class="flex items-center gap-1.5 px-space-md py-1.5 rounded-lg ${exam.subview === 'overview' ? 'bg-paper-card text-on-surface font-semibold shadow-sm' : 'text-on-surface-variant hover:text-on-surface'} font-label-md text-xs transition-all" id="tabOverviewBtn">
+                  <span class="material-symbols-outlined text-[16px]">grid_view</span>
+                  <span>Danh sách ${allTests.length} đề</span>
                 </button>
               </div>
 
               <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-xs transition-colors border border-border-subtle shadow-xs" id="btnOpenHistory">
                 <span class="material-symbols-outlined text-primary text-[18px]">history_edu</span>
-                <span>Lịch sử thi (${exam.history.length})</span>
+                <span>Lịch sử (${exam.history.length})</span>
               </button>
+
+              ${exam.isExamMode ? `
+                <button class="px-space-md py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-xs font-bold transition-all shadow-sm flex items-center gap-1" id="btnSubmitExam">
+                  <span class="material-symbols-outlined text-[16px]">how_to_reg</span>
+                  <span>Nộp bài thi</span>
+                </button>
+              ` : `
+                <button class="px-space-md py-1.5 rounded-lg bg-secondary text-white hover:opacity-95 font-label-md text-xs font-bold flex items-center gap-1 transition-colors shadow-sm" id="btnRetakeExam">
+                  <span class="material-symbols-outlined text-[16px]">replay</span>
+                  <span>Thi lại đề này</span>
+                </button>
+              `}
             </div>
           </div>
-        </div>
+
+          <!-- Progress Band Line: Listening vs Reading Segment -->
+          <div class="w-full bg-surface-container h-1.5 flex overflow-hidden">
+            <div class="bg-primary h-full transition-all duration-300" style="width: ${listenDonePct}%;" title="Đã làm ${doneListening}/${listeningQs.length} câu Nghe hiểu"></div>
+            <div class="bg-primary-fixed-dim h-full" style="width: ${listenLeftPct}%;" title="${listeningQs.length - doneListening} câu Nghe hiểu chưa làm"></div>
+            <div class="bg-secondary h-full transition-all duration-300" style="width: ${readDonePct}%;" title="Đã làm ${doneReading}/${readingQs.length} câu Đọc hiểu"></div>
+            <div class="bg-surface-container-highest h-full" style="width: ${readLeftPct}%;" title="${readingQs.length - doneReading} câu Đọc hiểu chưa làm"></div>
+          </div>
+        </header>
 
         <!-- MAIN BODY CONTENT -->
         <div class="max-w-7xl mx-auto px-margin py-space-lg w-full flex flex-col gap-space-lg">
@@ -18306,8 +19247,6 @@ VIEWS["thi-thu"] = async () => {
           <!-- SUBVIEW 1: OVERVIEW (Danh sách đề & Chẩn đoán điểm yếu)  -->
           <!-- ======================================================== -->
           <div class="${exam.subview === 'overview' ? 'flex' : 'hidden'} flex-col gap-space-lg" id="viewOverview">
-
-            <!-- Diagnostic Alert / Weakness Banner -->
             <div class="w-full bg-paper-card rounded-2xl p-space-lg shadow-sm border border-border-subtle relative overflow-hidden">
               <div class="absolute -right-8 -top-8 w-44 h-44 bg-cinnabar-subtle/50 rounded-full blur-2xl pointer-events-none"></div>
               <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg relative z-10">
@@ -18362,7 +19301,7 @@ VIEWS["thi-thu"] = async () => {
 
             <!-- Test Cards Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
-              ${allTests.filter(t => exam.bandFilter === 'all' || t.band.includes(exam.bandFilter)).map((t, idx) => `
+              ${allTests.filter(t => exam.bandFilter === 'all' || t.band.includes(exam.bandFilter)).map((t) => `
                 <div class="bg-paper-card p-space-lg rounded-2xl border border-border-subtle shadow-sm flex flex-col justify-between gap-4 hover:shadow-md transition-shadow">
                   <div>
                     <div class="flex items-center justify-between gap-1 mb-2">
@@ -18399,118 +19338,147 @@ VIEWS["thi-thu"] = async () => {
                 </div>
               `).join("")}
             </div>
-
           </div>
 
           <!-- ======================================================== -->
-          <!-- SUBVIEW 2: REVIEW & EXAM WORKSPACE                      -->
+          <!-- SUBVIEW 2: STITCH CAT-B 2-COLUMN EXAM WORKSTATION        -->
           <!-- ======================================================== -->
           <div class="${exam.subview === 'review' ? 'flex' : 'hidden'} flex-col gap-space-lg" id="viewReview">
-
-            <!-- Action Bar -->
-            <div class="bg-paper-card p-space-md rounded-2xl shadow-sm border border-border-subtle flex flex-wrap items-center justify-between gap-space-md">
-              <div class="flex items-center gap-space-md">
-                <button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-variant text-on-surface font-label-md text-xs transition-colors" id="btnBackToOverview">
-                  <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-                  <span>Trở về danh sách đề</span>
-                </button>
-                <div class="h-5 w-px bg-border-subtle"></div>
-                <div>
-                  <h2 class="font-headline-md text-base font-bold text-on-surface">${esc(curTest.title)}</h2>
-                  <div class="flex items-center gap-2 text-xs text-outline mt-0.5">
-                    <span>Mã đề: #${esc(curTest.id)}</span>
-                    <span>•</span>
-                    <span class="font-semibold ${exam.isExamMode ? 'text-primary' : 'text-secondary'}">${exam.isExamMode ? '⏱ Chế độ bấm giờ thi thử' : '📖 Chế độ xem đáp án & giải thích'}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-space-sm">
-                ${exam.isExamMode ? `
-                  <div class="px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary font-code font-bold text-xs border border-primary/20 flex items-center gap-1">
-                    <span class="material-symbols-outlined text-[16px]">timer</span>
-                    <span id="examTimerDisplay">60:00</span>
-                  </div>
-                  <button class="px-space-md py-2 rounded-lg bg-secondary text-white hover:opacity-90 font-label-md text-xs font-bold transition-all shadow-sm" id="btnSubmitExam">
-                    Nộp bài thi
-                  </button>
-                ` : `
-                  <button class="px-space-md py-2 rounded-lg bg-primary text-white hover:bg-primary-container font-label-md text-xs font-medium flex items-center gap-1.5 transition-colors shadow-sm" id="btnRetakeExam">
-                    <span class="material-symbols-outlined text-[16px]">replay</span>
-                    <span>Làm lại đề này</span>
-                  </button>
-                `}
-              </div>
-            </div>
-
-            <!-- Main Question & Sidebar Workspace -->
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
 
-              <!-- Left: Question Workspace (8 of 12 cols) -->
-              <div class="lg:col-span-8 flex flex-col gap-space-lg">
+              <!-- LEFT COLUMN: Exam Material, Audio Stimulus & Question Interface (8 cols) -->
+              <section class="lg:col-span-8 flex flex-col gap-space-md">
 
-                <div class="bg-paper-card p-space-lg rounded-2xl border border-border-subtle shadow-sm flex flex-col gap-space-md">
-                  
-                  <div class="flex items-center justify-between pb-2 border-b border-border-subtle">
-                    <div class="flex items-center gap-2">
-                      <span class="w-2 h-4 rounded-full bg-primary"></span>
-                      <span class="font-headline-md text-sm font-bold text-on-surface">Câu hỏi ${curQ.id} / ${curTest.questions.length}</span>
-                      <span class="px-2 py-0.5 rounded bg-surface-container text-[11px] font-bold text-secondary">${esc(curQ.part)}</span>
-                    </div>
-                    <span class="text-xs text-outline font-medium">${esc(curQ.section === 'listening' ? 'Thính lực (聽力)' : 'Đọc hiểu (閱讀)')}</span>
+                <!-- Stage & Category Indicator Breadcrumb -->
+                <div class="bg-paper-card p-space-md rounded-xl shadow-sm border border-border-subtle flex flex-wrap items-center justify-between gap-space-sm">
+                  <div class="flex items-center gap-space-sm">
+                    <span class="w-1.5 h-5 rounded-full bg-primary inline-block"></span>
+                    <span class="font-label-md text-label-md font-bold text-primary uppercase tracking-wider">
+                      ${curQ.section === 'listening' ? 'Đệ Nhất Phần: 聽力測驗 (Thi Nghe Hiểu)' : 'Đệ Nhị Phần: 閱讀測驗 (Thi Đọc Hiểu)'}
+                    </span>
+                    <span class="px-space-xs py-0.5 bg-surface-container rounded font-code text-body-sm text-on-surface-variant font-medium">${esc(curQ.part)}</span>
                   </div>
+                  <div class="flex items-center gap-space-xs">
+                    <button class="text-xs text-outline hover:text-primary underline mr-2" id="btnBackToOverview">Đổi bộ đề</button>
+                    <span class="font-label-sm text-label-sm text-outline">Mục đề:</span>
+                    <span class="px-space-sm py-0.5 rounded-full bg-cinnabar-subtle text-primary font-code text-body-sm font-semibold">CÂU ${curQ.id} / ${totalQ}</span>
+                  </div>
+                </div>
 
-                  <!-- Audio Player for Listening questions -->
+                <!-- Stimulus Card: Audio Player, Context & Question -->
+                <div class="bg-paper-card rounded-xl p-space-lg shadow-sm border border-border-subtle flex flex-col gap-space-md">
+
+                  <!-- SC-TOP Audio Emulation Box (for Listening questions) -->
                   ${curQ.section === 'listening' ? `
-                    <div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex items-center justify-between gap-3">
-                      <div class="flex items-center gap-3">
-                        <button class="w-12 h-12 rounded-full bg-primary hover:bg-primary-container text-white flex items-center justify-center transition-all shadow-md active:scale-95" id="btn-play-exam-audio" title="Bấm hoặc nhấn Shift để nghe lại">
-                          <span class="material-symbols-outlined text-[24px]">volume_up</span>
-                        </button>
-                        <div class="flex flex-col">
-                          <span class="font-bold text-xs text-on-surface">Đoạn âm tiếng Đài Chuẩn (Giọng Nam/Nữ xen kẽ)</span>
-                          <span class="text-[11px] text-outline mt-0.5">Nhấn phím <kbd class="px-1 py-0.5 bg-surface-container rounded font-code font-bold text-primary">Shift</kbd> để nghe lại bất cứ lúc nào</span>
+                    <div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm border border-border-subtle/70">
+                      <div class="flex items-center justify-between flex-wrap gap-space-xs">
+                        <div class="flex items-center gap-space-sm">
+                          <span class="w-2.5 h-2.5 rounded-full bg-error animate-pulse"></span>
+                          <span class="font-headline-md text-body-lg font-semibold text-on-surface">Đoạn băng ghi âm khảo thí số ${curQ.id}</span>
+                          <span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-medium">Giọng Đài Bắc (Nam &amp; Nữ đối đáp)</span>
+                        </div>
+                        <div class="flex items-center gap-1.5 text-primary font-label-sm text-label-sm font-semibold bg-cinnabar-subtle px-space-sm py-0.5 rounded-full">
+                          <span class="material-symbols-outlined text-[15px]">keyboard</span>
+                          <span>Nhấn phím <kbd class="font-code underline">Shift</kbd> để phát lại âm thanh</span>
                         </div>
                       </div>
-                      <div class="text-xs font-code text-secondary font-bold bg-jade-subtle px-2 py-1 rounded border border-secondary/20">
-                        2 Giọng tự nhiên
+
+                      <!-- Waveform & Audio Scrubbing -->
+                      <div class="flex items-center gap-space-md pt-space-xs">
+                        <button class="w-11 h-11 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md hover:bg-primary-container transition-transform active:scale-95 flex-shrink-0" id="btn-play-exam-audio" title="Phát đoạn băng nghe (Shift)">
+                          <span class="material-symbols-outlined text-[24px]">volume_up</span>
+                        </button>
+                        <div class="flex-1 flex flex-col gap-1">
+                          <div class="h-10 w-full flex items-center gap-1 px-2 bg-paper-card rounded-lg overflow-hidden relative cursor-pointer border border-border-subtle/60" onclick="document.getElementById('btn-play-exam-audio').click()" title="Bấm để nghe lại đoạn hội thoại">
+                            <div class="absolute left-0 top-0 bottom-0 bg-cinnabar-subtle/60" style="width: 45%;"></div>
+                            <div class="w-1 h-3 rounded-full bg-primary z-10"></div>
+                            <div class="w-1 h-5 rounded-full bg-primary z-10"></div>
+                            <div class="w-1 h-7 rounded-full bg-primary z-10"></div>
+                            <div class="w-1 h-4 rounded-full bg-primary z-10"></div>
+                            <div class="w-1 h-8 rounded-full bg-primary z-10"></div>
+                            <div class="w-1 h-6 rounded-full bg-primary z-10"></div>
+                            <div class="w-1 h-9 rounded-full bg-primary z-10"></div>
+                            <div class="w-1 h-5 rounded-full bg-primary z-10"></div>
+                            <div class="w-1 h-7 rounded-full bg-primary z-10"></div>
+                            <div class="w-1 h-4 rounded-full bg-primary z-10"></div>
+                            <div class="w-1 h-8 rounded-full bg-primary z-10"></div>
+                            <div class="w-1 h-6 rounded-full bg-primary z-10"></div>
+                            <div class="w-1 h-7 rounded-full bg-outline-variant z-10"></div>
+                            <div class="w-1 h-4 rounded-full bg-outline-variant z-10"></div>
+                            <div class="w-1 h-8 rounded-full bg-outline-variant z-10"></div>
+                            <div class="w-1 h-9 rounded-full bg-outline-variant z-10"></div>
+                            <div class="w-1 h-5 rounded-full bg-outline-variant z-10"></div>
+                            <div class="w-1 h-7 rounded-full bg-outline-variant z-10"></div>
+                            <div class="w-1 h-3 rounded-full bg-outline-variant z-10"></div>
+                            <div class="w-1 h-6 rounded-full bg-outline-variant z-10"></div>
+                            <div class="w-1 h-8 rounded-full bg-outline-variant z-10"></div>
+                            <div class="w-1 h-4 rounded-full bg-outline-variant z-10"></div>
+                            <div class="w-1 h-6 rounded-full bg-outline-variant z-10"></div>
+                            <div class="w-1 h-3 rounded-full bg-outline-variant z-10"></div>
+                          </div>
+                          <div class="flex justify-between items-center text-outline font-code text-[11px] px-1">
+                            <span class="text-primary font-semibold">Giọng Nam &amp; Nữ tự nhiên</span>
+                            <span>TOCFL CAT Audio</span>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   ` : ''}
 
-                  <!-- Context & Question Prompt -->
-                  <div class="flex flex-col gap-2">
-                    ${curQ.context ? `
-                      <div class="p-3 bg-surface-container-low rounded-xl border border-border-subtle/70 text-xs text-on-surface font-serif leading-relaxed whitespace-pre-wrap">${esc(curQ.context)}</div>
-                    ` : ''}
-                    <h3 class="font-headline-md text-base font-bold text-on-surface mt-1">${esc(curQ.q)}</h3>
+                  <!-- Context / Reading Passage Card -->
+                  ${curQ.context ? `
+                    <div class="bg-surface-container-lowest p-space-md rounded-xl border border-border-subtle">
+                      <div class="flex items-center gap-space-xs mb-1.5">
+                        <span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Bối cảnh ngữ liệu (${curQ.section === 'listening' ? '聽力情境' : '閱讀文章'})</span>
+                        <span class="text-outline text-body-sm">•</span>
+                        <span class="font-body-sm text-body-sm text-on-surface-variant">${esc(curQ.part)}</span>
+                      </div>
+                      <p class="font-serif text-base text-on-surface leading-relaxed whitespace-pre-wrap">${esc(curQ.context)}</p>
+                    </div>
+                  ` : ''}
+
+                  <!-- The Formal Traditional Chinese Question Stimulus -->
+                  <div class="pt-space-xs">
+                    <div class="flex items-start gap-space-sm">
+                      <span class="font-code text-headline-md text-primary font-bold">${curQ.id}.</span>
+                      <div class="flex-1">
+                        <h2 class="font-headline-md ${exam.fontSizeClass || 'text-headline-md'} text-on-surface font-bold leading-snug tracking-tight" id="target-question-text">
+                          ${esc(curQ.q)}
+                        </h2>
+                        ${curQ.pinyin || exam.showZhuyin ? `
+                          <p class="font-code text-xs text-secondary mt-1">${esc(curQ.pinyin || '')}</p>
+                        ` : ''}
+                      </div>
+                    </div>
                   </div>
 
-                  <!-- Options (A, B, C, D) -->
-                  <div class="flex flex-col gap-2 pt-2">
+                  <!-- Multiple Choice Options (A, B, C, D) -->
+                  <div class="flex flex-col gap-space-sm pt-space-xs" id="mcq-options-container">
                     ${curQ.options.map((opt, optIdx) => {
                       const letters = ["A", "B", "C", "D"];
                       const letter = letters[optIdx];
                       const userChoice = exam.answers[curQ.id];
                       const isSelected = userChoice === optIdx;
                       const isCorrect = curQ.ans === optIdx;
-                      
-                      let optClass = "border-border-subtle bg-surface-container-low hover:bg-surface-container text-on-surface";
+
+                      let optClass = "bg-surface-container-low hover:bg-surface-container border-border-subtle/80 text-on-surface";
                       if (exam.isExamMode) {
-                        if (isSelected) optClass = "border-primary bg-cinnabar-subtle text-primary font-bold shadow-xs ring-2 ring-primary/20";
+                        if (isSelected) optClass = "bg-cinnabar-subtle border-primary text-on-surface font-semibold shadow-sm ring-1 ring-primary/30";
                       } else {
-                        if (isCorrect) optClass = "border-secondary bg-jade-subtle text-secondary font-bold ring-2 ring-secondary/30";
-                        else if (isSelected && !isCorrect) optClass = "border-primary bg-cinnabar-subtle text-primary font-bold";
+                        if (isCorrect) optClass = "bg-jade-subtle border-secondary text-secondary font-bold ring-2 ring-secondary/30";
+                        else if (isSelected && !isCorrect) optClass = "bg-cinnabar-subtle border-primary text-primary font-bold";
                       }
 
                       return `
-                        <div class="p-3.5 rounded-xl border transition-all cursor-pointer flex items-center justify-between gap-3 ${optClass}" data-select-opt="${optIdx}">
-                          <div class="flex items-center gap-3">
-                            <span class="w-6 h-6 rounded-full flex items-center justify-center font-code text-xs font-bold shrink-0 ${isSelected ? 'bg-primary text-white' : 'bg-surface-container text-outline'}">
-                              ${letter}
-                            </span>
-                            <span class="font-serif text-sm font-medium">${esc(opt)}</span>
+                        <div class="group relative flex items-start gap-space-md p-space-md rounded-xl border transition-all cursor-pointer shadow-2xs ${optClass}" data-select-opt="${optIdx}">
+                          <input ${isSelected ? 'checked' : ''} class="mt-1 w-4 h-4 text-primary accent-primary pointer-events-none" type="radio" name="tocfl_q_${curQ.id}" value="${letter}">
+                          <div class="flex items-baseline gap-space-sm flex-1">
+                            <span class="font-headline-md text-body-lg font-bold ${isSelected ? 'text-primary' : 'text-outline group-hover:text-primary'} transition-colors">${letter}.</span>
+                            <div class="flex flex-col">
+                              <span class="font-serif text-base text-on-surface font-medium">${esc(opt)}</span>
+                            </div>
                           </div>
+                          ${exam.isExamMode && isSelected ? `<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>` : ''}
                           ${!exam.isExamMode && isCorrect ? `<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>` : ''}
                           ${!exam.isExamMode && isSelected && !isCorrect ? `<span class="material-symbols-outlined text-primary text-[20px]">cancel</span>` : ''}
                         </div>
@@ -18518,82 +19486,242 @@ VIEWS["thi-thu"] = async () => {
                     }).join("")}
                   </div>
 
-                  <!-- Explanation Box -->
+                  <!-- Explanation Box (in Review mode) -->
                   ${!exam.isExamMode ? `
-                    <div class="mt-space-md p-space-md rounded-xl bg-jade-subtle border border-secondary/30 flex flex-col gap-space-xs">
+                    <div class="mt-space-sm p-space-md rounded-xl bg-jade-subtle border border-secondary/30 flex flex-col gap-space-xs">
                       <div class="flex items-center gap-1.5 text-secondary font-bold text-xs">
                         <span class="material-symbols-outlined text-[18px]">verified</span>
                         <span>Đáp án chính xác: (${curQ.ansChar || ["A","B","C","D"][curQ.ans]})</span>
                       </div>
                       <p class="text-xs text-on-surface font-medium leading-relaxed">${esc(curQ.explain)}</p>
-                      
                       ${curQ.dialogue ? `
                         <div class="mt-2 pt-2 border-t border-secondary/20 text-xs">
-                          <span class="font-bold text-secondary block mb-1">Lời thoại chi tiết:</span>
+                          <span class="font-bold text-secondary block mb-1">Lời thoại băng nghe (聽力原文):</span>
                           <p class="font-serif text-on-surface whitespace-pre-wrap leading-relaxed">${esc(curQ.dialogue)}</p>
                         </div>
                       ` : ''}
                     </div>
                   ` : ''}
 
-                  <!-- Navigation Actions -->
-                  <div class="flex items-center justify-between pt-space-md border-t border-border-subtle">
-                    <button class="px-space-md py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold flex items-center gap-1 ${exam.curQuestionIdx === 0 ? 'opacity-40 cursor-not-allowed' : ''}" id="btnPrevQ" ${exam.curQuestionIdx === 0 ? 'disabled' : ''}>
-                      <span class="material-symbols-outlined text-[16px]">arrow_back</span> Câu trước
+                  <!-- Bottom Navigation inside Question Frame -->
+                  <div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-md mt-space-xs border-t border-border-subtle">
+                    <button class="px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5 shadow-xs ${exam.curQuestionIdx === 0 ? 'opacity-40 cursor-not-allowed' : ''}" id="btnPrevQ" ${exam.curQuestionIdx === 0 ? 'disabled' : ''}>
+                      <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+                      <span>Câu trước (第 ${Math.max(1, curQ.id - 1)} 題)</span>
                     </button>
-                    <button class="px-space-md py-2 rounded-xl bg-primary hover:bg-primary-container text-white text-xs font-bold flex items-center gap-1 shadow-sm active:scale-95" id="btnNextQ">
-                      Câu tiếp theo <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+
+                    <button class="px-space-md py-space-sm rounded-lg ${exam.flagged && exam.flagged[curQ.id] ? 'bg-amber-subtle text-tertiary-container font-semibold' : 'bg-surface-container text-on-surface'} hover:opacity-90 font-label-md text-label-md transition-colors flex items-center gap-1.5 shadow-xs" id="flag-btn">
+                      <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' ${exam.flagged && exam.flagged[curQ.id] ? 1 : 0};">flag</span>
+                      <span id="flag-btn-text">${exam.flagged && exam.flagged[curQ.id] ? 'Đã đánh dấu xem lại (已標記)' : 'Đánh dấu câu này (標記此題)'}</span>
+                    </button>
+
+                    <button class="px-space-lg py-space-sm rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-all shadow-md flex items-center gap-1.5" id="btnNextQ">
+                      <span>Câu tiếp theo (第 ${Math.min(totalQ, curQ.id + 1)} 題)</span>
+                      <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                     </button>
                   </div>
-
                 </div>
 
-              </div>
+                <!-- Academic Reference Stimulus (Cultural & Language Tip) -->
+                <div class="bg-paper-card p-space-md rounded-xl shadow-sm border border-border-subtle flex items-center gap-space-md">
+                  <div class="w-10 h-10 rounded-lg bg-jade-subtle text-secondary flex items-center justify-center flex-shrink-0">
+                    <span class="material-symbols-outlined text-[20px]">lightbulb</span>
+                  </div>
+                  <div class="flex-1">
+                    <h4 class="font-headline-md text-body-md font-semibold text-on-surface">Điểm ngữ pháp &amp; Từ vựng thực tế Đài Loan (考點提示)</h4>
+                    <p class="font-body-sm text-body-sm text-on-surface-variant">
+                      Trong tiếng Hoa Đài Loan, <strong>捷運 (Jiéyùn)</strong> là hệ thống MRT/Tàu điện ngầm; <strong>計程車 (Jìchéngchē)</strong> là taxi; <strong>尖峰時間 (Jiānfēng shíjiān)</strong> chỉ giờ cao điểm tan tầm. Nhấn phím <strong>Shift</strong> để nghe lại giọng đọc bất kỳ lúc nào.
+                    </p>
+                  </div>
+                </div>
+              </section>
 
-              <!-- Right: 50 Question Grid Navigator -->
-              <div class="lg:col-span-4 flex flex-col gap-space-md">
-                <div class="bg-paper-card p-space-lg rounded-2xl border border-border-subtle shadow-sm flex flex-col gap-space-md">
-                  <div class="flex items-center justify-between pb-2 border-b border-border-subtle">
-                    <div class="flex items-center gap-1.5">
-                      <span class="material-symbols-outlined text-secondary text-[20px]">apps</span>
-                      <h3 class="font-headline-md text-sm font-bold text-on-surface">Danh sách ${curTest.questions.length} câu hỏi</h3>
+              <!-- RIGHT COLUMN: Examinee Dossier, 50-Question CAT Matrix & Toolkit (4 cols) -->
+              <aside class="lg:col-span-4 flex flex-col gap-space-md">
+
+                <!-- Examinee Identity Card -->
+                <div class="bg-paper-card p-space-md rounded-xl shadow-sm border border-border-subtle flex items-center justify-between gap-space-sm">
+                  <div class="flex items-center gap-space-sm">
+                    <div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center text-on-primary font-headline-md text-headline-md font-bold shadow-sm">
+                      範
                     </div>
-                    <span class="font-code text-xs text-primary font-bold">Câu ${curQ.id}</span>
+                    <div>
+                      <div class="flex items-center gap-1.5">
+                        <span class="font-headline-md text-body-lg font-bold text-on-surface">Phạm Minh Haven</span>
+                        <span class="material-symbols-outlined text-secondary text-[16px]" title="Thí sinh hợp lệ đã xác thực danh tính">verified</span>
+                      </div>
+                      <div class="font-code text-body-sm text-outline">SBD: <span class="text-on-surface font-semibold">VN-2024-8891</span></div>
+                    </div>
                   </div>
-
-                  <div class="grid grid-cols-5 gap-2 max-h-[380px] overflow-y-auto pr-1">
-                    ${curTest.questions.map((q, idx) => {
-                      const isCurrent = idx === exam.curQuestionIdx;
-                      const hasAns = exam.answers[q.id] !== undefined;
-                      const isCorrect = exam.answers[q.id] === q.ans;
-
-                      let cls = "bg-surface-container-low hover:bg-surface-container text-outline";
-                      if (exam.isExamMode) {
-                        if (hasAns) cls = "bg-primary text-white font-bold shadow-2xs";
-                      } else {
-                        if (hasAns) {
-                          cls = isCorrect ? "bg-jade-subtle text-secondary font-bold border border-secondary/30" : "bg-cinnabar-subtle text-primary font-bold border border-primary/30";
-                        }
-                      }
-                      if (isCurrent) cls += " ring-2 ring-primary border-primary";
-
-                      return `
-                        <button class="h-9 rounded-lg ${cls} font-code text-xs flex items-center justify-center transition-all cursor-pointer" data-jump-q="${idx}">
-                          ${q.id}
-                        </button>
-                      `;
-                    }).join("")}
-                  </div>
-
-                  <div class="flex items-center justify-between pt-2 border-t border-border-subtle text-[11px] text-outline">
-                    <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-primary"></span> Đã trả lời</span>
-                    <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-surface-container"></span> Chưa làm</span>
+                  <div class="text-right">
+                    <span class="px-space-xs py-0.5 rounded bg-jade-subtle text-secondary font-label-sm text-label-sm font-semibold">Mục tiêu: Band B</span>
+                    <div class="font-label-sm text-[11px] text-outline mt-1">Phòng thi CAT 04</div>
                   </div>
                 </div>
-              </div>
+
+                <!-- Question Grid Navigator (50 Items: Listening + Reading) -->
+                <div class="bg-paper-card p-space-md rounded-xl shadow-sm border border-border-subtle flex flex-col gap-space-md">
+                  <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-space-xs">
+                      <span class="material-symbols-outlined text-primary text-[20px]">grid_view</span>
+                      <h3 class="font-headline-md text-body-lg font-bold text-on-surface">Phiếu trả lời ${totalQ} câu (答題卡)</h3>
+                    </div>
+                    <span class="font-code text-body-sm text-on-surface-variant font-medium">${totalDone}/${totalQ} Hoàn thành</span>
+                  </div>
+
+                  <!-- Status Legend -->
+                  <div class="flex flex-wrap items-center gap-space-sm bg-surface-container-low p-space-xs rounded-lg text-[11px] font-label-sm">
+                    <div class="flex items-center gap-1">
+                      <span class="w-3 h-3 rounded bg-cinnabar-subtle border border-primary/30 inline-block"></span>
+                      <span class="text-on-surface-variant">Đã làm</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <span class="w-3 h-3 rounded bg-primary inline-block"></span>
+                      <span class="text-on-surface font-bold">Đang làm</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <span class="w-3 h-3 rounded bg-amber-subtle border border-tertiary/40 inline-block"></span>
+                      <span class="text-tertiary">Đánh dấu</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                      <span class="w-3 h-3 rounded bg-surface-container-highest inline-block"></span>
+                      <span class="text-outline">Chưa làm</span>
+                    </div>
+                  </div>
+
+                  <!-- Section 1: Listening Comprehension -->
+                  <div class="flex flex-col gap-space-xs">
+                    <div class="flex items-center justify-between text-outline font-label-sm text-label-sm pt-space-xs">
+                      <span class="font-bold text-primary flex items-center gap-1">
+                        <span class="material-symbols-outlined text-[14px]">headphones</span>
+                        聽力部分 (Nghe: Câu 1 - ${listeningQs.length})
+                      </span>
+                      <span class="font-code text-[11px]">${doneListening} / ${listeningQs.length} xong</span>
+                    </div>
+                    <div class="grid grid-cols-5 gap-1.5 pt-1">
+                      ${listeningQs.map((q) => {
+                        const idx = curTest.questions.indexOf(q);
+                        const isCurrent = idx === exam.curQuestionIdx;
+                        const hasAns = exam.answers[q.id] !== undefined;
+                        const isFlagged = exam.flagged && exam.flagged[q.id];
+                        const isCorrect = exam.answers[q.id] === q.ans;
+                        let cls = "bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest";
+                        if (isCurrent) cls = "bg-primary text-on-primary font-bold shadow-md scale-105";
+                        else if (isFlagged) cls = "bg-amber-subtle text-tertiary-container font-bold";
+                        else if (hasAns) {
+                          cls = exam.isExamMode
+                            ? "bg-cinnabar-subtle text-primary font-semibold"
+                            : (isCorrect ? "bg-jade-subtle text-secondary font-bold border border-secondary/30" : "bg-cinnabar-subtle text-primary font-bold border border-primary/30");
+                        }
+                        const numStr = q.id < 10 ? "0" + q.id : String(q.id);
+                        return `
+                          <button class="h-8 rounded ${cls} font-code text-body-sm flex items-center justify-center relative transition-all cursor-pointer" data-jump-q="${idx}">
+                            ${numStr}
+                            ${isFlagged ? '<span class="w-1.5 h-1.5 rounded-full bg-tertiary absolute top-1 right-1"></span>' : ''}
+                          </button>
+                        `;
+                      }).join("")}
+                    </div>
+                  </div>
+
+                  <!-- Section 2: Reading Comprehension -->
+                  ${readingQs.length ? `
+                    <div class="flex flex-col gap-space-xs pt-space-xs border-t border-border-subtle/60">
+                      <div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
+                        <span class="font-bold text-secondary flex items-center gap-1">
+                          <span class="material-symbols-outlined text-[14px]">menu_book</span>
+                          閱讀部分 (Đọc: Câu ${listeningQs.length + 1} - ${totalQ})
+                        </span>
+                        <span class="font-code text-[11px]">${doneReading} / ${readingQs.length} xong</span>
+                      </div>
+                      <div class="grid grid-cols-5 gap-1.5 pt-1">
+                        ${readingQs.map((q) => {
+                          const idx = curTest.questions.indexOf(q);
+                          const isCurrent = idx === exam.curQuestionIdx;
+                          const hasAns = exam.answers[q.id] !== undefined;
+                          const isFlagged = exam.flagged && exam.flagged[q.id];
+                          const isCorrect = exam.answers[q.id] === q.ans;
+                          let cls = "bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest";
+                          if (isCurrent) cls = "bg-primary text-on-primary font-bold shadow-md scale-105";
+                          else if (isFlagged) cls = "bg-amber-subtle text-tertiary-container font-bold";
+                          else if (hasAns) {
+                            cls = exam.isExamMode
+                              ? "bg-cinnabar-subtle text-primary font-semibold"
+                              : (isCorrect ? "bg-jade-subtle text-secondary font-bold border border-secondary/30" : "bg-cinnabar-subtle text-primary font-bold border border-primary/30");
+                          }
+                          const numStr = q.id < 10 ? "0" + q.id : String(q.id);
+                          return `
+                            <button class="h-8 rounded ${cls} font-code text-body-sm flex items-center justify-center relative transition-all cursor-pointer" data-jump-q="${idx}">
+                              ${numStr}
+                              ${isFlagged ? '<span class="w-1.5 h-1.5 rounded-full bg-tertiary absolute top-1 right-1"></span>' : ''}
+                            </button>
+                          `;
+                        }).join("")}
+                      </div>
+                    </div>
+                  ` : ''}
+                </div>
+
+                <!-- Testing Room Utilities Panel (Font size, Zhuyin, Scoring standard) -->
+                <div class="bg-paper-card p-space-md rounded-xl shadow-sm border border-border-subtle flex flex-col gap-space-sm">
+                  <div class="flex items-center justify-between pb-1">
+                    <span class="font-headline-md text-body-md font-semibold text-on-surface">Tiện ích phòng thi (測驗輔助)</span>
+                    <span class="material-symbols-outlined text-outline text-[18px]">settings</span>
+                  </div>
+                  <div class="flex items-center justify-between bg-surface-container-low p-space-xs rounded-lg">
+                    <span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Cỡ chữ bài thi:</span>
+                    <div class="flex items-center gap-1">
+                      <button class="w-7 h-7 rounded bg-paper-card hover:bg-surface-container text-on-surface font-code text-body-sm font-bold flex items-center justify-center shadow-xs" id="font-decrease">A-</button>
+                      <button class="px-2 h-7 rounded bg-primary text-on-primary font-code text-body-sm font-semibold flex items-center justify-center shadow-xs" id="font-reset">Tiêu chuẩn</button>
+                      <button class="w-7 h-7 rounded bg-paper-card hover:bg-surface-container text-on-surface font-code text-body-sm font-bold flex items-center justify-center shadow-xs" id="font-increase">A+</button>
+                    </div>
+                  </div>
+                  <div class="bg-surface-container-low p-space-xs rounded-lg flex flex-col gap-1">
+                    <div class="flex items-center justify-between text-on-surface font-label-sm text-label-sm">
+                      <span class="font-bold">Quy chuẩn điểm Band B (Thang 80):</span>
+                      <span class="text-secondary font-code font-bold">SC-TOP 2024</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-space-xs pt-1 font-body-sm text-[11px]">
+                      <div class="p-1.5 rounded bg-paper-card flex flex-col">
+                        <span class="text-outline">Cấp 3 (B1 進階級):</span>
+                        <span class="text-primary font-bold font-code">Nghe ≥ 46 | Đọc ≥ 48</span>
+                      </div>
+                      <div class="p-1.5 rounded bg-paper-card flex flex-col">
+                        <span class="text-outline">Cấp 4 (B2 高階級):</span>
+                        <span class="text-secondary font-bold font-code">Nghe ≥ 61 | Đọc ≥ 64</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </aside>
 
             </div>
 
+            <!-- Sticky Exam Action & Submission Footer Bar -->
+            <footer class="w-full bg-paper-card rounded-2xl border border-border-subtle shadow-lg mt-space-md sticky bottom-2 z-30">
+              <div class="px-margin py-space-sm flex flex-col sm:flex-row items-center justify-between gap-space-md">
+                <div class="flex items-center gap-space-sm">
+                  <span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
+                  <div class="flex flex-col">
+                    <div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface font-semibold">
+                      <span>Đã tự động lưu bài làm trên thiết bị</span>
+                      <span class="text-outline font-normal">(Auto-saved)</span>
+                    </div>
+                    <span class="font-code text-[11px] text-outline">Tiến độ: ${totalDone}/${totalQ} câu trả lời đã ghi nhận • ${totalFlagged} câu đánh dấu</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-space-sm w-full sm:w-auto justify-end">
+                  <button class="px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5 shadow-xs" id="btn-unanswered-filter">
+                    <span class="material-symbols-outlined text-[18px]">find_in_page</span>
+                    <span>Tới câu chưa làm (${totalUnanswered})</span>
+                  </button>
+                  <button class="px-space-xl py-space-sm rounded-lg bg-primary hover:bg-primary-container text-on-primary font-headline-md text-sm font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2" id="btn-final-submit">
+                    <span class="material-symbols-outlined text-[20px]">how_to_reg</span>
+                    <span>NỘP BÀI THI CHÍNH THỨC (繳卷)</span>
+                  </button>
+                </div>
+              </div>
+            </footer>
           </div>
 
         </div>
@@ -18602,7 +19730,7 @@ VIEWS["thi-thu"] = async () => {
 
       <!-- HISTORY MODAL -->
       <div class="${exam.historyModalOpen ? 'flex' : 'hidden'} fixed inset-0 z-[100] bg-black/40 backdrop-blur-xs items-center justify-center p-4" id="historyModal">
-        <div class="bg-paper-card w-full max-w-lg rounded-2xl p-space-lg shadow-2xl flex flex-col gap-space-md border border-border-subtle animate-in fade-in zoom-in-95 duration-150">
+        <div class="bg-paper-card w-full max-w-lg rounded-2xl p-space-lg shadow-2xl flex flex-col gap-space-md border border-border-subtle">
           <div class="flex items-center justify-between border-b pb-space-sm border-border-subtle">
             <div class="flex items-center gap-space-xs">
               <span class="material-symbols-outlined text-primary text-[22px]">history_edu</span>
@@ -18612,15 +19740,11 @@ VIEWS["thi-thu"] = async () => {
               <span class="material-symbols-outlined text-[20px]">close</span>
             </button>
           </div>
-
-          <p class="text-xs text-outline">
-            Danh sách các lần nộp bài thi thử TOCFL gần nhất được lưu tự động trên thiết bị.
-          </p>
-
+          <p class="text-xs text-outline">Danh sách các lần nộp bài thi thử TOCFL gần nhất được lưu tự động trên thiết bị.</p>
           <div class="max-h-[300px] overflow-y-auto flex flex-col gap-2">
             ${exam.history.length === 0 ? `
               <div class="p-6 text-center text-xs text-outline">Chưa có lượt thi nào. Hãy bắt đầu làm bài thi thử đầu tiên!</div>
-            ` : exam.history.map((h, idx) => `
+            ` : exam.history.map((h) => `
               <div class="p-3 rounded-xl bg-surface-container-low border border-border-subtle flex items-center justify-between gap-3 text-xs">
                 <div>
                   <span class="font-bold text-on-surface">${esc(h.testTitle || "TOCFL Band B")}</span>
@@ -18646,6 +19770,16 @@ VIEWS["thi-thu"] = async () => {
     btnPlayEx.onclick = () => playExamAudio();
   }
 
+  document.querySelectorAll("[data-quick-test]").forEach((btn) => {
+    btn.onclick = () => {
+      exam.testId = btn.dataset.quickTest;
+      exam.subview = "review";
+      exam.curQuestionIdx = 0;
+      exam.answers = {};
+      VIEWS["thi-thu"]();
+    };
+  });
+
   document.querySelectorAll("[data-select-opt]").forEach((card) => {
     card.onclick = () => {
       const optIdx = Number(card.dataset.selectOpt);
@@ -18666,6 +19800,34 @@ VIEWS["thi-thu"] = async () => {
       VIEWS["thi-thu"]();
     }
   };
+
+  const flagBtn = $("#flag-btn");
+  if (flagBtn) {
+    flagBtn.onclick = () => {
+      if (!exam.flagged) exam.flagged = {};
+      exam.flagged[curQ.id] = !exam.flagged[curQ.id];
+      VIEWS["thi-thu"]();
+    };
+  }
+
+  const btnUnanswered = $("#btn-unanswered-filter");
+  if (btnUnanswered) {
+    btnUnanswered.onclick = () => {
+      const nextUnidx = curTest.questions.findIndex(q => exam.answers[q.id] === undefined);
+      if (nextUnidx !== -1) {
+        exam.curQuestionIdx = nextUnidx;
+        VIEWS["thi-thu"]();
+      }
+    };
+  }
+
+  const fontDec = $("#font-decrease");
+  const fontRes = $("#font-reset");
+  const fontInc = $("#font-increase");
+  if (fontDec) fontDec.onclick = () => { exam.fontSizeClass = "text-body-lg"; VIEWS["thi-thu"](); };
+  if (fontRes) fontRes.onclick = () => { exam.fontSizeClass = "text-headline-md"; VIEWS["thi-thu"](); };
+  if (fontInc) fontInc.onclick = () => { exam.fontSizeClass = "text-headline-lg"; VIEWS["thi-thu"](); };
+
   document.querySelectorAll("[data-jump-q]").forEach((btn) => {
     btn.onclick = () => {
       exam.curQuestionIdx = Number(btn.dataset.jumpQ);
@@ -18681,10 +19843,13 @@ VIEWS["thi-thu"] = async () => {
     exam.subview = "review";
     VIEWS["thi-thu"]();
   };
-  $("#btnBackToOverview").onclick = () => {
-    exam.subview = "overview";
-    VIEWS["thi-thu"]();
-  };
+  const btnBackOverview = $("#btnBackToOverview");
+  if (btnBackOverview) {
+    btnBackOverview.onclick = () => {
+      exam.subview = "overview";
+      VIEWS["thi-thu"]();
+    };
+  }
 
   document.querySelectorAll("[data-band-filter]").forEach((btn) => {
     btn.onclick = () => {
@@ -18716,39 +19881,41 @@ VIEWS["thi-thu"] = async () => {
     };
   });
 
-  const btnSubmit = $("#btnSubmitExam");
-  if (btnSubmit) {
-    btnSubmit.onclick = async () => {
-      let correct = 0;
-      for (const q of curTest.questions) {
-        if (exam.answers[q.id] === q.ans) correct++;
-      }
-      const total = curTest.questions.length;
-      const pct = Math.round((correct / total) * 100);
-      let level = "Chưa đạt chuẩn";
-      if (pct >= 85) level = "Đạt TOCFL B2 (Ưu tú)";
-      else if (pct >= 60) level = "Đạt TOCFL B2";
-      else if (pct >= 45) level = "Đạt TOCFL B1";
+  async function doSubmitExam() {
+    let correct = 0;
+    for (const q of curTest.questions) {
+      if (exam.answers[q.id] === q.ans) correct++;
+    }
+    const total = curTest.questions.length;
+    const pct = Math.round((correct / total) * 100);
+    let level = "Chưa đạt chuẩn";
+    if (pct >= 85) level = "Đạt TOCFL B2 (Ưu tú)";
+    else if (pct >= 60) level = "Đạt TOCFL B2";
+    else if (pct >= 45) level = "Đạt TOCFL B1";
 
-      const attempt = {
-        testId: curTest.id,
-        testTitle: curTest.title,
-        date: new Date().toLocaleDateString("vi-VN") + " " + new Date().toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" }),
-        score: correct,
-        total: total,
-        pct: pct,
-        level: level
-      };
-
-      exam.history = exam.history || [];
-      exam.history.unshift(attempt);
-      exam.isExamMode = false;
-      await Store.put("kv", "tocfl_history", exam.history);
-
-      alert(`Kết quả bài thi:\nĐúng: ${correct} / ${total} câu (${pct}%)\nĐánh giá: ${level}\n\nChuyển sang chế độ xem lại đáp án và giải thích chi tiết.`);
-      VIEWS["thi-thu"]();
+    const attempt = {
+      testId: curTest.id,
+      testTitle: curTest.title,
+      date: new Date().toLocaleDateString("vi-VN") + " " + new Date().toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" }),
+      score: correct,
+      total: total,
+      pct: pct,
+      level: level
     };
+
+    exam.history = exam.history || [];
+    exam.history.unshift(attempt);
+    exam.isExamMode = false;
+    await Store.put("kv", "tocfl_history", exam.history);
+
+    alert(`Kết quả bài thi:\nĐúng: ${correct} / ${total} câu (${pct}%)\nĐánh giá: ${level}\n\nChuyển sang chế độ xem lại đáp án và giải thích chi tiết.`);
+    VIEWS["thi-thu"]();
   }
+
+  const btnSubmit = $("#btnSubmitExam");
+  if (btnSubmit) btnSubmit.onclick = doSubmitExam;
+  const btnFinalSubmit = $("#btn-final-submit");
+  if (btnFinalSubmit) btnFinalSubmit.onclick = doSubmitExam;
 
   const btnRetake = $("#btnRetakeExam");
   if (btnRetake) {
@@ -18770,7 +19937,6 @@ VIEWS["thi-thu"] = async () => {
     VIEWS["thi-thu"]();
   };
 
-  // Keyboard shortcut: Shift Replay
   window.onkeydown = (e) => {
     if (location.hash !== "#thi-thu") return;
     if (e.key === "Shift") {
@@ -18791,81 +19957,234 @@ window.examQuickStart = (testId) => {
 };
 
 // =========================================================================
-// 8. NHẬP TỪ & 9. CÀI ĐẶT & ĐỒNG BỘ (Stitch Design)
+// 8. NHẬP TỪ HÀNG LOẠT & HỘP THƯ + 9. CÀI ĐẶT HỆ THỐNG (Exact Stitch Design)
 // =========================================================================
 VIEWS["nhap"] = () => {
+  const vocabCount = S.notes.filter((n) => n.kind === "vocab").length;
+
   setView(`
-    <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin py-space-xl flex flex-col gap-space-lg">
-      <!-- Mode Navigation Tabs: Tra cứu vs Nhập từ -->
-      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-sm p-1.5 bg-surface-container-low rounded-xl border border-border-subtle/50">
-        <div class="flex items-center gap-1 p-1 bg-surface-container rounded-lg">
-          <a href="#tu-dien" class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-label-md text-xs transition-all text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">
-            <span class="material-symbols-outlined text-[16px]">menu_book</span>
+    <div class="relative w-full max-w-6xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-xl">
+      <!-- Top Workspace Header & Mode Switcher (Exact Stitch) -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
+        <div class="flex flex-col gap-space-xs max-w-2xl">
+          <div class="flex items-center gap-space-sm flex-wrap">
+            <span class="w-1.5 h-4 rounded-full bg-primary"></span>
+            <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Từ điển &amp; Quản trị Từ vựng</span>
+            <span class="inline-flex items-center px-space-xs py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-label-sm">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary mr-1 animate-pulse"></span>
+              TOCFL Đài Loan chuẩn
+            </span>
+          </div>
+          <h1 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">
+            Tra cứu &amp; Nhập từ vựng <span class="text-on-surface-variant font-normal">| 字詞檢索與錄入</span>
+          </h1>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Tra cứu chiết tự Khang Hy, chú âm Đài Loan hoặc phân giải nạp văn bản hàng loạt vào sổ học SRS.
+          </p>
+        </div>
+        <!-- Quick Metrics & Notebook Pill -->
+        <div class="flex items-center gap-space-md bg-paper-card border border-border-subtle/70 p-space-sm rounded-xl shadow-sm self-start md:self-auto">
+          <div class="flex items-center gap-space-sm px-space-sm py-1 border-r border-surface-container-high">
+            <span class="material-symbols-outlined text-primary text-[20px]">collections_bookmark</span>
+            <div class="flex flex-col">
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Sổ từ hiện tại</span>
+              <span class="font-headline-md text-label-md font-semibold text-on-surface">${fmt(vocabCount)} <span class="font-normal text-outline text-[11px]">từ</span></span>
+            </div>
+          </div>
+          <div class="flex items-center gap-space-sm px-space-sm py-1">
+            <span class="material-symbols-outlined text-secondary text-[20px]">bolt</span>
+            <div class="flex flex-col">
+              <span class="font-label-sm text-label-sm text-on-surface-variant">Đồng bộ SRS</span>
+              <span class="font-label-md text-label-md font-semibold text-secondary">Tự động 100%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mode Navigation Tabs -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md p-1.5 bg-surface-container-low rounded-xl border border-border-subtle/60">
+        <div class="flex items-center gap-space-xs p-1 bg-surface-container rounded-lg">
+          <a href="#tu-dien" class="flex items-center gap-space-sm px-space-lg py-2 rounded-lg font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high no-underline" id="tab-btn-lookup">
+            <span class="material-symbols-outlined text-[18px]">menu_book</span>
             <span>Tra cứu từ điển (辭典檢索)</span>
           </a>
-          <a href="#nhap" class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-label-md text-xs transition-all bg-paper-card text-primary shadow-xs font-semibold">
-            <span class="material-symbols-outlined text-[16px]">post_add</span>
-            <span>Nhập từ mới & Hộp thư</span>
-            <span class="px-1.5 py-0.2 rounded-full bg-cinnabar-subtle text-primary text-[10px]">Mới</span>
+          <a href="#nhap" class="flex items-center gap-space-sm px-space-lg py-2 rounded-lg font-label-md text-label-md transition-all duration-200 bg-paper-card text-primary shadow-sm font-semibold no-underline" id="tab-btn-import">
+            <span class="material-symbols-outlined text-[18px]">post_add</span>
+            <span>Nhập từ hàng loạt &amp; Hộp thư (批量錄入)</span>
+            <span class="px-1.5 py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-[10px]">Mới</span>
           </a>
         </div>
-        <div class="hidden sm:flex items-center gap-1.5 px-3 text-on-surface-variant text-xs">
+        <div class="flex items-center gap-space-sm px-space-md text-on-surface-variant font-label-sm text-label-sm">
           <span class="material-symbols-outlined text-[16px]">sync_alt</span>
-          <span>Tự động đồng bộ: <strong>Flashcards SRS & Hộp thư</strong></span>
+          <span>Vừa nhập vừa học: <strong>Đồng bộ thẳng vào Flashcard SRS</strong></span>
         </div>
       </div>
 
-      <!-- Input Card -->
-      <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-md">
-        <div class="flex items-center gap-2">
-          <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
-          <h1 class="font-headline-lg text-2xl font-bold text-on-surface">Nhập từ vựng mới & Đồng bộ Lịch học</h1>
+      <!-- ================= STITCH BATCH IMPORT CENTER (Exact Stitch Mode 2) ================= -->
+      <div class="flex flex-col gap-space-xl" id="section-import">
+        <!-- Import Header Info Banner -->
+        <div class="bg-paper-card p-space-lg rounded-2xl border border-border-subtle/70 shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-lg">
+          <div class="flex items-center gap-space-md">
+            <div class="w-12 h-12 rounded-xl bg-cinnabar-subtle text-primary flex items-center justify-center shrink-0">
+              <span class="material-symbols-outlined text-[26px]">library_add</span>
+            </div>
+            <div class="flex flex-col">
+              <h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Trung tâm Nạp dữ liệu Học tập Thông minh</h2>
+              <p class="font-body-md text-body-md text-on-surface-variant">Nhập nhanh 1 từ hoặc dán danh sách nhiều từ để tự động trích xuất Pinyin, nghĩa tiếng Việt và đưa vào lịch học SRS.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-space-xs self-stretch md:self-auto">
+            <span class="px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+              <span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
+              Trợ lý Từ điển Phồn thể Đài Loan sẵn sàng
+            </span>
+          </div>
         </div>
-        <p class="font-body-md text-sm text-on-surface-variant leading-relaxed">
-          Gặp từ mới khi xem phim, nghe podcast, đọc báo hay trên lớp thì ghi vào đây. Từ mới sẽ được lưu vào <strong>Hộp thư</strong>, đồng thời <strong>tự động đồng bộ ngay vào hàng đợi Học & Ôn tập (Flashcards)</strong> để bạn vừa nhập vừa học vừa ôn đạt hiệu quả tối đa.
-        </p>
 
-        <form class="flex flex-col gap-space-md mt-2" id="f" autocomplete="off">
-          <label class="flex flex-col gap-1.5">
-            <span class="text-xs font-semibold text-on-surface-variant">Từ mới (chữ Phồn thể):</span>
-            <input id="w" class="w-full p-3.5 rounded-xl bg-surface-container-low border border-border-subtle text-xl font-serif text-on-surface focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary/20" placeholder="Ví dụ：機會, 買單, 捷運..." maxlength="16">
-          </label>
-
-          <div class="p-3 rounded-xl bg-surface-container-low border border-border-subtle text-xs text-outline font-medium" id="check">
-            Gõ một từ để kiểm tra với kho dữ liệu TOCFL & Từ điển.
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-            <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
-              <span>Gặp ở đâu (ngữ cảnh):</span>
-              <input id="where" placeholder="Podcast, lớp học, phim Đài Loan, phố đi bộ..." maxlength="60" class="p-2.5 rounded-xl bg-surface-container-low border border-border-subtle text-xs">
-            </label>
-            <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
-              <span>Ghi chú thêm / Nghĩa ngữ cảnh:</span>
-              <input id="note" placeholder="Ý nghĩa trong tình huống này..." maxlength="200" class="p-2.5 rounded-xl bg-surface-container-low border border-border-subtle text-xs">
-            </label>
-          </div>
-
-          <div class="flex items-center justify-between pt-2 flex-wrap gap-2">
-            <div class="text-xs font-semibold" id="msg"></div>
-            <button class="px-6 py-2.5 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary transition-colors shadow-xs disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5" id="save" type="submit" disabled>
-              <span class="material-symbols-outlined text-[16px]">add_task</span>
-              <span>Lưu & Đồng bộ vào Lịch học</span>
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <!-- Imported Words List -->
-      <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-md">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div class="flex items-center gap-2">
-            <h2 class="font-headline-lg text-lg font-bold text-on-surface">Từ đã nhập trong Hộp thư (<span id="inbox-count">${S.inbox ? S.inbox.size : 0}</span>)</h2>
-            <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-jade-subtle text-secondary border border-secondary/20">Tự động đồng bộ với Chỗ học</span>
-          </div>
-          <span class="text-xs text-outline">Lưu trữ trên thiết bị & tự động đồng bộ qua đám mây</span>
+        <!-- 4 Multiple Ingestion Pathways (Exact Stitch) -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-space-md">
+          <button type="button" class="p-space-md rounded-xl bg-paper-card text-left shadow-sm hover:shadow-md transition-all flex flex-col gap-space-xs border-2 border-primary" id="btn-path-paste">
+            <span class="material-symbols-outlined text-primary text-[24px]">content_paste</span>
+            <span class="font-label-md text-label-md font-semibold text-on-surface">Nhập nhanh &amp; Dán văn bản</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Hán tự, Pinyin, hoặc nghĩa Việt tự do</span>
+          </button>
+          <button type="button" class="p-space-md rounded-xl bg-paper-card border border-border-subtle/70 text-left shadow-sm hover:shadow-md transition-all flex flex-col gap-space-xs opacity-85 hover:opacity-100" onclick="$('#batch-textarea')?.focus()">
+            <span class="material-symbols-outlined text-secondary text-[24px]">folder_zip</span>
+            <span class="font-label-md text-label-md font-semibold text-on-surface">Danh sách từ hàng loạt</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Nạp nhiều từ cùng lúc vào sổ tay</span>
+          </button>
+          <button type="button" class="p-space-md rounded-xl bg-paper-card border border-border-subtle/70 text-left shadow-sm hover:shadow-md transition-all flex flex-col gap-space-xs opacity-85 hover:opacity-100" onclick="$('#w')?.focus()">
+            <span class="material-symbols-outlined text-tertiary text-[24px]">add_task</span>
+            <span class="font-label-md text-label-md font-semibold text-on-surface">Ghi nhanh 1 từ mới</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Kiểm tra trùng lặp TOCFL tức thì</span>
+          </button>
+          <button type="button" class="p-space-md rounded-xl bg-paper-card border border-border-subtle/70 text-left shadow-sm hover:shadow-md transition-all flex flex-col gap-space-xs opacity-85 hover:opacity-100" onclick="$('#ilist')?.scrollIntoView({behavior:'smooth'})">
+            <span class="material-symbols-outlined text-outline text-[24px]">inbox</span>
+            <span class="font-label-md text-label-md font-semibold text-on-surface">Hộp thư đã lưu (${S.inbox ? S.inbox.size : 0})</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Quản lý &amp; bấm Học ngay từng từ</span>
+          </button>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md" id="ilist"></div>
+
+        <!-- Quick Single-Word Input Card (Preserves #f, #w, #check, #where, #note, #save, #msg) -->
+        <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
+              <h2 class="font-headline-md text-lg font-bold text-on-surface">Nhập nhanh từ mới &amp; Đồng bộ Lịch học</h2>
+            </div>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-jade-subtle text-secondary font-semibold">Tự động tạo thẻ Nhận diện · Nghe · Viết · Điền từ</span>
+          </div>
+
+          <form class="flex flex-col gap-space-md" id="f" autocomplete="off">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+              <label class="flex flex-col gap-1.5">
+                <span class="text-xs font-semibold text-on-surface-variant">Từ mới (chữ Phồn thể):</span>
+                <input id="w" class="w-full p-3 rounded-xl bg-paper-base border border-border-subtle text-xl font-serif text-on-surface focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary/20" placeholder="Ví dụ：機會, 買單, 捷運..." maxlength="16">
+              </label>
+              <label class="flex flex-col gap-1.5">
+                <span class="text-xs font-semibold text-on-surface-variant">Gặp ở đâu (ngữ cảnh):</span>
+                <input id="where" placeholder="Podcast, lớp học, phim Đài Loan..." maxlength="60" class="w-full p-3 rounded-xl bg-paper-base border border-border-subtle text-sm text-on-surface">
+              </label>
+              <label class="flex flex-col gap-1.5">
+                <span class="text-xs font-semibold text-on-surface-variant">Ghi chú thêm / Nghĩa tiếng Việt:</span>
+                <input id="note" placeholder="Ý nghĩa trong tình huống này..." maxlength="200" class="w-full p-3 rounded-xl bg-paper-base border border-border-subtle text-sm text-on-surface">
+              </label>
+            </div>
+
+            <div class="p-3 rounded-xl bg-surface-container-low border border-border-subtle text-xs text-outline font-medium" id="check">
+              Gõ một từ chữ Hán Phồn thể để kiểm tra với kho dữ liệu TOCFL &amp; Từ điển.
+            </div>
+
+            <div class="flex items-center justify-between pt-1 flex-wrap gap-2">
+              <div class="text-xs font-semibold" id="msg"></div>
+              <button class="px-6 py-2.5 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary transition-colors shadow-xs disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5" id="save" type="submit" disabled>
+                <span class="material-symbols-outlined text-[16px]">add_task</span>
+                <span>Lưu &amp; Đồng bộ vào Lịch học</span>
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Main Batch Ingestion Workspace (Exact Stitch 6+6 Cols) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+          <!-- Left Editor Box (6 cols) -->
+          <div class="lg:col-span-6 flex flex-col gap-space-md bg-paper-card p-space-xl rounded-2xl border border-border-subtle/70 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-space-xs">
+                <span class="w-1.5 h-3.5 rounded-full bg-primary"></span>
+                <span class="font-label-md text-label-md font-semibold text-on-surface">Khung nhập liệu văn bản hàng loạt</span>
+              </div>
+              <div class="flex items-center gap-space-xs">
+                <button type="button" class="text-primary hover:underline font-label-sm text-label-sm" id="btn-batch-sample">
+                  Điền mẫu ví dụ
+                </button>
+                <span class="text-surface-container-high">•</span>
+                <button type="button" class="text-outline hover:text-on-surface font-label-sm text-label-sm" id="btn-batch-clear">
+                  Xóa trắng
+                </button>
+              </div>
+            </div>
+            <div class="relative flex-1">
+              <textarea class="w-full h-full min-h-[200px] p-space-md rounded-xl bg-paper-base border border-border-subtle text-on-surface font-body-md text-body-md focus:outline-none placeholder:text-outline/60 resize-y leading-relaxed" id="batch-textarea" rows="8" placeholder="Dán danh sách từ của bạn vào đây (mỗi dòng 1 từ)...">1. 斟酌 (zhēnzhuó) - cân nhắc kỹ lưỡng
+2. 繁體字 (fántǐzì) - Chữ Hán Phồn thể
+3. 莫名其妙 (mòmíngqímiào) - kỳ quặc, không hiểu nổi
+4. 絡繹不絕 (luòyìbùjué) - tấp nập không dứt</textarea>
+            </div>
+            <div class="flex items-center justify-between pt-space-xs">
+              <span class="font-body-sm text-body-sm text-outline" id="batch-detect-count">Đã phát hiện: <strong>4 mục từ hợp lệ</strong></span>
+              <button type="button" class="px-space-lg py-2.5 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-all shadow-sm flex items-center gap-2" id="btn-batch-parse">
+                <span class="material-symbols-outlined text-[18px]">neurology</span>
+                <span>Chuẩn hóa &amp; Xem trước</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Preview & Validation Table (6 cols) -->
+          <div class="lg:col-span-6 flex flex-col gap-space-md bg-paper-card p-space-xl rounded-2xl border border-border-subtle/70 shadow-sm">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-space-xs">
+                <span class="w-1.5 h-3.5 rounded-full bg-secondary"></span>
+                <span class="font-label-md text-label-md font-semibold text-on-surface" id="batch-preview-title">Kết quả chuẩn hóa</span>
+              </div>
+              <span class="px-2 py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-label-sm font-medium">Sẵn sàng nhập sổ</span>
+            </div>
+            <div class="overflow-x-auto rounded-xl bg-paper-base border border-border-subtle/60 flex-1">
+              <table class="w-full text-left font-body-sm text-body-sm">
+                <thead class="bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+                  <tr>
+                    <th class="p-space-sm pl-space-md">Chữ Phồn thể</th>
+                    <th class="p-space-sm">Phiên âm</th>
+                    <th class="p-space-sm">Nghĩa tiếng Việt</th>
+                    <th class="p-space-sm pr-space-md text-right">TOCFL</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-surface-container-high/40 text-on-surface" id="batch-preview-tbody"></tbody>
+              </table>
+            </div>
+            <div class="flex flex-col gap-space-sm pt-space-xs">
+              <div class="flex items-center justify-between text-body-sm">
+                <span class="text-on-surface-variant font-label-sm text-label-sm">Thư mục nhận dữ liệu:</span>
+                <span class="font-medium text-primary">Hộp thư &amp; Thư mục của tôi (Đồng bộ SRS)</span>
+              </div>
+              <button type="button" class="w-full py-3 rounded-xl bg-secondary hover:bg-secondary/90 text-on-secondary font-label-md text-label-md font-semibold transition-all shadow-md flex items-center justify-center gap-2" id="btn-batch-commit">
+                <span class="material-symbols-outlined text-[20px]">archive</span>
+                <span id="btn-batch-commit-label">Xác nhận nạp tất cả vào sổ tay</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Imported Words List in Inbox (#ilist) -->
+        <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div class="flex items-center gap-2">
+              <h2 class="font-headline-lg text-lg font-bold text-on-surface">Từ đã nhập trong Hộp thư (<span id="inbox-count">${S.inbox ? S.inbox.size : 0}</span>)</h2>
+              <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-jade-subtle text-secondary border border-secondary/20">Tự động đồng bộ với Chỗ học</span>
+            </div>
+            <span class="text-xs text-outline">Lưu trữ trên thiết bị &amp; tự động đồng bộ qua đám mây</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md" id="ilist"></div>
+        </div>
       </div>
     </div>
   `);
@@ -18944,33 +20263,31 @@ VIEWS["nhap"] = () => {
           <div class="flex items-start justify-between gap-2">
             <div class="flex flex-col min-w-0">
               <div class="flex items-center gap-2 flex-wrap">
-                <a href="#tu/${encodeURIComponent(it.w)}" class="font-serif font-bold text-xl text-on-surface hover:text-primary transition-colors">${esc(it.w)}</a>
-                ${it.py ? `<span class="font-code text-xs text-tertiary font-medium bg-amber-subtle/50 px-2 py-0.5 rounded-md border border-amber-subtle/40">${esc(it.py)}</span>` : ''}
+                <a href="#tu/${encodeURIComponent(it.w)}" class="font-serif font-bold text-xl text-on-surface hover:text-primary transition-colors no-underline">${esc(it.w)}</a>
+                ${it.py ? `<span class="font-code text-xs text-tertiary font-medium bg-amber-subtle/50 px-2 py-0.5 rounded-md border border-amber-subtle/40">${esc(it.py)}</span>` : ""}
                 <button type="button" class="text-secondary hover:text-primary transition-colors p-1 rounded-lg hover:bg-white" onclick="say('${esc(it.w)}')" title="Nghe phát âm">
                   <span class="material-symbols-outlined text-[18px]">volume_up</span>
                 </button>
               </div>
-              ${it.where ? `<div class="text-[11px] text-outline mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">location_on</span><span>Gặp ở: ${esc(it.where)}</span></div>` : ''}
-              ${displayMeaning ? `<div class="text-xs text-on-surface-variant font-medium mt-1 line-clamp-2">${esc(displayMeaning)}</div>` : ''}
+              ${it.where ? `<div class="text-[11px] text-outline mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">location_on</span><span>Gặp ở: ${esc(it.where)}</span></div>` : ""}
+              ${displayMeaning ? `<div class="text-xs text-on-surface-variant font-medium mt-1 line-clamp-2">${esc(displayMeaning)}</div>` : ""}
             </div>
-            
             <button type="button" class="text-xs text-outline hover:text-primary transition-colors p-1 rounded-lg hover:bg-white shrink-0" data-del-inbox="${esc(it.id)}" title="Xóa khỏi Hộp thư">
               <span class="material-symbols-outlined text-[16px]">delete</span>
             </button>
           </div>
 
-          <!-- Learning status, Level change & Study Now button -->
           <div class="pt-2.5 border-t border-border-subtle/60 flex items-center justify-between gap-2 flex-wrap">
             <div class="flex items-center gap-1.5 flex-wrap">
               <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full border ${lvBadgeColors[lvl]}">
                 ${esc(LEVELS[lvl])}
               </span>
-              ${isDue ? `<span class="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-cinnabar-subtle text-primary border border-cinnabar-subtle">Đến hạn ôn</span>` : ''}
+              ${isDue ? `<span class="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-cinnabar-subtle text-primary border border-cinnabar-subtle">Đến hạn ôn</span>` : ""}
             </div>
 
             <div class="flex items-center gap-2">
               <select class="text-[11px] font-medium bg-white border border-border-subtle rounded-lg px-2 py-1 text-on-surface focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer" data-change-lvl="${esc(it.w)}" title="Đổi mức nhớ cho từ này">
-                ${LEVELS.map((label, idx) => `<option value="${idx}"${lvl === idx ? ' selected' : ''}>${esc(label)}</option>`).join('')}
+                ${LEVELS.map((label, idx) => `<option value="${idx}"${lvl === idx ? " selected" : ""}>${esc(label)}</option>`).join("")}
               </select>
               <button type="button" class="px-3 py-1 rounded-lg bg-primary-container text-white font-semibold text-xs hover:bg-primary transition-colors shadow-xs flex items-center gap-1" data-study-word="${esc(it.w)}" title="Bắt đầu học ngay với Flashcard của từ này">
                 <span class="material-symbols-outlined text-[15px]">play_circle</span>
@@ -18980,9 +20297,9 @@ VIEWS["nhap"] = () => {
           </div>
         </div>
       `;
-    }).join('');
+    }).join("");
 
-    list.querySelectorAll("[data-del-inbox]").forEach(btn => {
+    list.querySelectorAll("[data-del-inbox]").forEach((btn) => {
       btn.onclick = async () => {
         const id = btn.dataset.delInbox;
         const it = S.inbox.get(id);
@@ -18995,18 +20312,15 @@ VIEWS["nhap"] = () => {
       };
     });
 
-    list.querySelectorAll("[data-study-word]").forEach(btn => {
+    list.querySelectorAll("[data-study-word]").forEach((btn) => {
       btn.onclick = () => {
         const w = btn.dataset.studyWord;
-        if (typeof window.startStudyWord === "function") {
-          window.startStudyWord(w);
-        } else {
-          location.hash = "#hoc";
-        }
+        if (typeof window.startStudyWord === "function") window.startStudyWord(w);
+        else location.hash = "#hoc";
       };
     });
 
-    list.querySelectorAll("[data-change-lvl]").forEach(sel => {
+    list.querySelectorAll("[data-change-lvl]").forEach((sel) => {
       sel.onchange = async () => {
         const w = sel.dataset.changeLvl;
         const newLvl = Number(sel.value);
@@ -19041,7 +20355,6 @@ VIEWS["nhap"] = () => {
     if (!S.inbox) S.inbox = new Map();
     S.inbox.set(id, entry);
 
-    // Auto-sync into study and review queue immediately!
     if (typeof syncInboxWordToLearning === "function") {
       syncInboxWordToLearning(entry, true);
     }
@@ -19049,7 +20362,7 @@ VIEWS["nhap"] = () => {
     $("#w").value = "";
     $("#where").value = "";
     $("#note").value = "";
-    $("#msg").innerHTML = `<span class="inline-flex items-center gap-1.5 text-secondary font-semibold"><span class="material-symbols-outlined text-[16px]">check_circle</span> Đã lưu từ "${esc(c.w)}" vào Hộp thư & đồng bộ ngay vào hàng đợi Học/Ôn tập!</span>`;
+    $("#msg").innerHTML = `<span class="inline-flex items-center gap-1.5 text-secondary font-semibold"><span class="material-symbols-outlined text-[16px]">check_circle</span> Đã lưu từ "${esc(c.w)}" vào Hộp thư &amp; đồng bộ ngay vào hàng đợi Học/Ôn tập!</span>`;
     setTimeout(() => {
       const m = $("#msg");
       if (m) m.innerHTML = "";
@@ -19058,209 +20371,498 @@ VIEWS["nhap"] = () => {
     drawInbox();
   };
 
+  // Batch Parser & Commit Logic (Mode 2)
+  let parsedBatch = [];
+  const parseBatchLines = () => {
+    const raw = $("#batch-textarea")?.value || "";
+    const lines = raw.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+    parsedBatch = [];
+    for (const line of lines) {
+      const mHan = line.match(/[㐀-鿿豈-﫿]+/);
+      if (!mHan) continue;
+      const w = mHan[0];
+      const n = S.noteByWord.get(w);
+      const e = cedFirst(w);
+      let rest = line.replace(/^\d+[\.\)\s-]*/, "").replace(w, "").trim();
+      let py = n ? itemOf(n).py : (e ? e[0][0] : "");
+      const mPy = rest.match(/\(([^)]+)\)/);
+      if (mPy) {
+        if (!py) py = mPy[1].trim();
+        rest = rest.replace(mPy[0], "").trim();
+      }
+      rest = rest.replace(/^[-–—:]+/, "").trim();
+      const vn = rest || (n ? meaningOf(n) : (e ? e[0][1].split("/").join("; ") : "Từ vựng bổ sung"));
+      const band = n ? (bandsOf(n)[0] || "B1") : "Cá nhân";
+      parsedBatch.push({ w, py, vn, band });
+    }
+    const cntEl = $("#batch-detect-count");
+    if (cntEl) cntEl.innerHTML = `Đã phát hiện: <strong>${parsedBatch.length} mục từ hợp lệ</strong>`;
+    const titleEl = $("#batch-preview-title");
+    if (titleEl) titleEl.textContent = `Kết quả chuẩn hóa (${parsedBatch.length} mục)`;
+    const btnLbl = $("#btn-batch-commit-label");
+    if (btnLbl) btnLbl.textContent = `Xác nhận nạp tất cả ${parsedBatch.length} từ vào sổ tay`;
+    const tbody = $("#batch-preview-tbody");
+    if (tbody) {
+      tbody.innerHTML = parsedBatch.map((it) => `
+        <tr class="hover:bg-paper-card transition-colors">
+          <td class="p-space-sm pl-space-md font-display text-body-lg font-semibold text-primary">${esc(it.w)}</td>
+          <td class="p-space-sm font-code text-xs text-tertiary">${esc(it.py || "—")}</td>
+          <td class="p-space-sm text-xs text-on-surface">${esc(it.vn)}</td>
+          <td class="p-space-sm pr-space-md text-right">
+            <span class="px-1.5 py-0.5 rounded bg-amber-subtle text-tertiary font-label-sm text-[10px]">${esc(it.band)}</span>
+          </td>
+        </tr>
+      `).join("") || `<tr><td colspan="4" class="p-4 text-center text-xs text-outline">Chưa có dòng chữ Hán nào hợp lệ.</td></tr>`;
+    }
+  };
+
+  parseBatchLines();
+  const batchTa = $("#batch-textarea");
+  if (batchTa) batchTa.oninput = parseBatchLines;
+  const btnParse = $("#btn-batch-parse");
+  if (btnParse) btnParse.onclick = parseBatchLines;
+  const btnSample = $("#btn-batch-sample");
+  if (btnSample) {
+    btnSample.onclick = () => {
+      if (batchTa) {
+        batchTa.value = "1. 璀璨 (cuǐcàn) - rực rỡ lấp lánh\n2. 靦腆 (miǎntiǎn) - bẽn lẽn, e ấp\n3. 奮鬥 (fèndòu) - phấn đấu kiên trì\n4. 絡繹不絕 (luòyìbùjué) - nườm nượp không ngớt";
+        parseBatchLines();
+      }
+    };
+  }
+  const btnClear = $("#btn-batch-clear");
+  if (btnClear) {
+    btnClear.onclick = () => {
+      if (batchTa) {
+        batchTa.value = "";
+        batchTa.focus();
+        parseBatchLines();
+      }
+    };
+  }
+  const btnCommit = $("#btn-batch-commit");
+  if (btnCommit) {
+    btnCommit.onclick = async () => {
+      if (!parsedBatch.length) return;
+      if (!S.inbox) S.inbox = new Map();
+      for (const item of parsedBatch) {
+        const id = "inbox~" + item.w;
+        const entry = {
+          id,
+          w: item.w,
+          py: item.py,
+          where: "Nhập hàng loạt",
+          note: item.vn,
+          at: Date.now()
+        };
+        S.inbox.set(id, entry);
+        try { await Store.put("inbox", id, entry); } catch (err) {}
+        if (typeof syncInboxWordToLearning === "function") {
+          syncInboxWordToLearning(entry, true);
+        }
+      }
+      drawInbox();
+      if (typeof updateBadge === "function") updateBadge();
+      const lbl = $("#btn-batch-commit-label");
+      if (lbl) lbl.textContent = `✓ Đã nạp thành công ${parsedBatch.length} từ vào Hộp thư & SRS!`;
+    };
+  }
+
   drawInbox();
 };
 
 // =========================================================================
-// 9. CÀI ĐẶT & ĐỒNG BỘ ĐA THIẾT BỊ (Stitch Design)
+// 9. CÀI ĐẶT HỆ THỐNG & HỌC TẬP (Exact Stitch Design)
 // =========================================================================
 VIEWS["cai-dat"] = () => {
   const syncCfg = window.Sync ? Sync.getConfig() : {};
   const isConnected = window.Sync && Sync.isConfigured();
-  const vocab = S.notes.filter(n => n.kind === "vocab");
+  const vocab = S.notes.filter((n) => n.kind === "vocab");
+  const curTheme = (document.documentElement && document.documentElement.getAttribute ? document.documentElement.getAttribute("data-theme") : "light") || "light";
+
+  // Build folder checkboxes list for Section 2 ("THƯ MỤC ĐANG HỌC")
+  const deckCheckboxes = [
+    ...S.decks.map((d) => ({
+      id: d.id,
+      isBand: false,
+      label: d.name,
+      count: folderNotes(d.id).length,
+      on: folderOn(d.id)
+    })),
+    ...S.bands.map((b) => ({
+      id: b,
+      isBand: true,
+      label: `TOCFL ${b} (cả band)`,
+      count: vocab.filter((n) => inBand(n, b)).length,
+      on: !!S.settings.bands[b]
+    }))
+  ];
 
   setView(`
-    <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin py-space-xl flex flex-col gap-space-xl">
-      <!-- Page Header -->
-      <div class="flex flex-col gap-space-xs">
-        <div class="flex items-center gap-space-xs text-primary font-label-sm text-xs font-semibold tracking-wider uppercase">
-          <span class="w-1.5 h-3.5 bg-primary-container rounded-full"></span>
-          <span>Thiết lập &amp; Đám mây • 系統設定</span>
+    <div class="w-full max-w-4xl mx-auto px-margin py-space-xl flex flex-col gap-space-xl">
+      <!-- Page Header & Overview Banner (Exact Stitch) -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-xs">
+        <div class="flex flex-col gap-space-xs">
+          <div class="flex items-center gap-space-sm">
+            <span class="inline-flex items-center px-space-xs py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-label-sm font-semibold tracking-wide">
+              CẤU HÌNH HỆ THỐNG
+            </span>
+            <span class="text-outline-variant font-label-sm text-label-sm">•</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Bản cập nhật v31.0</span>
+          </div>
+          <h1 class="font-headline-lg text-headline-lg md:text-display text-on-surface font-semibold tracking-tight">
+            Cài đặt hệ thống &amp; Học tập
+          </h1>
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+            Quản lý đồng bộ dữ liệu đa thiết bị, mục tiêu thẻ nhớ hàng ngày và cá nhân hóa giọng đọc chuẩn Đài Loan (TOCFL).
+          </p>
         </div>
-        <h1 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-bold tracking-tight">
-          Cài đặt hệ thống &amp; Đồng bộ
-        </h1>
-        <p class="font-body-md text-sm text-on-surface-variant">
-          Quản lý tiến độ học tập, kết nối tự động 2 chiều qua GitHub Gist và thiết lập mục tiêu cá nhân.
-        </p>
+        <!-- Quick Metrics Pill -->
+        <div class="flex items-center gap-space-sm bg-surface-container-low border border-border-subtle/60 p-space-sm rounded-xl">
+          <div class="w-9 h-9 rounded-lg bg-cinnabar-subtle flex items-center justify-center text-primary">
+            <span class="material-symbols-outlined text-[20px]">style</span>
+          </div>
+          <div class="flex flex-col pr-space-sm">
+            <span class="font-label-sm text-label-sm text-on-surface-variant">Tổng thẻ lưu trữ</span>
+            <span class="font-headline-md text-headline-md text-on-surface font-bold">${fmt(vocab.length)} <span class="font-body-sm text-body-sm font-normal text-outline">từ</span></span>
+          </div>
+        </div>
       </div>
 
-      <!-- SECTION 1: CLOUD SYNC & FAST CODE SYNC -->
-      <section class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-lg">
-        <div class="flex items-center justify-between pb-space-sm border-b border-border-subtle">
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-secondary text-[22px]">cloud_sync</span>
-            <h2 class="font-headline-md text-lg font-bold text-on-surface">Đồng bộ tiến độ giữa điện thoại &amp; máy tính</h2>
+      <!-- SECTION 1: Đồng bộ giữa các máy (Exact Stitch) -->
+      <section class="bg-paper-card rounded-xl p-space-lg border border-border-subtle/70 shadow-sm flex flex-col gap-space-lg">
+        <div class="flex items-start justify-between gap-space-md">
+          <div class="flex items-center gap-space-sm flex-wrap">
+            <span class="w-1 h-5 rounded-full bg-primary inline-block"></span>
+            <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
+              Đồng bộ giữa các máy
+            </h2>
+            <span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full ${isConnected ? "bg-jade-subtle text-secondary" : "bg-surface-container-highest text-on-surface-variant"} font-label-sm text-label-sm font-medium" id="syncStatusBadge">
+              <span class="w-1.5 h-1.5 rounded-full ${isConnected ? "bg-secondary" : "bg-outline"}"></span>
+              ${isConnected ? "Đã kết nối Đám mây" : "Chưa kết nối"}
+            </span>
           </div>
-          <span class="text-xs px-2.5 py-1 rounded-full font-semibold ${isConnected ? 'bg-jade-subtle text-secondary' : 'bg-surface-container text-outline'}" id="syncStatusBadge">
-            ${isConnected ? '✓ Đã kết nối Đám mây' : 'Chưa kết nối'}
-          </span>
         </div>
+        <p class="font-body-md text-body-md text-on-surface-variant">
+          Mặc định tiến độ chỉ lưu trong trình duyệt của từng máy. Để <strong class="text-on-surface font-medium">học trên điện thoại và máy tính luôn đồng bộ cùng tiến độ với nhau</strong>, bạn có thể chọn một trong hai cách dưới đây:
+        </p>
 
-        <!-- Method 1: GitHub Gist -->
-        <div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-space-sm">
-          <div class="flex items-center justify-between">
-            <h3 class="font-headline-md text-sm font-bold text-secondary">Cách 1: Tự động qua Đám mây (GitHub Gist cá nhân)</h3>
-            <span class="text-[11px] font-semibold text-secondary bg-jade-subtle px-2 py-0.5 rounded">Khuyên dùng</span>
+        <!-- Sync Method 1: Cloud Sync (GitHub Gist) -->
+        <div class="bg-surface-container-low rounded-xl p-space-md md:p-space-lg border border-border-subtle/50 flex flex-col gap-space-md relative overflow-hidden">
+          <div class="flex flex-wrap items-center justify-between gap-space-xs">
+            <div class="flex items-center gap-space-sm">
+              <span class="material-symbols-outlined text-secondary text-[22px]">cloud_sync</span>
+              <span class="font-headline-md text-headline-md text-on-surface font-semibold">Cách 1: Tự động qua Đám mây (Khuyên dùng)</span>
+            </div>
+            <span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+              Tự động 2 chiều
+            </span>
           </div>
-          <p class="text-xs text-on-surface-variant leading-relaxed">
-            Tiến độ tự động lưu ngầm lên Gist cá nhân của bạn mỗi khi học xong thẻ hoặc mở trang. Không bao giờ lo mất dữ liệu.
+          <p class="font-body-sm text-body-sm text-on-surface-variant">
+            Tiến độ tự động đồng bộ ngầm lên GitHub Gist cá nhân của bạn mỗi khi học xong thẻ hoặc mở trang. Không bao giờ lo mất dữ liệu.
           </p>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md pt-2">
-            <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
-              <span>GitHub Personal Access Token (classic, quyền gist):</span>
-              <input type="password" id="ghToken" placeholder="ghp_..." value="${esc(syncCfg.token || '')}" class="p-2.5 rounded-xl bg-paper-card border border-border-subtle text-xs font-code">
-            </label>
-            <label class="flex flex-col gap-1 text-xs font-semibold text-on-surface-variant">
-              <span>Gist ID (để trống nếu tạo mới):</span>
-              <input type="text" id="ghGistId" placeholder="Mã hash Gist..." value="${esc(syncCfg.gistId || '')}" class="p-2.5 rounded-xl bg-paper-card border border-border-subtle text-xs font-code">
-            </label>
+          <!-- GitHub Token Input -->
+          <div class="flex flex-col gap-space-xs">
+            <div class="flex items-center justify-between">
+              <label class="font-label-md text-label-md text-on-surface font-semibold" for="ghToken">GitHub Personal Access Token:</label>
+              <span class="font-label-sm text-label-sm text-secondary font-medium flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">shield</span> Mã hóa an toàn nội bộ
+              </span>
+            </div>
+            <div class="relative flex items-center">
+              <input class="w-full bg-paper-card border border-border-subtle text-on-surface px-space-md py-2.5 rounded-lg font-code text-code placeholder:text-outline/60 focus:outline-none focus:bg-surface-bright transition-all" id="ghToken" placeholder="ghp_xxxxxxxxxxxx hoặc github_pat_xxxxxxxxxxxx" type="password" value="${esc(syncCfg.token || "")}">
+              <button class="absolute right-3 text-outline hover:text-on-surface transition-colors" id="btnToggleTokenVis" title="Hiển thị token" type="button">
+                <span class="material-symbols-outlined text-[18px]">visibility_off</span>
+              </button>
+            </div>
+            <div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm pt-0.5 flex-wrap">
+              <span class="text-tertiary">👉</span>
+              <span>Bạn đã có tài khoản GitHub?</span>
+              <a class="text-primary font-medium hover:underline inline-flex items-center gap-0.5" href="https://github.com/settings/tokens" rel="noopener noreferrer" target="_blank">
+                Bấm vào đây để tạo Token nhanh trên GitHub
+                <span class="material-symbols-outlined text-[13px]">open_in_new</span>
+              </a>
+              <span class="text-outline font-body-sm text-body-sm">(chọn quyền <code class="font-code text-code px-1 py-0.5 bg-surface-container rounded text-primary">gist</code>, bấm Generate rồi dán vào đây).</span>
+            </div>
           </div>
-
-          <div class="flex items-center justify-between pt-2 flex-wrap gap-2">
+          <!-- Gist ID Input -->
+          <div class="flex flex-col gap-space-xs">
+            <label class="font-label-md text-label-md text-on-surface font-semibold" for="ghGistId">Gist ID đang dùng trên máy khác (nếu có):</label>
+            <input class="w-full bg-paper-card border border-border-subtle text-on-surface px-space-md py-2.5 rounded-lg font-code text-code placeholder:text-outline/60 focus:outline-none focus:bg-surface-bright transition-all" id="ghGistId" placeholder="Để trống nếu đây là máy đầu tiên cài đặt, hệ thống sẽ tự khởi tạo..." type="text" value="${esc(syncCfg.gistId || "")}">
+          </div>
+          <div class="pt-space-xs flex items-center justify-between flex-wrap gap-2">
             <span class="text-xs text-secondary font-semibold" id="gistMsg"></span>
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
               ${isConnected ? `
-                <button type="button" class="px-3.5 py-2 rounded-xl bg-paper-card border border-border-subtle hover:bg-surface-container text-xs font-semibold text-outline hover:text-primary" id="btnDisconnectSync">
+                <button class="px-space-md py-2.5 rounded-lg bg-paper-card border border-border-subtle text-outline hover:text-primary font-label-md text-label-md font-semibold transition-all" id="btnDisconnectSync" type="button">
                   Ngắt kết nối
                 </button>
-              ` : ''}
-              <button type="button" class="px-4 py-2 rounded-xl bg-paper-card border border-border-subtle hover:bg-surface-container text-xs font-semibold text-on-surface" id="btnTestSync">
+              ` : ""}
+              <button class="px-space-md py-2.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-container transition-all" id="btnTestSync" type="button">
                 Kiểm tra kết nối
               </button>
-              <button type="button" class="px-4 py-2 rounded-xl bg-primary-container text-white hover:bg-primary text-xs font-semibold shadow-xs" id="btnSaveSync">
-                Lưu &amp; Đồng bộ ngay
+              <button class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-all shadow-sm" id="btnSaveSync" type="button">
+                <span class="material-symbols-outlined text-[18px]">cloud_upload</span>
+                <span>Kết nối đám mây</span>
               </button>
             </div>
           </div>
         </div>
 
-        <!-- Method 2: Fast Sync Code -->
-        <div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-space-sm">
-          <h3 class="font-headline-md text-sm font-bold text-on-surface">Cách 2: Đồng bộ nhanh bằng mã kết nối thiết bị</h3>
-          <p class="text-xs text-on-surface-variant">
-            Tạo mã thiết lập nhanh để quét hoặc dán vào trình duyệt máy khác mà không cần nhập lại Token:
-          </p>
-          <div class="flex items-center gap-2 pt-2 flex-wrap">
-            <button type="button" class="px-3.5 py-2 rounded-xl bg-paper-card border border-border-subtle hover:bg-surface-container text-xs font-semibold text-on-surface" id="btnCopyFastCode">
-              Sao chép mã đồng bộ nhanh
-            </button>
-            <div class="flex-1 min-w-[200px] flex items-center gap-2">
-              <input type="text" id="pasteFastCode" placeholder="Dán mã đồng bộ từ thiết bị kia vào đây..." class="flex-1 p-2 rounded-xl bg-paper-card border border-border-subtle text-xs font-code">
-              <button type="button" class="px-3.5 py-2 rounded-xl bg-secondary text-white hover:bg-secondary/90 text-xs font-semibold shadow-xs" id="btnApplyFastCode">
-                Áp dụng
-              </button>
+        <!-- Sync Method 2: Quick Code Sync -->
+        <div class="bg-surface-container-low rounded-xl p-space-md md:p-space-lg border border-border-subtle/50 flex flex-col gap-space-md">
+          <div class="flex flex-wrap items-center justify-between gap-space-xs">
+            <div class="flex items-center gap-space-sm">
+              <span class="material-symbols-outlined text-tertiary text-[22px]">swap_horiz</span>
+              <span class="font-headline-md text-headline-md text-on-surface font-semibold">Cách 2: Đồng bộ nhanh bằng Mã (Không cần tài khoản)</span>
             </div>
+            <span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-medium">
+              Thủ công 1 lần
+            </span>
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">
+            Sao chép mã tiến độ từ máy tính rồi gửi qua Zalo/Tin nhắn, dán vào điện thoại để cập nhật ngay tức thì.
+          </p>
+          <div class="flex flex-wrap items-center gap-space-sm">
+            <button class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-highest transition-colors shadow-sm" id="btnCopyFastCode" type="button">
+              <span class="material-symbols-outlined text-[18px] text-primary">content_copy</span>
+              <span>Sao chép mã tiến độ từ máy này</span>
+            </button>
+          </div>
+          <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm">
+            <div class="relative flex-1">
+              <input class="w-full bg-paper-card border border-border-subtle text-on-surface px-space-md py-2.5 rounded-lg font-code text-code placeholder:text-outline/60 focus:outline-none focus:bg-surface-bright transition-all" id="pasteFastCode" placeholder="Dán chuỗi mã tiến độ vào đây..." type="text">
+            </div>
+            <button class="px-space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-colors shadow-sm whitespace-nowrap" id="btnApplyFastCode" type="button">
+              Áp dụng mã
+            </button>
           </div>
           <span class="text-xs text-secondary font-semibold" id="fastCodeMsg"></span>
         </div>
       </section>
 
-      <!-- SECTION 2: DAILY GOALS & PREFERENCES -->
-      <section class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-lg">
-        <div class="flex items-center justify-between pb-space-sm border-b border-border-subtle">
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary text-[22px]">tune</span>
-            <h2 class="font-headline-md text-lg font-bold text-on-surface">Mục tiêu học mỗi ngày &amp; Hiển thị</h2>
+      <!-- SECTION 2: Học mỗi ngày (Exact Stitch Daily Targets & Directory Subsets) -->
+      <section class="bg-paper-card rounded-xl p-space-lg border border-border-subtle/70 shadow-sm flex flex-col gap-space-lg">
+        <div class="flex items-center justify-between flex-wrap gap-2">
+          <div class="flex items-center gap-space-sm">
+            <span class="w-1 h-5 rounded-full bg-primary inline-block"></span>
+            <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
+              Học mỗi ngày
+            </h2>
           </div>
+          <button type="button" class="px-4 py-2 rounded-lg bg-primary-container text-white text-xs font-semibold hover:bg-primary shadow-xs" id="btnSaveGoals">
+            Lưu mục tiêu ngày
+          </button>
         </div>
 
         <!-- Goal Presets Recommendation for Band B -->
-        <div class="flex flex-col gap-2">
-          <span class="text-xs font-semibold text-outline uppercase tracking-wider">Gợi ý lộ trình mục tiêu theo thời gian:</span>
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-            <button type="button" class="btn-setting-preset p-3 rounded-xl border border-secondary/40 bg-jade-subtle text-secondary text-left text-xs font-medium hover:bg-secondary-fixed transition-all" data-preset-new="8" data-preset-rev="30">
-              <div class="font-bold flex items-center gap-1.5"><span>🎯 Band B Khuyến nghị</span></div>
-              <div class="text-[11px] opacity-85 mt-0.5">8 từ mới • 30 lượt ôn (15-25p/ngày)</div>
-            </button>
-            <button type="button" class="btn-setting-preset p-3 rounded-xl border border-border-subtle bg-surface-container-low text-on-surface text-left text-xs font-medium hover:bg-surface-container transition-all" data-preset-new="5" data-preset-rev="20">
-              <div class="font-bold flex items-center gap-1.5"><span>🌱 Nhẹ nhàng duy trì</span></div>
-              <div class="text-[11px] text-outline mt-0.5">5 từ mới • 20 lượt ôn (10-15p/ngày)</div>
-            </button>
-            <button type="button" class="btn-setting-preset p-3 rounded-xl border border-primary/30 bg-cinnabar-subtle text-primary text-left text-xs font-medium hover:bg-primary-container hover:text-white transition-all" data-preset-new="15" data-preset-rev="50">
-              <div class="font-bold flex items-center gap-1.5"><span>🚀 Tăng tốc cấp tốc</span></div>
-              <div class="text-[11px] opacity-85 mt-0.5">15 từ mới • 50 lượt ôn (35-45p/ngày)</div>
-            </button>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <button type="button" class="btn-setting-preset p-3 rounded-xl border border-secondary/40 bg-jade-subtle text-secondary text-left text-xs font-medium hover:bg-secondary-fixed transition-all" data-preset-new="8" data-preset-rev="30">
+            <div class="font-bold">🎯 Band B Khuyến nghị</div>
+            <div class="text-[11px] opacity-85 mt-0.5">8 từ mới • 30 lượt ôn (15-25p/ngày)</div>
+          </button>
+          <button type="button" class="btn-setting-preset p-3 rounded-xl border border-border-subtle bg-surface-container-low text-on-surface text-left text-xs font-medium hover:bg-surface-container transition-all" data-preset-new="5" data-preset-rev="20">
+            <div class="font-bold">🌱 Nhẹ nhàng duy trì</div>
+            <div class="text-[11px] text-outline mt-0.5">5 từ mới • 20 lượt ôn (10-15p/ngày)</div>
+          </button>
+          <button type="button" class="btn-setting-preset p-3 rounded-xl border border-primary/30 bg-cinnabar-subtle text-primary text-left text-xs font-medium hover:bg-primary-container hover:text-white transition-all" data-preset-new="20" data-preset-rev="50">
+            <div class="font-bold">🚀 Tăng tốc chuẩn</div>
+            <div class="text-[11px] opacity-85 mt-0.5">20 từ mới • 50 lượt ôn (35-45p/ngày)</div>
+          </button>
+        </div>
+
+        <!-- Daily Quota Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+          <div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-xl border border-border-subtle/50">
+            <label class="font-label-md text-label-md text-on-surface font-semibold" for="setNewPerDay">Số thẻ mới mỗi ngày</label>
+            <input type="number" id="setNewPerDay" min="1" max="200" value="${S.settings.newPerDay || 8}" class="w-full bg-paper-card border border-border-subtle text-on-surface font-code font-bold text-base py-2 px-space-md rounded-lg focus:outline-none">
+            <p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+              Mỗi từ có 4 kỹ năng (Đọc, Nghe, Viết, Dùng trong câu). Ngày đầu gặp thẻ nhận diện, các thẻ còn lại mở dần theo SRS.
+            </p>
+          </div>
+          <div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-xl border border-border-subtle/50">
+            <label class="font-label-md text-label-md text-on-surface font-semibold" for="setRevPerDay">Số thẻ ôn mỗi ngày</label>
+            <input type="number" id="setRevPerDay" min="5" max="500" value="${S.settings.reviewPerDay || 30}" class="w-full bg-paper-card border border-border-subtle text-on-surface font-code font-bold text-base py-2 px-space-md rounded-lg focus:outline-none">
+            <p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+              Mục tiêu số lượt ôn lại thẻ đã học trong ngày để tính tiến độ lộ trình chuẩn TOCFL.
+            </p>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-          <label class="flex flex-col gap-1.5 p-3.5 rounded-xl bg-surface-container-low border border-border-subtle">
-            <span class="text-xs font-semibold text-on-surface">Thẻ mới mỗi ngày (newPerDay):</span>
-            <input type="number" id="setNewPerDay" min="1" max="200" value="${S.settings.newPerDay || 8}" class="p-2 rounded-xl bg-paper-card border border-border-subtle text-sm font-code font-bold text-primary">
-            <span class="text-[11px] text-outline">Khuyến nghị 8 từ/ngày để ôn sâu và không bị quá tải</span>
-          </label>
-
-          <label class="flex flex-col gap-1.5 p-3.5 rounded-xl bg-surface-container-low border border-border-subtle">
-            <span class="text-xs font-semibold text-on-surface">Chỉ tiêu ôn mỗi ngày (reviewPerDay):</span>
-            <input type="number" id="setRevPerDay" min="5" max="500" value="${S.settings.reviewPerDay || 30}" class="p-2 rounded-xl bg-paper-card border border-border-subtle text-sm font-code font-bold text-secondary">
-            <span class="text-[11px] text-outline">Dùng để tính thanh tiến độ nhiệm vụ ngày</span>
-          </label>
+        <!-- Categories & Folders List (Exact Stitch 3-col checkbox grid) -->
+        <div class="flex flex-col gap-space-md pt-space-xs">
+          <div class="flex items-center justify-between">
+            <span class="font-label-sm text-label-sm text-outline font-bold tracking-wider uppercase">
+              THƯ MỤC ĐANG HỌC
+            </span>
+            <button class="font-label-sm text-label-sm text-primary font-semibold hover:underline" id="btnSelectAllBands" type="button">
+              Bật tất cả TOCFL
+            </button>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-sm" id="settingsFolderGrid">
+            ${deckCheckboxes.map((f) => `
+              <label class="flex items-center justify-between p-space-sm rounded-lg ${f.on ? "bg-cinnabar-subtle" : "bg-surface-container-low"} cursor-pointer hover:bg-surface-container transition-colors">
+                <div class="flex items-center gap-space-sm min-w-0">
+                  <input ${f.on ? "checked" : ""} class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary shrink-0" type="checkbox" data-folder-chk="${esc(f.id)}" data-is-band="${f.isBand ? "1" : "0"}">
+                  <span class="font-body-md text-body-md ${f.on ? "text-on-surface font-medium" : "text-on-surface-variant"} truncate">${esc(f.label)}</span>
+                </div>
+                <span class="font-code text-code ${f.on ? "text-primary font-semibold" : "text-outline"} ml-2">${fmt(f.count)}</span>
+              </label>
+            `).join("")}
+          </div>
         </div>
+      </section>
 
-        <!-- Preferences -->
-        <div class="flex flex-col gap-2 pt-2">
-          <label class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low border border-border-subtle cursor-pointer">
-            <input type="checkbox" id="setRuby" ${S.settings.ruby !== false ? 'checked' : ''} class="w-4 h-4 rounded text-primary">
-            <div class="flex flex-col">
-              <span class="text-xs font-semibold text-on-surface">Hiện phiên âm Pinyin Ruby trên câu ví dụ</span>
-              <span class="text-[11px] text-outline">Gắn chữ pinyin nhỏ trên từng chữ Hán để dễ đọc</span>
+      <!-- SECTION 3: Giao diện & Hiển thị (Exact Stitch) -->
+      <section class="bg-paper-card rounded-xl p-space-lg border border-border-subtle/70 shadow-sm flex flex-col gap-space-lg">
+        <div class="flex items-center gap-space-sm">
+          <span class="w-1 h-5 rounded-full bg-primary inline-block"></span>
+          <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
+            Giao diện
+          </h2>
+        </div>
+        <div class="flex flex-col gap-space-md">
+          <div class="flex flex-col gap-space-xs max-w-md">
+            <label class="font-label-md text-label-md text-on-surface font-semibold" for="theme-preset">Màu nền</label>
+            <div class="relative">
+              <select class="w-full bg-surface-container-low border border-border-subtle text-on-surface font-body-md text-body-md py-2.5 px-space-md rounded-lg appearance-none cursor-pointer focus:outline-none" id="theme-preset">
+                <option value="light" ${curTheme !== "dark" ? "selected" : ""}>Sáng (giấy tuyên, son đỏ, ngọc bích)</option>
+                <option value="dark" ${curTheme === "dark" ? "selected" : ""}>Tối (mực đen, ngọc bích dịu mắt)</option>
+              </select>
+              <span class="material-symbols-outlined text-[18px] text-outline absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">expand_more</span>
             </div>
-          </label>
+          </div>
+          <!-- Pinyin Display Toggle with Live Preview -->
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md p-space-md bg-surface-container-low rounded-xl border border-border-subtle/50">
+            <label class="flex items-start sm:items-center gap-space-sm cursor-pointer select-none">
+              <input type="checkbox" id="setRuby" ${S.settings.ruby !== false ? "checked" : ""} class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary mt-1 sm:mt-0">
+              <div class="flex flex-col">
+                <span class="font-body-md text-body-md text-on-surface font-medium">Hiện pinyin phía trên chữ Hán trong phần giải thích</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">Hiển thị ngữ âm bính âm kèm theo thanh điệu cho các cụm ví dụ và phân tích</span>
+              </div>
+            </label>
+            <!-- Elegant Hanzi Preview Pill -->
+            <div class="flex items-center gap-2 px-space-md py-2 rounded-lg bg-paper-card shadow-sm self-start sm:self-center">
+              <span class="font-label-sm text-label-sm text-outline">Ví dụ:</span>
+              <ruby class="font-headline-md text-headline-md text-primary font-semibold">
+                學<rt class="font-code text-[10px] text-on-surface-variant font-normal tracking-tight">xué</rt>
+                習<rt class="font-code text-[10px] text-on-surface-variant font-normal tracking-tight">xí</rt>
+                本<rt class="font-code text-[10px] text-on-surface-variant font-normal tracking-tight">běn</rt>
+              </ruby>
+            </div>
+          </div>
         </div>
+      </section>
 
-        <div class="flex justify-end pt-2">
-          <button type="button" class="px-5 py-2.5 rounded-xl bg-primary-container text-white text-xs font-semibold hover:bg-primary shadow-xs" id="btnSaveGoals">
-            Lưu thiết lập
+      <!-- SECTION 4: Giọng đọc phát âm (Exact Stitch) -->
+      <section class="bg-paper-card rounded-xl p-space-lg border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
+        <div class="flex items-center gap-space-sm">
+          <span class="w-1 h-5 rounded-full bg-primary inline-block"></span>
+          <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
+            Giọng đọc
+          </h2>
+        </div>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
+          <div class="flex items-start gap-space-sm max-w-2xl">
+            <span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">info</span>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Hệ thống ưu tiên giọng <strong class="text-primary font-semibold">中文 (台灣) — Quốc ngữ Đài Loan</strong> (xen kẽ giọng Nam &amp; Nữ cho hội thoại). Trên điện thoại, vào <span class="font-semibold text-on-surface">Cài đặt &gt; Chuyển văn bản thành giọng nói</span> để tải gói giọng Đài Loan chất lượng cao.
+            </p>
+          </div>
+          <button class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-jade-subtle text-secondary font-label-md text-label-md font-semibold hover:bg-secondary-container transition-colors whitespace-nowrap" type="button" onclick="say('歡迎來到臺灣學習華語')">
+            <span class="material-symbols-outlined text-[18px]">volume_up</span>
+            <span>Nghe thử</span>
           </button>
         </div>
       </section>
 
-      <!-- SECTION 3: BACKUP, RESTORE & CACHE -->
-      <section class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-lg">
-        <div class="flex items-center justify-between pb-space-sm border-b border-border-subtle">
-          <div class="flex items-center gap-2">
-            <span class="material-symbols-outlined text-outline text-[22px]">database</span>
-            <h2 class="font-headline-md text-lg font-bold text-on-surface">Sao lưu tệp JSON &amp; Bộ nhớ</h2>
-          </div>
+      <!-- SECTION 5: Sao lưu & Khôi phục (Exact Stitch) -->
+      <section class="bg-paper-card rounded-xl p-space-lg border border-border-subtle/70 shadow-sm flex flex-col gap-space-lg">
+        <div class="flex items-center gap-space-sm">
+          <span class="w-1 h-5 rounded-full bg-primary inline-block"></span>
+          <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
+            Sao lưu và khôi phục
+          </h2>
         </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-          <!-- Export -->
-          <div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col justify-between gap-2">
-            <div>
-              <h3 class="font-headline-md text-sm font-bold text-on-surface">Xuất dữ liệu dự phòng</h3>
-              <p class="text-xs text-on-surface-variant mt-0.5">Tải toàn bộ tiến độ SRS, thống kê và ghi chú về máy thành file .json.</p>
-            </div>
-            <button type="button" class="w-full py-2.5 px-4 rounded-xl bg-paper-card border border-border-subtle hover:bg-surface-container text-xs font-semibold text-on-surface text-center" id="btnExportJSON">
-              Tải file backup (.json)
+        <p class="font-body-md text-body-md text-on-surface-variant">
+          Tiến độ lưu trong trình duyệt của máy này. Sao lưu thường xuyên và cất file vào Google Drive (thư mục “10 Website học tiếng Hoa”). Đổi máy thì bấm Khôi phục và chọn file đó.
+        </p>
+        <div class="flex flex-wrap items-center gap-space-sm">
+          <button class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-colors shadow-sm" id="btnExportJSON" type="button">
+            <span class="material-symbols-outlined text-[18px]">file_download</span>
+            <span>Sao lưu ra file</span>
+          </button>
+          <label class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-highest transition-colors cursor-pointer">
+            <span class="material-symbols-outlined text-[18px]">file_upload</span>
+            <span>Khôi phục từ file</span>
+            <input type="file" id="importFile" accept=".json,application/json" class="hidden">
+          </label>
+        </div>
+        <div class="flex flex-wrap items-center gap-space-xl pt-space-xs">
+          <label class="inline-flex items-center gap-space-xs cursor-pointer select-none">
+            <input checked class="w-4 h-4 text-primary focus:ring-0 accent-primary" name="sync-strategy" type="radio" value="merge">
+            <span class="font-body-md text-body-md text-on-surface font-medium">Gộp: giữ kết quả mới hơn của từng thẻ</span>
+          </label>
+          <label class="inline-flex items-center gap-space-xs cursor-pointer select-none">
+            <input class="w-4 h-4 text-primary focus:ring-0 accent-primary" name="sync-strategy" type="radio" value="replace">
+            <span class="font-body-md text-body-md text-on-surface-variant">Thay toàn bộ bằng file</span>
+          </label>
+        </div>
+        <div class="pt-space-md bg-surface-container-low/70 p-space-md rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+          <div class="flex items-center gap-space-sm">
+            <button class="inline-flex items-center gap-1.5 px-space-md py-1.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface hover:text-primary font-label-sm text-label-sm font-semibold shadow-sm transition-colors" id="btnClearCache" type="button">
+              <span class="material-symbols-outlined text-[16px] text-tertiary">cached</span>
+              <span>Tải lại bản mới nhất (Xóa cache)</span>
             </button>
           </div>
-
-          <!-- Import -->
-          <div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col justify-between gap-2">
-            <div>
-              <h3 class="font-headline-md text-sm font-bold text-on-surface">Nhập tệp sao lưu</h3>
-              <p class="text-xs text-on-surface-variant mt-0.5">Phục hồi tiến độ từ file .json đã lưu trước đó.</p>
-            </div>
-            <label class="w-full py-2.5 px-4 rounded-xl bg-paper-card border border-border-subtle hover:bg-surface-container text-xs font-semibold text-on-surface text-center cursor-pointer">
-              Chọn tệp để phục hồi...
-              <input type="file" id="importFile" accept=".json,application/json" class="hidden">
-            </label>
-          </div>
+          <span class="font-body-sm text-body-sm text-outline">
+            Bấm nút này nếu trình duyệt trên điện thoại chưa hiện giao diện mới nhất.
+          </span>
         </div>
+      </section>
 
-        <!-- Reset Cache Button -->
-        <div class="pt-2 border-t border-border-subtle flex items-center justify-between text-xs text-outline">
-          <span>Khởi động lại cache phiên bản ứng dụng:</span>
-          <button type="button" class="text-primary hover:underline font-semibold" id="btnClearCache">
-            Xóa cache &amp; Tải lại trang
-          </button>
+      <!-- SECTION 6: Nguồn dữ liệu & Học thuật (Exact Stitch) -->
+      <section class="bg-paper-card rounded-xl p-space-lg border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
+        <div class="flex items-center gap-space-sm">
+          <span class="w-1 h-5 rounded-full bg-primary inline-block"></span>
+          <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
+            Nguồn dữ liệu
+          </h2>
         </div>
+        <ul class="flex flex-col gap-space-xs font-body-sm text-body-sm text-on-surface-variant list-none p-0 m-0">
+          <li class="flex items-start gap-space-sm">
+            <span class="w-1.5 h-1.5 rounded-full bg-outline mt-2 shrink-0"></span>
+            <span>Bảng từ TOCFL 2024 (華語八千詞表), Trung tâm SC-TOP · <a class="text-primary hover:underline" href="https://tocfl.edu.tw" rel="noopener" target="_blank">tocfl.edu.tw</a></span>
+          </li>
+          <li class="flex items-start gap-space-sm">
+            <span class="w-1.5 h-1.5 rounded-full bg-outline mt-2 shrink-0"></span>
+            <span>CC-CEDICT, giấy phép CC BY-SA 4.0 · <a class="text-primary hover:underline" href="https://mdbg.net" rel="noopener" target="_blank">mdbg.net</a></span>
+          </li>
+          <li class="flex items-start gap-space-sm">
+            <span class="w-1.5 h-1.5 rounded-full bg-outline mt-2 shrink-0"></span>
+            <span>Nghĩa tiếng Việt và lượng từ: CVDICT (Phong Phan), giấy phép CC BY-SA 4.0 · <a class="text-primary hover:underline" href="https://github.com/ph0ngp/CVDICT" rel="noopener" target="_blank">github.com/ph0ngp/CVDICT</a></span>
+          </li>
+          <li class="flex items-start gap-space-sm">
+            <span class="w-1.5 h-1.5 rounded-full bg-outline mt-2 shrink-0"></span>
+            <span>Make Me a Hanzi &amp; Hanzi Writer (vẽ nét chữ Hán Phồn thể)</span>
+          </li>
+          <li class="flex items-start gap-space-sm">
+            <span class="w-1.5 h-1.5 rounded-full bg-outline mt-2 shrink-0"></span>
+            <span class="text-on-surface font-medium">Nghĩa tiếng Việt, chủ đề theo Band, đề thi thử CAT &amp; bài nghe chính tả: biên soạn riêng cho trang này</span>
+          </li>
+        </ul>
       </section>
     </div>
   `);
+
+  // Toggle Token Visibility
+  const btnVis = $("#btnToggleTokenVis");
+  if (btnVis) {
+    btnVis.onclick = () => {
+      const inp = $("#ghToken");
+      if (inp) inp.type = inp.type === "password" ? "text" : "password";
+    };
+  }
 
   // Bind Setting Presets
   document.querySelectorAll(".btn-setting-preset").forEach((btn) => {
@@ -19281,6 +20883,43 @@ VIEWS["cai-dat"] = () => {
     alert("✓ Đã lưu cài đặt thành công!");
   };
 
+  // Ruby checkbox instant save
+  const rubyChk = $("#setRuby");
+  if (rubyChk) {
+    rubyChk.onchange = async () => {
+      S.settings.ruby = rubyChk.checked;
+      await saveSettings();
+    };
+  }
+
+  // Theme selector
+  const themeSel = $("#theme-preset");
+  if (themeSel) {
+    themeSel.onchange = () => {
+      const val = themeSel.value;
+      if (val === "dark") document.documentElement.setAttribute("data-theme", "dark");
+      else document.documentElement.removeAttribute("data-theme");
+    };
+  }
+
+  // Folder checkboxes in Section 2
+  document.querySelectorAll("[data-folder-chk]").forEach((chk) => {
+    chk.onchange = async () => {
+      const id = chk.dataset.folderChk;
+      setFolderOn(id, chk.checked);
+      await saveSettings();
+      VIEWS["cai-dat"]();
+    };
+  });
+  const btnAllBands = $("#btnSelectAllBands");
+  if (btnAllBands) {
+    btnAllBands.onclick = async () => {
+      S.bands.forEach((b) => { S.settings.bands[b] = true; });
+      await saveSettings();
+      VIEWS["cai-dat"]();
+    };
+  }
+
   // Cloud Sync
   $("#btnSaveSync").onclick = async () => {
     const token = $("#ghToken").value.trim();
@@ -19294,11 +20933,6 @@ VIEWS["cai-dat"] = () => {
     try {
       const gid = await Sync.connectWithToken(token, gistId);
       if (msg) msg.textContent = "✓ Đồng bộ thành công!";
-      const badge = $("#syncStatusBadge");
-      if (badge) {
-        badge.className = "text-xs px-2.5 py-1 rounded-full font-semibold bg-jade-subtle text-secondary";
-        badge.textContent = "✓ Đã kết nối Đám mây";
-      }
       const cfg = Sync.getConfig();
       $("#ghGistId").value = cfg.gistId || gid;
       alert("🎉 Kết nối đồng bộ thành công! Tiến độ của bạn đã được kết nối với GitHub Gist.");
@@ -19321,11 +20955,6 @@ VIEWS["cai-dat"] = () => {
     try {
       await Sync.connectWithToken(token, gistId);
       if (msg) msg.textContent = "✓ Kết nối tốt và đã đồng bộ tiến độ!";
-      const badge = $("#syncStatusBadge");
-      if (badge) {
-        badge.className = "text-xs px-2.5 py-1 rounded-full font-semibold bg-jade-subtle text-secondary";
-        badge.textContent = "✓ Đã kết nối Đám mây";
-      }
     } catch (e) {
       if (msg) msg.textContent = "Lỗi: " + e.message;
       alert("Lỗi kiểm tra: " + e.message);
@@ -19391,10 +21020,11 @@ VIEWS["cai-dat"] = () => {
     const file = e.target.files && e.target.files[0];
     if (!file) return;
     if (!confirm("Bạn có muốn nạp dữ liệu từ file này không?")) return;
+    const strat = document.querySelector('input[name="sync-strategy"]:checked')?.value || "merge";
     try {
       const txt = await file.text();
       const obj = JSON.parse(txt);
-      await Store.importAll(obj, "merge");
+      await Store.importAll(obj, strat);
       alert("✓ Đã nạp dữ liệu thành công! Ứng dụng sẽ tải lại.");
       location.reload();
     } catch (err) {
@@ -19407,7 +21037,7 @@ VIEWS["cai-dat"] = () => {
     if (!confirm("Thao tác này sẽ xóa cache Service Worker và tải lại bản mới nhất. Tiếp tục?")) return;
     if ("caches" in window) {
       const keys = await caches.keys();
-      await Promise.all(keys.map(k => caches.delete(k)));
+      await Promise.all(keys.map((k) => caches.delete(k)));
     }
     location.reload(true);
   };
