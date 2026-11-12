@@ -154,6 +154,7 @@ tailwind.config = {
         Học
         <span class="tab-badge ml-1 px-1.5 py-0.2 rounded-full bg-primary-container text-white text-[10px] font-code font-bold hidden" id="tabBadge">0</span>
       </a>
+      <a class="nav-tab px-3 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface transition-all duration-150" data-view="ngu-phap" href="#ngu-phap">Ngữ pháp</a>
       <a class="nav-tab px-3 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface transition-all duration-150" data-view="tu-dien" href="#tu-dien">Tra từ</a>
       <a class="nav-tab px-3 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface transition-all duration-150" data-view="thu-muc" href="#thu-muc">Thư mục</a>
       <a class="nav-tab px-3 py-2 rounded-lg text-on-surface-variant font-label-md hover:bg-surface-container hover:text-on-surface transition-all duration-150" data-view="chinh-ta" href="#chinh-ta">Chép chính tả</a>
@@ -193,6 +194,9 @@ tailwind.config = {
       </a>
       <a class="nav-tab-m p-2.5 rounded-lg flex items-center gap-2 hover:bg-surface-container" data-view="tu-dien" href="#tu-dien">
         <span class="material-symbols-outlined text-primary text-[18px]">search</span> Tra từ điển
+      </a>
+      <a class="nav-tab-m p-2.5 rounded-lg flex items-center gap-2 hover:bg-surface-container" data-view="ngu-phap" href="#ngu-phap">
+        <span class="material-symbols-outlined text-primary text-[18px]">menu_book</span> Học Ngữ pháp
       </a>
       <a class="nav-tab-m p-2.5 rounded-lg flex items-center gap-2 hover:bg-surface-container" data-view="thu-muc" href="#thu-muc">
         <span class="material-symbols-outlined text-primary text-[18px]">folder</span> Thư mục từ
@@ -235,6 +239,10 @@ tailwind.config = {
     <span class="text-[10px] font-medium">Học</span>
     <span class="tab-badge-mob absolute top-0 right-1 w-2 h-2 rounded-full bg-primary-container hidden"></span>
   </a>
+  <a href="#ngu-phap" data-view="ngu-phap" class="bottom-tab flex flex-col items-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-lg">
+    <span class="material-symbols-outlined text-[20px]">menu_book</span>
+    <span class="text-[10px] font-medium">Ngữ pháp</span>
+  </a>
   <a href="#tu-dien" data-view="tu-dien" class="bottom-tab flex flex-col items-center gap-0.5 text-on-surface-variant hover:text-primary transition-colors py-1 px-2 rounded-lg">
     <span class="material-symbols-outlined text-[20px]">search</span>
     <span class="text-[10px] font-medium">Tra từ</span>
@@ -274,7 +282,7 @@ tailwind.config = {
 <script src="js/srs.js?v=23"></script>
 <script src="js/store.js?v=23"></script>
 <script src="js/sync.js?v=29"></script>
-<script src="js/app.js?v=29"></script>
+<script src="js/app.js?v=30"></script>
 <script>
   // Mobile drawer toggle
   const menuBtn = document.getElementById('mobileMenuBtn');

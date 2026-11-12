@@ -1,22 +1,41 @@
 // Offline support: app files are network-first (so updates arrive), data files are cache-first.
-const VERSION = "shtv-29";
-const SHELL = ["./", "index.html", "style.css", "js/app.js", "js/srs.js", "js/store.js", "js/sync.js", "vendor/hanzi-writer.min.js",
-  "data/tocfl.json", "data/decks.json", "data/abbr.json", "data/dictation_topics.json", "data/tocfl_mock_tests.json", "manifest.webmanifest", "icon.svg"];
-self.addEventListener("install", (e) => { e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting())); });
-self.addEventListener("activate", (e) => {
-  e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k !== VERSION).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
+const VERSION = "shtv-30";
+const SHELL = ["./", "index.html", "style.css", "js/app.js", "js/srs.js", "js/cedict.js", "manifest.webmanifest"];
+
+self.addEventListener("install", (e) => {
+  e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
 });
+
+self.addEventListener("activate", (e) => {
+  e.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(keys.filter((k) => k !== VERSION).map((k) => caches.delete(k)))
+    ).then(() => self.clients.claim())
+  );
+});
+
 self.addEventListener("fetch", (e) => {
-  const req = e.request; const url = new URL(req.url);
-  if (req.method !== "GET" || url.origin !== location.origin) return;
-  const isData = url.pathname.includes("/data/");
-  if (isData) {
-    e.respondWith(caches.open(VERSION).then(async (c) => {
-      const hit = await c.match(req); if (hit) return hit;
-      const res = await fetch(req); if (res.ok) c.put(req, res.clone()); return res;
-    }));
-  } else {
-    e.respondWith(fetch(req).then((res) => { if (res.ok) caches.open(VERSION).then((c) => c.put(req, res.clone())); return res; })
-      .catch(() => caches.match(req).then((r) => r || caches.match("index.html"))));
+  const url = new URL(e.request.url);
+  if (url.origin !== location.origin) return;
+
+  // Data files: cache-first
+  if (url.pathname.includes("/data/")) {
+    e.respondWith(
+      caches.match(e.request).then((hit) => hit || fetch(e.request).then((res) => {
+        const copy = res.clone();
+        caches.open(VERSION).then((c) => c.put(e.request, copy));
+        return res;
+      }))
+    );
+    return;
   }
+
+  // App shell & JS: network-first, fallback to cache
+  e.respondWith(
+    fetch(e.request).then((res) => {
+      const copy = res.clone();
+      caches.open(VERSION).then((c) => c.put(e.request, copy));
+      return res;
+    }).catch(() => caches.match(e.request))
+  );
 });

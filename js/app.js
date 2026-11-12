@@ -148,95 +148,104 @@ function cardGradingBox(r, now) {
   </div>`;
 }
 // --- SRS Core Functions (SM-2 Spaced Repetition & Calibrated Levels) ---
+const cardKey = (key, t) => `${key}~${t}`;
 // 1. Grade single card via SM-2: grade 1 (Quên), 2 (Khó), 3 (Nhớ tốt), 4 (Dễ)
 async function applyCardGrade(n, type, grade, afterSave) {
   if (!grade || grade < 1 || grade > 4) return;
   const now = Date.now();
+  if (!S.srs) S.srs = new Map();
+  if (!S.cards) S.cards = new Map();
   const cid = cardId(n, type);
-  const prev = S.srs.get(cid);
-  const wasNew = !prev || prev.state === "new";
-  const next = schedule(prev, grade, now);
-  next.w = n.w;
-  next.firstSeen = next.firstSeen || (prev && (prev.firstSeen || prev.last)) || now;
-
-  // Nếu Quên (grade 1): đưa lại vào cuối hàng đợi của phiên học hiện tại để truy xuất lại (retrieval practice)
+  let s = S.srs.get(cid) || { due: now, ivl: 0, reps: 0, ease: 250, lapses: 0, state: "new", w: n.w };
+  const prevIvl = s.ivl || 0;
+  if (window.SRS && typeof window.SRS.schedule === "function") {
+    s = window.SRS.schedule(s, grade, now);
+  } else {
+    if (grade === 1) {
+      s.state = "learn";
+      s.step = 0;
+      s.due = now + 10 * 60000;
+      s.lapses = (s.lapses || 0) + 1;
+    } else {
+      s.state = "review";
+      s.ivl = grade === 2 ? Math.max(1, (s.ivl || 1) * 1.2) : (grade === 3 ? Math.max(1, (s.ivl || 1) * 2.5) : Math.max(2, (s.ivl || 1) * 3));
+      s.due = now + s.ivl * 86400000;
+    }
+  }
+  s.w = n.w;
   if (grade === 1 && S.session && Array.isArray(S.session.queue)) {
-    S.session.queue.push({ id: cid, n, t: type, s: next });
+    S.session.queue.push({ n, type });
   }
+  S.srs.set(cid, s);
+  S.cards.set(cid, s);
+  await Store.put("srs", cid, s);
 
-  const entries = [[cid, next]];
-
-  // Cập nhật thống kê trong ngày
-  const key = dayKey(now);
-  const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats.get(key));
-  st.reviews++;
-  if (wasNew) st.newCards++;
-  if (grade === 1) st.again++;
-  S.stats.set(key, st);
-  if (S.session) S.session.answered++;
-
-  try {
-    await Store.putMany("srs", entries);
-    await Store.put("stats", key, st);
-  } catch (err) {
-    const el = $("#saveErr") || $("#levelStatus");
-    if (el) el.textContent = "Chưa lưu được tiến độ SRS: " + (err && err.message || err);
-    return;
-  }
-  S.srs.set(cid, next);
+  if (typeof bumpReviewStats === "function") bumpReviewStats(now, grade);
   updateBadge();
-  if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
-  if (afterSave) afterSave();
+  if (typeof afterSave === "function") afterSave();
 }
 
-// 2. Calibrated manual level override for single skill or all skills
-async function applyCardLevel(n, type, level, applyToAll = false, afterSave) {
+async function applyCardLevel(n, type, targetLvl, afterSave) {
+  const now = Date.now();
+  targetLvl = Number(targetLvl);
+  if (!S.srs) S.srs = new Map();
+  if (!S.cards) S.cards = new Map();
+  const cid = cardId(n, type);
+  const intervals = [0, 0, 1, 7, 21, 90];
+  const ivl = intervals[targetLvl] || 1;
+  const s = Object.assign(freshState ? freshState() : {}, S.srs.get(cid), {
+    state: targetLvl === 1 ? "learn" : (targetLvl >= 2 ? "review" : "new"),
+    ivl,
+    due: targetLvl >= 2 ? now + ivl * DAY : now + 1 * MIN,
+    w: n.w
+  });
+  S.srs.set(cid, s);
+  S.cards.set(cid, s);
+  await Store.put("srs", cid, s);
+  updateBadge();
+  if (typeof afterSave === "function") afterSave();
+}
+
+// 2. Manual Level Override (Sets word level & updates SRS interval baseline safely)
+async function applyWordLevel(n, level, afterSave) {
   if (level === undefined || level < 0 || level > 5) return;
   const now = Date.now();
-  const typesToUpdate = applyToAll ? typesOf(n).map(([t]) => t) : [type];
-  const entries = [];
-  let hasNew = false;
-  let hasAgain = false;
+  const ivl = [0, 0, 1, 7, 21, 90][level];
+  const wasNew = noteLevel(n) === 0;
 
-  for (const t of typesToUpdate) {
-    const cid = cardId(n, t);
-    const prev = S.srs.get(cid);
-    const wasNew = !prev || prev.state === "new";
-    if (wasNew && level > 0) hasNew = true;
-    if (level === 1) hasAgain = true;
-    const next = scheduleLevel(prev, level, now);
-    next.w = n.w;
-    next.firstSeen = next.firstSeen || (prev && (prev.firstSeen || prev.last)) || now;
-    entries.push([cid, next]);
-  }
+  const entries = typesOf(n).map(([type]) => {
+    const id = cardId(n, type);
+    if (level === 0) {
+      const state = freshState();
+      state.w = n.w;
+      return [id, state];
+    }
+    const state = Object.assign(freshState(), S.srs ? S.srs.get(id) : null);
+    Object.assign(state, {
+      state: level === 1 ? "learn" : "review",
+      ivl,
+      step: 0,
+      due: level === 1 ? now + (typeof STEPS !== "undefined" ? STEPS[0] : 1 * MIN) : dayStart(now) + ivl * DAY,
+      firstSeen: state.firstSeen || state.last || now,
+      last: now,
+      w: n.w
+    });
+    return [id, state];
+  });
 
-  const key = dayKey(now);
-  const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats.get(key));
-  st.reviews++;
-  if (hasNew) st.newCards++;
-  if (hasAgain) st.again++;
-  S.stats.set(key, st);
-  if (S.session) S.session.answered++;
+  if (S.srs) for (const [id, s] of entries) S.srs.set(id, s);
+  if (S.cards) for (const [id, s] of entries) S.cards.set(id, s);
+  await Store.putMany("srs", entries);
 
-  try {
-    await Store.putMany("srs", entries);
+  if (level > 0 && wasNew) {
+    const key = dayKey(now);
+    const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats ? S.stats.get(key) : null);
+    st.newCards++;
+    if (S.stats) S.stats.set(key, st);
     await Store.put("stats", key, st);
-  } catch (err) {
-    const el = $("#saveErr") || $("#levelStatus");
-    if (el) el.textContent = "Chưa lưu được mức nhớ: " + (err && err.message || err);
-    return;
   }
-  for (const [id, state] of entries) S.srs.set(id, state);
   updateBadge();
-  if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
-  if (afterSave) afterSave();
-  const message = $("#levelStatus");
-  if (message) message.textContent = `Đã đặt ${n.w} ở mức ${LEVELS[level]}${applyToAll ? " (tất cả kỹ năng)" : ""}.`;
-}
-
-// 3. Backward compatibility for dictionary / folder list bulk actions
-async function applyWordLevel(n, level, afterSave) {
-  return applyCardLevel(n, typesOf(n)[0][0], level, true, afterSave);
+  if (typeof afterSave === "function") afterSave();
 }
 
 function bindLevelPicker(n, afterSave, target = document) {
@@ -277,9 +286,9 @@ function bindLevelPicker(n, afterSave, target = document) {
 function meaningOf(n) { const it = itemOf(n); return it.vn || it.en || ""; }
 
 // ---------------- study queue ----------------
-const deckOn = (id) => (!S.settings.decks || S.settings.decks[id] !== false);
-const bandOn = (n) => bandsOf(n).some((b) => S.settings.bands && S.settings.bands[b]);
-const inLearning = (n) => !!(S.settings.extra && S.settings.extra[n.w]) || (n.rich ? (deckOn(n.deck.id) || bandOn(n)) : bandOn(n));
+const deckOn = (id) => S.settings.decks[id] !== false;
+const bandOn = (n) => bandsOf(n).some((b) => S.settings.bands[b]);
+const inLearning = (n) => n.rich ? (deckOn(n.deck.id) || bandOn(n)) : (bandOn(n) || !!S.settings.extra[n.w]);
 function activeNotes() { return S.notes.filter(inLearning); }
 function todayStats() { return S.stats.get(dayKey(Date.now())) || { reviews: 0, newCards: 0, again: 0 }; }
 function buildQueue(now) {
@@ -459,9 +468,22 @@ function route() {
     handleSyncSetup(rawHash);
     return;
   }
-  const h = decodeURIComponent(rawHash || "trang-chu");
+  let h = decodeURIComponent(rawHash || "trang-chu");
+  if (h === "tra-tu") h = "tu-dien";
+  if (h === "tu-vung") h = "thu-muc";
+  if (h === "chep-chinh-ta") h = "chinh-ta";
   const [name, ...rest] = h.split("/"); const arg = rest.join("/");
-  document.querySelectorAll("[data-view]").forEach((a) => { if (a.dataset.view === name || (name === "tu" && a.dataset.view === "tu-dien") || (name === "muc-nho" && a.dataset.view === "trang-chu")) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
+  document.querySelectorAll("[data-view]").forEach((a) => {
+    if (a.dataset.view === name || 
+       (name === "tu" && a.dataset.view === "tu-dien") ||
+       (name === "muc-nho" && a.dataset.view === "trang-chu") ||
+       (name === "thu-muc" && a.dataset.view === "thu-muc") ||
+       (name === "ngu-phap" && a.dataset.view === "ngu-phap")) {
+      a.setAttribute("aria-current", "page");
+    } else {
+      a.removeAttribute("aria-current");
+    }
+  });
   const fn = VIEWS[name] || VIEWS["trang-chu"];
   if (name !== "hoc") S.session = null;
   fn(arg); window.scrollTo(0, 0); updateBadge();
@@ -682,29 +704,48 @@ function dailyDashboard(c, days) {
 // --- Trang chủ ---
 
 
-// --- Folders & Learning Utilities ---
 function folderNotes(id) {
   if (S.bands.includes(id)) return S.notes.filter((n) => n.kind === "vocab" && inBand(n, id));
-  if (id === "cua-toi") return S.notes.filter((n) => (n.rich && !n.deck.id.startsWith("band-") && n.deck.category !== "topic") || (S.settings.extra && S.settings.extra[n.w]) || (S.inbox && [...S.inbox.values()].some(x => x.w === n.w)));
-  if (id === "viet-tat") { const set = new Set(); for (const w of S.abbrS.keys()) { const n = S.noteByWord.get(w); if (n) set.add(n); } return [...set]; }
-  return S.notes.filter((n) => n.rich && n.deck.id === id);
+  if (id === "cua-toi") return S.notes.filter((n) => n.rich || (S.settings && S.settings.extra && S.settings.extra[n.w]) || (S.inbox && [...S.inbox.values()].some(x => x.w === n.w)));
+  if (id === "viet-tat") { const set = new Set(); for (const w of (S.abbrS ? S.abbrS.keys() : [])) { const n = S.noteByWord.get(w); if (n) set.add(n); } return [...set]; }
+  return S.notes.filter((n) => n.rich && n.deck && n.deck.id === id);
 }
 function folderOn(id) {
-  if (S.bands.includes(id)) return !!(S.settings.bands && S.settings.bands[id]);
-  if (id === "cua-toi") return S.decks.filter(d => !d.id.startsWith("band-") && d.category !== "topic").every((d) => deckOn(d.id));
+  if (!S.settings) S.settings = {};
+  if (!S.settings.bands) S.settings.bands = {};
+  if (!S.settings.decks) S.settings.decks = {};
+  if (S.bands.includes(id)) return !!S.settings.bands[id];
+  if (id === "cua-toi") return (S.decks || []).every((d) => deckOn(d.id));
   if (id === "viet-tat") return folderNotes(id).every(inLearning);
   return deckOn(id);
 }
 function setFolderOn(id, v) {
+  if (!S.settings) S.settings = {};
   if (!S.settings.bands) S.settings.bands = {};
   if (!S.settings.decks) S.settings.decks = {};
   if (!S.settings.extra) S.settings.extra = {};
   if (S.bands.includes(id)) S.settings.bands[id] = v;
-  else if (id === "cua-toi") { for (const d of S.decks) { if (!d.id.startsWith("band-") && d.category !== "topic") S.settings.decks[d.id] = v; } }
+  else if (id === "cua-toi") for (const d of (S.decks || [])) S.settings.decks[d.id] = v;
   else if (id === "viet-tat") { for (const n of folderNotes(id)) { if (n.rich) S.settings.decks[n.deck.id] = v || deckOn(n.deck.id); else if (v) S.settings.extra[n.w] = true; else delete S.settings.extra[n.w]; } }
   else S.settings.decks[id] = v;
 }
-const hasProgress = (n) => typesOf(n).some(([t]) => S.srs.has(cardId(n, t)));
+const hasProgress = (n) => typesOf(n).some(([t]) => (S.cards && S.cards.has(cardId(n, t))) || (S.srs && S.srs.has(cardId(n, t))));
+
+function startStudyFolder(folderId) {
+  const notes = folderNotes(folderId);
+  const now = Date.now();
+  S.session = { folderFilter: folderId, count: 0, done: 0 };
+  const card = nextCard(now);
+  if (card) {
+    S.session.current = card;
+  } else if (notes.length) {
+    const n = notes[0];
+    const s = (S.cards && S.cards.get(cardId(n, "recog"))) || { due: now, ivl: 0, reps: 0, ease: 250, lapses: 0, state: 0 };
+    S.session.current = { n, t: "recog", s };
+  }
+  location.hash = "#hoc";
+}
+window.startStudyFolder = startStudyFolder;
 
 // --- Inbox & Learning Auto-Sync ---
 function syncInboxWordToLearning(entry, scheduleNow = false) {
@@ -716,8 +757,8 @@ function syncInboxWordToLearning(entry, scheduleNow = false) {
   let note = S.noteByWord.get(w);
   if (!note) {
     const viInfo = (S.vi && S.vi.get(w)) || {};
-    const py = entry.py || viInfo.py || (cedFirst(w) ? cedFirst(w)[0][0] : "");
-    const vn = entry.note || viInfo.vn || (cedFirst(w) ? cedFirst(w)[0][1].split("/").join("; ") : "");
+    const py = entry.py || viInfo.py || (typeof cedFirst === "function" && cedFirst(w) ? cedFirst(w)[0][0] : "");
+    const vn = entry.note || viInfo.vn || (typeof cedFirst === "function" && cedFirst(w) ? cedFirst(w)[0][1].split("/").join("; ") : "");
     note = {
       key: `t~${w}`,
       kind: "vocab",
@@ -749,13 +790,14 @@ function syncInboxWordToLearning(entry, scheduleNow = false) {
     const entries = [];
     for (const [t] of types) {
       const cid = cardId(note, t);
-      const prev = S.srs.get(cid);
-      const next = scheduleLevel(prev, 1, now);
+      const prev = S.srs ? S.srs.get(cid) : null;
+      const next = typeof scheduleLevel === "function" ? scheduleLevel(prev, 1, now) : { due: now, ivl: 0, reps: 0, ease: 250, lapses: 0, state: 0 };
       next.w = note.w;
       next.due = now; // Ready to study immediately!
       next.firstSeen = next.firstSeen || (prev && (prev.firstSeen || prev.last)) || now;
       entries.push([cid, next]);
-      S.srs.set(cid, next);
+      if (S.srs) S.srs.set(cid, next);
+      if (S.cards) S.cards.set(cid, next);
     }
     const key = dayKey(now);
     const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats.get(key));
@@ -783,136 +825,29 @@ function syncAllInboxNotes() {
   updateBadge();
 }
 
+function startStudyWord(word) {
+  const n = S.noteByWord.get(word);
+  if (!n) return;
+  const now = Date.now();
+  const s = (S.cards && S.cards.get(cardId(n, "recog"))) || { due: now, ivl: 0, reps: 0, ease: 250, lapses: 0, state: 0 };
+  S.session = {
+    folderFilter: null,
+    current: { n, t: "recog", s },
+    count: 0,
+    done: 0
+  };
+  location.hash = "#hoc";
+}
+
 window.syncInboxWordToLearning = syncInboxWordToLearning;
 window.syncAllInboxNotes = syncAllInboxNotes;
+window.startStudyWord = startStudyWord;
 
-window.startStudyWord = function(word) {
-  if (!word) return;
-  let note = S.noteByWord.get(word);
-  if (!note && S.inbox) {
-    const entry = [...S.inbox.values()].find(x => x.w === word);
-    if (entry) note = syncInboxWordToLearning(entry, true);
-  }
-  if (!note) return;
-  
-  if (!S.settings.extra) S.settings.extra = {};
-  S.settings.extra[word] = true;
-  
-  const types = typesOf(note);
-  const type = types[0][0];
-  const cid = cardId(note, type);
-  let s = S.srs.get(cid);
-  if (!s || s.state === "new") {
-    s = scheduleLevel(s, 1, Date.now());
-    s.w = note.w;
-    s.due = Date.now();
-    S.srs.set(cid, s);
-    Store.put("srs", cid, s).catch(() => {});
-  }
-  
-  S.session = {
-    answered: 0,
-    shown: false,
-    start: 1,
-    lastNote: null,
-    current: { id: cid, n: note, t: type, s }
-  };
-  if (typeof location !== "undefined") {
-    if (location.hash === "#hoc") {
-      if (typeof route === "function") route();
-    } else {
-      location.hash = "#hoc";
-    }
-  }
-};
-
-window.startStudyFolder = function(folderId) {
-  if (!folderId) return;
-  const ns = folderNotes(folderId);
-  if (!ns || !ns.length) {
-    if (typeof toast === "function") toast("Thư mục này chưa có từ vựng nào!");
-    return;
-  }
-  // Bật thư mục này vào lịch học
-  setFolderOn(folderId, true);
-  if (!S.settings.extra) S.settings.extra = {};
-  ns.forEach(n => {
-    S.settings.extra[n.w] = true;
-  });
-  if (typeof saveSettings === "function") saveSettings().catch(() => {});
-
-  // Tìm từ ưu tiên: từ cần ôn trước (due <= now), hoặc từ mới chưa học
-  const now = Date.now();
-  let targetNote = ns.find(n => {
-    const types = typesOf(n);
-    const cid = cardId(n, types[0][0]);
-    const s = S.srs.get(cid);
-    return s && s.state !== "new" && s.due <= now;
-  }) || ns.find(n => {
-    const types = typesOf(n);
-    const cid = cardId(n, types[0][0]);
-    const s = S.srs.get(cid);
-    return !s || s.state === "new";
-  }) || ns[0];
-
-  const types = typesOf(targetNote);
-  const type = types[0][0];
-  const cid = cardId(targetNote, type);
-  let s = S.srs.get(cid);
-  if (!s || s.state === "new") {
-    s = scheduleLevel(s, 1, now);
-    s.w = targetNote.w;
-    s.due = now;
-    S.srs.set(cid, s);
-    Store.put("srs", cid, s).catch(() => {});
-  }
-
-  S.session = {
-    answered: 0,
-    shown: false,
-    start: 1,
-    lastNote: null,
-    current: { id: cid, n: targetNote, t: type, s },
-    folderFilter: folderId
-  };
-
-  updateBadge();
-
-  if (typeof location !== "undefined") {
-    if (location.hash === "#hoc") {
-      if (typeof route === "function") route();
-    } else {
-      location.hash = "#hoc";
-    }
-  }
-};
-
-// --- NLP & Sentence Helpers for Dictation & Search ---
-function segment(zh) {
-  const out = []; const chars = [...zh]; let i = 0;
-  while (i < chars.length) {
-    if (!isHan(chars[i])) { out.push({ t: chars[i] }); i++; continue; }
-    let hit = null;
-    for (let L = Math.min(8, chars.length - i); L >= 1; L--) {
-      const w = chars.slice(i, i + L).join("");
-      const n = S.noteByWord.get(w);
-      if (n) { hit = { t: w, n }; break; }
-      if (L > 1 && S.ced && S.ced.has(w)) { hit = { t: w }; break; }
-    }
-    if (!hit) hit = { t: chars[i] };
-    out.push(hit); i += [...hit.t].length;
-  }
-  return out;
-}
-function autoPinyin(tokens) {
-  return tokens.map((k) => k.n ? itemOf(k.n).py : isHan(k.t) ? ((cedFirst(k.t) || [[k.t]])[0][0]) : k.t).join(" ").replace(/\s+([，。！？、])/g, "$1");
-}
-function sentenceBank() {
+function allSentences() {
   const out = [];
-  for (const n of S.notes) {
-    if (!n.rich && !S.vi.has(n.w)) continue;
+  for (const n of S.notes.values()) {
     const it = itemOf(n);
-    for (const k of n.kind === "grammar" ? [1, 2, 3] : [1, 2]) if (it["e" + k]) out.push({ zh: it["e" + k], py: it["e" + k + "p"], vn: it["e" + k + "v"], src: n.rich ? (n.deck && n.deck.name || "Của tôi") : bandLabel(n), own: true, note: n });
+    for (const k of n.kind === "grammar" ? [1, 2, 3] : [1, 2]) if (it["e" + k]) out.push({ zh: it["e" + k], py: it["e" + k + "p"], vn: it["e" + k + "v"], src: n.rich ? (n.deck && n.deck.name || "Cá nhân") : bandLabel(n), own: true, note: n });
   }
   for (const p of S.packs || []) for (const s of p.sentences || []) out.push({ zh: s.zh, py: s.py || "", vn: s.vn || "", src: s.src || p.name, pack: p.name });
   return out;
@@ -3066,6 +3001,1050 @@ document.addEventListener("keydown", (e) => {
 });
 
 // =========================================================================
+// 10. HỌC NGỮ PHÁP PHỒN THỂ (Stitch Master Design: Modern Oriental Scholarly)
+// =========================================================================
+
+const GRAMMAR_MASTER_LIST = [
+  {
+    id: "ba",
+    name: "Cấu trúc chữ BẢ (把字句)",
+    zh: "把",
+    formula: "S + 把 + Tân ngữ + Động từ + Thành phần khác",
+    band: "TOCFL B1",
+    levelGroup: "B1",
+    freq: "Rất cao (★★★★★)",
+    summary: "Biểu thị sự xử lý hoặc làm thay đổi trạng thái, vị trí của một đối tượng xác định.",
+    cond1: { title: "Điều kiện 1: Tân ngữ xác định", desc: "Tân ngữ sau chữ 把 phải là người hoặc vật cụ thể đã được cả người nói và người nghe biết rõ (sử dụng 這, 那, 我的,...)." },
+    cond2: { title: "Điều kiện 2: Làm thay đổi trạng thái", desc: "Động từ chính bắt buộc mang ý nghĩa xử lý, tác động và kéo theo bổ ngữ kết quả, bổ ngữ xu hướng, hoặc trợ từ 了." },
+    wrong: {
+      zh: "我把一本書看了。",
+      py: "Wǒ bǎ yī běn shū kàn le.",
+      reason: 'Lỗi sai điển hình: "一本書" là tân ngữ phiếm chỉ, không xác định, vi phạm quy tắc dùng câu chữ BẢ.'
+    },
+    correct: {
+      zh: "我把那本書看完了。",
+      py: "Wǒ bǎ nà běn shū kàn wán le.",
+      reason: 'Cách nói chuẩn xác Đài Loan: "那本書" đã xác định rõ ràng, và động từ có bổ ngữ kết quả "完" chỉ trạng thái hoàn tất.'
+    },
+    examples: [
+      {
+        zh: "請把這份企劃案交給經理。",
+        py: "Qǐng bǎ zhè fèn qǐhuà'àn jiāo gěi jīnglǐ.",
+        vn: "Xin hãy giao bản kế hoạch này cho giám đốc.",
+        en: "Please hand over this proposal to the manager.",
+        tag: "Văn phòng / Công sở",
+        tagColor: "cinnabar-subtle",
+        tagText: "text-primary"
+      },
+      {
+        zh: "他把昨天買的悠遊卡弄丟了。",
+        py: "Tā bǎ zuótiān mǎi de yōuyóukǎ nòngdiū le.",
+        vn: "Anh ấy đã làm mất chiếc thẻ EasyCard mua hôm qua.",
+        en: "He lost the EasyCard he bought yesterday.",
+        tag: "Giao thông Đài Loan",
+        tagColor: "jade-subtle",
+        tagText: "text-secondary"
+      },
+      {
+        zh: "我已經把機票訂好了。",
+        py: "Wǒ yǐjīng bǎ jīpiào dìng hǎo le.",
+        vn: "Tôi đã đặt xong vé máy bay rồi.",
+        en: "I have already booked the flight tickets.",
+        tag: "Du lịch & Đi lại",
+        tagColor: "amber-subtle",
+        tagText: "text-tertiary"
+      }
+    ],
+    quiz: {
+      q: "請你______那杯珍珠奶茶喝完，我們要出門了。",
+      opts: [
+        { key: "ba", label: "把 (bǎ)", correct: true, explain: '<strong>Chính xác! (正確)</strong> Câu dùng cấu trúc chữ BẢ để yêu cầu người nghe xử lý và uống hết ly trà sữa xác định ("那杯珍珠奶茶喝完").' },
+        { key: "bei", label: "被 (bèi)", correct: false, explain: '<strong>Chưa chính xác! (再試試)</strong> Ly trà sữa là đối tượng được người nghe chủ động uống hết, phải dùng chữ <strong>把</strong> thay vì thể bị động <strong>被</strong>.' },
+        { key: "rang", label: "讓 (ràng)", correct: false, explain: '<strong>Chưa chính xác! (再試試)</strong> "讓" biểu thị nhượng bộ hoặc sai khiến/cho phép, không dùng để xử lý tân ngữ cụ thể trong ngữ cảnh này.' }
+      ]
+    }
+  },
+  {
+    id: "bei",
+    name: "Cấu trúc BỊ ĐỘNG: 被 / 叫 / 讓 (被字句)",
+    zh: "被",
+    formula: "S + 被/叫/讓 + Tác nhân + Động từ + Thành phần khác",
+    band: "TOCFL B1",
+    levelGroup: "B1",
+    freq: "Rất cao (★★★★☆)",
+    summary: "Biểu thị chủ ngữ tiếp nhận tác động từ người khác, thường mang sắc thái tiêu cực hoặc bất như ý trong giao tiếp thường nhật.",
+    cond1: { title: "Điều kiện 1: Tác nhân gây ra", desc: "Có thể có hoặc lược bỏ tác nhân sau 被 (nhưng 叫 và 讓 bắt buộc phải có tác nhân đi kèm)." },
+    cond2: { title: "Điều kiện 2: Trọng tâm kết quả", desc: "Động từ thường đi kèm bổ ngữ kết quả, chỉ sự việc đã xảy ra ngoài ý muốn của chủ ngữ." },
+    wrong: {
+      zh: "他的手機被偷。",
+      py: "Tā de shǒujī bèi tōu.",
+      reason: "Lỗi: Động từ đơn độc đứng cuối câu không có bổ ngữ hay trợ từ 了 biểu thị kết quả."
+    },
+    correct: {
+      zh: "他的手機被小偷偷走了。",
+      py: "Tā de shǒujī bèi xiǎotōu tōu zǒu le.",
+      reason: 'Đúng: Có tác nhân "小偷" và bổ ngữ xu hướng "走" kèm trợ từ "了".'
+    },
+    examples: [
+      {
+        zh: "我的錢包被偷走了。",
+        py: "Wǒ de qiánbāo bèi tōu zǒu le.",
+        vn: "Ví tiền của tôi bị trộm mất rồi.",
+        en: "My wallet was stolen.",
+        tag: "Đời sống",
+        tagColor: "cinnabar-subtle",
+        tagText: "text-primary"
+      },
+      {
+        zh: "那本書讓弟弟弄髒了。",
+        py: "Nà běn shū ràng dìdi nòng zāng le.",
+        vn: "Quyển sách đó bị em trai làm bẩn rồi.",
+        en: "That book was soiled by my younger brother.",
+        tag: "Gia đình",
+        tagColor: "amber-subtle",
+        tagText: "text-tertiary"
+      }
+    ],
+    quiz: {
+      q: "他的自行車昨晚______人偷走了。",
+      opts: [
+        { key: "bei", label: "被 (bèi)", correct: true, explain: '<strong>Chính xác!</strong> Câu bị động biểu thị sự việc bất như ý, có tác nhân "人" và kết quả "偷走了".' },
+        { key: "ba", label: "把 (bǎ)", correct: false, explain: "<strong>Chưa chính xác!</strong> Xe đạp là vật chịu tác động bị trộm chứ không phải chủ thể chủ động trộm." }
+      ]
+    }
+  },
+  {
+    id: "yuelaiyue",
+    name: "Phó từ tăng tiến: 越來越 & 越...越...",
+    zh: "越",
+    formula: "越來越 + Tính từ / Động từ tâm lý",
+    band: "TOCFL A2",
+    levelGroup: "A1/A2",
+    freq: "Xuất hiện liên tục (★★★★★)",
+    summary: "Mô tả mức độ của sự vật, cảm xúc biến chuyển ngày càng sâu sắc theo thời gian.",
+    cond1: { title: "Quy tắc 1: Không dùng kèm 很 / 非常", desc: "Sau 越來越 tuyệt đối không thêm phó từ chỉ mức độ như 很, 非常, 太." },
+    cond2: { title: "Quy tắc 2: Biến thể 越 A 越 B", desc: "Càng A thì càng B (ví dụ: 越吃越胖, 越學越有趣)." },
+    wrong: {
+      zh: "台北的天氣越來越很熱。",
+      py: "Táiběi de tiānqì yuèláiyuè hěn rè.",
+      reason: 'Sai vì sau 越來越 lại dùng thêm phó từ chỉ mức độ "很".'
+    },
+    correct: {
+      zh: "台北的天氣越來越熱了。",
+      py: "Táiběi de tiānqì yuèláiyuè rè le.",
+      reason: 'Đúng: Bỏ "很", có thể thêm "了" ở cuối để biểu thị sự thay đổi theo thời gian.'
+    },
+    examples: [
+      {
+        zh: "嬰兒奶粉越來越貴了。",
+        py: "Yīng'ér nǎifěn yuèláiyuè guì le.",
+        vn: "Sữa bột trẻ em ngày càng đắt.",
+        en: "Baby formula is getting more and more expensive.",
+        tag: "Đời sống",
+        tagColor: "jade-subtle",
+        tagText: "text-secondary"
+      },
+      {
+        zh: "我的中文越來越好了。",
+        py: "Wǒ de Zhōngwén yuèláiyuè hǎo le.",
+        vn: "Tiếng Trung của tôi ngày càng tốt.",
+        en: "My Chinese is getting better and better.",
+        tag: "Học tập",
+        tagColor: "cinnabar-subtle",
+        tagText: "text-primary"
+      }
+    ],
+    quiz: {
+      q: "自從搬到台灣以後，他的中文______流利了。",
+      opts: [
+        { key: "yuelaiyue", label: "越來越 (yuèláiyuè)", correct: true, explain: '<strong>Chính xác!</strong> Biểu thị tiếng Trung ngày càng lưu loát theo thời gian sinh sống tại Đài Loan.' },
+        { key: "hen", label: "很 (hěn)", correct: false, explain: '<strong>Chưa chính xác!</strong> "很" không biểu thị quá trình biến chuyển tăng tiến kèm "了".' }
+      ]
+    }
+  },
+  {
+    id: "bushima",
+    name: "Cấu trúc phản vấn: 不是...嗎？",
+    zh: "嗎",
+    formula: "S + 不是 + Vị ngữ + 嗎？",
+    band: "Khẩu ngữ Đài Bắc",
+    levelGroup: "Khẩu ngữ",
+    freq: "Khẩu ngữ hàng ngày (★★★★☆)",
+    summary: 'Dùng để nhắc nhở đối phương hoặc khẳng định lại điều hiển nhiên: "Chẳng phải là... hay sao?".',
+    cond1: { title: "Sắc thái khẩu ngữ", desc: "Thường dùng khi ngạc nhiên, nhắc nhở hoặc nhấn mạnh một thực tế mà đối phương lẽ ra phải biết." },
+    cond2: { title: "Ngữ điệu", desc: "Lên giọng ở cuối câu, có thể dùng 不 cũng mang nghĩa tương tự trong khẩu ngữ." },
+    wrong: {
+      zh: "你不是明天要考試嗎？為什麼不看書？",
+      py: "Nǐ bú shì míngtiān yào kǎoshì ma? Wèishénme bù kànshū?",
+      reason: "Câu này hoàn toàn đúng ngữ pháp và khẩu ngữ!"
+    },
+    correct: {
+      zh: "你不是明天要考試嗎？",
+      py: "Nǐ bú shì míngtiān yào kǎoshì ma?",
+      reason: "Đúng chuẩn khẩu ngữ: Chẳng phải ngày mai bạn có bài thi sao?"
+    },
+    examples: [
+      {
+        zh: "你不是說今天不加班嗎？",
+        py: "Nǐ bú shì shuō jīntiān bù jiābān ma?",
+        vn: "Chẳng phải bạn bảo hôm nay không tăng ca sao?",
+        en: "Didn't you say you wouldn't work overtime today?",
+        tag: "Văn phòng",
+        tagColor: "cinnabar-subtle",
+        tagText: "text-primary"
+      }
+    ],
+    quiz: {
+      q: "你______跟我說過那家餐廳很好吃嗎？",
+      opts: [
+        { key: "bushi", label: "不是 (bú shì)", correct: true, explain: "<strong>Chính xác!</strong> Cấu trúc phản vấn 不是...嗎 dùng để khẳng định lại điều người kia đã nói." },
+        { key: "meiyou", label: "沒有 (méiyǒu)", correct: false, explain: '<strong>Chưa chính xác!</strong> Không dùng "沒有...嗎" cho câu hỏi phản vấn khẳng định.' }
+      ]
+    }
+  },
+  {
+    id: "yaoshi",
+    name: "Liên từ giả định: 要是...就...",
+    zh: "要是",
+    formula: "要是 + Mệnh đề điều kiện + 就 + Kết quả",
+    band: "TOCFL B1",
+    levelGroup: "B1",
+    freq: "Tần suất cao (★★★★☆)",
+    summary: 'Tương đương "Nếu như... thì...", mang tính khẩu ngữ thân mật hơn "如果" trong giao tiếp của người Đài Loan.',
+    cond1: { title: "Tính khẩu ngữ", desc: "Người Đài Loan rất chuộng dùng 要是 trong hội thoại thân mật hơn là 如果." },
+    cond2: { title: "Cặp liên từ", desc: "Vế sau thường có 就 hoặc 那(麼) kết nối." },
+    wrong: {
+      zh: "要是明天放颱風假，但是在家看電影。",
+      py: "Yàoshi míngtiān fàng táifēng jià, dànshì zài jiā kàn diànyǐng.",
+      reason: 'Sai vì vế sau dùng "但是" (nhưng) thay vì liên từ chỉ kết quả "就".'
+    },
+    correct: {
+      zh: "要是明天放颱風假，我們就在家看電影。",
+      py: "Yàoshi míngtiān fàng táifēng jià, wǒmen jiù zài jiā kàn diànyǐng.",
+      reason: "Đúng chuẩn: Vế giả định 要是 đi kèm vế hệ quả 就."
+    },
+    examples: [
+      {
+        zh: "要是你有空，就來我家玩吧。",
+        py: "Yàoshi nǐ yǒu kòng, jiù lái wǒ jiā wán ba.",
+        vn: "Nếu bạn rảnh thì đến nhà tôi chơi nhé.",
+        en: "If you have time, come over to my place.",
+        tag: "Hẹn hò / Đời sống",
+        tagColor: "jade-subtle",
+        tagText: "text-secondary"
+      }
+    ],
+    quiz: {
+      q: "要是下大雨，我們______不去了。",
+      opts: [
+        { key: "jiu", label: "就 (jiù)", correct: true, explain: "<strong>Chính xác!</strong> Cặp liên từ 要是...就... biểu thị giả định và kết quả." },
+        { key: "ye", label: "也 (yě)", correct: false, explain: '<strong>Chưa chính xác!</strong> 也 mang nghĩa "cũng", không phải cặp chuẩn với 要是.' }
+      ]
+    }
+  },
+  {
+    id: "zhan_de",
+    name: "Tỷ lệ: A 占 B 的 ___",
+    zh: "占",
+    formula: "A + 占(了) + B + 的 + 幾分之幾 / 幾成 / 百分之幾 / 幾趴",
+    band: "TOCFL B1",
+    levelGroup: "B1",
+    freq: "TOCFL đọc hiểu (★★★★☆)",
+    summary: "Biểu thị tỷ lệ phần trăm hoặc phân số chiếm trong một tổng thể.",
+    cond1: { title: "Cách đọc phân số & phần trăm", desc: "Đọc mẫu trước tử sau: 1/4 = 四分之一; 20% = 兩成 (一成 = 10%); 25趴 (khẩu ngữ Đài Loan từ percent)." },
+    cond2: { title: "Phân biệt với 比", desc: "比 dùng để so sánh hơn kém; 占 dùng để nói phần trong tổng thể." },
+    wrong: {
+      zh: "去日本玩的人比台灣出國玩的人的三分之二。",
+      py: "Qù Rìběn wán de rén bǐ Táiwān chūguó wán de rén de sān fēn zhī èr.",
+      reason: 'Sai vì dùng "比" để nói tỷ lệ phần trăm thay vì dùng "占".'
+    },
+    correct: {
+      zh: "去日本玩的人占台灣出國玩的人的三分之二。",
+      py: "Qù Rìběn wán de rén zhàn Táiwān chūguó wán de rén de sān fēn zhī èr.",
+      reason: "Đúng: Dùng 占 ... 的 để nói tỷ lệ cấu thành trong một tổng thể."
+    },
+    examples: [
+      {
+        zh: "女性員工占全公司的四成。",
+        py: "Nǚxìng yuángōng zhàn quán gōngsī de sì chéng.",
+        vn: "Nhân viên nữ chiếm 40% toàn công ty.",
+        en: "Female employees account for 40% of the entire company.",
+        tag: "Công sở",
+        tagColor: "cinnabar-subtle",
+        tagText: "text-primary"
+      },
+      {
+        zh: "房租占了我薪水的三十趴。",
+        py: "Fángzū zhàn le wǒ xīnshuǐ de sānshí pā.",
+        vn: "Tiền nhà chiếm 30% lương của tôi.",
+        en: "Rent accounts for 30% of my salary.",
+        tag: "Khẩu ngữ Đài Loan",
+        tagColor: "jade-subtle",
+        tagText: "text-secondary"
+      }
+    ],
+    quiz: {
+      q: "女性員工______全公司______四成。",
+      opts: [
+        { key: "zhan_de", label: "占 … 的", correct: true, explain: "<strong>Chính xác!</strong> A 占 B 的 [tỷ lệ] là cấu trúc chuẩn để nói tỷ lệ trong toàn thể." },
+        { key: "bi_de", label: "比 … 的", correct: false, explain: "<strong>Chưa chính xác!</strong> 比 chỉ dùng để so sánh tính chất giữa hai đối tượng, không nói tỷ lệ phần trăm." }
+      ]
+    }
+  },
+  {
+    id: "yuqi_buru",
+    name: "Lựa chọn: 與其 A，不如 B",
+    zh: "與其",
+    formula: "與其 + A，(還)不如 + B",
+    band: "TOCFL B2",
+    levelGroup: "B2",
+    freq: "TOCFL Đọc & Viết (★★★★★)",
+    summary: "Thay vì A, chi bằng B (Người nói chọn B và gạt bỏ A, đánh giá B tốt hơn hoặc hợp lý hơn).",
+    cond1: { title: "So sánh với 寧可 A 也不 B", desc: "寧可 A 也不 B: chọn A, gạt B. 與其 A 不如 B: gạt A, chọn B. Thứ tự lựa chọn ngược nhau!" },
+    cond2: { title: "Vế sau", desc: "Vế sau luôn là 不如 (bùrú) hoặc 還不如 (không dùng 還是 hay 但是)." },
+    wrong: {
+      zh: "與其花錢坐計程車，還是坐捷運。",
+      py: "Yǔqí huā qián zuò jìchéngchē, háishì zuò jiéyùn.",
+      reason: 'Sai vì sau 与其 phải đi kèm cặp với "不如", không dùng "還是".'
+    },
+    correct: {
+      zh: "與其花錢坐計程車，不如坐捷運。",
+      py: "Yǔqí huā qián zuò jìchéngchē, bùrú zuò jiéyùn.",
+      reason: "Đúng chuẩn: Thay vì tốn tiền đi taxi, chi bằng đi MRT (捷運)."
+    },
+    examples: [
+      {
+        zh: "與其在家睡覺，不如出去走走。",
+        py: "Yǔqí zài jiā shuìjiào, bùrú chūqù zǒuzou.",
+        vn: "Thay vì ở nhà ngủ, chi bằng ra ngoài đi dạo.",
+        en: "Rather than sleeping at home, better to go out for a walk.",
+        tag: "Đời sống",
+        tagColor: "jade-subtle",
+        tagText: "text-secondary"
+      },
+      {
+        zh: "與其等公司加薪，不如自己學新技能。",
+        py: "Yǔqí děng gōngsī jiāxīn, bùrú zìjǐ xué xīn jìnéng.",
+        vn: "Thay vì chờ công ty tăng lương, chi bằng tự học kỹ năng mới.",
+        en: "Rather than waiting for a raise, better to learn new skills yourself.",
+        tag: "Sự nghiệp",
+        tagColor: "amber-subtle",
+        tagText: "text-tertiary"
+      }
+    ],
+    quiz: {
+      q: "______花錢坐計程車，______坐捷運。",
+      opts: [
+        { key: "yuqi", label: "與其 … 不如", correct: true, explain: '<strong>Chính xác!</strong> "與其 A，不如 B" nghĩa là thay vì A, chi bằng B.' },
+        { key: "ningke", label: "寧可 … 也不", correct: false, explain: "<strong>Chưa chính xác!</strong> Nếu dùng 寧可 thì phải là điều mình chọn trước, ở đây MRT mới là điều được chọn." }
+      ]
+    }
+  },
+  {
+    id: "raner",
+    name: "Liên từ chuyển ngoặt: 然而 (tuy nhiên)",
+    zh: "然而",
+    formula: "Mệnh đề 1，然而 + Mệnh đề 2",
+    band: "TOCFL B2",
+    levelGroup: "B2",
+    freq: "TOCFL Đọc hiểu (★★★★★)",
+    summary: "Tuy nhiên, nhưng mà. Văn viết trang trọng, dùng để chuyển ngoặt ý ngược lại với vế trước.",
+    cond1: { title: "Văn phong viết trang trọng", desc: "Nhưng (但是/可是) dùng cả nói lẫn viết; 然而 hầu như chỉ xuất hiện trong văn viết, báo chí, đề thi." },
+    cond2: { title: "Vị trí", desc: "Luôn đứng đầu vế câu thứ hai để biểu thị sự chuyển ngoặt." },
+    wrong: {
+      zh: "這個計畫很好，然而。",
+      py: "Zhège jìhuà hěn hǎo, rán'ér.",
+      reason: "然而 không thể đứng một mình cuối câu."
+    },
+    correct: {
+      zh: "這個計畫很好，然而成本太高。",
+      py: "Zhège jìhuà hěn hǎo, rán'ér chéngběn tài gāo.",
+      reason: "Kế hoạch này rất tốt, tuy nhiên chi phí quá cao."
+    },
+    examples: [
+      {
+        zh: "大家都以為他會成功，然而他失敗了。",
+        py: "Dàjiā dōu yǐwéi tā huì chénggōng, rán'ér tā shībài le.",
+        vn: "Ai cũng tưởng anh ấy sẽ thành công, nhưng anh ấy đã thất bại.",
+        en: "Everyone thought he would succeed, yet he failed.",
+        tag: "Đời sống",
+        tagColor: "cinnabar-subtle",
+        tagText: "text-primary"
+      },
+      {
+        zh: "電動車越來越多，然而充電站還不夠。",
+        py: "Diàndòngchē yuèláiyuè duō, rán'ér chōngdiànzhàn hái bú gòu.",
+        vn: "Xe điện ngày càng nhiều, tuy nhiên trạm sạc vẫn chưa đủ.",
+        en: "Electric cars are increasing, however charging stations are still insufficient.",
+        tag: "Xã hội",
+        tagColor: "jade-subtle",
+        tagText: "text-secondary"
+      }
+    ],
+    quiz: {
+      q: "這個計畫很好，______成本太高。",
+      opts: [
+        { key: "raner", label: "然而 (rán'ér)", correct: true, explain: '<strong>Chính xác!</strong> "然而" là liên từ chỉ sự tương phản trang trọng trong đề thi TOCFL.' },
+        { key: "suoyi", label: "所以 (suǒyǐ)", correct: false, explain: '<strong>Chưa chính xác!</strong> "所以" biểu thị quan hệ nguyên nhân - kết quả, không biểu thị sự chuyển ngoặt tương phản.' }
+      ]
+    }
+  }
+];
+
+// Global Active State for Grammar View
+window.ACTIVE_GRAMMAR_ID = window.ACTIVE_GRAMMAR_ID || "ba";
+window.ACTIVE_GRAMMAR_FILTER = window.ACTIVE_GRAMMAR_FILTER || "all";
+window.GRAMMAR_BOOKMARKS = window.GRAMMAR_BOOKMARKS || new Set(["ba", "yuqi_buru", "raner"]);
+
+// Helpers
+window.checkPractice = function(choice) {
+  const resultDiv = document.getElementById("practice-result");
+  if (!resultDiv) return;
+  const current = GRAMMAR_MASTER_LIST.find(g => g.id === window.ACTIVE_GRAMMAR_ID) || GRAMMAR_MASTER_LIST[0];
+  const opt = current.quiz.opts.find(o => o.key === choice) || current.quiz.opts[0];
+  
+  if (opt.correct) {
+    resultDiv.className = "mt-space-sm p-space-sm rounded-lg font-body-sm text-body-sm bg-jade-subtle text-secondary block border border-secondary/20 shadow-xs";
+    resultDiv.innerHTML = opt.explain;
+    if (typeof playSound === "function") playSound(true);
+  } else {
+    resultDiv.className = "mt-space-sm p-space-sm rounded-lg font-body-sm text-body-sm bg-cinnabar-subtle text-primary block border border-primary/20 shadow-xs";
+    resultDiv.innerHTML = opt.explain;
+    if (typeof playSound === "function") playSound(false);
+  }
+};
+
+window.selectGrammarSpotlight = function(id) {
+  window.ACTIVE_GRAMMAR_ID = id;
+  const el = document.getElementById("grammar-spotlight-container");
+  if (el) {
+    const item = GRAMMAR_MASTER_LIST.find(g => g.id === id) || GRAMMAR_MASTER_LIST[0];
+    el.innerHTML = renderSpotlightContent(item);
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
+
+window.filterGrammarTab = function(level, btnEl) {
+  window.ACTIVE_GRAMMAR_FILTER = level;
+  document.querySelectorAll(".grammar-tab-btn").forEach(b => {
+    b.className = "grammar-tab-btn px-3 py-1.5 rounded-lg bg-paper-card text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-label-md font-medium whitespace-nowrap transition-colors shadow-sm";
+  });
+  if (btnEl) {
+    btnEl.className = "grammar-tab-btn px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary font-label-md text-label-md font-semibold whitespace-nowrap shadow-sm";
+  }
+  updateGrammarGrid();
+};
+
+window.filterGrammarSearch = function(query) {
+  window.GRAMMAR_SEARCH_QUERY = (query || "").trim().toLowerCase();
+  updateGrammarGrid();
+};
+
+window.toggleGrammarBookmark = function(id) {
+  if (window.GRAMMAR_BOOKMARKS.has(id)) {
+    window.GRAMMAR_BOOKMARKS.delete(id);
+  } else {
+    window.GRAMMAR_BOOKMARKS.add(id);
+  }
+  try {
+    localStorage.setItem("bookmarked_grammar", JSON.stringify(Array.from(window.GRAMMAR_BOOKMARKS)));
+  } catch(e){}
+  updateGrammarGrid();
+  renderSidebarNotebook();
+};
+
+window.promptAddGrammarNote = function() {
+  const name = prompt("Nhập tên mẫu ngữ pháp hoặc cấu trúc câu cần lưu (ví dụ: 連...也/都...):");
+  if (!name || !name.trim()) return;
+  const formula = prompt("Nhập công thức hoặc mẫu câu (ví dụ: 連 + Danh từ + 也/都 + Vị ngữ):") || "";
+  const note = prompt("Ghi chú cách dùng hoặc lưu ý thi cử:") || "";
+  
+  const customId = "custom_" + Date.now();
+  GRAMMAR_MASTER_LIST.push({
+    id: customId,
+    name: name.trim(),
+    zh: name.trim().charAt(0) || "語",
+    formula: formula.trim() || name.trim(),
+    band: "Cá nhân",
+    levelGroup: "Khẩu ngữ",
+    freq: "Tự tạo (★★★★★)",
+    summary: note.trim() || "Mẫu ngữ pháp tự ghi chú vào sổ tay cá nhân.",
+    cond1: { title: "Ghi chú cá nhân", desc: note.trim() || "Cần ôn tập thường xuyên." },
+    cond2: { title: "Cấu trúc áp dụng", desc: formula.trim() || "Áp dụng trong bài đọc và hội thoại." },
+    wrong: { zh: "", py: "", reason: "Chưa ghi nhận lỗi sai." },
+    correct: { zh: name.trim(), py: "", reason: "Mẫu câu do bạn tự bổ sung." },
+    examples: [],
+    quiz: { q: name.trim(), opts: [{ key: "ok", label: "Đã thuộc", correct: true, explain: "Tuyệt vời!" }] }
+  });
+  window.GRAMMAR_BOOKMARKS.add(customId);
+  try {
+    localStorage.setItem("bookmarked_grammar", JSON.stringify(Array.from(window.GRAMMAR_BOOKMARKS)));
+  } catch(e){}
+  selectGrammarSpotlight(customId);
+  updateGrammarGrid();
+  renderSidebarNotebook();
+};
+
+function renderSpotlightContent(item) {
+  const isBookmarked = window.GRAMMAR_BOOKMARKS.has(item.id);
+  const exHtml = (item.examples || []).map(ex => `
+    <div class="p-space-md rounded-xl bg-paper-base hover:bg-surface-container-low transition-colors duration-150 flex items-start justify-between gap-space-md">
+      <div class="flex-1">
+        <div class="flex items-baseline gap-space-xs flex-wrap">
+          <span class="font-headline-md text-base md:text-lg text-on-surface font-semibold font-serif">${esc(ex.zh)}</span>
+          <span class="font-label-sm text-xs font-medium px-2 py-0.5 rounded bg-${ex.tagColor || 'cinnabar-subtle'} ${ex.tagText || 'text-primary'}">${esc(ex.tag)}</span>
+        </div>
+        <div class="font-code text-xs text-outline mt-1 font-normal">${esc(ex.py)}</div>
+        <div class="font-body-md text-sm text-on-surface-variant mt-1">${esc(ex.vn)}</div>
+        ${ex.en ? `<div class="font-body-sm text-xs text-outline italic">"${esc(ex.en)}"</div>` : ''}
+      </div>
+      <button class="w-10 h-10 rounded-full bg-paper-card text-on-surface-variant hover:text-primary shadow-xs flex items-center justify-center transition-colors flex-shrink-0" onclick="say('${esc(ex.zh).replace(/'/g, "\\\\'")}')" title="Nghe phát âm chuẩn Đài Loan (Shift để nghe lại)">
+        <span class="material-symbols-outlined text-[20px]">volume_up</span>
+      </button>
+    </div>
+  `).join("");
+
+  const quizOptsHtml = (item.quiz && item.quiz.opts || []).map(opt => `
+    <button class="px-3.5 py-1.5 rounded-lg bg-surface-container hover:bg-cinnabar-subtle hover:text-primary font-body-md text-sm text-on-surface transition-colors" onclick="checkPractice('${opt.key}')">
+      ${esc(opt.label)}
+    </button>
+  `).join("");
+
+  return `
+    <!-- Calligraphic Seal Background Deco -->
+    <div class="absolute -right-8 -top-8 w-44 h-44 rounded-full bg-cinnabar-subtle/50 pointer-events-none flex items-center justify-center text-primary/10 font-headline-lg text-[96px] select-none font-serif">
+      ${esc(item.zh || '法')}
+    </div>
+    
+    <!-- Spotlight Header -->
+    <div class="flex flex-wrap items-center justify-between gap-space-sm pb-space-md border-b border-border-subtle/50">
+      <div class="flex items-center gap-space-sm">
+        <span class="w-1.5 h-6 rounded-full bg-primary-container"></span>
+        <span class="font-label-sm text-xs uppercase tracking-widest text-primary font-bold">Chủ điểm ngữ pháp nổi bật hôm nay</span>
+      </div>
+      <div class="flex items-center gap-space-xs">
+        <span class="px-2.5 py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-xs font-semibold">${esc(item.band)}</span>
+        <span class="px-2.5 py-0.5 rounded-full bg-amber-subtle text-tertiary font-label-sm text-xs font-semibold flex items-center gap-1">
+          <span class="material-symbols-outlined text-[14px]">star</span>
+          Xuất hiện: ${esc(item.freq)}
+        </span>
+      </div>
+    </div>
+
+    <!-- Title & Large Formula Display -->
+    <div class="mt-space-md">
+      <div class="flex items-baseline gap-space-xs flex-wrap">
+        <span class="font-headline-md text-xl md:text-2xl text-on-surface font-semibold font-serif">${esc(item.name)}</span>
+      </div>
+
+      <!-- Formula Banner -->
+      <div class="mt-space-sm p-space-md rounded-xl bg-paper-base shadow-inner flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm border border-border-subtle/60">
+        <div class="font-code text-sm md:text-base text-primary font-bold tracking-wide">
+          ${esc(item.formula)}
+        </div>
+        <button class="inline-flex items-center gap-1 text-primary hover:text-primary-container font-label-sm text-xs font-semibold whitespace-nowrap transition-colors" onclick="toggleGrammarBookmark('${item.id}')" title="Lưu mẫu câu">
+          <span class="material-symbols-outlined text-[16px]">${isBookmarked ? 'bookmark' : 'bookmark_add'}</span>
+          <span>${isBookmarked ? 'Đã lưu sổ tay' : 'Lưu ghi nhớ'}</span>
+        </button>
+      </div>
+
+      <!-- Rule Explanation -->
+      <div class="mt-space-md grid grid-cols-1 md:grid-cols-2 gap-space-md">
+        <div class="p-space-sm rounded-lg bg-surface-container-low border border-border-subtle/40">
+          <div class="flex items-center gap-1 text-on-surface font-label-md text-xs font-semibold mb-1">
+            <span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+            ${esc(item.cond1.title)}
+          </div>
+          <p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
+            ${esc(item.cond1.desc)}
+          </p>
+        </div>
+        <div class="p-space-sm rounded-lg bg-surface-container-low border border-border-subtle/40">
+          <div class="flex items-center gap-1 text-on-surface font-label-md text-xs font-semibold mb-1">
+            <span class="material-symbols-outlined text-secondary text-[16px]">transform</span>
+            ${esc(item.cond2.title)}
+          </div>
+          <p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">
+            ${esc(item.cond2.desc)}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Avoid Pitfalls (Bảng so sánh Đúng / Sai - Tránh bẫy TOCFL) -->
+    <div class="mt-space-lg">
+      <h2 class="font-headline-md text-base md:text-lg text-on-surface font-semibold mb-space-sm flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary text-[20px]">troubleshoot</span>
+        Tránh bẫy đề thi TOCFL (So sánh Đúng vs Sai)
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-space-sm">
+        <!-- Wrong Example -->
+        <div class="p-space-md rounded-xl bg-cinnabar-subtle/60 flex flex-col justify-between border border-primary/20">
+          <div>
+            <div class="flex items-center gap-1 text-primary font-label-sm text-xs font-bold uppercase mb-1">
+              <span class="material-symbols-outlined text-[16px]">cancel</span>
+              Lỗi sai điển hình (Sai ngữ pháp)
+            </div>
+            <div class="font-headline-md text-base text-on-surface line-through decoration-primary/60 font-serif">
+              ${esc(item.wrong.zh)}
+            </div>
+            <div class="font-code text-xs text-outline mt-0.5">
+              ${esc(item.wrong.py)}
+            </div>
+          </div>
+          <p class="font-body-sm text-xs text-on-surface-variant mt-space-sm italic bg-paper-card/80 p-2 rounded">
+            ${esc(item.wrong.reason)}
+          </p>
+        </div>
+        <!-- Correct Example -->
+        <div class="p-space-md rounded-xl bg-jade-subtle flex flex-col justify-between border border-secondary/20">
+          <div>
+            <div class="flex items-center gap-1 text-secondary font-label-sm text-xs font-bold uppercase mb-1">
+              <span class="material-symbols-outlined text-[16px]">check_circle</span>
+              Cách nói chuẩn xác Đài Loan (Đúng)
+            </div>
+            <div class="font-headline-md text-base text-secondary font-semibold font-serif">
+              ${esc(item.correct.zh)}
+            </div>
+            <div class="font-code text-xs text-on-secondary-container mt-0.5">
+              ${esc(item.correct.py)}
+            </div>
+          </div>
+          <p class="font-body-sm text-xs text-on-surface-variant mt-space-sm bg-paper-card/80 p-2 rounded">
+            ${esc(item.correct.reason)}
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Taiwanese Real-life Audio Examples -->
+    <div class="mt-space-lg">
+      <div class="flex items-center justify-between mb-space-sm">
+        <h2 class="font-headline-md text-base md:text-lg text-on-surface font-semibold flex items-center gap-2">
+          <span class="material-symbols-outlined text-secondary text-[20px]">record_voice_over</span>
+          Câu ví dụ thực tế đời sống Đài Loan (kèm phát âm)
+        </h2>
+        <span class="font-label-sm text-xs text-outline font-medium">Giọng chuẩn Đài Bắc • Phím Shift để nghe lại</span>
+      </div>
+      <div class="space-y-space-sm">
+        ${exHtml}
+      </div>
+    </div>
+
+    <!-- Mini Practice / Quick Reflection Test -->
+    ${item.quiz ? `
+    <div class="mt-space-lg p-space-md rounded-xl bg-cinnabar-subtle/40 border border-primary/20">
+      <div class="flex items-center justify-between mb-space-xs">
+        <span class="font-label-md text-xs text-primary font-bold flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[18px]">quiz</span>
+          Bài tập phản xạ nhanh (Mini Practice TOCFL)
+        </span>
+        <span class="font-label-sm text-xs text-on-surface-variant">Thử thách 1 câu</span>
+      </div>
+      <p class="font-body-md text-sm text-on-surface mt-1">
+        Điền từ thích hợp vào chỗ trống để hoàn thành câu đúng ngữ pháp:
+      </p>
+      <!-- Question Box -->
+      <div class="bg-paper-card p-space-md rounded-lg shadow-xs mt-space-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md border border-border-subtle/50">
+        <div class="font-headline-md text-base text-on-surface font-serif font-medium">
+          ${esc(item.quiz.q)}
+        </div>
+        <div class="flex items-center gap-2 flex-wrap">
+          ${quizOptsHtml}
+        </div>
+      </div>
+      <div class="hidden mt-space-sm p-space-sm rounded-lg font-body-sm text-xs" id="practice-result"></div>
+    </div>
+    ` : ''}
+  `;
+}
+
+function updateGrammarGrid() {
+  const container = document.getElementById("grammar-cards-grid");
+  if (!container) return;
+  const q = window.GRAMMAR_SEARCH_QUERY || "";
+  const filter = window.ACTIVE_GRAMMAR_FILTER || "all";
+
+  const filtered = GRAMMAR_MASTER_LIST.filter(g => {
+    if (filter !== "all" && g.levelGroup !== filter) return false;
+    if (q) {
+      const match = g.name.toLowerCase().includes(q) || 
+                    g.zh.toLowerCase().includes(q) || 
+                    g.formula.toLowerCase().includes(q) || 
+                    g.summary.toLowerCase().includes(q) ||
+                    (g.wrong && g.wrong.zh.includes(q)) ||
+                    (g.correct && g.correct.zh.includes(q));
+      if (!match) return false;
+    }
+    return true;
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="col-span-1 md:col-span-2 text-center py-12 text-on-surface-variant bg-paper-card rounded-xl border border-border-subtle">
+        <span class="material-symbols-outlined text-[36px] text-outline mb-2">search_off</span>
+        <p class="text-sm">Không tìm thấy cấu trúc ngữ pháp phù hợp với từ khóa "${esc(q)}".</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = filtered.map(g => {
+    const isBookmarked = window.GRAMMAR_BOOKMARKS.has(g.id);
+    const isCurrent = (g.id === window.ACTIVE_GRAMMAR_ID);
+    const bandColor = g.band.includes("A2") ? "jade-subtle text-secondary" :
+                      g.band.includes("B1") ? "cinnabar-subtle text-primary" :
+                      g.band.includes("B2") ? "amber-subtle text-tertiary" : "surface-container text-on-surface";
+    return `
+      <div class="bg-paper-card rounded-xl p-space-md shadow-xs hover:shadow-md transition-all duration-200 flex flex-col justify-between border ${isCurrent ? 'border-primary/50 ring-2 ring-primary/10' : 'border-border-subtle'}">
+        <div>
+          <div class="flex items-center justify-between">
+            <span class="px-2 py-0.5 rounded bg-${bandColor} font-label-sm text-xs font-semibold">${esc(g.band)}</span>
+            <span class="text-outline font-label-sm text-xs font-medium flex items-center gap-1">
+              <span class="material-symbols-outlined text-[14px]">star</span>
+              ${esc(g.freq)}
+            </span>
+          </div>
+          <h3 class="font-headline-md text-base text-on-surface font-semibold mt-space-sm font-serif">
+            ${esc(g.name)}
+          </h3>
+          <div class="font-code text-xs text-primary font-medium mt-1">
+            ${esc(g.formula)}
+          </div>
+          <p class="font-body-sm text-xs text-on-surface-variant mt-2 line-clamp-2 leading-relaxed">
+            ${esc(g.summary)}
+          </p>
+        </div>
+        <div class="mt-space-md pt-space-sm border-t border-border-subtle/50 flex items-center justify-between">
+          <button class="font-label-md text-xs text-primary hover:text-primary-container font-semibold inline-flex items-center gap-1" onclick="selectGrammarSpotlight('${g.id}')">
+            <span>Chi tiết & Luyện tập</span>
+            <span class="material-symbols-outlined text-[16px]">navigate_next</span>
+          </button>
+          <button class="w-8 h-8 rounded-lg ${isBookmarked ? 'text-tertiary bg-amber-subtle' : 'text-outline hover:text-primary hover:bg-cinnabar-subtle'} flex items-center justify-center transition-colors" onclick="toggleGrammarBookmark('${g.id}')" title="${isBookmarked ? 'Bỏ lưu sổ tay' : 'Lưu vào sổ tay'}">
+            <span class="material-symbols-outlined text-[18px]">${isBookmarked ? 'bookmark' : 'bookmark_border'}</span>
+          </button>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderSidebarNotebook() {
+  const container = document.getElementById("sidebar-notebook-items");
+  const countEl = document.getElementById("sidebar-notebook-count");
+  if (countEl) countEl.textContent = `${window.GRAMMAR_BOOKMARKS.size} Mục`;
+  if (!container) return;
+
+  const bookmarkedList = GRAMMAR_MASTER_LIST.filter(g => window.GRAMMAR_BOOKMARKS.has(g.id));
+  if (bookmarkedList.length === 0) {
+    container.innerHTML = `
+      <div class="p-3 text-center text-xs text-outline bg-paper-base rounded-lg border border-border-subtle/50">
+        Chưa có mẫu câu nào được ghim. Nhấn biểu tượng bookmark để lưu mẫu ngữ pháp cần nhớ!
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = bookmarkedList.slice(0, 6).map(g => `
+    <div class="p-2.5 rounded-lg bg-paper-base hover:bg-surface-container transition-colors group cursor-pointer border border-border-subtle/40 flex items-center justify-between" onclick="selectGrammarSpotlight('${g.id}')">
+      <div class="flex flex-col">
+        <span class="font-headline-md text-xs md:text-sm text-on-surface font-semibold group-hover:text-primary font-serif">${esc(g.name)}</span>
+        <span class="font-code text-[11px] text-outline truncate max-w-[200px]">${esc(g.formula)}</span>
+      </div>
+      <span class="material-symbols-outlined text-tertiary text-[18px]">bookmark</span>
+    </div>
+  `).join("");
+}
+
+VIEWS["ngu-phap"] = () => {
+  // Load saved bookmarks from storage
+  try {
+    const saved = localStorage.getItem("bookmarked_grammar");
+    if (saved) {
+      const arr = JSON.parse(saved);
+      if (Array.isArray(arr)) window.GRAMMAR_BOOKMARKS = new Set(arr);
+    }
+  } catch(e){}
+
+  const spotlightItem = GRAMMAR_MASTER_LIST.find(g => g.id === window.ACTIVE_GRAMMAR_ID) || GRAMMAR_MASTER_LIST[0];
+
+  setView(`
+    <div class="flex flex-col w-full">
+      <!-- Top Background Ambient Atmosphere -->
+      <div class="relative w-full overflow-hidden pb-space-2xl">
+        <!-- Scholarly Oriental Backdrop Canvas Accents -->
+        <div class="absolute -top-12 right-6 w-96 h-96 rounded-full bg-gradient-to-br from-cinnabar-subtle/60 via-amber-subtle/30 to-transparent blur-3xl pointer-events-none -z-10"></div>
+        <div class="absolute top-1/3 left-0 w-80 h-80 rounded-full bg-gradient-to-tr from-jade-subtle/70 via-paper-muted/40 to-transparent blur-2xl pointer-events-none -z-10"></div>
+        
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin pt-space-lg">
+          <!-- 1. Editorial Header Section -->
+          <section class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-lg pb-space-lg border-b border-border-subtle/60">
+            <div class="max-w-2xl">
+              <div class="flex items-center gap-space-sm mb-space-xs">
+                <span class="inline-block w-2.5 h-2.5 rounded-full bg-primary"></span>
+                <span class="font-label-sm text-xs text-primary tracking-widest uppercase font-semibold">CẤU TRÚC & MẪU CÂU • 實用文法寶典</span>
+                <span class="font-code text-xs text-outline">• TOCFL Standard</span>
+              </div>
+              <h1 class="font-headline-lg text-2xl md:text-3xl text-on-surface font-semibold tracking-tight mt-space-xs font-serif">
+                Học Ngữ pháp tiếng Hoa Phồn thể
+              </h1>
+              <p class="font-body-lg text-sm md:text-base text-on-surface-variant mt-space-xs leading-relaxed">
+                Tổng hợp các mẫu câu trọng điểm chuẩn hóa theo khung năng lực TOCFL Band A/B/C và cấu trúc khẩu ngữ tự nhiên Đài Loan.
+              </p>
+            </div>
+            
+            <!-- Search & Filter Controls -->
+            <div class="flex flex-col gap-space-sm w-full lg:w-auto min-w-[340px]">
+              <div class="relative flex items-center">
+                <span class="material-symbols-outlined absolute left-3.5 text-[20px] text-outline pointer-events-none">search</span>
+                <input class="w-full h-11 pl-10 pr-space-md rounded-xl bg-paper-card text-on-surface font-body-md text-sm placeholder:text-outline shadow-xs border border-border-subtle focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all duration-150" placeholder="Tra cứu cấu trúc (ví dụ: 把, 被, 越來越, 與其...)" type="text" id="grammarSearchInput" oninput="filterGrammarSearch(this.value)"/>
+              </div>
+              <div class="flex items-center gap-1.5 overflow-x-auto py-0.5 no-scrollbar">
+                <button class="grammar-tab-btn px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary font-label-md text-xs font-semibold whitespace-nowrap shadow-xs" onclick="filterGrammarTab('all', this)">
+                  Tất cả
+                </button>
+                <button class="grammar-tab-btn px-3 py-1.5 rounded-lg bg-paper-card text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-xs font-medium whitespace-nowrap transition-colors shadow-xs border border-border-subtle/50" onclick="filterGrammarTab('A1/A2', this)">
+                  A1/A2 (Cơ bản)
+                </button>
+                <button class="grammar-tab-btn px-3 py-1.5 rounded-lg bg-paper-card text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-xs font-medium whitespace-nowrap transition-colors shadow-xs border border-border-subtle/50" onclick="filterGrammarTab('B1', this)">
+                  B1 (Trung cấp)
+                </button>
+                <button class="grammar-tab-btn px-3 py-1.5 rounded-lg bg-paper-card text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-xs font-medium whitespace-nowrap transition-colors shadow-xs border border-border-subtle/50" onclick="filterGrammarTab('B2', this)">
+                  B2 (Cao cấp)
+                </button>
+                <button class="grammar-tab-btn px-3 py-1.5 rounded-lg bg-paper-card text-on-surface-variant hover:bg-surface-container hover:text-on-surface font-label-md text-xs font-medium whitespace-nowrap transition-colors shadow-xs border border-border-subtle/50" onclick="filterGrammarTab('Khẩu ngữ', this)">
+                  Khẩu ngữ Đài Loan
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- 2. Metrics Bar (Chỉ số tiến độ ngữ pháp TOCFL) -->
+          <section class="grid grid-cols-2 md:grid-cols-4 gap-space-md my-space-lg">
+            <!-- Metric 1 -->
+            <div class="bg-paper-card rounded-xl p-space-md shadow-xs border border-border-subtle relative overflow-hidden flex flex-col justify-between">
+              <div class="flex items-center justify-between">
+                <span class="font-label-md text-xs text-on-surface-variant font-medium">Tổng điểm ngữ pháp</span>
+                <div class="w-8 h-8 rounded-lg bg-cinnabar-subtle flex items-center justify-center text-primary">
+                  <span class="material-symbols-outlined text-[18px]">menu_book</span>
+                </div>
+              </div>
+              <div class="mt-space-sm">
+                <div class="flex items-baseline gap-1">
+                  <span class="font-headline-lg text-xl font-bold text-on-surface">142</span>
+                  <span class="font-label-sm text-xs text-outline font-semibold">điểm cốt lõi</span>
+                </div>
+                <div class="flex items-center gap-1 mt-1 text-secondary font-label-sm text-xs">
+                  <span class="material-symbols-outlined text-[14px]">trending_up</span>
+                  <span>+6 mẫu trong tuần này</span>
+                </div>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary/20"></div>
+            </div>
+
+            <!-- Metric 2 -->
+            <div class="bg-paper-card rounded-xl p-space-md shadow-xs border border-border-subtle relative overflow-hidden flex flex-col justify-between">
+              <div class="flex items-center justify-between">
+                <span class="font-label-md text-xs text-on-surface-variant font-medium">Đang nắm vững</span>
+                <div class="w-8 h-8 rounded-lg bg-jade-subtle flex items-center justify-center text-secondary">
+                  <span class="material-symbols-outlined text-[18px]">verified</span>
+                </div>
+              </div>
+              <div class="mt-space-sm">
+                <div class="flex items-baseline gap-1">
+                  <span class="font-headline-lg text-xl font-bold text-secondary">98</span>
+                  <span class="font-label-sm text-xs text-outline font-semibold">/ 142 mẫu câu</span>
+                </div>
+                <div class="w-full bg-surface-container rounded-full h-1.5 mt-2">
+                  <div class="bg-secondary h-1.5 rounded-full" style="width: 69%"></div>
+                </div>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-secondary/30"></div>
+            </div>
+
+            <!-- Metric 3 -->
+            <div class="bg-paper-card rounded-xl p-space-md shadow-xs border border-border-subtle relative overflow-hidden flex flex-col justify-between">
+              <div class="flex items-center justify-between">
+                <span class="font-label-md text-xs text-on-surface-variant font-medium">Cần ôn tập gấp</span>
+                <div class="w-8 h-8 rounded-lg bg-amber-subtle flex items-center justify-center text-tertiary">
+                  <span class="material-symbols-outlined text-[18px]">schedule</span>
+                </div>
+              </div>
+              <div class="mt-space-sm">
+                <div class="flex items-baseline gap-1">
+                  <span class="font-headline-lg text-xl font-bold text-tertiary">12</span>
+                  <span class="font-label-sm text-xs text-outline font-semibold">mục theo chu kỳ</span>
+                </div>
+                <p class="font-label-sm text-xs text-on-surface-variant mt-1 flex items-center gap-1">
+                  <span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+                  Ưu tiên ôn trước 22:00 hôm nay
+                </p>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-tertiary/30"></div>
+            </div>
+
+            <!-- Metric 4 -->
+            <div class="bg-paper-card rounded-xl p-space-md shadow-xs border border-border-subtle relative overflow-hidden flex flex-col justify-between">
+              <div class="flex items-center justify-between">
+                <span class="font-label-md text-xs text-on-surface-variant font-medium">Độ chuẩn xác TOCFL</span>
+                <div class="w-8 h-8 rounded-lg bg-cinnabar-subtle flex items-center justify-center text-primary-container">
+                  <span class="material-symbols-outlined text-[18px]">military_tech</span>
+                </div>
+              </div>
+              <div class="mt-space-sm">
+                <div class="flex items-baseline gap-1">
+                  <span class="font-headline-lg text-xl font-bold text-on-surface">88%</span>
+                  <span class="font-label-sm text-xs text-secondary font-semibold">Mục tiêu Band B</span>
+                </div>
+                <div class="w-full bg-surface-container rounded-full h-1.5 mt-2">
+                  <div class="bg-primary-container h-1.5 rounded-full" style="width: 88%"></div>
+                </div>
+              </div>
+              <div class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-container/30"></div>
+            </div>
+          </section>
+
+          <!-- Main Layout: 2 Columns (Content 68% + Sidebar 32%) -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-start">
+            <!-- Left & Center Primary Content -->
+            <div class="lg:col-span-8 flex flex-col gap-space-xl">
+              <!-- 3. Featured Grammar Spotlight -->
+              <article class="bg-paper-card rounded-2xl p-space-lg shadow-xs border border-border-subtle relative overflow-hidden" id="grammar-spotlight-container">
+                ${renderSpotlightContent(spotlightItem)}
+              </article>
+
+              <!-- 4. Danh sách các chủ điểm ngữ pháp khác -->
+              <section class="flex flex-col gap-space-md">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <h2 class="font-headline-md text-lg md:text-xl text-on-surface font-semibold flex items-center gap-2 font-serif">
+                      <span class="w-2 h-2 rounded-full bg-secondary"></span>
+                      Khám phá các chủ điểm ngữ pháp khác
+                    </h2>
+                    <p class="font-body-sm text-xs text-on-surface-variant mt-0.5">
+                      Lộ trình phân tầng từ sơ cấp đến cao cấp dành riêng cho học viên thi lấy chứng chỉ TOCFL
+                    </p>
+                  </div>
+                  <button class="hidden sm:inline-flex items-center gap-1 font-label-md text-xs text-primary font-semibold hover:underline" onclick="filterGrammarTab('all')">
+                    Xem toàn bộ danh mục
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                  </button>
+                </div>
+
+                <!-- Grammar Cards Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md" id="grammar-cards-grid">
+                </div>
+              </section>
+            </div>
+
+            <!-- 5. Right Sidebar (Sổ tay cá nhân & Mẹo thi TOCFL Band B) -->
+            <aside class="lg:col-span-4 flex flex-col gap-space-lg w-full">
+              <!-- Editorial Notebook Block (Sổ tay ngữ pháp của bạn) -->
+              <div class="bg-paper-card rounded-2xl p-space-md shadow-xs border border-border-subtle">
+                <div class="flex items-center justify-between pb-space-sm border-b border-border-subtle/60">
+                  <div class="flex items-center gap-space-xs">
+                    <span class="material-symbols-outlined text-primary text-[20px]">stylus_note</span>
+                    <h3 class="font-headline-md text-base text-on-surface font-semibold font-serif">Sổ tay ngữ pháp của bạn</h3>
+                  </div>
+                  <span class="px-2 py-0.5 rounded-full bg-paper-base text-outline font-code text-xs font-semibold" id="sidebar-notebook-count">3 Mục</span>
+                </div>
+                <p class="font-body-sm text-xs text-on-surface-variant mt-space-sm">
+                  Những mẫu câu trọng điểm bạn đã gắn sao ghi nhớ cùng lưu ý cá nhân.
+                </p>
+
+                <!-- Bookmarked items list -->
+                <div class="mt-space-sm space-y-space-xs" id="sidebar-notebook-items">
+                </div>
+
+                <!-- Add Note Button -->
+                <button class="w-full mt-space-md py-2.5 rounded-xl border border-dashed border-outline/30 hover:border-primary text-outline hover:text-primary font-label-md text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 shadow-xs" onclick="promptAddGrammarNote()">
+                  <span class="material-symbols-outlined text-[16px]">edit_note</span>
+                  <span>Thêm ghi chú cấu trúc mới</span>
+                </button>
+              </div>
+
+              <!-- TOCFL Exam Strategy Tips Card -->
+              <div class="bg-gradient-to-br from-paper-card via-paper-card to-cinnabar-subtle/30 rounded-2xl p-space-md shadow-xs border border-border-subtle relative overflow-hidden">
+                <div class="flex items-center gap-2 text-primary mb-space-sm">
+                  <span class="material-symbols-outlined text-[20px]">lightbulb</span>
+                  <h3 class="font-headline-md text-base font-semibold text-on-surface font-serif">Mẹo thi TOCFL Band B</h3>
+                </div>
+                <div class="space-y-space-sm">
+                  <div class="p-3 rounded-lg bg-paper-base/90 border border-border-subtle/40">
+                    <div class="font-label-md text-xs text-primary font-bold">1. Bẫy liên từ chỉ sự tương phản</div>
+                    <p class="font-body-sm text-xs text-on-surface-variant mt-1 leading-relaxed">
+                      Chú ý sự khác biệt giữa <span class="font-semibold text-on-surface">儘管 (jǐnguǎn)</span> và <span class="font-semibold text-on-surface">固然 (gùrán)</span>. Đề thi thường đặt ở vế đầu để đánh lừa tìm cặp liên từ đi kèm (thường là 卻 hoặc 還是).
+                    </p>
+                  </div>
+                  <div class="p-3 rounded-lg bg-paper-base/90 border border-border-subtle/40">
+                    <div class="font-label-md text-xs text-secondary font-bold">2. Trật tự phó từ thời gian & địa điểm</div>
+                    <p class="font-body-sm text-xs text-on-surface-variant mt-1 leading-relaxed">
+                      Trong tiếng Hoa: <span class="font-semibold text-on-surface">Thời gian & Địa điểm luôn đứng TRƯỚC hành động</span>. Bất cứ đáp án nào đảo vị ngữ ra trước cụm "在 + Địa điểm" đều là bẫy ngữ pháp.
+                    </p>
+                  </div>
+                  <div class="p-3 rounded-lg bg-paper-base/90 border border-border-subtle/40">
+                    <div class="font-label-md text-xs text-tertiary font-bold">3. Bổ ngữ kết quả & Bổ ngữ khả năng</div>
+                    <p class="font-body-sm text-xs text-on-surface-variant mt-1 leading-relaxed">
+                      Phân biệt <span class="font-semibold text-on-surface">看懂 (đã hiểu)</span> với <span class="font-semibold text-on-surface">看得懂 (có khả năng hiểu)</span>. Dạng phủ định là 看不懂 chứ không bao giờ nói 不看懂.
+                    </p>
+                  </div>
+                </div>
+
+                <!-- Ink Stamp Aesthetic -->
+                <div class="mt-space-md pt-space-sm border-t border-border-subtle/60 flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 rounded-full bg-primary-container text-white flex items-center justify-center font-headline-md text-xs font-bold font-serif">
+                      印
+                    </div>
+                    <span class="font-label-sm text-[11px] text-outline font-code">TOCFL TAIWAN SPEC</span>
+                  </div>
+                  <span class="font-label-sm text-[11px] text-secondary font-semibold">Cập nhật 2024</span>
+                </div>
+              </div>
+
+              <!-- Academic Community / Daily Challenge Banner -->
+              <div class="bg-paper-card rounded-2xl p-space-md shadow-xs border border-border-subtle relative overflow-hidden">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-jade-subtle text-secondary flex items-center justify-center flex-shrink-0">
+                    <span class="material-symbols-outlined text-[24px]">psychology</span>
+                  </div>
+                  <div>
+                    <h4 class="font-headline-md text-sm text-on-surface font-semibold font-serif">Thử thách Ngữ pháp 7 ngày</h4>
+                    <p class="font-body-sm text-xs text-on-surface-variant mt-0.5">Mỗi ngày 5 câu phức TOCFL B1</p>
+                  </div>
+                </div>
+                <!-- Mini Progress visualization -->
+                <div class="mt-space-md">
+                  <div class="flex justify-between font-label-sm text-xs text-on-surface-variant mb-1">
+                    <span>Tiến độ thử thách: Ngày 4 / 7</span>
+                    <span class="font-semibold text-secondary">57%</span>
+                  </div>
+                  <div class="grid grid-cols-7 gap-1">
+                    <div class="h-2 rounded bg-secondary"></div>
+                    <div class="h-2 rounded bg-secondary"></div>
+                    <div class="h-2 rounded bg-secondary"></div>
+                    <div class="h-2 rounded bg-secondary"></div>
+                    <div class="h-2 rounded bg-surface-container"></div>
+                    <div class="h-2 rounded bg-surface-container"></div>
+                    <div class="h-2 rounded bg-surface-container"></div>
+                  </div>
+                </div>
+                <button class="w-full mt-space-md py-2 rounded-xl bg-primary hover:bg-primary-container text-white font-label-md text-xs font-semibold transition-colors duration-150 shadow-xs" onclick="selectGrammarSpotlight('ba')">
+                  Tiếp tục bài tập ngày 5
+                </button>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </div>
+  `);
+
+  updateGrammarGrid();
+  renderSidebarNotebook();
+};
+
+// =========================================================================
 // 5. TRA TỪ & CHI TIẾT TỪ (Stitch Design + Hanzii VIP Link & Auto-Translate)
 // =========================================================================
 VIEWS["tu-dien"] = (arg) => {
@@ -3088,6 +4067,25 @@ VIEWS["tu-dien"] = (arg) => {
           <p class="font-body-md text-sm text-on-surface-variant">
             Tra cứu chữ Hán, pinyin không dấu, âm Hán Việt hoặc nghĩa tiếng Việt/tiếng Anh.
           </p>
+        </div>
+      </div>
+
+      <!-- Mode Navigation Tabs: Tra cứu vs Nhập từ -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-sm p-1.5 bg-surface-container-low rounded-xl border border-border-subtle/50">
+        <div class="flex items-center gap-1 p-1 bg-surface-container rounded-lg">
+          <a href="#tu-dien" class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-label-md text-xs transition-all bg-paper-card text-primary shadow-xs font-semibold">
+            <span class="material-symbols-outlined text-[16px]">menu_book</span>
+            <span>Tra cứu từ điển (辭典檢索)</span>
+          </a>
+          <a href="#nhap" class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-label-md text-xs transition-all text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">
+            <span class="material-symbols-outlined text-[16px]">post_add</span>
+            <span>Nhập từ mới & Hộp thư</span>
+            <span class="px-1.5 py-0.2 rounded-full bg-cinnabar-subtle text-primary text-[10px]">Mới</span>
+          </a>
+        </div>
+        <div class="hidden sm:flex items-center gap-1.5 px-3 text-on-surface-variant text-xs">
+          <span class="material-symbols-outlined text-[16px]">info</span>
+          <span>Ký âm: <strong>Pinyin & Zhuyin Chú âm</strong></span>
         </div>
       </div>
 
@@ -17798,6 +18796,25 @@ window.examQuickStart = (testId) => {
 VIEWS["nhap"] = () => {
   setView(`
     <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin py-space-xl flex flex-col gap-space-lg">
+      <!-- Mode Navigation Tabs: Tra cứu vs Nhập từ -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-sm p-1.5 bg-surface-container-low rounded-xl border border-border-subtle/50">
+        <div class="flex items-center gap-1 p-1 bg-surface-container rounded-lg">
+          <a href="#tu-dien" class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-label-md text-xs transition-all text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high">
+            <span class="material-symbols-outlined text-[16px]">menu_book</span>
+            <span>Tra cứu từ điển (辭典檢索)</span>
+          </a>
+          <a href="#nhap" class="flex items-center gap-2 px-3.5 py-1.5 rounded-lg font-label-md text-xs transition-all bg-paper-card text-primary shadow-xs font-semibold">
+            <span class="material-symbols-outlined text-[16px]">post_add</span>
+            <span>Nhập từ mới & Hộp thư</span>
+            <span class="px-1.5 py-0.2 rounded-full bg-cinnabar-subtle text-primary text-[10px]">Mới</span>
+          </a>
+        </div>
+        <div class="hidden sm:flex items-center gap-1.5 px-3 text-on-surface-variant text-xs">
+          <span class="material-symbols-outlined text-[16px]">sync_alt</span>
+          <span>Tự động đồng bộ: <strong>Flashcards SRS & Hộp thư</strong></span>
+        </div>
+      </div>
+
       <!-- Input Card -->
       <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-md">
         <div class="flex items-center gap-2">
