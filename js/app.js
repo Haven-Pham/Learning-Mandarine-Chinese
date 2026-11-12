@@ -971,9 +971,14 @@ VIEWS["trang-chu"] = () => {
               <span class="px-space-xs py-0.5 rounded-full bg-cinnabar-subtle text-primary font-code text-code text-[11px]">Luận Ngữ • Học Nhi</span>
             </div>
             <div class="flex flex-col gap-space-xs">
-              <h1 class="font-display text-display text-on-surface tracking-wide leading-tight">
-                學而時習之，不亦說乎
-              </h1>
+              <div class="flex items-center gap-3 flex-wrap">
+                <h1 class="font-display text-3xl md:text-5xl text-on-surface tracking-wide leading-tight font-bold">
+                  學而時習之，不亦說乎
+                </h1>
+                <button type="button" class="w-9 h-9 rounded-full bg-cinnabar-subtle text-primary hover:bg-primary hover:text-white flex items-center justify-center transition-all shadow-xs" onclick="if(typeof say==='function') say('學而時習之，不亦說乎')" title="Phát âm câu cách ngôn">
+                  <span class="material-symbols-outlined text-[20px]">volume_up</span>
+                </button>
+              </div>
               <p class="font-code text-body-md text-primary font-medium tracking-wide">
                 Xué ér shí xí zhī, bù yì yuè hū?
               </p>
@@ -1367,8 +1372,13 @@ VIEWS["trang-chu"] = () => {
             <span class="material-symbols-outlined text-primary text-[20px]">lightbulb</span>
           </div>
           <div class="flex flex-col">
-            <span class="font-label-md text-label-md text-on-surface font-semibold">Thành ngữ hôm nay: 日積月累 (Rì jī yuè lěi)</span>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">"Ngày tích tháng lũy" — Mỗi ngày học đều đặn, một năm bạn đã nắm vững toàn bộ vốn từ TOCFL B2.</span>
+            <div class="flex items-center gap-2">
+              <span class="font-headline-md text-base md:text-lg text-on-surface font-bold">Thành ngữ hôm nay: 日積月累 <span class="font-code text-sm text-primary font-medium">(Rì jī yuè lěi)</span></span>
+              <button type="button" class="w-7 h-7 rounded-full bg-paper-card text-primary hover:scale-110 flex items-center justify-center transition-transform shadow-2xs" onclick="if(typeof say==='function') say('日積月累')" title="Nghe phát âm thành ngữ">
+                <span class="material-symbols-outlined text-[16px]">volume_up</span>
+              </button>
+            </div>
+            <span class="font-body-md text-sm text-on-surface-variant mt-0.5">"Ngày tích tháng lũy" — Mỗi ngày học đều đặn, một năm bạn đã nắm vững toàn bộ vốn từ TOCFL B2.</span>
           </div>
         </div>
         <a href="#tu-dien" class="shrink-0 px-space-md py-space-xs rounded-lg bg-paper-card text-on-surface font-label-sm text-label-sm hover:bg-surface-container transition-colors shadow-sm no-underline">
@@ -1886,7 +1896,7 @@ function renderCard() {
                 <span class="${badgeCls}">
                   ${isRight ? '✓' : (isWrong ? '✕' : keyLabel)}
                 </span>
-                <span class="font-serif font-bold text-2xl tracking-wide">${esc(choice)}</span>
+                <span class="font-serif font-bold text-2xl md:text-3xl tracking-wide">${esc(choice)}</span>
               </div>
               <span class="font-code text-xs text-outline opacity-40 group-hover:opacity-100">${idx + 1}</span>
             </button>
@@ -1928,7 +1938,7 @@ function renderCard() {
         </div>
       ` : ''}
       <div class="flex items-center justify-center gap-space-md my-space-xs">
-        <h1 class="font-headline-lg text-5xl md:text-7xl leading-tight text-on-surface tracking-wide select-all font-serif font-bold">
+        <h1 class="font-headline-lg text-6xl md:text-8xl leading-tight text-on-surface tracking-wide select-all font-serif font-bold">
           ${esc(it.w)}
         </h1>
       </div>
@@ -3238,12 +3248,12 @@ VIEWS["thu-muc"] = (id) => {
           </div>
           <!-- Main Hanzi Phồn Thể Display -->
           <div class="flex flex-col items-center gap-1 my-2">
-            <a href="#tu/${encodeURIComponent(it.w)}" class="font-headline-lg text-[64px] leading-[74px] text-on-surface hover:text-primary font-semibold tracking-widest select-all no-underline transition-colors">
+            <a href="#tu/${encodeURIComponent(it.w)}" class="font-headline-lg text-[76px] md:text-[90px] leading-[86px] md:leading-[100px] text-on-surface hover:text-primary font-semibold tracking-widest select-all no-underline transition-colors">
               ${esc(it.w)}
             </a>
             <!-- Pinyin and Audio (Taiwan accent) -->
             <div class="flex items-center gap-space-sm mt-2">
-              <span class="font-code text-lg text-tertiary-container font-medium tracking-wide">${esc(it.py || "")}</span>
+              <span class="font-code text-xl md:text-2xl text-tertiary-container font-semibold tracking-wide">${esc(it.py || "")}</span>
               <button type="button" class="flex items-center gap-1 px-space-sm py-1 rounded-full bg-paper-muted hover:bg-surface-container-high text-on-surface-variant transition-colors text-label-sm font-label-sm" id="tts-audio-btn" title="Nghe phát âm chuẩn Đài Bắc (Shift)">
                 <span class="material-symbols-outlined text-[16px] text-primary">volume_up</span>
                 <span>Đài Bắc</span>
@@ -3253,7 +3263,7 @@ VIEWS["thu-muc"] = (id) => {
           </div>
           <!-- Definition & Sentence Example -->
           <div class="max-w-xl mx-auto mt-space-md text-center w-full">
-            <p class="font-body-lg text-body-lg text-on-surface font-medium">
+            <p class="font-headline-md text-xl md:text-2xl text-on-surface font-semibold">
               ${esc(meaningOf(n))}
             </p>
             <div class="mt-2 p-space-sm rounded-lg bg-paper-base border border-border-subtle/50 text-left flex items-start gap-space-xs">
@@ -3485,6 +3495,36 @@ VIEWS["thu-muc"] = (id) => {
   if (tInt) tInt.onclick = () => setMainMode("integrated");
   if (tLib) tLib.onclick = () => setMainMode("library");
   if (tFoc) tFoc.onclick = () => setMainMode("focus");
+
+  // Keyboard navigation for Vocabulary Flashcards (Space/Arrows/Shift/1-6)
+  window.onkeydown = async (e) => {
+    if (location.hash !== "#thu-muc" && !location.hash.startsWith("#thu-muc")) return;
+    if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+
+    if (e.key === "Shift") {
+      e.preventDefault();
+      const n = flashPool[fcIdx % flashPool.length];
+      if (n && typeof speak === "function") speak(n.w);
+    } else if (e.key === " " || e.key === "ArrowRight") {
+      e.preventDefault();
+      fcIdx = (fcIdx + 1) % flashPool.length;
+      renderFlashcardCanvas();
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      fcIdx = (fcIdx - 1 + flashPool.length) % flashPool.length;
+      renderFlashcardCanvas();
+    } else if (["1", "2", "3", "4", "5", "6"].includes(e.key)) {
+      e.preventDefault();
+      const targetLvl = Number(e.key) - 1;
+      const n = flashPool[fcIdx % flashPool.length];
+      if (n) {
+        if (typeof playChime === "function") playChime(targetLvl >= 2);
+        await applyWordLevel(n, targetLvl);
+        fcIdx = (fcIdx + 1) % flashPool.length;
+        renderFlashcardCanvas();
+      }
+    }
+  };
 };
 
 // =========================================================================
@@ -4770,7 +4810,7 @@ function buildStitchWordShowcaseHTML(w) {
             <div class="flex items-center gap-space-md flex-wrap justify-center">
               ${chars.map((c, k) => `
                 <div class="flex flex-col items-center gap-1.5">
-                  <div class="relative w-28 h-28 bg-[#FFFDF9] rounded-xl border border-border-subtle flex items-center justify-center shadow-inner overflow-hidden group cursor-pointer" data-anim-w="${k}" title="Nhấn để xem diễn hoạ bút thuận chữ ${esc(c)}">
+                  <div class="relative w-32 h-32 md:w-36 md:h-36 bg-[#FFFDF9] rounded-xl border border-border-subtle flex items-center justify-center shadow-inner overflow-hidden group cursor-pointer" data-anim-w="${k}" title="Nhấn để xem diễn hoạ bút thuận chữ ${esc(c)}">
                     <svg class="absolute inset-0 w-full h-full text-surface-container-highest stroke-current pointer-events-none" stroke-dasharray="2,3" stroke-width="0.8" viewBox="0 0 100 100">
                       <line x1="0" x2="100" y1="0" y2="100"></line>
                       <line x1="100" x2="0" y1="0" y2="100"></line>
@@ -4778,7 +4818,7 @@ function buildStitchWordShowcaseHTML(w) {
                       <line x1="0" x2="100" y1="50" y2="50"></line>
                     </svg>
                     <div id="wordHw${k}" class="relative z-10 flex items-center justify-center">
-                      <span class="font-display text-[60px] text-on-surface select-none leading-none">${esc(c)}</span>
+                      <span class="font-display text-[72px] md:text-[82px] text-on-surface select-none leading-none">${esc(c)}</span>
                     </div>
                   </div>
                   <div class="flex gap-1">
@@ -4792,8 +4832,8 @@ function buildStitchWordShowcaseHTML(w) {
             <!-- Pronunciation, Han-Viet, and Meaning -->
             <div class="flex flex-col gap-space-xs text-center sm:text-left justify-center flex-1 min-w-0">
               <div class="flex items-center justify-center sm:justify-start gap-space-sm flex-wrap">
-                <h2 class="font-headline-lg text-3xl font-bold text-on-surface font-serif select-all mr-1">${esc(w)}</h2>
-                <span class="font-body-lg text-[22px] font-semibold text-primary">${esc(it.py || "")}</span>
+                <h2 class="font-headline-lg text-4xl md:text-5xl font-bold text-on-surface font-serif select-all mr-2">${esc(w)}</h2>
+                <span class="font-body-lg text-2xl md:text-3xl font-bold text-primary">${esc(it.py || "")}</span>
                 <button type="button" class="w-8 h-8 rounded-full bg-cinnabar-subtle hover:bg-primary-fixed text-primary flex items-center justify-center transition-transform active:scale-95 shadow-sm" onclick="say('${esc(w)}')" title="Phát âm chuẩn Đài Bắc (Quốc ngữ)">
                   <span class="material-symbols-outlined text-[18px]">volume_up</span>
                 </button>
@@ -4822,7 +4862,7 @@ function buildStitchWordShowcaseHTML(w) {
                     </button>
                   </div>
                 </div>
-                <div class="font-body-md text-base text-on-surface font-semibold leading-relaxed" id="meaningDisplay">
+                <div class="font-body-md text-lg md:text-xl text-on-surface font-semibold leading-relaxed" id="meaningDisplay">
                   ${it.vn
                     ? esc(it.vn)
                     : it.en
@@ -5068,7 +5108,7 @@ function renderStitchWordShowcase(w, containerSelector, onRefresh) {
     if (el && window.HanziWriter) {
       el.innerHTML = "";
       const writer = HanziWriter.create(el, c, {
-        width: 96, height: 96, padding: 4, showOutline: true,
+        width: 120, height: 120, padding: 4, showOutline: true,
         strokeColor: "#86090a", outlineColor: "#EBE2D8", highlightColor: "#176b4b",
         charDataLoader: (ch, onLoad, onErr) => strokeData(ch).then(onLoad).catch(onErr)
       });
@@ -18621,12 +18661,16 @@ VIEWS["chinh-ta"] = async () => {
                 <!-- SMART AUDIO PLAYER COMPONENT -->
                 <div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-xs shadow-inner border border-border-subtle/50">
                   <div class="flex items-center justify-between gap-space-md">
-                    <div class="flex items-center gap-space-xs">
-                      <button class="w-12 h-12 rounded-full bg-primary hover:bg-primary-container text-on-primary flex items-center justify-center transition-all shadow-md active:scale-95" id="btn-play-pause" title="Bấm hoặc nhấn Shift để nghe lại">
+                    <div class="flex items-center gap-space-xs flex-wrap">
+                      <button class="w-12 h-12 rounded-full bg-primary hover:bg-primary-container text-on-primary flex items-center justify-center transition-all shadow-md active:scale-95" id="btn-play-pause" title="Bấm hoặc nhấn Shift để nghe lại câu hiện tại">
                         <span class="material-symbols-outlined text-[26px]" id="icon-play" style="font-variation-settings: 'FILL' 1;">volume_up</span>
                       </button>
-                      <button class="w-8 h-8 rounded-full bg-paper-card text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors shadow-sm" id="btn-replay-5s" title="Nghe lại câu này">
-                        <span class="material-symbols-outlined text-[18px]">replay</span>
+                      <button class="w-9 h-9 rounded-full bg-paper-card text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors shadow-sm" id="btn-replay-5s" title="Nghe lại câu này">
+                        <span class="material-symbols-outlined text-[20px]">replay</span>
+                      </button>
+                      <button class="px-3 py-1.5 rounded-xl bg-jade-subtle text-secondary hover:bg-secondary hover:text-white transition-all text-xs font-bold flex items-center gap-1 shadow-2xs border border-secondary/20" id="btn-play-full-topic" title="Nghe liên tục toàn bộ các câu trong bài hội thoại này">
+                        <span class="material-symbols-outlined text-[18px]">playlist_play</span>
+                        <span>Nghe toàn bài</span>
                       </button>
                     </div>
 
@@ -18651,7 +18695,7 @@ VIEWS["chinh-ta"] = async () => {
                 <!-- INPUT AREA -->
                 <div class="flex flex-col gap-space-xs relative">
                   <div class="relative">
-                    <textarea class="w-full bg-paper-base rounded-xl p-space-md font-body-lg text-body-lg text-on-surface placeholder:text-outline/70 focus:outline-none focus:bg-paper-card border border-border-subtle focus:border-primary transition-all shadow-inner resize-none leading-relaxed" id="dictation-input" placeholder="Gõ chữ Hán Phồn thể bạn nghe được tại đây... (Nhấn Shift để nghe lại)" rows="3"></textarea>
+                    <textarea class="w-full bg-paper-base rounded-xl p-space-md text-xl md:text-2xl font-serif text-on-surface placeholder:text-outline/60 focus:outline-none focus:bg-paper-card border border-border-subtle focus:border-primary transition-all shadow-inner resize-none leading-relaxed tracking-wide" id="dictation-input" placeholder="Gõ chữ Hán Phồn thể bạn nghe được tại đây... (Nhấn Shift để nghe lại)" rows="3"></textarea>
                   </div>
                   <div class="flex items-center justify-between text-body-sm font-body-sm mt-1">
                     <div class="flex items-center gap-space-xs">
@@ -18733,7 +18777,7 @@ VIEWS["chinh-ta"] = async () => {
                       </button>
                     </div>
 
-                    <div class="p-3 bg-paper-card rounded-lg border border-border-subtle font-serif text-lg leading-relaxed" id="diffComparison"></div>
+                    <div class="p-3 bg-paper-card rounded-lg border border-border-subtle font-serif text-2xl md:text-3xl leading-relaxed tracking-wide" id="diffComparison"></div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md mt-1">
                       <div class="bg-paper-card p-3 rounded-lg border border-border-subtle text-xs">
@@ -18857,6 +18901,23 @@ VIEWS["chinh-ta"] = async () => {
   const txtInput = $("#dictation-input");
   const charCounter = $("#char-counter");
   const btnPlayPause = $("#btn-play-pause");
+  const btnPlayFull = $("#btn-play-full-topic");
+
+  function playFullDialogueAudio() {
+    if (!curTopic || !curTopic.sentences || !curTopic.sentences.length) return;
+    const allSegs = curTopic.sentences.map(s => {
+      let spk = "narrator";
+      if (/林經理|小姐|女|房東|顧客|同學/.test(s.speaker || "")) spk = "female";
+      else if (/傑克|小陳|男|先生|記者|經理/.test(s.speaker || "")) spk = "male";
+      return { speaker: spk, text: s.zh };
+    });
+    playDialogueAudio(allSegs, d.speed || 1.0);
+    if (btnPlayFull) {
+      btnPlayFull.classList.add("ring-4", "ring-secondary/40");
+      setTimeout(() => btnPlayFull.classList.remove("ring-4", "ring-secondary/40"), 300);
+    }
+  }
+  if (btnPlayFull) btnPlayFull.onclick = playFullDialogueAudio;
 
   function playCurrentAudio() {
     if (!curSent || !curSent.zh) return;
@@ -19125,8 +19186,9 @@ VIEWS["thi-thu"] = async () => {
   const readDonePct = Math.round((doneReading / Math.max(1, totalQ)) * 100);
   const readLeftPct = Math.max(0, 100 - listenDonePct - listenLeftPct - readDonePct);
 
-  const mins = Math.floor((exam.timerLeft || 3600) / 60);
-  const secs = (exam.timerLeft || 3600) % 60;
+  if (exam.timerLeft === undefined) exam.timerLeft = 3600;
+  const mins = Math.floor(exam.timerLeft / 60);
+  const secs = exam.timerLeft % 60;
   const timerStr = `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
 
   function playExamAudio() {
@@ -19442,7 +19504,7 @@ VIEWS["thi-thu"] = async () => {
                     <div class="flex items-start gap-space-sm">
                       <span class="font-code text-headline-md text-primary font-bold">${curQ.id}.</span>
                       <div class="flex-1">
-                        <h2 class="font-headline-md ${exam.fontSizeClass || 'text-headline-md'} text-on-surface font-bold leading-snug tracking-tight" id="target-question-text">
+                        <h2 class="font-headline-md ${exam.fontSizeClass === "text-headline-lg" ? "text-2xl md:text-3xl" : (exam.fontSizeClass === "text-body-lg" ? "text-lg md:text-xl" : "text-xl md:text-2xl")} text-on-surface font-bold leading-snug tracking-tight font-serif" id="target-question-text">
                           ${esc(curQ.q)}
                         </h2>
                         ${curQ.pinyin || exam.showZhuyin ? `
@@ -19728,7 +19790,45 @@ VIEWS["thi-thu"] = async () => {
 
       </div>
 
-      <!-- HISTORY MODAL -->
+      
+      <!-- SUBMIT CONFIRMATION MODAL -->
+      <div class="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-margin hidden" id="submit-modal">
+        <div class="bg-paper-card rounded-2xl max-w-lg w-full p-space-xl shadow-2xl flex flex-col gap-space-md border border-border-subtle animate-in fade-in zoom-in-95 duration-150">
+          <div class="w-12 h-12 rounded-full bg-cinnabar-subtle text-primary flex items-center justify-center mx-auto">
+            <span class="material-symbols-outlined text-[28px]">notification_important</span>
+          </div>
+          <div class="text-center">
+            <h3 class="font-headline-lg text-xl md:text-2xl text-on-surface font-bold">Xác nhận nộp bài thi TOCFL?</h3>
+            <p class="font-body-md text-sm text-on-surface-variant mt-1.5 leading-relaxed">
+              Sau khi nộp, hệ thống trung tâm SC-TOP sẽ khóa bài và chấm điểm tự động toàn bộ 2 phần Nghe &amp; Đọc.
+            </p>
+          </div>
+          <div class="bg-surface-container-low p-space-md rounded-xl flex justify-around text-center border border-border-subtle">
+            <div>
+              <span class="font-label-sm text-outline text-xs block">Đã trả lời</span>
+              <span class="font-code text-xl font-bold text-secondary" id="modalStatAns">${totalDone}</span>
+            </div>
+            <div>
+              <span class="font-label-sm text-outline text-xs block">Còn bỏ trống</span>
+              <span class="font-code text-xl font-bold text-primary" id="modalStatUnans">${totalUnanswered}</span>
+            </div>
+            <div>
+              <span class="font-label-sm text-outline text-xs block">Đang gắn cờ</span>
+              <span class="font-code text-xl font-bold text-tertiary" id="modalStatFlag">${totalFlagged}</span>
+            </div>
+          </div>
+          <div class="flex items-center justify-end gap-space-sm pt-space-xs">
+            <button class="px-space-md py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-xs transition-colors" id="modal-cancel-btn">
+              Tiếp tục làm bài
+            </button>
+            <button class="px-space-lg py-2 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-md text-xs font-bold transition-all shadow-sm" id="modal-confirm-btn">
+              Đồng ý nộp bài ngay
+            </button>
+          </div>
+        </div>
+      </div>
+
+<!-- HISTORY MODAL -->
       <div class="${exam.historyModalOpen ? 'flex' : 'hidden'} fixed inset-0 z-[100] bg-black/40 backdrop-blur-xs items-center justify-center p-4" id="historyModal">
         <div class="bg-paper-card w-full max-w-lg rounded-2xl p-space-lg shadow-2xl flex flex-col gap-space-md border border-border-subtle">
           <div class="flex items-center justify-between border-b pb-space-sm border-border-subtle">
@@ -19936,6 +20036,75 @@ VIEWS["thi-thu"] = async () => {
     exam.historyModalOpen = false;
     VIEWS["thi-thu"]();
   };
+
+  // Active Real-time countdown timer in Exam Mode
+  if (window._tocflTimerInterval) {
+    clearInterval(window._tocflTimerInterval);
+    window._tocflTimerInterval = null;
+  }
+  if (exam.isExamMode && exam.timerLeft > 0) {
+    window._tocflTimerInterval = setInterval(() => {
+      if (location.hash !== "#thi-thu" || !exam.isExamMode) {
+        clearInterval(window._tocflTimerInterval);
+        return;
+      }
+      exam.timerLeft--;
+      if (exam.timerLeft <= 0) {
+        clearInterval(window._tocflTimerInterval);
+        alert("Hết giờ làm bài thi TOCFL! Hệ thống sẽ tự động thu bài và chấm điểm.");
+        doSubmitExam();
+        return;
+      }
+      const m = Math.floor(exam.timerLeft / 60);
+      const s = exam.timerLeft % 60;
+      const display = document.getElementById("examTimerDisplay");
+      if (display) {
+        display.textContent = `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+      }
+    }, 1000);
+  }
+
+  // Zhuyin / Pinyin toggle
+  const zhuyinToggle = $("#toggle-zhuyin");
+  if (zhuyinToggle) {
+    zhuyinToggle.checked = !!exam.showZhuyin;
+    zhuyinToggle.onchange = () => {
+      exam.showZhuyin = zhuyinToggle.checked;
+      VIEWS["thi-thu"]();
+    };
+  }
+
+  // Submit Modal Elements
+  const submitModal = $("#submit-modal");
+  const modalCancel = $("#modal-cancel-btn");
+  const modalConfirm = $("#modal-confirm-btn");
+  if (modalCancel) modalCancel.onclick = () => { if (submitModal) submitModal.classList.add("hidden"); };
+  if (modalConfirm) modalConfirm.onclick = () => {
+    if (submitModal) submitModal.classList.add("hidden");
+    doSubmitExam();
+  };
+
+  async function promptSubmitModal() {
+    const elAns = $("#modalStatAns");
+    const elUnans = $("#modalStatUnans");
+    const elFlag = $("#modalStatFlag");
+    if (elAns) elAns.textContent = totalDone;
+    if (elUnans) elUnans.textContent = totalUnanswered;
+    if (elFlag) elFlag.textContent = totalFlagged;
+
+    if (submitModal && submitModal.classList) {
+      submitModal.classList.remove("hidden");
+    }
+    // In headless test environments or direct programmatic invocation
+    if (typeof document !== "undefined" && !document.body) {
+      await doSubmitExam();
+    }
+  }
+
+  const btnFinalSub = $("#btn-final-submit");
+  if (btnFinalSub) btnFinalSub.onclick = promptSubmitModal;
+  const btnSubEx = $("#btnSubmitExam");
+  if (btnSubEx) btnSubEx.onclick = promptSubmitModal;
 
   window.onkeydown = (e) => {
     if (location.hash !== "#thi-thu") return;

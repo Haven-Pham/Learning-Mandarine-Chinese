@@ -615,3 +615,45 @@ rt { font-family: var(--f-code); font-size: 0.52em; font-weight: 600; color: var
 .custom-scrollbar::-webkit-scrollbar, .exam-scroll::-webkit-scrollbar { width: 6px; height: 6px; }
 .custom-scrollbar::-webkit-scrollbar-track, .exam-scroll::-webkit-scrollbar-track { background: #f2edeb; border-radius: 9999px; }
 .custom-scrollbar::-webkit-scrollbar-thumb, .exam-scroll::-webkit-scrollbar-thumb { background: #d5c5c0; border-radius: 9999px; }
+
+
+/* Chinese Character Readability & Typography Boost */
+body {
+  font-size: 16px;
+  line-height: 1.6;
+}
+.han, [lang="zh"], [lang="zh-TW"], .font-display, .font-serif {
+  font-family: var(--f-han);
+  letter-spacing: 0.025em;
+  text-rendering: optimizeLegibility;
+}
+ruby {
+  ruby-position: over;
+  ruby-align: center;
+}
+rt {
+  font-family: var(--f-code);
+  font-size: 0.58em;
+  font-weight: 600;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+/* Scalable Font Sizing Classes for Exam & Practice */
+.font-scale-sm { font-size: 16px !important; line-height: 26px !important; }
+.font-scale-base { font-size: 19px !important; line-height: 30px !important; }
+.font-scale-lg { font-size: 23px !important; line-height: 36px !important; }
+
+/* Large Dictation Character Inputs */
+#dictation-input {
+  font-size: 22px !important;
+  line-height: 34px !important;
+  font-family: var(--f-han);
+  letter-spacing: 0.05em;
+}
+@media (max-width: 640px) {
+  #dictation-input {
+    font-size: 19px !important;
+    line-height: 30px !important;
+  }
+}
