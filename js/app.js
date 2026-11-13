@@ -8,6 +8,8 @@ const isHan = (s) => /[㐀-鿿豈-﫿]/.test(s);
 const hanOnly = (s) => [...String(s || "")].filter((c) => /[㐀-鿿豈-﫿]/.test(c)).join("");
 const fmt = (n) => Number(n).toLocaleString("vi-VN");
 const BAND_INFO = { "Novice 1": "Chuẩn bị 1", "Novice 2": "Chuẩn bị 2", "A1": "Band A · cấp 1", "A2": "Band A · cấp 2", "B1": "Band B · cấp 3", "B2": "Band B · cấp 4", "C": "Band C · cấp 5" };
+const BAND_ORDER = ["Novice 1", "Novice 2", "A1", "A2", "B1", "B2", "C"];
+// Card types per word: Novice–A2 = Nhận diện, Nghe, Nói và viết, Điền từ · B1 = Nhận diện, Nghe, Điền từ · B2/C = Nhận diện, Nghe
 const VOCAB_TYPES = [["rec", "Nhận diện"], ["lis", "Nghe"], ["wri", "Nói và viết"], ["clo", "Điền từ"]];
 const GRAMMAR_TYPES = [["rec", "Nhận diện mẫu câu"], ["bui", "Đặt câu"], ["clo", "Điền chỗ trống"]];
 
@@ -80,8 +82,10 @@ function typesOf(n) {
   if (n.rich) t = VOCAB_TYPES.slice();
   else {
     const it = itemOf(n); t = [["rec", "Nhận diện"], ["lis", "Nghe"]];
-    if (it.vn || it.en) t.push(["wri", "Nói và viết"]);
-    if (it.e2 && it.e2.includes(n.w)) t.push(["clo", "Điền từ"]);
+    const lowest = Math.min(...bandsOf(n).map((b) => BAND_ORDER.indexOf(b)).filter((i) => i >= 0), 99);
+    const core = lowest <= BAND_ORDER.indexOf("A2"), upper = lowest >= BAND_ORDER.indexOf("B2");
+    if (core && (it.vn || it.en)) t.push(["wri", "Nói và viết"]);
+    if (!upper && it.e2 && it.e2.includes(n.w)) t.push(["clo", "Điền từ"]);
   }
   if (S.abbrS.has(n.w)) t.push(["abr", "Từ viết tắt"]);
   return t;
@@ -401,7 +405,9 @@ function buildQueue(now) {
   // The daily limit counts new WORDS. Other skill cards of a word already started (Nghe, Viết, Điền từ)
   // open from the next day and are not limited, otherwise they would use up the quota for new words.
   const left = Math.max(0, Number(S.settings.newPerDay || 8) - todayStats().newCards);
-  const sib = fresh.filter((r) => noteLevel(r.n) > 0), first = fresh.filter((r) => noteLevel(r.n) === 0);
+  const sib = fresh.filter((r) => noteLevel(r.n) > 0);
+  const rank = (r) => S.lessonRank.has(r.n.w) ? S.lessonRank.get(r.n.w) : 1e6;
+  const first = fresh.filter((r) => noteLevel(r.n) === 0).map((r, i) => [r, i]).sort((a, b) => (rank(a[0]) - rank(b[0])) || (a[1] - b[1])).map((x) => x[0]);
   return { learn, review, fresh: sib.concat(first.slice(0, left)), freshTotal: fresh.length };
 }
 function noteFromCard(id) {
@@ -483,6 +489,78 @@ function ruby(text) {
   }
   return out + esc(s.slice(last));
 }
+// ---------------- rich word data: full explanation, situation lessons ----------------
+// data/rich/<band>.json is built by tools/build_rich.py from the lesson source folder (du-lieu-tu-vung).
+S.lessons = new Map(); S.lessonOf = new Map(); S.lessonRank = new Map(); S.richTopics = {};
+function addRich(part) {
+  Object.assign(S.richTopics, part.topics || {});
+  for (const L of part.lessons || []) {
+    S.lessons.set(L.id, L);
+    for (const w of L.words) if (!S.lessonOf.has(w)) { S.lessonOf.set(w, L.id); S.lessonRank.set(w, S.lessonRank.size); }
+  }
+  for (const [w, r] of Object.entries(part.words || {})) S.vi.set(w, Object.assign({}, S.vi.get(w) || {}, r));
+}
+// Sentences from the user's private test packs (only on this device): exam questions and dictation packs.
+let EXAM_SENTS = null;
+async function buildExamIndex() {
+  const out = [];
+  const add = (text, src) => String(text || "").replace(/[男女][：:]/g, "\n").split(/(?<=[。！？!?])|\n/).forEach((x) => { x = x.trim(); if (x.length >= 4 && /[㐀-鿿]/.test(x)) out.push({ zh: x, src }); });
+  try {
+    for (const t of await getMockTests()) for (const q of t.questions || []) {
+      const src = `${t.title} · câu ${q.id}`;
+      add(q.dialogue || q.audio, src); add(q.zh, src); add(q.passage, src); add(q.q, src);
+    }
+  } catch (e) {}
+  for (const pk of S.packs || []) for (const x of pk.sentences || []) add(x.zh, pk.name || "Bộ câu riêng");
+  const seen = new Set(); EXAM_SENTS = out.filter((x) => !seen.has(x.zh) && seen.add(x.zh));
+  return EXAM_SENTS;
+}
+function examHitsHTML(w) {
+  if (!EXAM_SENTS) { buildExamIndex(); return ""; }
+  const fs = [...new Set(w.split("/").flatMap((f) => [f.replace(/[()]/g, ""), f.replace(/\([^)]*\)/g, "")]))].filter(Boolean);
+  const hits = EXAM_SENTS.filter((x) => fs.some((f) => x.zh.includes(f))).slice(0, 4);
+  if (!hits.length) return "";
+  return `<details class="rich-box rich-exam"><summary>Gặp trong đề thi của bạn (${hits.length}) <small>chỉ hiện trên máy này</small></summary>
+    ${hits.map((h) => `<div class="rich-ex"><div class="zh" lang="zh-Hant">${ruby(h.zh)} ${sp(h.zh)}</div><div class="src">${esc(h.src)}</div></div>`).join("")}</details>`;
+}
+function lessonHTML(w, open) {
+  const L = S.lessons.get(S.lessonOf.get(w)); if (!L) return "";
+  const t = S.richTopics[L.chu_de] || {};
+  const dv = L.doan_van;
+  const q = dv && dv.cau_hoi;
+  return `<details class="rich-box rich-lesson" ${open ? "open" : ""}><summary>Bài tình huống: ${esc(L.ten)} <small>${esc(L.band)} · ${esc(t.vn || "")} · ${L.words.length} từ</small></summary>
+    ${L.tinh_huong ? `<p class="rich-scene">${esc(L.tinh_huong)}</p>` : ""}
+    <div class="rich-dlg">${L.hoi_thoai.map((x) => `<div class="rich-line"><b>${esc(x.s)}</b><div><div class="zh" lang="zh-Hant">${esc(x.zh)} ${sp(x.zh)}</div><div class="py">${esc(x.py)}</div><div class="vn">${esc(x.vn)}</div></div></div>`).join("")}</div>
+    ${dv ? `<div class="rich-read"><b>Đoạn đọc kiểu đề thi</b><div class="zh" lang="zh-Hant">${ruby(dv.zh)} ${sp(dv.zh)}</div><details><summary>Pinyin và nghĩa</summary><div class="py">${esc(dv.py)}</div><div class="vn">${esc(dv.vn)}</div></details>
+      ${q ? `<div class="rich-quiz" data-ans="${q.ans}"><div class="zh" lang="zh-Hant">${ruby(q.q)}</div>${q.opts.map((o, i) => `<button type="button" class="rich-opt" data-i="${i}">${"ABCD"[i]}. ${ruby(o)}</button>`).join("")}<div class="rich-res" role="status"></div></div>` : ""}</div>` : ""}
+    <div class="rich-words">Từ trong bài: ${L.words.map((x) => `<a href="#tu/${encodeURIComponent(x)}" class="${x === w ? "cur" : ""}" lang="zh-Hant">${esc(x)}</a>`).join(" ")}</div>
+  </details>`;
+}
+function richDetailHTML(it, opts = {}) {
+  // hand-made deck items keep their own text; situation sentences and senses come from data/rich when they have none
+  const extra = S.vi.get(it.w) || {};
+  it = Object.assign({}, it, { vd: it.vd || extra.vd, ng: it.ng || extra.ng });
+  const w = it.w; const parts = [];
+  if (it.ng && it.ng.length) parts.push(`<div class="rich-sec"><h4>Giải nghĩa đầy đủ</h4><ol>${it.ng.map((x) => `<li>${ruby(x)}</li>`).join("")}</ol></div>`);
+  if (it.vd && it.vd.length) parts.push(`<div class="rich-sec"><h4>Câu theo tình huống</h4>${it.vd.map((v) => `<div class="rich-ex">${v.t ? `<span class="rich-tag">${esc(v.t)}</span>` : ""}<div class="zh" lang="zh-Hant">${esc(v.zh)} ${sp(v.zh)}</div><div class="py">${esc(v.py || "")}</div><div class="vn">${esc(v.vn)}</div></div>`).join("")}</div>`);
+  const rows = [["Cách dùng", it.us], ["Cụm hay gặp", it.co], ["Đồng nghĩa, gần nghĩa", it.sy], ["Trái nghĩa", it.an], ["Dễ nhầm với", it.cf], ["Lượng từ", it.lt]].filter(([, v]) => v);
+  if (rows.length) parts.push(`<div class="rich-sec"><dl class="rich-kv">${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${ruby(v)}</dd></div>`).join("")}</dl></div>`);
+  if (it.mk) parts.push(`<div class="rich-note rich-warn"><b>Lỗi hay gặp</b> ${ruby(it.mk)}</div>`);
+  if (it.tw) parts.push(`<div class="rich-note rich-tw"><b>Người Đài nói thế nào</b> ${ruby(it.tw)}</div>`);
+  if (it.mh || it.mi) parts.push(`<div class="rich-note rich-tip"><b>Mẹo nhớ</b> ${ruby(it.mh || it.mi)}</div>`);
+  const lesson = lessonHTML(w, opts.lessonOpen);
+  const exam = examHitsHTML(w);
+  if (!parts.length && !lesson && !exam) return "";
+  return `<section class="rich" aria-label="Giải thích đầy đủ">${parts.join("")}${lesson}${exam}</section>`;
+}
+// answer the mini reading question inside a lesson
+document.addEventListener("click", (e) => {
+  const b = e.target.closest(".rich-opt"); if (!b) return;
+  const box = b.closest(".rich-quiz"); const ok = Number(b.dataset.i) === Number(box.dataset.ans);
+  box.querySelectorAll(".rich-opt").forEach((x) => x.classList.toggle("right", Number(x.dataset.i) === Number(box.dataset.ans) && ok));
+  b.classList.add(ok ? "right" : "wrong");
+  box.querySelector(".rich-res").textContent = ok ? "Đúng rồi!" : "Chưa đúng, đọc lại đoạn văn rồi thử lần nữa.";
+});
 function kv(rows) {
   return rows.map(([label, value], i) => value ? `<div class="detail-tone-${i}"><span class="k">${esc(label)}</span><span class="mix">${ruby(value)}</span></div>` : "").join("");
 }
@@ -2293,6 +2371,8 @@ function renderCard() {
                   ${(it.e1v || it.e2v) ? `<p class="font-body-md text-sm text-on-surface font-medium">${esc(it.e1v || it.e2v)}</p>` : ''}
                 </div>
               ` : ''}
+
+              ${richDetailHTML(it)}
 
               <!-- Character Decomposition Bento Cards -->
               ${chars.length ? `
@@ -5034,7 +5114,7 @@ function buildStitchWordShowcaseHTML(w) {
                 <span class="material-symbols-outlined text-primary text-[18px]">format_quote</span>
                 Ví dụ câu chuẩn ngữ cảnh Đài Loan
               </span>
-              <span class="font-label-sm text-label-sm text-outline">Nguồn: Bộ Giáo dục Đài Loan (MOE)</span>
+              <span class="font-label-sm text-label-sm text-outline">Câu soạn riêng cho trang</span>
             </div>
             <div class="flex flex-col gap-space-sm">
               <div class="p-space-md rounded-xl bg-paper-base hover:bg-surface-container-low transition-colors flex flex-col gap-space-xs">
@@ -5055,6 +5135,8 @@ function buildStitchWordShowcaseHTML(w) {
               </div>
             </div>
           </div>
+
+          ${richDetailHTML(it, { lessonOpen: true })}
 
           <!-- 6 Memory Rating Buttons for this word -->
           ${n ? `
@@ -9018,6 +9100,10 @@ function initSyncUI() {
         for (const [w, v] of Object.entries(part)) S.vi.set(w, v);
       }
     } catch (e) { console.warn("Vietnamese batches not loaded:", e); }
+    try {
+      const ri = await getJSON("data/rich/index.json");
+      for (const part of await Promise.all((ri.files || []).map((f) => getJSON("data/rich/" + f)))) addRich(part);
+    } catch (e) { console.warn("Rich word data not loaded:", e); }
     try { for (const a of await getJSON("data/abbr.json")) { S.abbrS.set(a.s, a); if (!S.abbrF.has(a.f)) S.abbrF.set(a.f, a); } } catch (e) { /* no abbreviation list */ }
     buildNotes();
     $("#view").innerHTML = `<div class="note">Đang mở tiến độ học…</div>`;

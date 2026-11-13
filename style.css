@@ -668,3 +668,43 @@ rt {
 #mainNav .nav-tab { white-space: nowrap; padding-left: 10px; padding-right: 10px; }
 #mainNav { flex-wrap: nowrap; }
 #headerSyncBtn, #headerSyncLabel { white-space: nowrap; }
+
+
+/* ---------- Full word explanation (data/rich) ---------- */
+.rich { display: flex; flex-direction: column; gap: 14px; margin-top: 4px; }
+.rich h4 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: var(--muted, #6b6560); margin: 0 0 6px; }
+.rich ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 4px; }
+.rich .zh { font-family: var(--f-han); font-size: 19px; line-height: 1.8; }
+.rich .py { font-size: 13px; color: #6b6560; }
+.rich .vn { font-size: 15px; }
+.rich-ex { padding: 10px 12px; border-radius: 12px; background: rgba(120, 100, 80, .06); margin-bottom: 8px; }
+.rich-tag { display: inline-block; font-size: 12px; font-weight: 600; padding: 1px 8px; border-radius: 999px; background: #e7f2ec; color: #176b4b; margin-bottom: 2px; }
+.rich-kv { display: grid; gap: 8px; margin: 0; }
+.rich-kv > div { display: grid; grid-template-columns: 150px 1fr; gap: 10px; }
+.rich-kv dt { font-weight: 600; color: #6b6560; font-size: 14px; }
+.rich-kv dd { margin: 0; }
+@media (max-width: 560px) { .rich-kv > div { grid-template-columns: 1fr; gap: 2px; } }
+.rich-note { padding: 10px 12px; border-radius: 12px; border-left: 4px solid; }
+.rich-note b { display: block; font-size: 13px; margin-bottom: 2px; }
+.rich-note.rich-warn { border-color: #b3261e; background: #fbeeec; }
+.rich-note.rich-tw { border-color: #176b4b; background: #e9f4ee; }
+.rich-note.rich-tip { border-color: #b7791f; background: #fbf3e4; }
+.rich-box { border: 1px solid rgba(120, 100, 80, .25); border-radius: 14px; padding: 10px 14px; background: #fffdf9; }
+.rich-box > summary { cursor: pointer; font-weight: 700; }
+.rich-box > summary small { font-weight: 400; color: #6b6560; margin-left: 6px; }
+.rich-scene { font-style: italic; color: #6b6560; margin: 8px 0; }
+.rich-dlg { display: flex; flex-direction: column; gap: 8px; }
+.rich-line { display: grid; grid-template-columns: 52px 1fr; gap: 8px; }
+.rich-line > b { color: #a8261f; font-family: var(--f-han); }
+.rich-read { margin-top: 12px; padding-top: 10px; border-top: 1px dashed rgba(120, 100, 80, .35); }
+.rich-quiz { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+.rich-opt { text-align: left; padding: 8px 12px; border-radius: 10px; border: 1px solid rgba(120, 100, 80, .3); background: #fff; }
+.rich-opt.right { border-color: #176b4b; background: #e9f4ee; }
+.rich-opt.wrong { border-color: #b3261e; background: #fbeeec; }
+.rich-words { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 6px; }
+.rich-words a { font-family: var(--f-han); padding: 2px 8px; border-radius: 8px; background: rgba(120, 100, 80, .08); text-decoration: none; color: inherit; }
+.rich-words a.cur { background: #a8261f; color: #fff; }
+.rich-exam .src { font-size: 12px; color: #6b6560; }
+
+.rich-note { display: block; }
+.rich-note ruby, .rich-kv ruby, .rich ol ruby { display: ruby; }

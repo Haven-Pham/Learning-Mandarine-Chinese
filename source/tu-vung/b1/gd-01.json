@@ -1,0 +1,338 @@
+{
+ "id": "b1-gd-01",
+ "band": "B1",
+ "chu_de": "gd",
+ "ten": "Tình yêu và hôn nhân",
+ "tinh_huong": "Giờ ăn trưa ở công ty, 小美 và 阿明 nói chuyện về chuyện tình cảm của một đồng nghiệp.",
+ "hoi_thoai": [
+  ["小美", "你聽說了嗎？小林跟他女朋友分開了。", "Anh nghe chưa? Tiểu Lâm chia tay bạn gái rồi."],
+  ["阿明", "真的假的？他們談了五年戀愛，大家都以為他們快辦婚禮了。", "Thật hay đùa vậy? Họ yêu nhau năm năm, ai cũng tưởng sắp làm đám cưới rồi."],
+  ["小美", "聽說兩個人常常吵架，女生覺得他太花心。", "Nghe nói hai người hay cãi nhau, cô gái thấy anh ta quá lăng nhăng."],
+  ["阿明", "唉，失戀一定很難過。不過他現在單身，可以多參加一些交友活動，慢慢找適合的對象。", "Haizz, thất tình chắc buồn lắm. Nhưng giờ cậu ấy độc thân, có thể tham gia mấy hoạt động kết bạn, từ từ tìm người phù hợp."],
+  ["小美", "我覺得愛情不能只靠浪漫，婚姻需要兩個人互相體諒。", "Em thấy tình yêu không thể chỉ dựa vào lãng mạn, hôn nhân cần hai người thông cảm cho nhau."],
+  ["阿明", "對啊，我老婆常說，夫婦之間最重要的是心意，不是禮物有多貴。", "Đúng đó, vợ anh hay nói giữa vợ chồng quan trọng nhất là tấm lòng, không phải quà đắt cỡ nào."],
+  ["小美", "我老公也是這樣想。我們也吵過架，可是從來沒想過要離婚。", "Chồng em cũng nghĩ vậy. Tụi em cũng từng cãi nhau nhưng chưa bao giờ nghĩ tới ly hôn."],
+  ["阿明", "我老婆每天幫我準備愛心便當。她不只是我的情人，也是我最好的朋友。", "Vợ anh ngày nào cũng làm cơm hộp yêu thương cho anh. Cô ấy không chỉ là người yêu mà còn là bạn thân nhất của anh."],
+  ["小美", "哇，你真幸福！難怪你說你很愛她。", "Oa, anh hạnh phúc thật! Thảo nào anh nói anh rất yêu chị ấy."]
+ ],
+ "doan_van": {
+  "zh": "根據最近的調查，台灣年輕人結婚的年齡越來越晚，單身的人也越來越多。很多人認為，找到適合的對象不容易，而且婚姻不只是兩個人的愛情，還有兩個家庭的生活。",
+  "vn": "Theo khảo sát gần đây, tuổi kết hôn của người trẻ Đài Loan ngày càng muộn, người độc thân cũng ngày càng nhiều. Nhiều người cho rằng tìm được người phù hợp không dễ, hơn nữa hôn nhân không chỉ là tình yêu của hai người mà còn là cuộc sống của hai gia đình.",
+  "cau_hoi": {
+   "q": "根據這段話，下面哪一個是對的？",
+   "opts": ["台灣年輕人越來越早結婚", "單身的人越來越多", "找到適合的對象很容易", "婚姻只跟兩個人有關係"],
+   "ans": 1
+  }
+ },
+ "tu": {
+  "戀愛": {
+   "vn": "yêu đương; chuyện yêu đương",
+   "ng": ["(động từ) yêu nhau, đang trong quan hệ yêu đương, thường dùng 談戀愛", "(danh từ) chuyện yêu đương, mối tình"],
+   "us": "Hay đi với 談: 談戀愛 = yêu đương, hẹn hò. Muốn nói yêu ai thì dùng 愛 + người, hoặc 跟 + người + 談戀愛.",
+   "co": ["談戀愛|yêu đương, hẹn hò", "戀愛關係|quan hệ yêu đương", "初戀|mối tình đầu"],
+   "sy": ["交往|qua lại, hẹn hò (người Đài dùng rất nhiều)", "在一起|ở bên nhau, tức là đang yêu nhau"],
+   "cf": ["愛情|tình yêu, là danh từ chỉ cảm xúc; 戀愛 là việc yêu nhau"],
+   "mk": "Không nói 我戀愛她. Nói 我愛她 hoặc 我跟她談戀愛.",
+   "tw": "Người Đài hay hỏi 你有在交往的人嗎？ hoặc 你們在一起多久了？ thay vì dùng 戀愛.",
+   "mh": "Luyến ái: 戀 luyến (lưu luyến) + 愛 ái (yêu).",
+   "vd": [
+    {"t": "Tâm sự với bạn", "zh": "他們談戀愛談了三年才結婚。", "vn": "Họ yêu nhau ba năm mới cưới."},
+    {"t": "Lời khuyên của mẹ", "zh": "媽媽說念書的時候不要急著談戀愛。", "vn": "Mẹ nói lúc còn đi học đừng vội yêu đương."},
+    {"t": "Bài đọc", "zh": "網路讓年輕人的戀愛方式改變了很多。", "vn": "Internet đã làm cách yêu đương của người trẻ thay đổi nhiều."}
+   ]
+  },
+  "對象": {
+   "vn": "người yêu, người tính chuyện kết hôn; đối tượng",
+   "ng": ["người đang hẹn hò hoặc tính chuyện kết hôn", "đối tượng (của khảo sát, dịch vụ, sản phẩm…)"],
+   "us": "Nghĩa 1 hay gặp khi hỏi chuyện hôn nhân: 有對象了嗎？ Nghĩa 2 trang trọng: 調查對象, 服務對象.",
+   "co": ["找對象|tìm người yêu, tìm ý trung nhân", "結婚對象|người để kết hôn", "調查對象|đối tượng khảo sát"],
+   "sy": ["另一半|nửa kia", "男朋友 / 女朋友|bạn trai / bạn gái"],
+   "mk": "Tiếng Việt 'đối tượng' đôi khi mang nghĩa xấu (đối tượng tình nghi); 對象 trong tiếng Hoa trung tính, thường là người yêu.",
+   "tw": "Họ hàng ngày Tết hay hỏi: 有沒有對象啊？什麼時候結婚？",
+   "mh": "Đối tượng: 對 đối + 象 tượng.",
+   "vd": [
+    {"t": "Họ hàng hỏi thăm", "zh": "阿姨每次見到我都問我有沒有對象。", "vn": "Mỗi lần gặp tôi, dì đều hỏi tôi có người yêu chưa."},
+    {"t": "Hẹn hò", "zh": "她想找一個有責任感的結婚對象。", "vn": "Cô ấy muốn tìm một người có trách nhiệm để kết hôn."},
+    {"t": "Bài đọc khảo sát", "zh": "這次調查的對象是三十歲以下的上班族。", "vn": "Đối tượng của cuộc khảo sát lần này là người đi làm dưới 30 tuổi."}
+   ]
+  },
+  "單身": {
+   "vn": "độc thân",
+   "ng": ["(tính từ) chưa có người yêu hoặc chưa kết hôn; cũng làm định ngữ: 單身男女, 單身生活"],
+   "us": "Làm vị ngữ trực tiếp, không cần 是: 我還單身。 Hay đi với 還 (vẫn còn).",
+   "co": ["單身生活|cuộc sống độc thân", "單身派對|tiệc độc thân", "一直單身|độc thân mãi"],
+   "sy": ["沒有對象|chưa có người yêu"],
+   "an": ["結婚|kết hôn", "有對象|có người yêu"],
+   "mk": "Không nói 我是單身的人 (nghe lủng củng); nói 我單身 hoặc 我還是單身。",
+   "tw": "Người trẻ Đài Loan hay nói đùa 母胎單身 = độc thân từ trong bụng mẹ, chưa yêu ai bao giờ.",
+   "mh": "Đơn thân: 單 đơn (một mình) + 身 thân.",
+   "vd": [
+    {"t": "Giới thiệu bản thân", "zh": "我今年三十二歲，還單身。", "vn": "Năm nay tôi 32 tuổi, vẫn độc thân."},
+    {"t": "Nói chuyện với bạn", "zh": "單身也很好，想去哪裡就去哪裡。", "vn": "Độc thân cũng tốt, muốn đi đâu thì đi."},
+    {"t": "Bài đọc xã hội", "zh": "台灣單身的年輕人越來越多。", "vn": "Người trẻ độc thân ở Đài Loan ngày càng nhiều."}
+   ]
+  },
+  "交友": {
+   "vn": "kết bạn",
+   "ng": ["kết bạn, làm quen bạn mới (thường dùng trong cụm từ, văn viết)"],
+   "us": "Thường làm định ngữ: 交友活動, 交友軟體. Trong khẩu ngữ người ta nói 交朋友 nhiều hơn.",
+   "co": ["交友軟體|ứng dụng hẹn hò, kết bạn", "交友活動|hoạt động giao lưu kết bạn", "網路交友|kết bạn qua mạng"],
+   "sy": ["交朋友|kết bạn (khẩu ngữ)", "認識新朋友|làm quen bạn mới"],
+   "mk": "交友 thường không có tân ngữ: không nói 交友他; nói 跟他交朋友.",
+   "tw": "交友軟體 (app hẹn hò) rất phổ biến ở Đài Loan; tin tức hay cảnh báo 交友詐騙 (lừa đảo qua kết bạn).",
+   "mh": "Giao hữu: 交 giao + 友 hữu (bạn).",
+   "vd": [
+    {"t": "Đời sống", "zh": "很多上班族用交友軟體認識新朋友。", "vn": "Nhiều người đi làm dùng app hẹn hò để làm quen bạn mới."},
+    {"t": "Hoạt động ở trường", "zh": "學校週末有交友活動，你要不要參加？", "vn": "Cuối tuần trường có hoạt động giao lưu kết bạn, bạn có muốn tham gia không?"},
+    {"t": "Tin tức", "zh": "警察提醒大家網路交友要小心詐騙。", "vn": "Cảnh sát nhắc mọi người kết bạn qua mạng phải cẩn thận lừa đảo."}
+   ]
+  },
+  "花心": {
+   "vn": "lăng nhăng, trăng hoa",
+   "ng": ["(tính từ) không chung thủy trong tình cảm, thích nhiều người cùng lúc"],
+   "us": "Dùng cho người: 他很花心。 Là lời chê.",
+   "co": ["太花心|quá trăng hoa", "花心的男人|người đàn ông lăng nhăng", "花心大蘿蔔|kẻ đa tình (nói đùa)"],
+   "sy": ["不專一|không chung thủy"],
+   "an": ["專一|một lòng một dạ", "專情|chung tình"],
+   "mk": "花心 không phải 'trái tim như hoa' theo nghĩa đẹp; đây là lời chê.",
+   "tw": "Người Đài khen ngược lại là 他很專情 (anh ấy rất chung tình).",
+   "mh": "Hoa tâm: lòng (心) như bướm, thấy hoa (花) nào cũng đậu.",
+   "vd": [
+    {"t": "Tâm sự", "zh": "她跟男朋友分手，因為他太花心了。", "vn": "Cô ấy chia tay bạn trai vì anh ta quá lăng nhăng."},
+    {"t": "Bạn bè trêu", "zh": "你別那麼花心，好好對你女朋友。", "vn": "Cậu đừng trăng hoa thế, đối xử tốt với bạn gái đi."},
+    {"t": "Phim truyền hình", "zh": "這部連續劇的男主角又帥又花心。", "vn": "Nam chính bộ phim này vừa đẹp trai vừa đa tình."}
+   ]
+  },
+  "情人": {
+   "vn": "người yêu; người tình",
+   "ng": ["người yêu (cách nói lãng mạn, văn chương)", "người tình, nhất là trong quan hệ ngoài hôn nhân (tùy ngữ cảnh)"],
+   "us": "Dùng nhiều trong 情人節. Nói về người yêu hằng ngày, người Đài nói 男朋友, 女朋友 hoặc 另一半.",
+   "co": ["情人節|lễ tình nhân", "老情人|người yêu cũ lâu năm", "情人眼裡出西施|trong mắt người yêu ai cũng là Tây Thi"],
+   "sy": ["男女朋友|bạn trai, bạn gái", "另一半|nửa kia"],
+   "cf": ["愛人|ở Đài Loan là người yêu; ở Trung Quốc đại lục là vợ hoặc chồng"],
+   "mk": "Giới thiệu người yêu đừng nói 這是我的情人 (dễ hiểu thành người tình); nói 這是我女朋友.",
+   "tw": "Đài Loan có hai ngày lễ tình nhân: 14/2 và 七夕 (mùng 7 tháng 7 âm lịch).",
+   "mh": "Tình nhân: 情 tình + 人 nhân.",
+   "vd": [
+    {"t": "Lễ tình nhân", "zh": "情人節的晚上，餐廳都坐滿了。", "vn": "Tối lễ tình nhân, nhà hàng nào cũng kín chỗ."},
+    {"t": "Hội thoại", "zh": "她不只是我的情人，也是我最好的朋友。", "vn": "Cô ấy không chỉ là người yêu mà còn là bạn thân nhất của tôi."},
+    {"t": "Tục ngữ", "zh": "情人眼裡出西施，他覺得女朋友是世界上最美的人。", "vn": "Trong mắt người yêu ai cũng là Tây Thi, anh ấy thấy bạn gái đẹp nhất thế giới."}
+   ]
+  },
+  "浪漫": {
+   "vn": "lãng mạn",
+   "ng": ["(tính từ) lãng mạn, giàu cảm xúc, mộng mơ"],
+   "us": "Dùng cho người, việc, không khí: 很浪漫的晚餐. Làm danh từ: 他不懂浪漫 (không biết lãng mạn).",
+   "co": ["浪漫的氣氛|không khí lãng mạn", "不懂浪漫|không biết lãng mạn", "浪漫的晚餐|bữa tối lãng mạn"],
+   "sy": ["溫馨|ấm áp"],
+   "an": ["實際|thực tế"],
+   "mk": "浪漫 là tính từ, không dùng làm động từ: không nói 我想浪漫你.",
+   "tw": "Người Đài hay thốt lên 好浪漫喔～ khi thấy cảnh đẹp hay chuyện tình cảm động.",
+   "mh": "Lãng mạn: âm Hán Việt y như tiếng Việt.",
+   "vd": [
+    {"t": "Hẹn hò", "zh": "他在海邊準備了很浪漫的晚餐。", "vn": "Anh ấy chuẩn bị một bữa tối rất lãng mạn bên bờ biển."},
+    {"t": "Phàn nàn", "zh": "我老公一點都不浪漫，連我的生日都會忘記。", "vn": "Chồng tôi chẳng lãng mạn chút nào, đến sinh nhật tôi cũng quên."},
+    {"t": "Du lịch", "zh": "淡水的夕陽很美，氣氛很浪漫。", "vn": "Hoàng hôn ở Đạm Thủy rất đẹp, không khí rất lãng mạn."}
+   ]
+  },
+  "愛情": {
+   "vn": "tình yêu (đôi lứa)",
+   "ng": ["(danh từ) tình yêu nam nữ"],
+   "us": "Chỉ là danh từ. Không dùng cho tình cảm cha mẹ và con cái (dùng 愛 hoặc 親情).",
+   "co": ["愛情故事|chuyện tình", "愛情電影|phim tình cảm", "愛情觀|quan niệm về tình yêu"],
+   "sy": ["感情|tình cảm"],
+   "cf": ["友情|tình bạn", "親情|tình thân", "戀愛|việc yêu nhau"],
+   "mk": "Tình thương cha mẹ là 父母的愛, không nói 父母的愛情.",
+   "mh": "Ái tình: tiếng Việt cũng nói 'ái tình'.",
+   "vd": [
+    {"t": "Phim ảnh", "zh": "這部電影講的是一個感人的愛情故事。", "vn": "Bộ phim này kể một câu chuyện tình cảm động."},
+    {"t": "Quan niệm", "zh": "很多人覺得愛情比錢重要。", "vn": "Nhiều người thấy tình yêu quan trọng hơn tiền."},
+    {"t": "Bài đọc", "zh": "他們的愛情經過了很多考驗。", "vn": "Tình yêu của họ đã trải qua nhiều thử thách."}
+   ]
+  },
+  "失戀": {
+   "vn": "thất tình",
+   "ng": ["(động từ) mối tình tan vỡ, bị người yêu bỏ"],
+   "us": "Không mang tân ngữ: 他失戀了。 Muốn nói bị ai bỏ thì dùng 被…甩了 (khẩu ngữ).",
+   "co": ["剛失戀|vừa thất tình", "失戀的痛苦|nỗi đau thất tình", "走出失戀|vượt qua thất tình"],
+   "sy": ["分手|chia tay", "被甩|bị đá (khẩu ngữ)"],
+   "mk": "Không nói 她失戀我; nói 她跟我分手了 hoặc 我失戀了.",
+   "tw": "Bạn bè Đài hay rủ người thất tình đi ăn: 走，失戀就要吃好吃的！",
+   "mh": "Thất luyến: 失 thất (mất) + 戀 luyến.",
+   "vd": [
+    {"t": "An ủi bạn", "zh": "他剛失戀，心情很不好，我們陪他吃飯吧。", "vn": "Cậu ấy vừa thất tình, tâm trạng rất tệ, mình đi ăn với cậu ấy nhé."},
+    {"t": "Tâm sự", "zh": "失戀以後，她開始努力運動、學新東西。", "vn": "Sau khi thất tình, cô ấy bắt đầu chăm tập thể dục, học điều mới."},
+    {"t": "Bài hát", "zh": "很多流行歌都在唱失戀的痛苦。", "vn": "Nhiều bài hát thịnh hành đều hát về nỗi đau thất tình."}
+   ]
+  },
+  "吵架": {
+   "vn": "cãi nhau",
+   "ng": ["(động từ ly hợp) cãi nhau, to tiếng với nhau"],
+   "us": "Động từ ly hợp: 吵了一架, 吵過架, 吵完架. Cãi với ai: 跟 + người + 吵架.",
+   "co": ["跟他吵架|cãi nhau với anh ấy", "大吵一架|cãi nhau một trận lớn", "吵完架|cãi xong"],
+   "sy": ["爭吵|tranh cãi (văn viết)"],
+   "an": ["和好|làm lành"],
+   "cf": ["打架|đánh nhau, có động tay chân"],
+   "mk": "Không nói 我吵架他; nói 我跟他吵架.",
+   "mh": "Sảo giá: 吵 có bộ khẩu 口, tức là to tiếng bằng miệng.",
+   "vd": [
+    {"t": "Gia đình", "zh": "我爸媽很少吵架，有問題就好好說。", "vn": "Bố mẹ tôi ít cãi nhau, có vấn đề thì nói chuyện đàng hoàng."},
+    {"t": "Hội thoại", "zh": "我們也吵過架，可是從來沒想過要離婚。", "vn": "Chúng tôi cũng từng cãi nhau, nhưng chưa bao giờ nghĩ tới ly hôn."},
+    {"t": "Hàng xóm", "zh": "隔壁昨天晚上大吵一架，吵到半夜。", "vn": "Nhà bên tối qua cãi nhau một trận lớn, ồn tới nửa đêm."}
+   ]
+  },
+  "分開": {
+   "vn": "tách ra; xa nhau, chia tay",
+   "ng": ["tách rời, để riêng ra (đồ vật, tiền)", "không còn ở cùng nhau; chia tay (người)"],
+   "us": "Có thể dùng với 把: 把…分開. Với người yêu, 分開 nhẹ nhàng hơn 分手.",
+   "co": ["分開住|ở riêng", "分開結帳|thanh toán riêng", "把…分開|tách … ra"],
+   "sy": ["分手|chia tay (người yêu)", "分離|chia lìa"],
+   "an": ["在一起|ở bên nhau"],
+   "mk": "Đi ăn chia tiền: 分開付 hoặc 各付各的, không nói 分手付.",
+   "tw": "Ở quầy tính tiền nhân viên hay hỏi: 要一起結還是分開結？",
+   "mh": "Phân khai: 分 phân (chia) + 開 khai (mở).",
+   "vd": [
+    {"t": "Tin đồn văn phòng", "zh": "你聽說了嗎？小林跟他女朋友分開了。", "vn": "Cậu nghe chưa? Tiểu Lâm chia tay bạn gái rồi."},
+    {"t": "Quầy thu ngân", "zh": "請問你們要一起結帳還是分開結帳？", "vn": "Xin hỏi các bạn thanh toán chung hay riêng?"},
+    {"t": "Giặt đồ", "zh": "白色的衣服要跟深色的分開洗。", "vn": "Quần áo trắng phải giặt riêng với đồ màu đậm."}
+   ]
+  },
+  "離婚": {
+   "vn": "ly hôn",
+   "ng": ["(động từ ly hợp) ly hôn"],
+   "us": "Ly hợp: 離過婚, 離了婚. Với ai: 跟 + người + 離婚.",
+   "co": ["辦離婚|làm thủ tục ly hôn", "離婚率|tỉ lệ ly hôn", "離過婚|từng ly hôn"],
+   "an": ["結婚|kết hôn"],
+   "mk": "Không nói 他離婚了他太太; nói 他跟太太離婚了.",
+   "tw": "Ở Đài Loan, hai bên đồng ý ly hôn thì đến 戶政事務所 (văn phòng hộ tịch) làm thủ tục.",
+   "mh": "Ly hôn: y như tiếng Việt.",
+   "vd": [
+    {"t": "Tin tức", "zh": "這幾年台灣的離婚率比以前高。", "vn": "Mấy năm nay tỉ lệ ly hôn ở Đài Loan cao hơn trước."},
+    {"t": "Chuyện gia đình", "zh": "他父母在他小時候就離婚了。", "vn": "Bố mẹ anh ấy ly hôn từ khi anh ấy còn nhỏ."},
+    {"t": "Lời khuyên", "zh": "結婚以前要想清楚，不要隨便說要離婚。", "vn": "Trước khi cưới phải nghĩ kỹ, đừng tùy tiện nói chuyện ly hôn."}
+   ]
+  },
+  "婚禮": {
+   "vn": "lễ cưới, đám cưới",
+   "ng": ["(danh từ) lễ cưới"],
+   "us": "Động từ đi kèm: 舉行婚禮 (tổ chức), 參加婚禮 (dự), 辦婚禮 (khẩu ngữ).",
+   "co": ["參加婚禮|dự đám cưới", "舉行婚禮|tổ chức lễ cưới", "辦婚禮|làm đám cưới"],
+   "sy": ["喜酒|tiệc cưới (喝喜酒 = đi ăn cưới)"],
+   "cf": ["婚姻|hôn nhân, tức quan hệ vợ chồng"],
+   "tw": "Người Đài nói 去喝喜酒 = đi ăn cưới, mừng bằng 紅包; số tiền thường là số chẵn, tránh số 4.",
+   "mh": "Hôn lễ: 婚 hôn + 禮 lễ.",
+   "vd": [
+    {"t": "Mời cưới", "zh": "下個月我表姐要舉行婚禮，你要不要一起去？", "vn": "Tháng sau chị họ tôi tổ chức đám cưới, bạn có muốn đi cùng không?"},
+    {"t": "Chuẩn bị", "zh": "辦一場婚禮要花很多錢和時間。", "vn": "Làm một đám cưới tốn rất nhiều tiền và thời gian."},
+    {"t": "Tin đồn", "zh": "大家都以為他們快辦婚禮了。", "vn": "Ai cũng tưởng họ sắp làm đám cưới."}
+   ]
+  },
+  "婚姻": {
+   "vn": "hôn nhân",
+   "ng": ["(danh từ) hôn nhân, quan hệ vợ chồng"],
+   "us": "Danh từ trừu tượng, hay đi với 幸福, 美滿, 問題.",
+   "co": ["婚姻生活|cuộc sống hôn nhân", "幸福的婚姻|hôn nhân hạnh phúc", "婚姻問題|vấn đề hôn nhân"],
+   "cf": ["婚禮|lễ cưới, chỉ diễn ra một ngày"],
+   "mk": "Đám cưới là 婚禮, không phải 婚姻.",
+   "tw": "Đài Loan hợp pháp hóa hôn nhân đồng giới năm 2019 (同性婚姻).",
+   "mh": "Hôn nhân: y như tiếng Việt.",
+   "vd": [
+    {"t": "Hội thoại", "zh": "我覺得愛情不能只靠浪漫，婚姻需要兩個人互相體諒。", "vn": "Tôi thấy tình yêu không thể chỉ dựa vào lãng mạn, hôn nhân cần hai người thông cảm cho nhau."},
+    {"t": "Bài đọc", "zh": "專家說，溝通是維持婚姻最重要的方法。", "vn": "Chuyên gia nói, giao tiếp là cách quan trọng nhất để giữ gìn hôn nhân."},
+    {"t": "Lời chúc", "zh": "祝你們婚姻幸福，白頭偕老。", "vn": "Chúc hai bạn hôn nhân hạnh phúc, đầu bạc răng long."}
+   ]
+  },
+  "老公": {
+   "vn": "chồng (khẩu ngữ, thân mật)",
+   "ng": ["chồng; vợ cũng gọi chồng trực tiếp là 老公"],
+   "us": "Thân mật, khẩu ngữ. Lịch sự hơn: 先生 (người Đài rất hay dùng: 我先生).",
+   "co": ["我老公|chồng tôi", "老公、老婆|chồng, vợ"],
+   "sy": ["先生|chồng (lịch sự, Đài Loan)", "丈夫|chồng (văn viết)"],
+   "an": ["老婆|vợ"],
+   "mk": "Nói với người lớn tuổi hoặc chỗ lịch sự nên dùng 我先生 hơn 我老公.",
+   "tw": "Phụ nữ Đài giới thiệu chồng: 這是我先生。",
+   "mh": "Lão công: 老 ở đây không có nghĩa 'già', chỉ để tỏ thân mật.",
+   "vd": [
+    {"t": "Hội thoại", "zh": "我老公也是這樣想。", "vn": "Chồng tôi cũng nghĩ vậy."},
+    {"t": "Gọi điện", "zh": "老公，你下班的時候順便買一瓶醬油。", "vn": "Anh ơi, lúc tan làm anh tiện mua giúp em chai xì dầu."},
+    {"t": "Khoe chồng", "zh": "我老公很會做菜，週末都是他煮飯。", "vn": "Chồng tôi nấu ăn rất giỏi, cuối tuần toàn anh ấy nấu."}
+   ]
+  },
+  "老婆": {
+   "vn": "vợ (khẩu ngữ, thân mật)",
+   "ng": ["vợ; chồng cũng gọi vợ trực tiếp là 老婆"],
+   "us": "Thân mật, khẩu ngữ. Lịch sự hơn: 太太.",
+   "co": ["我老婆|vợ tôi", "娶老婆|lấy vợ"],
+   "sy": ["太太|vợ (lịch sự)", "妻子|vợ (văn viết)"],
+   "an": ["老公|chồng"],
+   "mk": "Chữ 婆 đứng một mình là 'bà', nhưng 老婆 là vợ, không phải bà già.",
+   "tw": "Giới thiệu trang trọng người Đài nói 我太太.",
+   "mh": "Lão bà: giống tiếng Việt gọi 'bà xã'.",
+   "vd": [
+    {"t": "Hội thoại", "zh": "我老婆每天幫我準備愛心便當。", "vn": "Vợ tôi ngày nào cũng làm cơm hộp yêu thương cho tôi."},
+    {"t": "Đùa với bạn", "zh": "我得先問我老婆，她說好我才能去。", "vn": "Tớ phải hỏi vợ đã, vợ đồng ý tớ mới đi được."},
+    {"t": "Kế hoạch", "zh": "他存了很多年的錢，準備娶老婆。", "vn": "Anh ấy để dành tiền nhiều năm, chuẩn bị lấy vợ."}
+   ]
+  },
+  "夫婦": {
+   "vn": "vợ chồng (cặp vợ chồng)",
+   "ng": ["(danh từ) cặp vợ chồng"],
+   "us": "Văn viết, trang trọng; hay đứng sau tên: 王先生夫婦, 新婚夫婦. Khẩu ngữ hay nói 夫妻.",
+   "co": ["新婚夫婦|vợ chồng mới cưới", "年輕夫婦|cặp vợ chồng trẻ", "王先生夫婦|ông bà Vương"],
+   "sy": ["夫妻|vợ chồng"],
+   "mk": "夫婦 luôn chỉ cả hai người, không dùng cho một người.",
+   "mh": "Phu phụ: 夫 phu (chồng) + 婦 phụ (vợ).",
+   "vd": [
+    {"t": "Hội thoại", "zh": "我老婆常說，夫婦之間最重要的是心意。", "vn": "Vợ tôi hay nói, giữa vợ chồng quan trọng nhất là tấm lòng."},
+    {"t": "Tin tức", "zh": "這對年輕夫婦在夜市開了一家小吃店。", "vn": "Cặp vợ chồng trẻ này mở một quán ăn vặt ở chợ đêm."},
+    {"t": "Thiệp mời", "zh": "王先生夫婦邀請您參加他們女兒的婚禮。", "vn": "Ông bà Vương mời quý vị dự lễ cưới của con gái họ."}
+   ]
+  },
+  "心意": {
+   "vn": "tấm lòng, thành ý",
+   "ng": ["tấm lòng, tình cảm muốn bày tỏ (nhất là qua quà tặng)"],
+   "us": "Rất hay dùng khi tặng quà: 一點小心意 (chút lòng thành).",
+   "co": ["一點心意|chút lòng thành", "小小心意|món quà nhỏ", "表達心意|bày tỏ tấm lòng"],
+   "sy": ["好意|ý tốt"],
+   "cf": ["心情|tâm trạng"],
+   "tw": "Khi tặng quà người Đài hay nói: 這是一點小心意，請收下。",
+   "mh": "Tâm ý: 心 tâm + 意 ý.",
+   "vd": [
+    {"t": "Tặng quà", "zh": "這是一點小心意，請你收下。", "vn": "Đây là chút lòng thành, xin anh nhận cho."},
+    {"t": "Hội thoại", "zh": "夫婦之間最重要的是心意，不是禮物有多貴。", "vn": "Giữa vợ chồng quan trọng nhất là tấm lòng, không phải quà đắt cỡ nào."},
+    {"t": "Từ chối khéo", "zh": "謝謝你的心意，可是我真的不能收。", "vn": "Cảm ơn tấm lòng của bạn, nhưng tôi thật sự không nhận được."}
+   ]
+  },
+  "愛": {
+   "vn": "yêu; thích, hay (làm gì)",
+   "ng": ["yêu (người, quê hương…)", "愛 + động từ: thích, hay làm gì (愛說話 = hay nói)", "dễ, hay xảy ra (愛哭 = hay khóc)"],
+   "us": "愛 + động từ nghĩa là 'hay, thích làm': 他很愛說話。 Nói về người thì mạnh hơn 喜歡.",
+   "co": ["愛上|phải lòng", "愛面子|sĩ diện", "愛乾淨|ưa sạch sẽ"],
+   "sy": ["喜歡|thích"],
+   "an": ["恨|hận", "討厭|ghét"],
+   "cf": ["愛情|tình yêu (danh từ)"],
+   "tw": "Lúc mới tỏ tình người Đài hay nói 我喜歡你; 我愛你 nghe nặng hơn.",
+   "mh": "Ái: chữ có 心 (trái tim) ở giữa.",
+   "vd": [
+    {"t": "Hội thoại", "zh": "難怪你說你很愛她。", "vn": "Thảo nào anh nói anh rất yêu chị ấy."},
+    {"t": "Tính cách", "zh": "我妹妹很愛哭，看電影也會哭。", "vn": "Em gái tôi rất hay khóc, xem phim cũng khóc."},
+    {"t": "Thói quen", "zh": "他愛乾淨，每天都打掃房間。", "vn": "Anh ấy ưa sạch sẽ, ngày nào cũng dọn phòng."}
+   ]
+  },
+  "愛心": {
+   "vn": "lòng nhân ái, tấm lòng yêu thương",
+   "ng": ["(danh từ) lòng yêu thương, quan tâm giúp đỡ người khác", "hình trái tim (khẩu ngữ: 比愛心 = làm hình trái tim khi chụp ảnh)"],
+   "us": "Hay dùng 有愛心 (tốt bụng), và làm định ngữ: 愛心便當, 愛心活動.",
+   "co": ["有愛心|tốt bụng, có lòng nhân ái", "愛心便當|cơm hộp làm bằng cả tấm lòng", "愛心活動|hoạt động từ thiện"],
+   "sy": ["同情心|lòng trắc ẩn", "善心|lòng tốt"],
+   "mk": "愛心 không phải tình yêu đôi lứa (đó là 愛情).",
+   "tw": "愛心便當 = hộp cơm mẹ, vợ hay người yêu tự làm; người Đài hay nói đùa câu này.",
+   "mh": "Ái tâm: trái tim (心) biết yêu thương (愛).",
+   "vd": [
+    {"t": "Khen trẻ", "zh": "這個孩子很有愛心，常常幫助同學。", "vn": "Đứa trẻ này rất tốt bụng, hay giúp đỡ bạn bè."},
+    {"t": "Từ thiện", "zh": "公司舉辦愛心活動，幫助偏鄉的小朋友。", "vn": "Công ty tổ chức hoạt động từ thiện, giúp trẻ em vùng xa."},
+    {"t": "Bữa trưa", "zh": "哇，又是女朋友做的愛心便當！", "vn": "Oa, lại là cơm hộp yêu thương bạn gái làm!"}
+   ]
+  }
+ }
+}
