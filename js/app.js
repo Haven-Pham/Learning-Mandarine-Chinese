@@ -147,6 +147,24 @@ function cardGradingBox(r, now) {
     <div role="status" id="levelStatus"></div>
   </div>`;
 }
+// --- Word Segmenter (for ruby() and dictation) ---
+function segment(zh) {
+  const out = []; const chars = [...String(zh || "")]; let i = 0;
+  while (i < chars.length) {
+    if (!isHan(chars[i])) { out.push({ t: chars[i] }); i++; continue; }
+    let hit = null;
+    for (let L = Math.min(8, chars.length - i); L >= 1; L--) {
+      const w = chars.slice(i, i + L).join("");
+      const n = S.noteByWord.get(w);
+      if (n) { hit = { t: w, n }; break; }
+      if (L > 1 && S.ced && S.ced.has(w)) { hit = { t: w }; break; }
+    }
+    if (!hit) hit = { t: chars[i] };
+    out.push(hit); i += [...hit.t].length;
+  }
+  return out;
+}
+
 // --- Stroke Data Loader (for HanziWriter in #hoc & #tu) ---
 const strokeCache = new Map();
 async function strokeData(c) {
