@@ -255,6 +255,7 @@ async function applyCardLevel(n, type, targetLvl, applyToAllOrCb, maybeCb) {
   const intervals = [0, 0, 1, 7, 21, 90];
   const ivl = intervals[targetLvl] || 0;
   const targets = applyToAll ? typesOf(n).map(([t]) => t) : [type];
+  const wasNewWord = noteLevel(n) === 0;
   let anyWasNew = false;
   const entries = targets.map((t) => {
     const cid = cardId(n, t);
@@ -285,7 +286,7 @@ async function applyCardLevel(n, type, targetLvl, applyToAllOrCb, maybeCb) {
     S.session.newKeys.add(n.key);
   }
   if (targetLvl > 0) {
-    await bumpReviewStats(now, targetLvl === 1 ? 1 : 3, anyWasNew);
+    await bumpReviewStats(now, targetLvl === 1 ? 1 : 3, wasNewWord);
   } else if (S.session) {
     S.session.answered = (S.session.answered || 0) + 1;
   }
@@ -397,8 +398,11 @@ function buildQueue(now) {
     });
   }
   learn.sort((a, b) => a.s.due - b.s.due); review.sort((a, b) => a.s.due - b.s.due);
+  // The daily limit counts new WORDS. Other skill cards of a word already started (Nghe, Viết, Điền từ)
+  // open from the next day and are not limited, otherwise they would use up the quota for new words.
   const left = Math.max(0, Number(S.settings.newPerDay || 8) - todayStats().newCards);
-  return { learn, review, fresh: fresh.slice(0, left), freshTotal: fresh.length };
+  const sib = fresh.filter((r) => noteLevel(r.n) > 0), first = fresh.filter((r) => noteLevel(r.n) === 0);
+  return { learn, review, fresh: sib.concat(first.slice(0, left)), freshTotal: fresh.length };
 }
 function noteFromCard(id) {
   const parts = id.split("~"); parts.pop();

@@ -1,5 +1,5 @@
 // Offline support: app files are network-first (so updates arrive), data files are cache-first.
-const VERSION = "shtv-37";
+const VERSION = "shtv-38";
 const SHELL = ["./", "index.html", "style.css", "css/tw.css", "js/app.js", "js/srs.js", "js/store.js", "js/sync.js", "manifest.webmanifest"];
 
 self.addEventListener("install", (e) => {
