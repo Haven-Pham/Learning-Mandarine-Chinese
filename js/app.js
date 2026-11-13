@@ -147,8 +147,31 @@ function cardGradingBox(r, now) {
     <div role="status" id="levelStatus"></div>
   </div>`;
 }
+// --- Stroke Data Loader (for HanziWriter in #hoc & #tu) ---
+const strokeCache = new Map();
+async function strokeData(c) {
+  const k = String(c.codePointAt(0) % 64).padStart(2, "0");
+  if (!strokeCache.has(k)) strokeCache.set(k, getJSON(`data/strokes/${k}.json`));
+  const chunk = await strokeCache.get(k);
+  if (!chunk || !chunk[c]) throw new Error("no data");
+  return chunk[c];
+}
+
 // --- SRS Core Functions (SM-2 Spaced Repetition & Calibrated Levels) ---
 const cardKey = (key, t) => `${key}~${t}`;
+async function bumpReviewStats(now, grade, wasNew) {
+  const key = dayKey(now);
+  if (!S.stats) S.stats = new Map();
+  const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats.get(key));
+  st.reviews++;
+  if (wasNew) st.newCards++;
+  if (grade === 1) st.again++;
+  S.stats.set(key, st);
+  if (S.session) S.session.answered = (S.session.answered || 0) + 1;
+  try { await Store.put("stats", key, st); } catch (e) {}
+  if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
+}
+
 // 1. Grade single card via SM-2: grade 1 (Quên), 2 (Khó), 3 (Nhớ tốt), 4 (Dễ)
 async function applyCardGrade(n, type, grade, afterSave) {
   if (!grade || grade < 1 || grade > 4) return;
@@ -156,10 +179,13 @@ async function applyCardGrade(n, type, grade, afterSave) {
   if (!S.srs) S.srs = new Map();
   if (!S.cards) S.cards = new Map();
   const cid = cardId(n, type);
-  let s = S.srs.get(cid) || { due: now, ivl: 0, reps: 0, ease: 250, lapses: 0, state: "new", w: n.w };
-  const prevIvl = s.ivl || 0;
+  const prev = S.srs.get(cid);
+  const wasNew = !prev || prev.state === "new";
+  let s = Object.assign(typeof freshState === "function" ? freshState() : { due: now, ivl: 0, reps: 0, ease: 250, lapses: 0, state: "new" }, prev, { w: n.w });
   if (window.SRS && typeof window.SRS.schedule === "function") {
     s = window.SRS.schedule(s, grade, now);
+  } else if (typeof schedule === "function") {
+    s = schedule(s, grade, now);
   } else {
     if (grade === 1) {
       s.state = "learn";
@@ -173,35 +199,77 @@ async function applyCardGrade(n, type, grade, afterSave) {
     }
   }
   s.w = n.w;
+  if (wasNew && S.session) {
+    if (!S.session.newKeys) S.session.newKeys = new Set();
+    S.session.newKeys.add(n.key);
+  }
   if (grade === 1 && S.session && Array.isArray(S.session.queue)) {
-    S.session.queue.push({ n, type });
+    S.session.queue.push({ n, t: type, type });
   }
   S.srs.set(cid, s);
   S.cards.set(cid, s);
   await Store.put("srs", cid, s);
 
-  if (typeof bumpReviewStats === "function") bumpReviewStats(now, grade);
+  await bumpReviewStats(now, grade, wasNew);
   updateBadge();
   if (typeof afterSave === "function") afterSave();
 }
 
-async function applyCardLevel(n, type, targetLvl, afterSave) {
+async function applyCardLevel(n, type, targetLvl, applyToAllOrCb, maybeCb) {
   const now = Date.now();
   targetLvl = Number(targetLvl);
+  if (isNaN(targetLvl) || targetLvl < 0 || targetLvl > 5) return;
+  let applyToAll = false;
+  let afterSave = maybeCb;
+  if (typeof applyToAllOrCb === "function") {
+    afterSave = applyToAllOrCb;
+  } else {
+    applyToAll = !!applyToAllOrCb;
+  }
   if (!S.srs) S.srs = new Map();
   if (!S.cards) S.cards = new Map();
-  const cid = cardId(n, type);
   const intervals = [0, 0, 1, 7, 21, 90];
-  const ivl = intervals[targetLvl] || 1;
-  const s = Object.assign(freshState ? freshState() : {}, S.srs.get(cid), {
-    state: targetLvl === 1 ? "learn" : (targetLvl >= 2 ? "review" : "new"),
-    ivl,
-    due: targetLvl >= 2 ? now + ivl * DAY : now + 1 * MIN,
-    w: n.w
+  const ivl = intervals[targetLvl] || 0;
+  const targets = applyToAll ? typesOf(n).map(([t]) => t) : [type];
+  let anyWasNew = false;
+  const entries = targets.map((t) => {
+    const cid = cardId(n, t);
+    const prev = S.srs.get(cid);
+    if (!prev || prev.state === "new") anyWasNew = true;
+    if (targetLvl === 0) {
+      const s = typeof freshState === "function" ? freshState() : { state: "new", ivl: 0, due: now };
+      s.w = n.w;
+      return [cid, s];
+    }
+    const s = Object.assign(typeof freshState === "function" ? freshState() : {}, prev, {
+      state: targetLvl === 1 ? "learn" : "review",
+      ivl,
+      step: 0,
+      due: targetLvl >= 2 ? dayStart(now) + ivl * DAY : now + (typeof STEPS !== "undefined" ? STEPS[0] : 1 * MIN),
+      firstSeen: (prev && (prev.firstSeen || prev.last)) || now,
+      last: now,
+      w: n.w
+    });
+    return [cid, s];
   });
-  S.srs.set(cid, s);
-  S.cards.set(cid, s);
-  await Store.put("srs", cid, s);
+  for (const [cid, s] of entries) {
+    S.srs.set(cid, s);
+    S.cards.set(cid, s);
+  }
+  if (entries.length === 1) {
+    await Store.put("srs", entries[0][0], entries[0][1]);
+  } else if (entries.length > 1) {
+    await Store.putMany("srs", entries);
+  }
+  if (anyWasNew && targetLvl > 0 && S.session) {
+    if (!S.session.newKeys) S.session.newKeys = new Set();
+    S.session.newKeys.add(n.key);
+  }
+  if (targetLvl > 0) {
+    await bumpReviewStats(now, targetLvl === 1 ? 1 : 3, anyWasNew);
+  } else if (S.session) {
+    S.session.answered = (S.session.answered || 0) + 1;
+  }
   updateBadge();
   if (typeof afterSave === "function") afterSave();
 }
@@ -731,17 +799,69 @@ function setFolderOn(id, v) {
 }
 const hasProgress = (n) => typesOf(n).some(([t]) => (S.cards && S.cards.has(cardId(n, t))) || (S.srs && S.srs.has(cardId(n, t))));
 
+nextCard = function(now) {
+  const q = buildQueue(now);
+  const ss = S.session;
+  const last = ss && ss.lastNote;
+  const mode = (ss && ss.mode) || "all";
+  const pick = (arr) => arr.find((r) => r.n.key !== last) || arr[0];
+
+  if (ss && ss.folderFilter) {
+    const fNotes = folderNotes(ss.folderFilter);
+    const fKeys = new Set(fNotes.map((n) => n.key));
+    const fDueLearn = q.learn.filter((r) => fKeys.has(r.n.key) && r.s.due <= now);
+    if (fDueLearn.length) return pick(fDueLearn);
+    const fReview = q.review.filter((r) => fKeys.has(r.n.key));
+    if (fReview.length) return pick(fReview);
+    const fFresh = [];
+    for (const n of fNotes) {
+      const types = typesOf(n);
+      const firstId = cardId(n, types[0][0]);
+      const firstS = S.srs && S.srs.get(firstId);
+      if (!firstS || firstS.state === "new") {
+        fFresh.push({ id: firstId, n, t: types[0][0], s: null });
+      }
+    }
+    if (fFresh.length) return pick(fFresh);
+    const fAhead = q.learn.filter((r) => fKeys.has(r.n.key) && r.s.due <= now + 20 * MIN);
+    return fAhead[0] || null;
+  }
+
+  const dueLearn = q.learn.filter((r) => r.s.due <= now);
+  if (mode === "new") {
+    const newKeys = ss && ss.newKeys;
+    const newDueLearn = newKeys ? dueLearn.filter((r) => newKeys.has(r.n.key)) : [];
+    if (newDueLearn.length) return pick(newDueLearn);
+    if (q.fresh.length) return pick(q.fresh);
+    const newAhead = newKeys ? q.learn.filter((r) => newKeys.has(r.n.key) && r.s.due <= now + 20 * MIN) : [];
+    return newAhead[0] || null;
+  }
+  if (mode === "review") {
+    if (dueLearn.length) return pick(dueLearn);
+    if (q.review.length) return pick(q.review);
+    const ahead = q.learn.filter((r) => r.s.due <= now + 20 * MIN);
+    return ahead[0] || null;
+  }
+
+  if (dueLearn.length) return pick(dueLearn);
+  if (q.review.length) return pick(q.review);
+  if (q.fresh.length) return pick(q.fresh);
+  const ahead = q.learn.filter((r) => r.s.due <= now + 20 * MIN);
+  return ahead[0] || null;
+};
+
 function startStudyFolder(folderId) {
   const notes = folderNotes(folderId);
   const now = Date.now();
-  S.session = { folderFilter: folderId, count: 0, done: 0 };
+  S.session = { folderFilter: folderId, answered: 0, shown: false, start: notes.length, lastNote: null, mode: "all", newKeys: new Set() };
   const card = nextCard(now);
   if (card) {
     S.session.current = card;
   } else if (notes.length) {
     const n = notes[0];
-    const s = (S.cards && S.cards.get(cardId(n, "recog"))) || { due: now, ivl: 0, reps: 0, ease: 250, lapses: 0, state: 0 };
-    S.session.current = { n, t: "recog", s };
+    const t0 = typesOf(n)[0][0];
+    const s = (S.srs && S.srs.get(cardId(n, t0))) || freshState();
+    S.session.current = { n, t: t0, s };
   }
   location.hash = "#hoc";
 }
@@ -1660,7 +1780,24 @@ VIEWS["hoc"] = () => {
             </div>
           </div>
 
-          <div class="flex flex-col sm:flex-row items-center gap-3 pt-space-sm">
+          <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-space-sm">
+            ${c.fresh > 0 ? `
+              <button class="w-full sm:w-auto flex-1 h-12 px-5 rounded-xl bg-secondary text-white font-semibold hover:opacity-95 transition-all shadow-sm flex items-center justify-center gap-2 text-sm" id="startNew">
+                <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+                <span>Học từ mới (${fmt(c.fresh)} thẻ)</span>
+              </button>
+            ` : (c.q.freshTotal > 0 ? `
+              <button class="w-full sm:w-auto h-12 px-5 rounded-xl bg-jade-subtle text-secondary border border-secondary/30 font-semibold hover:bg-secondary hover:text-white transition-all flex items-center justify-center gap-2 text-sm" id="btnAddMoreNew">
+                <span class="material-symbols-outlined text-[20px]">add_circle</span>
+                <span>+10 thẻ mới hôm nay (còn ${fmt(c.q.freshTotal)})</span>
+              </button>
+            ` : '')}
+            ${c.due > 0 ? `
+              <button class="w-full sm:w-auto flex-1 h-12 px-5 rounded-xl bg-amber-subtle text-tertiary border border-tertiary/30 font-semibold hover:bg-tertiary hover:text-white transition-all shadow-xs flex items-center justify-center gap-2 text-sm" id="startReview">
+                <span class="material-symbols-outlined text-[20px]">history_edu</span>
+                <span>Ôn thẻ đến hạn (${fmt(c.due)} thẻ)</span>
+              </button>
+            ` : ''}
             ${c.total > 0 ? `
               <button class="w-full sm:w-auto flex-1 h-12 px-6 rounded-xl bg-primary-container text-on-primary font-semibold hover:bg-primary transition-all shadow-sm flex items-center justify-center gap-2 text-sm" id="start">
                 <span class="material-symbols-outlined text-[20px]">play_circle</span>
@@ -1669,7 +1806,7 @@ VIEWS["hoc"] = () => {
             ` : `
               <div class="w-full p-4 rounded-xl bg-jade-subtle text-secondary font-medium flex items-center gap-2 text-sm">
                 <span class="material-symbols-outlined text-[20px]">task_alt</span>
-                <span>${c.q.freshTotal ? `Còn ${fmt(c.q.freshTotal)} thẻ mới chờ trong hàng đợi. Tăng chỉ tiêu thẻ mới trong Cài đặt để học thêm.` : `Đã hoàn thành toàn bộ thẻ hôm nay! Vào Thư mục để đưa thêm band vào lịch học.`}</span>
+                <span>${c.q.freshTotal ? `Đã đạt chỉ tiêu ${fmt(targetNew)} thẻ mới hôm nay (còn ${fmt(c.q.freshTotal)} thẻ chờ). Bấm "+10 thẻ mới" hoặc tăng trong Cài đặt để học thêm.` : `Đã hoàn thành toàn bộ thẻ hôm nay! Vào Thư mục để đưa thêm band vào lịch học.`}</span>
               </div>
             `}
             <a href="#cai-dat" class="w-full sm:w-auto h-12 px-5 rounded-xl bg-paper-muted text-on-surface font-semibold hover:bg-surface-container transition-colors flex items-center justify-center gap-2 text-sm">
@@ -1681,12 +1818,23 @@ VIEWS["hoc"] = () => {
       </div>
     `);
 
+    const launchSession = (mode, totalCount) => {
+      S.session = { answered: 0, shown: false, start: totalCount, lastNote: null, mode, newKeys: new Set(), queue: [] };
+      S.session.current = nextCard(Date.now());
+      renderCard();
+    };
     const b = $("#start");
-    if (b) {
-      b.onclick = () => {
-        S.session = { answered: 0, shown: false, start: c.total, lastNote: null };
-        S.session.current = nextCard(Date.now());
-        renderCard();
+    if (b) b.onclick = () => launchSession("all", c.total);
+    const bNew = $("#startNew");
+    if (bNew) bNew.onclick = () => launchSession("new", c.fresh);
+    const bRev = $("#startReview");
+    if (bRev) bRev.onclick = () => launchSession("review", c.due);
+    const bAddMore = $("#btnAddMoreNew");
+    if (bAddMore) {
+      bAddMore.onclick = async () => {
+        S.settings.newPerDay = Number(S.settings.newPerDay || 20) + 10;
+        try { await Store.put("settings", "user", S.settings); } catch (e) {}
+        VIEWS["hoc"]();
       };
     }
     return;
@@ -1697,6 +1845,8 @@ VIEWS["hoc"] = () => {
 function renderCard() {
   const ss = S.session;
   if (!ss || !ss.current) {
+    const cAfter = todayCounts();
+    const stAfter = todayStats();
     setView(`
       <div class="max-w-xl mx-auto px-margin py-space-2xl text-center flex flex-col items-center gap-4">
         <div class="w-16 h-16 rounded-2xl bg-jade-subtle text-secondary flex items-center justify-center shadow-xs">
@@ -1704,9 +1854,23 @@ function renderCard() {
         </div>
         <h2 class="font-headline-lg text-2xl font-bold text-on-surface">Hoàn thành phiên học!</h2>
         <p class="font-body-md text-sm text-on-surface-variant">
-          Bạn đã hoàn thành xuất sắc <strong>${fmt(ss.answered)} thẻ</strong> trong phiên này. Thẻ chấm "Mới học" sẽ quay lại sau ít phút để bạn ôn củng cố.
+          Bạn đã hoàn thành xuất sắc <strong>${fmt(ss ? ss.answered : 0)} lượt thẻ</strong> trong phiên này (hôm nay: <strong>${fmt(stAfter.newCards)} từ mới</strong>, <strong>${fmt(stAfter.reviews)} lượt ôn</strong>). Thẻ chấm "Quên / Mới học" sẽ quay lại sau ít phút để bạn ôn củng cố.
         </p>
-        <div class="flex items-center gap-3 mt-4">
+        <div class="flex flex-wrap items-center justify-center gap-3 mt-4">
+          ${cAfter.fresh > 0 ? `
+            <button type="button" id="btnContinueNew" class="px-5 py-2.5 rounded-xl bg-secondary text-white font-semibold hover:opacity-95 transition-colors shadow-xs text-sm">
+              Học tiếp từ mới (${fmt(cAfter.fresh)})
+            </button>
+          ` : (cAfter.q.freshTotal > 0 ? `
+            <button type="button" id="btnMoreNewAfter" class="px-5 py-2.5 rounded-xl bg-jade-subtle text-secondary border border-secondary/30 font-semibold hover:bg-secondary hover:text-white transition-colors text-sm">
+              +10 từ mới nữa (còn ${fmt(cAfter.q.freshTotal)})
+            </button>
+          ` : '')}
+          ${cAfter.due > 0 ? `
+            <button type="button" id="btnContinueReview" class="px-5 py-2.5 rounded-xl bg-amber-subtle text-tertiary border border-tertiary/30 font-semibold hover:bg-tertiary hover:text-white transition-colors text-sm">
+              Ôn thẻ đến hạn (${fmt(cAfter.due)})
+            </button>
+          ` : ''}
           <a href="#trang-chu" class="px-6 py-2.5 rounded-xl bg-primary-container text-on-primary font-semibold hover:bg-primary transition-colors shadow-xs text-sm">
             Về Trang chủ
           </a>
@@ -1716,6 +1880,28 @@ function renderCard() {
         </div>
       </div>
     `);
+    const bContNew = $("#btnContinueNew");
+    if (bContNew) bContNew.onclick = () => {
+      S.session = { answered: 0, shown: false, start: cAfter.fresh, lastNote: null, mode: "new", newKeys: new Set(), queue: [] };
+      S.session.current = nextCard(Date.now());
+      renderCard();
+    };
+    const bMoreNew = $("#btnMoreNewAfter");
+    if (bMoreNew) bMoreNew.onclick = async () => {
+      S.settings.newPerDay = Number(S.settings.newPerDay || 20) + 10;
+      try { await Store.put("settings", "user", S.settings); } catch (e) {}
+      const c2 = todayCounts();
+      S.session = { answered: 0, shown: false, start: c2.fresh, lastNote: null, mode: "new", newKeys: new Set(), queue: [] };
+      S.session.current = nextCard(Date.now());
+      renderCard();
+    };
+    const bContRev = $("#btnContinueReview");
+    if (bContRev) bContRev.onclick = () => {
+      S.session = { answered: 0, shown: false, start: cAfter.due, lastNote: null, mode: "review", newKeys: new Set(), queue: [] };
+      S.session.current = nextCard(Date.now());
+      renderCard();
+    };
+    S.session = null;
     updateBadge();
     return;
   }
@@ -1959,7 +2145,8 @@ function renderCard() {
         <div class="flex flex-wrap items-center justify-between gap-space-sm">
           <div class="flex items-center gap-space-sm">
             <span class="inline-flex items-center justify-center px-2.5 py-1 rounded-lg bg-cinnabar-subtle text-primary font-code text-xs font-bold">${cardIndex}</span>
-            <span class="font-body-sm text-sm text-outline">/ ${totalCards} thẻ phiên hôm nay</span>
+            <span class="font-body-sm text-sm text-outline">/ ${totalCards} thẻ (${ss.mode === 'new' ? 'Học từ mới' : (ss.mode === 'review' ? 'Ôn tập' : (ss.folderFilter ? 'Theo chủ đề' : 'Phiên hôm nay'))})</span>
+            ${curCardState.state === 'new' ? `<span class="px-2 py-0.5 rounded-full bg-jade-subtle text-secondary text-xs font-bold">Từ mới ✨</span>` : `<span class="px-2 py-0.5 rounded-full bg-amber-subtle text-tertiary text-xs font-bold">Đang ôn</span>`}
           </div>
           <div class="flex items-center gap-2 sm:gap-4 text-xs font-medium flex-wrap">
             <div class="flex items-center gap-1 bg-amber-subtle px-2.5 py-1 rounded-full text-tertiary">
@@ -2345,7 +2532,7 @@ document.addEventListener("keydown", (e) => {
   const ss = S.session;
   if (!ss || !ss.current || !location.hash.startsWith("#hoc")) return;
   if (["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName)) return;
-  if (e.key.toLowerCase() === "r") {
+  if (e.key.toLowerCase() === "r" || (e.key === "Shift" && !e.ctrlKey && !e.altKey && !e.metaKey)) {
     e.preventDefault();
     const r = ss.current;
     if (r && r.n && r.n.kind !== "grammar") {
