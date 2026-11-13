@@ -2531,8 +2531,11 @@ function reveal() {
 document.addEventListener("keydown", (e) => {
   const ss = S.session;
   if (!ss || !ss.current || !location.hash.startsWith("#hoc")) return;
-  if (["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName)) return;
-  if (e.key.toLowerCase() === "r" || (e.key === "Shift" && !e.ctrlKey && !e.altKey && !e.metaKey)) {
+  const tag = e.target && e.target.tagName;
+  if (["INPUT", "SELECT", "TEXTAREA"].includes(tag) || (e.target && e.target.isContentEditable)) return;
+  const keyLower = (e.key || "").toLowerCase();
+  const isSpace = e.code === "Space" || e.key === " " || e.key === "Spacebar" || e.keyCode === 32;
+  if (keyLower === "r" || (e.key === "Shift" && !e.ctrlKey && !e.altKey && !e.metaKey)) {
     e.preventDefault();
     const r = ss.current;
     if (r && r.n && r.n.kind !== "grammar") {
@@ -2541,11 +2544,15 @@ document.addEventListener("keydown", (e) => {
     }
     return;
   }
-  if (!ss.shown && (e.key === " " || e.key === "Enter")) {
+  if (!ss.shown && (isSpace || e.key === "Enter")) {
     e.preventDefault();
+    e.stopPropagation();
+    if (document.activeElement && document.activeElement.tagName === "BUTTON") {
+      document.activeElement.blur();
+    }
     reveal();
   } else if (!ss.shown && ss.current.t === "clo") {
-    const k = e.key.toLowerCase();
+    const k = keyLower;
     let idx = -1;
     if (["1", "a"].includes(k)) idx = 0;
     else if (["2", "b"].includes(k)) idx = 1;
@@ -2572,7 +2579,7 @@ document.addEventListener("keydown", (e) => {
       targetBtn.click();
     }
   }
-});
+}, true);
 
 
 // =========================================================================
@@ -3837,8 +3844,8 @@ async function triUndo() {
 
 document.addEventListener("keydown", (e) => {
   if (!location.hash.startsWith("#loc-nhanh") || !S.tri || ["INPUT", "SELECT", "TEXTAREA"].includes(e.target.tagName)) return;
-  const k = e.key.toLowerCase();
-  if (k === " ") {
+  const k = (e.key || "").toLowerCase();
+  if (e.code === "Space" || k === " " || e.key === "Spacebar" || e.keyCode === 32) {
     e.preventDefault();
     S.tri.shown = true;
     renderTri();
