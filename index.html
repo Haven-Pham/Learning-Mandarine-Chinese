@@ -102,7 +102,8 @@ tailwind.config = {
         "label-md": ["Be Vietnam Pro", "sans-serif"],
         "body-sm": ["Be Vietnam Pro", "sans-serif"],
         "code": ["JetBrains Mono", "monospace"],
-        "headline-md": ["Noto Serif", "Noto Serif TC", "serif"]
+        "headline-md": ["Noto Serif", "Noto Serif TC", "serif"],
+        "serif": ["Noto Serif", "Times New Roman", "Noto Serif TC", "serif"]
       },
       fontSize: {
         "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
@@ -119,7 +120,9 @@ tailwind.config = {
   }
 };
 </script>
-<link rel="stylesheet" href="style.css?v=32">
+<!-- Prebuilt Tailwind (works offline). The CDN above still adds classes that are newer than this build. Rebuild: see tools/build-css.md -->
+<link rel="stylesheet" href="css/tw.css?v=37">
+<link rel="stylesheet" href="style.css?v=37">
 </head>
 <body class="bg-paper-base font-body-md text-body-md text-on-surface antialiased min-h-screen flex flex-col select-text">
 
@@ -167,7 +170,7 @@ tailwind.config = {
       <!-- Sync Status Button -->
       <button type="button" class="hidden sm:inline-flex items-center gap-1.5 px-space-md py-1 rounded-full bg-jade-subtle text-secondary font-label-sm text-label-sm font-semibold hover:bg-secondary-container transition-all" id="headerSyncBtn" title="Đồng bộ tiến độ giữa điện thoại và máy tính">
         <span class="material-symbols-outlined text-[16px]" id="headerSyncIcon">sync</span>
-        <span id="headerSyncLabel">Đã đồng bộ</span>
+        <span id="headerSyncLabel">Đồng bộ</span>
       </button>
 
       <!-- Mobile Hamburger Button -->
@@ -275,10 +278,10 @@ tailwind.config = {
 
 <!-- Core Application Scripts -->
 <script src="vendor/hanzi-writer.min.js"></script>
-<script src="js/srs.js?v=31"></script>
-<script src="js/store.js?v=31"></script>
-<script src="js/sync.js?v=31"></script>
-<script src="js/app.js?v=36"></script>
+<script src="js/srs.js?v=37"></script>
+<script src="js/store.js?v=37"></script>
+<script src="js/sync.js?v=37"></script>
+<script src="js/app.js?v=37"></script>
 <script>
   const menuBtn = document.getElementById('mobileMenuBtn');
   const mobileMenu = document.getElementById('mobileMenu');

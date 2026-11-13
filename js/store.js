@@ -56,14 +56,18 @@ const Store = (() => {
   const putMany = async (store, entries) => (await backend()).putMany(store, entries);
   const del = async (store, key) => (await backend()).del(store, key);
   const kind = async () => (await backend()).kind;
+  const get = async (store, key) => (await all(store)).get(key);
 
   // Sync secrets stay on this device only: never in backups, Gist content or progress codes.
   const SECRET_KEYS = ["syncToken", "syncGistId", "lastSyncTime"];
+  // kv entries that stay on this device: never exported, synced, or wiped by a restore (private, copyrighted test packs)
+  const LOCAL_KV = ["mockTests"];
   function publicSettings(s) { const c = JSON.parse(JSON.stringify(s || {})); for (const k of SECRET_KEYS) delete c[k]; return c; }
   async function exportAll() {
     const out = { app: "so-hoc-tieng-hoa", version: 1, exportedAt: new Date().toISOString() };
     for (const s of STORES) out[s] = Object.fromEntries(await all(s));
     if (out.kv && out.kv.settings) out.kv.settings = publicSettings(out.kv.settings);
+    if (out.kv) for (const k of LOCAL_KV) delete out.kv[k];
     return out;
   }
   // mode "replace": wipe then load; "merge": keep the newer state per card
@@ -75,9 +79,13 @@ const Store = (() => {
     if (data.kv && data.kv.settings) data = Object.assign({}, data, { kv: Object.assign({}, data.kv, { settings: keepSecrets(data.kv.settings) }) });
     for (const s of STORES) {
       const incoming = Object.entries(data[s] || {});
-      if (mode === "replace") { await b.clear(s); await b.putMany(s, incoming); continue; }
+      if (mode === "replace") {
+        const keepLocal = s === "kv" ? LOCAL_KV.filter((k) => localKv.has(k)).map((k) => [k, localKv.get(k)]) : [];
+        await b.clear(s); await b.putMany(s, incoming.filter(([k]) => !(s === "kv" && LOCAL_KV.includes(k))).concat(keepLocal)); continue;
+      }
       const cur = await b.all(s); const keep = [];
       for (const [k, v] of incoming) {
+        if (s === "kv" && LOCAL_KV.includes(k)) continue;
         const c = cur.get(k);
         if (!c) keep.push([k, v]);
         else if (s === "srs") {
@@ -101,5 +109,5 @@ const Store = (() => {
       await b.putMany(s, keep);
     }
   }
-  return { all, put, del, putMany, exportAll, importAll, kind, publicSettings };
+  return { all, get, put, del, putMany, exportAll, importAll, kind, publicSettings };
 })();

@@ -622,8 +622,14 @@ body {
   font-size: 16px;
   line-height: 1.6;
 }
-.han, [lang="zh"], [lang="zh-TW"], .font-display, .font-serif {
+.han, [lang="zh"], [lang="zh-TW"] {
   font-family: var(--f-han);
+  letter-spacing: 0.025em;
+  text-rendering: optimizeLegibility;
+}
+/* Headings mix Vietnamese and Chinese: a Latin serif with Vietnamese glyphs first, Chinese falls back to Noto Serif TC */
+.font-display, .font-serif {
+  font-family: "Noto Serif", "Noto Serif TC", Georgia, serif;
   letter-spacing: 0.025em;
   text-rendering: optimizeLegibility;
 }
@@ -657,3 +663,8 @@ rt {
     line-height: 30px !important;
   }
 }
+
+/* Desktop nav: keep each tab on one line (labels were wrapping into two lines at 1280–1440 px) */
+#mainNav .nav-tab { white-space: nowrap; padding-left: 10px; padding-right: 10px; }
+#mainNav { flex-wrap: nowrap; }
+#headerSyncBtn, #headerSyncLabel { white-space: nowrap; }
