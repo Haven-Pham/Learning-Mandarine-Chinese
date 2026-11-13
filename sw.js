@@ -1,6 +1,6 @@
 // Offline support: app files are network-first (so updates arrive), data files are cache-first.
-const VERSION = "shtv-34";
-const SHELL = ["./", "index.html", "style.css", "js/app.js", "js/srs.js", "js/cedict.js", "manifest.webmanifest"];
+const VERSION = "shtv-35";
+const SHELL = ["./", "index.html", "style.css", "js/app.js", "js/srs.js", "js/store.js", "js/sync.js", "manifest.webmanifest"];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));
@@ -30,9 +30,9 @@ self.addEventListener("fetch", (e) => {
     return;
   }
 
-  // App shell & JS: network-first, fallback to cache
+  // App shell & JS: network-first (bypass HTTP cache), fallback to cache
   e.respondWith(
-    fetch(e.request).then((res) => {
+    fetch(e.request, { cache: "no-store" }).then((res) => {
       const copy = res.clone();
       caches.open(VERSION).then((c) => c.put(e.request, copy));
       return res;

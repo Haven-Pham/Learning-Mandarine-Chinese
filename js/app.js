@@ -2528,9 +2528,10 @@ function reveal() {
   if (r.n.kind !== "grammar" && r.t !== "lis") say(itemOf(r.n).w);
 }
 
-document.addEventListener("keydown", (e) => {
+window.addEventListener("keydown", (e) => {
   const ss = S.session;
-  if (!ss || !ss.current || !location.hash.startsWith("#hoc")) return;
+  if (!ss || !ss.current) return;
+  if (!location.hash.startsWith("#hoc") && !$("#btnReveal") && !$("[data-srs-grade]")) return;
   const tag = e.target && e.target.tagName;
   if (["INPUT", "SELECT", "TEXTAREA"].includes(tag) || (e.target && e.target.isContentEditable)) return;
   const keyLower = (e.key || "").toLowerCase();
