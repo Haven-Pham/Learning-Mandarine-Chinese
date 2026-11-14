@@ -1,8 +1,16 @@
-// Spaced repetition (SM-2 style, close to Anki defaults). No network, no AI.
+// Spaced repetition: FSRS (via ts-fsrs) with SM-2 fallback. No network, no AI.
 const MIN = 60000, DAY = 86400000;
 const STEPS = [1 * MIN, 10 * MIN];   // learning steps for new cards
 const RELEARN = [10 * MIN];          // after forgetting a review card
 const DAY_START_HOUR = 4;            // a study day starts at 4:00
+let _fsrsInstance = null;
+function getFSRS() {
+  if (_fsrsInstance) return _fsrsInstance;
+  if (typeof FSRS !== "undefined" && typeof FSRS.fsrs === "function") {
+    _fsrsInstance = FSRS.fsrs({ request_retention: 0.9, enable_fuzz: true });
+  }
+  return _fsrsInstance;
+}
 
 function dayStart(t) {
   const d = new Date(t);
@@ -18,6 +26,67 @@ function freshState() { return { state: "new", ease: 2.5, ivl: 0, step: 0, reps:
 
 // grade: 1 = Quên, 2 = Khó, 3 = Nhớ, 4 = Dễ
 function schedule(prev, grade, now) {
+  const f = getFSRS();
+  if (f && typeof FSRS !== "undefined") {
+    const nowDate = new Date(now);
+    let card;
+    if (prev && prev.fsrs) {
+      const pr = prev.fsrs;
+      card = {
+        due: new Date(pr.due || now),
+        stability: pr.stability || 0,
+        difficulty: pr.difficulty || 0,
+        elapsed_days: pr.elapsed_days || 0,
+        scheduled_days: pr.scheduled_days || 0,
+        reps: pr.reps || 0,
+        lapses: pr.lapses || 0,
+        state: pr.state || 0,
+        learning_steps: pr.learning_steps || 0,
+        last_review: pr.last_review ? new Date(pr.last_review) : undefined
+      };
+    } else if (prev && prev.state === "review" && prev.ivl > 0) {
+      card = {
+        due: new Date(prev.due || now),
+        stability: Math.max(1, prev.ivl),
+        difficulty: 5,
+        elapsed_days: prev.ivl,
+        scheduled_days: prev.ivl,
+        reps: prev.reps || 1,
+        lapses: prev.lapses || 0,
+        state: 2,
+        learning_steps: 0,
+        last_review: new Date(prev.last || (now - prev.ivl * DAY))
+      };
+    } else {
+      card = FSRS.createEmptyCard(nowDate);
+    }
+    const res = f.next(card, nowDate, grade);
+    const c = res.card;
+    const stateMap = ["new", "learn", "review", "relearn"];
+    const stName = stateMap[c.state] || "learn";
+    const dueMs = c.due instanceof Date ? c.due.getTime() : Number(c.due);
+    return Object.assign(freshState(), prev || {}, {
+      state: stName,
+      ivl: c.scheduled_days || 0,
+      step: c.learning_steps || 0,
+      reps: c.reps || 0,
+      lapses: c.lapses || 0,
+      due: stName === "review" ? dayStart(dueMs) : dueMs,
+      last: now,
+      fsrs: {
+        due: dueMs,
+        stability: c.stability,
+        difficulty: c.difficulty,
+        elapsed_days: c.elapsed_days,
+        scheduled_days: c.scheduled_days,
+        reps: c.reps,
+        lapses: c.lapses,
+        state: c.state,
+        learning_steps: c.learning_steps || 0,
+        last_review: now
+      }
+    });
+  }
   const s = Object.assign(freshState(), prev || {});
   const wasNew = s.state === "new";
   s.reps += 1; s.last = now;

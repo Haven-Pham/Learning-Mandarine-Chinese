@@ -151,6 +151,31 @@ function cardGradingBox(r, now) {
     <div role="status" id="levelStatus"></div>
   </div>`;
 }
+// --- OpenCC (Simplified -> Taiwan Traditional) & pinyin-pro Helpers ---
+let _twConverter = null;
+function toTraditionalTw(text) {
+  const s = String(text || "");
+  if (!s) return "";
+  if (!_twConverter && typeof OpenCC !== "undefined" && typeof OpenCC.Converter === "function") {
+    try { _twConverter = OpenCC.Converter({ from: "cn", to: "twp" }); } catch (e) {}
+  }
+  return _twConverter ? _twConverter(s) : s;
+}
+function pinyinProOf(zh) {
+  const s = String(zh || "");
+  if (!s) return "";
+  if (typeof pinyinPro !== "undefined" && typeof pinyinPro.pinyin === "function") {
+    try { return pinyinPro.pinyin(s, { toneType: "symbol" }); } catch (e) {}
+  }
+  return "";
+}
+const _origPyOf = typeof pyOf === "function" ? pyOf : null;
+pyOf = function(w) {
+  const base = _origPyOf ? _origPyOf(w) : "";
+  if (base) return base;
+  return pinyinProOf(w);
+};
+
 // --- Word Segmenter (for ruby() and dictation) ---
 function segment(zh) {
   const out = []; const chars = [...String(zh || "")]; let i = 0;
@@ -5577,7 +5602,7 @@ VIEWS["tu-dien"] = (arg) => {
 function searchDict(raw) {
   const out = $("#dres"), cnt = $("#dcount");
   if (!out) return null;
-  const q = clean(raw);
+  const q = typeof toTraditionalTw === "function" ? toTraditionalTw(clean(raw)) : clean(raw);
   if (!q) {
     cnt.textContent = "";
     out.innerHTML = "";
@@ -8327,10 +8352,11 @@ VIEWS["nhap"] = () => {
     const c = check();
     if (!c) return;
     const id = "inbox~" + Date.now();
+    const twWord = typeof toTraditionalTw === "function" ? toTraditionalTw(c.w) : c.w;
     const entry = {
       id,
-      w: c.w,
-      py: c.py || (c.n ? itemOf(c.n).py : ""),
+      w: twWord,
+      py: c.py || (c.n ? itemOf(c.n).py : "") || (typeof pyOf === "function" ? pyOf(twWord) : ""),
       where: clean($("#where").value),
       note: clean($("#note").value),
       at: Date.now()

@@ -1,6 +1,11 @@
 // Offline support: app files are network-first (so updates arrive), data files are cache-first.
+<<<<<<< HEAD
 const VERSION = "shtv-40";
 const SHELL = ["./", "index.html", "style.css", "css/tw.css", "js/app.js", "js/srs.js", "js/store.js", "js/sync.js", "manifest.webmanifest"];
+=======
+const VERSION = "shtv-37";
+const SHELL = ["./", "index.html", "style.css", "vendor/hanzi-writer.min.js", "vendor/ts-fsrs.umd.js", "vendor/pinyin-pro.js", "vendor/opencc-cn2t.js", "js/app.js", "js/srs.js", "js/store.js", "js/sync.js", "manifest.webmanifest"];
+>>>>>>> 5735b2c (v37: Integrate ts-fsrs, pinyin-pro, opencc-js (s2twp) locally + fill 238 Vietnamese meanings)
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(VERSION).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));

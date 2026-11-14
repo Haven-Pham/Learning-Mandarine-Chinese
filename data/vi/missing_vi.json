@@ -1,0 +1,954 @@
+{
+  "你": {
+    "vn": "bạn, anh, chị (ngôi thứ 2 số ít)",
+    "py": "nǐ"
+  },
+  "他": {
+    "vn": "anh ấy, ông ấy (ngôi thứ 3 số ít)",
+    "py": "tā"
+  },
+  "你們": {
+    "vn": "các bạn, các anh chị",
+    "py": "nǐ men"
+  },
+  "他們": {
+    "vn": "họ, bọn họ",
+    "py": "tā men"
+  },
+  "台灣": {
+    "vn": "Đài Loan",
+    "py": "Tái wān"
+  },
+  "爸爸": {
+    "vn": "bố, ba, cha",
+    "py": "bà ba"
+  },
+  "媽媽": {
+    "vn": "mẹ, má",
+    "py": "mā ma"
+  },
+  "哥哥": {
+    "vn": "anh trai",
+    "py": "gē ge"
+  },
+  "弟弟": {
+    "vn": "em trai",
+    "py": "dì di"
+  },
+  "姊姊": {
+    "vn": "chị gái",
+    "py": "zǐ zǐ"
+  },
+  "妹妹": {
+    "vn": "em gái",
+    "py": "mèi mei"
+  },
+  "什麼": {
+    "vn": "cái gì, gì",
+    "py": "shén me"
+  },
+  "公共汽車": {
+    "vn": "xe buýt",
+    "py": "gōng gòng qì chē"
+  },
+  "車(子)": {
+    "vn": "xe cộ, ô tô, xe",
+    "py": ""
+  },
+  "這裡": {
+    "vn": "ở đây, chỗ này",
+    "py": "zhè lǐ"
+  },
+  "那裡": {
+    "vn": "ở kia, chỗ đó",
+    "py": "nà li"
+  },
+  "哪裡": {
+    "vn": "ở đâu, chỗ nào",
+    "py": "nǎ lǐ"
+  },
+  "星期天": {
+    "vn": "Chủ nhật",
+    "py": "Xīng qī tiān"
+  },
+  "週末": {
+    "vn": "cuối tuần",
+    "py": "zhōu mò"
+  },
+  "應該": {
+    "vn": "nên, cần phải, đáng lẽ",
+    "py": "yīng gāi"
+  },
+  "醫生": {
+    "vn": "bác sĩ",
+    "py": "yī shēng"
+  },
+  "一點": {
+    "vn": "một chút, một ít; 1 giờ",
+    "py": "yī diǎn"
+  },
+  "餐廳": {
+    "vn": "nhà hàng, phòng ăn",
+    "py": "cān tīng"
+  },
+  "畫": {
+    "vn": "vẽ; bức tranh",
+    "py": "huà"
+  },
+  "念": {
+    "vn": "đọc, học (ngành/trường); nhớ nhung",
+    "py": "niàn"
+  },
+  "常常": {
+    "vn": "thường xuyên, hay",
+    "py": "cháng cháng"
+  },
+  "事": {
+    "vn": "việc, sự việc, chuyện",
+    "py": "shì"
+  },
+  "裡面": {
+    "vn": "bên trong, phía trong",
+    "py": "lǐ miàn"
+  },
+  "裡": {
+    "vn": "trong, bên trong",
+    "py": "lǐ"
+  },
+  "嘴巴": {
+    "vn": "miệng, mồm",
+    "py": "zuǐ ba"
+  },
+  "衣服": {
+    "vn": "quần áo, trang phục",
+    "py": "yī fu"
+  },
+  "一共": {
+    "vn": "tổng cộng, tất cả",
+    "py": "yī gòng"
+  },
+  "蛋": {
+    "vn": "trứng",
+    "py": "Dàn"
+  },
+  "邊": {
+    "vn": "bên, cạnh, phía, rìa",
+    "py": "biān"
+  },
+  "有點": {
+    "vn": "hơi, có chút",
+    "py": "yǒu diǎn"
+  },
+  "城市": {
+    "vn": "thành phố, đô thị",
+    "py": "chéng shì"
+  },
+  "剛剛": {
+    "vn": "vừa mới, mới đây",
+    "py": "gāng gang"
+  },
+  "一會兒": {
+    "vn": "một lát, một chốc",
+    "py": "yī huì r"
+  },
+  "春天": {
+    "vn": "mùa xuân",
+    "py": "chūn tiān"
+  },
+  "夏天": {
+    "vn": "mùa hè",
+    "py": "xià tiān"
+  },
+  "秋天": {
+    "vn": "mùa thu",
+    "py": "qiū tiān"
+  },
+  "冬天": {
+    "vn": "mùa đông",
+    "py": "dōng tiān"
+  },
+  "老闆": {
+    "vn": "ông chủ, sếp",
+    "py": "Lǎo bǎn"
+  },
+  "計畫": {
+    "vn": "kế hoạch; lên kế hoạch",
+    "py": "jì huà"
+  },
+  "華語": {
+    "vn": "tiếng Hoa, Hoa ngữ",
+    "py": "Huá yǔ"
+  },
+  "部分": {
+    "vn": "bộ phận, phần",
+    "py": "bù fen"
+  },
+  "洗手間": {
+    "vn": "nhà vệ sinh, phòng rửa tay",
+    "py": "xǐ shǒu jiān"
+  },
+  "窗(子)": {
+    "vn": "cửa sổ",
+    "py": ""
+  },
+  "盒": {
+    "vn": "hộp nhỏ (lượng từ: hộp)",
+    "py": "hé"
+  },
+  "冷氣(機)": {
+    "vn": "máy lạnh, điều hòa",
+    "py": ""
+  },
+  "有空": {
+    "vn": "rảnh rỗi, có thời gian",
+    "py": "yǒu kòng"
+  },
+  "跑": {
+    "vn": "chạy; chạy trốn",
+    "py": "páo"
+  },
+  "腳踏車": {
+    "vn": "xe đạp (Đài Loan)",
+    "py": "jiǎo tà chē"
+  },
+  "聊天": {
+    "vn": "trò chuyện, tán gẫu",
+    "py": "liáo tiān"
+  },
+  "有時候": {
+    "vn": "thỉnh thoảng, đôi khi",
+    "py": "yǒu shí hou"
+  },
+  "飛機場": {
+    "vn": "sân bay, phi trường",
+    "py": "fēi jī chǎng"
+  },
+  "照相機": {
+    "vn": "máy ảnh",
+    "py": "zhào xiàng jī"
+  },
+  "照片": {
+    "vn": "bức ảnh, tấm hình",
+    "py": "zhào piàn"
+  },
+  "南": {
+    "vn": "phía nam, hướng nam",
+    "py": "Nán"
+  },
+  "西": {
+    "vn": "phía tây, hướng tây",
+    "py": "Xī"
+  },
+  "北": {
+    "vn": "phía bắc, hướng bắc",
+    "py": "běi"
+  },
+  "東": {
+    "vn": "phía đông, hướng đông",
+    "py": "Dōng"
+  },
+  "頭髮": {
+    "vn": "tóc",
+    "py": "tóu fa"
+  },
+  "手指(頭)": {
+    "vn": "ngón tay",
+    "py": ""
+  },
+  "超級市場": {
+    "vn": "siêu thị",
+    "py": "chāo jí shì chǎng"
+  },
+  "手錶": {
+    "vn": "đồng hồ đeo tay",
+    "py": "shǒu biǎo"
+  },
+  "其他": {
+    "vn": "khác, những cái khác",
+    "py": "qí tā"
+  },
+  "聲音": {
+    "vn": "âm thanh, giọng nói",
+    "py": "shēng yīn"
+  },
+  "刀(子)": {
+    "vn": "con dao",
+    "py": ""
+  },
+  "盤": {
+    "vn": "đĩa, khay, mâm (lượng từ: đĩa)",
+    "py": "pán"
+  },
+  "瓶": {
+    "vn": "chai, bình, lọ",
+    "py": "píng"
+  },
+  "一半": {
+    "vn": "một nửa, phân nửa",
+    "py": "yī bàn"
+  },
+  "但是": {
+    "vn": "nhưng, nhưng mà",
+    "py": "dàn shì"
+  },
+  "一下(子)": {
+    "vn": "một chút, một lát, ngay lập tức",
+    "py": ""
+  },
+  "伯伯": {
+    "vn": "bác trai (anh của bố)",
+    "py": "bó bo"
+  },
+  "叔叔": {
+    "vn": "chú (em trai của bố)",
+    "py": "shū shu"
+  },
+  "做法": {
+    "vn": "cách làm, phương pháp làm",
+    "py": "zuò fǎ"
+  },
+  "念書": {
+    "vn": "đọc sách, đi học",
+    "py": "niàn shū"
+  },
+  "了解": {
+    "vn": "hiểu rõ, tìm hiểu",
+    "py": "liǎo jiě"
+  },
+  "箱": {
+    "vn": "thùng, hòm, rương, vali",
+    "py": "xiāng"
+  },
+  "濕": {
+    "vn": "ẩm ướt, ướt",
+    "py": "shī"
+  },
+  "刷(子)": {
+    "vn": "bàn chải; chải, quét",
+    "py": ""
+  },
+  "茶館": {
+    "vn": "quán trà",
+    "py": "chá guǎn"
+  },
+  "一塊": {
+    "vn": "cùng nhau; một miếng/mẩu; một đồng",
+    "py": "yī kuài"
+  },
+  "摩托車": {
+    "vn": "xe máy, mô tô",
+    "py": "mó tuō chē"
+  },
+  "船": {
+    "vn": "thuyền, tàu thủy",
+    "py": "chuán"
+  },
+  "月台": {
+    "vn": "sân ga (tàu hỏa, tàu điện)",
+    "py": ""
+  },
+  "汗": {
+    "vn": "mồ hôi",
+    "py": "hán"
+  },
+  "老闆娘": {
+    "vn": "bà chủ",
+    "py": "lǎo bǎn niáng"
+  },
+  "冰塊": {
+    "vn": "đá viên, cục đá",
+    "py": "bīng kuài"
+  },
+  "味": {
+    "vn": "mùi, vị, hương vị",
+    "py": "wèi"
+  },
+  "嚐": {
+    "vn": "nếm, nếm thử, trải nghiệm",
+    "py": "cháng"
+  },
+  "保證": {
+    "vn": "bảo đảm, cam đoan",
+    "py": "bǎo zhèng"
+  },
+  "比如": {
+    "vn": "ví dụ như, chẳng hạn",
+    "py": "Bǐ rú"
+  },
+  "差點": {
+    "vn": "suýt nữa, thiếu chút nữa",
+    "py": "chà diǎn"
+  },
+  "嘗試": {
+    "vn": "thử, thử sức",
+    "py": "cháng shì"
+  },
+  "當作": {
+    "vn": "coi như, xem như",
+    "py": "dàng zuò"
+  },
+  "訪問": {
+    "vn": "phỏng vấn; thăm hỏi, viếng thăm",
+    "py": "fǎng wèn"
+  },
+  "翻譯": {
+    "vn": "phiên dịch, dịch thuật; người dịch",
+    "py": "fān yì"
+  },
+  "複習": {
+    "vn": "ôn tập",
+    "py": "fù xí"
+  },
+  "個子": {
+    "vn": "vóc dáng, chiều cao",
+    "py": "gè zi"
+  },
+  "古蹟": {
+    "vn": "di tích cổ, cổ tích",
+    "py": "gǔ jì"
+  },
+  "好好": {
+    "vn": "tử tế, đàng hoàng, thật tốt",
+    "py": "hǎo hǎo"
+  },
+  "忽然": {
+    "vn": "bỗng nhiên, đột nhiên",
+    "py": "hū rán"
+  },
+  "節": {
+    "vn": "tiết (học), đốt, đoạn; lễ tết; tiết kiệm",
+    "py": "jiē"
+  },
+  "舅舅": {
+    "vn": "cậu (anh/em trai của mẹ)",
+    "py": "jiù jiu"
+  },
+  "老虎": {
+    "vn": "con hổ, cọp",
+    "py": "lǎo hǔ"
+  },
+  "連絡": {
+    "vn": "liên lạc, liên hệ",
+    "py": "lián luò"
+  },
+  "秘密": {
+    "vn": "bí mật",
+    "py": "mì mì"
+  },
+  "石頭": {
+    "vn": "hòn đá, cục đá",
+    "py": "shí tou"
+  },
+  "晒": {
+    "vn": "phơi nắng, chiếu nắng",
+    "py": "shài"
+  },
+  "似乎": {
+    "vn": "dường như, hình như",
+    "py": "sì hū"
+  },
+  "文章": {
+    "vn": "bài viết, bài văn",
+    "py": "wén zhāng"
+  },
+  "兇": {
+    "vn": "hung dữ, dữ tợn",
+    "py": "xiōng"
+  },
+  "夜裡": {
+    "vn": "ban đêm, trong đêm",
+    "py": "yè li"
+  },
+  "與": {
+    "vn": "và, cùng với",
+    "py": "yú"
+  },
+  "增加": {
+    "vn": "tăng thêm, gia tăng",
+    "py": "zēng jiā"
+  },
+  "做夢": {
+    "vn": "nằm mơ, mơ mộng",
+    "py": "zuò mèng"
+  },
+  "癌症": {
+    "vn": "bệnh ung thư",
+    "py": "ái zhèng"
+  },
+  "布告": {
+    "vn": "bố cáo, thông báo",
+    "py": ""
+  },
+  "布告欄": {
+    "vn": "bảng thông báo, bảng tin",
+    "py": ""
+  },
+  "潮溼": {
+    "vn": "ẩm ướt, nồm ẩm",
+    "py": ""
+  },
+  "澈底": {
+    "vn": "triệt để, hoàn toàn",
+    "py": "chè dǐ"
+  },
+  "沉": {
+    "vn": "chìm, lắng xuống; nặng nề",
+    "py": "chén"
+  },
+  "成分": {
+    "vn": "thành phần, chất cấu thành",
+    "py": "chéng fèn"
+  },
+  "翅膀": {
+    "vn": "đôi cánh",
+    "py": "chì bǎng"
+  },
+  "充分": {
+    "vn": "đầy đủ, trọn vẹn",
+    "py": "chōng fèn"
+  },
+  "詞典": {
+    "vn": "từ điển",
+    "py": "cí diǎn"
+  },
+  "待會": {
+    "vn": "lát nữa, một lát nữa",
+    "py": "dāi hui"
+  },
+  "倒楣": {
+    "vn": "xui xẻo, đen đủi",
+    "py": "dǎo méi"
+  },
+  "電扇": {
+    "vn": "quạt điện",
+    "py": "diàn shàn"
+  },
+  "電視台": {
+    "vn": "đài truyền hình",
+    "py": "diàn shì tái"
+  },
+  "電台": {
+    "vn": "đài phát thanh",
+    "py": ""
+  },
+  "度過": {
+    "vn": "trải qua, vượt qua (thời gian/khó khăn)",
+    "py": "dù guò"
+  },
+  "多半": {
+    "vn": "phần lớn, đa phần, có lẽ",
+    "py": "duō bàn"
+  },
+  "分布": {
+    "vn": "phân bố, rải rác",
+    "py": ""
+  },
+  "港口": {
+    "vn": "cảng, bến cảng",
+    "py": "gǎng kǒu"
+  },
+  "公布": {
+    "vn": "công bố, ban bố",
+    "py": "gōng bù"
+  },
+  "規畫": {
+    "vn": "quy hoạch, hoạch định",
+    "py": ""
+  },
+  "櫃臺": {
+    "vn": "quầy giao dịch, quầy lễ tân",
+    "py": "guì tái"
+  },
+  "骨頭": {
+    "vn": "xương, khúc xương",
+    "py": "gǔ tou"
+  },
+  "喉嚨": {
+    "vn": "cổ họng, thanh quản",
+    "py": "hóu lóng"
+  },
+  "化": {
+    "vn": "biến hóa, hòa tan, hóa giải",
+    "py": "huā"
+  },
+  "回教": {
+    "vn": "Hồi giáo",
+    "py": "Huí jiào"
+  },
+  "漸漸": {
+    "vn": "dần dần, từ từ",
+    "py": "jiàn jiàn"
+  },
+  "駕駛": {
+    "vn": "lái xe, điều khiển (phương tiện); tài xế",
+    "py": "jià shǐ"
+  },
+  "嫉妒": {
+    "vn": "ghen tị, đố kỵ",
+    "py": "jí dù"
+  },
+  "精彩": {
+    "vn": "đặc sắc, xuất sắc, tuyệt vời",
+    "py": "jīng cǎi"
+  },
+  "巨大": {
+    "vn": "to lớn, khổng lồ",
+    "py": "jù dà"
+  },
+  "決": {
+    "vn": "quyết định; dứt khoát",
+    "py": "jué"
+  },
+  "裡頭": {
+    "vn": "bên trong, ở trong",
+    "py": "lǐ tou"
+  },
+  "蜜蜂": {
+    "vn": "con ong mật",
+    "py": "mì fēng"
+  },
+  "秘書": {
+    "vn": "thư ký",
+    "py": "mì shū"
+  },
+  "黏": {
+    "vn": "dính, kết dính",
+    "py": "nián"
+  },
+  "農民": {
+    "vn": "nông dân",
+    "py": "nóng mín"
+  },
+  "偶而": {
+    "vn": "thỉnh thoảng, ngẫu nhiên",
+    "py": "ǒu ér"
+  },
+  "砲": {
+    "vn": "pháo, đại bác",
+    "py": "pào"
+  },
+  "偏": {
+    "vn": "lệch, nghiêng; thiên vị; cố tình",
+    "py": "piān"
+  },
+  "乒乓球": {
+    "vn": "bóng bàn",
+    "py": "pīng pāng qiú"
+  },
+  "貧窮": {
+    "vn": "nghèo khó, bần cùng",
+    "py": "pín qióng"
+  },
+  "妻": {
+    "vn": "vợ (thê)",
+    "py": "qī"
+  },
+  "牆": {
+    "vn": "bức tường",
+    "py": "qiáng"
+  },
+  "悄悄": {
+    "vn": "lặng lẽ, âm thầm, khẽ khàng",
+    "py": "qiāo qiāo"
+  },
+  "群": {
+    "vn": "bầy, đàn, nhóm, đám",
+    "py": "qún"
+  },
+  "人情味": {
+    "vn": "tình người, sự ấm áp tình cảm",
+    "py": "rén qíng wèi"
+  },
+  "上台": {
+    "vn": "lên sân khấu; lên nắm quyền",
+    "py": "shàng tái"
+  },
+  "身分": {
+    "vn": "thân phận, danh tính",
+    "py": "shēn fèn"
+  },
+  "神秘": {
+    "vn": "thần bí, bí ẩn",
+    "py": "shén mì"
+  },
+  "舌頭": {
+    "vn": "cái lưỡi",
+    "py": "shé tou"
+  },
+  "收看": {
+    "vn": "xem (chương trình TV)",
+    "py": "shōu kàn"
+  },
+  "鼠": {
+    "vn": "con chuột",
+    "py": "shǔ"
+  },
+  "水分": {
+    "vn": "độ ẩm, lượng nước",
+    "py": "shuǐ fèn"
+  },
+  "踏": {
+    "vn": "dẫm, bước lên, đạp",
+    "py": "tā"
+  },
+  "尾巴": {
+    "vn": "cái đuôi",
+    "py": "wěi ba"
+  },
+  "舞台": {
+    "vn": "sân khấu",
+    "py": ""
+  },
+  "象": {
+    "vn": "con voi; hình tượng",
+    "py": "xiàng"
+  },
+  "消夜": {
+    "vn": "ăn khuya, bữa ăn đêm",
+    "py": "xiāo yè"
+  },
+  "宣布": {
+    "vn": "tuyên bố, công bố",
+    "py": "xuān bù"
+  },
+  "煙": {
+    "vn": "khói; thuốc lá",
+    "py": "yān"
+  },
+  "預先": {
+    "vn": "trước, dự kiến trước",
+    "py": "yù xiān"
+  },
+  "占": {
+    "vn": "chiếm, chiếm giữ; xem bói",
+    "py": "zhān"
+  },
+  "占有": {
+    "vn": "chiếm hữu, sở hữu",
+    "py": ""
+  },
+  "制定": {
+    "vn": "đặt ra, soạn thảo, chế định",
+    "py": "zhì dìng"
+  },
+  "製造": {
+    "vn": "chế tạo, sản xuất",
+    "py": "zhì zào"
+  },
+  "准考證": {
+    "vn": "giấy báo dự thi, thẻ dự thi",
+    "py": "zhǔn kǎo zhèng"
+  },
+  "做客": {
+    "vn": "làm khách, đến chơi nhà",
+    "py": "zuò kè"
+  },
+  "愛滋病": {
+    "vn": "bệnh AIDS",
+    "py": "ài zī bìng"
+  },
+  "頒發": {
+    "vn": "ban phát, trao tặng (giải thưởng/chứng nhận)",
+    "py": "bān fā"
+  },
+  "不至於": {
+    "vn": "không đến nỗi, không tới mức",
+    "py": "bù zhì yú"
+  },
+  "策畫": {
+    "vn": "lên kế hoạch, hoạch định",
+    "py": "cè huà"
+  },
+  "沉默": {
+    "vn": "trầm mặc, im lặng",
+    "py": "chén mò"
+  },
+  "沉重": {
+    "vn": "nặng nề, trầm trọng",
+    "py": "chén zhòng"
+  },
+  "獨占": {
+    "vn": "độc chiếm, độc quyền",
+    "py": "dú zhàn"
+  },
+  "凡": {
+    "vn": "phàm là, mọi, tất cả; tầm thường",
+    "py": "fán"
+  },
+  "墳墓": {
+    "vn": "phần mộ, ngôi mộ",
+    "py": "fén mù"
+  },
+  "斧頭": {
+    "vn": "cái rìu, búa rìu",
+    "py": "fǔ tóu"
+  },
+  "雇": {
+    "vn": "thuê, mướn",
+    "py": "gù"
+  },
+  "雇用": {
+    "vn": "thuê mướn, tuyển dụng",
+    "py": ""
+  },
+  "棺材": {
+    "vn": "quan tài",
+    "py": "guān cai"
+  },
+  "棍(子)": {
+    "vn": "cây gậy, cái côn",
+    "py": ""
+  },
+  "過目": {
+    "vn": "xem qua, liếc qua, duyệt qua",
+    "py": "guò mù"
+  },
+  "號子": {
+    "vn": "tiếng hô lao động; sàn chứng khoán (Đài Loan)",
+    "py": "hào zi"
+  },
+  "迴響": {
+    "vn": "tiếng vang, phản hồi, hưởng ứng",
+    "py": "huí xiǎng"
+  },
+  "伙伴": {
+    "vn": "bạn đồng hành, đối tác",
+    "py": "huǒ bàn"
+  },
+  "飢餓": {
+    "vn": "đói khát, nạn đói",
+    "py": "jī è"
+  },
+  "傢伙": {
+    "vn": "gã, tên, anh chàng; dụng cụ",
+    "py": "jiā huo"
+  },
+  "勁": {
+    "vn": "sức lực, khí thế, hứng thú",
+    "py": "jìn"
+  },
+  "開頭": {
+    "vn": "mở đầu, bắt đầu",
+    "py": "kāi tóu"
+  },
+  "刻畫": {
+    "vn": "khắc họa, miêu tả sâu sắc",
+    "py": "kè huà"
+  },
+  "老頭兒": {
+    "vn": "ông lão, ông già",
+    "py": "lǎo tóu r"
+  },
+  "聯繫": {
+    "vn": "liên hệ, kết nối",
+    "py": "lián xì"
+  },
+  "連結": {
+    "vn": "liên kết, đường dẫn (link)",
+    "py": "lián jié"
+  },
+  "囉嗦": {
+    "vn": "lắm lời, dài dòng, lằng nhằng",
+    "py": "luō suo"
+  },
+  "眉毛": {
+    "vn": "lông mày",
+    "py": "méi mao"
+  },
+  "默默": {
+    "vn": "âm thầm, lặng lẽ",
+    "py": "mò mò"
+  },
+  "乃": {
+    "vn": "bèn, là, chính là",
+    "py": "nǎi"
+  },
+  "譬如": {
+    "vn": "ví như, chẳng hạn như",
+    "py": "pì rú"
+  },
+  "橋樑": {
+    "vn": "cầu nối, cây cầu",
+    "py": ""
+  },
+  "散布": {
+    "vn": "phân tán, lan truyền, rải",
+    "py": ""
+  },
+  "剎車": {
+    "vn": "phanh, thắng xe; dừng lại",
+    "py": "shā chē"
+  },
+  "甚": {
+    "vn": "rất, quá, thậm chí",
+    "py": "shén"
+  },
+  "似的": {
+    "vn": "giống như, tựa như",
+    "py": "shì de"
+  },
+  "松樹": {
+    "vn": "cây thông",
+    "py": "sōng shù"
+  },
+  "提升": {
+    "vn": "nâng cao, thăng tiến, cải thiện",
+    "py": "tí shēng"
+  },
+  "烏龜": {
+    "vn": "con rùa",
+    "py": "wū guī"
+  },
+  "鮮艶": {
+    "vn": "tươi tắn, rực rỡ, sặc sỡ",
+    "py": ""
+  },
+  "小伙子": {
+    "vn": "chàng trai trẻ, thanh niên",
+    "py": ""
+  },
+  "懸崖": {
+    "vn": "vách đá dựng đứng, bờ vực",
+    "py": "xuán yá"
+  },
+  "養分": {
+    "vn": "chất dinh dưỡng",
+    "py": "yǎng fèn"
+  },
+  "以至": {
+    "vn": "đến nỗi, dẫn đến, cho đến",
+    "py": "yǐ zhì"
+  },
+  "鷹": {
+    "vn": "chim ưng, đại bàng",
+    "py": "yīng"
+  },
+  "讚嘆": {
+    "vn": "tán thán, khen ngợi hết lời",
+    "py": "zàn tàn"
+  },
+  "占據": {
+    "vn": "chiếm giữ, chiếm đóng",
+    "py": ""
+  },
+  "占領": {
+    "vn": "chiếm lĩnh",
+    "py": ""
+  },
+  "注定": {
+    "vn": "định sẵn, số phận an bài",
+    "py": ""
+  },
+  "字眼": {
+    "vn": "từ ngữ, câu chữ",
+    "py": "zì yǎn"
+  },
+  "嘴唇": {
+    "vn": "đôi môi",
+    "py": "zuǐ chún"
+  },
+  "作證": {
+    "vn": "làm chứng, chứng nhận",
+    "py": "zuò zhèng"
+  }
+}
