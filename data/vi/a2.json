@@ -67,7 +67,7 @@
   "hv": "Xuân quý"
  },
  "時": {
-  "vn": "họ [Shi2]",
+  "vn": "giờ; thời gian; khi; mùa; giai đoạn",
   "hv": "Thời"
  },
  "不久": {
@@ -147,7 +147,7 @@
   "hv": "Tôn nữ"
  },
  "孫子": {
-  "vn": "Tôn Tử, còn được biết đến là Tôn Vũ 孫武/孙武[Sun1 Wu3] (khoảng năm 500 TCN, không rõ năm sinh và mất), tướng quân, chiến lược gia và triết gia thời Xuân Thu (770-476 TCN), được cho là tác giả của \"Binh pháp Tôn Tử\" 孫子兵法/孙子兵法[Sun1 zi3 Bing1 fa3], một trong bảy tác phẩm kinh điển về quân sự của Trung Quốc cổ đại 武經七書/武经七书[Wu3 jing1 Qi1 shu1]",
+  "vn": "cháu trai; con trai của con trai",
   "hv": "Tôn tử"
  },
  "關係": {
@@ -177,7 +177,7 @@
   "hv": "Mỹ lệ"
  },
  "帥": {
-  "vn": "họ [Shuai4]",
+  "vn": "(dạng kết hợp) tổng tư lệnh; (dạng kết hợp) dẫn dắt; chỉ huy; đẹp trai; duyên dáng",
   "hv": "Suất"
  },
  "笨": {
@@ -224,7 +224,7 @@
   "hv": "Sai"
  },
  "兄弟": {
-  "vn": "anh em; em trai; tôi (cách khiêm tốn nam giới dùng trong phát biểu công khai); tình anh em; thuộc về anh em",
+  "vn": "huynh đệ; anh em; em trai; tôi (cách khiêm tốn nam giới dùng trong phát biểu công khai); tình anh em; thuộc về anh em",
   "lt": " 個",
   "hv": "Huynh đệ"
  },
@@ -270,7 +270,7 @@
   "hv": "An toàn"
  },
  "成功": {
-  "vn": "Trấn Thành Công hoặc trấn Chengkung ở huyện Đài Đông 臺東縣/台东县[Tai2 dong1 Xian4], đông nam Đài Loan",
+  "vn": "thành công; sự thành công; có kết quả tốt",
   "hv": "Thành công"
  },
  "報告": {
@@ -349,7 +349,7 @@
   "e1v": "- Đề mục này rất thách thức. 挺 tǐng Adv Khá là 這部電影挺有趣的。 Zhè bù diànyǐng tǐng yǒuqù de. - Bộ phim này khá thú v ị. 聽見 tīngjiàn Vpt Nghe thấy 我聽見有人在叫我。 Wǒ tīngjiàn yǒurén zài jiào wǒ. - Tôi nghe thấy có người gọi tôi. 聽力 tīnglì N Khả năng nghe 他的聽力非常好。 Tā de tīnglì fēicháng hǎo. - Khả năng nghe của anh ấy rất tốt."
  },
  "題": {
-  "vn": "họ [Ti2]",
+  "vn": "chủ đề; vấn đề thảo luận; câu hỏi thi; môn học; đề lên",
   "hv": "Đề"
  },
  "答案": {
@@ -408,7 +408,7 @@
   "hv": "Giảm"
  },
  "乘": {
-  "vn": "họ [Cheng2]",
+  "vn": "cưỡi; lên; sử dụng; tận dụng; lợi dụng",
   "hv": "Thừa"
  },
  "除": {
@@ -485,7 +485,7 @@
  },
  "校園": {
   "vn": "khuôn viên trường",
-  "hv": "Giáo viên"
+  "hv": "Hiệu viên"
  },
  "位子": {
   "vn": "chỗ; ngồi",
@@ -670,7 +670,7 @@
   "vn": "tủ đựng; tủ chạn"
  },
  "大門": {
-  "vn": "ban nhạc the Doors, ban nhạc rock Mỹ",
+  "vn": "lối vào; cửa; cổng; gia đình lớn và có ảnh hưởng",
   "hv": "Đại môn",
   "e1": "我們家的大門總是鎖著。",
   "e1p": "Wǒmen jiā de dàmén zǒngshì suǒzhe.",
@@ -752,7 +752,7 @@
   "hv": "Tinh tinh"
  },
  "環境": {
-  "vn": "môi trường; tình huống; xung quanh; không gian xung quanh",
+  "vn": "hoàn cảnh; môi trường; tình huống; xung quanh; không gian xung quanh",
   "lt": "個",
   "hv": "Hoàn cảnh"
  },
@@ -769,11 +769,11 @@
   "hv": "Lương khoái"
  },
  "涼": {
-  "vn": "năm nước Lương trong Thập lục quốc, cụ thể là: Tiền Lương 前涼/前凉 (314-376), Hậu Lương 後涼/后凉 (386-403), Bắc Lương 北涼/北凉 (398-439), Nam Lương 南涼/南凉[Nan2 Liang2] (397-414), Tây Lương 西涼/西凉 (400-421)",
+  "vn": "mát; lạnh",
   "hv": "Lương"
  },
  "乾": {
-  "vn": "họ [Gan1]",
+  "vn": "khô; thức ăn khô; trống rỗng; rỗng tuếch; nhận làm thân thích danh nghĩa",
   "hv": "Can"
  },
  "濕/溼": {
@@ -831,7 +831,7 @@
   "hv": "Thiển"
  },
  "發生": {
-  "vn": "xảy ra; xảy đến; diễn ra; bùng phát",
+  "vn": "phát sinh; xảy ra; xảy đến; diễn ra; bùng phát",
   "hv": "Phát sinh"
  },
  "照顧": {
@@ -980,7 +980,7 @@
   "hv": "Thu"
  },
  "談": {
-  "vn": "họ [Tan2]",
+  "vn": "nói; trò chuyện; đàm thoại; tán gẫu; thảo luận",
   "hv": "Đàm"
  },
  "聊": {
@@ -1032,7 +1032,7 @@
   "hv": "Vũ"
  },
  "游": {
-  "vn": "họ [You2]",
+  "vn": "bơi",
   "hv": "Du"
  },
  "游泳池": {
@@ -1087,7 +1087,7 @@
   "hv": "Hợp tác"
  },
  "主人": {
-  "vn": "chủ; chủ nhà; người chủ",
+  "vn": "chủ nhân; chủ; chủ nhà; người chủ",
   "lt": "個",
   "hv": "Chủ nhân"
  },
@@ -1110,7 +1110,7 @@
   "hv": "Phái đối"
  },
  "祝": {
-  "vn": "họ [Zhu4]",
+  "vn": "cầu nguyện; chúc (ai đó thượng lộ bình an, sinh nhật vui vẻ, v.v.); người cầu khấn thần linh trong các nghi lễ tế tự",
   "hv": "Chúc"
  },
  "留": {
@@ -1118,7 +1118,7 @@
   "hv": "Lưu"
  },
  "封": {
-  "vn": "họ [Feng1]",
+  "vn": "phong tước; ban tặng; phong làm; phong kín; lượng từ cho vật kín, đặc biệt là thư từ",
   "hv": "Phong"
  },
  "信箱": {
@@ -1151,7 +1151,7 @@
   "hv": "Thâu"
  },
  "滿": {
-  "vn": "dân tộc Mãn Châu",
+  "vn": "lấp đầy; đầy; đầy đủ; nhét kín; hoàn toàn",
   "hv": "Mãn"
  },
  "丟": {
@@ -1186,7 +1186,7 @@
   "mi": "出 (Xuất), 門 (Môn). Mẹo nhớ: Ra (出) khỏi cổng (門)."
  },
  "現代": {
-  "vn": "Hyundai, công ty Hàn Quốc",
+  "vn": "hiện đại; thời hiện đại",
   "hv": "Hiện đại"
  },
  "傳統": {
@@ -1275,7 +1275,7 @@
   "hv": "Thị khu"
  },
  "溫泉": {
-  "vn": "huyện Arishang hoặc huyện Ôn Tuyền trong châu tự trị Mông Cổ Bác Nhĩ Tháp Lạp 博爾塔拉蒙古自治州/博尔塔拉蒙古自治州, Tân Cương",
+  "vn": "suối nước nóng; spa; onsen",
   "hv": "Ôn tuyền"
  },
  "公路": {
@@ -1358,7 +1358,7 @@
   "hv": "Na ta"
  },
  "東方": {
-  "vn": "phương Đông; họ hai chữ [Dong1 fang1]",
+  "vn": "đông",
   "hv": "Đông phương"
  },
  "非洲": {
@@ -1378,7 +1378,7 @@
   "hv": "Á châu"
  },
  "大陸": {
-  "vn": "Trung Quốc đại lục (nhắc đến CHND Trung Hoa)",
+  "vn": "(cách nói ở Đài Loan) Trung Quốc đại lục; lục địa, đất liền",
   "hv": "Đại lục",
   "e1": "中國大陸的經濟發展很快。",
   "e1p": "Zhōngguó dàlù de jīngjì fāzhǎn hěn kuài.",
@@ -1541,7 +1541,7 @@
   "hv": "Chính thường"
  },
  "花": {
-  "vn": "họ [Hua1]",
+  "vn": "hoa; bông; hoa văn; lòe loẹt; tiêu (tiền, thời gian)",
   "hv": "Hoa"
  },
  "有錢": {
@@ -1700,11 +1700,11 @@
   "e1v": "Những tài liệu cổ vẫn được bảo tồn trong bảo tàng."
  },
  "毛": {
-  "vn": "họ [Mao2]",
+  "vn": "tóc; lông; vụn lông; lông cừu; mốc",
   "hv": "Mao"
  },
  "高級": {
-  "vn": "cấp cao; chất lượng cao; tiên tiến; cấp bậc cao",
+  "vn": "cao cấp; cấp cao; chất lượng cao; tiên tiến; cấp bậc cao",
   "hv": "Cao cấp"
  },
  "一般": {
@@ -1776,7 +1776,7 @@
   "hv": "Man đầu"
  },
  "米": {
-  "vn": "họ [Mi3]",
+  "vn": "gạo; mét (đơn vị đo)",
   "hv": "Mễ"
  },
  "豆腐": {
@@ -1836,7 +1836,7 @@
   "vn": "vị; mùi; (bóng) (hậu tố danh từ) cảm giác; chất; lượng; (Đông y) lượng từ cho thành phần trong đơn thuốc"
  },
  "聞": {
-  "vn": "họ [Wen2]",
+  "vn": "nghe; tin tức; nổi tiếng; nổi danh; danh tiếng",
   "hv": "Văn"
  },
  "臭": {
@@ -2003,7 +2003,7 @@
   "hv": "Tiếp trước"
  },
  "結果": {
-  "vn": "kết trái",
+  "vn": "kết quả; rốt cuộc, kết cục là; (động từ) kết trái",
   "lt": "個",
   "hv": "Kết quả",
   "mi": "結: 糸 (Mịch - sợi tơ); 果 (Quả). \nMẹo nhớ: Quả (果) cuối cùng của sự việc (như nút thắt sợi tơ)."
@@ -2052,7 +2052,7 @@
   "hv": "Vưu kỳ"
  },
  "越": {
-  "vn": "từ chung chỉ các dân tộc hoặc quốc gia ở nam Trung Quốc hoặc nam Châu Á trong các thời kỳ lịch sử khác nhau; viết tắt của Việt Nam 越南",
+  "vn": "vượt; vượt qua; vượt hơn; càng... càng...",
   "hv": "Việt"
  },
  "整": {
@@ -2081,7 +2081,7 @@
   "hv": "Không"
  },
  "連": {
-  "vn": "họ [Lian2]",
+  "vn": "liên kết; gia nhập; kết nối; liên tục; liên tiếp",
   "hv": "Liên"
  },
  "倍": {
@@ -2093,11 +2093,11 @@
   "hv": "Bao quát"
  },
  "步": {
-  "vn": "họ [Bu4]",
+  "vn": "một bước; nhịp bước; đi; bước đi; các giai đoạn trong một quá trình",
   "hv": "Bộ"
  },
  "當時": {
-  "vn": "lúc đó; vào thời điểm đó; trong khi",
+  "vn": "đương thời; lúc đó; vào thời điểm đó; trong khi",
   "hv": "Đương thời"
  },
  "等到": {

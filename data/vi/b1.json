@@ -42,7 +42,7 @@
   "hv": "Án"
  },
  "安定": {
-  "vn": "thị trấn Anting ở huyện Đài Nam 台南縣/台南县[Tai2 nan2 xian4], Đài Loan",
+  "vn": "ổn định; bình tĩnh; định cư; làm cho ổn định; Valium",
   "hv": "An định"
  },
  "安靜": {
@@ -66,7 +66,7 @@
   "hv": "Bả"
  },
  "白": {
-  "vn": "họ [Bai2]",
+  "vn": "trắng; tuyết; tinh khiết; sáng; trống",
   "hv": "Bạch"
  },
  "白/白白": {
@@ -118,7 +118,7 @@
   "e1v": "Chúng tôi đã đợi anh ấy cả nửa ngày."
  },
  "包": {
-  "vn": "họ [Bao1]",
+  "vn": "che phủ; gói; cầm; nắm bao gồm; phụ trách",
   "hv": "Bao",
   "e1": "媽媽包了一些餃子。",
   "e1p": "Māmā bāole yīxiē jiǎozi.",
@@ -239,7 +239,7 @@
   "e1v": "Cây bút này viết rất tốt."
  },
  "比": {
-  "vn": "Bỉ; Người Bỉ; viết tắt của 比利時/比利时[Bi3 li4 shi2]",
+  "vn": "",
   "hv": "Tỉ",
   "e1": "他比我高。",
   "e1p": "Tā bǐ wǒ gāo.",
@@ -285,7 +285,7 @@
   "e1v": "Anh ấy để lại cho tôi một tờ giấy ghi chú. 表 biǎo đồng hồ, biểu đồ N 這隻表很貴。 Zhè zhī biǎo hěn guì. Chiếc đồng hồ này rất đắt. 表達 biǎodá biểu đạt, diễn đạt V 他表達了對未來的期望。 Tā biǎodá le duì wèilái de qīwàng. Anh ấy đã bày tỏ mong muốn về tương lai. 表面 biǎomiàn"
  },
  "表達": {
-  "vn": "diễn đạt; truyền tải",
+  "vn": "biểu đạt; diễn đạt; truyền tải",
   "hv": "Biểu đạt"
  },
  "表面": {
@@ -336,7 +336,7 @@
   "vn": "ví dụ; chẳng hạn; như là"
  },
  "必要": {
-  "vn": "cần thiết; thiết yếu; không thể thiếu; bắt buộc",
+  "vn": "tất yếu; cần thiết; thiết yếu; không thể thiếu; bắt buộc",
   "hv": "Tất yếu",
   "e1": "為了健康，運動是必要的。",
   "e1p": "Wèile jiànkāng, yùndòng shì bìyào de.",
@@ -389,7 +389,7 @@
   "e1v": "Dù kết quả thế nào, tôi cũng sẽ ủng hộ bạn."
  },
  "不滿": {
-  "vn": "bực bội; không hài lòng; không thỏa mãn",
+  "vn": "bất mãn; bực bội; không hài lòng; không thỏa mãn",
   "hv": "Bất mãn",
   "e1": "她對這次考試的成績感到不滿。",
   "e1p": "Tā duì zhè cì kǎoshì de chéngjī gǎndào bùmǎn.",
@@ -525,7 +525,7 @@
   "e1v": "Sản phẩm này bán r ất chạy."
  },
  "產生": {
-  "vn": "phát sinh; hình thành; xảy ra; tạo ra; làm phát sinh",
+  "vn": "sản sinh; phát sinh; hình thành; xảy ra; tạo ra; làm phát sinh",
   "hv": "Sản sinh",
   "e1": "這個決定可能會產生很多問題。",
   "e1p": "Zhège juédìng kěnéng huì chǎnshēng hěn duō wèntí.",
@@ -581,7 +581,7 @@
   "hv": "Sấn sam"
  },
  "成": {
-  "vn": "họ [Cheng2]",
+  "vn": "thành công; hoàn thành; làm xong; đạt được; trở thành",
   "hv": "Thành",
   "e1": "我終於成了我的夢想。",
   "e1p": "Wǒ zhōngyú chéngle wǒ de mèngxiǎng.",
@@ -674,7 +674,7 @@
   "e1v": "Anh ấy đã ăn một xiên thịt nướng."
  },
  "創造": {
-  "vn": "tạo ra; mang lại; sản xuất; lập (kỷ lục)",
+  "vn": "sáng tạo; tạo ra; mang lại; sản xuất; lập (kỷ lục)",
   "hv": "Sáng tạo",
   "e1": "他創造了一個全新的設計。",
   "e1p": "Tā chuàngzào le yī gè quánxīn de shèjì .",
@@ -695,7 +695,7 @@
   "e1v": "Tuần sau tôi sẽ đi công tác đến Bắc Kinh."
  },
  "出發": {
-  "vn": "khởi hành; bắt đầu (một hành trình)",
+  "vn": "xuất phát; khởi hành; bắt đầu (một hành trình)",
   "hv": "Xuất phát"
  },
  "出現": {
@@ -775,7 +775,7 @@
   "e1v": "Loài động vật này đã không còn tồn tại ở khu vực này."
  },
  "錯": {
-  "vn": "họ [Cuo4]",
+  "vn": "lỗi; sai; xấu; đan xen; phức tạp",
   "hv": "Thác",
   "e1": "他做錯了一個問題。",
   "e1p": "Tā zuò cuòle yī gè wèntí.",
@@ -850,7 +850,7 @@
   "e1v": "Anh ấy đã dẫn dắt nhóm hoàn thành d ự án này."
  },
  "單純": {
-  "vn": "đơn giản; tinh khiết; không phức tạp; chỉ; hoàn toàn",
+  "vn": "đơn thuần; đơn giản; tinh khiết; không phức tạp; chỉ; hoàn toàn",
   "hv": "Đơn thuần"
  },
  "淡": {
@@ -1030,7 +1030,7 @@
   "e1v": "Chúng ta cần nhanh chóng hoàn thành k ế hoạch này."
  },
  "得意": {
-  "vn": "tự hào; tự mãn; hài lòng với bản thân",
+  "vn": "đắc ý; tự hào; tự mãn; hài lòng với bản thân",
   "hv": "Đắc ý",
   "e1": "他因成功而顯得很得意。",
   "e1p": "Tā yīn chénggōng ér xiǎnde hěn déyì .",
@@ -1150,7 +1150,7 @@
   "hv": "Điều tra"
  },
  "東北": {
-  "vn": "Đông Bắc Trung Quốc; Mãn Châu",
+  "vn": "đông bắc",
   "hv": "Đông bắc"
  },
  "東南": {
@@ -1187,7 +1187,7 @@
   "hv": "Độc giả"
  },
  "段": {
-  "vn": "họ [Duan4]",
+  "vn": "đoạn; phần; mẩu; giai đoạn (của một quá trình); lượng từ cho câu chuyện, khoảng thời gian, độ dài sợi chỉ, v.v.",
   "hv": "Đoạn"
  },
  "堆": {
@@ -1247,7 +1247,7 @@
   "hv": "Phát"
  },
  "發表": {
-  "vn": "phát hành; công bố",
+  "vn": "phát biểu; phát hành; công bố",
   "hv": "Phát biểu"
  },
  "發財": {
@@ -1322,7 +1322,7 @@
   "hv": "Phát tì khí"
  },
  "非": {
-  "vn": "viết tắt của 非洲[Fei1 zhou1], Châu Phi",
+  "vn": "không phải; không; sai; không đúng; phi-",
   "hv": "Phi"
  },
  "費用": {
@@ -1536,7 +1536,7 @@
   "hv": "Công phân"
  },
  "功夫": {
-  "vn": "kỹ năng; nghệ thuật; kung fu; lao động; nỗ lực",
+  "vn": "công phu; kỹ năng; nghệ thuật; kung fu; lao động; nỗ lực",
   "hv": "Công phu"
  },
  "公共": {
@@ -1608,7 +1608,7 @@
   "hv": "Cô nương"
  },
  "古": {
-  "vn": "họ [Gu3]",
+  "vn": "cổ; thời xa xưa; tiền sử-",
   "hv": "Cổ"
  },
  "古代": {
@@ -1623,7 +1623,7 @@
   "hv": "Cổ lão"
  },
  "顧": {
-  "vn": "họ [Gu4]",
+  "vn": "chăm sóc; xem xét; quan tâm",
   "hv": "Cố"
  },
  "顧客": {
@@ -1648,7 +1648,7 @@
   "hv": "Quái"
  },
  "關": {
-  "vn": "họ [Guan1]",
+  "vn": "ải núi; đóng; khép; tắt; giam giữ",
   "hv": "Quan"
  },
  "觀察": {
@@ -1661,7 +1661,7 @@
   "hv": "Quan điểm"
  },
  "管": {
-  "vn": "họ [Guan3]",
+  "vn": "chăm sóc; kiểm soát; quản lý; phụ trách; trông nom",
   "hv": "Quản"
  },
  "廣播": {
@@ -1679,7 +1679,7 @@
   "hv": "Quảng cáo"
  },
  "觀念": {
-  "vn": "khái niệm; suy nghĩ; ý tưởng; cảm giác; quan điểm",
+  "vn": "quan niệm; khái niệm; suy nghĩ; ý tưởng; cảm giác; quan điểm",
   "hv": "Quan niệm"
  },
  "觀眾": {
@@ -1714,7 +1714,7 @@
   "mi": "國 (Quốc - có bộ 囗 Vi, vây quanh); 外 (Ngoại - bên ngoài). Mẹo nhớ: Bên ngoài (外) đất nước (國)."
  },
  "國王": {
-  "vn": "vua",
+  "vn": "quốc vương; vua",
   "lt": "個",
   "hv": "Quốc vương"
  },
@@ -1781,7 +1781,7 @@
   "hv": "Hảo liễu"
  },
  "和": {
-  "vn": "họ [He2]",
+  "vn": "(nối hai danh từ) và; cùng với; với (cách đọc ở Đài Loan ); (toán học) tổng; làm hoà",
   "hv": "Hòa"
  },
  "合": {
@@ -1793,7 +1793,7 @@
   "hv": "Hợp xướng"
  },
  "黑": {
-  "vn": "viết tắt của tỉnh Hắc Long Giang 黑龍江/黑龙江[Hei1 long2 jiang1]",
+  "vn": "đen; tối; tà ác; bí mật; mờ ám",
   "hv": "Hắc"
  },
  "恨": {
@@ -1805,7 +1805,7 @@
   "hv": "Hận bất đắc"
  },
  "紅": {
-  "vn": "họ [Hong2]",
+  "vn": "đỏ; phổ biến; cách mạng; thưởng",
   "hv": "Hồng"
  },
  "紅包": {
@@ -1845,7 +1845,7 @@
   "hv": "Hộ chiếu"
  },
  "黃": {
-  "vn": "họ [Huang2]",
+  "vn": "màu vàng; khiêu dâm; thất bại",
   "hv": "Hoàng"
  },
  "花心": {
@@ -1886,7 +1886,7 @@
   "hv": "Hội"
  },
  "會場": {
-  "vn": "nơi họp; nơi tụ tập của mọi người; lượng từ: 個/个",
+  "vn": "hội trường; nơi họp; nơi tụ tập của mọi người; lượng từ: 個/个",
   "hv": "Hội trường"
  },
  "會話": {
@@ -1924,7 +1924,7 @@
   "hv": "Hoạt"
  },
  "活動": {
-  "vn": "tập thể dục; di chuyển; vận hành; sử dụng mối quan hệ (ảnh hưởng cá nhân); lỏng",
+  "vn": "hoạt động; sự kiện; vận động (cơ thể)",
   "lt": "項、個",
   "hv": "Hoạt động"
  },
@@ -2047,7 +2047,7 @@
   "hv": "Kiên trì"
  },
  "剪": {
-  "vn": "họ [Jian3]",
+  "vn": "kéo; dao cắt; tông đơ; cắt bằng kéo; tỉa",
   "hv": "Tiễn"
  },
  "檢查": {
@@ -2115,11 +2115,11 @@
   "hv": "Kiêu ngạo"
  },
  "交流": {
-  "vn": "trao đổi; sự trao đổi; giao tiếp; tương tác; có tiếp xúc xã hội (với ai)",
+  "vn": "giao lưu; trao đổi; sự trao đổi; giao tiếp; tương tác; có tiếp xúc xã hội (với ai)",
   "hv": "Giao lưu"
  },
  "郊區": {
-  "vn": "Jiaoqu, một quận của thành phố Đồng Lăng 銅陵市/铜陵市[Tong2ling2 Shi4], An Huy",
+  "vn": "quận ngoại thành; vùng ngoại ô; ngoại ô",
   "hv": "Giao khu"
  },
  "交友": {
@@ -2131,7 +2131,7 @@
   "hv": "Giác độ"
  },
  "教": {
-  "vn": "họ [Jiao4]",
+  "vn": "dạy",
   "hv": "Giáo"
  },
  "教材": {
@@ -2163,7 +2163,7 @@
   "hv": "Giáo đường"
  },
  "教訓": {
-  "vn": "đưa ra hướng dẫn; la mắng ai; quở trách; một trận mắng; bài học cay đắng",
+  "vn": "giáo huấn; đưa ra hướng dẫn; la mắng ai; quở trách; một trận mắng; bài học cay đắng",
   "lt": "番、頓",
   "hv": "Giáo huấn"
  },
@@ -2172,7 +2172,7 @@
   "hv": "Gia cường"
  },
  "加入": {
-  "vn": "trở thành thành viên; tham gia; trộn vào; tham gia vào; thêm vào",
+  "vn": "gia nhập; trở thành thành viên; tham gia; trộn vào; tham gia vào; thêm vào",
   "hv": "Gia nhập"
  },
  "家鄉": {
@@ -2270,7 +2270,7 @@
   "e1v": "(Anh ấy vừa bước vào phòng.) 僅 jǐn Adv Vẻn vẹn, chỉ 這本書僅有一百頁。 Zhè běn shū jǐn yǒu yībǎi yè. (Cuốn sách này chỉ có 100 trang.) 緊 jǐn Vs Căng, kéo căng 我的鞋子有點緊。 Wǒ de xiézi yǒudiǎn jǐn. (Giày của tôi hơi chật.) 斤 jīn M Cân (=1/2kg) 請給我兩斤蘋果。"
  },
  "經": {
-  "vn": "họ [Jing1]",
+  "vn": "kinh điển; sách thánh; kinh sách; đi qua; trải qua",
   "hv": "Kinh"
  },
  "經費": {
@@ -2367,7 +2367,7 @@
   "hv": "Cự"
  },
  "拒絕": {
-  "vn": "từ chối; khước từ; bác bỏ",
+  "vn": "cự tuyệt; từ chối; khước từ; bác bỏ",
   "hv": "Cự tuyệt"
  },
  "距離": {
@@ -2463,7 +2463,7 @@
   "hv": "Khả liên"
  },
  "渴望": {
-  "vn": "khao khát; mong mỏi",
+  "vn": "khát vọng; khao khát; mong mỏi",
   "hv": "Khát vọng"
  },
  "可惡": {
@@ -2479,7 +2479,7 @@
   "hv": "Khắc"
  },
  "克": {
-  "vn": "viết tắt của 克羅地亞/克罗地亚[Ke4 luo2 di4 ya4], Croatia; (Đài Loan) viết tắt của 克羅埃西亞/克罗埃西亚[Ke4 luo2 ai1 xi1 ya4], Croatia",
+  "vn": "có thể; chế ngự; kiềm chế; vượt qua; gram",
   "hv": "Khắc"
  },
  "課程": {
@@ -2534,7 +2534,7 @@
   "hv": "Khoái"
  },
  "寬": {
-  "vn": "họ [Kuan1]",
+  "vn": "rộng; rộng rãi; lỏng; thư giãn; khoan dung",
   "hv": "Khoan"
  },
  "況且": {
@@ -2566,7 +2566,7 @@
   "hv": "Lai đắc cập"
  },
  "藍": {
-  "vn": "họ [Lan2]",
+  "vn": "màu xanh; dị thảo chàm",
   "hv": "Lam"
  },
  "浪漫": {
@@ -2593,7 +2593,7 @@
   "hv": "Lão thị"
  },
  "樂": {
-  "vn": "họ [Le4]",
+  "vn": "vui; vui vẻ; cười",
   "hv": "Lạc"
  },
  "樂觀": {
@@ -2609,15 +2609,15 @@
   "hv": "Lệ"
  },
  "冷淡": {
-  "vn": "lạnh lùng; thờ ơ",
+  "vn": "lãnh đạm; lạnh lùng; thờ ơ",
   "hv": "Lãnh đạm"
  },
  "力": {
-  "vn": "họ [Li4]",
+  "vn": "sức mạnh; lực; sức; khả năng; một cách gắng sức",
   "hv": "Lực"
  },
  "里": {
-  "vn": "Lý (họ)",
+  "vn": "dặm, đơn vị đo chiều dài cổ, xấp xỉ 500 m; khu xóm; đơn vị hành chính cổ gồm 25 gia đình; (Đài Loan) lý, đơn vị hành chính giữa cấp thị trấn 鎮/镇 và khu phố 鄰/邻",
   "hv": "Lí"
  },
  "練": {
@@ -2668,7 +2668,7 @@
   "hv": "Lý giải"
  },
  "理論": {
-  "vn": "lý thuyết; tranh luận; chú ý đến",
+  "vn": "lý luận; lý thuyết; tranh luận; chú ý đến",
   "lt": "個",
   "hv": "Lý luận"
  },
@@ -2739,7 +2739,7 @@
   "e1v": "(Quyết định này có l ợi cho công ty.)"
  },
  "旅客": {
-  "vn": "du khách; khách du lịch",
+  "vn": "lữ khách; du khách; khách du lịch",
   "hv": "Lữ khách"
  },
  "旅遊": {
@@ -2755,7 +2755,7 @@
   "hv": "Luật sư"
  },
  "錄": {
-  "vn": "họ [Lu4]",
+  "vn": "nhật ký; ghi chép; quay; sao chép",
   "hv": "Lục"
  },
  "錄取": {
@@ -2775,7 +2775,7 @@
   "e1v": "(Chúng tôi đi cắm trại trên núi.) M 嘛 ma Ptc Đi, mà 你就去嘛！ Nǐ jiù qù ma! (Đi đi, mà!) 罵 mà V Chửi, mắng 他被老師罵了。 Tā bèi lǎoshī mà le. (Anh ấy bị thầy giáo mắng.) 麻煩 máfan Vs Phiền phức, phiền toái 這件事很麻煩。"
  },
  "龍": {
-  "vn": "họ [Long2]",
+  "vn": "rồng; hoàng gia",
   "hv": "Long"
  },
  "輪胎": {
@@ -2796,7 +2796,7 @@
   "hv": "Mạ"
  },
  "滿": {
-  "vn": "dân tộc Mãn Châu",
+  "vn": "lấp đầy; đầy; đầy đủ; nhét kín; hoàn toàn",
   "hv": "Mãn"
  },
  "滿意": {
@@ -2816,7 +2816,7 @@
   "hv": "Mạn dụng"
  },
  "毛": {
-  "vn": "họ [Mao2]",
+  "vn": "tóc; lông; vụn lông; lông cừu; mốc",
   "hv": "Mao"
  },
  "毛筆": {
@@ -2873,7 +2873,7 @@
   "hv": "Một thập ma"
  },
  "門": {
-  "vn": "họ [Men2]",
+  "vn": "cổng; cửa; lối vào; khung cửa; kẽ hở",
   "hv": "Môn"
  },
  "迷人": {
@@ -2939,7 +2939,7 @@
   "vn": "bí mật; riêng tư; tuyệt mật; một bí mật (LT:個|个[ge4])"
  },
  "明白": {
-  "vn": "rõ ràng; hiển nhiên; không mơ hồ; hiểu; nhận ra",
+  "vn": "minh bạch; rõ ràng; hiển nhiên; không mơ hồ; hiểu; nhận ra",
   "hv": "Minh bạch",
   "e1": "我明白你的意思了。",
   "e1p": "Wǒ míngbái nǐ de yìsi le.",
@@ -2993,7 +2993,7 @@
   "hv": "Mỗ"
  },
  "木": {
-  "vn": "họ [Mu4]",
+  "vn": "(dạng kết hợp) cây; (dạng kết hợp) gỗ; không cảm xúc; tê liệt; như gỗ",
   "hv": "Mộc"
  },
  "目前": {
@@ -3006,7 +3006,7 @@
   "hv": "Mộc đầu"
  },
  "那": {
-  "vn": "họ [Na1]",
+  "vn": "đó, kia; vậy thì, thế thì",
   "hv": "Na"
  },
  "那麼": {
@@ -3058,7 +3058,7 @@
   "hv": "Năng cú"
  },
  "年": {
-  "vn": "họ [Nian2]",
+  "vn": "năm; Lượng từ: 個/个",
   "hv": "Niên"
  },
  "年代": {
@@ -3141,7 +3141,7 @@
   "hv": "Phê bình"
  },
  "皮": {
-  "vn": "họ [Pi2]",
+  "vn": "da; da lông; lông; pico- (một phần nghìn tỷ); nghịch ngợm",
   "hv": "Bì"
  },
  "皮帶": {
@@ -3173,7 +3173,7 @@
   "e1v": "(Khu vườn của họ rộng hai bì nh địa.)"
  },
  "平": {
-  "vn": "họ [Ping2]",
+  "vn": "phẳng; bằng; ngang; hòa (điểm số); kết quả hòa",
   "hv": "Bình",
   "e1": "道路需要平整。",
   "e1p": "Dàolù xūyào píngzhěng.",
@@ -3241,7 +3241,7 @@
   "hv": "Tiền"
  },
  "強盜": {
-  "vn": "cướp (bằng vũ lực); tên cướp; kẻ cướp",
+  "vn": "cường đạo; cướp (bằng vũ lực); tên cướp; kẻ cướp",
   "lt": "個",
   "hv": "Cường đạo"
  },
@@ -3303,7 +3303,7 @@
   "hv": "Thân tự"
  },
  "清": {
-  "vn": "triều đại nhà Thanh của Trung Quốc (1644-1911); họ [Qing1]",
+  "vn": "(nước, v.v.) trong; sạch; yên tĩnh; tĩnh lặng; tinh khiết",
   "hv": "Thanh"
  },
  "青年": {
@@ -3346,7 +3346,7 @@
   "hv": "Thỉnh giáo"
  },
  "請求": {
-  "vn": "yêu cầu; hỏi; một yêu cầu (LT:個/个)",
+  "vn": "thỉnh cầu; yêu cầu; hỏi; một yêu cầu (LT:個/个)",
   "hv": "Thỉnh cầu"
  },
  "慶祝": {
@@ -3397,7 +3397,7 @@
   "hv": "Khứ thế"
  },
  "全": {
-  "vn": "họ [Quan2]",
+  "vn": "tất cả; toàn bộ; toàn thể; mọi; hoàn toàn",
   "hv": "Toàn"
  },
  "全球": {
@@ -3405,7 +3405,7 @@
   "hv": "Toàn cầu"
  },
  "全身": {
-  "vn": "toàn bộ cơ thể; (ngành in) em",
+  "vn": "toàn thân; toàn bộ cơ thể; (ngành in) em",
   "hv": "Toàn thân"
  },
  "取代": {
@@ -3502,7 +3502,7 @@
   "hv": "Nhân vật"
  },
  "忍耐": {
-  "vn": "chịu đựng; nhẫn nhịn; giữ kiên nhẫn; kiềm chế; bền bỉ",
+  "vn": "nhẫn nại; chịu đựng; nhẫn nhịn; giữ kiên nhẫn; kiềm chế; bền bỉ",
   "hv": "Nhẫn nại"
  },
  "任務": {
@@ -3560,7 +3560,7 @@
   "vn": "Leo (cung hoàng đạo); Thị trấn Shizi ở huyện Pingtung 屏東縣|屏东县[Ping2 dong1 Xian4], Đài Loan"
  },
  "時代": {
-  "vn": "Time, tạp chí tin tức hàng tuần của Mỹ",
+  "vn": "thời đại; thời kỳ",
   "hv": "Thời đại",
   "e1": "我們生活在一個信息化的時代。",
   "e1p": "Wǒmen shēnghuó zài yīgè xìnxī huà de shí dài.",
@@ -3646,7 +3646,7 @@
   "e1v": "(Đây là sự thật, tôi không th ể phủ nhận.)"
  },
  "適應": {
-  "vn": "thích nghi; phù hợp; hợp với",
+  "vn": "thích ứng; thích nghi; phù hợp; hợp với",
   "hv": "Thích ứng"
  },
  "市長": {
@@ -3748,7 +3748,7 @@
   "hv": "Sinh hoạt"
  },
  "生命": {
-  "vn": "sự sống (như đặc trưng của sinh vật); sinh vật; sinh thể (LT:個/个,條/条)",
+  "vn": "sinh mệnh; sự sống (như đặc trưng của sinh vật); sinh vật; sinh thể (LT:個/个,條/条)",
   "hv": "Sinh mệnh"
  },
  "生字": {
@@ -3836,7 +3836,7 @@
   "hv": "Số tự"
  },
  "雙": {
-  "vn": "họ [Shuang1]",
+  "vn": "hai; cặp; đôi; cả hai; số chẵn",
   "hv": "Song"
  },
  "刷牙": {
@@ -3871,7 +3871,7 @@
   "hv": "Thuận tiện"
  },
  "順利": {
-  "vn": "một cách suôn sẻ; không gặp trở ngại",
+  "vn": "thuận lợi; một cách suôn sẻ; không gặp trở ngại",
   "hv": "Thuận lợi",
   "mi": "順: 川 (Xuyên - sông); 利: 刀 (Đao). Mẹo nhớ: Mọi việc thuận lợi (順利) như dòng sông (川) chảy và dao (刀) sắc."
  },
@@ -3912,7 +3912,7 @@
   "hv": "Toán liễu"
  },
  "隨便": {
-  "vn": "tuỳ ý; tùy thích; ngẫu nhiên; cẩu thả; tự nhiên",
+  "vn": "tùy tiện; tuỳ ý; tùy thích; ngẫu nhiên; cẩu thả; tự nhiên",
   "hv": "Tùy tiện",
   "e1": "你可以隨便選擇。",
   "e1p": "Nǐ kěyǐ suíbiàn xuǎnzé.",
@@ -3953,7 +3953,7 @@
   "hv": "Thảng"
  },
  "談話": {
-  "vn": "nói chuyện (với ai đó); có cuộc trò chuyện; nói chuyện; cuộc trò chuyện",
+  "vn": "đàm thoại; nói chuyện (với ai đó); có cuộc trò chuyện; nói chuyện; cuộc trò chuyện",
   "lt": "次",
   "hv": "Đàm thoại"
  },
@@ -3974,7 +3974,7 @@
   "hv": "Đặc thù"
  },
  "田": {
-  "vn": "họ [Tian2]",
+  "vn": "cánh đồng; nông trại",
   "hv": "Điền"
  },
  "填": {
@@ -4028,7 +4028,7 @@
   "hv": "Thể hội"
  },
  "體力": {
-  "vn": "sức mạnh thể chất; sức lực",
+  "vn": "thể lực; sức mạnh thể chất; sức lực",
   "hv": "Thể lực"
  },
  "體貼": {
@@ -4044,7 +4044,7 @@
   "hv": "Thiếp"
  },
  "鐵": {
-  "vn": "họ [Tie3]",
+  "vn": "sắt (kim loại); vũ khí; cứng; mạnh; bạo lực",
   "hv": "Thiết"
  },
  "鐵路": {
@@ -4096,7 +4096,7 @@
   "hv": "Đồng sự"
  },
  "痛苦": {
-  "vn": "đau đớn; khổ sở; đau khổ",
+  "vn": "thống khổ; đau đớn; khổ sở; đau khổ",
   "lt": "個",
   "hv": "Thống khổ"
  },
@@ -4114,7 +4114,7 @@
   "hv": "Đầu tư"
  },
  "土": {
-  "vn": "nhóm dân tộc Thổ; họ [Tu3]",
+  "vn": "đất; bụi; đất sét; địa phương; bản địa",
   "hv": "Thổ"
  },
  "團體": {
@@ -4155,7 +4155,7 @@
   "hv": "Thoái hưu"
  },
  "突然": {
-  "vn": "đột ngột; bất ngờ; không dự kiến",
+  "vn": "đột nhiên; đột ngột; bất ngờ; không dự kiến",
   "hv": "Đột nhiên"
  },
  "兔(子)": {
@@ -4170,7 +4170,7 @@
   "hv": "Ngoại văn"
  },
  "外語": {
-  "vn": "ngôn ngữ nước ngoài; Lượng từ: 門/门",
+  "vn": "ngoại ngữ; ngôn ngữ nước ngoài; Lượng từ: 門/门",
   "hv": "Ngoại ngữ"
  },
  "外祖父": {
@@ -4324,7 +4324,7 @@
   "hv": "Vật giá"
  },
  "西北": {
-  "vn": "Tây Bắc Trung Quốc (Thiểm Tây, Cam Túc, Thanh Hải, Ninh Hạ, Tân Cương)",
+  "vn": "tây bắc",
   "hv": "Tây bắc"
  },
  "西餐": {
@@ -4423,7 +4423,7 @@
   "hv": "Hương thủy"
  },
  "相同": {
-  "vn": "giống hệt; giống nhau",
+  "vn": "tương đồng; giống hệt; giống nhau",
   "hv": "Tương đồng"
  },
  "詳細": {
@@ -4443,7 +4443,7 @@
   "hv": "Tưởng tượng"
  },
  "項": {
-  "vn": "họ [Xiang4]",
+  "vn": "sau cổ; mục; điều; khoản (trong công thức toán học); khoản tiền",
   "hv": "Hạng"
  },
  "相聲": {
@@ -4511,7 +4511,7 @@
   "hv": "Huyết"
  },
  "謝": {
-  "vn": "họ [Xie4]",
+  "vn": "cảm ơn; xin lỗi; (hoa, lá, v.v.) tàn; lụi tàn",
   "hv": "Tạ"
  },
  "心得": {
@@ -4594,7 +4594,7 @@
   "e1v": "- Bình đẳng giới là rất quan trọng."
  },
  "性格": {
-  "vn": "bản chất; tính tình; tính khí; nhân cách",
+  "vn": "tính cách; bản chất; tính tình; tính khí; nhân cách",
   "lt": "個",
   "hv": "Tính cách",
   "e1": "她的性格非常開朗。",
@@ -4626,7 +4626,7 @@
   "hv": "Hùng miêu"
  },
  "修": {
-  "vn": "họ [Xiu1]",
+  "vn": "trang trí; tô điểm; sửa chữa; xây dựng; viết",
   "hv": "Tu"
  },
  "修改": {
@@ -4701,7 +4701,7 @@
   "hv": "Diễn xuất"
  },
  "羊": {
-  "vn": "họ [Yang2]",
+  "vn": "cừu; dê",
   "hv": "Dương"
  },
  "陽光": {
@@ -4808,7 +4808,7 @@
   "hv": "Nhất sinh"
  },
  "一時": {
-  "vn": "một khoảng thời gian; một lúc; trong một thời gian ngắn; tạm thời; chóng vánh",
+  "vn": "nhất thời; một khoảng thời gian; một lúc; trong một thời gian ngắn; tạm thời; chóng vánh",
   "hv": "Nhất thời",
   "e1": "他一時想不起來他的名字。",
   "e1p": "Tā yīshí xiǎng bù qǐlái tā de mí ngzì .",
@@ -4830,7 +4830,7 @@
   "hv": "Nhất dạng"
  },
  "以": {
-  "vn": "viết tắt của Israel 以色列[Yi3 se4 lie4]",
+  "vn": "sử dụng; bằng cách; dựa theo; để; vì",
   "hv": "Dĩ"
  },
  "以及": {
@@ -4866,7 +4866,7 @@
   "e1v": "- Việc này có ý nghĩa đặc biệt với tôi. 用 yòng Prep Dùng, sử dụng 請用這支筆寫字。 Qǐng yòng zhè zhī bǐ xiězì. - Hãy dùng bút này để viết. 用法 yòngfǎ N Cách dùng 這個單詞的用法很簡單。 Zhège dāncí de yòngfǎ hěn jiǎndān. - Cách dùng từ này rất đơn giản. 用功 yònggōng Vs Cố gắng, chăm chỉ 他學習非常用功。"
  },
  "陰": {
-  "vn": "họ [Yin1]",
+  "vn": "u ám (thời tiết); nhiều mây; râm mát; Âm (nguyên lý âm trong Âm và Dương); âm (điện)",
   "hv": "Âm"
  },
  "因此": {
@@ -4908,7 +4908,7 @@
   "hv": "Ủng hữu"
  },
  "永遠": {
-  "vn": "mãi mãi; vĩnh cửu",
+  "vn": "vĩnh viễn; mãi mãi; vĩnh cửu",
   "hv": "Vĩnh viễn"
  },
  "用": {
@@ -5003,7 +5003,7 @@
   "hv": "Nguyên lượng"
  },
  "願望": {
-  "vn": "khát vọng; ước muốn",
+  "vn": "nguyện vọng; khát vọng; ước muốn",
   "hv": "Nguyện vọng"
  },
  "約": {
@@ -5023,7 +5023,7 @@
   "hv": "Nhạc đoàn"
  },
  "雲": {
-  "vn": "họ [Yun2]; viết tắt của tỉnh Vân Nam 雲南省/云南省[Yun2 nan2 Sheng3]",
+  "vn": "mây",
   "hv": "Vân"
  },
  "運氣": {
@@ -5087,7 +5087,7 @@
   "hv": "Chi tiền"
  },
  "直": {
-  "vn": "họ [Zhi2]; Zhi (khoảng năm 2000 TCN), người thứ năm trong truyền thuyết Viêm Đế 炎帝[Yan2di4], hậu duệ của Thần Nông 神農/神农[Shen2nong2] Thần Nông",
+  "vn": "thẳng; làm thẳng; công bằng và hợp lý; thẳng thắn; trung thực",
   "hv": "Trực"
  },
  "直到": {
@@ -5141,7 +5141,7 @@
   "hv": "Chỉ hữu"
  },
  "制度": {
-  "vn": "hệ thống (ví dụ: chính trị, hành chính, v.v.); thiết chế",
+  "vn": "chế độ; hệ thống (ví dụ: chính trị, hành chính, v.v.); thiết chế",
   "lt": "個",
   "hv": "Chế độ",
   "e1": "我們需要改革這個制度。",
@@ -5219,7 +5219,7 @@
   "mi": "火 (Hỏa - lửa). Mẹo nhớ: Rán (炸) là dùng nhiều lửa (火) và dầu."
  },
  "珍貴": {
-  "vn": "quý giá",
+  "vn": "trân quý; quý giá",
   "hv": "Trân quý"
  },
  "真理": {
@@ -5249,7 +5249,7 @@
   "mi": "整: Bộ 攴 (Phộc - đánh khẽ); 理: Bộ 玉 (Ngọc). Mẹo nhớ: Sắp xếp để mọi thứ chỉnh tề lại."
  },
  "整齊": {
-  "vn": "ngăn nắp; gọn gàng; đều; ngay ngắn",
+  "vn": "chỉnh tề; ngăn nắp; gọn gàng; đều; ngay ngắn",
   "hv": "Chỉnh tề"
  },
  "證明": {
@@ -5390,7 +5390,7 @@
   "hv": "Trước"
  },
  "資源": {
-  "vn": "huyện Tư Nguyên ở Quế Lâm 桂林[Gui4 lin2], Quảng Tây",
+  "vn": "tài nguyên thiên nhiên (như nước hoặc khoáng sản); nguồn lực (như nhân lực hoặc du lịch)",
   "hv": "Tư nguyên"
  },
  "仔細": {
@@ -5455,7 +5455,7 @@
   "hv": "Tẩu tẩu"
  },
  "組": {
-  "vn": "họ [Zu3]",
+  "vn": "hình thành; tổ chức; nhóm; đội; lượng từ cho bộ, loạt, nhóm người, pin",
   "hv": "Tổ"
  },
  "祖父": {

@@ -44,7 +44,7 @@
   "hv": "Nhân"
  },
  "國": {
-  "vn": "họ [Guo2]",
+  "vn": "quốc gia; dân tộc; nhà nước (LT:個/个); (hình thức kết hợp) quốc gia",
   "hv": "Quốc"
  },
  "中國": {
@@ -139,7 +139,7 @@
   "hv": "Nhị"
  },
  "三": {
-  "vn": "họ [San1]",
+  "vn": "ba; 3",
   "hv": "Tam"
  },
  "四": {
@@ -179,7 +179,7 @@
   "hv": "Thời hậu"
  },
  "百": {
-  "vn": "họ [Bai3]",
+  "vn": "một trăm; nhiều; tất cả các loại",
   "hv": "Bách"
  },
  "半": {
@@ -239,7 +239,7 @@
   "hv": "Tuế"
  },
  "年": {
-  "vn": "họ [Nian2]",
+  "vn": "năm; Lượng từ: 個/个",
   "hv": "Niên"
  },
  "住": {
@@ -278,7 +278,7 @@
   "hv": "Phiêu lượng"
  },
  "高": {
-  "vn": "họ [Gao1]",
+  "vn": "cao; khoảng trên trung bình; to; lớn; (kính ngữ) của bạn",
   "hv": "Cao"
  },
  "老": {
@@ -321,7 +321,7 @@
   "mi": "TỬ 子, 龶"
  },
  "大學": {
-  "vn": "Đại học, một trong Tứ thư 四書/四书[Si4 shu1] của Nho giáo",
+  "vn": "trường đại học; trường cao đẳng",
   "hv": "Đại học"
  },
  "學校": {
@@ -374,7 +374,7 @@
   "hv": "Đối"
  },
  "能": {
-  "vn": "họ [Neng2]",
+  "vn": "có thể; có khả năng; có khả năng sẽ; năng lực; (vật lý) năng lượng",
   "hv": "Năng"
  },
  "可以": {
@@ -393,7 +393,7 @@
   "vn": "TV (台-tai)"
  },
  "水": {
-  "vn": "họ [Shui3]",
+  "vn": "nước; sông; chất lỏng; đồ uống; phí hoặc thu nhập bổ sung",
   "hv": "Thủy"
  },
  "久": {
@@ -409,7 +409,7 @@
   "hv": "Tái"
  },
  "書": {
-  "vn": "viết tắt của 書經/书经[Shu1 jing1]",
+  "vn": "sách; thư; tài liệu; viết",
   "hv": "Thư"
  },
  "電影": {
@@ -506,7 +506,7 @@
   "hv": "Giá"
  },
  "那": {
-  "vn": "họ [Na1]",
+  "vn": "đó, kia; vậy thì, thế thì",
   "hv": "Na"
  },
  "公共汽車/公車": {
@@ -529,7 +529,7 @@
   "hv": "Hồi"
  },
  "坐": {
-  "vn": "họ [Zuo4]",
+  "vn": "ngồi; ngồi xuống; đi (xe buýt, máy bay, v.v.); kết trái",
   "hv": "Tọa"
  },
  "這裡/這裏/這兒": {
@@ -546,7 +546,7 @@
   "hv": "Khai xa"
  },
  "錢": {
-  "vn": "họ [Qian2]",
+  "vn": "tiền xu; tiền; đơn vị trọng lượng, một phần mười của một lạng 兩/两",
   "hv": "Tiền"
  },
  "多少": {
@@ -579,7 +579,7 @@
  },
  "容易": {
   "vn": "dễ dàng; đơn giản; có khả năng; dễ có thể; có khuynh hướng",
-  "hv": "Dung dịch"
+  "hv": "Dung dị"
  },
  "有": {
   "vn": "có; có (gì đó); (dạng kết hợp) có; với; mang tính chất gì đó (như trong 有意 cố ý)",
@@ -615,7 +615,7 @@
   "hv": "Thỉnh"
  },
  "也": {
-  "vn": "họ [Ye3]",
+  "vn": "(phó từ) cũng; vừa ... vừa ... (chỉ dùng trước vị ngữ); (văn viết) trợ từ có chức năng giống với 啊",
   "hv": "Dã"
  },
  "不": {
@@ -654,7 +654,7 @@
   "e1v": "Chúng ta cần nhanh chóng hoàn thành k ế hoạch này."
  },
  "過": {
-  "vn": "họ [Guo1]",
+  "vn": "băng qua; đi qua; trải qua (thời gian); ăn mừng (ngày lễ); sống",
   "hv": "Quá"
  },
  "沒有": {
@@ -701,7 +701,7 @@
   "hv": "Đại gia"
  },
  "路": {
-  "vn": "họ [Lu4]",
+  "vn": "đường (LT:條/条); hành trình; tuyến; đường (xe buýt,...); loại",
   "hv": "Lộ"
  },
  "手機": {
@@ -728,7 +728,7 @@
   "hv": "Nguyệt"
  },
  "日": {
-  "vn": "viết tắt của 日本[Ri4 ben3], Nhật Bản",
+  "vn": "mặt trời; ngày; ngày, ngày trong tháng",
   "hv": "Nhật"
  },
  "星期": {
@@ -755,7 +755,7 @@
   "hv": "Thiên"
  },
  "從": {
-  "vn": "họ [Cong2]",
+  "vn": "từ; thông qua; qua; (hình vị) theo; (hình vị) tuân theo",
   "hv": "Tòng"
  },
  "在": {
@@ -808,7 +808,7 @@
   "hv": "Sấu"
  },
  "萬": {
-  "vn": "họ [Wan4]",
+  "vn": "mười nghìn; một số lượng lớn",
   "hv": "Vạn"
  },
  "鐘頭": {
@@ -853,11 +853,11 @@
   "hv": "Tối"
  },
  "怕": {
-  "vn": "họ [Pa4]",
+  "vn": "sợ; e ngại; khiếp sợ; không thể chịu đựng; có lẽ",
   "hv": "Phạ"
  },
  "美": {
-  "vn": "(hình thái kết hợp) Châu Mỹ (viết tắt của 美洲[Mei3 zhou1]); (hình thái kết hợp) Mỹ (viết tắt của 美國/美国[Mei3 guo2])",
+  "vn": "đẹp; rất thỏa mãn; tốt; làm đẹp; hài lòng với bản thân",
   "hv": "Mỹ"
  },
  "應該/應": {
@@ -891,7 +891,7 @@
   "hv": "Bản"
  },
  "張": {
-  "vn": "họ [Zhang1]",
+  "vn": "mở ra; trải ra; tờ giấy; lượng từ cho vật phẳng, tờ; lượng từ cho phiếu bầu",
   "hv": "Trương"
  },
  "英文": {
@@ -957,7 +957,7 @@
   "hv": "Khóa"
  },
  "教": {
-  "vn": "họ [Jiao4]",
+  "vn": "dạy",
   "hv": "Giáo"
  },
  "告訴": {
@@ -965,7 +965,7 @@
   "hv": "Cáo tố"
  },
  "錯": {
-  "vn": "họ [Cuo4]",
+  "vn": "lỗi; sai; xấu; đan xen; phức tạp",
   "hv": "Thác",
   "e1": "他做錯了一個問題。",
   "e1p": "Tā zuò cuòle yī gè wèntí.",
@@ -999,11 +999,11 @@
   "hv": "Phòng gian"
  },
  "樓": {
-  "vn": "họ [Lou2]",
+  "vn": "nhà có hơn 1 tầng; toà nhà nhiều tầng; tầng",
   "hv": "Lâu"
  },
  "門": {
-  "vn": "họ [Men2]",
+  "vn": "cổng; cửa; lối vào; khung cửa; kẽ hở",
   "hv": "Môn"
  },
  "門口": {
@@ -1046,7 +1046,7 @@
   "hv": "Không khí"
  },
  "冷": {
-  "vn": "họ [Leng3]",
+  "vn": "lạnh",
   "hv": "Lãnh"
  },
  "熱": {
@@ -1067,18 +1067,18 @@
   "hv": "Phong"
  },
  "山": {
-  "vn": "họ [Shan1]",
+  "vn": "núi; đồi (lượng từ: 座); (thông tục) bó rơm nhỏ cho tằm làm kén",
   "hv": "Sơn"
  },
  "花/花兒": {
-  "vn": "họ [Hua1]"
+  "vn": "hoa; bông; hoa văn; lòe loẹt; tiêu (tiền, thời gian)"
  },
  "枝": {
   "vn": "cành; lượng từ cho que, gậy, bút, v.v.",
   "hv": "Chi"
  },
  "魚": {
-  "vn": "họ [Yu2]",
+  "vn": "cá",
   "hv": "Ngư"
  },
  "雞": {
@@ -1087,7 +1087,7 @@
   "hv": "Kê"
  },
  "牛": {
-  "vn": "họ [Niu2]",
+  "vn": "con bò; newton (viết tắt của 牛頓/牛顿); (lóng) đỉnh, chất",
   "hv": "Ngưu"
  },
  "豬": {
@@ -1245,7 +1245,7 @@
   "vn": "lót; bên trong; phía trong; nội bộ; cũng viết 裏|里[li3]"
  },
  "中": {
-  "vn": "(hình thức kết hợp) Trung Quốc; tiếng Trung; họ [Zhong1]",
+  "vn": "bên trong; ở giữa; trong; giữa; trung tâm",
   "hv": "Trung"
  },
  "地方": {
@@ -1307,7 +1307,7 @@
   "e1v": "(Anh ấy vừa bước vào phòng.) 僅 jǐn Adv Vẻn vẹn, chỉ 這本書僅有一百頁。 Zhè běn shū jǐn yǒu yībǎi yè. (Cuốn sách này chỉ có 100 trang.) 緊 jǐn Vs Căng, kéo căng 我的鞋子有點緊。 Wǒ de xiézi yǒudiǎn jǐn. (Giày của tôi hơi chật.) 斤 jīn M Cân (=1/2kg) 請給我兩斤蘋果。"
  },
  "外國": {
-  "vn": "(quốc gia) nước ngoài",
+  "vn": "ngoại quốc; (quốc gia) nước ngoài",
   "lt": "個",
   "hv": "Ngoại quốc"
  },
@@ -1384,7 +1384,7 @@
   "hv": "Khán bệnh"
  },
  "元": {
-  "vn": "họ [Yuan2]; triều Nguyên (1279-1368)",
+  "vn": "đơn vị tiền tệ (đặc biệt là nhân dân tệ Trung Quốc); (hình vị liên kết) đầu tiên; nguyên thủy; sơ cấp; (hình vị liên kết) cơ bản",
   "hv": "Nguyên"
  },
  "鞋(子)": {
@@ -1394,7 +1394,7 @@
   "vn": "quần áo; LT:件[jian4],套[tao4]"
  },
  "比": {
-  "vn": "Bỉ; Người Bỉ; viết tắt của 比利時/比利时[Bi3 li4 shi2]",
+  "vn": "",
   "hv": "Tỉ",
   "e1": "他比我高。",
   "e1p": "Tā bǐ wǒ gāo.",
@@ -1409,7 +1409,7 @@
   "hv": "Trường"
  },
  "新": {
-  "vn": "viết tắt của Tân Cương 新疆[Xin1jiang1]; viết tắt của Singapore 新加坡[Xin1jia1po1]; họ [Xin1]",
+  "vn": "mới; vừa mới; meso- (hoá học)",
   "hv": "Tân"
  },
  "一樣": {
@@ -1515,7 +1515,7 @@
   "hv": "Miến"
  },
  "湯": {
-  "vn": "họ [Tang1]",
+  "vn": "canh; nước nóng hoặc sôi; thang thuốc đông y; nước luộc thứ gì đó",
   "hv": "Thang"
  },
  "包子": {
@@ -1592,7 +1592,7 @@
   "hv": "Nhân vị"
  },
  "和": {
-  "vn": "họ [He2]",
+  "vn": "(nối hai danh từ) và; cùng với; với (cách đọc ở Đài Loan ); (toán học) tổng; làm hoà",
   "hv": "Hòa"
  },
  "所以": {
@@ -1616,7 +1616,7 @@
   "vn": "bên"
  },
  "別": {
-  "vn": "họ [Bie2]",
+  "vn": "rời khỏi; chia tay; (văn học) phân biệt; (hình thức kết hợp) khác; nữa",
   "hv": "Biệt"
  },
  "馬上": {

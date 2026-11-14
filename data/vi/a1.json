@@ -262,7 +262,7 @@
   "hv": "Khai học"
  },
  "班": {
-  "vn": "họ [Ban1]",
+  "vn": "nhóm; lớp; khối; (quân sự) tiểu đội; ca làm việc",
   "hv": "Ban"
  },
  "年級": {
@@ -309,7 +309,7 @@
   "hv": "Độc thư"
  },
  "回答": {
-  "vn": "trả lời; đáp; đáp án",
+  "vn": "hồi đáp; trả lời; đáp; đáp án",
   "hv": "Hồi đáp",
   "e1": "請給我一個明確的回答。",
   "e1p": "Qǐng gěi wǒ yīgè míngquè de huí dá.",
@@ -337,7 +337,7 @@
   "hv": "Tưởng pháp"
  },
  "學習": {
-  "vn": "học; tìm hiểu",
+  "vn": "học tập; học; tìm hiểu",
   "hv": "Học tập"
  },
  "練習": {
@@ -394,7 +394,7 @@
   "hv": "Giảng"
  },
  "加": {
-  "vn": "Canada (viết tắt của 加拿大[Jia1na2da4]); họ [Jia1]",
+  "vn": "thêm; cộng; (dùng sau một trạng ngữ như 不, 大, 稍,..., và trước động từ hai âm tiết, để chỉ rằng hành động của động từ được áp dụng cho cái gì đó hoặc ai đó đã được nhắc đến trước đó); áp dụng (hạn chế,...) cho (ai đó); đưa ra (hỗ trợ, xem xét,...) cho (điều gì đó)",
   "hv": "Gia"
  },
  "算": {
@@ -414,7 +414,7 @@
   "hv": "Hoàn"
  },
  "辦法": {
-  "vn": "cách; phương pháp; cách thức (làm gì đó)",
+  "vn": "biện pháp; cách; phương pháp; cách thức (làm gì đó)",
   "lt": "條、個",
   "hv": "Biện pháp"
  },
@@ -500,7 +500,7 @@
  },
  "盒/盒(子)": {},
  "關": {
-  "vn": "họ [Guan1]",
+  "vn": "ải núi; đóng; khép; tắt; giam giữ",
   "hv": "Quan"
  },
  "燈": {
@@ -514,7 +514,7 @@
   "hv": "Băng tương"
  },
  "台": {
-  "vn": "Đài Loan (viết tắt); họ [Tai2]",
+  "vn": "(lượng từ) chiếc, cái (cho máy móc, xe cộ); bục, sân khấu; (viết tắt) Đài Loan",
   "hv": "Đài"
  },
  "電": {
@@ -541,11 +541,11 @@
   "hv": "Thế giới"
  },
  "火": {
-  "vn": "họ [Huo3]",
+  "vn": "lửa; khẩn cấp; đạn dược; rừng rực hoặc bốc cháy; nội nhiệt (y học Trung Quốc)",
   "hv": "Hỏa"
  },
  "雪": {
-  "vn": "họ [Xue3]",
+  "vn": "tuyết; (văn học) xoá đi (nhục nhã, v.v.)",
   "hv": "Tuyết"
  },
  "下雪": {
@@ -568,7 +568,7 @@
   "hv": "Hồ"
  },
  "馬": {
-  "vn": "họ [Ma3]; viết tắt của Malaysia 馬來西亞/马来西亚[Ma3 lai2 xi1 ya4]",
+  "vn": "ngựa; Lượng từ: 匹; quân mã trong cờ tướng; quân mã trong cờ vua",
   "hv": "Mã"
  },
  "鳥": {
@@ -585,7 +585,7 @@
   "hv": "Cẩu"
  },
  "海": {
-  "vn": "họ [Hai3]",
+  "vn": "đại dương; biển; số lượng lớn người hoặc vật; (phương ngữ) nhiều",
   "hv": "Hải"
  },
  "草": {
@@ -744,7 +744,7 @@
   "hv": "Phiếu"
  },
  "活動": {
-  "vn": "tập thể dục; di chuyển; vận hành; sử dụng mối quan hệ (ảnh hưởng cá nhân); lỏng",
+  "vn": "hoạt động; sự kiện; vận động (cơ thể)",
   "lt": "項、個",
   "hv": "Hoạt động"
  },
@@ -982,23 +982,23 @@
   "hv": "Phong cảnh"
  },
  "南/南部": {
-  "vn": "họ [Nan2]"
+  "vn": "phía nam"
  },
  "西/西部": {
-  "vn": "phương Tây; viết tắt của Tây Ban Nha 西班牙[Xi1 ban1 ya2]; tiếng Tây Ban Nha"
+  "vn": "tây"
  },
  "北/北部": {
   "vn": "phía bắc; (văn cổ) bị đánh bại"
  },
  "東/東部": {
-  "vn": "họ [Dong1]"
+  "vn": "phía đông; chủ nhà (tức là ngồi phía đông của khách); địa chủ"
  },
  "中間": {
   "vn": "ở giữa; bên trong; trong; giữa; trong số",
   "hv": "Trung gian"
  },
  "離": {
-  "vn": "họ [Li2]",
+  "vn": "rời khỏi; tách khỏi; cách; (khi nói về khoảng cách) từ; không có (gì)",
   "hv": "Ly"
  },
  "離開": {
@@ -1031,7 +1031,7 @@
   "hv": "Viễn"
  },
  "向": {
-  "vn": "họ [Xiang4]",
+  "vn": "hướng; về phía; quay về; phương hướng; hỗ trợ",
   "hv": "Hướng"
  },
  "轉": {
@@ -1099,7 +1099,7 @@
   "hv": "Mại"
  },
  "付": {
-  "vn": "họ [Fu4]",
+  "vn": "trả; giao cho; lượng từ cho cặp hoặc bộ",
   "hv": "Phó"
  },
  "希望": {
@@ -1150,7 +1150,7 @@
   "vn": "tất; vớ; LT:隻|只[zhi1],對|对[dui4],雙|双[shuang1]"
  },
  "雙": {
-  "vn": "họ [Shuang1]",
+  "vn": "hai; cặp; đôi; cả hai; số chẵn",
   "hv": "Song"
  },
  "裙(子)": {
@@ -1188,7 +1188,7 @@
   "hv": "Sai bất đa"
  },
  "戴": {
-  "vn": "họ [Dai4]",
+  "vn": "đeo (kính, mũ, găng tay,...); tôn trọng; mang; hỗ trợ",
   "hv": "Đái"
  },
  "試": {
@@ -1226,7 +1226,7 @@
   "hv": "Hảo tượng"
  },
  "奇怪": {
-  "vn": "kỳ lạ; lập dị; ngạc nhiên; bối rối",
+  "vn": "kỳ quái; kỳ lạ; lập dị; ngạc nhiên; bối rối",
   "hv": "Kỳ quái"
  },
  "三明治": {
@@ -1235,7 +1235,7 @@
   "hv": "Tam minh trị"
  },
  "漢堡": {
-  "vn": "Hamburg (thành phố Đức)",
+  "vn": "(từ mượn) hamburger",
   "hv": "Hán bảo"
  },
  "蘋果": {
@@ -1295,7 +1295,7 @@
   "vn": "chai; bình; ấm; LT:個|个[ge4]; lượng từ cho rượu và chất lỏng"
  },
  "支": {
-  "vn": "họ [Zhi1]",
+  "vn": "hỗ trợ; duy trì; dựng; lên; nhánh",
   "hv": "Chi"
  },
  "份": {
@@ -1343,7 +1343,7 @@
   "hv": "Chủng"
  },
  "包": {
-  "vn": "họ [Bao1]",
+  "vn": "che phủ; gói; cầm; nắm bao gồm; phụ trách",
   "hv": "Bao",
   "e1": "媽媽包了一些餃子。",
   "e1p": "Māmā bāole yīxiē jiǎozi.",
@@ -1366,7 +1366,7 @@
   "hv": "Khảo"
  },
  "過": {
-  "vn": "họ [Guo1]",
+  "vn": "băng qua; đi qua; trải qua (thời gian); ăn mừng (ngày lễ); sống",
   "hv": "Quá"
  },
  "但是/但": {

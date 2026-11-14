@@ -2402,7 +2402,7 @@ function renderCard() {
                 <!-- 6-level grading for this skill: the interval grows from this card's history -->
                 <div class="flex flex-col gap-2">
                   <div class="flex items-center justify-between text-outline px-1">
-                    <span class="font-label-sm text-xs uppercase tracking-wider font-semibold text-on-surface">Chấm mức nhớ cho kỹ năng ${esc(typeLabel)}</span>
+                    <span class="font-label-sm text-xs uppercase tracking-wider font-semibold text-on-surface">${S.settings.gradeAll !== false ? "Chấm mức nhớ cho cả từ" : "Chấm mức nhớ cho kỹ năng " + esc(typeLabel)}</span>
                     <span class="font-code text-xs hidden sm:inline">Phím tắt: 1 - 5, 0</span>
                   </div>
                   <div class="grades-6">
@@ -2419,8 +2419,8 @@ function renderCard() {
                     }).join('')}
                   </div>
                   <label class="flex items-center justify-center gap-2 text-xs text-on-surface-variant cursor-pointer select-none">
-                    <input type="checkbox" id="chkAllSkills" class="w-4 h-4 rounded text-primary">
-                    <span>Áp dụng cho cả từ (mọi kỹ năng: đọc, nghe, viết, điền từ)</span>
+                    <input type="checkbox" id="chkAllSkills" class="w-4 h-4 rounded text-primary" ${S.settings.gradeAll !== false ? "checked" : ""}>
+                    <span>Áp dụng cho cả từ (mọi kỹ năng: đọc, nghe, viết, điền từ) · mặc định bật</span>
                   </label>
                   <div class="text-[11px] text-outline text-center">
                     ${clozeMissed ? "Bạn đã chọn sai đáp án nên chỉ chấm được tới Nhớ tạm. " : ""}Số dưới mỗi ô là lần ôn tới. Lịch tự giãn dần khi bạn nhớ tốt nhiều lần; không nhảy thẳng lên 90 ngày.
@@ -2562,6 +2562,7 @@ function renderCard() {
       btn.onclick = async () => {
         const lvl = Number(btn.dataset.wordLevel);
         const chkAll = $("#chkAllSkills");
+        if (chkAll && (S.settings.gradeAll !== false) !== chkAll.checked) { S.settings.gradeAll = chkAll.checked; saveSettings(); }
         const applyToAll = !!(chkAll && chkAll.checked);
         document.querySelectorAll("[data-srs-grade], [data-word-level]").forEach((b) => (b.disabled = true));
         try {
