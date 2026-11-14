@@ -16,7 +16,7 @@ const GRAMMAR_TYPES = [["rec", "Nhận diện mẫu câu"], ["bui", "Đặt câu
 // ---------------- state ----------------
 const S = {
   bands: [], tocfl: [], decks: [], notes: [], noteByWord: new Map(), noteByKey: new Map(),
-  ced: null, cedList: null, vi: new Map(), abbrS: new Map(), abbrF: new Map(), packs: [],
+  ced: null, cedList: null, hanziDict: null, tbcl: null, vi: new Map(), abbrS: new Map(), abbrF: new Map(), packs: [],
   srs: new Map(), stats: new Map(), inbox: new Map(),
   settings: { newPerDay: 8, reviewPerDay: 50, decks: {}, bands: {}, extra: {}, ruby: true },
   session: null, dict: { mode: "han", src: "word" },
@@ -175,6 +175,67 @@ pyOf = function(w) {
   if (base) return base;
   return pinyinProOf(w);
 };
+
+// --- MakeMeAHanzi, TBCL/TOCFL & Live Moedict Helpers ---
+function hanziInfo(ch) {
+  return (S.hanziDict && ch) ? S.hanziDict[ch] || null : null;
+}
+function tbclInfo(w) {
+  if (!S.tbcl || !w) return null;
+  return S.tbcl[w] || S.tbcl[String(w).replace(/[()]/g, "")] || null;
+}
+function formatDecompHTML(ch) {
+  const info = hanziInfo(ch);
+  const code = "U+" + ch.codePointAt(0).toString(16).toUpperCase();
+  if (!info) {
+    return `<strong class="text-primary font-display text-base">${esc(ch)}</strong>: Chữ Hán Phồn thể chuẩn Đài Loan (Mã <span class="font-code text-xs">${code}</span>).`;
+  }
+  const typeMap = { ideographic: "Hội ý", pictophonetic: "Hình thanh", pictographic: "Tượng hình" };
+  const parts = [];
+  if (info.r) parts.push(`Bộ thủ: <strong class="text-on-surface">${esc(info.r)}</strong>`);
+  if (info.d && info.d !== "？") parts.push(`Cấu trúc: <span class="font-code text-xs bg-surface-container px-1.5 py-0.5 rounded">${esc(info.d)}</span>`);
+  if (info.t) parts.push(`Loại: <strong>${esc(typeMap[info.t] || info.t)}</strong>${info.s ? ` (ý: ${esc(info.s)}` + (info.p ? `, âm: ${esc(info.p)}` : "") + ")" : ""}`);
+  if (info.h) parts.push(`<span class="text-outline italic">${esc(info.h)}</span>`);
+  return `<strong class="text-primary font-display text-base">${esc(ch)}</strong> (${code}) — ${parts.join(" · ")}`;
+}
+const _moedictCache = new Map();
+async function fetchMoedictLive(w, host) {
+  const box = (host && typeof host.querySelector === "function") ? host.querySelector("#moedictLiveBox") : $("#moedictLiveBox");
+  if (!box || !w) return;
+  try {
+    let data = _moedictCache.get(w);
+    if (!data) {
+      const r = await fetch("https://www.moedict.tw/uni/" + encodeURIComponent(w));
+      if (!r.ok) throw new Error("not found");
+      data = await r.json();
+      _moedictCache.set(w, data);
+    }
+    const h = (data.heteronyms && data.heteronyms[0]) || null;
+    if (!h || !h.definitions || !h.definitions.length) {
+      box.innerHTML = `<span class="text-xs text-outline">Không tìm thấy mục từ "${esc(w)}" trên Moedict.</span>`;
+      return;
+    }
+    const defs = h.definitions.slice(0, 4).map((d, i) => `
+      <div class="text-xs text-on-surface leading-relaxed">
+        <span class="font-bold text-primary mr-1">${i + 1}.</span>${d.type ? `<span class="px-1.5 py-0.5 rounded bg-surface-container text-[10px] mr-1">${esc(d.type)}</span>` : ""}${esc(d.def || "")}
+        ${d.example && d.example.length ? `<div class="text-on-surface-variant italic pl-4 mt-0.5">${esc(d.example[0])}</div>` : ""}
+      </div>
+    `).join("");
+    box.innerHTML = `
+      <div class="flex flex-wrap items-center justify-between gap-2 pb-1.5 border-b border-border-subtle/50">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="font-bold text-xs text-secondary uppercase">🇹🇼 Từ điển Bộ Giáo dục Đài Loan (萌典)</span>
+          ${h.bopomofo ? `<span class="px-2 py-0.5 rounded bg-jade-subtle text-secondary font-code text-xs font-bold">${esc(h.bopomofo)}</span>` : ""}
+          ${h.pinyin ? `<span class="font-code text-xs text-tertiary">${esc(h.pinyin)}</span>` : ""}
+        </div>
+        ${h.synonyms ? `<span class="text-[11px] text-outline">Đồng nghĩa: ${esc(h.synonyms)}</span>` : ""}
+      </div>
+      <div class="flex flex-col gap-1.5 mt-1">${defs}</div>
+    `;
+  } catch (e) {
+    box.innerHTML = `<span class="text-xs text-outline">Tra trực tiếp Bộ GD Đài Loan tạm offline — hãy bấm nút 萌典 phía trên để mở trang gốc.</span>`;
+  }
+}
 
 // --- Word Segmenter (for ruby() and dictation) ---
 function segment(zh) {
@@ -2080,18 +2141,21 @@ function renderCard() {
   const charDecompHTML = chars.map(c => {
     const ce = cedFirst(c);
     const py = pyOf(c);
+    const hi = hanziInfo(c);
     const def = ce ? ce[0][1].split("/").slice(0, 2).join("; ") : "";
+    const meta = hi ? [hi.r ? `Bộ ${hi.r}` : "", hi.d && hi.d !== "？" ? hi.d : ""].filter(Boolean).join(" · ") : "";
     return `
       <div class="bg-surface-container-low rounded-xl p-space-md flex items-start gap-space-md border border-border-subtle/50">
         <div class="w-12 h-12 rounded-lg bg-cinnabar-subtle text-primary flex items-center justify-center font-display text-2xl shrink-0 font-serif font-bold">
           ${c}
         </div>
         <div class="flex flex-col min-w-0">
-          <div class="flex items-center gap-space-xs">
+          <div class="flex items-center gap-space-xs flex-wrap">
             <span class="font-label-md font-bold text-on-surface">${c} (${py})</span>
+            ${meta ? `<span class="text-[11px] font-code px-1.5 py-0.5 rounded bg-paper-card border border-border-subtle text-tertiary">${esc(meta)}</span>` : ""}
           </div>
           <p class="font-body-sm text-xs text-on-surface-variant mt-0.5 line-clamp-2">
-            ${def || 'Chữ Hán Phồn thể chuẩn'}
+            ${(hi && hi.h) ? `${esc(hi.h)}${def ? " — " + esc(def) : ""}` : (def || 'Chữ Hán Phồn thể chuẩn')}
           </p>
         </div>
       </div>
@@ -2377,25 +2441,29 @@ function renderCard() {
                 ${it.en ? `<div class="text-sm text-on-surface-variant font-body-sm">${esc(it.en)}</div>` : ''}
               </div>
 
-              <!-- Contextual Example Box -->
-              ${it.e1 || it.e2 ? `
+              <!-- Contextual Example Box (local or TBCL/TOCFL) -->
+              ${(() => {
+                const tb = tbclInfo(it.w);
+                const exZh = it.e1 || it.e2 || (tb && tb.ex) || "";
+                const exPy = it.e1p || it.e2p || (exZh ? pinyinProOf(exZh) : "");
+                const exVn = it.e1v || it.e2v || "";
+                if (!exZh && !(tb && tb.cmp)) return "";
+                return `
                 <div class="bg-paper-muted rounded-xl p-space-md md:p-space-lg flex flex-col gap-space-sm relative border border-border-subtle">
                   <div class="flex items-center justify-between">
                     <span class="font-label-sm text-xs text-secondary font-semibold uppercase tracking-wider flex items-center gap-1">
                       <span class="material-symbols-outlined text-[16px]">format_quote</span>
-                      Ví dụ ngữ cảnh Đài Loan
+                      Ví dụ ngữ cảnh Đài Loan ${!it.e1 && !it.e2 && tb && tb.ex ? '(TBCL)' : ''}
                     </span>
-                    <button type="button" class="text-secondary hover:text-primary p-1 transition-colors" onclick="say('${esc(it.e1 || it.e2)}')" title="Nghe câu ví dụ">
-                      <span class="material-symbols-outlined text-[20px]">volume_up</span>
-                    </button>
+                    ${exZh ? `<button type="button" class="text-secondary hover:text-primary p-1 transition-colors" onclick="say('${esc(exZh)}')" title="Nghe câu ví dụ"><span class="material-symbols-outlined text-[20px]">volume_up</span></button>` : ''}
                   </div>
-                  <p class="font-headline-md text-lg md:text-xl text-on-surface font-serif font-medium leading-relaxed">
-                    ${ruby(it.e1 || it.e2)}
-                  </p>
-                  ${(it.e1p || it.e2p) ? `<p class="font-code text-xs text-on-surface-variant">${esc(it.e1p || it.e2p)}</p>` : ''}
-                  ${(it.e1v || it.e2v) ? `<p class="font-body-md text-sm text-on-surface font-medium">${esc(it.e1v || it.e2v)}</p>` : ''}
+                  ${exZh ? `<p class="font-headline-md text-lg md:text-xl text-on-surface font-serif font-medium leading-relaxed">${ruby(exZh)}</p>` : ''}
+                  ${exPy ? `<p class="font-code text-xs text-on-surface-variant">${esc(exPy)}</p>` : ''}
+                  ${exVn ? `<p class="font-body-md text-sm text-on-surface font-medium">${esc(exVn)}</p>` : ''}
+                  ${tb && tb.cmp ? `<div class="text-xs text-outline pt-1 border-t border-border-subtle/50">Từ ghép thường dùng: <strong class="text-on-surface">${esc(tb.cmp)}</strong></div>` : ''}
                 </div>
-              ` : ''}
+                `;
+              })()}
 
               ${richDetailHTML(it)}
 
@@ -5127,10 +5195,15 @@ function buildStitchWordShowcaseHTML(w) {
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm font-body-sm text-body-sm text-on-surface-variant">
               ${chars.map((ch) => `
                 <div class="p-2.5 rounded-lg bg-paper-card border border-border-subtle/50">
-                  <strong class="text-primary font-display text-base">${esc(ch)}</strong>: Chữ Hán Phồn thể chuẩn Đài Loan (Mã <span class="font-code text-xs">${"U+" + ch.codePointAt(0).toString(16).toUpperCase()}</span>). Bấm vào ô mễ phía trên để luyện viết từng nét.
+                  ${formatDecompHTML(ch)}
                 </div>
               `).join("")}
             </div>
+          </div>
+
+          <!-- Live Moedict (Bộ Giáo dục Đài Loan - 萌典) -->
+          <div id="moedictLiveBox" class="p-space-md bg-paper-base rounded-xl border border-border-subtle/70 flex flex-col gap-1.5 relative z-10 text-xs text-outline">
+            Đang tải dữ liệu chuẩn Bộ Giáo dục Đài Loan (萌典)…
           </div>
 
           <!-- Real-World Taiwanese Context Examples with Audio -->
@@ -5144,17 +5217,23 @@ function buildStitchWordShowcaseHTML(w) {
             </div>
             <div class="flex flex-col gap-space-sm">
               <div class="p-space-md rounded-xl bg-paper-base hover:bg-surface-container-low transition-colors flex flex-col gap-space-xs">
-                <div class="flex items-center justify-between gap-2">
-                  <p class="font-headline-md text-headline-md text-on-surface font-normal">
-                    ${it.e1 ? ruby(it.e1) : (w === "璀璨" ? '台北101的跨年煙火在夜空中綻放出<span class="text-primary font-semibold">璀璨</span>的光芒。' : `在臺灣的日常生活中，我們很常使用「<span class="text-primary font-semibold">${esc(w)}</span>」這個詞彙。`)}
-                  </p>
-                  <button type="button" class="p-1 rounded-full text-on-surface-variant hover:text-primary hover:bg-paper-card transition-colors shrink-0" onclick="say('${esc(it.e1 || (w === "璀璨" ? "台北101的跨年煙火在夜空中綻放出璀璨的光芒。" : `在臺灣的日常生活中，我們很常使用${w}這個詞彙。`))}')" title="Nghe câu ví dụ">
-                    <span class="material-symbols-outlined text-[18px]">volume_up</span>
-                  </button>
-                </div>
-                <p class="font-code text-body-sm text-outline">
-                  ${esc(it.e1p || (w === "璀璨" ? "Táiběi 101 de kuànián yānhuǒ zài yèkōng zhōng zhànfàng chū cuǐcàn de guāngmáng." : `Pinyin: ${it.py || w}`))}
-                </p>
+                ${(() => {
+                  const tb = tbclInfo(w);
+                  const exZh = it.e1 || (tb && tb.ex) || (w === "璀璨" ? "台北101的跨年煙火在夜空中綻放出璀璨的光芒。" : `在臺灣的日常生活中，我們很常使用「${w}」這個詞彙。`);
+                  const exPy = it.e1p || (tb && tb.ex ? pinyinProOf(tb.ex) : "") || (w === "璀璨" ? "Táiběi 101 de kuànián yānhuǒ zài yèkōng zhōng zhànfàng chū cuǐcàn de guāngmáng." : `Pinyin: ${it.py || pinyinProOf(w) || w}`);
+                  return `
+                  <div class="flex items-center justify-between gap-2">
+                    <p class="font-headline-md text-headline-md text-on-surface font-normal">
+                      ${it.e1 || (tb && tb.ex) ? ruby(exZh) : (w === "璀璨" ? '台北101的跨年煙火在夜空中綻放出<span class="text-primary font-semibold">璀璨</span>的光芒。' : `在臺灣的日常生活中，我們很常使用「<span class="text-primary font-semibold">${esc(w)}</span>」這個詞彙。`)}
+                    </p>
+                    <button type="button" class="p-1 rounded-full text-on-surface-variant hover:text-primary hover:bg-paper-card transition-colors shrink-0" onclick="say('${esc(exZh)}')" title="Nghe câu ví dụ">
+                      <span class="material-symbols-outlined text-[18px]">volume_up</span>
+                    </button>
+                  </div>
+                  <p class="font-code text-body-sm text-outline">${esc(exPy)}</p>
+                  ${tb && (tb.lv || tb.cmp) ? `<p class="text-xs text-secondary font-medium">${tb.lv ? `TBCL Cấp ${esc(tb.lv)}` : ""}${tb.lv && tb.cmp ? " · " : ""}${tb.cmp ? `Từ ghép: ${esc(tb.cmp)}` : ""}</p>` : ""}
+                  `;
+                })()}
                 <p class="font-body-md text-body-md text-on-surface-variant">
                   ${esc(it.e1v || (w === "璀璨" ? "Pháo hoa đón năm mới của tòa tháp Taipei 101 bung nở những luồng sáng rực rỡ rạng ngời giữa bầu trời đêm." : `Trong đời sống hằng ngày tại Đài Loan, chúng ta rất thường sử dụng từ "${w}" (${it.vn || it.en || ""}).`))}
                 </p>
@@ -5288,6 +5367,7 @@ function renderStitchWordShowcase(w, containerSelector, onRefresh) {
   const chars = [...new Set([...hanOnly(w)])];
   if (!chars.length && w) chars.push(w[0]);
   host.innerHTML = buildStitchWordShowcaseHTML(w);
+  fetchMoedictLive(w, host);
 
   // Initialize Hanzi Writer inside the Mi-zi-ge boxes
   chars.forEach((c, k) => {
@@ -8390,11 +8470,12 @@ VIEWS["nhap"] = () => {
     for (const line of lines) {
       const mHan = line.match(/[㐀-鿿豈-﫿]+/);
       if (!mHan) continue;
-      const w = mHan[0];
+      const rawW = mHan[0];
+      const w = typeof toTraditionalTw === "function" ? toTraditionalTw(rawW) : rawW;
       const n = S.noteByWord.get(w);
       const e = cedFirst(w);
-      let rest = line.replace(/^\d+[\.\)\s-]*/, "").replace(w, "").trim();
-      let py = n ? itemOf(n).py : (e ? e[0][0] : "");
+      let rest = line.replace(/^\d+[\.\)\s-]*/, "").replace(rawW, "").replace(w, "").trim();
+      let py = n ? itemOf(n).py : (e ? e[0][0] : (typeof pyOf === "function" ? pyOf(w) : ""));
       const mPy = rest.match(/\(([^)]+)\)/);
       if (mPy) {
         if (!py) py = mPy[1].trim();
@@ -9151,6 +9232,14 @@ function initSyncUI() {
     fetch("data/cedict.tsv").then((r) => r.text()).then((txt) => {
       const m = new Map(); for (const line of txt.split("\n")) { const [w, py, defs] = line.split("\t"); if (!w) continue; if (!m.has(w)) m.set(w, []); m.get(w).push([py, defs]); }
       S.ced = m; const h = location.hash; if (h.startsWith("#tu") || h.startsWith("#thu-muc") || h.startsWith("#nhap")) route();
+    }).catch(() => {});
+    getJSON("data/hanzi_dict.json").then((d) => {
+      S.hanziDict = d;
+      if (location.hash.startsWith("#tu")) route();
+    }).catch(() => {});
+    getJSON("data/tbcl_examples.json").then((d) => {
+      S.tbcl = d;
+      if (location.hash.startsWith("#tu")) route();
     }).catch(() => {});
   } catch (e) { $("#view").innerHTML = `<div class="note">Không tải được dữ liệu: ${esc(e.message)}. Nếu mở bằng file trực tiếp trên máy, hãy dùng đường link GitHub Pages.</div>`; }
   if ("serviceWorker" in navigator && location.protocol === "https:") {

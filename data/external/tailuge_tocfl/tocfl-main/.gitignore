@@ -1,0 +1,6 @@
+# ignore emacs
+*~
+
+# ignore input data sourced from web
+data/
+
