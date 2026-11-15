@@ -474,9 +474,28 @@ function bindLevelPicker(n, afterSave, target = document) {
   const btns = root.querySelectorAll ? root.querySelectorAll("[data-word-level]") : [];
   btns.forEach((btn) => {
     btn.onclick = async () => {
-      root.querySelectorAll("[data-word-level]").forEach((b) => (b.disabled = true));
+      const all = root.querySelectorAll("[data-word-level]");
+      all.forEach((b) => (b.disabled = true));
       const lvl = Number(btn.dataset.wordLevel);
-      await applyWordLevel(n, lvl, afterSave);
+      const st = root.querySelector ? root.querySelector("#levelStatus") : null;
+      try {
+        await applyWordLevel(n, lvl, afterSave);
+        // show the new level on the buttons (the page is not re-rendered)
+        const now = noteLevel(n);
+        all.forEach((b) => {
+          const L = Number(b.dataset.wordLevel), t = b.querySelector(".lvl-title");
+          b.classList.toggle("is-current", L === now);
+          if (t) t.textContent = (L === now ? "✓ " : "") + LEVELS[L];
+        });
+        const cur = root.querySelector ? root.querySelector("[data-cur-level]") : null;
+        if (cur) cur.textContent = LEVELS[now];
+        if (st) st.textContent = lvl === 0 ? `Đã đặt lại ${n.w} về Chưa học.` : `Đã lưu: ${n.w} ở mức ${LEVELS[lvl]}.`;
+      } catch (e) {
+        if (st) st.textContent = "Chưa lưu được, bạn bấm lại nhé.";
+        console.warn(e);
+      } finally {
+        all.forEach((b) => (b.disabled = false));
+      }
     };
   });
   const sel = root.querySelector ? root.querySelector("#wordLevel") : null;
@@ -658,10 +677,10 @@ function richDetailHTML(it, opts = {}) {
   const extra = S.vi.get(it.w) || {};
   it = Object.assign({}, it, { vd: it.vd || extra.vd, ng: it.ng || extra.ng });
   const w = it.w; const parts = [];
-  if (it.ng && it.ng.length) parts.push(`<div class="rich-sec"><h4>Giải nghĩa đầy đủ</h4><ol>${it.ng.map((x) => `<li>${ruby(x)}</li>`).join("")}</ol></div>`);
-  if (it.vd && it.vd.length) parts.push(`<div class="rich-sec"><h4>Câu theo tình huống</h4>${it.vd.map((v) => `<div class="rich-ex">${v.t ? `<span class="rich-tag">${esc(v.t)}</span>` : ""}<div class="zh" lang="zh-Hant">${esc(v.zh)} ${sp(v.zh)}</div><div class="py">${esc(v.py || "")}</div><div class="vn">${esc(v.vn)}</div></div>`).join("")}</div>`);
-  const rows = [["Cách dùng", it.us], ["Cụm hay gặp", it.co], ["Đồng nghĩa, gần nghĩa", it.sy], ["Trái nghĩa", it.an], ["Dễ nhầm với", it.cf], ["Lượng từ", it.lt]].filter(([, v]) => v);
-  if (rows.length) parts.push(`<div class="rich-sec"><dl class="rich-kv">${rows.map(([k, v]) => `<div><dt>${k}</dt><dd>${ruby(v)}</dd></div>`).join("")}</dl></div>`);
+  if (it.ng && it.ng.length) parts.push(`<div class="rich-sec rich-senses"><h4>Giải nghĩa đầy đủ</h4><ol>${it.ng.map((x) => `<li>${ruby(x)}</li>`).join("")}</ol></div>`);
+  if (it.vd && it.vd.length) parts.push(`<div class="rich-sec rich-vd"><h4>Câu theo tình huống</h4>${it.vd.map((v) => `<div class="rich-ex">${v.t ? `<span class="rich-tag">${esc(v.t)}</span>` : ""}<div class="zh" lang="zh-Hant">${esc(v.zh)} ${sp(v.zh)}</div><div class="py">${esc(v.py || "")}</div><div class="vn">${esc(v.vn)}</div></div>`).join("")}</div>`);
+  const rows = [["Cách dùng", it.us, "us"], ["Cụm hay gặp", it.co, "co"], ["Đồng nghĩa, gần nghĩa", it.sy, "sy"], ["Trái nghĩa", it.an, "an"], ["Dễ nhầm với", it.cf, "cf"], ["Lượng từ", it.lt, "lt"]].filter(([, v]) => v);
+  if (rows.length) parts.push(`<div class="rich-sec"><dl class="rich-kv">${rows.map(([k, v, c]) => `<div class="kv-${c}"><dt>${k}</dt><dd>${ruby(v)}</dd></div>`).join("")}</dl></div>`);
   if (it.mk) parts.push(`<div class="rich-note rich-warn"><b>Lỗi hay gặp</b> ${ruby(it.mk)}</div>`);
   if (it.tw) parts.push(`<div class="rich-note rich-tw"><b>Người Đài nói thế nào</b> ${ruby(it.tw)}</div>`);
   if (it.mh || it.mi) parts.push(`<div class="rich-note rich-tip"><b>Mẹo nhớ</b> ${ruby(it.mh || it.mi)}</div>`);
@@ -2365,7 +2384,7 @@ function renderCard() {
   }
 
   const html = `
-    <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin py-space-md md:py-space-lg flex flex-col gap-space-lg relative z-10">
+    <div class="${ss.shown ? "study-wide" : "max-w-4xl"} mx-auto px-margin-mobile md:px-margin py-space-md md:py-space-lg flex flex-col gap-space-lg relative z-10">
       <!-- Top Session Dashboard -->
       <section class="bg-paper-card rounded-2xl p-space-md md:p-space-lg border border-border-subtle shadow-xs flex flex-col gap-space-md">
         <div class="flex flex-wrap items-center justify-between gap-space-sm">
@@ -2396,8 +2415,8 @@ function renderCard() {
 
       <!-- Main Study Flashcard Shell -->
       <div class="relative w-full">
-        <!-- Ambient Seal Watermark -->
-        <div class="absolute top-6 right-8 select-none pointer-events-none opacity-5 font-serif text-[120px] text-primary leading-none">
+        <!-- Ambient Seal Watermark (front side only: on the answer side it would sit under the text) -->
+        <div class="${ss.shown ? "hidden " : ""}absolute top-6 right-8 select-none pointer-events-none opacity-5 font-serif text-[120px] text-primary leading-none">
           ${chars[0] || '學'}
         </div>
 
@@ -2450,8 +2469,10 @@ function renderCard() {
               </div>
             </div>
           ` : `
-            <!-- Back Details (Expanded Answer Side) -->
-            <div class="flex flex-col gap-space-lg">
+            <!-- Back Details (Expanded Answer Side): wide screens show two columns,
+                 left = word, meaning, example and grading (always in view), right = full explanation -->
+            <div class="study-back">
+             <div class="sb-main flex flex-col gap-space-lg">
               <!-- Word & Phonetics Header in Back -->
               <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-space-sm border-b border-border-subtle">
                 <div class="flex items-baseline gap-3 flex-wrap">
@@ -2501,7 +2522,9 @@ function renderCard() {
                 `;
               })()}
 
-              ${richDetailHTML(it)}
+             </div>
+             <div class="sb-more flex flex-col gap-space-lg">
+              ${richDetailHTML(it) || `<p class="sb-empty">Từ này chưa có phần giải thích đầy đủ (cách dùng, cụm từ, lỗi hay gặp, câu tình huống). Phần này đang được soạn dần theo bài.</p>`}
 
               <!-- Character Decomposition Bento Cards -->
               ${chars.length ? `
@@ -2513,8 +2536,9 @@ function renderCard() {
                 </div>
               ` : ''}
 
+             </div>
               <!-- SECTION: SRS EVALUATION & SKILL MASTERY -->
-              <div class="pt-space-md flex flex-col gap-space-md border-t border-border-subtle mt-2">
+              <div class="sb-grade pt-space-md flex flex-col gap-space-md border-t border-border-subtle mt-2">
                 <!-- Skill Progress Bar & Badges -->
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-surface-container-low p-3 rounded-xl border border-border-subtle">
                   <div class="flex items-center gap-2">
@@ -2538,7 +2562,7 @@ function renderCard() {
                     ${[0, 1, 2, 3, 4, 5].map((lvl) => {
                       const isCur = curSkillLvl === lvl;
                       const hint = levelHint(curCardState, lvl, now);
-                      const locked = clozeMissed && lvl > 2;
+                      const locked = false;
                       return `
                         <button type="button" class="lvl-btn lvl-btn-${lvl} ${isCur ? "is-current" : ""}" data-word-level="${lvl}" ${locked ? "disabled" : ""} title="${locked ? "Đã chọn sai đáp án: tối đa Nhớ tạm" : "Lần ôn tới: " + hint}">
                           <span class="lvl-title">${isCur ? "✓ " : ""}${esc(LEVELS[lvl])}</span>
@@ -2552,7 +2576,7 @@ function renderCard() {
                     <span>Áp dụng cho cả từ (mọi kỹ năng: đọc, nghe, viết, điền từ) · mặc định bật</span>
                   </label>
                   <div class="text-[11px] text-outline text-center">
-                    ${clozeMissed ? "Bạn đã chọn sai đáp án nên chỉ chấm được tới Nhớ tạm. " : ""}Số dưới mỗi ô là lần ôn tới. Lịch tự giãn dần khi bạn nhớ tốt nhiều lần; không nhảy thẳng lên 90 ngày.
+                    ${clozeMissed ? `<b class="text-primary">Bạn vừa chọn sai đáp án: nên chấm Mới học hoặc Nhớ tạm.</b> ` : ""}Số dưới mỗi ô là lần ôn tới. Bấm mức nào thì từ nằm trong khoảng ngày của mức đó.
                   </div>
                 </div>
 
@@ -5283,12 +5307,12 @@ function buildStitchWordShowcaseHTML(w) {
             <div class="pt-space-md border-t border-border-subtle flex flex-col gap-2 relative z-10">
               <div class="flex items-center justify-between text-xs text-outline font-semibold uppercase">
                 <span>Mức độ ghi nhớ hiện tại</span>
-                <span class="text-primary font-bold">${LEVELS[curLvl]}</span>
+                <span class="text-primary font-bold" data-cur-level>${LEVELS[curLvl]}</span>
               </div>
               <div class="grades-6">
                 ${[0, 1, 2, 3, 4, 5].map((lvl) => {
                   const isCur = curLvl === lvl;
-                  const hints = ["Đặt lại", "Ôn lại ngay", "1 ngày", "7 ngày", "21 ngày", "90 ngày"];
+                  const hints = ["Đặt lại", "Ôn lại ngay", "1–6 ngày", "7–20 ngày", "21–89 ngày", "90+ ngày"];
                   return `
                     <button type="button" class="lvl-btn lvl-btn-${lvl} ${isCur ? "is-current" : ""}" data-word-level="${lvl}" title="Đặt ${esc(w)} ở mức ${esc(LEVELS[lvl])}">
                       <span class="lvl-title">${isCur ? "✓ " : ""}${esc(LEVELS[lvl])}</span>

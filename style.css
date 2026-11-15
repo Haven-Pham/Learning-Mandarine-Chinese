@@ -708,3 +708,43 @@ rt {
 
 .rich-note { display: block; }
 .rich-note ruby, .rich-kv ruby, .rich ol ruby { display: ruby; }
+
+/* ---- Study card, answer side (v45): two columns on wide screens, larger explanation, colour per section ---- */
+.study-wide { max-width: 1360px; width: 100%; }
+.study-back { display: flex; flex-direction: column; gap: 28px; }
+.sb-empty { padding: 14px 16px; border-radius: 12px; background: rgba(120, 100, 80, .06); color: #6b6560; font-size: 15px; }
+@media (min-width: 1024px) {
+  .study-back { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); grid-template-areas: "main more" "grade more"; column-gap: 36px; row-gap: 20px; align-items: start; }
+  .sb-main { grid-area: main; }
+  .sb-grade { grid-area: grade; margin-top: 0 !important; }
+  /* the right column scrolls on its own, so the grading buttons on the left stay on screen */
+  .sb-more { grid-area: more; max-height: calc(100vh - 120px); overflow-y: auto; padding: 4px 10px 4px 24px; border-left: 1px solid rgba(120, 100, 80, .18); position: sticky; top: 80px; scrollbar-width: thin; }
+}
+.sb-more .rich { gap: 18px; }
+.sb-more .rich h4 { font-size: 14px; display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.sb-more .rich h4::before { content: ""; width: 6px; height: 16px; border-radius: 4px; background: currentColor; }
+.sb-more .rich-senses h4 { color: #a8261f; }
+.sb-more .rich-vd h4 { color: #1f5f99; }
+.sb-more .rich ol { font-size: 17px; line-height: 1.6; gap: 6px; }
+.sb-more .rich .zh { font-size: 22px; }
+.sb-more .rich .py { font-size: 14px; }
+.sb-more .rich .vn { font-size: 16px; font-weight: 500; }
+.sb-more .rich-ex { border-left: 4px solid #1f5f99; background: #eef4fa; padding: 12px 14px; }
+.sb-more .rich-tag { background: #dbe8f5; color: #1f5f99; }
+.sb-more .rich-kv { gap: 10px; }
+.sb-more .rich-kv > div { grid-template-columns: 1fr; gap: 4px; padding: 10px 14px; border-radius: 12px; border-left: 4px solid #8a817a; background: rgba(120, 100, 80, .05); }
+.sb-more .rich-kv dt { font-size: 13px; text-transform: uppercase; letter-spacing: .03em; font-weight: 700; }
+.sb-more .rich-kv dd { font-size: 16px; line-height: 1.7; }
+.rich-kv .kv-us { border-left-color: #1f5f99 !important; } .rich-kv .kv-us dt { color: #1f5f99; }
+.rich-kv .kv-co { border-left-color: #0f766e !important; background: #ecf7f5 !important; } .rich-kv .kv-co dt { color: #0f766e; }
+.rich-kv .kv-sy { border-left-color: #6d3fa8 !important; background: #f4effa !important; } .rich-kv .kv-sy dt { color: #6d3fa8; }
+.rich-kv .kv-an { border-left-color: #8a817a !important; } .rich-kv .kv-an dt { color: #6b6560; }
+.rich-kv .kv-cf { border-left-color: #c2560c !important; background: #fdf1e7 !important; } .rich-kv .kv-cf dt { color: #c2560c; }
+.rich-kv .kv-lt { border-left-color: #8a817a !important; } .rich-kv .kv-lt dt { color: #6b6560; }
+.sb-more .rich-note { font-size: 16px; line-height: 1.7; padding: 12px 14px; }
+.sb-more .rich-note b { font-size: 13px; text-transform: uppercase; letter-spacing: .03em; }
+.sb-more .rich-note.rich-warn b { color: #b3261e; } .sb-more .rich-note.rich-tw b { color: #176b4b; } .sb-more .rich-note.rich-tip b { color: #9a6212; }
+.sb-main .text-xl { font-size: 1.5rem; line-height: 1.4; }
+html.dark .sb-more .rich-ex, [data-theme="dark"] .sb-more .rich-ex { background: rgba(31, 95, 153, .18); }
+:root[data-theme="dark"] .sb-more .rich-kv > div, :root[data-theme="dark"] .sb-more .rich-note, :root[data-theme="dark"] .sb-more .rich-ex { background: rgba(255, 255, 255, .05) !important; }
+:root[data-theme="dark"] .sb-more .rich-tag { background: rgba(31, 95, 153, .35); color: #cfe2f5; }
