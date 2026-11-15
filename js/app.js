@@ -180,6 +180,37 @@ pyOf = function(w) {
 function hanziInfo(ch) {
   return (S.hanziDict && ch) ? S.hanziDict[ch] || null : null;
 }
+// A TBCL example worth showing: a short, plain sentence that contains the word
+// (the TBCL corpus also has long subtitle lines that make poor examples).
+function tbclSentence(w, tb) {
+  if (!tb || !tb.ex || !w) return "";
+  const f = String(w).split("/")[0].replace(/[()]/g, "");
+  const ss = String(tb.ex).split(/(?<=[。！？])/).map((x) => x.trim()).filter(Boolean);
+  const ok = (x) => x.includes(f) && x.length <= 32 && /[。！？]$/.test(x) && !/[「」“”"()（）《》…—\-]|\.\.\./.test(x);
+  return ss.find((x) => S.viEx && S.viEx[x] && x.includes(f)) || ss.find(ok) || "";
+}
+// Vietnamese meaning for words outside the TOCFL list (words you add, dictionary lookups):
+// data/vi-dict/NN.json from CVDICT, NN = first character code point % 64, loaded only when needed.
+const VI_SHARDS = new Map();
+async function ensureVi(words) {
+  const need = [...new Set(words)].filter((w) => w && !((S.vi.get(w) || {}).vn) && /^[㐀-鿿豈-﫿]+$/.test(w));
+  if (!need.length) return false;
+  const ks = [...new Set(need.map((w) => w.codePointAt(0) % 64))];
+  await Promise.all(ks.map(async (k) => {
+    if (VI_SHARDS.has(k)) return;
+    try { VI_SHARDS.set(k, await getJSON(`data/vi-dict/${String(k).padStart(2, "0")}.json`)); } catch (e) { VI_SHARDS.set(k, {}); }
+  }));
+  let changed = false;
+  for (const w of need) {
+    const e = VI_SHARDS.get(w.codePointAt(0) % 64)[w];
+    if (!e) continue;
+    const v = S.vi.get(w) || {};
+    S.vi.set(w, Object.assign({}, v, { vn: e[0], hv: v.hv || e[1] }));
+    changed = true;
+  }
+  return changed;
+}
+window.ensureVi = ensureVi;
 function tbclInfo(w) {
   if (!S.tbcl || !w) return null;
   return S.tbcl[w] || S.tbcl[String(w).replace(/[()]/g, "")] || null;
@@ -742,6 +773,10 @@ function route() {
   const fn = VIEWS[name] || VIEWS["trang-chu"];
   if (name !== "hoc") S.session = null;
   fn(arg); window.scrollTo(0, 0); updateBadge();
+  if (name === "tu" && arg && S.ready && !((S.vi.get(arg) || {}).vn)) {
+    const at = location.hash;
+    ensureVi([arg]).then((ch) => { if (ch && location.hash === at) fn(arg); }).catch(() => {});
+  }
 }
 addEventListener("hashchange", route);
 function updateBadge() {
@@ -2444,22 +2479,23 @@ function renderCard() {
               <!-- Contextual Example Box (local or TBCL/TOCFL) -->
               ${(() => {
                 const tb = tbclInfo(it.w);
-                const exZh = it.e1 || it.e2 || (tb && tb.ex) || "";
-                const exPy = it.e1p || it.e2p || (exZh ? pinyinProOf(exZh) : "");
-                const exVn = it.e1v || it.e2v || "";
+                const own = it.e1 || it.e2 || "";
+                const exZh = own || tbclSentence(it.w, tb);
+                const exPy = (own ? (it.e1 ? it.e1p : it.e2p) : "") || (exZh ? pinyinProOf(exZh) : "");
+                const exVn = (own ? (it.e1 ? it.e1v : it.e2v) : "") || (S.viEx && S.viEx[exZh]) || "";
                 if (!exZh && !(tb && tb.cmp)) return "";
                 return `
                 <div class="bg-paper-muted rounded-xl p-space-md md:p-space-lg flex flex-col gap-space-sm relative border border-border-subtle">
                   <div class="flex items-center justify-between">
                     <span class="font-label-sm text-xs text-secondary font-semibold uppercase tracking-wider flex items-center gap-1">
                       <span class="material-symbols-outlined text-[16px]">format_quote</span>
-                      Ví dụ ngữ cảnh Đài Loan ${!it.e1 && !it.e2 && tb && tb.ex ? '(TBCL)' : ''}
+                      Ví dụ ngữ cảnh Đài Loan ${!own && exZh ? '(TBCL)' : ''}
                     </span>
                     ${exZh ? `<button type="button" class="text-secondary hover:text-primary p-1 transition-colors" onclick="say('${esc(exZh)}')" title="Nghe câu ví dụ"><span class="material-symbols-outlined text-[20px]">volume_up</span></button>` : ''}
                   </div>
-                  ${exZh ? `<p class="font-headline-md text-lg md:text-xl text-on-surface font-serif font-medium leading-relaxed">${ruby(exZh)}</p>` : ''}
+                  ${exZh ? `<p class="font-headline-md text-lg md:text-xl text-on-surface font-serif font-medium leading-relaxed" lang="zh-Hant">${esc(exZh)}</p>` : ''}
                   ${exPy ? `<p class="font-code text-xs text-on-surface-variant">${esc(exPy)}</p>` : ''}
-                  ${exVn ? `<p class="font-body-md text-sm text-on-surface font-medium">${esc(exVn)}</p>` : ''}
+                  ${exZh ? (exVn ? `<p class="font-body-md text-sm text-on-surface font-medium">${esc(exVn)}</p>` : `<p class="text-xs text-outline">Câu này chưa có bản dịch tiếng Việt.</p>`) : ''}
                   ${tb && tb.cmp ? `<div class="text-xs text-outline pt-1 border-t border-border-subtle/50">Từ ghép thường dùng: <strong class="text-on-surface">${esc(tb.cmp)}</strong></div>` : ''}
                 </div>
                 `;
@@ -5213,30 +5249,29 @@ function buildStitchWordShowcaseHTML(w) {
                 <span class="material-symbols-outlined text-primary text-[18px]">format_quote</span>
                 Ví dụ câu chuẩn ngữ cảnh Đài Loan
               </span>
-              <span class="font-label-sm text-label-sm text-outline">Câu soạn riêng cho trang</span>
+              <span class="font-label-sm text-label-sm text-outline">Câu ví dụ</span>
             </div>
             <div class="flex flex-col gap-space-sm">
               <div class="p-space-md rounded-xl bg-paper-base hover:bg-surface-container-low transition-colors flex flex-col gap-space-xs">
                 ${(() => {
                   const tb = tbclInfo(w);
-                  const exZh = it.e1 || (tb && tb.ex) || (w === "璀璨" ? "台北101的跨年煙火在夜空中綻放出璀璨的光芒。" : `在臺灣的日常生活中，我們很常使用「${w}」這個詞彙。`);
-                  const exPy = it.e1p || (tb && tb.ex ? pinyinProOf(tb.ex) : "") || (w === "璀璨" ? "Táiběi 101 de kuànián yānhuǒ zài yèkōng zhōng zhànfàng chū cuǐcàn de guāngmáng." : `Pinyin: ${it.py || pinyinProOf(w) || w}`);
+                  const own = it.e1 || "";
+                  const exZh = own || tbclSentence(w, tb);
+                  const exPy = (own ? it.e1p : "") || (exZh ? pinyinProOf(exZh) : "");
+                  const exVn = (own ? it.e1v : "") || (S.viEx && S.viEx[exZh]) || "";
+                  const extra = tb && (tb.lv || tb.cmp) ? `<p class="text-xs text-secondary font-medium">${tb.lv ? `TBCL Cấp ${esc(tb.lv)}` : ""}${tb.lv && tb.cmp ? " · " : ""}${tb.cmp ? `Từ ghép: ${esc(tb.cmp)}` : ""}</p>` : "";
+                  if (!exZh) return `<p class="text-sm text-outline">Từ này chưa có câu ví dụ.</p>${extra}`;
                   return `
                   <div class="flex items-center justify-between gap-2">
-                    <p class="font-headline-md text-headline-md text-on-surface font-normal">
-                      ${it.e1 || (tb && tb.ex) ? ruby(exZh) : (w === "璀璨" ? '台北101的跨年煙火在夜空中綻放出<span class="text-primary font-semibold">璀璨</span>的光芒。' : `在臺灣的日常生活中，我們很常使用「<span class="text-primary font-semibold">${esc(w)}</span>」這個詞彙。`)}
-                    </p>
+                    <p class="font-headline-md text-headline-md text-on-surface font-normal" lang="zh-Hant">${esc(exZh)}</p>
                     <button type="button" class="p-1 rounded-full text-on-surface-variant hover:text-primary hover:bg-paper-card transition-colors shrink-0" onclick="say('${esc(exZh)}')" title="Nghe câu ví dụ">
                       <span class="material-symbols-outlined text-[18px]">volume_up</span>
                     </button>
                   </div>
                   <p class="font-code text-body-sm text-outline">${esc(exPy)}</p>
-                  ${tb && (tb.lv || tb.cmp) ? `<p class="text-xs text-secondary font-medium">${tb.lv ? `TBCL Cấp ${esc(tb.lv)}` : ""}${tb.lv && tb.cmp ? " · " : ""}${tb.cmp ? `Từ ghép: ${esc(tb.cmp)}` : ""}</p>` : ""}
-                  `;
+                  <p class="font-body-md text-body-md text-on-surface-variant">${exVn ? esc(exVn) : '<span class="text-xs text-outline">Câu này chưa có bản dịch tiếng Việt.</span>'}</p>
+                  ${extra}`;
                 })()}
-                <p class="font-body-md text-body-md text-on-surface-variant">
-                  ${esc(it.e1v || (w === "璀璨" ? "Pháo hoa đón năm mới của tòa tháp Taipei 101 bung nở những luồng sáng rực rỡ rạng ngời giữa bầu trời đêm." : `Trong đời sống hằng ngày tại Đài Loan, chúng ta rất thường sử dụng từ "${w}" (${it.vn || it.en || ""}).`))}
-                </p>
               </div>
             </div>
           </div>
@@ -9217,12 +9252,15 @@ function initSyncUI() {
     $("#view").innerHTML = `<div class="note">Đang mở tiến độ học…</div>`;
     try { await loadProgress(); } catch (e) { S.storageError = true; }
     if (typeof syncAllInboxNotes === "function") syncAllInboxNotes();
+    const fillMissingVi = (atBoot) => ensureVi(S.notes.filter((n) => !n.rich && (n.inbox || (S.settings.extra && S.settings.extra[n.w]) || noteLevel(n) > 0)).map((n) => n.w)).then((ch) => { if (ch && (atBoot || !location.hash.startsWith("#hoc"))) route(); }).catch(() => {});
     S.ready = true;
     initSyncUI();
     route();
+    fillMissingVi(true);
     if (window.Sync && Sync.isConfigured() && Sync.getConfig().autoSync) {
       Sync.syncNow().then(() => {
         if (typeof syncAllInboxNotes === "function") syncAllInboxNotes();
+        fillMissingVi();
         updateBadge();
         const h = location.hash;
         if (h === "#trang-chu" || h === "" || h.startsWith("#cai-dat")) route();
@@ -9237,6 +9275,7 @@ function initSyncUI() {
       S.hanziDict = d;
       if (location.hash.startsWith("#tu")) route();
     }).catch(() => {});
+    getJSON("data/vi-ex.json").then((d) => { S.viEx = d; }).catch(() => {});
     getJSON("data/tbcl_examples.json").then((d) => {
       S.tbcl = d;
       if (location.hash.startsWith("#tu")) route();
