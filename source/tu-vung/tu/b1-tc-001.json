@@ -1,0 +1,418 @@
+{
+ "ghi_chu": "B1 · Tính cách & cảm xúc · phần 1",
+ "tu": {
+  "愛惜": {
+   "vn": "ái tích; quý trọng, giữ gìn",
+   "ng": ["(động từ) quý, giữ gìn, không phung phí (đồ vật, thời gian, sức khỏe)"],
+   "us": "愛惜 + đồ vật/thời gian/sức khỏe: 愛惜東西, 愛惜身體.",
+   "co": ["愛惜東西|giữ gìn đồ đạc", "愛惜身體|giữ gìn sức khỏe", "愛惜生命|quý trọng sinh mạng"],
+   "sy": ["珍惜|trân trọng (dùng nhiều hơn, cả với người, cơ hội)"],
+   "an": ["浪費|lãng phí"],
+   "cf": ["珍惜|hay dùng với cơ hội, tình cảm: 珍惜機會; 愛惜 thiên về đồ vật, cơ thể"],
+   "mk": "Với cơ hội, tình bạn thì dùng 珍惜, ít dùng 愛惜.",
+   "tw": "Bố mẹ Đài Loan hay dặn con 要愛惜東西 (phải giữ gìn đồ đạc).",
+   "mh": "Ái tích: 愛 ái (yêu) + 惜 tích (tiếc) → yêu nên tiếc, giữ gìn.",
+   "vd": [
+    {"t": "Lời dạy", "zh": "這台電腦很貴，你要愛惜。", "vn": "Cái máy tính này đắt lắm, con phải giữ gìn."},
+    {"t": "Sức khỏe", "zh": "你每天熬夜，一點都不愛惜身體。", "vn": "Ngày nào bạn cũng thức khuya, chẳng biết giữ gìn sức khỏe gì cả."},
+    {"t": "Bài đọc", "zh": "我們應該珍惜每一次學習的機會。", "vn": "Chúng ta nên trân trọng mỗi cơ hội học tập."}
+   ]
+  },
+  "安心": {
+   "vn": "an tâm; yên tâm",
+   "ng": ["(tính từ) yên tâm, không lo lắng", "(phó từ) yên tâm mà làm: 安心工作, 安心養病"],
+   "us": "讓/使 + người + 安心: làm ai yên tâm. 安心 + V: yên tâm làm gì.",
+   "co": ["讓人安心|khiến người ta yên tâm", "安心工作|yên tâm làm việc", "買得安心|mua yên tâm"],
+   "sy": ["放心|yên tâm (khẩu ngữ, dùng nhiều nhất)"],
+   "an": ["擔心|lo lắng", "不安|bất an"],
+   "cf": ["放心|nói với người khác: 你放心吧！; 安心 hay mô tả trạng thái, quảng cáo"],
+   "mk": "Khi trấn an ai, người Đài nói 你放心, không nói 你安心.",
+   "tw": "Quảng cáo đồ ăn ở Đài Loan hay ghi 安心食材 (nguyên liệu an toàn, yên tâm).",
+   "mh": "An tâm: 安 an + 心 tâm → đúng từ Hán Việt 'an tâm'.",
+   "vd": [
+    {"t": "Bệnh viện", "zh": "醫生說沒問題，我就安心了。", "vn": "Bác sĩ nói không sao, tôi yên tâm rồi."},
+    {"t": "Mua sắm", "zh": "這家店的東西都有保固，買得很安心。", "vn": "Đồ ở cửa hàng này đều có bảo hành, mua rất yên tâm."},
+    {"t": "Trấn an", "zh": "你放心，我一到台北就打電話給你。", "vn": "Mẹ yên tâm, con đến Đài Bắc là gọi điện ngay."}
+   ]
+  },
+  "榜樣": {
+   "vn": "tấm gương; hình mẫu",
+   "ng": ["(danh từ) tấm gương để người khác noi theo"],
+   "us": "做/當 + (người) + 的榜樣: làm gương cho ai. 以…為榜樣: lấy… làm gương.",
+   "co": ["好榜樣|tấm gương tốt", "做榜樣|làm gương", "學習的榜樣|tấm gương để học tập"],
+   "sy": ["模範|mô phạm, gương mẫu", "典範|điển hình"],
+   "mk": "Không nói 他是我的榜樣人; chỉ cần 他是我的榜樣.",
+   "tw": "Người Đài hay nói 哥哥要做弟弟的好榜樣 (anh phải làm gương cho em).",
+   "mh": "Bảng dạng: 榜 bảng (bảng vàng) + 樣 dạng (mẫu) → mẫu được nêu tên trên bảng.",
+   "vd": [
+    {"t": "Gia đình", "zh": "你是哥哥，要做弟弟的好榜樣。", "vn": "Con là anh, phải làm gương tốt cho em."},
+    {"t": "Phỏng vấn", "zh": "我的媽媽一直是我學習的榜樣。", "vn": "Mẹ tôi luôn là tấm gương để tôi học tập."},
+    {"t": "Tin tức", "zh": "這位老師幫助了很多學生，大家都把他當榜樣。", "vn": "Thầy giáo này đã giúp nhiều học sinh, ai cũng coi thầy là tấm gương."}
+   ]
+  },
+  "保守": {
+   "vn": "bảo thủ; dè dặt, thận trọng",
+   "ng": ["(tính từ) bảo thủ, không thích thay đổi", "(tính từ) dè dặt, thận trọng: 保守估計 (ước tính thận trọng)", "(động từ) giữ kín: 保守秘密"],
+   "us": "Ngoài nghĩa 'bảo thủ', 保守 còn trung tính: 保守的看法 (cách nhìn thận trọng).",
+   "co": ["思想保守|tư tưởng bảo thủ", "保守估計|ước tính dè dặt", "保守秘密|giữ bí mật"],
+   "an": ["開放|cởi mở", "開明|tiến bộ, thoáng"],
+   "cf": ["傳統|truyền thống (không mang nghĩa xấu)"],
+   "mk": "保守 không phải lúc nào cũng xấu như 'bảo thủ' tiếng Việt: 保守一點比較安全 = thận trọng chút thì an toàn hơn.",
+   "tw": "Người Đài nói 我爸媽觀念比較保守 (bố mẹ tôi suy nghĩ khá truyền thống) một cách nhẹ nhàng.",
+   "mh": "Bảo thủ: 保 bảo (giữ) + 守 thủ (giữ) → giữ nguyên cái cũ.",
+   "vd": [
+    {"t": "Gia đình", "zh": "我爸媽的想法比較保守，不讓我一個人出國。", "vn": "Bố mẹ tôi suy nghĩ khá bảo thủ, không cho tôi đi nước ngoài một mình."},
+    {"t": "Công việc", "zh": "保守估計，這個計畫要花三個月。", "vn": "Ước tính dè dặt thì dự án này mất ba tháng."},
+    {"t": "Bạn bè", "zh": "你放心，我會幫你保守秘密。", "vn": "Bạn yên tâm, tôi sẽ giữ bí mật giúp bạn."}
+   ]
+  },
+  "被動": {
+   "vn": "bị động",
+   "ng": ["(tính từ) bị động, không tự làm mà chờ người khác", "(ngữ pháp) thể bị động: 被動句"],
+   "us": "Nói về tính cách, thái độ: 他做事很被動. Ngữ pháp: 被動句 (câu bị động với 被).",
+   "co": ["很被動|rất bị động", "被動句|câu bị động", "處於被動|ở thế bị động"],
+   "an": ["主動|chủ động"],
+   "mk": "Không nói 被動地等; tự nhiên hơn là 只會等別人.",
+   "tw": "Sếp Đài Loan hay nhận xét 他工作態度太被動 khi nhân viên không tự đề xuất.",
+   "mh": "Bị động: 被 bị + 動 động → đúng từ Hán Việt.",
+   "vd": [
+    {"t": "Công ty", "zh": "他做事很被動，主管不說他就不做。", "vn": "Anh ấy làm việc rất bị động, sếp không bảo thì không làm."},
+    {"t": "Lời khuyên", "zh": "交朋友不要太被動，要主動跟別人聊天。", "vn": "Kết bạn đừng quá bị động, phải chủ động trò chuyện với người khác."},
+    {"t": "Lớp học", "zh": "「錢包被偷了」是一個被動句。", "vn": "'Ví bị trộm rồi' là một câu bị động."}
+   ]
+  },
+  "不滿": {
+   "vn": "bất mãn; không hài lòng",
+   "ng": ["(tính từ/động từ) không hài lòng: 對…不滿", "(danh từ) sự bất mãn: 表達不滿"],
+   "us": "對 + người/việc + 不滿; 引起…的不滿 (gây bất mãn).",
+   "co": ["對…不滿|bất mãn với…", "表示不滿|bày tỏ không hài lòng", "引起不滿|gây bất mãn"],
+   "sy": ["不滿意|không hài lòng", "不高興|không vui"],
+   "an": ["滿意|hài lòng"],
+   "cf": ["不滿意|dùng cho việc cụ thể (不滿意這個結果); 不滿 mạnh hơn, hay dùng trong tin tức"],
+   "mk": "Không nói 我不滿這個菜; nói 我對這道菜不太滿意.",
+   "tw": "Tin tức Đài Loan hay dùng 民眾不滿 (người dân bất mãn) khi giá cả tăng.",
+   "mh": "Bất mãn: 不 bất + 滿 mãn (đầy, thỏa) → không thỏa lòng.",
+   "vd": [
+    {"t": "Tin tức", "zh": "油價又漲了，很多民眾表示不滿。", "vn": "Giá xăng lại tăng, nhiều người dân bày tỏ bất mãn."},
+    {"t": "Công ty", "zh": "員工對新的上班時間很不滿。", "vn": "Nhân viên rất bất mãn với giờ làm mới."},
+    {"t": "Nhà hàng", "zh": "客人對服務不滿意，要求見經理。", "vn": "Khách không hài lòng về phục vụ, đòi gặp quản lý."}
+   ]
+  },
+  "不幸": {
+   "vn": "bất hạnh; không may",
+   "ng": ["(tính từ) bất hạnh, đáng thương", "(phó từ) không may là: 不幸受傷", "(danh từ) điều bất hạnh"],
+   "us": "Hay đứng trước động từ trong tin tức: 不幸去世, 不幸受傷.",
+   "co": ["不幸的消息|tin buồn", "不幸去世|không may qua đời", "不幸中的大幸|trong cái rủi có cái may"],
+   "sy": ["倒楣|xui xẻo (khẩu ngữ)"],
+   "an": ["幸運|may mắn", "幸福|hạnh phúc"],
+   "cf": ["倒楣|xui (chuyện nhỏ hằng ngày); 不幸 nặng nề hơn"],
+   "mk": "Chuyện nhỏ như lỡ xe buýt thì nói 好倒楣, không nói 很不幸 (nghe quá nặng).",
+   "tw": "Câu quen thuộc khi tai nạn nhẹ: 不幸中的大幸，人沒事 (may mà người không sao).",
+   "mh": "Bất hạnh: 不 bất + 幸 hạnh (may) → bất hạnh.",
+   "vd": [
+    {"t": "Tin tức", "zh": "昨天的車禍有兩個人不幸受傷。", "vn": "Vụ tai nạn hôm qua có hai người không may bị thương."},
+    {"t": "Tâm sự", "zh": "聽到這個不幸的消息，大家都很難過。", "vn": "Nghe tin buồn này, ai cũng rất đau lòng."},
+    {"t": "Đời thường", "zh": "車壞了，不過人沒事，真是不幸中的大幸。", "vn": "Xe hỏng nhưng người không sao, đúng là trong cái rủi có cái may."}
+   ]
+  },
+  "誠實": {
+   "vn": "thành thật; trung thực",
+   "ng": ["(tính từ) thật thà, không nói dối"],
+   "us": "對 + người + 誠實; 誠實地說 = nói thật thì.",
+   "co": ["誠實的人|người trung thực", "對自己誠實|thành thật với bản thân", "誠實地回答|trả lời thành thật"],
+   "sy": ["老實|thật thà", "坦白|thẳng thắn"],
+   "an": ["說謊|nói dối", "虛偽|giả dối"],
+   "cf": ["老實|thật thà (cũng có thể là hiền lành, chất phác); 誠實 nhấn vào không gian dối"],
+   "mk": "Nói 'thành thật mà nói' dùng 老實說 hoặc 說實話 nhiều hơn 誠實地說.",
+   "tw": "Người Đài hay mở đầu bằng 老實說… hoặc 說真的… (nói thật là…).",
+   "mh": "Thành thật: 誠 thành + 實 thật → đúng từ 'thành thật'.",
+   "vd": [
+    {"t": "Phỏng vấn", "zh": "老闆最喜歡誠實又認真的員工。", "vn": "Sếp thích nhất nhân viên trung thực và chăm chỉ."},
+    {"t": "Gia đình", "zh": "做錯事沒關係，但是要誠實。", "vn": "Làm sai cũng không sao, nhưng phải thành thật."},
+    {"t": "Tâm sự", "zh": "老實說，我不太喜歡這個工作。", "vn": "Nói thật là tôi không thích công việc này lắm."}
+   ]
+  },
+  "成熟": {
+   "vn": "thành thục; chín chắn; chín (quả)",
+   "ng": ["(tính từ) chín chắn, trưởng thành (người)", "(tính từ) chín (quả)", "(tính từ) hoàn thiện, đủ điều kiện: 技術成熟, 時機成熟"],
+   "us": "Nói người: 他比同年齡的人成熟. Nói kỹ thuật/thời cơ: 時機還不成熟.",
+   "co": ["個性成熟|tính cách chín chắn", "時機成熟|thời cơ chín muồi", "成熟的水果|trái cây chín"],
+   "sy": ["懂事|hiểu chuyện (trẻ con)", "穩重|điềm đạm"],
+   "an": ["幼稚|ấu trĩ, trẻ con"],
+   "cf": ["成長|lớn lên (quá trình); 成熟 là kết quả: đã chín chắn"],
+   "mk": "Nói ai trẻ con dùng 幼稚, không dùng 不成熟 khi muốn chê nhẹ trong lúc nói chuyện thân mật.",
+   "tw": "Người Đài hay khen 你看起來很成熟 (trông bạn chín chắn), đôi khi ý là 'trông già hơn tuổi'.",
+   "mh": "Thành thục: 成 thành + 熟 thục (chín) → chín muồi.",
+   "vd": [
+    {"t": "Khen", "zh": "她才十八歲，可是想法很成熟。", "vn": "Cô ấy mới mười tám tuổi nhưng suy nghĩ rất chín chắn."},
+    {"t": "Công việc", "zh": "現在時機還不成熟，我們再等一下。", "vn": "Bây giờ thời cơ chưa chín muồi, chúng ta đợi thêm chút."},
+    {"t": "Chợ", "zh": "這些芒果還沒成熟，過兩天再吃。", "vn": "Mấy quả xoài này chưa chín, hai hôm nữa hãy ăn."}
+   ]
+  },
+  "充實": {
+   "vn": "sung thực; phong phú, đầy đủ",
+   "ng": ["(tính từ) (cuộc sống, thời gian) phong phú, có ý nghĩa", "(động từ) bổ sung, làm phong phú: 充實自己"],
+   "us": "生活/一天 + 很充實 = sống/một ngày đầy ý nghĩa, bận rộn có ích. 充實自己 = trau dồi bản thân.",
+   "co": ["生活很充實|cuộc sống phong phú", "充實自己|trau dồi bản thân", "過得很充實|sống rất có ý nghĩa"],
+   "sy": ["豐富|phong phú"],
+   "an": ["空虛|trống rỗng"],
+   "cf": ["豐富|phong phú (về số lượng, nội dung); 充實 nhấn cảm giác đầy đủ, có ích"],
+   "mk": "Không nói 我很充實 khi muốn nói 'tôi no'; 充實 chỉ dùng cho cuộc sống, thời gian, bản thân.",
+   "tw": "Câu rất hay nghe: 今天過得好充實喔！ (hôm nay trôi qua thật đầy đủ ý nghĩa!).",
+   "mh": "Sung thực: 充 sung (đầy) + 實 thực (đặc, thật) → đầy đặn.",
+   "vd": [
+    {"t": "Du học", "zh": "在台灣念書的這一年，我過得很充實。", "vn": "Một năm học ở Đài Loan, tôi sống rất có ý nghĩa."},
+    {"t": "Lời khuyên", "zh": "下班以後他去上課，想多充實自己。", "vn": "Sau giờ làm anh ấy đi học thêm, muốn trau dồi bản thân."},
+    {"t": "Cuối tuần", "zh": "今天爬山又看電影，真是充實的一天！", "vn": "Hôm nay vừa leo núi vừa xem phim, đúng là một ngày trọn vẹn!"}
+   ]
+  },
+  "刺激": {
+   "vn": "kích thích; gay cấn, mạo hiểm",
+   "ng": ["(tính từ) gay cấn, phấn khích, cảm giác mạnh", "(động từ) kích thích, thúc đẩy: 刺激消費", "(động từ) làm tổn thương, chạm tự ái"],
+   "us": "Tính từ rất hay dùng: 好刺激！ (trò chơi, phim). Động từ: 刺激經濟.",
+   "co": ["好刺激|gay cấn quá", "刺激消費|kích cầu tiêu dùng", "受到刺激|bị kích động, bị sốc"],
+   "sy": ["緊張|hồi hộp", "興奮|phấn khích"],
+   "an": ["無聊|nhàm chán", "平淡|nhạt nhẽo"],
+   "cf": ["興奮|phấn khích (cảm xúc của người); 刺激 mô tả trò chơi, phim gây ra cảm giác đó"],
+   "mk": "Không nói 我很刺激 để tả mình phấn khích; nói 這個遊戲很刺激 hoặc 我很興奮.",
+   "tw": "Đi công viên trò chơi người Đài hay hét 好刺激喔！",
+   "mh": "Thứ kích: 刺 thứ (đâm) + 激 kích → kích thích.",
+   "vd": [
+    {"t": "Công viên", "zh": "這個雲霄飛車好刺激！", "vn": "Tàu lượn siêu tốc này gay cấn quá!"},
+    {"t": "Tin tức", "zh": "政府發消費券，想刺激消費。", "vn": "Chính phủ phát phiếu tiêu dùng để kích cầu."},
+    {"t": "Phim", "zh": "這部電影太刺激了，我一直很緊張。", "vn": "Bộ phim này gay cấn quá, tôi hồi hộp suốt."}
+   ]
+  },
+  "挫折": {
+   "vn": "thất bại, vấp ngã; trắc trở",
+   "ng": ["(danh từ) thất bại, trở ngại làm nản lòng"],
+   "us": "遇到/受到 + 挫折. 挫折感 = cảm giác thất bại, nản.",
+   "co": ["遇到挫折|gặp trắc trở", "挫折感|cảm giác thất bại", "不怕挫折|không sợ thất bại"],
+   "sy": ["失敗|thất bại", "困難|khó khăn"],
+   "an": ["成功|thành công"],
+   "cf": ["失敗|kết quả không thành; 挫折 nhấn vào cú vấp làm nản lòng"],
+   "mk": "Không nói 我很挫折 trong văn chuẩn; người Đài lại hay nói khẩu ngữ 好挫折喔 (nản quá).",
+   "tw": "Học sinh Đài Loan hay than 考不好好挫折 (thi không tốt nản ghê).",
+   "mh": "Tỏa chiết: 挫 tỏa (bẻ gãy) + 折 chiết (gãy) → bị bẻ gãy, vấp ngã.",
+   "vd": [
+    {"t": "Lời khuyên", "zh": "遇到挫折的時候，不要放棄。", "vn": "Khi gặp trắc trở, đừng bỏ cuộc."},
+    {"t": "Học tập", "zh": "剛開始學中文的時候，我常常有挫折感。", "vn": "Lúc mới học tiếng Trung, tôi thường cảm thấy nản."},
+    {"t": "Phỏng vấn", "zh": "這次失敗讓他學到很多。", "vn": "Lần thất bại này giúp anh ấy học được nhiều điều."}
+   ]
+  },
+  "大方": {
+   "vn": "hào phóng; tự nhiên, phóng khoáng",
+   "ng": ["(tính từ) hào phóng, rộng rãi (về tiền bạc)", "(tính từ) tự nhiên, không rụt rè", "(tính từ) (cách ăn mặc) trang nhã, lịch sự"],
+   "us": "對人很大方 = hào phóng với người khác. 大大方方 = rất tự nhiên.",
+   "co": ["出手大方|chi tiền rộng rãi", "大方地說|nói một cách tự nhiên", "簡單大方|đơn giản trang nhã"],
+   "sy": ["慷慨|khảng khái, hào phóng (văn viết)"],
+   "an": ["小氣|keo kiệt", "害羞|ngại ngùng"],
+   "cf": ["大方 (dàfang) khác 大方 (dàfāng, trong 貽笑大方, hiếm gặp)"],
+   "mk": "Đọc dàfang (thanh nhẹ ở 方).",
+   "tw": "Người Đài khen áo quần: 這件衣服很大方 (trang nhã, hợp nhiều dịp).",
+   "mh": "Đại phương: 大 đại (lớn) + 方 phương → rộng rãi, không câu nệ.",
+   "vd": [
+    {"t": "Bạn bè", "zh": "他對朋友很大方，常常請大家吃飯。", "vn": "Anh ấy rất hào phóng với bạn bè, hay mời mọi người ăn cơm."},
+    {"t": "Thuyết trình", "zh": "上台的時候不要緊張，大方一點。", "vn": "Lên sân khấu đừng căng thẳng, tự nhiên một chút."},
+    {"t": "Mua sắm", "zh": "這件洋裝簡單大方，上班也可以穿。", "vn": "Chiếc đầm này đơn giản trang nhã, đi làm cũng mặc được."}
+   ]
+  },
+  "單純": {
+   "vn": "đơn thuần; ngây thơ, trong sáng",
+   "ng": ["(tính từ) (người) ngây thơ, trong sáng, không mưu mô", "(tính từ) (việc) đơn giản", "(phó từ) chỉ đơn thuần: 單純想幫忙"],
+   "us": "Nói về người là khen trong sáng, nhưng cũng có thể hàm ý 'ngây thơ, dễ bị lừa'.",
+   "co": ["想法單純|suy nghĩ đơn giản", "個性單純|tính cách trong sáng", "單純的關係|quan hệ đơn thuần"],
+   "sy": ["簡單|đơn giản", "天真|ngây thơ"],
+   "an": ["複雜|phức tạp"],
+   "cf": ["簡單|đơn giản (việc, bài tập); 單純 hay dùng cho người, quan hệ, động cơ"],
+   "mk": "Bài tập dễ nói 很簡單, không nói 很單純.",
+   "tw": "Người Đài hay nói 我只是單純想問一下 (tôi chỉ đơn thuần muốn hỏi chút thôi).",
+   "mh": "Đơn thuần: 單 đơn + 純 thuần → đúng từ 'đơn thuần'.",
+   "vd": [
+    {"t": "Nhận xét", "zh": "她很單純，別人說什麼她都相信。", "vn": "Cô ấy rất ngây thơ, người ta nói gì cũng tin."},
+    {"t": "Giải thích", "zh": "我單純想幫忙，沒有別的意思。", "vn": "Tôi chỉ đơn thuần muốn giúp, không có ý gì khác."},
+    {"t": "Bài đọc", "zh": "鄉下的生活比城市單純。", "vn": "Cuộc sống ở quê đơn giản hơn thành phố."}
+   ]
+  },
+  "得意": {
+   "vn": "đắc ý; hãnh diện, tự đắc",
+   "ng": ["(tính từ) đắc ý, hài lòng với thành công của mình (có khi hơi khoe)"],
+   "us": "Hay đi với 很/太/一臉: 一臉得意 (mặt đầy đắc ý). 得意的作品 = tác phẩm tâm đắc.",
+   "co": ["得意洋洋|dương dương tự đắc", "一臉得意|mặt đầy vẻ đắc ý", "得意的作品|tác phẩm tâm đắc"],
+   "sy": ["驕傲|kiêu ngạo, tự hào", "自豪|tự hào"],
+   "an": ["失意|thất ý, buồn chán"],
+   "cf": ["驕傲|có thể là kiêu ngạo hoặc tự hào; 得意 là vẻ hài lòng ra mặt"],
+   "mk": "得意 không phải 'được ý' mà là vẻ đắc ý, hãnh diện.",
+   "tw": "Người Đài trêu: 你不要太得意喔！ (đừng đắc ý quá nhé!).",
+   "mh": "Đắc ý: 得 đắc (được) + 意 ý → đúng từ 'đắc ý'.",
+   "vd": [
+    {"t": "Thi cử", "zh": "他考了一百分，一臉得意。", "vn": "Cậu ấy được một trăm điểm, mặt đầy đắc ý."},
+    {"t": "Trêu bạn", "zh": "贏了一次就這麼得意？", "vn": "Thắng một lần mà đắc ý thế à?"},
+    {"t": "Nấu ăn", "zh": "這道菜是我最得意的作品。", "vn": "Món này là tác phẩm tâm đắc nhất của tôi."}
+   ]
+  },
+  "懂事": {
+   "vn": "hiểu chuyện; biết điều",
+   "ng": ["(tính từ) (trẻ em) hiểu chuyện, biết nghĩ cho người khác"],
+   "us": "Hay dùng khen trẻ con: 這孩子很懂事. Ngược lại: 不懂事.",
+   "co": ["很懂事|rất hiểu chuyện", "不懂事|không hiểu chuyện", "懂事的孩子|đứa trẻ hiểu chuyện"],
+   "sy": ["成熟|chín chắn", "乖|ngoan"],
+   "cf": ["乖|ngoan, nghe lời; 懂事 là biết suy nghĩ, thông cảm cho người lớn"],
+   "mk": "懂事 không có nghĩa 'hiểu việc' (hiểu một sự việc), mà là tính cách biết điều.",
+   "tw": "Người Đài khen con nhà người khác: 你女兒好懂事喔！",
+   "mh": "Đổng sự: 懂 đổng (hiểu) + 事 sự (việc đời) → hiểu chuyện đời.",
+   "vd": [
+    {"t": "Khen", "zh": "他才八歲，可是很懂事，常常幫媽媽做家事。", "vn": "Cậu bé mới tám tuổi nhưng rất hiểu chuyện, hay giúp mẹ làm việc nhà."},
+    {"t": "Xin lỗi", "zh": "我小時候不懂事，常讓爸媽生氣。", "vn": "Hồi nhỏ tôi không hiểu chuyện, hay làm bố mẹ giận."},
+    {"t": "Gia đình", "zh": "她很乖，也很聽話。", "vn": "Con bé rất ngoan, cũng rất nghe lời."}
+   ]
+  },
+  "煩惱": {
+   "vn": "phiền não; buồn phiền, lo nghĩ",
+   "ng": ["(danh từ) nỗi phiền muộn", "(động từ/tính từ) lo nghĩ, phiền lòng: 為…煩惱"],
+   "us": "為 + việc + 煩惱; 有煩惱; 別煩惱了.",
+   "co": ["為錢煩惱|lo nghĩ chuyện tiền", "煩惱的事|chuyện phiền lòng", "自尋煩惱|tự chuốc phiền muộn"],
+   "sy": ["煩|phiền (khẩu ngữ)", "擔心|lo lắng"],
+   "an": ["快樂|vui vẻ", "開心|vui"],
+   "cf": ["麻煩|phiền phức (việc gây rắc rối); 煩惱 là cảm giác lo nghĩ trong lòng"],
+   "mk": "Việc rắc rối nói 很麻煩; trong lòng lo nghĩ nói 很煩惱.",
+   "tw": "Người Đài hay nói tắt 好煩喔！ khi bực mình, mệt mỏi.",
+   "mh": "Phiền não: 煩 phiền + 惱 não → đúng từ 'phiền não'.",
+   "vd": [
+    {"t": "Tâm sự", "zh": "最近我為了找房子很煩惱。", "vn": "Dạo này tôi rất phiền lòng vì chuyện tìm nhà."},
+    {"t": "An ủi", "zh": "別煩惱了，事情一定會解決的。", "vn": "Đừng lo nghĩ nữa, chuyện chắc chắn sẽ giải quyết được."},
+    {"t": "Bài đọc", "zh": "每個人都有自己的煩惱。", "vn": "Ai cũng có nỗi phiền muộn của riêng mình."}
+   ]
+  },
+  "反應": {
+   "vn": "phản ứng; phản hồi",
+   "ng": ["(danh từ) phản ứng (của người, cơ thể, hóa học)", "(động từ) phản ứng lại", "(danh từ, Đài Loan) ý kiến phản ánh: 民眾反應"],
+   "us": "對 + việc + 有反應; 反應很快 (phản ứng nhanh). 過敏反應 = phản ứng dị ứng.",
+   "co": ["反應很快|phản ứng nhanh", "過敏反應|phản ứng dị ứng", "沒有反應|không phản ứng gì"],
+   "sy": ["回應|hồi đáp", "反映|phản ánh (ý kiến)"],
+   "cf": ["反映|phản ánh (ý kiến, tình hình), cùng âm fǎnyìng; người Đài cũng hay viết 反應 cho nghĩa này"],
+   "mk": "Phân biệt: 反應 = phản ứng; 反映 = phản ánh (向公司反映問題).",
+   "tw": "Gọi tổng đài: 我想反映一個問題 hoặc 我想反應一下 (tôi muốn phản ánh một vấn đề).",
+   "mh": "Phản ứng: 反 phản + 應 ứng → đúng từ 'phản ứng'.",
+   "vd": [
+    {"t": "Thể thao", "zh": "這個守門員的反應很快。", "vn": "Thủ môn này phản ứng rất nhanh."},
+    {"t": "Bệnh viện", "zh": "吃了這個藥，你有沒有過敏反應？", "vn": "Uống thuốc này, bạn có phản ứng dị ứng không?"},
+    {"t": "Công ty", "zh": "我叫了他好幾次，他都沒反應。", "vn": "Tôi gọi anh ấy mấy lần mà anh ấy không phản ứng gì."}
+   ]
+  },
+  "發脾氣": {
+   "vn": "nổi nóng; cáu giận",
+   "ng": ["(động từ, ly hợp) nổi cáu, nổi giận"],
+   "us": "對 + người + 發脾氣. Có thể chen: 發了一頓脾氣, 發什麼脾氣.",
+   "co": ["亂發脾氣|cáu bậy", "對孩子發脾氣|nổi nóng với con", "發大脾氣|nổi giận lớn"],
+   "sy": ["生氣|giận", "發火|nổi nóng"],
+   "cf": ["生氣|giận (cảm xúc, có thể im lặng); 發脾氣 là thể hiện cơn giận ra ngoài"],
+   "mk": "Không nói 他發脾氣我; nói 他對我發脾氣.",
+   "tw": "Người Đài hay nói 他脾氣很好/很差 (tính tình tốt/nóng).",
+   "mh": "Phát tì khí: 發 phát (bộc ra) + 脾氣 tì khí (tính khí) → bộc lộ tính nóng.",
+   "vd": [
+    {"t": "Gia đình", "zh": "爸爸今天工作不順，回家就發脾氣。", "vn": "Hôm nay bố làm việc không suôn sẻ, về nhà là nổi nóng."},
+    {"t": "Lời khuyên", "zh": "不要對孩子亂發脾氣。", "vn": "Đừng tùy tiện nổi nóng với con."},
+    {"t": "Nhận xét", "zh": "我們老師脾氣很好，從來不生氣。", "vn": "Thầy giáo chúng tôi tính tình rất tốt, chưa bao giờ giận."}
+   ]
+  },
+  "感動": {
+   "vn": "cảm động",
+   "ng": ["(tính từ) cảm động", "(động từ) làm cảm động: 他的故事感動了很多人"],
+   "us": "讓/令 + người + 很感動; 被…感動.",
+   "co": ["很感動|rất cảm động", "令人感動|khiến người ta cảm động", "被感動|bị làm cho cảm động"],
+   "sy": ["感人|cảm động (mô tả sự việc)"],
+   "cf": ["感人|tả câu chuyện, phim: 很感人; 感動 tả cảm xúc của người: 我很感動", "激動|xúc động mạnh (không phải 'kích động')"],
+   "mk": "Phim hay nói 這部電影很感人, cảm xúc của mình nói 我很感動.",
+   "tw": "Người Đài khi được giúp đỡ hay nói 好感動喔！",
+   "mh": "Cảm động: 感 cảm + 動 động → đúng từ 'cảm động'.",
+   "vd": [
+    {"t": "Xem phim", "zh": "看完這部電影，我很感動。", "vn": "Xem xong bộ phim này, tôi rất cảm động."},
+    {"t": "Sinh nhật", "zh": "同學們幫我辦了生日派對，我感動得哭了。", "vn": "Các bạn tổ chức sinh nhật cho tôi, tôi cảm động đến phát khóc."},
+    {"t": "Tin tức", "zh": "這個故事很感人，感動了很多人。", "vn": "Câu chuyện này rất cảm động, đã làm nhiều người xúc động."}
+   ]
+  },
+  "感興趣": {
+   "vn": "cảm thấy hứng thú; quan tâm",
+   "ng": ["(động từ) có hứng thú, quan tâm đến: 對…感興趣"],
+   "us": "Cấu trúc cố định: 對 + việc + 感興趣. Phủ định: 對…不感興趣.",
+   "co": ["對…很感興趣|rất hứng thú với…", "不感興趣|không hứng thú"],
+   "sy": ["有興趣|có hứng thú (khẩu ngữ hơn)"],
+   "cf": ["有趣|thú vị (tả sự việc): 這本書很有趣"],
+   "mk": "Không nói 我感興趣中文; phải nói 我對中文很感興趣.",
+   "tw": "Phỏng vấn ở Đài Loan hay hỏi 你為什麼對這份工作有興趣？",
+   "mh": "Cảm hứng thú: 感 cảm (cảm thấy) + 興趣 hứng thú.",
+   "vd": [
+    {"t": "Làm quen", "zh": "我對台灣的歷史很感興趣。", "vn": "Tôi rất hứng thú với lịch sử Đài Loan."},
+    {"t": "Phỏng vấn", "zh": "他對這個工作不感興趣，所以沒有去面試。", "vn": "Anh ấy không hứng thú với công việc này nên không đi phỏng vấn."},
+    {"t": "Rủ rê", "zh": "你有興趣跟我們一起去爬山嗎？", "vn": "Bạn có hứng đi leo núi cùng chúng tôi không?"}
+   ]
+  },
+  "故意": {
+   "vn": "cố ý; cố tình",
+   "ng": ["(phó từ) cố ý, cố tình", "(tính từ) cố ý: 不是故意的"],
+   "us": "故意 + V: 故意不接電話. Xin lỗi: 我不是故意的.",
+   "co": ["不是故意的|không cố ý", "故意找麻煩|cố tình gây khó dễ"],
+   "sy": ["特意|cố ý (để làm điều tốt)", "刻意|cố tình (văn viết)"],
+   "an": ["不小心|vô ý", "無意|vô tình"],
+   "cf": ["特意|có ý tốt: 特意來看你; 故意 thường mang ý xấu hoặc trung tính"],
+   "mk": "Đi thăm ai riêng thì dùng 特地/特意, không dùng 故意 (nghe như có ý xấu).",
+   "tw": "Câu xin lỗi quen thuộc: 對不起，我不是故意的。",
+   "mh": "Cố ý: 故 cố + 意 ý → đúng từ 'cố ý'.",
+   "vd": [
+    {"t": "Xin lỗi", "zh": "對不起，我不是故意踩到你的。", "vn": "Xin lỗi, tôi không cố ý dẫm vào chân bạn."},
+    {"t": "Bực mình", "zh": "他故意不接我的電話。", "vn": "Anh ta cố tình không nghe điện thoại của tôi."},
+    {"t": "Bạn bè", "zh": "我今天特地來看你。", "vn": "Hôm nay tôi đến riêng để thăm bạn."}
+   ]
+  },
+  "乖": {
+   "vn": "ngoan; ngoan ngoãn",
+   "ng": ["(tính từ) (trẻ em, thú cưng) ngoan, nghe lời"],
+   "us": "Khen trẻ: 好乖！ Dỗ trẻ: 乖，不要哭.",
+   "co": ["很乖|rất ngoan", "乖乖|ngoan ngoãn (khẩu ngữ)", "聽話|nghe lời"],
+   "sy": ["聽話|nghe lời", "懂事|hiểu chuyện"],
+   "an": ["調皮|nghịch ngợm", "不聽話|không nghe lời"],
+   "mk": "Không dùng 乖 để khen người lớn (trừ khi đùa thân mật).",
+   "tw": "Ở Đài Loan có snack 乖乖, người ta đặt trên máy móc để 'máy ngoan, không hỏng'.",
+   "mh": "Quai: 乖 quai → 'ngoan' (âm Hán Việt ít dùng, nhớ qua 乖乖 'quai quai' = ngoan ngoan).",
+   "vd": [
+    {"t": "Khen", "zh": "你的女兒好乖，都不哭。", "vn": "Con gái chị ngoan quá, chẳng khóc gì cả."},
+    {"t": "Dỗ trẻ", "zh": "乖，吃完飯再看電視。", "vn": "Ngoan nào, ăn cơm xong rồi xem tivi."},
+    {"t": "Thú cưng", "zh": "我家的狗很乖，不會亂叫。", "vn": "Con chó nhà tôi rất ngoan, không sủa bậy."}
+   ]
+  },
+  "怪": {
+   "vn": "lạ, kỳ quái; trách; khá là",
+   "ng": ["(tính từ) lạ, kỳ: 很怪", "(động từ) trách, đổ lỗi: 不能怪他", "(phó từ, khẩu ngữ) khá, rất: 怪不好意思的"],
+   "us": "Trách: 怪 + người: 別怪我. 怪不得 = thảo nào. Phó từ: 怪…的.",
+   "co": ["奇怪|kỳ lạ", "怪不得|thảo nào", "別怪我|đừng trách tôi", "怪人|người lập dị"],
+   "sy": ["奇怪|kỳ lạ", "責怪|trách móc"],
+   "cf": ["奇怪|tính từ thường dùng; 怪 một mình khẩu ngữ hơn và còn nghĩa 'trách'"],
+   "mk": "Nhớ nghĩa 'trách': 這不能怪你 = chuyện này không thể trách bạn.",
+   "tw": "Người Đài hay nói 好怪喔 (kỳ ghê), 怪怪的 (là lạ).",
+   "mh": "Quái: 怪 quái như kỳ quái, quái lạ.",
+   "vd": [
+    {"t": "Thắc mắc", "zh": "這個味道怪怪的，是不是壞了？", "vn": "Mùi này là lạ, có phải hỏng rồi không?"},
+    {"t": "An ủi", "zh": "這不能怪你，是天氣太差了。", "vn": "Chuyện này không thể trách bạn, tại thời tiết xấu quá."},
+    {"t": "Thảo nào", "zh": "他昨天沒睡，怪不得今天那麼累。", "vn": "Hôm qua anh ấy không ngủ, thảo nào hôm nay mệt thế."}
+   ]
+  },
+  "恨": {
+   "vn": "hận; ghét cay đắng",
+   "ng": ["(động từ) hận, căm ghét", "(danh từ) mối hận"],
+   "us": "恨 + người; 恨死了 (ghét chết đi được, khẩu ngữ, nhiều khi nói đùa).",
+   "co": ["恨死了|ghét chết đi được", "愛恨|yêu hận", "恨不得|chỉ muốn (ngay)"],
+   "sy": ["討厭|ghét (nhẹ hơn, dùng hằng ngày)"],
+   "an": ["愛|yêu"],
+   "cf": ["討厭|ghét thông thường; 恨 rất nặng"],
+   "mk": "Ghét món ăn, ghét trời mưa thì dùng 討厭, không dùng 恨.",
+   "tw": "Người Đài nói đùa 我恨死數學了！ (tôi ghét toán chết đi được).",
+   "mh": "Hận: 恨 hận như căm hận, oán hận.",
+   "vd": [
+    {"t": "Truyện", "zh": "他恨那個騙他錢的人。", "vn": "Anh ta căm hận kẻ đã lừa tiền mình."},
+    {"t": "Nói đùa", "zh": "我恨死考試了！", "vn": "Tôi ghét thi cử chết đi được!"},
+    {"t": "Đời thường", "zh": "我很討厭下雨天。", "vn": "Tôi rất ghét những ngày mưa."}
+   ]
+  }
+ }
+}
