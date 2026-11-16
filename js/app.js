@@ -211,6 +211,26 @@ async function ensureVi(words) {
   return changed;
 }
 window.ensureVi = ensureVi;
+// Full explanations for single words (data/rich-tu/NN.json, built by tools/build_rich_words.py), loaded per shard when needed.
+const RICH_SHARDS = new Map(); let RICH_INDEX = null;
+async function ensureRich(words) {
+  if (RICH_INDEX === null) { try { RICH_INDEX = new Set((await getJSON("data/rich-tu/index.json")).shards); } catch (e) { RICH_INDEX = new Set(); } }
+  const ks = [...new Set(words.filter(Boolean).map((w) => w.codePointAt(0) % 64))].filter((k) => RICH_INDEX.has(k) && !RICH_SHARDS.has(k));
+  if (!ks.length) return false;
+  let changed = false;
+  await Promise.all(ks.map(async (k) => {
+    let d = {};
+    try { d = await getJSON(`data/rich-tu/${String(k).padStart(2, "0")}.json`); } catch (e) { /* offline: try again later */ return; }
+    RICH_SHARDS.set(k, d);
+    for (const [w, r] of Object.entries(d)) {
+      const v = S.vi.get(w) || {};
+      if (v.us || (v.ng && v.ng.length)) continue;   // a lesson already explains this word
+      S.vi.set(w, Object.assign({}, v, r)); changed = true;
+    }
+  }));
+  return changed;
+}
+window.ensureRich = ensureRich;
 function tbclInfo(w) {
   if (!S.tbcl || !w) return null;
   return S.tbcl[w] || S.tbcl[String(w).replace(/[()]/g, "")] || null;
@@ -792,9 +812,9 @@ function route() {
   const fn = VIEWS[name] || VIEWS["trang-chu"];
   if (name !== "hoc") S.session = null;
   fn(arg); window.scrollTo(0, 0); updateBadge();
-  if (name === "tu" && arg && S.ready && !((S.vi.get(arg) || {}).vn)) {
+  if (name === "tu" && arg && S.ready) {
     const at = location.hash;
-    ensureVi([arg]).then((ch) => { if (ch && location.hash === at) fn(arg); }).catch(() => {});
+    Promise.all([ensureVi([arg]), ensureRich([arg])]).then(([a, b]) => { if ((a || b) && location.hash === at) fn(arg); }).catch(() => {});
   }
 }
 addEventListener("hashchange", route);
@@ -2539,19 +2559,6 @@ function renderCard() {
              </div>
               <!-- SECTION: SRS EVALUATION & SKILL MASTERY -->
               <div class="sb-grade pt-space-md flex flex-col gap-space-md border-t border-border-subtle mt-2">
-                <!-- Skill Progress Bar & Badges -->
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 bg-surface-container-low p-3 rounded-xl border border-border-subtle">
-                  <div class="flex items-center gap-2">
-                    <span class="font-label-sm text-xs font-semibold uppercase text-outline">Kỹ năng đang luyện:</span>
-                    <span class="px-2.5 py-0.5 rounded-lg bg-secondary text-white font-bold text-xs shadow-2xs">${typeLabel}</span>
-                    <span class="text-xs text-on-surface-variant font-medium">(Mức: <strong>${LEVELS[curSkillLvl]}</strong>${curSkillIvl ? ` • ${curSkillIvl} ngày` : ''})</span>
-                  </div>
-                  <div class="flex items-center gap-1.5 flex-wrap">
-                    <span class="text-[11px] text-outline uppercase font-semibold mr-1">Tất cả kỹ năng:</span>
-                    ${skillBadgesHTML}
-                  </div>
-                </div>
-
                 <!-- 6-level grading for this skill: the interval grows from this card's history -->
                 <div class="flex flex-col gap-2">
                   <div class="flex items-center justify-between text-outline px-1">
@@ -2733,6 +2740,11 @@ function renderCard() {
     });
   }
 
+  // load the full explanation of this word if it lives in a shard not loaded yet, then redraw the answer side
+  if (ss.shown && r.n.kind !== "grammar" && !r.n.rich) {
+    const cur = ss.current;
+    ensureRich([r.n.w]).then((ch) => { if (ch && S.session === ss && ss.current === cur && ss.shown) renderCard(); }).catch(() => {});
+  }
   // Auto-play audio on question side (do not speak word before user answers cloze!)
   if (!ss.shown && r.n.kind !== "grammar" && r.t !== "wri" && r.t !== "clo") {
     say((r.t === "rec" && (it.e1 || it.e2)) ? (it.e1 || it.e2) : it.w);
@@ -9281,6 +9293,8 @@ function initSyncUI() {
     initSyncUI();
     route();
     fillMissingVi(true);
+    // background: explanations for the words in today's folders, so card types and the answer side are complete
+    setTimeout(() => ensureRich(S.notes.filter((n) => !n.rich && (inLearning(n) || noteLevel(n) > 0)).map((n) => n.w)).catch(() => {}), 1500);
     if (window.Sync && Sync.isConfigured() && Sync.getConfig().autoSync) {
       Sync.syncNow().then(() => {
         if (typeof syncAllInboxNotes === "function") syncAllInboxNotes();

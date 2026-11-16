@@ -41,8 +41,10 @@ Trang học dạy từ mới **theo thứ tự bài**: thứ tự chủ đề tr
 - Chữ Phồn thể, cách nói của Đài Loan.
 - Câu tự soạn, theo tình huống giống đề thi (hội thoại công sở, trường học, đời sống, tin tức, thông báo).
 - **Không chép câu trong đề thi TOCFL hay giáo trình**: các câu đó có bản quyền. Đề thi riêng nằm trong `bo-cau-rieng/`, chỉ được nạp vào trình duyệt; trang tự tìm câu trong đề có chứa từ và hiện mục "Gặp trong đề thi của bạn" (chỉ trên máy của bạn).
+- `vn`: khi âm Hán Việt cũng là từ tiếng Việt cùng nghĩa, ghi từ đó **trước** (響應 → "hưởng ứng; đáp lại", không dịch theo tiếng Anh "respond"). Nếu giống âm mà khác nghĩa (激動 kích động = xúc động), ghi rõ trong `mk`.
 - Mỗi từ có 3 câu ví dụ, ít nhất 2 câu chứa đúng từ đó (câu thứ 2 dùng cho thẻ Điền từ).
 - Hội thoại dùng được càng nhiều từ của bài càng tốt.
+- Từ lẻ (không cần bài): `tu/<band>-<chủ đề>-NNN.json` = {"tu": {từ: {...các trường như trên, thêm "lt" lượng từ}}}, build bằng `python tools/build_rich_words.py "<thư mục này>"` (sau build_rich.py).
 - Pinyin không cần viết: lúc build, script tự tạo (ưu tiên cách đọc Đài Loan trong bảng TOCFL). Nếu một câu bị đọc sai, thêm `"py": "..."` vào câu đó.
 
 ## Build và đưa lên
