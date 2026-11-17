@@ -50,6 +50,7 @@ Trang học dạy từ mới **theo thứ tự bài**: thứ tự chủ đề tr
 ## Tên file từ lẻ
 
 - `tu/b1-<chủ đề>-NNN.json`: từ B1 theo thứ tự chủ đề trong `b1/chu-de.json` (gd, tc, cv, ht, ms, au, dl, sk, no, gt, tn, xh, kh, gp, td, bd, tg, sl, vt, mt, hd, pl, tt, kn, lt).
+- `tu/b2-NNN.json`, `tu/c-NNN.json`: B2 và C chưa có danh sách chủ đề, nên soạn theo thứ tự trong `data/tocfl.json` (theo pinyin). B1 đã xong 1172/1172 ngày 2026-11-17.
 - `tu/rieng-NNN.json`: **từ riêng của bạn** (không thuộc danh sách TOCFL, ví dụ 海灣, 番石榴). Gửi danh sách là được soạn ưu tiên.
 - Mỗi file khoảng 20–35 từ. Một từ chỉ được có ở một file (build báo lỗi nếu trùng).
 - Tên từ có dạng TOCFL như `舅舅/舅`, `金(子)`, `兇/凶` thì giữ nguyên dạng đó làm khóa.

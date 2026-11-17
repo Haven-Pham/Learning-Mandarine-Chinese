@@ -62,6 +62,15 @@ if os.path.exists(cdf):
         tot += len(t["words"]); got += len(t["words"]) - len(miss)
         lines.append(f"| {t['id']} {t['vn']} | {len(t['words']) - len(miss)} | {len(t['words'])} | {' '.join(miss) if miss else '—'} |")
     lines += ["", f"**B1: {got}/{tot}**", ""]
+try:   # whole TOCFL list by band (order = data/tocfl.json, B2/C are in pinyin order)
+    toc = json.load(open(os.path.join(B.DATA, "tocfl.json"), encoding="utf-8"))
+    lines += ["## Toàn bộ TOCFL theo cấp", "", "| Cấp | Đã có | Tổng | Từ đầu tiên còn thiếu |", "| --- | --- | --- | --- |"]
+    for band in toc["bands"]:
+        ws = [x[0] for x in toc["words"] if x[2] == band]
+        miss = [w for w in ws if w not in have and B.KEY.get(w, w) not in have and w.split("/")[0] not in have]
+        lines.append(f"| {band} | {len(ws) - len(miss)} | {len(ws)} | {' '.join(miss[:8]) if miss else '—'} |")
+    lines.append("")
+except Exception: pass
 rieng = sorted(k for k, v in seen.items() if v.startswith("rieng"))
 if rieng: lines += ["## Từ riêng (rieng-*.json)", "", " ".join(rieng), ""]
 open(os.path.join(SRC, "TIEN-DO.md"), "w", encoding="utf-8").write("\n".join(lines))
