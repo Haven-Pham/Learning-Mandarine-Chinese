@@ -88,7 +88,9 @@ Thanh điệu: dấu huyền thường → thanh 2; dấu hỏi/ngã thường �
 
 ## Bẫy Hán Việt (giống âm, khác nghĩa)
 
-Ghi vào `lt` hoặc `mh` mỗi khi gặp. Đã ghi: 同情 (thương cảm ≠ đồng tình 同意), 博士 (tiến sĩ ≠ bác sĩ 醫生), 仔細 (kỹ lưỡng ≠ tử tế), 工作 (công việc ≠ đi công tác 出差), 房客 (người thuê ≠ phòng khách 客廳), 傷害 (làm tổn thương ≠ thương hại), 共同 (chung ≠ cộng đồng 社區), 實行 (thi hành ≠ thực hành 練習), 強調 (nhấn mạnh ≠ cường điệu 誇張), 形容 (miêu tả ≠ hình dung 想像), 答應 (nhận lời ≠ đáp ứng 滿足), 女士 (bà/cô ≠ nữ sĩ), 材料 (vật liệu ≠ tài liệu 資料), 必要 (cần thiết ≠ tất yếu), 演出 (buổi diễn ≠ diễn xuất 演技), 提高 (nâng cao ≠ đề cao), 說法 (cách nói ≠ thuyết pháp), 古蹟 (di tích ≠ cổ tích).
+Ghi vào `lt` hoặc `mh` mỗi khi gặp. Đã ghi: 同情 (thương cảm ≠ đồng tình 同意), 博士 (tiến sĩ ≠ bác sĩ 醫生), 仔細 (kỹ lưỡng ≠ tử tế), 工作 (công việc ≠ đi công tác 出差), 房客 (người thuê ≠ phòng khách 客廳), 傷害 (làm tổn thương ≠ thương hại), 共同 (chung ≠ cộng đồng 社區), 實行 (thi hành ≠ thực hành 練習), 強調 (nhấn mạnh ≠ cường điệu 誇張), 形容 (miêu tả ≠ hình dung 想像), 答應 (nhận lời ≠ đáp ứng 滿足), 女士 (bà/cô ≠ nữ sĩ), 材料 (vật liệu ≠ tài liệu 資料), 必要 (cần thiết ≠ tất yếu), 演出 (buổi diễn ≠ diễn xuất 演技), 提高 (nâng cao ≠ đề cao), 說法 (cách nói ≠ thuyết pháp), 古蹟 (di tích ≠ cổ tích), 符合 (khớp điều kiện; 'hợp với ai' là 適合), 證明 (chứng minh; CMND là 身分證), 發達 (phát triển ≠ phát đạt làm ăn), 生產 (sản xuất ≠ sinh sản), 吸收 (hấp thụ/tiếp thu).
+
+Bảo đảm an toàn: từ nhạy cảm (自殺, 毒品…) soạn trung tính, kèm thông tin hỗ trợ ở Đài (1925 安心專線, 110 cảnh sát, 119 cấp cứu, 165 chống lừa đảo).
 
 ## Đặc trưng Đài Loan (ghi vào `tw`)
 
