@@ -1,0 +1,18 @@
+{"tu": {
+"海灣": {"vn": "vịnh (biển)", "ng": ["(danh từ) vịnh, vùng biển lõm sâu vào đất liền"],
+ "us": "Dùng trong địa lý, du lịch: 美麗的海灣. Tên riêng: 波斯灣 (vịnh Ba Tư), 臺灣 cũng có chữ 灣.", "co": ["海灣|vịnh biển", "港灣|vũng cảng", "臺灣|Đài Loan (vịnh có đài)"],
+ "sy": ["灣|vịnh, khúc cong"], "cf": ["海港|cảng biển (nơi tàu đậu); 海灣 là hình dạng địa lý"],
+ "mh": "Hải Loan → hǎi wān. ĐỌC: 'hải' giữ gần như nguyên (h + ai, thanh 3 trầm xuống như dấu hỏi). 'Loan' bỏ chữ L, giữ vần -an → wān (thanh 1 ngang). NGHĨA: 灣 = 氵(nước) + 彎 (cong) → chỗ nước cong vào bờ. Nhớ: 臺灣 Táiwān cũng là chữ này → Đài Loan = 'vịnh Đài'.",
+ "tw": "Ở Đài Loan có 淺水灣 (bãi Thiển Thủy Loan, Tân Bắc) và 西子灣 (Tây Tử Loan, Cao Hùng) là chỗ ngắm hoàng hôn nổi tiếng.",
+ "vd": [{"t": "Du lịch", "zh": "我們坐在海灣旁邊看夕陽。", "vn": "Chúng tôi ngồi bên vịnh ngắm hoàng hôn."},
+  {"t": "Cảnh đẹp", "zh": "這個海灣的水很清，可以看到魚。", "vn": "Nước ở vịnh này rất trong, có thể thấy cá."},
+  {"t": "Ở Đài Loan", "zh": "高雄的西子灣是一個有名的海灣。", "vn": "Tây Tử Loan ở Cao Hùng là một vịnh nổi tiếng."}]},
+"番石榴": {"vn": "quả ổi", "ng": ["(danh từ) ổi (trái cây)"],
+ "us": "Tên chuẩn trong từ điển. Người Đài nói hằng ngày là 芭樂 bālè. Lượng từ: 一顆番石榴.", "co": ["番石榴汁|nước ép ổi", "一顆番石榴|một quả ổi", "芭樂|ổi (cách nói ở Đài)"],
+ "sy": ["芭樂|ổi (khẩu ngữ Đài Loan)"], "cf": ["石榴|quả lựu (không có 番)"],
+ "mh": "Phiên Thạch Lựu → fān shí liu. ĐỌC: 'phiên' → fān (ph→f, -iên→-an, thanh 1 ngang); 'thạch' → shí (th→sh, dấu nặng → thanh 2 đi lên); 'lựu' → liu (giữ l + iu, đọc nhẹ). NGHĨA: 番 'phiên' = ngoại bang, 石榴 = quả lựu → 'quả lựu của người ngoại' = ổi (cây từ châu Mỹ đưa sang). Giống 番茄 fānqié 'cà ngoại' = cà chua.",
+ "tw": "Ra chợ Đài Loan nói 芭樂 thay vì 番石榴. Người Đài hay ăn ổi chấm 梅子粉 (bột mơ chua ngọt). 芭樂 còn là tiếng lóng: 芭樂歌 = bài hát tình ca dễ nghe, đại trà.",
+ "vd": [{"t": "Mua trái cây", "zh": "老闆，番石榴一斤多少錢？", "vn": "Ông chủ ơi, ổi bao nhiêu một cân?"},
+  {"t": "Sức khỏe", "zh": "番石榴有很多維他命C。", "vn": "Ổi có rất nhiều vitamin C."},
+  {"t": "Ở Đài Loan", "zh": "台灣人常常叫番石榴「芭樂」。", "vn": "Người Đài Loan thường gọi ổi là 'bālè'."}]}
+}}
