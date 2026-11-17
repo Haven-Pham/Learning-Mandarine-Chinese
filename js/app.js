@@ -367,10 +367,7 @@ async function applyCardGrade(n, type, grade, afterSave) {
   }
   S.srs.set(cid, s);
   S.cards.set(cid, s);
-  if (S.session) {
-    if (!S.session.seenCounts) S.session.seenCounts = new Map();
-    S.session.seenCounts.set(cid, (S.session.seenCounts.get(cid) || 0) + 1);
-  }
+  markWordSeen(n.key, cid);
   await Store.put("srs", cid, s);
 
   await bumpReviewStats(now, grade, wasNew);
@@ -384,6 +381,87 @@ function levelHint(prev, lvl, now) {
   const x = scheduleLevel(prev, lvl, now);
   return x.state === "review" ? fmtGap(x.ivl * DAY) : fmtGap(Math.max(MIN, x.due - now));
 }
+const _recentWordsMem = [];
+function getRecentWords() {
+  try {
+    const raw = typeof sessionStorage !== "undefined" && sessionStorage.getItem("shth-recent-words");
+    if (raw) {
+      const arr = JSON.parse(raw);
+      if (Array.isArray(arr)) return arr;
+    }
+  } catch (e) {}
+  return _recentWordsMem.slice();
+}
+function markWordSeen(wordKey, cid) {
+  if (S.session) {
+    if (!S.session.seenCounts) S.session.seenCounts = new Map();
+    if (cid) S.session.seenCounts.set(cid, (S.session.seenCounts.get(cid) || 0) + 1);
+    if (!S.session.seenWords) S.session.seenWords = new Set();
+    if (wordKey) S.session.seenWords.add(wordKey);
+  }
+  if (wordKey) {
+    const idx = _recentWordsMem.indexOf(wordKey);
+    if (idx !== -1) _recentWordsMem.splice(idx, 1);
+    _recentWordsMem.push(wordKey);
+    while (_recentWordsMem.length > 10) _recentWordsMem.shift();
+    try {
+      if (typeof sessionStorage !== "undefined") sessionStorage.setItem("shth-recent-words", JSON.stringify(_recentWordsMem));
+    } catch (e) {}
+  }
+}
+async function pruneAndSyncSrs() {
+  if (!S.srs || !S.notes || !S.notes.length) return;
+  const toPut = [];
+  const toDel = [];
+  const now = Date.now();
+  const tomorrow0 = dayStart(now) + DAY;
+  for (const [id, s] of [...S.srs.entries()]) {
+    if (!s || typeof s !== "object") { S.srs.delete(id); toDel.push(id); continue; }
+    if (typeof s.state !== "string") s.state = "learn";
+    const n = noteFromCard(id) || (s.w && S.noteByWord.get(s.w));
+    if (!n) { S.srs.delete(id); toDel.push(id); continue; }
+    const vTypes = typesOf(n).map(([k]) => k);
+    const rawT = id.split("~").pop();
+    const targetT = vTypes.includes(rawT) ? rawT : vTypes[0];
+    const canonicalId = cardId(n, targetT);
+    if (id !== canonicalId) {
+      if (!S.srs.has(canonicalId) && s.state !== "new") {
+        S.srs.set(canonicalId, s);
+        toPut.push([canonicalId, s]);
+      }
+      S.srs.delete(id);
+      toDel.push(id);
+      continue;
+    }
+    // Graduate cards that were stuck in learn loop across multiple reviews without lapses
+    if ((s.state === "learn" || s.state === "relearn") && (s.reps || 0) >= 2 && (s.lapses || 0) === 0) {
+      s.state = "review";
+      s.ivl = Math.max(1, s.ivl || 1);
+      s.step = 0;
+      s.due = Math.max(s.due || 0, tomorrow0);
+      toPut.push([id, s]);
+    }
+  }
+  // Sync sibling skills left in learn by older inbox sync when primary skill is already reviewed
+  for (const n of S.notes) {
+    const vTypes = typesOf(n).map(([k]) => k);
+    const states = vTypes.map((t) => [t, cardId(n, t), S.srs.get(cardId(n, t))]);
+    const rev = states.find(([, , st]) => st && st.state === "review" && (st.ivl || 0) >= 1);
+    if (rev) {
+      for (const [, cid, st] of states) {
+        if (st && (st.state === "learn" || st.state === "relearn") && (st.lapses || 0) === 0 && (st.reps || 0) <= 1) {
+          Object.assign(st, { state: "review", ivl: rev[2].ivl, step: 0, due: rev[2].due, last: rev[2].last || now });
+          toPut.push([cid, st]);
+        }
+      }
+    }
+  }
+  try {
+    if (toPut.length) await Store.putMany("srs", toPut);
+    for (const id of toDel) await Store.del("srs", id);
+  } catch (e) {}
+}
+
 async function applyCardLevel(n, type, targetLvl, applyToAllOrCb, maybeCb) {
   const now = Date.now();
   targetLvl = Number(targetLvl);
@@ -397,9 +475,8 @@ async function applyCardLevel(n, type, targetLvl, applyToAllOrCb, maybeCb) {
   }
   if (!S.srs) S.srs = new Map();
   if (!S.cards) S.cards = new Map();
-  const intervals = [0, 0, 1, 7, 21, 90];
-  const ivl = intervals[targetLvl] || 0;
-  const targets = applyToAll ? typesOf(n).map(([t]) => t) : [type];
+  const validTypes = typesOf(n).map(([t]) => t);
+  const targets = applyToAll ? [...new Set([...validTypes, type].filter(Boolean))] : [type];
   const wasNewWord = noteLevel(n) === 0;
   let anyWasNew = false;
   const entries = targets.map((t) => {
@@ -417,14 +494,34 @@ async function applyCardLevel(n, type, targetLvl, applyToAllOrCb, maybeCb) {
     });
     return [cid, s];
   });
+  const entryMap = new Map(entries);
+  // Also clean or update any existing S.srs keys belonging to this note so orphaned skills never trap the queue
+  if (applyToAll || targetLvl >= 2) {
+    for (const [k, st] of [...S.srs.entries()]) {
+      if (entryMap.has(k)) continue;
+      if (noteFromCard(k) === n || (st && st.w === n.w)) {
+        const kt = k.split("~").pop();
+        if (validTypes.includes(kt) && k === cardId(n, kt)) {
+          if (applyToAll || ((st.state === "learn" || st.state === "relearn") && (st.lapses || 0) === 0 && (st.reps || 0) <= 1)) {
+            const s = targetLvl === 0
+              ? Object.assign(freshState(), { w: n.w })
+              : Object.assign(scheduleLevel(st, targetLvl, now), { firstSeen: st.firstSeen || st.last || now, w: n.w });
+            entries.push([k, s]);
+            entryMap.set(k, s);
+          }
+        } else {
+          S.srs.delete(k);
+          try { await Store.del("srs", k); } catch (e) {}
+        }
+      }
+    }
+  }
   for (const [cid, s] of entries) {
     S.srs.set(cid, s);
     S.cards.set(cid, s);
-    if (S.session) {
-      if (!S.session.seenCounts) S.session.seenCounts = new Map();
-      S.session.seenCounts.set(cid, (S.session.seenCounts.get(cid) || 0) + 1);
-    }
+    markWordSeen(n.key, cid);
   }
+  markWordSeen(n.key, cardId(n, type));
   if (entries.length === 1) {
     await Store.put("srs", entries[0][0], entries[0][1]);
   } else if (entries.length > 1) {
@@ -552,9 +649,11 @@ function buildQueue(now) {
   const seen = new Set();
   // reviews: every card with a state, whatever deck or band is switched on
   for (const [id, s] of S.srs) {
-    if (!s || s.state === "new") continue;
+    if (!s || s.state === "new" || typeof s.state !== "string") continue;
     const n = noteFromCard(id); if (!n) continue;
-    const ref = { id, n, t: id.split("~").pop(), s };
+    const t = id.split("~").pop();
+    if (!typesOf(n).some(([k]) => k === t) || id !== cardId(n, t)) continue;
+    const ref = { id, n, t, s };
     if (s.state === "learn" || s.state === "relearn") learn.push(ref); else if (s.due < end) review.push(ref);
     seen.add(id);
   }
@@ -562,10 +661,11 @@ function buildQueue(now) {
     const types = typesOf(n); const first = S.srs.get(cardId(n, types[0][0]));
     types.forEach(([t], k) => {
       const id = cardId(n, t); if (seen.has(id)) return;
-      if (k === 0 || (first && first.state !== "new" && dayStart(first.firstSeen || first.last) < today0)) fresh.push({ id, n, t, s: null });
+      if (k === 0 || (first && first.state !== "new" && (first.firstSeen || first.last) > 0 && dayStart(first.firstSeen || first.last) < today0)) fresh.push({ id, n, t, s: null });
     });
   }
-  learn.sort((a, b) => a.s.due - b.s.due); review.sort((a, b) => a.s.due - b.s.due);
+  learn.sort((a, b) => ((a.s.last || 0) - (b.s.last || 0)) || (a.s.due - b.s.due));
+  review.sort((a, b) => a.s.due - b.s.due);
   // The daily limit counts new WORDS. Other skill cards of a word already started (Nghe, Viết, Điền từ)
   // open from the next day and are not limited, otherwise they would use up the quota for new words.
   const left = Math.max(0, Number(S.settings.newPerDay || 8) - todayStats().newCards);
@@ -1054,16 +1154,48 @@ function nextCard(now) {
   const last = ss && ss.lastNote;
   const mode = (ss && ss.mode) || "all";
   const seen = ss && ss.seenCounts;
+  const seenWords = (ss && ss.seenWords) || new Set();
+  const recentSet = new Set(getRecentWords());
   const seenCount = (r) => (seen ? (seen.get(r.id) || 0) : 0);
-  const unseen = (arr) => arr.filter((r) => seenCount(r) === 0);
-  const retryable = (arr) => arr.filter((r) => seenCount(r) < 2);
-  const pick = (arr) => arr.find((r) => r.n.key !== last) || arr[0];
+  const unseen = (arr) => arr.filter((r) => !seenWords.has(r.n.key) && seenCount(r) === 0);
+  const pick = (arr) => {
+    const nonRecent = arr.filter((r) => r.n.key !== last && !recentSet.has(r.n.key));
+    if (nonRecent.length) return nonRecent[0];
+    return arr.find((r) => r.n.key !== last) || arr[0];
+  };
   const pickAhead = (arr) => {
-    const cand = retryable(arr);
+    const cand = unseen(arr);
     if (!cand.length) return null;
-    const diff = cand.find((r) => r.n.key !== last);
-    if (diff) return diff;
-    return seenCount(cand[0]) === 0 ? cand[0] : null;
+    return pick(cand);
+  };
+  // Extra review pool: other learned words in S.srs (sorted by earliest due) so user can keep reviewing beyond just 2 learn words
+  const extraReviewCards = (filterSet) => {
+    const out = [];
+    const usedWords = new Set();
+    for (const [id, s] of S.srs) {
+      if (!s || s.state === "new" || typeof s.state !== "string") continue;
+      const n = noteFromCard(id);
+      if (!n || seenWords.has(n.key) || n.key === last || usedWords.has(n.key)) continue;
+      if (filterSet && !filterSet.has(n.key)) continue;
+      const t = id.split("~").pop();
+      if (!typesOf(n).some(([k]) => k === t) || id !== cardId(n, t)) continue;
+      usedWords.add(n.key);
+      out.push({ id, n, t, s });
+    }
+    out.sort((a, b) => (a.s.due - b.s.due) || ((a.s.last || 0) - (b.s.last || 0)));
+    return out;
+  };
+  // Extra fresh pool when daily newPerDay cap blocked q.fresh but user is actively continuing in session
+  const extraFreshCards = () => {
+    const out = [];
+    for (const n of activeNotes()) {
+      if (seenWords.has(n.key) || n.key === last) continue;
+      const t0 = typesOf(n)[0][0];
+      const id = cardId(n, t0);
+      if (S.srs.has(id) && S.srs.get(id).state !== "new") continue;
+      out.push({ id, n, t: t0, s: null });
+    }
+    return out;
   };
 
   if (ss && ss.folderFilter) {
@@ -1072,10 +1204,11 @@ function nextCard(now) {
     const fDueLearn = q.learn.filter((r) => fKeys.has(r.n.key) && r.s.due <= now);
     const fDueUnseen = unseen(fDueLearn);
     if (fDueUnseen.length) return pick(fDueUnseen);
-    const fReview = q.review.filter((r) => fKeys.has(r.n.key));
+    const fReview = unseen(q.review.filter((r) => fKeys.has(r.n.key)));
     if (fReview.length) return pick(fReview);
     const fFresh = [];
     for (const n of fNotes) {
+      if (seenWords.has(n.key)) continue;
       const types = typesOf(n);
       const firstId = cardId(n, types[0][0]);
       const firstS = S.srs && S.srs.get(firstId);
@@ -1084,9 +1217,11 @@ function nextCard(now) {
       }
     }
     if (fFresh.length) return pick(fFresh);
-    const fDueRetry = retryable(fDueLearn);
-    if (fDueRetry.length) return pick(fDueRetry);
-    return pickAhead(q.learn.filter((r) => fKeys.has(r.n.key) && r.s.due <= now + 20 * MIN));
+    const fAhead = pickAhead(q.learn.filter((r) => fKeys.has(r.n.key) && r.s.due <= now + 20 * MIN));
+    if (fAhead) return fAhead;
+    const fExtraRev = extraReviewCards(fKeys);
+    if (fExtraRev.length && (!ss.start || ss.answered < ss.start)) return pick(fExtraRev);
+    return null;
   }
 
   const dueLearn = q.learn.filter((r) => r.s.due <= now);
@@ -1095,29 +1230,41 @@ function nextCard(now) {
     const newDueLearn = newKeys ? dueLearn.filter((r) => newKeys.has(r.n.key)) : [];
     const newDueUnseen = unseen(newDueLearn);
     if (newDueUnseen.length) return pick(newDueUnseen);
-    if (q.fresh.length) return pick(q.fresh);
-    const newDueRetry = retryable(newDueLearn);
-    if (newDueRetry.length) return pick(newDueRetry);
+    const freshUnseen = unseen(q.fresh);
+    if (freshUnseen.length) return pick(freshUnseen);
     const newAhead = newKeys ? q.learn.filter((r) => newKeys.has(r.n.key) && r.s.due <= now + 20 * MIN) : [];
     return pickAhead(newAhead);
   }
   if (mode === "review") {
     const dueUnseen = unseen(dueLearn);
     if (dueUnseen.length) return pick(dueUnseen);
-    if (q.review.length) return pick(q.review);
-    const dueRetry = retryable(dueLearn);
-    if (dueRetry.length) return pick(dueRetry);
-    return pickAhead(q.learn.filter((r) => r.s.due <= now + 20 * MIN));
+    const revUnseen = unseen(q.review);
+    if (revUnseen.length) return pick(revUnseen);
+    const aheadCard = pickAhead(q.learn.filter((r) => r.s.due <= now + 20 * MIN));
+    if (aheadCard) return aheadCard;
+    const extraRev = extraReviewCards(null);
+    const maxRev = Math.max((ss && ss.start) || 0, Number(S.settings.reviewPerDay || 30));
+    if (extraRev.length && (!ss || ss.answered < maxRev)) return pick(extraRev);
+    return null;
   }
 
-  // mode === "all": finish unseen learn cards, then due reviews & fresh cards, then at most 1 retry of failed learn cards
+  // mode === "all": finish unseen learn cards, then due reviews & fresh cards, then other learned/active cards so user never gets stuck on 2 words
   const dueUnseen = unseen(dueLearn);
   if (dueUnseen.length) return pick(dueUnseen);
-  if (q.review.length) return pick(q.review);
-  if (q.fresh.length) return pick(q.fresh);
-  const dueRetry = retryable(dueLearn);
-  if (dueRetry.length) return pick(dueRetry);
-  return pickAhead(q.learn.filter((r) => r.s.due <= now + 20 * MIN));
+  const revUnseen = unseen(q.review);
+  if (revUnseen.length) return pick(revUnseen);
+  const freshUnseen = unseen(q.fresh);
+  if (freshUnseen.length) return pick(freshUnseen);
+  const aheadCard = pickAhead(q.learn.filter((r) => r.s.due <= now + 20 * MIN));
+  if (aheadCard) return aheadCard;
+  const maxAll = Math.max((ss && ss.start) || 0, Number(S.settings.reviewPerDay || 30));
+  if (!ss || ss.answered < maxAll) {
+    const extraRev = extraReviewCards(null);
+    if (extraRev.length) return pick(extraRev);
+    const extraFr = extraFreshCards();
+    if (extraFr.length && (!ss || ss.answered < Math.max(ss.start || 0, Number(S.settings.newPerDay || 8)))) return pick(extraFr);
+  }
+  return null;
 }
 
 function startStudyFolder(folderId) {
@@ -2435,7 +2582,10 @@ function renderCard() {
               <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
               <span>Mức nhớ: <strong>${LEVELS[curLvl]}</strong></span>
             </div>
-            <button type="button" class="text-xs text-outline hover:text-primary transition-colors underline ml-2" id="btnStopSession">
+            <button type="button" class="text-xs text-secondary hover:text-primary transition-colors font-semibold underline ml-2" id="btnNextWord" title="Chuyển sang từ tiếp theo">
+              Từ tiếp →
+            </button>
+            <button type="button" class="text-xs text-outline hover:text-primary transition-colors underline ml-1" id="btnStopSession">
               Tạm dừng
             </button>
           </div>
@@ -2695,6 +2845,24 @@ function renderCard() {
           }
         });
       }
+    };
+  }
+
+  // Bind skip/next word button so user can always move past any card immediately
+  const btnNextWord = $("#btnNextWord");
+  if (btnNextWord) {
+    btnNextWord.onclick = async () => {
+      markWordSeen(r.n.key, curCid);
+      // If card was stuck in learn, schedule it to tomorrow so it won't block the queue
+      const st = S.srs.get(curCid);
+      if (st && (st.state === "learn" || st.state === "relearn")) {
+        await applyCardLevel(r.n, r.t, 2, true);
+      }
+      ss.lastNote = r.n.key;
+      ss.shown = false;
+      ss.current = nextCard(Date.now());
+      renderCard();
+      window.scrollTo(0, 0);
     };
   }
 
@@ -9308,6 +9476,7 @@ function initSyncUI() {
     $("#view").innerHTML = `<div class="note">Đang mở tiến độ học…</div>`;
     try { await loadProgress(); } catch (e) { S.storageError = true; }
     if (typeof syncAllInboxNotes === "function") syncAllInboxNotes();
+    if (typeof pruneAndSyncSrs === "function") await pruneAndSyncSrs();
     const fillMissingVi = (atBoot) => ensureVi(S.notes.filter((n) => !n.rich && (n.inbox || (S.settings.extra && S.settings.extra[n.w]) || noteLevel(n) > 0)).map((n) => n.w)).then((ch) => { if (ch && (atBoot || !location.hash.startsWith("#hoc"))) route(); }).catch(() => {});
     S.ready = true;
     initSyncUI();
