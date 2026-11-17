@@ -121,6 +121,7 @@ const LEVEL_MIN = [0, 0, 1, 7, 21, 90];
 function scheduleLevel(prev, level, now) {
   if (level === 0) return freshState();
   const s = Object.assign(freshState(), prev || {});
+  delete s.fsrs;
   const isReview = s.state === "review";
   s.reps += 1; s.last = now; s.step = 0;
   if (level === 1) {

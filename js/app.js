@@ -367,6 +367,10 @@ async function applyCardGrade(n, type, grade, afterSave) {
   }
   S.srs.set(cid, s);
   S.cards.set(cid, s);
+  if (S.session) {
+    if (!S.session.seenCounts) S.session.seenCounts = new Map();
+    S.session.seenCounts.set(cid, (S.session.seenCounts.get(cid) || 0) + 1);
+  }
   await Store.put("srs", cid, s);
 
   await bumpReviewStats(now, grade, wasNew);
@@ -416,6 +420,10 @@ async function applyCardLevel(n, type, targetLvl, applyToAllOrCb, maybeCb) {
   for (const [cid, s] of entries) {
     S.srs.set(cid, s);
     S.cards.set(cid, s);
+    if (S.session) {
+      if (!S.session.seenCounts) S.session.seenCounts = new Map();
+      S.session.seenCounts.set(cid, (S.session.seenCounts.get(cid) || 0) + 1);
+    }
   }
   if (entries.length === 1) {
     await Store.put("srs", entries[0][0], entries[0][1]);
@@ -568,33 +576,13 @@ function buildQueue(now) {
 }
 function noteFromCard(id) {
   const parts = id.split("~"); parts.pop();
-  if (parts[0] === "t") return S.noteByKey.get(`t~${parts.slice(1).join("~")}`);
+  if (parts[0] === "t") {
+    const w = parts.slice(1).join("~");
+    return S.noteByKey.get(`t~${w}`) || S.noteByWord.get(w);
+  }
   return S.noteByKey.get(parts.join("~"));
 }
-function nextCard(now) {
-  const q = buildQueue(now); const last = S.session && S.session.lastNote;
-  const filterFolder = S.session && S.session.folderFilter;
-  const pick = (arr) => arr.find((r) => r.n.key !== last) || arr[0];
-  if (filterFolder) {
-    const fNotes = new Set(folderNotes(filterFolder).map(n => n.key));
-    const fLearn = q.learn.filter(r => fNotes.has(r.n.key));
-    const fReview = q.review.filter(r => fNotes.has(r.n.key));
-    const fFresh = q.fresh.filter(r => fNotes.has(r.n.key));
-    const fDueLearn = fLearn.filter((r) => r.s.due <= now);
-    if (fDueLearn.length) return pick(fDueLearn);
-    if (fReview.length) return pick(fReview);
-    if (fFresh.length) return pick(fFresh);
-    const fAhead = fLearn.filter((r) => r.s.due <= now + 20 * MIN);
-    if (fAhead.length) return fAhead[0];
-    return null;
-  }
-  const dueLearn = q.learn.filter((r) => r.s.due <= now);
-  if (dueLearn.length) return pick(dueLearn);
-  if (q.review.length) return pick(q.review);
-  if (q.fresh.length) return pick(q.fresh);
-  const ahead = q.learn.filter((r) => r.s.due <= now + 20 * MIN);
-  return ahead[0] || null;
-}
+// Single canonical nextCard() is defined below after folderNotes()
 function todayCounts() {
   const now = Date.now(); const q = buildQueue(now);
   const due = q.review.length + q.learn.filter((r) => r.s.due < dayStart(now) + DAY).length;
@@ -1060,18 +1048,30 @@ function setFolderOn(id, v) {
 }
 const hasProgress = (n) => typesOf(n).some(([t]) => (S.cards && S.cards.has(cardId(n, t))) || (S.srs && S.srs.has(cardId(n, t))));
 
-nextCard = function(now) {
+function nextCard(now) {
   const q = buildQueue(now);
   const ss = S.session;
   const last = ss && ss.lastNote;
   const mode = (ss && ss.mode) || "all";
+  const seen = ss && ss.seenCounts;
+  const seenCount = (r) => (seen ? (seen.get(r.id) || 0) : 0);
+  const unseen = (arr) => arr.filter((r) => seenCount(r) === 0);
+  const retryable = (arr) => arr.filter((r) => seenCount(r) < 2);
   const pick = (arr) => arr.find((r) => r.n.key !== last) || arr[0];
+  const pickAhead = (arr) => {
+    const cand = retryable(arr);
+    if (!cand.length) return null;
+    const diff = cand.find((r) => r.n.key !== last);
+    if (diff) return diff;
+    return seenCount(cand[0]) === 0 ? cand[0] : null;
+  };
 
   if (ss && ss.folderFilter) {
     const fNotes = folderNotes(ss.folderFilter);
     const fKeys = new Set(fNotes.map((n) => n.key));
     const fDueLearn = q.learn.filter((r) => fKeys.has(r.n.key) && r.s.due <= now);
-    if (fDueLearn.length) return pick(fDueLearn);
+    const fDueUnseen = unseen(fDueLearn);
+    if (fDueUnseen.length) return pick(fDueUnseen);
     const fReview = q.review.filter((r) => fKeys.has(r.n.key));
     if (fReview.length) return pick(fReview);
     const fFresh = [];
@@ -1084,32 +1084,41 @@ nextCard = function(now) {
       }
     }
     if (fFresh.length) return pick(fFresh);
-    const fAhead = q.learn.filter((r) => fKeys.has(r.n.key) && r.s.due <= now + 20 * MIN);
-    return fAhead[0] || null;
+    const fDueRetry = retryable(fDueLearn);
+    if (fDueRetry.length) return pick(fDueRetry);
+    return pickAhead(q.learn.filter((r) => fKeys.has(r.n.key) && r.s.due <= now + 20 * MIN));
   }
 
   const dueLearn = q.learn.filter((r) => r.s.due <= now);
   if (mode === "new") {
     const newKeys = ss && ss.newKeys;
     const newDueLearn = newKeys ? dueLearn.filter((r) => newKeys.has(r.n.key)) : [];
-    if (newDueLearn.length) return pick(newDueLearn);
+    const newDueUnseen = unseen(newDueLearn);
+    if (newDueUnseen.length) return pick(newDueUnseen);
     if (q.fresh.length) return pick(q.fresh);
+    const newDueRetry = retryable(newDueLearn);
+    if (newDueRetry.length) return pick(newDueRetry);
     const newAhead = newKeys ? q.learn.filter((r) => newKeys.has(r.n.key) && r.s.due <= now + 20 * MIN) : [];
-    return newAhead[0] || null;
+    return pickAhead(newAhead);
   }
   if (mode === "review") {
-    if (dueLearn.length) return pick(dueLearn);
+    const dueUnseen = unseen(dueLearn);
+    if (dueUnseen.length) return pick(dueUnseen);
     if (q.review.length) return pick(q.review);
-    const ahead = q.learn.filter((r) => r.s.due <= now + 20 * MIN);
-    return ahead[0] || null;
+    const dueRetry = retryable(dueLearn);
+    if (dueRetry.length) return pick(dueRetry);
+    return pickAhead(q.learn.filter((r) => r.s.due <= now + 20 * MIN));
   }
 
-  if (dueLearn.length) return pick(dueLearn);
+  // mode === "all": finish unseen learn cards, then due reviews & fresh cards, then at most 1 retry of failed learn cards
+  const dueUnseen = unseen(dueLearn);
+  if (dueUnseen.length) return pick(dueUnseen);
   if (q.review.length) return pick(q.review);
   if (q.fresh.length) return pick(q.fresh);
-  const ahead = q.learn.filter((r) => r.s.due <= now + 20 * MIN);
-  return ahead[0] || null;
-};
+  const dueRetry = retryable(dueLearn);
+  if (dueRetry.length) return pick(dueRetry);
+  return pickAhead(q.learn.filter((r) => r.s.due <= now + 20 * MIN));
+}
 
 function startStudyFolder(folderId) {
   const notes = folderNotes(folderId);
@@ -1168,29 +1177,27 @@ function syncInboxWordToLearning(entry, scheduleNow = false) {
   if (scheduleNow) {
     const now = Date.now();
     const types = typesOf(note);
-    const entries = [];
-    for (const [t] of types) {
-      const cid = cardId(note, t);
-      const prev = S.srs ? S.srs.get(cid) : null;
+    const firstType = types[0] ? types[0][0] : "rec";
+    const cid = cardId(note, firstType);
+    const prev = S.srs ? S.srs.get(cid) : null;
+    const wasNew = !prev || prev.state === "new";
+    const ops = [saveSettings()];
+    if (wasNew) {
       const next = typeof scheduleLevel === "function" ? scheduleLevel(prev, 1, now) : { due: now, ivl: 0, reps: 0, ease: 250, lapses: 0, state: 0 };
       next.w = note.w;
       next.due = now; // Ready to study immediately!
-      next.firstSeen = next.firstSeen || (prev && (prev.firstSeen || prev.last)) || now;
-      entries.push([cid, next]);
+      next.firstSeen = now;
       if (S.srs) S.srs.set(cid, next);
       if (S.cards) S.cards.set(cid, next);
+      ops.push(Store.put("srs", cid, next));
+      const key = dayKey(now);
+      const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats.get(key));
+      st.reviews++;
+      st.newCards++;
+      S.stats.set(key, st);
+      ops.push(Store.put("stats", key, st));
     }
-    const key = dayKey(now);
-    const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats.get(key));
-    st.reviews++;
-    st.newCards++;
-    S.stats.set(key, st);
-
-    Promise.all([
-      Store.putMany("srs", entries),
-      Store.put("stats", key, st),
-      Store.put("settings", "user", S.settings)
-    ]).then(() => {
+    Promise.all(ops).then(() => {
       updateBadge();
       if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
     }).catch(() => {});
@@ -1209,13 +1216,19 @@ function syncAllInboxNotes() {
 function startStudyWord(word) {
   const n = S.noteByWord.get(word);
   if (!n) return;
-  const now = Date.now();
-  const s = (S.cards && S.cards.get(cardId(n, "recog"))) || { due: now, ivl: 0, reps: 0, ease: 250, lapses: 0, state: 0 };
+  const t0 = typesOf(n)[0][0];
+  const s = (S.srs && S.srs.get(cardId(n, t0))) || freshState();
   S.session = {
     folderFilter: null,
-    current: { n, t: "recog", s },
-    count: 0,
-    done: 0
+    answered: 0,
+    shown: false,
+    start: 1,
+    lastNote: null,
+    mode: "all",
+    newKeys: new Set(),
+    queue: [],
+    seenCounts: new Map(),
+    current: { n, t: t0, s }
   };
   location.hash = "#hoc";
 }
@@ -2094,7 +2107,7 @@ VIEWS["hoc"] = () => {
     if (bAddMore) {
       bAddMore.onclick = async () => {
         S.settings.newPerDay = Number(S.settings.newPerDay || 8) + 10;
-        try { await Store.put("settings", "user", S.settings); } catch (e) {}
+        try { await saveSettings(); } catch (e) {}
         VIEWS["hoc"]();
       };
     }
@@ -2150,7 +2163,7 @@ function renderCard() {
     const bMoreNew = $("#btnMoreNewAfter");
     if (bMoreNew) bMoreNew.onclick = async () => {
       S.settings.newPerDay = Number(S.settings.newPerDay || 8) + 10;
-      try { await Store.put("settings", "user", S.settings); } catch (e) {}
+      try { await saveSettings(); } catch (e) {}
       const c2 = todayCounts();
       S.session = { answered: 0, shown: false, start: c2.fresh, lastNote: null, mode: "new", newKeys: new Set(), queue: [] };
       S.session.current = nextCard(Date.now());
@@ -6415,30 +6428,37 @@ window.saveWordToNotebook = async function saveWordToNotebook(word, py, vn, band
   if (!word) return;
   if (!S.settings.extra) S.settings.extra = {};
   S.settings.extra[word] = true;
-  
+
   let note = S.noteByWord.get(word);
   if (!note) {
     note = {
       kind: "vocab",
+      basic: true,
+      inbox: true,
       w: word,
+      forms: [word],
+      display: word,
+      py: py || "",
       pos: "N",
-      band: band || "B1",
-      key: "v~" + word,
-      it: { w: word, py: py || "", vn: vn || "", en: "", pos: "N", band: band || "B1" },
-      rich: true,
-      deck: { id: "so-tu", name: "Sổ từ của tôi" }
+      band: band || "Hộp thư",
+      bands: new Set([band || "Hộp thư"]),
+      theme: "Sổ từ của tôi",
+      key: "t~" + word,
+      idx: Date.now()
     };
     S.notes.push(note);
     S.noteByWord.set(word, note);
     S.noteByKey.set(note.key, note);
+    if (S.vi && !S.vi.has(word)) {
+      S.vi.set(word, { vn: vn || "", py: py || "", hv: "" });
+    }
   }
-  
+
   if (typeof applyCardLevel === "function") {
-    await applyCardLevel(note, "recognition", 1, true);
-  } else {
-    await Store.put("settings", "user", S.settings);
+    await applyCardLevel(note, typesOf(note)[0][0], 1, false);
   }
-  
+  try { await saveSettings(); } catch (e) {}
+
   showToast(`Đã lưu "${word}" vào Sổ từ & Hàng đợi Flashcards!`);
 };
 
