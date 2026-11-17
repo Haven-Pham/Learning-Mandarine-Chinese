@@ -92,7 +92,9 @@ Ghi vào `lt` hoặc `mh` mỗi khi gặp. Đã ghi: 同情 (thương cảm ≠ 
 
 ## Đặc trưng Đài Loan (ghi vào `tw`)
 
-Đơn vị đo có 公 (公尺, 公分, 公斤, 公里); 斤 = 600 g; 坪 ≈ 3,3 m²; năm Dân Quốc = năm dương lịch − 1911; 期 đọc qí; 影片 (không 視頻); 人工智慧 (không 人工智能); 品質 (không 質量); 主管/老闆 (ít dùng 領導); 講 thay 說; 好誇張喔, 滿好的, 超 + tính từ; địa chỉ chia 段.
+Đơn vị đo có 公 (公尺, 公分, 公斤, 公里); 斤 = 600 g; 坪 ≈ 3,3 m²; năm Dân Quốc = năm dương lịch − 1911; 期 đọc qí; 影片 (không 視頻); 人工智慧 (không 人工智能); 品質 (không 質量); 主管/老闆 (ít dùng 領導); 講 thay 說; 好誇張喔, 滿好的, 超 + tính từ; địa chỉ chia 段; 吹冷氣 (ngồi máy lạnh); 領錢 (rút tiền ATM); 丟 hay dùng hơn 扔; 行動電源 (sạc dự phòng); cửa ghi 推/拉; 倒垃圾 chờ xe rác có nhạc.
+
+Chữ nhiều cách đọc đã ghi: 倒 dǎo/dào, 數 shù/shǔ, 種 zhǒng/zhòng, 少 shǎo/shào, 重 chóng/zhòng, 假 jiǎ/jià, 樂 lè/yuè, 調 diào/tiáo, 曾 céng/zēng, 著 zháo/zhe, 角 jiǎo/jué, 當 dāng/dàng, 了 le/liǎo, 長 cháng/zhǎng.
 
 ## Tiến độ
 
