@@ -55,6 +55,13 @@ Trang học dạy từ mới **theo thứ tự bài**: thứ tự chủ đề tr
 - Mỗi file khoảng 20–35 từ. Một từ chỉ được có ở một file (build báo lỗi nếu trùng).
 - Tên từ có dạng TOCFL như `舅舅/舅`, `金(子)`, `兇/凶` thì giữ nguyên dạng đó làm khóa.
 
+## Từ chép trong vở lớp học (`lop/`)
+
+- Ảnh vở ghi → `lop/<đợt>-<a,b,c…>-<ngày>.json`, mỗi trang vở một file. Dòng đầu `{"deck": {"id": "lop-tu-vung-dotN", "name": "Lớp học · Từ vựng đợt N", "order": …, "kind": "vocab"}}` (các file sau của cùng đợt chỉ cần `{"deck": {"id": …}}`), sau đó `"tu"` giống `tu/*.json`, thêm `pos`, `hv`, `src` ("Vở ghi dd/mm/yyyy").
+- Build: `python tools/build_lop.py "<thư mục này>"` (sau build_rich_words.py). Bộ từ hiện trong **Thư mục của tôi** trên trang học.
+- Bỏ qua từ đã có trong bộ lớp học khác hoặc đã có giải thích đầy đủ (trùng). Từ gần nhau gộp làm một (月老 → 月下老人, 全馬 → 半馬, 口說無憑 → 憑, 敷衍了事 → 敷衍, I人 → E人, 力竭 → 竭力).
+- Đợt 1 (59 từ, vở 03/11/2026) có sẵn trong `data/decks.json`. Đợt 2 (112 từ, vở 10/11, 13/11, 17/11/2026 và một trang không ghi ngày) soạn ngày 2026-11-17.
+
 ## Mẹo nhớ `mh`: nối Hán Việt với cách đọc
 
 Từ 2026-11-17, mỗi `mh` viết theo mẫu:
