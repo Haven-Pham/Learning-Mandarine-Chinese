@@ -2,7 +2,7 @@
 
 Tự tạo khi chạy `tools/build_rich_words.py`. Đừng sửa tay.
 
-Từ lẻ đã soạn (thư mục `tu/`): **1068**
+Từ lẻ đã soạn (thư mục `tu/`): **1094**
 
 ## B1 theo chủ đề
 
@@ -32,9 +32,9 @@ Từ lẻ đã soạn (thư mục `tu/`): **1068**
 | pl Pháp luật, an ninh & tai nạn | 16 | 16 | — |
 | tt Thủ tục & giấy tờ | 13 | 13 | — |
 | kn Khẩu ngữ, thán từ & câu xã giao | 20 | 20 | — |
-| lt Liên từ, phó từ & từ chức năng | 83 | 109 | 要不然 要不是 一般來說 一方面 一同 一樣 以 以及 以免 因此 由於 於是 與 在於 直 只是 只有 至於 真正 這樣子 主要 著 總而言之 總之 幸好 幸虧 |
+| lt Liên từ, phó từ & từ chức năng | 109 | 109 | — |
 
-**B1: 1146/1172**
+**B1: 1172/1172**
 
 ## Từ riêng (rieng-*.json)
 
