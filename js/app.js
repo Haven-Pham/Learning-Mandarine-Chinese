@@ -60,6 +60,7 @@ function buildNotes() {
     const n = { key: `t~${forms[0]}`, kind: "vocab", basic: true, w: forms[0], forms, display: w, py, band, bands: new Set([band]), pos, theme, idx };
     add(n); for (const f of forms) if (!S.noteByWord.has(f)) S.noteByWord.set(f, n);
   });
+  if (typeof ensureRadicalNotes === "function") ensureRadicalNotes();
 }
 // CC-CEDICT entries for a word, common readings first (lower-case pinyin before surnames and proper names)
 function cedFirst(w) {
@@ -1122,8 +1123,12 @@ function dailyDashboard(c, days) {
 
 
 function folderNotes(id) {
+  if (id === "bo-thu") {
+    if (typeof ensureRadicalNotes === "function") ensureRadicalNotes();
+    return S.notes.filter((n) => n.rich && n.deck && n.deck.id === "bo-thu");
+  }
   if (S.bands.includes(id)) return S.notes.filter((n) => n.kind === "vocab" && inBand(n, id));
-  if (id === "cua-toi") return S.notes.filter((n) => n.rich || (S.settings && S.settings.extra && S.settings.extra[n.w]) || (S.inbox && [...S.inbox.values()].some(x => x.w === n.w)));
+  if (id === "cua-toi") return S.notes.filter((n) => (n.rich && (!n.deck || n.deck.id !== "bo-thu")) || (S.settings && S.settings.extra && S.settings.extra[n.w]) || (S.inbox && [...S.inbox.values()].some(x => x.w === n.w)));
   if (id === "viet-tat") { const set = new Set(); for (const w of (S.abbrS ? S.abbrS.keys() : [])) { const n = S.noteByWord.get(w); if (n) set.add(n); } return [...set]; }
   return S.notes.filter((n) => n.rich && n.deck && n.deck.id === id);
 }
@@ -2991,10 +2996,563 @@ window.addEventListener("keydown", (e) => {
 }, true);
 
 
+
+// =========================================================================
+// BỘ THỦ CHỮ HÁN TRỌNG TÂM (60 KANGXI RADICALS • 部首寶典)
+// =========================================================================
+const KANGXI_RADICALS = [
+  { no: 9, r: "人", v: "亻", strokes: 2, cat: "con-nguoi", hv: "Bộ Nhân", py: "rén", vn: "Con người, hành vi của người", posHint: "Biến thể 亻 (nhân đứng) luôn đứng bên trái chữ.", ex: ["休 (nghỉ ngơi)", "你 (bạn)", "他 (anh ấy)", "作 (làm)"] },
+  { no: 18, r: "刀", v: "刂", strokes: 2, cat: "do-vat-nha-cua", hv: "Bộ Đao", py: "dāo", vn: "Con dao, vật sắc bén, cắt gọt", posHint: "Biến thể 刂 (đao đứng) thường nằm bên phải chữ.", ex: ["切 (cắt)", "分 (chia)", "到 (đến)", "利 (sắc bén)"] },
+  { no: 19, r: "力", v: "", strokes: 2, cat: "hanh-dong", hv: "Bộ Lực", py: "lì", vn: "Sức mạnh, gắng sức, lao động", posHint: "Thường đứng bên phải hoặc dưới để chỉ việc dùng sức.", ex: ["動 (chuyển động)", "助 (giúp đỡ)", "努 (nỗ lực)", "勞 (lao động)"] },
+  { no: 29, r: "又", v: "", strokes: 2, cat: "hanh-dong", hv: "Bộ Hựu", py: "yòu", vn: "Bàn tay phải, lặp lại một lần nữa", posHint: "Gốc tượng hình bàn tay; xuất hiện trong các chữ chỉ cầm nắm, giao tiếp.", ex: ["友 (bạn bè)", "受 (nhận)", "取 (lấy)", "反 (ngược lại)"] },
+  { no: 15, r: "冫", v: "", strokes: 2, cat: "thien-nhien", hv: "Bộ Băng", py: "bīng", vn: "Nước đá, giá lạnh, đóng băng", posHint: "Gồm 2 nét chấm bên trái; phân biệt với 氵 (3 chấm thủy).", ex: ["冷 (lạnh)", "冰 (băng đá)", "凍 (đông lạnh)", "涼 (mát)"] },
+  { no: 30, r: "口", v: "", strokes: 3, cat: "con-nguoi", hv: "Bộ Khẩu", py: "kǒu", vn: "Cái miệng, lời nói, ăn uống, lối ra vào", posHint: "Đứng bên trái khi chỉ hoạt động của miệng (ăn, uống, gọi, hỏi).", ex: ["吃 (ăn)", "喝 (uống)", "叫 (gọi)", "問 (hỏi)"] },
+  { no: 31, r: "囗", v: "", strokes: 3, cat: "do-vat-nha-cua", hv: "Bộ Vi", py: "wéi", vn: "Bao vây, khuôn viên khép kín", posHint: "Khung lớn bao quanh toàn bộ chữ bên trong (khác với 口 nhỏ).", ex: ["國 (đất nước)", "園 (vườn)", "圖 (bản đồ)", "團 (đoàn thể)"] },
+  { no: 32, r: "土", v: "", strokes: 3, cat: "thien-nhien", hv: "Bộ Thổ", py: "tǔ", vn: "Đất đai, địa hình, nơi chốn, xây dựng", posHint: "Đứng bên trái (提土旁) hoặc dưới đáy chữ.", ex: ["地 (đất)", "坐 (ngồi)", "城 (thành phố)", "場 (sân bãi)"] },
+  { no: 38, r: "女", v: "", strokes: 3, cat: "con-nguoi", hv: "Bộ Nữ", py: "nǚ", vn: "Phụ nữ, phái nữ, quan hệ gia đình", posHint: "Thường đứng bên trái hoặc dưới chữ.", ex: ["好 (tốt)", "媽 (mẹ)", "姐 (chị)", "婚 (hôn nhân)"] },
+  { no: 39, r: "子", v: "孑", strokes: 3, cat: "con-nguoi", hv: "Bộ Tử", py: "zǐ", vn: "Con cái, đứa trẻ, hạt giống, học tập", posHint: "Đứng trái, dưới hoặc bao quanh liên quan đến trẻ nhỏ, sinh sôi.", ex: ["字 (chữ)", "學 (học)", "孩 (trẻ em)", "孫 (cháu)"] },
+  { no: 40, r: "宀", v: "", strokes: 3, cat: "do-vat-nha-cua", hv: "Bộ Miên", py: "mián", vn: "Mái nhà, phòng ốc, sự che chở", posHint: "Luôn chụp ở phía trên chữ như mái nhà có ống khói.", ex: ["家 (nhà)", "安 (yên ổn)", "室 (phòng)", "宿 (ký túc)"] },
+  { no: 41, r: "寸", v: "", strokes: 3, cat: "hanh-dong", hv: "Bộ Thốn", py: "cùn", vn: "Đơn vị đo (tấc), bàn tay, khuôn phép", posHint: "Chỉ mạch cổ tay cách bàn tay 1 tấc; biểu thị chừng mực.", ex: ["對 (đúng)", "導 (hướng dẫn)", "專 (chuyên tâm)", "尊 (tôn kính)"] },
+  { no: 46, r: "山", v: "", strokes: 3, cat: "thien-nhien", hv: "Bộ Sơn", py: "shān", vn: "Núi non, địa thế cao, đảo đá", posHint: "Tượng hình 3 đỉnh núi; đứng trái, trên hoặc dưới.", ex: ["島 (hòn đảo)", "岸 (bờ biển)", "峰 (đỉnh núi)", "峽 (hẻm núi)"] },
+  { no: 50, r: "巾", v: "", strokes: 3, cat: "do-vat-nha-cua", hv: "Bộ Cân", py: "jīn", vn: "Khăn vải, màn trướng, đồ may mặc", posHint: "Thường đứng trái hoặc dưới chữ chỉ vật làm bằng vải.", ex: ["布 (vải)", "帽 (mũ nón)", "帶 (đai, mang)", "帳 (màn, sổ)"] },
+  { no: 53, r: "广", v: "", strokes: 3, cat: "do-vat-nha-cua", hv: "Bộ Nghiễm", py: "guǎng", vn: "Mái nhà tựa vách núi, công trình rộng", posHint: "Bao phía trên và bên trái chữ (khác với 疒 có thêm 2 nét bên trái).", ex: ["店 (cửa hàng)", "府 (phủ)", "座 (chỗ ngồi)", "庭 (sân vườn)"] },
+  { no: 57, r: "弓", v: "", strokes: 3, cat: "do-vat-nha-cua", hv: "Bộ Cung", py: "gōng", vn: "Cây cung, lực căng, uốn cong", posHint: "Thường đứng bên trái chữ.", ex: ["張 (mở rộng)", "強 (mạnh mẽ)", "引 (dẫn dắt)", "彎 (uốn cong)"] },
+  { no: 60, r: "彳", v: "", strokes: 3, cat: "hanh-dong", hv: "Bộ Xích", py: "chì", vn: "Bước chân trái, đi lại, đường phố", posHint: "Luôn đứng bên trái (雙人旁 - hai nhân đứng).", ex: ["行 (đi)", "往 (hướng tới)", "待 (đợi)", "得 (đạt được)"] },
+  { no: 61, r: "心", v: "忄/⺗", strokes: 4, cat: "con-nguoi", hv: "Bộ Tâm", py: "xīn", vn: "Trái tim, tâm trạng, cảm xúc, suy nghĩ", posHint: "Biến thể 忄 (tâm đứng) nằm bên trái;的心 nằm dưới đáy chữ.", ex: ["想 (nghĩ)", "忙 (bận)", "快 (nhanh/vui)", "情 (tình cảm)"] },
+  { no: 62, r: "戈", v: "", strokes: 4, cat: "hanh-dong", hv: "Bộ Qua", py: "gē", vn: "Kích giáo, vũ khí cổ, chiến đấu, bảo vệ", posHint: "Thường nằm bên phải hoặc bao góc phải.", ex: ["我 (tôi)", "戰 (chiến đấu)", "成 (thành công)", "戒 (răn đe)"] },
+  { no: 63, r: "戶", v: "", strokes: 4, cat: "do-vat-nha-cua", hv: "Bộ Hộ", py: "hù", vn: "Cửa một cánh, hộ gia đình, căn phòng", posHint: "Bao phía trên bên trái.", ex: ["房 (căn phòng)", "所 (nơi chốn)", "扇 (cánh quạt/cửa)"] },
+  { no: 64, r: "手", v: "扌", strokes: 4, cat: "con-nguoi", hv: "Bộ Thủ", py: "shǒu", vn: "Bàn tay, động tác cầm nắm, đánh, đẩy", posHint: "Biến thể 扌 (thủ gẩy) luôn đứng bên trái các động từ tay.", ex: ["打 (đánh)", "找 (tìm)", "拿 (cầm)", "推 (đẩy)"] },
+  { no: 66, r: "攴", v: "攵", strokes: 4, cat: "hanh-dong", hv: "Bộ Phộc", py: "pū", vn: "Gõ nhẹ, thúc đẩy, chỉnh đốn hành động", posHint: "Biến thể 攵 (4 nét) luôn đứng bên phải chữ.", ex: ["教 (dạy)", "收 (thu nhận)", "改 (sửa đổi)", "放 (đặt, thả)"] },
+  { no: 72, r: "日", v: "", strokes: 4, cat: "thien-nhien", hv: "Bộ Nhật", py: "rì", vn: "Mặt trời, ánh sáng, ngày tháng, thời gian", posHint: "Đứng trái, trên hoặc dưới các chữ chỉ thời gian và độ sáng.", ex: ["明 (sáng)", "時 (thời gian)", "早 (sáng sớm)", "晚 (buổi tối)"] },
+  { no: 74, r: "月", v: "", strokes: 4, cat: "thien-nhien", hv: "Bộ Nguyệt", py: "yuè", vn: "Mặt trăng, tháng năm, kỳ hạn", posHint: "Chú ý: Khi đứng bên trái nhiều chữ chỉ cơ thể, 月 thực chất là biến thể của Bộ Nhục (肉).", ex: ["期 (kỳ hạn)", "明 (sáng)", "朝 (buổi sớm)", "望 (ngóng trông)"] },
+  { no: 75, r: "木", v: "", strokes: 4, cat: "thien-nhien", hv: "Bộ Mộc", py: "mù", vn: "Cây cối, gỗ, đồ mộc, thực vật thân gỗ", posHint: "Đứng trái hoặc dưới chữ.", ex: ["林 (rừng)", "樹 (cây)", "桌 (cái bàn)", "椅 (cái ghế)"] },
+  { no: 76, r: "欠", v: "", strokes: 4, cat: "hanh-dong", hv: "Bộ Khiếm", py: "qiàn", vn: "Há miệng thở, thiếu thốn, ca hát, cảm thán", posHint: "Thường đứng bên phải chữ.", ex: ["歌 (bài hát)", "歡 (vui mừng)", "次 (lần)", "欲 (mong muốn)"] },
+  { no: 77, r: "止", v: "", strokes: 4, cat: "hanh-dong", hv: "Bộ Chỉ", py: "zhǐ", vn: "Bàn chân, dừng lại, bước đi", posHint: "Tượng hình bàn chân có ngón cái.", ex: ["正 (chính xác)", "步 (bước chân)", "歷 (trải qua)", "歸 (trở về)"] },
+  { no: 85, r: "水", v: "氵", strokes: 4, cat: "thien-nhien", hv: "Bộ Thủy", py: "shuǐ", vn: "Nước, chất lỏng, sông hồ, biển cả", posHint: "Biến thể 氵 (3 chấm thủy) là một trong những bộ xuất hiện nhiều nhất bên trái chữ Hán.", ex: ["海 (biển)", "灣 (vịnh)", "河 (sông)", "洗 (rửa)"] },
+  { no: 86, r: "火", v: "灬", strokes: 4, cat: "thien-nhien", hv: "Bộ Hỏa", py: "huǒ", vn: "Ngọn lửa, sức nóng, đun nấu, đốt cháy", posHint: "Đứng trái là 火; đứng dưới đáy biến thành 灬 (4 chấm hỏa).", ex: ["熱 (nóng)", "燒 (đốt/nướng)", "烤 (nướng)", "燈 (đèn)"] },
+  { no: 93, r: "牛", v: "牜", strokes: 4, cat: "dong-thuc-vat", hv: "Bộ Ngưu", py: "niú", vn: "Con trâu, bò, gia súc, vật nuôi", posHint: "Biến thể 牜 đứng bên trái chữ.", ex: ["物 (sự vật)", "特 (đặc biệt)", "牧 (chăn nuôi)"] },
+  { no: 94, r: "犬", v: "犭", strokes: 4, cat: "dong-thuc-vat", hv: "Bộ Khuyển", py: "quǎn", vn: "Con chó, loài thú bốn chân, tính chất hoang dã", posHint: "Biến thể 犭 (khuyển gẩy) luôn đứng bên trái chữ chỉ loài thú.", ex: ["狗 (chó)", "貓 (mèo)", "豬 (heo)", "獨 (độc lập)"] },
+  { no: 96, r: "玉", v: "王", strokes: 5, cat: "do-vat-nha-cua", hv: "Bộ Ngọc", py: "yù", vn: "Đá quý, ngọc bích, vật trân quý", posHint: "Khi ghép bên trái mất dấu chấm thành 王 (tên gọi 王字旁).", ex: ["現 (hiện tại)", "球 (quả cầu)", "理 (lý lẽ)", "環 (vòng ngọc)"] },
+  { no: 102, r: "田", v: "", strokes: 5, cat: "thien-nhien", hv: "Bộ Điền", py: "tián", vn: "Ruộng đất, canh tác, vùng đất", posHint: "Hình ô ruộng vuông vức.", ex: ["男 (đàn ông)", "界 (ranh giới)", "留 (lưu lại)", "畫 (vẽ/tranh)"] },
+  { no: 104, r: "疒", v: "", strokes: 5, cat: "hanh-dong", hv: "Bộ Nạch", py: "nè", vn: "Bệnh tật, đau ốm, triệu chứng cơ thể", posHint: "Bao phía trên và bên trái (có 2 nét bên trái giường bệnh).", ex: ["病 (bệnh)", "痛 (đau)", "瘦 (gầy)", "療 (điều trị)"] },
+  { no: 108, r: "皿", v: "", strokes: 5, cat: "do-vat-nha-cua", hv: "Bộ Mãnh", py: "mǐn", vn: "Bát đĩa, đồ đựng thức ăn, chậu hộp", posHint: "Thường làm đế ở dưới đáy chữ.", ex: ["盤 (cái đĩa)", "盒 (cái hộp)", "盆 (cái chậu)", "盡 (hết)"] },
+  { no: 109, r: "目", v: "", strokes: 5, cat: "con-nguoi", hv: "Bộ Mục", py: "mù", vn: "Con mắt, nhìn ngắm, quan sát", posHint: "Hình con mắt dựng đứng; thường đứng bên trái chữ.", ex: ["看 (nhìn)", "眼 (con mắt)", "睡 (ngủ)", "睛 (con ngươi)"] },
+  { no: 112, r: "石", v: "", strokes: 5, cat: "thien-nhien", hv: "Bộ Thạch", py: "shí", vn: "Đá, khoáng vật, cứng rắn", posHint: "Thường đứng bên trái chữ.", ex: ["破 (vỡ)", "硬 (cứng)", "碗 (cái bát)", "確 (chính xác)"] },
+  { no: 113, r: "示", v: "礻", strokes: 5, cat: "hanh-dong", hv: "Bộ Thị", py: "shì", vn: "Thần linh, lễ nghi, cầu phúc, chỉ bảo", posHint: "Biến thể 礻 (1 chấm, khác với 衤 2 chấm của Bộ Y).", ex: ["神 (thần)", "福 (hạnh phúc)", "禮 (lễ phép)", "祝 (chúc mừng)"] },
+  { no: 115, r: "禾", v: "", strokes: 5, cat: "dong-thuc-vat", hv: "Bộ Hòa", py: "hé", vn: "Cây lúa, mùa màng, ngũ cốc", posHint: "Có nét phẩy trên đỉnh tượng trưng bông lúa trĩu hạt.", ex: ["秋 (mùa thu)", "種 (trồng/loại)", "科 (khoa/môn)", "租 (thuê)"] },
+  { no: 116, r: "穴", v: "", strokes: 5, cat: "hanh-dong", hv: "Bộ Huyệt", py: "xué", vn: "Hang động, khoảng trống, cửa sổ", posHint: "Luôn nằm trên đỉnh chữ.", ex: ["空 (trống/trời)", "窗 (cửa sổ)", "穿 (mặc/xuyên)", "究 (nghiên cứu)"] },
+  { no: 117, r: "立", v: "", strokes: 5, cat: "hanh-dong", hv: "Bộ Lập", py: "lì", vn: "Đứng thẳng, thiết lập, chờ đợi", posHint: "Hình người đứng thẳng trên mặt đất.", ex: ["站 (đứng/trạm)", "端 (đầu mối)", "章 (chương)", "競 (cạnh tranh)"] },
+  { no: 118, r: "竹", v: "⺮", strokes: 6, cat: "dong-thuc-vat", hv: "Bộ Trúc", py: "zhú", vn: "Tre trúc, đồ đan lát, thẻ sách", posHint: "Luôn nằm trên đỉnh chữ thành ⺮.", ex: ["笑 (cười)", "筆 (cây bút)", "算 (tính toán)", "籃 (cái rổ)"] },
+  { no: 119, r: "米", v: "", strokes: 6, cat: "dong-thuc-vat", hv: "Bộ Mễ", py: "mǐ", vn: "Hạt gạo, lương thực, bánh kẹo", posHint: "Đứng bên trái hoặc dưới chữ chỉ thực phẩm từ bột/gạo.", ex: ["粉 (bột/bún)", "糖 (đường/kẹo)", "粒 (hạt)", "精 (tinh túy)"] },
+  { no: 120, r: "糸", v: "糹", strokes: 6, cat: "do-vat-nha-cua", hv: "Bộ Mịch", py: "mì", vn: "Sợi tơ, dây buộc, dệt may, màu sắc, liên kết", posHint: "Chữ Phồn thể giữ nguyên 糹 (3 chấm dưới) rất đặc trưng.", ex: ["紅 (màu đỏ)", "紙 (giấy)", "練 (luyện tập)", "給 (cho/đưa)"] },
+  { no: 123, r: "羊", v: "⺶", strokes: 6, cat: "dong-thuc-vat", hv: "Bộ Dương", py: "yáng", vn: "Con dê/cừu, tốt đẹp, hiền lành", posHint: "Xuất hiện trong chữ Mỹ (美), Nghĩa (義).", ex: ["美 (đẹp)", "群 (đàn/nhóm)", "義 (ý nghĩa)", "羞 (xấu hổ)"] },
+  { no: 128, r: "耳", v: "", strokes: 6, cat: "con-nguoi", hv: "Bộ Nhĩ", py: "ěr", vn: "Cái tai, lắng nghe, âm thanh", posHint: "Đứng bên trái hoặc dưới chữ.", ex: ["聽 (nghe)", "聲 (âm thanh)", "聞 (nghe thấy)", "職 (chức vụ)"] },
+  { no: 130, r: "肉", v: "⺼(月)", strokes: 6, cat: "con-nguoi", hv: "Bộ Nhục", py: "ròu", vn: "Thịt, các bộ phận cơ thể người", posHint: "Khi ghép chữ biến thành ⺼ (giống chữ 月).", ex: ["臉 (khuôn mặt)", "腳 (bàn chân)", "背 (lưng)", "胖 (béo)"] },
+  { no: 137, r: "舟", v: "", strokes: 6, cat: "do-vat-nha-cua", hv: "Bộ Chu", py: "zhōu", vn: "Thuyền bè, tàu thủy, hàng hải", posHint: "Luôn đứng bên trái chữ chỉ phương tiện đường thủy.", ex: ["船 (con thuyền)", "航 (hàng không/hải)", "般 (loại/cách)"] },
+  { no: 140, r: "艸", v: "艹", strokes: 6, cat: "dong-thuc-vat", hv: "Bộ Thảo", py: "cǎo", vn: "Cỏ cây, hoa lá, thảo mộc, trà thuốc", posHint: "Biến thể 艹 (thảo đầu) luôn nằm trên đỉnh chữ.", ex: ["花 (hoa)", "茶 (trà)", "菜 (rau/món ăn)", "藥 (thuốc)"] },
+  { no: 142, r: "虫", v: "", strokes: 6, cat: "dong-thuc-vat", hv: "Bộ Trùng", py: "chóng", vn: "Côn trùng, loài bò sát, hải sản vỏ cứng", posHint: "Đứng bên trái hoặc dưới chữ.", ex: ["蝦 (tôm)", "蜂 (con ong)", "蝶 (con bướm)", "蚊 (con muỗi)"] },
+  { no: 145, r: "衣", v: "衤", strokes: 6, cat: "do-vat-nha-cua", hv: "Bộ Y", py: "yī", vn: "Quần áo, trang phục, vải vóc", posHint: "Biến thể 衤 có 2 nét chấm bên phải (khác với 礻 Bộ Thị chỉ 1 nét).", ex: ["褲 (quần)", "襯 (áo sơ mi)", "被 (chăn/bị)", "袋 (túi)"] },
+  { no: 147, r: "見", v: "", strokes: 7, cat: "con-nguoi", hv: "Bộ Kiến", py: "jiàn", vn: "Nhìn thấy, quan sát, gặp gỡ, nhận thức", posHint: "Mắt (目) gắn trên đôi chân người (儿) — Phồn thể giữ nguyên 見.", ex: ["視 (nhìn/tivi)", "覺 (cảm thấy)", "親 (thân thiết)", "觀 (quan sát)"] },
+  { no: 149, r: "言", v: "讠", strokes: 7, cat: "con-nguoi", hv: "Bộ Ngôn", py: "yán", vn: "Lời nói, ngôn ngữ, thảo luận, giao tiếp", posHint: "Chữ Phồn thể Đài Loan giữ nguyên 7 nét 言 bên trái.", ex: ["話 (lời nói)", "說 (nói)", "請 (mời)", "謝 (cảm ơn)"] },
+  { no: 154, r: "貝", v: "", strokes: 7, cat: "dong-thuc-vat", hv: "Bộ Bối", py: "bèi", vn: "Vỏ sò (tiền cổ), tiền bạc, mua bán, tài sản", posHint: "Chữ Phồn thể giữ nguyên 貝 trong mọi từ kinh tế, tài chính.", ex: ["買 (mua)", "賣 (bán)", "貴 (đắt/quý)", "費 (chi phí)"] },
+  { no: 156, r: "走", v: "", strokes: 7, cat: "hanh-dong", hv: "Bộ Tẩu", py: "zǒu", vn: "Đi bộ, chạy, vượt qua", posHint: "Bao phía dưới bên trái chữ.", ex: ["起 (dậy/bắt đầu)", "超 (vượt qua)", "趕 (vội đuổi)", "越 (càng/vượt)"] },
+  { no: 157, r: "足", v: "⻊", strokes: 7, cat: "con-nguoi", hv: "Bộ Túc", py: "zú", vn: "Bàn chân, chạy nhảy, đạp, đường đi", posHint: "Biến thể ⻊ nằm bên trái các động từ dùng chân.", ex: ["跑 (chạy)", "跳 (nhảy)", "路 (con đường)", "跟 (đi theo/cùng)"] },
+  { no: 159, r: "車", v: "", strokes: 7, cat: "do-vat-nha-cua", hv: "Bộ Xa", py: "chē", vn: "Xe cộ, bánh xe, vận chuyển", posHint: "Phồn thể giữ nguyên 7 nét 車.", ex: ["較 (so sánh)", "輕 (nhẹ)", "轉 (chuyển/rẽ)", "輛 (chiếc xe)"] },
+  { no: 162, r: "辵", v: "辶", strokes: 7, cat: "hanh-dong", hv: "Bộ Sước", py: "chuò", vn: "Bước đi chợt dừng, di chuyển, quãng đường", posHint: "Biến thể 辶 (quay xước) bao phía dưới bên trái.", ex: ["近 (gần)", "遠 (xa)", "送 (tiễn/tặng)", "選 (chọn)"] },
+  { no: 163, r: "邑", v: "阝(phải)", strokes: 7, cat: "thien-nhien", hv: "Bộ Ấp", py: "yì", vn: "Vùng đất, thành thị, khu dân cư", posHint: "Biến thể 阝 nằm BÊN PHẢI chữ (nhớ: phải = Ấp thành phố).", ex: ["都 (đô thị/đều)", "部 (bộ phận)", "郵 (bưu điện)", "鄰 (hàng xóm)"] },
+  { no: 164, r: "酉", v: "", strokes: 7, cat: "do-vat-nha-cua", hv: "Bộ Dậu", py: "yǒu", vn: "Bình rượu, lên men, đồ uống, y dược", posHint: "Thường đứng bên trái chữ.", ex: ["酒 (rượu)", "酸 (chua)", "醫 (y tế)", "醒 (tỉnh táo)"] },
+  { no: 167, r: "金", v: "釒", strokes: 8, cat: "thien-nhien", hv: "Bộ Kim", py: "jīn", vn: "Kim loại, vàng bạc, tiền tệ, vật sắc nhọn", posHint: "Biến thể Phồn thể 釒 đứng bên trái chữ.", ex: ["錢 (tiền)", "銀 (bạc/ngân hàng)", "錯 (sai)", "鐘 (đồng hồ)"] },
+  { no: 169, r: "門", v: "", strokes: 8, cat: "do-vat-nha-cua", hv: "Bộ Môn", py: "mén", vn: "Cổng lớn hai cánh, cửa ra vào", posHint: "Khung cổng bao bên ngoài chữ.", ex: ["開 (mở)", "關 (đóng)", "間 (gian/giữa)", "聞 (nghe)"] },
+  { no: 170, r: "阜", v: "阝(trái)", strokes: 8, cat: "thien-nhien", hv: "Bộ Phụ", py: "fù", vn: "Gò đất, đồi núi, bậc thang lên xuống", posHint: "Biến thể 阝 nằm BÊN TRÁI chữ (nhớ: trái = Phụ đồi núi).", ex: ["院 (viện/sân)", "除 (trừ bỏ)", "陽 (mặt trời)", "階 (bậc thang)"] },
+  { no: 173, r: "雨", v: "⻗", strokes: 8, cat: "thien-nhien", hv: "Bộ Vũ", py: "yǔ", vn: "Mưa, mây mù, sấm điện, hiện tượng khí quyển", posHint: "Luôn nằm trên đỉnh các chữ chỉ thời tiết và điện.", ex: ["電 (điện)", "雪 (tuyết)", "雲 (mây)", "需 (cần)"] },
+  { no: 181, r: "頁", v: "", strokes: 9, cat: "con-nguoi", hv: "Bộ Hiệt", py: "yè", vn: "Đầu người, khuôn mặt, trang giấy", posHint: "Thường đứng bên phải các chữ chỉ đầu, mặt, suy nghĩ.", ex: ["頭 (cái đầu)", "題 (đề mục)", "顏 (nhan sắc)", "願 (mong ước)"] },
+  { no: 184, r: "食", v: "飠", strokes: 9, cat: "do-vat-nha-cua", hv: "Bộ Thực", py: "shí", vn: "Thức ăn, cơm bánh, bữa ăn, nuôi dưỡng", posHint: "Biến thể Phồn thể 飠 đứng bên trái các từ ẩm thực.", ex: ["飯 (cơm)", "館 (quán/nhà hàng)", "餓 (đói)", "飽 (no)"] },
+  { no: 187, r: "馬", v: "", strokes: 10, cat: "dong-thuc-vat", hv: "Bộ Mã", py: "mǎ", vn: "Con ngựa, chạy nhanh, vận chuyển", posHint: "Phồn thể giữ 4 chấm chân ngựa và bờm.", ex: ["騎 (cưỡi/lái)", "驗 (kiểm nghiệm)", "驚 (kinh ngạc)", "駐 (đóng trú)"] },
+  { no: 195, r: "魚", v: "", strokes: 11, cat: "dong-thuc-vat", hv: "Bộ Ngư", py: "yú", vn: "Con cá, thủy hải sản", posHint: "Phồn thể có 4 chấm đuôi cá bên dưới.", ex: ["鮮 (tươi ngon)", "魯 (lỗ mãng)", "鯨 (cá voi)"] },
+  { no: 196, r: "鳥", v: "", strokes: 11, cat: "dong-thuc-vat", hv: "Bộ Điểu", py: "niǎo", vn: "Chim chóc, gia cầm có cánh", posHint: "Tượng hình đầu, mắt, lông vũ và chân chim.", ex: ["雞 (con gà)", "鴨 (con vịt)", "鵝 (con ngỗng)"] }
+];
+
+const RADICAL_CATEGORIES = [
+  { id: "all", label: "Tất cả bộ thủ", icon: "grid_view" },
+  { id: "con-nguoi", label: "👤 Con người & Cơ thể", icon: "accessibility_new" },
+  { id: "thien-nhien", label: "🌊 Thiên nhiên & Nguyên tố", icon: "landscape" },
+  { id: "dong-thuc-vat", label: "🌿 Động & Thực vật", icon: "Forest" },
+  { id: "do-vat-nha-cua", label: "🏠 Đồ vật & Đời sống", icon: "home_work" },
+  { id: "hanh-dong", label: "🏃 Hành động & Di chuyển", icon: "directions_walk" }
+];
+
+function ensureRadicalNotes() {
+  if (!S.notes || !S.noteByKey) return;
+  if (S.noteByKey.has("bo-thu~0")) return;
+  if (!S.settings) S.settings = { newPerDay: 8, reviewPerDay: 30, decks: {}, bands: {}, extra: {} };
+  if (!S.settings.decks) S.settings.decks = {};
+  if (S.settings.decks["bo-thu"] === undefined) S.settings.decks["bo-thu"] = false;
+  const radDeck = {
+    id: "bo-thu",
+    name: "Bộ thủ chữ Hán • 部首寶典",
+    kind: "vocab",
+    badge: "Khang Hy • 部首",
+    emoji: "🧩",
+    sub: "60 bộ thủ chữ Hán Phồn thể cốt lõi giúp nhớ nhanh cấu trúc và đoán nghĩa từ vựng TOCFL.",
+    items: KANGXI_RADICALS.map((rad) => ({
+      w: rad.r,
+      py: rad.py,
+      pos: `Bộ thủ #${rad.no} (${rad.strokes} nét)${rad.v ? " · Biến thể: " + rad.v : ""}`,
+      band: "Bộ thủ",
+      hv: rad.hv,
+      vn: `${rad.hv}${rad.v ? " (" + rad.v + ")" : ""} — ${rad.vn}`,
+      en: `Kangxi Radical #${rad.no}`,
+      us: rad.posHint,
+      co: rad.ex.join(" · "),
+      mh: `${rad.hv} (${rad.py}): ${rad.vn}. ${rad.posHint}`,
+      e1: `「${rad.r}」${rad.v ? `（${rad.v}）` : ""}常見於：${rad.ex.map(x => x.split(" ")[0]).join("、")}。`,
+      e1p: rad.py,
+      e1v: `${rad.hv}: ${rad.vn} (Gặp trong: ${rad.ex.join(", ")}).`
+    }))
+  };
+  radDeck.items.forEach((it, i) => {
+    const n = { key: `bo-thu~${i}`, deck: radDeck, i, kind: "vocab", rich: true, w: it.w, band: "Bộ thủ", it, isRadical: true, rad: KANGXI_RADICALS[i] };
+    S.notes.push(n);
+    S.noteByKey.set(n.key, n);
+    if (!S.noteByWord.has(it.w)) S.noteByWord.set(it.w, n);
+  });
+}
+
+let _radQuizState = { active: false, curIdx: 0, choices: [], answered: null, streak: 0, score: 0, total: 0 };
+let _radFilterCat = "all";
+let _radFilterStrokes = "all";
+let _radSearch = "";
+let _radWriterChar = null;
+
+function renderRadicalsSectionHTML(isStandalone = false) {
+  ensureRadicalNotes();
+  const radNotes = folderNotes("bo-thu");
+  const learnedCount = radNotes.filter((n) => noteLevel(n) > 0).length;
+  const pct = radNotes.length ? Math.round((learnedCount / radNotes.length) * 100) : 0;
+  const isOn = folderOn("bo-thu");
+
+  return `
+    <div class="flex flex-col gap-space-lg">
+      ${isStandalone ? `
+        <div class="flex items-center justify-between">
+          <a href="#thu-muc" class="text-primary hover:underline text-sm font-semibold flex items-center gap-1.5 no-underline">
+            <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+            <span>Quay lại Trung tâm Từ vựng</span>
+          </a>
+          <span class="text-xs font-code text-outline">Bộ thủ Khang Hy chuẩn Phồn thể Đài Loan</span>
+        </div>
+      ` : ""}
+
+      <!-- HERO BANNER BỘ THỦ -->
+      <div class="bg-gradient-to-r from-[#7c1d18] via-[#8f241e] to-[#5e1612] text-white p-5 md:p-6 rounded-3xl shadow-md border border-white/15 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+        <div class="flex items-start sm:items-center gap-4">
+          <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl border-2 border-white/80 bg-black/25 flex items-center justify-center text-3xl font-serif font-bold shrink-0 shadow-inner">
+            部
+          </div>
+          <div class="flex flex-col gap-1">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="px-2.5 py-0.5 rounded-full bg-white/20 text-xs font-semibold tracking-wider uppercase">Chiết tự &amp; Gốc chữ Hán • 部首寶典</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-black/25 text-xs font-code">${learnedCount} / ${KANGXI_RADICALS.length} bộ đã học (${pct}%)</span>
+            </div>
+            <h2 class="text-2xl md:text-3xl font-bold font-serif tracking-wide text-white mt-0.5">
+              Học Bộ Thủ Chữ Hán Trọng Tâm (${KANGXI_RADICALS.length} Bộ Khang Hy)
+            </h2>
+            <p class="text-xs md:text-sm text-white/85 max-w-2xl">
+              Nắm vững các bộ thủ cốt lõi và biến thể (氵, 忄, 扌, 艹, 辶, 衤, 飠...) giúp bạn nhìn chữ đoán nghĩa, nhớ mặt chữ Phồn thể nhanh gấp 3 lần.
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-2.5 flex-wrap shrink-0">
+          <button type="button" class="px-4 py-2.5 rounded-xl font-bold text-xs bg-white text-[#7c1d18] hover:bg-amber-50 transition-all shadow-sm flex items-center gap-1.5 cursor-pointer" onclick="startStudyFolder('bo-thu')">
+            <span class="material-symbols-outlined text-[18px]">play_circle</span>
+            <span>Học Flashcard SRS Bộ Thủ</span>
+          </button>
+          <button type="button" class="px-4 py-2.5 rounded-xl font-semibold text-xs bg-black/30 hover:bg-black/45 text-white border border-white/25 transition-all flex items-center gap-1.5 cursor-pointer" id="btn-toggle-rad-quiz">
+            <span class="material-symbols-outlined text-[18px]">quiz</span>
+            <span>🎯 Trắc nghiệm nhớ nhanh</span>
+          </button>
+          <button type="button" class="px-3.5 py-2.5 rounded-xl font-semibold text-xs ${isOn ? "bg-emerald-600/80 text-white" : "bg-white/15 hover:bg-white/25 text-white"} border border-white/20 transition-all cursor-pointer" id="btn-toggle-rad-deck">
+            ${isOn ? "✓ Đang bật trong lịch học" : "+ Đưa vào lịch học ngày"}
+          </button>
+        </div>
+      </div>
+
+      <!-- MINI-GAME TRẮC NGHIỆM PHẢN XẠ BỘ THỦ (Ẩn/Hiện) -->
+      <div id="rad-quiz-panel" class="${_radQuizState.active ? "flex" : "hidden"} flex-col gap-space-md bg-paper-card p-space-lg rounded-2xl border-2 border-primary/30 shadow-sm"></div>
+
+      <!-- HỘP TẬP VIẾT NÉT BỘ THỦ (HANZI WRITER DRAWER) -->
+      <div id="rad-writer-panel" class="${_radWriterChar ? "flex" : "hidden"} flex-col sm:flex-row items-center justify-between gap-4 bg-paper-card p-space-md rounded-2xl border border-secondary/40 shadow-sm"></div>
+
+      <!-- BỘ LỌC NHÓM Ý NGHĨA, SỐ NÉT & TÌM KIẾM -->
+      <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle shadow-xs flex flex-col gap-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-1.5 flex-wrap" id="rad-cat-tabs">
+            ${RADICAL_CATEGORIES.map((c) => `
+              <button type="button" data-rad-cat="${c.id}" class="px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${_radFilterCat === c.id ? "bg-primary-container text-white shadow-xs" : "bg-surface-container-low text-on-surface-variant hover:bg-surface-container"}">
+                ${c.label}
+              </button>
+            `).join("")}
+          </div>
+          <div class="flex items-center gap-1 flex-wrap" id="rad-stroke-tabs">
+            ${[
+              ["all", "Mọi số nét"],
+              ["1-2", "1–2 nét"],
+              ["3", "3 nét"],
+              ["4", "4 nét"],
+              ["5-6", "5–6 nét"],
+              ["7+", "7+ nét"]
+            ].map(([val, lbl]) => `
+              <button type="button" data-rad-stk="${val}" class="px-2.5 py-1 rounded-lg text-[11px] font-code font-semibold transition-all cursor-pointer ${_radFilterStrokes === val ? "bg-secondary text-white" : "bg-paper-muted text-outline hover:text-on-surface"}">
+                ${lbl}
+              </button>
+            `).join("")}
+          </div>
+        </div>
+        <div class="relative w-full">
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+          <input id="rad-search-input" value="${esc(_radSearch)}" class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface text-sm placeholder:text-outline border border-border-subtle/60 focus:outline-none focus:bg-white" placeholder="Tìm bộ thủ theo chữ Hán (水), biến thể (氵, 忄, 扌...), tên Hán Việt (Bộ Thủy, Tâm, Ngôn...) hoặc ý nghĩa...">
+        </div>
+      </div>
+
+      <!-- LƯỚI THẺ BỘ THỦ (3 CỘT) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-md" id="rad-cards-grid"></div>
+    </div>
+  `;
+}
+
+function bindRadicalsSectionEvents(rootEl = document) {
+  ensureRadicalNotes();
+  const radNotes = folderNotes("bo-thu");
+  const noteByRad = new Map(radNotes.map((n) => [n.w, n]));
+
+  const drawWriterPanel = () => {
+    const panel = $("#rad-writer-panel", rootEl);
+    if (!panel) return;
+    if (!_radWriterChar) {
+      panel.classList.add("hidden");
+      panel.classList.remove("flex");
+      return;
+    }
+    const rad = KANGXI_RADICALS.find((x) => x.r === _radWriterChar) || KANGXI_RADICALS[0];
+    const matchingWords = S.notes.filter((n) => !n.isRadical && n.kind === "vocab" && n.w.includes(rad.r)).slice(0, 8);
+    panel.classList.remove("hidden");
+    panel.classList.add("flex");
+    panel.innerHTML = `
+      <div class="flex items-center gap-4">
+        <div class="flex flex-col items-center gap-1.5 bg-paper-base p-3 rounded-2xl border border-border-subtle shadow-2xs">
+          <div id="rad-hw-box" class="w-[110px] h-[110px] flex items-center justify-center"></div>
+          <div class="flex gap-1.5">
+            <button type="button" id="btn-rad-hw-anim" class="px-2.5 py-1 rounded-lg bg-cinnabar-subtle text-primary text-xs font-semibold cursor-pointer">▶ Xem nét</button>
+            <button type="button" id="btn-rad-hw-quiz" class="px-2.5 py-1 rounded-lg bg-jade-subtle text-secondary text-xs font-semibold cursor-pointer">✍️ Viết thử</button>
+          </div>
+        </div>
+        <div class="flex flex-col gap-1">
+          <div class="flex items-center gap-2">
+            <span class="text-2xl font-serif font-bold text-primary">${esc(rad.r)}${rad.v ? ` (${esc(rad.v)})` : ""}</span>
+            <span class="font-bold text-base text-on-surface">${esc(rad.hv)}</span>
+            <span class="font-code text-xs text-tertiary">${esc(rad.py)} • ${rad.strokes} nét</span>
+          </div>
+          <p class="text-sm text-on-surface font-medium">${esc(rad.vn)}</p>
+          <p class="text-xs text-outline">${esc(rad.posHint)}</p>
+          ${matchingWords.length ? `
+            <div class="flex items-center gap-1.5 flex-wrap mt-1">
+              <span class="text-[11px] text-outline font-semibold">Từ vựng trong kho:</span>
+              ${matchingWords.map((mw) => `<a href="#tu/${encodeURIComponent(mw.w)}" class="px-2 py-0.5 rounded bg-surface-container hover:bg-cinnabar-subtle text-xs font-serif font-semibold text-on-surface hover:text-primary no-underline">${esc(mw.w)} (${esc(meaningOf(mw).slice(0, 18))})</a>`).join("")}
+            </div>
+          ` : ""}
+        </div>
+      </div>
+      <button type="button" id="btn-close-rad-writer" class="px-3 py-1.5 rounded-lg bg-surface-container text-xs font-semibold text-outline hover:text-on-surface self-end sm:self-center cursor-pointer">Đóng ✕</button>
+    `;
+    const hwBox = $("#rad-hw-box", panel);
+    if (hwBox && window.HanziWriter) {
+      hwBox.innerHTML = "";
+      const writer = HanziWriter.create(hwBox, rad.r, {
+        width: 108, height: 108, padding: 6, showOutline: true,
+        strokeColor: "#86090a", outlineColor: "#EBE2D8", highlightColor: "#176b4b",
+        charDataLoader: (ch, onLoad, onErr) => strokeData(ch).then(onLoad).catch(onErr)
+      });
+      const bAnim = $("#btn-rad-hw-anim", panel);
+      if (bAnim) bAnim.onclick = () => writer.animateCharacter();
+      const bQuiz = $("#btn-rad-hw-quiz", panel);
+      if (bQuiz) bQuiz.onclick = () => writer.quiz();
+    }
+    const bClose = $("#btn-close-rad-writer", panel);
+    if (bClose) bClose.onclick = () => { _radWriterChar = null; drawWriterPanel(); };
+  };
+
+  const nextQuizQuestion = () => {
+    const idx = Math.floor(Math.random() * KANGXI_RADICALS.length);
+    const target = KANGXI_RADICALS[idx];
+    const distractors = KANGXI_RADICALS.filter((_, i) => i !== idx).sort(() => Math.random() - 0.5).slice(0, 3);
+    const choices = [target, ...distractors].sort(() => Math.random() - 0.5);
+    _radQuizState.curIdx = idx;
+    _radQuizState.choices = choices;
+    _radQuizState.answered = null;
+    drawQuizPanel();
+  };
+
+  const drawQuizPanel = () => {
+    const panel = $("#rad-quiz-panel", rootEl);
+    if (!panel) return;
+    if (!_radQuizState.active) {
+      panel.classList.add("hidden");
+      panel.classList.remove("flex");
+      return;
+    }
+    panel.classList.remove("hidden");
+    panel.classList.add("flex");
+    if (!_radQuizState.choices.length) {
+      nextQuizQuestion();
+      return;
+    }
+    const target = KANGXI_RADICALS[_radQuizState.curIdx];
+    const answered = _radQuizState.answered;
+    panel.innerHTML = `
+      <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-border-subtle">
+        <div class="flex items-center gap-2">
+          <span class="px-2.5 py-0.5 rounded-full bg-cinnabar-subtle text-primary text-xs font-bold">🎯 Luyện phản xạ Bộ Thủ</span>
+          <span class="text-xs font-code text-outline">Đúng: <strong>${_radQuizState.score}/${_radQuizState.total}</strong> • Chuỗi: 🔥 <strong>${_radQuizState.streak}</strong></span>
+        </div>
+        <button type="button" id="btn-close-rad-quiz" class="text-xs text-outline hover:text-on-surface font-semibold cursor-pointer">Đóng ✕</button>
+      </div>
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 py-2">
+        <div class="flex flex-col items-center text-center min-w-[200px] p-4 rounded-2xl bg-paper-base border border-border-subtle">
+          <span class="text-xs text-outline uppercase font-semibold">Bộ thủ #${target.no} (${target.strokes} nét)</span>
+          <div class="text-6xl font-serif font-bold text-primary my-2">${esc(target.r)}${target.v ? ` <span class="text-3xl text-secondary">(${esc(target.v)})</span>` : ""}</div>
+          <button type="button" class="text-xs text-secondary hover:underline font-semibold flex items-center gap-1 cursor-pointer" onclick="say('${esc(target.r)}')">
+            <span class="material-symbols-outlined text-[16px]">volume_up</span> Nghe âm (${esc(target.py)})
+          </button>
+        </div>
+        <div class="flex-1 w-full flex flex-col gap-2.5">
+          <div class="text-sm font-semibold text-on-surface">Bộ thủ trên mang tên Hán Việt và ý nghĩa nào?</div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            ${_radQuizState.choices.map((ch, i) => {
+              const isTarget = ch.r === target.r;
+              const isPicked = answered === ch.r;
+              let cls = "p-3 rounded-xl border text-left transition-all flex flex-col gap-0.5 cursor-pointer ";
+              if (answered) {
+                if (isTarget) cls += "bg-jade-subtle border-secondary text-secondary font-bold";
+                else if (isPicked) cls += "bg-cinnabar-subtle border-primary text-primary line-through";
+                else cls += "bg-surface-container-low border-border-subtle opacity-60";
+              } else {
+                cls += "bg-surface-container-low hover:bg-surface-container border-border-subtle text-on-surface";
+              }
+              return `
+                <button type="button" data-rad-ans="${esc(ch.r)}" class="${cls}" ${answered ? "disabled" : ""}>
+                  <span class="text-xs font-bold">${"ABCD"[i]}. ${esc(ch.hv)} (${esc(ch.py)})</span>
+                  <span class="text-xs">${esc(ch.vn)}</span>
+                </button>
+              `;
+            }).join("")}
+          </div>
+          ${answered ? `
+            <div class="flex flex-wrap items-center justify-between gap-2 pt-2">
+              <div class="text-xs ${answered === target.r ? "text-secondary" : "text-primary"} font-semibold">
+                ${answered === target.r ? "✓ Chính xác! Đã cộng tiến độ nhớ cho " + esc(target.hv) : "✕ Chưa đúng! Đáp án là " + esc(target.hv) + ": " + esc(target.vn)}
+                • Ví dụ: ${esc(target.ex.join(", "))}
+              </div>
+              <button type="button" id="btn-next-rad-quiz" class="px-4 py-1.5 rounded-xl bg-primary-container text-white text-xs font-semibold hover:bg-primary cursor-pointer">Câu tiếp theo →</button>
+            </div>
+          ` : ""}
+        </div>
+      </div>
+    `;
+    const bClose = $("#btn-close-rad-quiz", panel);
+    if (bClose) bClose.onclick = () => { _radQuizState.active = false; drawQuizPanel(); };
+    const bNext = $("#btn-next-rad-quiz", panel);
+    if (bNext) bNext.onclick = nextQuizQuestion;
+    panel.querySelectorAll("[data-rad-ans]").forEach((btn) => {
+      btn.onclick = async () => {
+        const picked = btn.dataset.radAns;
+        _radQuizState.answered = picked;
+        _radQuizState.total++;
+        const ok = picked === target.r;
+        if (ok) {
+          _radQuizState.score++;
+          _radQuizState.streak++;
+          if (typeof playChime === "function") playChime(true);
+          say(target.r);
+          const n = noteByRad.get(target.r);
+          if (n) await applyWordLevel(n, Math.min(5, Math.max(2, noteLevel(n) + 1)));
+        } else {
+          _radQuizState.streak = 0;
+          if (typeof playChime === "function") playChime(false);
+        }
+        drawQuizPanel();
+        drawCards();
+      };
+    });
+  };
+
+  const drawCards = () => {
+    const grid = $("#rad-cards-grid", rootEl);
+    if (!grid) return;
+    const q = fold(_radSearch);
+    const filtered = KANGXI_RADICALS.filter((rad) => {
+      if (_radFilterCat !== "all" && rad.cat !== _radFilterCat) return false;
+      if (_radFilterStrokes === "1-2" && rad.strokes > 2) return false;
+      if (_radFilterStrokes === "3" && rad.strokes !== 3) return false;
+      if (_radFilterStrokes === "4" && rad.strokes !== 4) return false;
+      if (_radFilterStrokes === "5-6" && (rad.strokes < 5 || rad.strokes > 6)) return false;
+      if (_radFilterStrokes === "7+" && rad.strokes < 7) return false;
+      if (!q) return true;
+      return (
+        rad.r.includes(_radSearch.trim()) ||
+        (rad.v && rad.v.includes(_radSearch.trim())) ||
+        fold(rad.hv).includes(q) ||
+        fold(rad.py).includes(q) ||
+        fold(rad.vn).includes(q) ||
+        fold(rad.ex.join(" ")).includes(q)
+      );
+    });
+
+    grid.innerHTML = filtered.map((rad) => {
+      const n = noteByRad.get(rad.r);
+      const lvl = n ? noteLevel(n) : 0;
+      return `
+        <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle hover:border-primary/40 shadow-xs hover:shadow-md transition-all flex flex-col justify-between gap-3">
+          <div class="flex flex-col gap-2">
+            <!-- Top Row: Radical Box + Title + Level Pill -->
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-center gap-3">
+                <div class="w-14 h-14 rounded-2xl bg-cinnabar-subtle text-primary border border-primary/20 flex flex-col items-center justify-center shrink-0 shadow-2xs">
+                  <span class="font-serif text-3xl font-bold leading-none">${esc(rad.r)}</span>
+                  ${rad.v ? `<span class="text-[11px] font-serif font-semibold text-secondary mt-0.5">${esc(rad.v)}</span>` : ""}
+                </div>
+                <div class="flex flex-col">
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <span class="font-headline-md text-base font-bold text-on-surface">${esc(rad.hv)}</span>
+                    <span class="font-code text-xs text-tertiary font-semibold">${esc(rad.py)}</span>
+                    <button type="button" class="text-secondary hover:text-primary p-0.5 cursor-pointer" onclick="say('${esc(rad.r)}')" title="Nghe phát âm bộ thủ">
+                      <span class="material-symbols-outlined text-[16px]">volume_up</span>
+                    </button>
+                  </div>
+                  <div class="text-[11px] font-code text-outline">
+                    Khang Hy #${rad.no} • ${rad.strokes} nét${rad.v ? ` • Biến thể: <strong class="text-secondary">${esc(rad.v)}</strong>` : ""}
+                  </div>
+                </div>
+              </div>
+              <span class="pill lv-${lvl} shrink-0">${esc(LEVELS[lvl])}</span>
+            </div>
+
+            <!-- Meaning & Position Hint -->
+            <div class="text-sm font-semibold text-on-surface">${esc(rad.vn)}</div>
+            <div class="text-xs text-on-surface-variant bg-surface-container-low p-2.5 rounded-xl border border-border-subtle/50 leading-relaxed">
+              💡 ${esc(rad.posHint)}
+            </div>
+
+            <!-- Example Characters -->
+            <div class="flex items-center gap-1.5 flex-wrap pt-0.5">
+              <span class="text-[11px] text-outline font-semibold">Chữ tiêu biểu:</span>
+              ${rad.ex.map((exItem) => {
+                const ch = exItem.split(" ")[0];
+                return `<a href="#tu/${encodeURIComponent(ch)}" class="px-2 py-0.5 rounded-lg bg-paper-muted hover:bg-cinnabar-subtle text-on-surface hover:text-primary text-xs font-medium no-underline transition-colors">${esc(exItem)}</a>`;
+              }).join("")}
+            </div>
+          </div>
+
+          <!-- Bottom Actions: Write Strokes, Level Select, Study Card -->
+          <div class="pt-2.5 border-t border-border-subtle/60 flex items-center justify-between gap-2 flex-wrap">
+            <button type="button" data-rad-write="${esc(rad.r)}" class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-jade-subtle text-on-surface hover:text-secondary text-xs font-semibold flex items-center gap-1 transition-colors cursor-pointer">
+              <span class="material-symbols-outlined text-[15px]">draw</span>
+              <span>Tập viết nét</span>
+            </button>
+            <div class="flex items-center gap-1.5">
+              <select data-rad-lvl="${esc(rad.r)}" class="text-[11px] font-medium bg-paper-base border border-border-subtle rounded-lg px-2 py-1 text-on-surface cursor-pointer" title="Đặt mức nhớ SRS">
+                ${LEVELS.map((lName, idx) => `<option value="${idx}"${lvl === idx ? " selected" : ""}>${esc(lName)}</option>`).join("")}
+              </select>
+              <button type="button" onclick="startStudyWord('${esc(rad.r)}')" class="px-2.5 py-1 rounded-lg bg-primary-container text-white hover:bg-primary text-xs font-semibold cursor-pointer">
+                Học →
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+    }).join("") || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Không tìm thấy bộ thủ nào khớp với bộ lọc hiện tại.</div>`;
+
+    grid.querySelectorAll("[data-rad-write]").forEach((btn) => {
+      btn.onclick = () => {
+        _radWriterChar = btn.dataset.radWrite;
+        drawWriterPanel();
+        $("#rad-writer-panel", rootEl)?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      };
+    });
+
+    grid.querySelectorAll("[data-rad-lvl]").forEach((sel) => {
+      sel.onchange = async () => {
+        const n = noteByRad.get(sel.dataset.radLvl);
+        if (n) {
+          await applyWordLevel(n, Number(sel.value));
+          drawCards();
+        }
+      };
+    });
+  };
+
+  const bQuiz = $("#btn-toggle-rad-quiz", rootEl);
+  if (bQuiz) {
+    bQuiz.onclick = () => {
+      _radQuizState.active = !_radQuizState.active;
+      if (_radQuizState.active && !_radQuizState.choices.length) nextQuizQuestion();
+      else drawQuizPanel();
+    };
+  }
+
+  const bDeck = $("#btn-toggle-rad-deck", rootEl);
+  if (bDeck) {
+    bDeck.onclick = async () => {
+      setFolderOn("bo-thu", !folderOn("bo-thu"));
+      await saveSettings();
+      if (location.hash === "#thu-muc/bo-thu") VIEWS["thu-muc"]("bo-thu");
+      else {
+        bDeck.textContent = folderOn("bo-thu") ? "✓ Đang bật trong lịch học" : "+ Đưa vào lịch học ngày";
+      }
+    };
+  }
+
+  rootEl.querySelectorAll("[data-rad-cat]").forEach((btn) => {
+    btn.onclick = () => {
+      _radFilterCat = btn.dataset.radCat;
+      rootEl.querySelectorAll("[data-rad-cat]").forEach((b) => {
+        b.className = b.dataset.radCat === _radFilterCat
+          ? "px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer bg-primary-container text-white shadow-xs"
+          : "px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer bg-surface-container-low text-on-surface-variant hover:bg-surface-container";
+      });
+      drawCards();
+    };
+  });
+
+  rootEl.querySelectorAll("[data-rad-stk]").forEach((btn) => {
+    btn.onclick = () => {
+      _radFilterStrokes = btn.dataset.radStk;
+      rootEl.querySelectorAll("[data-rad-stk]").forEach((b) => {
+        b.className = b.dataset.radStk === _radFilterStrokes
+          ? "px-2.5 py-1 rounded-lg text-[11px] font-code font-semibold transition-all cursor-pointer bg-secondary text-white"
+          : "px-2.5 py-1 rounded-lg text-[11px] font-code font-semibold transition-all cursor-pointer bg-paper-muted text-outline hover:text-on-surface";
+      });
+      drawCards();
+    };
+  });
+
+  const sInp = $("#rad-search-input", rootEl);
+  if (sInp) {
+    sInp.oninput = () => {
+      _radSearch = sInp.value;
+      drawCards();
+    };
+  }
+
+  drawWriterPanel();
+  drawQuizPanel();
+  drawCards();
+}
+
 // =========================================================================
 // 3. THƯ MỤC TỪ VỰNG & FLASHCARD SRS (Exact Stitch Design + Luxury Emerald Topics)
 // =========================================================================
 VIEWS["thu-muc"] = (id) => {
+  ensureRadicalNotes();
   const vocab = S.notes.filter((n) => n.kind === "vocab");
   const c = todayCounts();
 
@@ -3002,6 +3560,11 @@ VIEWS["thu-muc"] = (id) => {
   // TRƯỜNG HỢP 1: XEM CHI TIẾT MỘT THƯ MỤC CỤ THỂ (id)
   // -------------------------------------------------------------
   if (id) {
+    if (id === "bo-thu") {
+      setView(`<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg">${renderRadicalsSectionHTML(true)}</div>`);
+      bindRadicalsSectionEvents(document);
+      return;
+    }
     if (id === "hay-quen") {
       const weakNotes = vocab.filter((n) => (n.lapses || 0) > 0 || noteLevel(n) === 1);
       setView(`
@@ -3434,6 +3997,26 @@ VIEWS["thu-muc"] = (id) => {
       };
     })(),
     (() => {
+      const ns = folderNotes("bo-thu");
+      const l = ns.filter((n) => noteLevel(n) > 0).length;
+      const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
+      return {
+        id: "bo-thu",
+        cat: "radicals",
+        tag: "Chiết tự • Khang Hy",
+        iconText: "部",
+        iconBg: "bg-cinnabar-subtle text-primary",
+        barBg: "bg-primary-container",
+        title: "Bộ thủ chữ Hán trọng tâm • 部首寶典",
+        sub: "60 bộ thủ cốt lõi & biến thể (氵, 忄, 扌, 艹, 辶...) kèm tập viết nét và trắc nghiệm nhớ nhanh.",
+        learned: l,
+        total: ns.length,
+        pct,
+        isLearning: folderOn("bo-thu"),
+        isBand: false
+      };
+    })(),
+    (() => {
       const ns = folderNotes("viet-tat");
       const l = ns.filter((n) => noteLevel(n) > 0).length;
       const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
@@ -3576,6 +4159,10 @@ VIEWS["thu-muc"] = (id) => {
               <span>Phiên học Flashcard hiện tại</span>
               <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
             </button>
+            <button type="button" class="view-tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface transition-all duration-150 flex items-center gap-2" id="view-tab-radicals">
+              <span class="material-symbols-outlined text-[18px] text-primary">extension</span>
+              <span>🧩 Học Bộ Thủ (${KANGXI_RADICALS.length})</span>
+            </button>
           </div>
           <div class="flex items-center gap-space-sm font-label-sm text-label-sm text-outline">
             <span class="flex items-center gap-1">
@@ -3650,6 +4237,9 @@ VIEWS["thu-muc"] = (id) => {
               </button>
               <button type="button" class="px-3.5 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-md text-label-md transition-colors shadow-sm" data-tab="bands">
                 TOCFL Chuẩn (${S.bands.length})
+              </button>
+              <button type="button" class="px-3.5 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-md text-label-md transition-colors shadow-sm" data-tab="radicals">
+                🧩 Bộ thủ chữ Hán (${KANGXI_RADICALS.length} bộ)
               </button>
               <button type="button" class="px-3.5 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-md text-label-md transition-colors shadow-sm" data-tab="personal">
                 Bộ từ của tôi (2)
@@ -3784,6 +4374,11 @@ VIEWS["thu-muc"] = (id) => {
               </div>
             </div>
           </div>
+        </section>
+
+        <!-- ================= SECTION 3: HỌC BỘ THỦ CHỮ HÁN TRỌNG TÂM (部首寶典) ================= -->
+        <section class="flex flex-col gap-space-lg" id="radicals-section">
+          ${renderRadicalsSectionHTML(false)}
         </section>
       </div>
     </div>
@@ -4043,6 +4638,7 @@ VIEWS["thu-muc"] = (id) => {
   renderFlashcardCanvas();
   renderQuickLookup();
   renderFolderCards();
+  bindRadicalsSectionEvents(document);
 
   // Wire up Quick Search events
   const qInput = $("#quick-search-input");
@@ -4066,14 +4662,16 @@ VIEWS["thu-muc"] = (id) => {
     };
   });
 
-  // Wire up Stitch 3-mode view switcher
+  // Wire up Stitch 4-mode view switcher (including Học Bộ Thủ)
   const setMainMode = (mode) => {
     const flashSec = $("#flashcard-section");
     const libSec = $("#library-section");
+    const radSec = $("#radicals-section");
     const tInt = $("#view-tab-integrated");
     const tLib = $("#view-tab-library");
     const tFoc = $("#view-tab-focus");
-    [tInt, tLib, tFoc].forEach((t) => {
+    const tRad = $("#view-tab-radicals");
+    [tInt, tLib, tFoc, tRad].forEach((t) => {
       if (!t) return;
       t.classList.remove("bg-paper-card", "text-primary", "shadow-sm", "font-semibold");
       t.classList.add("text-on-surface-variant", "font-medium");
@@ -4081,23 +4679,33 @@ VIEWS["thu-muc"] = (id) => {
     if (mode === "integrated") {
       if (flashSec) flashSec.classList.remove("hidden");
       if (libSec) libSec.classList.remove("hidden");
+      if (radSec) radSec.classList.remove("hidden");
       if (tInt) { tInt.classList.add("bg-paper-card", "text-primary", "shadow-sm", "font-semibold"); tInt.classList.remove("text-on-surface-variant"); }
     } else if (mode === "library") {
       if (flashSec) flashSec.classList.add("hidden");
       if (libSec) libSec.classList.remove("hidden");
+      if (radSec) radSec.classList.remove("hidden");
       if (tLib) { tLib.classList.add("bg-paper-card", "text-primary", "shadow-sm", "font-semibold"); tLib.classList.remove("text-on-surface-variant"); }
     } else if (mode === "focus") {
       if (flashSec) flashSec.classList.remove("hidden");
       if (libSec) libSec.classList.add("hidden");
+      if (radSec) radSec.classList.add("hidden");
       if (tFoc) { tFoc.classList.add("bg-paper-card", "text-primary", "shadow-sm", "font-semibold"); tFoc.classList.remove("text-on-surface-variant"); }
+    } else if (mode === "radicals") {
+      if (flashSec) flashSec.classList.add("hidden");
+      if (libSec) libSec.classList.add("hidden");
+      if (radSec) radSec.classList.remove("hidden");
+      if (tRad) { tRad.classList.add("bg-paper-card", "text-primary", "shadow-sm", "font-semibold"); tRad.classList.remove("text-on-surface-variant"); }
     }
   };
   const tInt = $("#view-tab-integrated");
   const tLib = $("#view-tab-library");
   const tFoc = $("#view-tab-focus");
+  const tRad = $("#view-tab-radicals");
   if (tInt) tInt.onclick = () => setMainMode("integrated");
   if (tLib) tLib.onclick = () => setMainMode("library");
   if (tFoc) tFoc.onclick = () => setMainMode("focus");
+  if (tRad) tRad.onclick = () => setMainMode("radicals");
 
   // Keyboard navigation for Vocabulary Flashcards (Space/Arrows/Shift/1-6)
   window.onkeydown = async (e) => {
