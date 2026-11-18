@@ -1,0 +1,1286 @@
+{
+ "tu": {
+  "公共汽車/公車": {
+   "vn": "xe buýt (công cộng)",
+   "ng": [
+    "(danh từ) xe buýt công cộng chạy tuyến cố định trong thành phố và vùng lân cận (ở Đài Loan gọi phổ biến 99% là 公車; tên đầy đủ chính thức là 公共汽車)"
+   ],
+   "us": "Đi xe buýt dùng động từ 搭 / 坐 (搭公車 đi xe buýt, 等公車 đợi xe buýt, 公車站 trạm dừng xe buýt, 公車專用道 làn đường riêng cho xe buýt). Lượng từ: 輛, 台, 班 (một chuyến: 這班公車).",
+   "co": [
+    "搭公車|đi xe buýt",
+    "等公車|đợi xe buýt",
+    "公車站 / 公車站牌|bến xe buýt / cột biển trạm xe buýt",
+    "公車司機|tài xế xe buýt"
+   ],
+   "sy": [
+    "巴士|xe buýt (dùng nhiều cho xe du lịch/xe sân bay ở Đài Loan)"
+   ],
+   "cf": [
+    "公車 vs 公共汽車 vs 客運|Trong khẩu ngữ và biển báo đường phố Đài Loan dùng 100% là 公車 (gōngchē); 公共汽車 chỉ gặp trong sách giáo khoa hoặc tên pháp lý chính thức; còn xe khách chạy đường dài giữa các thành phố lớn gọi là 客運!"
+   ],
+   "lt": "輛、台 (một chiếc xe buýt), 班 (một chuyến xe). Khi đi xe buýt ở Đài Bắc/Đài Trung nhớ 招手 (vẫy tay nhẹ ra hiệu khi xe tới trạm kẻo xe chạy qua!) và nhấn chuông 下車鈴 trước khi xuống!",
+   "mk": "Lên/xuống xe buýt ở Đài Loan nhớ quẹt thẻ 悠遊卡 (EasyCard) CẢ LÚC LÊN LẪN LÚC XUỐNG (上下車都要刷卡) và trước trạm muốn xuống phải bấm chuông đỏ 下車鈴!",
+   "tw": "Ứng dụng điện thoại người dân Đài Loan hay dùng nhất để canh giờ xe buýt chính xác từng phút là 「台北等公車」 / 「台灣等公車」. Ngoài ra lên xe phải vẫy tay, không đi xe buýt ở Đài Loan thì gọi 公車 (rất ít nói 公共汽車).",
+   "mh": "Công Cộng Khí Xa / Công Xa → gōnggòngqìchē / gōngchē. ĐỌC: 'công' → gōng; 'cộng' → gòng; 'khí' → qì; 'xa' → chē (thanh 1). NGHĨA: 公共 công cộng phục vụ chung toàn dân + 汽車 xe chạy động cơ → xe ô tô chở khách công cộng = xe buýt.",
+   "vd": [
+    {
+     "t": "Đi lại",
+     "zh": "在台北搭公車非常方便，上下車的時候只要刷一下悠遊卡就可以了。",
+     "vn": "Đi xe buýt ở Đài Bắc cực kỳ tiện lợi, lúc lên và xuống xe chỉ cần quẹt nhẹ thẻ EasyCard là được rồi."
+    },
+    {
+     "t": "Quy định",
+     "zh": "這條大馬路中間特別畫了公共汽車專用道，所以尖峰時間不會跟著塞車。",
+     "vn": "Giữa đại lộ lớn này có kẻ riêng làn đường dành cho xe buýt công cộng nên giờ cao điểm không bị kẹt theo dòng xe."
+    },
+    {
+     "t": "Học tập",
+     "zh": "從宿舍門口走到公車站牌只要兩分鐘，搭五站就能直接到學校大門。",
+     "vn": "Từ cổng ký túc xá đi bộ ra trạm xe buýt chỉ mất hai phút, đi năm bến là tới thẳng cổng trường đại học."
+    }
+   ]
+  },
+  "天氣": {
+   "vn": "thời tiết; khí hậu",
+   "ng": [
+    "(danh từ) thời tiết (tình trạng nắng, mưa, nóng, lạnh từng ngày từng mùa: 今天天氣很好 Hôm nay trời đẹp, 天氣預報 dự báo thời tiết)",
+    "(danh từ mở rộng) tiết trời chuyển mùa (看天氣吃飯 sống phụ thuộc thời tiết)"
+   ],
+   "us": "Hỏi thăm thời tiết: 今天天氣怎麼樣？ (Hôm nay thời tiết thế nào?). Miêu tả không cần động từ 'là': 天氣很熱 / 天氣變冷了 (Trời nóng / Trời trở lạnh rồi). Ghép hay dùng: 天氣預報 (dự báo thời tiết), 天氣變化 (thay đổi thời tiết).",
+   "co": [
+    "天氣預報|dự báo thời tiết",
+    "好天氣 / 壞天氣|trời đẹp / trời xấu",
+    "天氣變冷|thời tiết trở lạnh",
+    "注意天氣變化|chú ý thay đổi thời tiết"
+   ],
+   "sy": [
+    "氣候|khí hậu (khái niệm dài hạn theo vùng địa lý)",
+    "氣象|khí tượng (dự báo: 氣象預報)"
+   ],
+   "cf": [
+    "天氣 vs 氣候|天氣 = THỜI TIẾT ngắn hạn hôm nay, ngày mai, tuần này; 氣候 = KHÍ HẬU đặc trưng nhiều năm của một vùng (ví dụ: 台灣屬於亞熱帶氣候 Đài Loan thuộc khí hậu cận nhiệt đới)!"
+   ],
+   "lt": "Thanh 1 + thanh 4: tiānqì (chú ý trong câu thường đặt 天氣 làm chủ ngữ, đừng dịch '*hôm nay có thời tiết đẹp' thành *今天有好天氣 nếu ý muốn nói 'trời đẹp': nói 今天天氣很好 là chuẩn nhất!).",
+   "mk": "Đừng viết/nói nhầm *天氣很重 ❌ cho thời tiết xấu hay nặng nề — trời đẹp dùng 天氣很好, oi bức nói 天氣很悶熱, thất thường nói 天氣不穩定!",
+   "tw": "Ở Đài Loan người dân cực hay mở đầu câu chuyện xã giao bằng 天氣: 最近天氣好熱喔！(Dạo này trời nóng quá đi!) hoặc nhắc mặc áo khi 換季天氣早晚溫差大 (chuyển mùa sáng tối chênh lệch nhiệt độ lớn!).",
+   "mh": "Thiên Khí → tiānqì. ĐỌC: 'thiên' → tiān (th- → t- + ian thanh 1); 'khí' → qì (kh- → q- + i thanh 4). NGHĨA: 天 bầu trời + 氣 hơi/luồng khí gió mưa trên trời → trạng thái nắng mưa nóng lạnh của bầu trời = thời tiết.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "今天天氣晴朗涼爽，沒有太陽曬得太厲害，最適合和朋友去郊外踏青。",
+     "vn": "Hôm nay thời tiết quang đãng mát mẻ, nắng không quá gắt, thích hợp nhất đi dạo ngoại ô với bạn bè."
+    },
+    {
+     "t": "Chuẩn bị",
+     "zh": "台灣春天經常說變就變，早上出門前先看一下手機上的天氣預報比較保險。",
+     "vn": "Mùa xuân Đài Loan thường trở mặt nhanh lắm, sáng trước khi ra đường xem qua dự báo thời tiết trên điện thoại cho chắc ăn."
+    },
+    {
+     "t": "Quan tâm",
+     "zh": "這幾天寒流南下，早晚天氣變化非常大，騎機車上班一定要加件防風外套。",
+     "vn": "Mấy hôm nay không khí lạnh tràn xuống, sáng tối thời tiết thay đổi rất lớn, chạy xe máy đi làm nhớ mặc thêm áo khoác chắn gió nhé."
+    }
+   ]
+  },
+  "下雨": {
+   "vn": "trời mưa; đổ mưa",
+   "ng": [
+    "(động từ ly hợp) trời mưa, có mưa rơi (外面下雨了 bên ngoài trời mưa rồi, 下大雨 mưa to, 下毛毛雨 mưa phùn)"
+   ],
+   "us": "Là động từ ly hợp (V-sep), tuyệt đối KHÔNG cần chủ ngữ 'trời' nếu nói chung (*天在下雨 ❌ ít dùng bằng 下雨了 / 外面在下雨!). Tách giữa để chỉ mức độ hoặc thời lượng mưa: 下大雨 (mưa to), 下小雨 (mưa nhỏ), 下了一整天的雨 (mưa suốt cả một ngày), 下起雨來 (bắt đầu đổ mưa).",
+   "co": [
+    "下雨了|trời mưa rồi",
+    "下大雨 / 下小雨|mưa to / mưa nhỏ",
+    "下雨天|ngày mưa",
+    "午後雷陣雨|mưa giông buổi chiều (rất quen ở Đài Loan mùa hè)"
+   ],
+   "sy": [
+    "落雨|(phương ngữ Đài Ngữ hay nói trong đời sống cũ: lo̍h-hōo)"
+   ],
+   "an": [
+    "出太陽|nắng lên, trời nắng",
+    "放晴|hửng nắng, tạnh mưa"
+   ],
+   "cf": [
+    "下雨 vs 下雪|Cùng dùng động từ 下 ('rơi từ trên xuống'): 下雨 = mưa rơi; 下雪 = tuyết rơi (ở Đài Loan mùa đông trên đỉnh Hợp Hoan Sơn 合歡山 có lúc 下雪!)"
+   ],
+   "lt": "V-sep: đừng nói *很下雨 ❌ hay *多下雨 ❌! Mưa nhiều/mưa to phải tách chữ kẹp ở giữa: 雨下得很大 hoặc 下很大的雨.",
+   "mk": "Lỗi ngữ pháp kinh điển: nói *下雨很大 ❌ hoặc *今天非常下雨 ❌ -> PHẢI tách thành 下大雨 / 下很大的雨 / 雨下得很大!",
+   "tw": "Ai sống ở Cơ Long (基隆 — mệnh danh Vũ Đô 雨都) và Đài Bắc mùa đông đều quen cảnh 天天下雨 (ngày nào cũng mưa dầm) và mùa hè có 午後雷陣雨 (mưa rào giông chiều bất chợt rồi tạnh!).",
+   "mh": "Hạ Vũ → xiàyǔ. ĐỌC: 'hạ' → xià (h- → x- + ia thanh 4); 'vũ' → yǔ (v- → y- + vần tròn môi ü thanh 3). NGHĨA: 下 rơi xuống + 雨 giọt nước mưa → nước từ trên trời rơi xuống mặt đất = trời mưa.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "哎呀！外面突然下雨了，我放在陽台晾乾的衣服還沒收進來呢！",
+     "vn": "Ôi trời! Bên ngoài tự dưng đổ mưa rồi, quần áo tôi phơi ngoài ban công vẫn chưa thu vào nhà nữa!"
+    },
+    {
+     "t": "Lên lịch",
+     "zh": "台北冬天常常連續好幾天都在下雨，衣服洗完都要靠除濕機才能烘乾。",
+     "vn": "Mùa đông Đài Bắc thường mưa liên tục liền mấy ngày, quần áo giặt xong đều phải nhờ máy hút ẩm mới sấy khô nổi."
+    },
+    {
+     "t": "Nhắc nhở",
+     "zh": "夏天出門別看早上大太陽就沒帶傘，下午說不定馬上就會下起一陣雷陣雨。",
+     "vn": "Mùa hè ra ngoài đừng thấy sáng nắng to mà không mang ô, biết đâu buổi chiều lại bất ngờ đổ cơn mưa giông đấy."
+    }
+   ]
+  },
+  "魚": {
+   "vn": "con cá",
+   "ng": [
+    "(danh từ) con cá, các loài cá nói chung và thịt cá làm món ăn (養魚 nuôi cá, 吃魚 ăn cá, 生魚片 sashimi cá sống)"
+   ],
+   "us": "Dùng bình thường chỉ con vật sống (金魚 cá vàng, 抓魚 bắt cá, 釣魚 câu cá) và nguyên liệu chế biến món ăn (清蒸魚 cá hấp, 煎魚 cá rán, 魚湯 canh cá). Lượng từ phổ biến: 條 (一條魚) hoặc 尾 (一尾魚 — ở Đài Loan rất chuộng dùng chữ 尾 cho cá tươi/cá cảnh!).",
+   "co": [
+    "生魚片|cá sống sashimi",
+    "釣魚|câu cá",
+    "金魚|cá vàng",
+    "年年有餘|năm nào cũng dư dả (chơi chữ với 魚 bữa tất niên!)"
+   ],
+   "lt": "條、尾 (Đài Loan cực hay dùng 尾 wěi ở chợ cá/nhà hàng: 一尾新鮮的魚!).",
+   "mk": "1) Thanh 2 yú đọc tròn môi vần ü (chú ý phát âm giống 余/餘 nên mới có tục ăn cá ngày Tết!). 2) Nét dưới cùng của chữ Phồn thể 魚 là 4 chấm 灬 (tượng trưng đuôi cá/vây cá, đừng nhầm chữ 灬 là bếp lửa ở đây!).",
+   "tw": "Ở Đài Loan đặc sản cá nổi tiếng nhất là 虱目魚 (cá măng sữa — món 虱目魚肚粥 cháo bụng cá măng sữa ở Đài Nam!) và trong bữa cơm tất niên 除夕 luôn có một con cá để nguyên đầu đuôi tượng trưng câu chúc 年年有餘 (dư dả sung túc)!",
+   "mh": "Ngư → yú. ĐỌC: 'ngư' mất phụ âm ng- chuyển sang âm tròn môi yú thanh 2. NGHĨA: chữ tượng hình nguyên vẹn một con cá: trên phần đầu góc nhọn, giữa thân 魚 mang vảy lưới chữ 田, dưới 4 nét chấm vẫy đuôi cá = con cá.",
+   "vd": [
+    {
+     "t": "Ẩm thực",
+     "zh": "台南最有名的傳統早餐之一就是鮮甜美味、完全不腥的虱目魚粥。",
+     "vn": "Một trong những bữa sáng truyền thống nổi tiếng nhất Đài Nam chính là cháo cá măng sữa ngọt thịt và hoàn toàn không tanh."
+    },
+    {
+     "t": "Tết Nguyên Đán",
+     "zh": "除夕吃年夜飯時桌上一定要擺一條全魚，象徵新的一年「年年有餘」。",
+     "vn": "Đêm Giao thừa ăn bữa tất niên trên bàn nhất định phải có một con cá nguyên con, tượng trưng năm mới 'năm nào cũng dư dả'."
+    },
+    {
+     "t": "Nuôi cá",
+     "zh": "客廳桌上的透明水族箱裡養了五隻色彩繽紛的金魚，游來游去很療癒。",
+     "vn": "Trong bể thủy tinh trên bàn phòng khách nuôi năm chú cá vàng sặc sỡ bơi qua bơi lại trông rất thư giãn."
+    }
+   ]
+  },
+  "雞": {
+   "vn": "con gà; thịt gà",
+   "ng": [
+    "(danh từ) con gà (母雞 gà mái, 公雞 gà trống, 小雞 gà con)",
+    "(danh từ thực phẩm) thịt gà hoặc món chế biến từ gà (雞肉 thịt gà, 雞排 gà rán miếng to, 雞蛋 trứng gà, 雞湯 canh gà)"
+   ],
+   "us": "Ghép cực phong phú trong ẩm thực Đài Loan: 雞肉飯 (cơm gà xé Gia Nghĩa nổi tiếng), 雞腿便當 (cơm hộp đùi gà), 炸雞排 (gà rán miếng khổng lồ ở chợ đêm!), 鹹酥雞 (gà viên chiên muối tiêu lá húng quế), 雞湯 (súp/gà hầm). Lượng từ con sống là 隻 (一隻雞).",
+   "co": [
+    "雞肉|thịt gà",
+    "雞蛋|trứng gà",
+    "炸雞排|gà rán miếng lớn (đặc sản chợ đêm Đài Loan)",
+    "雞腿|đùi gà"
+   ],
+   "sy": [
+    "雞肉|thịt gà (nói rõ phần thịt)",
+    "公雞 / 母雞|gà trống / gà mái"
+   ],
+   "lt": "隻 (một con gà: 兩隻雞); 塊 / 份 (một miếng/phần gà rán).",
+   "mk": "Chú ý chữ Phồn thể chuẩn Đài Loan là 雞 (gồm 奚 + bộ 隹 chim — tránh viết theo chữ dị thể ít dùng *鷄 hay dạng rút gọn phi chuẩn).",
+   "tw": "Ở Đài Loan 雞 hiện diện khắp nền ẩm thực đường phố: 嘉義雞肉飯 (cơm gà xé Gia Nghĩa), 脆皮雞排 (gà rán miếng to bằng mặt người ở chợ đêm Sĩ Lâm), 鹹酥雞 (gà chiên muối tiêu khuya) và 麻油雞 / 剝皮辣椒雞湯 (canh gà hầm dầu mè/ớt ngâm mùa đông)!",
+   "mh": "Kê → jī. ĐỌC: 'kê' → jī (k- → j- + i thanh 1). NGHĨA: bên trái chỉ tiếng gáy 奚 + bên phải bộ 隹 (loài chim cánh ngắn) → loài gia cầm nuôi lấy thịt trứng hay cất tiếng gáy sáng = con gà.",
+   "vd": [
+    {
+     "t": "Chợ đêm",
+     "zh": "每次外國朋友來台灣玩，我第一樣推薦的夜市美食就是現炸的大雞排。",
+     "vn": "Lần nào bạn nước ngoài sang Đài Loan chơi, món ngon chợ đêm đầu tiên tôi giới thiệu chính là gà rán miếng lớn chiên giòn tại chỗ."
+    },
+    {
+     "t": "Ăn trưa",
+     "zh": "中午公司訂便當的時候，大家最常點的就是香酥可口的滷雞腿飯。",
+     "vn": "Buổi trưa lúc công ty đặt cơm hộp, món mọi người hay gọi nhất chính là cơm đùi gà kho thơm ngon."
+    },
+    {
+     "t": "Nông trại",
+     "zh": "外婆家後院養了好幾隻土雞，每天早上天剛亮公雞就會喔喔啼叫。",
+     "vn": "Sau vườn nhà bà ngoại nuôi khá nhiều gà ta, sáng nào trời vừa hửng sáng gà trống cũng cất tiếng gáy ò ó o."
+    }
+   ]
+  },
+  "牛": {
+   "vn": "con bò; con trâu; thịt bò; (lóng) lì lợm/bướng",
+   "ng": [
+    "(danh từ) loài bò, trâu nói chung (水牛 con trâu nước, 乳牛 bò sữa, 小牛 bê con)",
+    "(danh từ thực phẩm) thịt bò và chế phẩm (牛肉 thịt bò, 牛肉麵 mì bò, 牛奶 sữa bò, 牛排 bít tết)",
+    "(tính từ — khẩu ngữ) bướng bỉnh (牛脾氣 tính bướng bỉnh như trâu) hoặc cừ/lợi hại (slang Đại Lục, còn ở Đài Loan 黃牛 là 'phe vé chợ đen'!)"
+   ],
+   "us": "Dùng trực tiếp cho loài vật (lượng từ 頭 'con thú lớn' hoặc 隻 'con'): 一頭牛 (một con bò/trâu). Tuy nhiên trong cuộc sống Đài Loan chữ 牛 xuất hiện dày đặc nhất trong ẩm thực: 牛肉麵 (mì bò), 牛肉湯 (canh thịt bò Đài Nam), 牛奶 (sữa bò), 牛排 (bít tết bò). Chú ý 黃牛 ở Đài Loan mang nghĩa 'dân phe vé bán giá cao' (買黃牛票 mua vé chợ đen)!",
+   "co": [
+    "牛肉麵|mì bò (món biểu tượng Đài Loan)",
+    "牛奶|sữa bò",
+    "牛排|bít tết (steak)",
+    "黃牛|cò mồi / phe vé chợ đen (cách dùng phổ biến ở Đài Loan!)"
+   ],
+   "lt": "頭 (một con vật lớn: 一頭水牛 một con trâu), 隻 (khẩu ngữ gọi con vật nói chung: 這隻小牛).",
+   "mk": "1) Ở Đài Loan gặp bảng cấm 嚴禁黃牛 không phải 'cấm bò vàng' ❌ mà là 'NGHIÊM CẤM CÒ MỒI / PHE VÉ CHỢ ĐEN'! 2) Cẩn thận chữ 牛 (chóp nét sổ dọc NHÔ LÊN trên chữ 午!) khác chữ 午 wǔ (buổi trưa — đầu không nhô lên!).",
+   "tw": "Ở Đài Loan người lớn tuổi theo truyền thống nông nghiệp hay có kiêng ăn thịt bò vì trâu bò từng vất vả cày ruộng giúp nhà nông; nhưng giới trẻ và du khách cực kỳ mê 台灣牛肉麵 (mì bò) và 台南溫體牛肉湯 (canh thịt bò tươi Đài Nam ăn sáng!).",
+   "mh": "Ngưu → niú. ĐỌC: 'ngưu' → niú (ng- → n- + iu thanh 2). NGHĨA: chữ tượng hình mặt trước của con trâu bò với đôi sừng cong vươn ra hai bên trên đỉnh đầu = con bò, con trâu.",
+   "vd": [
+    {
+     "t": "Ẩm thực",
+     "zh": "來台北一定要吃一碗湯頭濃郁、肉塊軟嫩的半筋半肉紅燒牛肉麵。",
+     "vn": "Đến Đài Bắc nhất định phải ăn một tô mì bò kho nửa gân nửa thịt với nước dùng đậm đà và miếng thịt mềm rục."
+    },
+    {
+     "t": "Văn hóa",
+     "zh": "台灣早期農村生活辛苦，許多老一輩的長輩為了感念耕田的辛勞至今不吃牛肉。",
+     "vn": "Đời sống nông thôn Đài Loan thời xưa vất vả, nhiều bậc cao niên để tri ân công lao cày ruộng nên đến tận nay vẫn không ăn thịt bò."
+    },
+    {
+     "t": "Cảnh báo",
+     "zh": "搶不到熱門演唱會門票時也不要買高價轉售的黃牛票，以免受騙上當。",
+     "vn": "Khi không săn được vé concert hot cũng đừng mua vé phe giá cắt cổ kẻo bị lừa gạt nhé."
+    }
+   ]
+  },
+  "豬": {
+   "vn": "con heo; con lợn; thịt heo",
+   "ng": [
+    "(danh từ) con heo, con lợn (養豬 nuôi heo, 小豬 heo con)",
+    "(danh từ thực phẩm) thịt heo (豬肉 thịt heo, 滷豬腳 giò heo kho, 豬排 sườn cốt lết rán)"
+   ],
+   "us": "Chỉ con vật (lượng từ 隻 hoặc 頭: 一隻小豬) và thịt heo phổ thông nhất trong bữa cơm Đài Loan: 豬肉 (thịt lợn/heo), 炸豬排 (thịt cốt lết chiên giòn kiểu Nhật/Đài trong hộp cơm), 豬血糕 (bánh tiết gạo nếp Đài Loan!), 豬腳麵線 (mì chân giò chúc thọ/giải xui!).",
+   "co": [
+    "豬肉|thịt heo / thịt lợn",
+    "炸豬排|thịt cốt lết heo chiên giòn",
+    "豬腳|chân giò heo",
+    "山豬肉|thịt heo rừng nướng (đặc sản miền núi Đài Loan)"
+   ],
+   "sy": [
+    "豬隻|(thuật ngữ nông nghiệp chỉ đàn heo/số lượng con heo)"
+   ],
+   "lt": "隻、頭 (một con heo: 一隻粉紅色的豬).",
+   "mk": "Chữ Phồn thể 豬 có bộ 豕 (con heo) ở bên trái + 者 bên phải (KHÁC chữ Giản thể bộ Khuyển 犭 bên trái!).",
+   "tw": "Ở Đài Loan heo là nguồn thịt chính: món cơm bình dân quen nhất là 滷肉飯 / 排骨飯 / 豬排便當; ngày sinh nhật người lớn tuổi hay sau khi hết vận đen người Đài ăn bát 豬腳麵線 (mì chân giò) để chúc trường thọ và đổi vận may!",
+   "mh": "Trư → zhū. ĐỌC: 'trư' → zhū (tr- uốn lưỡi → zh- + u thanh 1). NGHĨA: bộ 豕 (hình con heo mập có 4 chân và đuôi) bên trái + 者 (chỉ âm) bên phải → loài gia súc nuôi lấy thịt = con heo, con lợn.",
+   "vd": [
+    {
+     "t": "Cơm hộp",
+     "zh": "這家老牌便當店的酥炸大豬排比手掌還大，外酥內多汁，中午總是大排長龍。",
+     "vn": "Miếng thịt heo cốt lết chiên giòn của tiệm cơm hộp lâu đời này to hơn cả bàn tay, ngoài giòn trong mọng nước nên trưa nào cũng xếp hàng dài."
+    },
+    {
+     "t": "Phong tục",
+     "zh": "台灣習俗在長輩生日祝壽或改運的時候，常會煮一碗熱騰騰的豬腳麵線來吃。",
+     "vn": "Theo phong tục Đài Loan dịp chúc thọ sinh nhật người lớn tuổi hoặc giải vận xui, mọi người hay nấu một tô mì chân giò heo nóng hổi để ăn."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "在烏來老街上到處都能聞到炭烤山豬肉和香腸撲鼻而來的香味。",
+     "vn": "Trên phố cổ Ô Lai đâu đâu cũng ngửi thấy mùi thơm nức của thịt heo rừng nướng than và lạp xưởng."
+    }
+   ]
+  },
+  "計程車": {
+   "vn": "xe taxi (từ chuẩn Đài Loan)",
+   "ng": [
+    "(danh từ) xe taxi (từ CHUẨN 100% ở Đài Loan — nghĩa đen là xe tính tiền theo chặng đường: 搭計程車 đi taxi, 叫計程車 gọi taxi)"
+   ],
+   "us": "Đi xe taxi dùng 搭 / 坐 hoặc gọi xe 叫計程車 (vẫy xe ngoài phố nói 攔計程車 lán jìchéngchē), đồng hồ tính cước nhảy số là 跳錶 (tiàobiǎo). Lượng từ: 輛, 台 (一台計程車 ở Đài Loan cực phổ biến!).",
+   "co": [
+    "搭計程車|đi taxi",
+    "叫計程車|gọi taxi (qua app hoặc tổng đài)",
+    "計程車司機|tài xế taxi",
+    "計程車資 / 車費|tiền cước taxi"
+   ],
+   "sy": [
+    "小黃|(biệt danh siêu quen thuộc người Đài gọi taxi vì toàn bộ taxi hợp pháp ở Đài Loan sơn màu vàng!)",
+    "出租車|(cách nói ở Đại Lục; ở Đài Loan gần như KHÔNG dùng!)"
+   ],
+   "cf": [
+    "計程車 vs 出租車|Ở ĐÀI LOAN nói 100% là 計程車 (jìchéngchē) hoặc gọi thân mật theo màu xe là 小黃 (xiǎohuáng); nói 出租車 là cách dùng của Đại Lục (ở Đài Loan chữ 出租車 còn có thể gây hiểu nhầm thành 'xe cho tự thuê lái'!)"
+   ],
+   "lt": "台、輛 (một chiếc taxi: 叫一台計程車). Thanh điệu: jìchéngchē (4–2–1).",
+   "mk": "1) Chớ quen nói *出租車 ❌ khi đi học/làm ở Đài Loan -> nói 計程車 hoặc 小黃! 2) Gọi dịch vụ gọi xe công nghệ như Uber / 55688 rất hay nói 用App叫車.",
+   "tw": "Ở Đài Loan gần như tất cả taxi chính thức đều có màu vàng đặc trưng nên dân địa phương gọi yêu là 「小黃」; hai cách gọi taxi phổ biến nhất là vẫy tay ven đường hoặc bấm gọi hãng lớn 「台灣大車隊 55688」 và Uber/LINE GO (LINE Taxi)!",
+   "mh": "Kế Trình Xa → jìchéngchē. ĐỌC: 'kế' → jì (k- → j- + i thanh 4); 'trình' → chéng (tr- → ch- + eng thanh 2); 'xa' → chē (thanh 1). NGHĨA: 計 tính toán đếm + 程 quãng đường + 車 xe → chiếc xe chạy tính tiền cước theo quãng đường đồng hồ = xe taxi.",
+   "vd": [
+    {
+     "t": "Đi lại",
+     "zh": "晚上加班太晚沒有公車了，只好用手機叫一輛計程車直接回家休息。",
+     "vn": "Buổi tối tăng ca muộn quá hết xe buýt rồi, đành phải dùng điện thoại gọi một chiếc taxi về thẳng nhà nghỉ ngơi."
+    },
+    {
+     "t": "Sân bay",
+     "zh": "我們帶了好幾個大行李箱不太方便擠捷運，乾脆一起分擔車資搭計程車吧。",
+     "vn": "Chúng mình mang mấy cái vali to khá bất tiện chen lên tàu điện ngầm, thà cùng chia tiền đi taxi cho khỏe."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "台灣的計程車車身規定統一塗成亮眼的黃色，因此大家平時都親切地叫它「小黃」。",
+     "vn": "Xe taxi ở Đài Loan quy định thống nhất sơn màu vàng nổi bật, vì vậy bình thường mọi người đều gọi thân mật là 'Tiểu Hoàng'."
+    }
+   ]
+  },
+  "火車": {
+   "vn": "tàu hỏa; xe lửa",
+   "ng": [
+    "(danh từ) tàu hỏa, xe lửa chạy trên đường ray (ở Đài Loan chỉ hệ thống đường sắt quốc gia 台鐵 quanh đảo, phân biệt với tàu cao tốc 高鐵)"
+   ],
+   "us": "Đi tàu hỏa: 搭火車 / 坐火車 (đi tàu hỏa), 火車站 (nhà ga tàu hỏa — ví dụ 台北火車站, 花蓮火車站), 趕火車 (chạy cho kịp tàu), 火車票 (vé tàu hỏa), 火車便當 (cơm hộp tàu hỏa cực nổi tiếng!). Lượng từ: 班 (chuyến: 這班火車), 列 (đoàn tàu), 輛 (toa/chiếc).",
+   "co": [
+    "搭火車|đi tàu hỏa",
+    "火車站|ga tàu hỏa",
+    "火車票|vé tàu hỏa",
+    "鐵路便當 / 火車便當|cơm hộp trên tàu hỏa (đặc sản truyền thống Đài Loan)"
+   ],
+   "sy": [
+    "台鐵|Đường sắt Đài Loan (cách gọi tắt quen thuộc cho tàu hỏa thường ở Đài Loan)",
+    "高鐵|tàu cao tốc (chạy tuyến phía Tây tốc độ 300km/h)"
+   ],
+   "cf": [
+    "火車 vs 高鐵 vs 捷運|HỆ THỐNG ĐƯỜNG SẮT ĐÀI LOAN: 1) 捷運 (MRT) = tàu điện nội thành (Đài Bắc, Đào Viên, Đài Trung, Cao Hùng); 2) 火車 (台鐵 TRA) = tàu hỏa quanh đảo (đi bờ Đông Hoa Liên, Đài Đông và các thị trấn nhỏ); 3) 高鐵 (HSR) = tàu cao tốc siêu nhanh chạy bờ Tây (Đài Bắc – Cao Hùng chỉ 90 phút!)"
+   ],
+   "lt": "班 (chuyến tàu), 列 (một đoàn tàu hỏa dài).",
+   "mk": "Đừng gọi nhầm tàu cao tốc 高鐵 hay tàu MRT là *火車! Ở Đài Loan nói 搭火車 tức là đi tàu của hãng 台鐵 (như tàu 區間車 tàu địa phương dừng từng ga, hoặc tàu tốc hành Tự Cường 自強號!).",
+   "tw": "Văn hóa đi 火車 ở Đài Loan cực kỳ đáng trải nghiệm: nhiều người thích đi tàu hỏa ngắm cảnh bờ biển Thái Bình Dương dọc 花蓮–台東 và nhất định mua một hộp 台鐵便當 (cơm hộp tàu hỏa sườn kho trứ danh giá rất bình dân!) để vừa ngắm cảnh vừa ăn trên tàu!",
+   "mh": "Hỏa Xa → huǒchē. ĐỌC: 'hỏa' → huǒ (thanh 3); 'xa' → chē (thanh 1). NGHĨA: 火 ngọn lửa hơi nước + 車 chiếc xe → thời đầu máy hơi nước chạy bằng than lửa kéo cả đoàn toa xe nên gọi từ đó tới nay = tàu hỏa, xe lửa.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "搭火車沿著台灣東海岸行駛的時候，窗外就是蔚藍的太平洋風景，超級療癒。",
+     "vn": "Khi đi tàu hỏa chạy dọc theo bờ biển phía Đông Đài Loan, bên ngoài cửa sổ chính là cảnh Thái Bình Dương xanh thẳm cực kỳ thư giãn."
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "每次走進台北火車站準備回鄉下過節，我總會先買一份傳統排骨火車便當帶上車吃。",
+     "vn": "Lần nào bước vào ga tàu hỏa Đài Bắc chuẩn bị về quê đón lễ, tôi cũng mua sẵn một phần cơm hộp sườn tàu hỏa mang lên tàu ăn."
+    },
+    {
+     "t": "Lên lịch",
+     "zh": "連假期間往花蓮跟台東的火車票往往非常難買，半夜十二點開賣就得守在電腦前搶票。",
+     "vn": "Dịp nghỉ lễ dài vé tàu hỏa đi Hoa Liên và Đài Đông thường cực kỳ khó mua, nửa đêm 12 giờ mở bán là phải canh sẵn trước máy tính săn vé."
+    }
+   ]
+  },
+  "感冒": {
+   "vn": "bị cảm; cảm lạnh; cảm cúm",
+   "ng": [
+    "(động từ / danh từ) bị cảm lạnh, cảm cúm thông thường (感冒了 bị cảm rồi, 重感冒 cảm nặng, 感冒藥 thuốc cảm)"
+   ],
+   "us": "Dùng như động từ tính từ hóa (我感冒了 Tôi bị cảm rồi, 小心別感冒了 Cẩn thận kẻo cảm đấy!) hoặc ghép danh từ (得感冒 bị dính cảm, 吃感冒藥 uống thuốc cảm, 流行性感冒 cúm mùa). Không dùng chữ *我有感冒 (nói thẳng 我感冒了 hoặc 我得感冒了!).",
+   "co": [
+    "感冒了|bị cảm rồi",
+    "重感冒|cảm nặng",
+    "感冒藥|thuốc cảm",
+    "傳染感冒|lây cảm cho người khác"
+   ],
+   "sy": [
+    "著涼|nhiễm lạnh (bị gió lạnh gây cảm nhẹ)",
+    "流感|cúm mùa (viết tắt của 流行性感冒)"
+   ],
+   "lt": "Gǎnmào (thanh 3 + thanh 4). Chú ý 吃感冒藥 = uống thuốc cảm (thuốc viên dùng 吃, không dùng *喝!).",
+   "mk": "1) Đừng dịch 'uống thuốc cảm' thành *喝感冒藥 ❌ -> PHẢI dùng 吃感冒藥! 2) Không nói *我感覺感冒 ❌ mà nói gọn 我好像感冒了 (Tôi hình như bị cảm rồi!).",
+   "tw": "Ở Đài Loan chi phí đi khám ở phòng khám gần nhà (診所) bằng thẻ Bảo hiểm Y tế (健保卡) cực kỳ rẻ nên hễ 感冒了 bác sĩ hay dặn: 多喝溫開水、多休息, và mọi người mang khẩu trang 戴口罩 ngay để tránh lây đồng nghiệp!",
+   "mh": "Cảm Mạo → gǎnmào. ĐỌC: 'cảm' → gǎn (c- → g- + an thanh 3); 'mạo' → mào (thanh 4). NGHĨA: 感 cảm thụ/nhiễm phải + 冒 xông phạm vào (gió lạnh thấm phạm vào cơ thể) → nhiễm phải khí lạnh dẫn đến hắt hơi sổ mũi ho sốt = bị cảm.",
+   "vd": [
+    {
+     "t": "Sức khỏe",
+     "zh": "最近氣溫一下子降了很多，這兩天好幾個同事都陸續感冒流鼻水了。",
+     "vn": "Gần đây nhiệt độ giảm mạnh đột ngột, hai hôm nay mấy đồng nghiệp liên tiếp nhau bị cảm sổ mũi hết rồi."
+    },
+    {
+     "t": "Phòng khám",
+     "zh": "她得了重感冒一直咳嗽發燒，昨天趕緊拿健保卡去家旁邊的小兒科診所看醫生。",
+     "vn": "Cô ấy bị cảm nặng ho và sốt liên tục, hôm qua phải vội cầm thẻ bảo hiểm y tế ra phòng khám gần nhà khám bác sĩ."
+    },
+    {
+     "t": "Nhắn nhủ",
+     "zh": "吃完感冒藥通常會覺得特別想睡覺，如果吃完藥千萬不要急著騎車出門喔！",
+     "vn": "Uống thuốc cảm xong thường hay thấy rất buồn ngủ, nếu uống thuốc rồi thì đừng vội chạy xe máy ra ngoài nhé!"
+    }
+   ]
+  },
+  "菜單": {
+   "vn": "thực đơn (menu)",
+   "ng": [
+    "(danh từ) tờ thực đơn, danh sách các món ăn thức uống trong nhà hàng/quán ăn (看菜單 xem thực đơn, 英文菜單 menu tiếng Anh)"
+   ],
+   "us": "Vào quán dùng ngay: 請問有菜單嗎？ (Xin hỏi có thực đơn không ạ?), 拿菜單 (lấy menu), 看菜單點菜 (xem thực đơn gọi món). Ở nhiều quán bình dân Đài Loan menu chính là tờ giấy ép nhựa để dùng bút xóa được (劃菜單) tự đánh dấu tích món mình ăn rồi đưa quầy tính tiền! Lượng từ: 張 (tờ), 本 (cuốn), 份 (phần/bản).",
+   "co": [
+    "看菜單|xem thực đơn",
+    "英文菜單 / 圖片菜單|thực đơn tiếng Anh / có hình ảnh",
+    "畫菜單|tích đánh dấu vào tờ thực đơn gọi món (cách gọi món đặc trưng ở Đài Loan!)",
+    "隱藏版菜單|thực đơn bí mật không ghi trên bảng chính"
+   ],
+   "sy": [
+    "點菜單|phiếu gọi món",
+    "價目表|bảng giá món ăn/dịch vụ"
+   ],
+   "lt": "張 (tờ giấy menu ở quán bình dân), 本 (quyển menu dày ở nhà hàng), 份.",
+   "mk": "Chữ 菜 thanh 4, 單 thanh 1 (càidān). Đừng nói *給我菜單看 nhé — nói lịch sự kiểu Đài Loan là 請問可以給我一份菜單嗎？ (Hoặc ở quán trà sữa dùng QR code tự quét 看電子菜單!).",
+   "tw": "Ở Đài Loan vào quán mì/quán cơm bình dân không cần gọi lớn bằng miệng đâu: chỉ việc lấy một tờ 菜單 (phiếu thực đơn giấy kèm cây bút chì/bút dạ) tự 畫單 (tích số lượng + ghi số bàn 桌號) rồi mang ra quầy 櫃檯 tính tiền trước hoặc sau khi ăn!",
+   "mh": "Thái Đơn → càidān. ĐỌC: 'thái' → cài (th- → c- bật hơi + ai thanh 4); 'đơn' → dān (đ- → d- + an thanh 1). NGHĨA: 菜 món ăn + 單 tờ danh sách liệt kê → tờ giấy liệt kê danh sách món ăn và giá tiền = thực đơn.",
+   "vd": [
+    {
+     "t": "Nhà hàng",
+     "zh": "剛坐下來不久，熱情的店員就立刻遞給我們兩份附有彩色照片的菜單。",
+     "vn": "Vừa ngồi xuống chưa lâu, nhân viên nhiệt tình liền đưa ngay cho chúng tôi hai quyển thực đơn có ảnh màu."
+    },
+    {
+     "t": "Quán bình dân",
+     "zh": "台灣許多小吃店是用筆直接在紙本菜單上勾選要點的項目，填好桌號再拿到櫃檯結帳。",
+     "vn": "Nhiều quán ăn bình dân ở Đài Loan dùng bút đánh dấu thẳng vào tờ thực đơn giấy các món muốn gọi, điền số bàn xong mang ra quầy thanh toán."
+    },
+    {
+     "t": "Dị ứng ăn uống",
+     "zh": "對海鮮過敏的同學在點餐前，記得先仔細看一下菜單上有沒有寫明食材內容喔。",
+     "vn": "Các bạn bị dị ứng hải sản trước khi gọi món nhớ đọc kỹ xem trên thực đơn có ghi rõ thành phần nguyên liệu không nhé."
+    }
+   ]
+  },
+  "客廳": {
+   "vn": "phòng khách",
+   "ng": [
+    "(danh từ) phòng khách (gian phòng chung rộng rãi để tiếp khách, đặt sofa, tivi và cả nhà quây quần trò chuyện trong ngôi nhà/căn hộ)"
+   ],
+   "us": "Dùng bình thường cho không gian nhà cửa: 坐在客廳看電視 (ngồi phòng khách xem tivi), 客廳很大 / 採光很好 (phòng khách rất rộng / sáng sủa), 打掃客廳 (quét dọn phòng khách). Lượng từ: 間, 個 (一間客廳).",
+   "co": [
+    "在客廳|ở phòng khách",
+    "客廳沙發|ghế sofa phòng khách",
+    "客廳好大|phòng khách rộng quá",
+    "整理客廳|dọn dẹp phòng khách"
+   ],
+   "sy": [
+    "起居室|phòng sinh hoạt chung của gia đình"
+   ],
+   "cf": [
+    "客廳 vs 房間 vs 浴室|Bộ phòng trong nhà/căn hộ Đài Loan khi đi thuê nhà (租屋): 客廳 (phòng khách), 房間/臥室 (phòng ngủ), 廚房 (nhà bếp), 浴室 / 廁所 (phòng tắm / WC), 陽台 (ban công). Chú ý căn 雅房 hoặc 套房 thường chỉ là phòng ngủ riêng chứ chưa chắc có 客廳 chung!"
+   ],
+   "lt": "間、個 (一間寬敞的客廳 một phòng khách rộng rãi). Chữ 廳 đọc tīng thanh 1.",
+   "mk": "1) Đừng nhầm với 'nhà hàng' 餐廳 (cāntīng) — chữ 廳 (tīng) là gian sảnh lớn, thêm 客 ('khách') mới là phòng khách 客廳, thêm 餐 ('cơm/bữa') là nhà hàng 餐廳! 2) Nhớ bộ mái che rộng 廣 trong Phồn thể 廳.",
+   "tw": "Khi tìm thuê nhà ghép ở Đài Bắc/Đài Trung cùng bạn bè (家庭式整層住家), dân thuê nhà rất thích căn hộ có một 客廳 rộng có cửa sổ sáng (採光好) để tối nấu ăn xong cả nhóm ra ngồi nói chuyện xem Netflix!",
+   "mh": "Khách Sảnh → kètīng. ĐỌC: 'khách' → kè (kh- bật sang k- + e thanh 4); 'sảnh' → tīng (th- bật sang t- + ing thanh 1). NGHĨA: 客 khách khứa + 廳 gian phòng lớn đón tiếp → gian phòng lớn nhất ngay cửa bước vào để tiếp khách và gia đình sinh hoạt chung = phòng khách.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "每天晚上吃飽飯以後，爸爸媽媽和我們喜歡坐在客廳沙發上一邊吃水果一邊聊天。",
+     "vn": "Tối nào ăn cơm no xong bố mẹ và chúng tôi cũng thích ngồi trên sofa phòng khách vừa ăn trái cây vừa trò chuyện."
+    },
+    {
+     "t": "Thuê nhà",
+     "zh": "雖然這間合租公寓的客廳不算特別大，但採光很棒，我們幾個室友整理得很溫馨。",
+     "vn": "Tuy phòng khách của căn hộ thuê chung này không quá rộng nhưng ánh sáng rất tốt, mấy đứa bạn cùng phòng tụi mình dọn dẹp nhìn ấm cúng lắm."
+    },
+    {
+     "t": "Tiếp khách",
+     "zh": "聽見門鈴響了，小狗立刻跑出客廳搖著尾巴去玄關迎接來拜訪的朋友。",
+     "vn": "Nghe thấy tiếng chuông cửa reo, chú cún lập tức chạy ra khỏi phòng khách vẫy đuôi ra cửa đón bạn tới chơi."
+    }
+   ]
+  },
+  "冷氣(機)": {
+   "vn": "máy lạnh; điều hòa không khí",
+   "ng": [
+    "(danh từ) máy điều hòa không khí, máy lạnh (khẩu ngữ gọi gọn 99% là 冷氣; tên thiết bị đầy đủ là 冷氣機: 開冷氣 bật máy lạnh, 吹冷氣 ngồi hưởng điều hòa)"
+   ],
+   "us": "Đi kèm động từ quen thuộc: 開冷氣 (bật máy lạnh), 關冷氣 (tắt máy lạnh), 吹冷氣 (ngồi phòng điều hòa hóng mát), 洗冷氣 (vệ sinh bảo dưỡng điều hòa — rất hay cần khi sống ở Đài Loan!), 冷氣很強 / 很涼 (điều hòa mát lạnh lắm), 冷氣遙控器 (điều khiển điều hòa). Lượng từ: 台 (一台冷氣機).",
+   "co": [
+    "開冷氣 / 關冷氣|bật điều hòa / tắt điều hòa",
+    "吹冷氣|ngồi hưởng máy lạnh cho mát",
+    "冷氣很強|máy lạnh mở lạnh buốt / mát rượi",
+    "變頻冷氣|điều hòa Inverter tiết kiệm điện (rất quan trọng khi thuê trọ Đài Loan!)"
+   ],
+   "sy": [
+    "空調|hệ thống điều hòa không khí trung tâm (tòa nhà lớn/xe buýt)"
+   ],
+   "cf": [
+    "冷氣 vs 空調|Trong gia đình, phòng trọ, lớp học ở Đài Loan dùng hoàn toàn từ 冷氣 (đừng gọi là *空調 như giọng Đại Lục trong giao tiếp hàng ngày, trừ điều hòa tổng cả tòa nhà hoặc trong xe ô tô thì gọi 冷氣/空調)!"
+   ],
+   "lt": "台 (一台冷氣機). Lưu ý ở Đài Loan ngoài máy lạnh 1 chiều còn có loại hai chiều sưởi ấm mùa đông gọi là 冷暖氣機!",
+   "mk": "1) Chớ nhầm với cách nói Đại Lục *空調 (kōngtiáo) khi thuê nhà ở Đài Loan — tìm nhà ở Đài nhất định nhìn kỹ trang thiết bị xem có 變頻冷氣 (máy lạnh Inverter tiết kiệm tiền điện!) hay không! 2) Bật/tắt thiết bị điện dùng 開 / 關.",
+   "tw": "Ở Đài Loan mùa hè từ tháng 5 tới tháng 10 cực kỳ nóng ẩm nên dân văn phòng và sinh viên trưa nào cũng muốn vào quán cà phê/thư viện 吹冷氣 (ngồi hóng máy lạnh)! Trong MRT hay rạp phim Đài Bắc 冷氣開很強 (mở lạnh sâu) nên hay khuyên mang theo áo khoác mỏng!",
+   "mh": "Lãnh Khí (Cơ) → lěngqì(jī). ĐỌC: 'lãnh' → lěng (thanh 3); 'khí' → qì (thanh 4); 'cơ' → jī (thanh 1). NGHĨA: 冷 lạnh lẽo + 氣 luồng không khí + 機 máy móc → cỗ máy thổi ra luồng khí mát lạnh = máy lạnh, máy điều hòa.",
+   "vd": [
+    {
+     "t": "Mùa hè",
+     "zh": "七八月的中午外面太陽毒辣得受不了，進門第一件事就是趕快打開冷氣降溫。",
+     "vn": "Trưa tháng Bảy tháng Tám bên ngoài nắng gắt không chịu nổi, việc đầu tiên khi bước vào nhà là bật ngay điều hòa hạ nhiệt."
+    },
+    {
+     "t": "Thuê nhà",
+     "zh": "這間套房去年剛換了一台全新的省電變頻冷氣機，夏天電費應該不會太貴。",
+     "vn": "Phòng khép kín này năm ngoái vừa mới thay một chiếc máy lạnh Inverter tiết kiệm điện mới tinh, tiền điện mùa hè chắc sẽ không quá đắt đâu."
+    },
+    {
+     "t": "Văn phòng",
+     "zh": "台北捷運和電影院裡面的冷氣常常開得很強，怕冷的女生最好隨身帶一件薄外套。",
+     "vn": "Máy lạnh bên trong tàu điện ngầm Đài Bắc và rạp chiếu phim thường mở rất lạnh, các bạn nữ sợ lạnh tốt nhất mang theo một chiếc áo khoác mỏng."
+    }
+   ]
+  },
+  "馬": {
+   "vn": "con ngựa",
+   "ng": [
+    "(danh từ) con ngựa (騎馬 cưỡi ngựa, 白馬 ngựa trắng, 黑馬 ngựa ô / nhân tố gây bất ngờ)",
+    "(hình vị rất quen thuộc) xuất hiện trong các từ cơ bản như 馬路 (đường cái), 馬上 (ngay lập tức), 斑馬線 (vạch sang đường)"
+   ],
+   "us": "Chỉ loài ngựa: 騎馬 (cưỡi ngựa), 養馬 (nuôi ngựa), 木馬 (ngựa gỗ / virus máy tính Trojan!). Lượng từ chuẩn văn viết/đếm động vật to có móng là 匹 (pǐ: 一匹馬 một con ngựa), trong giao tiếp trẻ con có thể dùng 隻. Nhắc luôn nghĩa bóng từ thể thao/thi cử ở Đài Loan: 黑馬 (ngựa ô — ứng viên bất ngờ chiến thắng!).",
+   "co": [
+    "騎馬|cưỡi ngựa",
+    "一匹馬|một con ngựa",
+    "黑馬|ngựa ô (nhân tố bất ngờ bứt phá)",
+    "馬馬虎虎|tàm tạm, qua loa đại khái"
+   ],
+   "lt": "匹 (pǐ — lượng từ chuẩn cho ngựa: 一匹白馬 một con ngựa trắng), cũng gặp 隻 trong văn nói nhẹ với trẻ em.",
+   "mk": "1) Chớ nhầm lượng từ pǐ (一匹馬) sang *一個馬 ❌! 2) Đừng nhầm 馬上 (mǎshàng 'ngay lập tức') nghĩa là 'đứng trên lưng ngựa' theo nghĩa đen trong hội thoại thường ngày!",
+   "tw": "Ở Đài Loan ở khu Hậu Lý Đài Trung có trang trại ngựa lịch sử 后里馬場 nơi du khách có thể trải nghiệm 騎馬 (cưỡi ngựa); ngoài ra người Đài gọi vạch trắng cho người đi bộ sang đường là 斑馬線 ('vạch ngựa vằn'!) và từ dùng khen ứng viên bất ngờ giành giải là 本屆最大黑馬!",
+   "mh": "Mã → mǎ. ĐỌC: 'mã' → mǎ (thanh 3). NGHĨA: chữ tượng hình nguyên bản vẽ nghiêng một con ngựa có đầu bờm tung bay, lưng dài và bốn vó bên dưới (bộ 灬 tượng trưng bốn chân ngựa phi!) = con ngựa.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "週末爸爸帶我們去台中的農場玩，弟弟第一次體驗騎馬既興奮又有點緊張。",
+     "vn": "Cuối tuần bố đưa chúng tôi đi nông trại ở Đài Trung chơi, em trai lần đầu tiên trải nghiệm cưỡi ngựa vừa hào hứng lại hơi hồi hộp."
+    },
+    {
+     "t": "Thiên nhiên",
+     "zh": "一望無際的綠色大草原上，幾匹雪白的馬兒正低頭悠閒地吃著嫩草。",
+     "vn": "Trên thảo nguyên xanh bao la ngút ngàn, mấy chú ngựa trắng muốt đang cúi đầu thong thả gặm cỏ non."
+    },
+    {
+     "t": "Thể thao",
+     "zh": "沒料到這名剛升上大一的新人竟然成為這次大專盃比賽的最大黑馬，一路奪下金牌。",
+     "vn": "Không ngờ tân sinh viên năm nhất này lại trở thành chú ngựa ô lớn nhất giải đại học lần này, thẳng tiến giành huy chương vàng."
+    }
+   ]
+  },
+  "鳥": {
+   "vn": "con chim; (lóng Đài Loan) thèm để ý/tào lao",
+   "ng": [
+    "(danh từ) con chim nói chung (小鳥 chim nhỏ, 候鳥 chim di cư, 賞鳥 ngắm chim)",
+    "(động từ / tính từ — tiếng lóng Đài Loan cực phổ biến) thèm để ý đến (不鳥你 bơ đẹp không thèm để ý bạn), hoặc nhảm nhí/tệ (好鳥 thật tào lao/xui xẻo)"
+   ],
+   "us": "Nghĩa chuẩn cơ bản là loài chim trên trời (樹上有小鳥 đang hót: 小鳥在叫, 賞鳥 ngắm chim, 鳥類 loài chim). Lượng từ: 隻 (一隻鳥 một con chim), 群 (một đàn chim: 一群鳥). Nếu sống lâu ở Đài Loan cần biết thêm ngữ khí thân mật giữa bạn bè: 他都不鳥我 (Nó chả thèm để ý tới tôi!).",
+   "co": [
+    "小鳥|chim nhỏ",
+    "賞鳥|ngắm chim hoang dã",
+    "不鳥你|(tiếng lóng Đài Loan) bơ bạn, chẳng thèm trả lời/để ý tới bạn",
+    "一石二鳥|một công đôi việc (một hòn đá ném trúng hai con chim)"
+   ],
+   "lt": "隻 (một con chim: 一隻小鳥). Chú ý phân biệt nét chữ 鳥 (có một nét chấm ở giữa phần thân — tức con mắt chú chim!) với chữ 烏 wū ('quạ đen / màu đen' — không có mắt chấm đen giữa thân vì quạ đen quá không thấy mắt!).",
+   "mk": "1) Lỗi viết nhầm huyền thoại: 鳥 (niǎo = CON CHIM, CÓ DẤU CHẤM MẮT BÊN TRONG) vs 烏 (wū = ĐEN KỊT / CON QUẠ trong 烏龍茶 Ô Long, KHÔNG có chấm mắt!). 2) Nhớ thanh 3 niǎo!",
+   "tw": "Đài Loan nằm trên tuyến chim di cư Đông Á nên văn hóa 賞鳥 (ngắm chim tự nhiên — như ngắm cò mặt thìa đen 黑面琵鷺 ở Đài Nam!) rất phát triển! Đồng thời giới trẻ hay nói câu lóng thân thiết 不鳥他 (bơ nó đi không thèm quan tâm!) hay 關你鳥事.",
+   "mh": "Điểu → niǎo. ĐỌC: 'điểu' → niǎo (đ- → n- + iao thanh 3). NGHĨA: chữ tượng hình nguyên vẹn chú chim đậu nhìn sang trái: mào trên đầu, chấm mắt ở giữa, thân và cái đuôi với 4 chấm chân bám cành = con chim.",
+   "vd": [
+    {
+     "t": "Thiên nhiên",
+     "zh": "每天清晨打開窗戶，總能聽見公園樹枝上的小鳥清脆悅耳地唱著歌。",
+     "vn": "Mỗi sáng sớm mở cửa sổ ra lúc nào cũng nghe thấy những chú chim nhỏ trên cành cây trong công viên hót líu lo trong trẻo."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "每年秋冬時節，台南七股濕地都會吸引大批愛鳥人士帶著望遠鏡前來賞鳥。",
+     "vn": "Mỗi dịp thu đông hằng năm, vùng đầm lầy Thất Cổ ở Đài Nam đều thu hút đông đảo người yêu chim mang theo ống nhòm tới ngắm chim di cư."
+    },
+    {
+     "t": "Đố vui",
+     "zh": "參加這個一舉兩得的公益路跑既能運動健身又能幫助弱勢，真是一石二鳥的好活動。",
+     "vn": "Tham gia giải chạy từ thiện một công đôi việc này vừa rèn luyện sức khỏe vừa giúp đỡ người khó khăn, đúng là hoạt động một mũi tên trúng hai đích."
+    }
+   ]
+  },
+  "貓": {
+   "vn": "con mèo",
+   "ng": [
+    "(danh từ) con mèo (養貓 nuôi mèo, 小貓 mèo con, 流浪貓 mèo hoang, 貓咪 bé mèo đáng yêu)"
+   ],
+   "us": "Dùng bình thường cho loài mèo: 我養了兩隻貓 (Tôi nuôi hai con mèo), 貓咪 (bé mèo / em mèo — cực kỳ phổ biến ở Đài Loan!), 貓咖啡廳 (quán cà phê mèo), 貓奴 ('nô lệ của mèo' — cách người nuôi mèo ở Đài Loan tự gọi vui!). Lượng từ: 隻 (一隻貓).",
+   "co": [
+    "養貓|nuôi mèo",
+    "貓咪|bé mèo / em mèo (cách gọi cưng nựng)",
+    "流浪貓|mèo hoang đi lạc",
+    "貓奴|người yêu và chiều mèo hết mực ('con sen')"
+   ],
+   "sy": [
+    "貓咪|bé mèo (cách nói yêu chiều cực hay dùng ở Đài Loan)",
+    "小貓|mèo con"
+   ],
+   "cf": [
+    "貓 vs 熊貓|Đừng quên con gấu trúc đáng yêu là 熊貓 (xóngmāo — ở Đài Loan cũng gọi 貓熊, ví dụ bạn gấu trúc nổi tiếng ở Sở thú Đài Bắc được gọi chung 圓仔大貓熊!)."
+   ],
+   "lt": "隻 (một con mèo: 一隻可愛的橘貓).",
+   "mk": "1) Chú ý âm thanh 1 māo (không đọc nặng sang thanh 4 mào!). 2) Chữ Phồn thể có bộ 犭 (khuyển/thú) bên trái + 苗 (cây mạ/tiếng mèo kêu 'meo'!) bên phải → đọc là 'māo' như tiếng mèo kêu!",
+   "tw": "Ở Đài Loan người dân cực kỳ yêu mèo — đặc biệt có 'Làng Mèo Hầu Đồng' (猴硐貓村 ở Tân Bắc) nổi tiếng thế giới, quán 貓咪咖啡廳 khắp thành phố, và từ quen miệng nhất là 吸貓 ('hít mèo' = ôm mèo hít hà cho giảm stress!), 貓奴 (con sen!)!",
+   "mh": "Miêu → māo. ĐỌC: 'miêu' → māo (m- + -ao thanh 1 — gần giống hệt tiếng mèo kêu meo meo!). NGHĨA: bộ 犭 (thú vật) bên trái + 苗 (tiếng kêu 'miêu' thanh nhẹ) bên phải → loài thú nhỏ hay kêu tiếng 'meo' chuyên bắt chuột = con mèo.",
+   "vd": [
+    {
+     "t": "Thú cưng",
+     "zh": "隔壁阿姨收養了一隻流浪橘貓，短短三個月就把牠餵得圓滾滾的。",
+     "vn": "Cô hàng xóm nhận nuôi một chú mèo mướp đi lạc, chỉ trong ba tháng ngắn ngủi đã vỗ béo nó tròn quay."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "新北的猴硐貓村有數十隻親人的街貓，假日總是吸引許多愛貓人士搭火車去拍照。",
+     "vn": "Làng Mèo Hầu Đồng ở Tân Bắc có hàng chục chú mèo rất dạn người, ngày nghỉ lúc nào cũng thu hút nhiều người yêu mèo đi tàu hỏa tới chụp ảnh."
+    },
+    {
+     "t": "Cuộc sống",
+     "zh": "因為房間空間不大又比較安靜，很多在台北租屋的年輕上班族選擇養貓當室友。",
+     "vn": "Vì diện tích phòng không lớn lại khá yên tĩnh, nhiều dân văn phòng trẻ thuê trọ ở Đài Bắc chọn nuôi mèo làm bạn cùng phòng."
+    }
+   ]
+  },
+  "狗": {
+   "vn": "con chó; chú cún",
+   "ng": [
+    "(danh từ) con chó (養狗 nuôi chó, 小狗 chó con, 狗狗 bé cún đáng yêu, 流浪狗 chó hoang)"
+   ],
+   "us": "Dùng bình thường cho loài chó: 我家養了一隻狗 (Nhà tôi nuôi một con chó), 遛狗 (dắt chó đi dạo — dùng động từ 遛 liù!), 狗糧 / 狗飼料 (thức ăn cho chó — Đài Loan hay nói 狗飼料). Trong khẩu ngữ thân mật gọi bé cún là 狗狗 (gǒugou). Lượng từ: 隻 (一隻大狗).",
+   "co": [
+    "養狗|nuôi chó",
+    "遛狗|dắt chó đi dạo",
+    "狗狗|bé cún / chú chó nhỏ (thân mật)",
+    "導盲狗 / 導盲犬|chó dẫn đường (cho người khiếm thị ở Đài Loan)"
+   ],
+   "sy": [
+    "犬|(từ văn viết/chuyên ngành: 導盲犬 chó dẫn đường, 警犬 chó nghiệp vụ)",
+    "狗狗|bé cún"
+   ],
+   "lt": "隻 (một con chó: 一隻黑色的大狗).",
+   "mk": "1) Động từ 'dắt chó đi dạo' ở Đài Loan là 遛狗 (liù gǒu) hoặc 帶狗去散步, đừng nói *走狗 ❌ ('tẩu cẩu' là từ mắng kẻ tay sai phản bội!). 2) Chú ý từ 'lịch sự/trang trọng' của chó dùng 犬 quǎn (như 導盲犬 được mang vào siêu thị/MRT ở Đài Loan!).",
+   "tw": "Ở Đài Loan chó nghiệp vụ hay chó dẫn đường gọi là 導盲犬 được phép cùng người khiếm thị lên tàu MRT, xe buýt và vào nhà hàng; công viên đô thị lớn như Công viên ven sông còn có khu 狗公園 (công viên thả chó chạy tự do không cần dây xích!) và biển nhắc nhở chủ nuôi hốt phân chó 隨手清狗便.",
+   "mh": "Cẩu → gǒu. ĐỌC: 'cẩu' → gǒu (c- → g- không bật hơi + ou thanh 3). NGHĨA: bộ 犭 (thú vật bốn chân) bên trái + 句 (chú chó con co tròn / tiếng sủa ngắn 'gâu') bên phải → loài thú nuôi trung thành giữ nhà = con chó.",
+   "vd": [
+    {
+     "t": "Công viên",
+     "zh": "每天傍晚吃完飯，林叔叔都會牽著他的黃金獵犬去附近公園遛狗散步。",
+     "vn": "Chiều tối nào ăn cơm xong chú Lâm cũng dắt chú chó Golden Retriever ra công viên gần nhà đi dạo."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "我們領養這隻米克斯小狗已經五年了，牠早就是家裡最重要的一份子。",
+     "vn": "Nhà tôi nhận nuôi chú cún lai nhỏ này đã năm năm rồi, nó sớm đã trở thành thành viên quan trọng nhất trong nhà."
+    },
+    {
+     "t": "Quy định",
+     "zh": "帶寵物搭捷運必須裝進籠子或推車裡，只有導盲犬可以直接牽著進入車廂。",
+     "vn": "Mang thú cưng đi tàu điện ngầm bắt buộc phải nhốt vào lồng hoặc xe đẩy, chỉ có chó dẫn đường mới được dắt thẳng vào toa."
+    }
+   ]
+  },
+  "腳踏車/自行車": {
+   "vn": "xe đạp",
+   "ng": [
+    "(danh từ) xe đạp (khẩu ngữ Đài Loan 95% gọi 腳踏車 hoặc 單車; văn viết, biển báo công cộng và thể thao gọi 自行車)"
+   ],
+   "us": "Chú ý động từ đi xe đạp PHẢI là 騎 (cưỡi): 騎腳踏車 (đạp xe / đi xe đạp), 自行車道 (làn đường dành riêng cho xe đạp), 租腳踏車 (thuê xe đạp). Lượng từ: 台, 輛 (một chiếc xe đạp: 一台腳踏車 ở Đài Loan cực phổ biến!).",
+   "co": [
+    "騎腳踏車|đi xe đạp / đạp xe",
+    "自行車道|làn đường dành cho xe đạp",
+    "微笑單車 (YouBike)|xe đạp công cộng màu vàng cam ở Đài Loan",
+    "騎單車環島|đạp xe vòng quanh đảo Đài Loan"
+   ],
+   "sy": [
+    "單車|xe đạp (rất phổ biến trên báo chí, du lịch Đài Loan như 單車道, 微笑單車!)",
+    "鐵馬|(cách gọi hoài cổ dễ thương ở Đài Loan: 'ngựa sắt')"
+   ],
+   "cf": [
+    "腳踏車 vs 自行車 vs 單車|TẤT CẢ ĐỀU LÀ XE ĐẠP: 1) 腳踏車 phổ thông nhất trong hội thoại đời thường Đài Loan ('đạp bằng chân' -> 騎腳踏車!); 2) 自行車 chuẩn mực trên biển báo giao thông công cộng (自行車道) và văn viết/Đại Lục; 3) 單車 hay dùng trong tên dịch vụ cho thuê, du lịch & thể thao (環島單車之旅)!"
+   ],
+   "lt": "台、輛 (một chiếc xe đạp: 一台腳踏車). Động từ luôn dùng 騎 qí (cưỡi/chạy), KHÔNG nói *開腳踏車 ❌!",
+   "mk": "1) Cấm nói *坐腳踏車 ❌ hay *開腳踏車 ❌ -> phải dùng 騎腳踏車! 2) Đừng nhầm 機車 (xe máy động cơ) với 腳踏車 (xe đạp dùng bàn đạp chân!).",
+   "tw": "Sống ở Đài Loan thứ không thể thiếu chính là hệ thống xe đạp công cộng YouBike (微笑單車 — ở Đài Bắc/Đài Trung/Cao Hùng chỉ cần dùng thẻ 悠遊卡 đăng ký là 30 phút đầu thường miễn phí hoặc chỉ 5–10 Đài tệ!). Nhiều tuyến sông còn có 河濱自行車道 cực đẹp để đạp xe thư giãn cuối tuần.",
+   "mh": "Cước Đạp Xa / Tự Hành Xa → jiǎotàchē / zìxíngchē. ĐỌC: 'cước' → jiǎo (c- → j- + iao thanh 3); 'đạp' → tà (thanh 4); 'xa' → chē (thanh 1). NGHĨA: 腳 chân + 踏 đạp + 車 xe → xe dùng chân đạp pê-đan cho quay bánh = xe đạp.",
+   "vd": [
+    {
+     "t": "Đi lại",
+     "zh": "在台北市租YouBike腳踏車很便宜，搭完捷運再騎十分鐘就能到公司門口。",
+     "vn": "Ở thành phố Đài Bắc thuê xe đạp YouBike rất rẻ, đi tàu điện ngầm xong đạp thêm mười phút là tới ngay cổng công ty."
+    },
+    {
+     "t": "Cuối tuần",
+     "zh": "這條沿着淡水河邊修建的自行車道平緩安全，假日總是有很多親子一起來騎車。",
+     "vn": "Tuyến đường xe đạp xây dọc bờ sông Đạm Thủy này bằng phẳng an toàn, ngày nghỉ lúc nào cũng có nhiều gia đình bố mẹ và con cái tới đạp xe."
+    },
+    {
+     "t": "Ký ức",
+     "zh": "以前念國中的時候，我每天早上都跟鄰居同學一起騎腳踏車上學，超級熱血！",
+     "vn": "Hồi còn học cấp hai, sáng nào tôi cũng cùng bạn hàng xóm đạp xe đi học, vui hết sức!"
+    }
+   ]
+  },
+  "父母": {
+   "vn": "cha mẹ; bố mẹ; phụ mẫu",
+   "ng": [
+    "(danh từ) cha và mẹ (chỉ chung đấng sinh thành hai người, sắc thái trang trọng lịch sự hơn 爸爸媽媽: 孝順父母 hiếu thảo với cha mẹ)"
+   ],
+   "us": "Dùng trong giao tiếp lịch sự, văn viết, trường học hoặc nhắc chung về gia đình: 我父母都退休了 (Bố mẹ tôi đều nghỉ hưu rồi), 父母同意 (cha mẹ đồng ý), 父母親 (cha mẹ — trang trọng hơn một chút), 單親父母 (cha/mẹ đơn thân). Lưu ý KHÔNG gắn số lượng trực tiếp (*兩個父母 ❌ -> nói 我爸爸媽媽 hoặc 父母親).",
+   "co": [
+    "孝順父母|hiếu thảo với cha mẹ",
+    "父母親|cha mẹ (kính trọng)",
+    "父母的支持|sự ủng hộ của cha mẹ",
+    "養父母|cha mẹ nuôi"
+   ],
+   "sy": [
+    "爸爸媽媽|bố mẹ (khẩu ngữ thân mật gần gũi)",
+    "爸媽|ba má (nói tắt tự nhiên giữa bạn bè)",
+    "家長|phụ huynh (nhà trường gọi cha mẹ học sinh)"
+   ],
+   "cf": [
+    "父母 vs 爸媽 vs 家長|Khi trò chuyện thân mật với bạn bè hoặc nói trực tiếp về bố mẹ mình hay dùng 我爸媽 (爸媽很疼我); khi giới thiệu lịch sự với sếp, người lạ hoặc viết văn dùng 父母 / 父母親; còn khi nhà trường gửi thông báo mời họp phụ huynh gọi 家長 (家長會 hội phụ huynh)!"
+   ],
+   "lt": "Thanh 4 + thanh 3: fùmǔ.",
+   "mk": "1) Không gọi trực tiếp trước mặt bố mẹ bằng tiếng *父母 ơi! ❌ (gọi thẳng 爸爸、媽媽 / 爸、媽!). 2) Nhớ thứ tự cố định luôn là 父母 (Phụ trước Mẫu sau, không đảo ngược *母父).",
+   "tw": "Trong văn hóa trọng gia đình tại Đài Loan, người dân rất hay nói cụm 報喜不報憂 (chỉ báo tin vui cho bố mẹ đỡ lo) và luôn đề cao chữ 孝順父母 (hiếu thảo phụng dưỡng cha mẹ).",
+   "mh": "Phụ Mẫu → fùmǔ. ĐỌC: 'phụ' → fù (ph- → f- + u thanh 4); 'mẫu' → mǔ (thanh 3). NGHĨA: 父 người cha + 母 người mẹ → gộp hai đấng sinh thành = cha mẹ, bố mẹ.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "一個人在外地工作雖然忙碌，但每逢過節還是要多抽時間回家陪陪父母。",
+     "vn": "Một mình đi làm xa nhà tuy bận rộn, nhưng hễ đến dịp lễ tết vẫn nên tranh thủ về nhà bầu bạn với cha mẹ nhiều hơn."
+    },
+    {
+     "t": "Quyết định",
+     "zh": "非常感謝父母一直以來無條件支持我的決定，讓我能安心來台灣完成學業。",
+     "vn": "Vô cùng cảm ơn cha mẹ suốt thời gian qua luôn ủng hộ quyết định của con vô điều kiện, giúp con yên tâm sang Đài Loan hoàn thành việc học."
+    },
+    {
+     "t": "Kinh nghiệm",
+     "zh": "很多人是直到自己成為父母以後，才真正體會到當年養兒育女有多麼辛苦。",
+     "vn": "Nhiều người phải đợi đến lúc tự mình làm cha mẹ rồi mới thật sự thấu hiểu ngày xưa nuôi con khôn lớn vất vả nhường nào."
+    }
+   ]
+  },
+  "教授": {
+   "vn": "giáo sư; giảng dạy (bậc đại học)",
+   "ng": [
+    "(danh từ) giáo sư đại học (học hàm giảng dạy nghiên cứu cao tại đại học/viện nghiên cứu: 陳教授 Giáo sư Trần, 指導教授 giáo sư hướng dẫn luận văn)",
+    "(động từ — hơi trang trọng) giảng dạy, truyền thụ kiến thức (教授中文 giảng dạy tiếng Hoa)"
+   ],
+   "us": "Dùng làm xưng hô kính trọng với giảng viên đại học tại Đài Loan (đặc biệt hay gọi 教授 thay vì 老師 với giảng viên cấp ĐH/người hướng dẫn đề tài nghiên cứu: 指導教授 thầy/cô hướng dẫn luận văn!). Cấu trúc gọi: Họ + 教授 (林教授 Giáo sư Lâm). Lượng từ: 位 (一位教授).",
+   "co": [
+    "指導教授|giáo sư hướng dẫn (luận văn thạc sĩ/tiến sĩ)",
+    "大學教授|giáo sư đại học",
+    "陳教授|Giáo sư Trần",
+    "副教授 / 助理教授|phó giáo sư / trợ lý giáo sư (hệ đại học Đài Loan)"
+   ],
+   "sy": [
+    "老師|thầy/cô giáo (phổ thông mọi cấp, sinh viên ĐH cũng hay gọi thân mật nhưng vẫn kính trọng bằng Họ + 教授 trong email!)"
+   ],
+   "cf": [
+    "教授 vs 老師|Ở tiểu học và trung học 100% gọi 老師; ở bậc ĐẠI HỌC và CAO HỌC tại Đài Loan, gọi trực tiếp hoặc viết email gửi giảng viên bộ môn/người hướng dẫn luận văn dùng 教授 (林教授您好!) là cách xưng hô chuẩn mực và được đánh giá rất lễ phép!"
+   ],
+   "lt": "位 (一位知名的教授 một vị giáo sư danh tiếng). Phát âm thanh 4 + thanh 4: jiàoshòu (cho cả nghĩa danh từ lẫn động từ ở Đài Loan).",
+   "mk": "1) Đừng đọc nhầm chữ 授 shòu thanh 4 thành *shǒu (手 tay)! 2) Gửi email xin học bổng hay xin làm nghiên cứu sinh ở Đài Loan nhớ mở đầu bằng 「〇〇教授 您好：」!",
+   "tw": "Hệ thống học hàm đại học tại Đài Loan phân chia rất rõ ba cấp: 助理教授 (Assistant Professor) → 副教授 (Associate Professor) → 教授 (Full Professor), nhưng sinh viên thường đều lịch sự gọi chung cả ba bằng 教授 hoặc 老師! Người hướng dẫn luận văn gọi là 指導教授.",
+   "mh": "Giáo Thụ → jiàoshòu. ĐỌC: 'giáo' → jiào (gi- → j- + iao thanh 4); 'thụ' → shòu (th- → sh- uốn lưỡi + ou thanh 4). NGHĨA: 教 dạy dỗ + 授 trao truyền lại → người có học vấn sâu rộng giảng dạy truyền thụ tri thức ở bậc cao = giáo sư, giảng dạy.",
+   "vd": [
+    {
+     "t": "Đại học",
+     "zh": "這學期我的碩士論文剛好由歷史系最有名的張教授擔任指導教授。",
+     "vn": "Học kỳ này luận văn thạc sĩ của tôi vừa hay do Giáo sư Trương nổi tiếng nhất khoa Lịch sử đảm nhận hướng dẫn."
+    },
+    {
+     "t": "Email",
+     "zh": "寄電子郵件向大學教授請教問題時，開頭與結尾的稱呼禮節一定要寫得得體。",
+     "vn": "Khi gửi email hỏi vấn đề cho giáo sư đại học, lời chào đầu và kết thư nhất định phải viết cho lịch sự đúng mực."
+    },
+    {
+     "t": "Giảng đường",
+     "zh": "王教授平時教書深入淺出，連原本枯燥的理論課都能講得非常吸引人。",
+     "vn": "Giáo sư Vương bình thường giảng bài sâu sắc mà dễ hiểu, ngay cả tiết lý thuyết vốn khô khan cũng giảng cực kỳ cuốn hút."
+    }
+   ]
+  },
+  "鄰居": {
+   "vn": "hàng xóm; láng giềng",
+   "ng": [
+    "(danh từ) hàng xóm, người sống kế bên cạnh hoặc cùng tầng chung cư/khu phố (好鄰居 hàng xóm tốt, 樓下鄰居 hàng xóm tầng dưới)"
+   ],
+   "us": "Dùng bình thường làm danh từ chỉ người: 我跟鄰居處得很好 (Tôi hòa thuận với hàng xóm lắm), 隔壁鄰居 (hàng xóm sát vách), 搬來的新鄰居 (hàng xóm mới chuyển đến). Lượng từ: 個, 位 (那位好心的鄰居).",
+   "co": [
+    "隔壁鄰居|hàng xóm sát vách",
+    "好鄰居|hàng xóm tốt bụng",
+    "樓上 / 樓下鄰居|hàng xóm tầng trên / tầng dưới",
+    "遠親不如近鄰|bà con xa không bằng láng giềng gần"
+   ],
+   "sy": [
+    "街坊|bà con lối xóm (hơi truyền thống)",
+    "室友|bạn cùng phòng (sống chung một căn hộ/phòng, khác hàng xóm ở nhà kế bên!)"
+   ],
+   "cf": [
+    "鄰居 vs 室友|室友 = BẠN CÙNG PHÒNG sống chung bên trong cùng một căn hộ/phòng ký túc xá; 鄰居 = HÀNG XÓM ở căn nhà/căn hộ riêng kế bên nhà mình!"
+   ],
+   "lt": "個、位 (兩位年輕的新鄰居 hai người hàng xóm mới trẻ tuổi). Hai thanh 2 + thanh 1: línjū.",
+   "mk": "1) Chú ý chữ 鄰 có bộ 阝 bên phải (Ấp = làng xóm, đặt bên phải chứ không phải bên trái!). 2) Nhớ đừng lẫn 室友 (ở chung nhà) với 鄰居 (ở nhà bên cạnh).",
+   "tw": "Ở Đài Loan người dân gọi khu dân cư/tổ dân phố gắn kết là 鄰里; và các cửa hàng tiện lợi 7-ELEVEN, FamilyMart dưới tòa chung cư lúc nào cũng tự nhận khẩu hiệu dễ thương là 「您的好鄰居」(Người hàng xóm tốt của bạn!).",
+   "mh": "Lân Cư → línjū. ĐỌC: 'lân' → lín (thanh 2); 'cư' → jū (c- → j- + vần tròn môi ü viết gọn là u thanh 1). NGHĨA: 鄰 làng xóm kề cạnh + 居 cư trú sinh sống → người sống ngay cạnh chỗ ở của mình = hàng xóm, láng giềng.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "住在公寓最怕半夜有鄰居大聲放音樂或拖椅子，非常影響隔天上班的精神。",
+     "vn": "Sống ở chung cư sợ nhất nửa đêm có hàng xóm mở nhạc to hoặc kéo ghế ầm ầm, ảnh hưởng tinh thần đi làm hôm sau lắm."
+    },
+    {
+     "t": "Tình làng nghĩa xóm",
+     "zh": "我家對面的鄰居阿姨人超親切，家裡種的蔬菜常分一大袋掛在我們門把上。",
+     "vn": "Cô hàng xóm đối diện nhà tôi tốt bụng cực kỳ, rau nhà trồng thường chia hẳn một túi lớn treo lên tay nắm cửa nhà tôi."
+    },
+    {
+     "t": "Chuyển nhà",
+     "zh": "昨天新鄰居剛搬進這棟社區大樓，今天特地烤了一盒餅乾拿來跟大家打招呼。",
+     "vn": "Hôm qua hàng xóm mới vừa chuyển vào tòa chung cư này, hôm nay đặc biệt nướng một hộp bánh quy mang sang chào hỏi mọi người."
+    }
+   ]
+  },
+  "搬家": {
+   "vn": "chuyển nhà; dọn nhà",
+   "ng": [
+    "(động từ ly hợp) chuyển nhà, dọn sang nơi ở mới (我要搬家了 tôi sắp chuyển nhà rồi, 搬家公司 công ty chuyển nhà)"
+   ],
+   "us": "Là động từ ly hợp (V-sep), có thể tách chèn số lần/bổ ngữ vào giữa (搬過三次家 từng chuyển nhà 3 lần, 搬完家 dọn nhà xong, 搬了新家). Khi muốn nói 'chuyển tới đâu' dùng động từ đơn 搬 + 到 + Địa điểm + 去/來 (搬到台北去 chuyển lên Đài Bắc; không nói *搬家到台北 nhiều bằng 搬到台北 / 搬去台中!).",
+   "co": [
+    "準備搬家|chuẩn bị chuyển nhà",
+    "搬家公司|công ty dịch vụ chuyển nhà",
+    "搬來 / 搬去|chuyển tới / chuyển đi",
+    "幫朋友搬家|giúp bạn dọn nhà"
+   ],
+   "sy": [
+    "搬遷|di dời chỗ ở/cơ sở (trang trọng dùng cho công ty, trường học: 學校搬遷)"
+   ],
+   "cf": [
+    "搬家 vs 搬|搬 đứng đơn là động từ 'khuân vác, chuyển dời đồ đạc hoặc chuyển chỗ đến một địa danh' (搬桌子 khiêng bàn, 搬到高雄 chuyển vào Cao Hùng); 搬家 là cụm cố định nghĩa 'chuyển nhà/dọn trọ'!"
+   ],
+   "lt": "Thanh 1 + thanh 1: bānjiā. Nhắc lại: khi gắn địa chỉ mới phía sau nên bỏ chữ 家 -> nói 搬到信義區 (không nói *搬家到信義區 nếu muốn cực tự nhiên!).",
+   "mk": "Lỗi hay gặp: nói *搬家去台中 ❌ nghe hơi thừa chữ 家 -> nói ngắn gọn tự nhiên là 搬去台中 (hoặc 因為換工作所以要搬家).",
+   "tw": "Sinh viên thuê trọ và dân công sở Đài Bắc chuyển nhà rất hay thuê xe tải nhỏ qua 搬家公司 (công ty dịch vụ chuyển nhà chuyên nghiệp — ví dụ 崔媽媽基金會 giới thiệu dịch vụ chuyển nhà uy tín) và dọn đồ vào thùng giấy 紙箱!",
+   "mh": "Ban Gia → bānjiā. ĐỌC: 'ban' → bān (b- không bật hơi + an thanh 1); 'gia' → jiā (gi- → j- + ia thanh 1). NGHĨA: 搬 (bộ 扌 tay + 般 xoay dời) khuân vác dịch chuyển + 家 nhà cửa → dời đồ đạc nhà cửa sang nơi ở mới = chuyển nhà.",
+   "vd": [
+    {
+     "t": "Thuê trọ",
+     "zh": "因為下個月要換到新公司上班，我這週末打算開始找靠近捷運的新房子搬家。",
+     "vn": "Vì tháng sau sẽ chuyển sang công ty mới làm việc nên cuối tuần này tôi định bắt đầu tìm nhà mới gần tàu điện ngầm để chuyển nhà."
+    },
+    {
+     "t": "Vận chuyển",
+     "zh": "東西實在太多自己載不完，還好找了口碑不錯的搬家公司幫忙，一個下午就搞定了。",
+     "vn": "Đồ đạc nhiều quá tự chở không xuể, may mà thuê được công ty chuyển nhà uy tín giúp đỡ, một buổi chiều là xong xuôi."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "大學四年為了配合實習和租約，我前前後後總共在台北搬了三次家。",
+     "vn": "Bốn năm đại học để khớp với kỳ thực tập và hợp đồng thuê trọ, trước sau tổng cộng tôi đã chuyển nhà ba lần ở Đài Bắc."
+    }
+   ]
+  },
+  "颱風": {
+   "vn": "bão (nhiệt đới); cơn bão",
+   "ng": [
+    "(danh từ) cơn bão nhiệt đới, áp thấp bão lớn khu vực Tây Bắc Thái Bình Dương (như Đài Loan, Nhật Bản, Việt Nam: 颱風來了 bão tới rồi, 颱風假 ngày nghỉ tránh bão)"
+   ],
+   "us": "Dùng trực tiếp với động từ: 刮颱風 / 鬧颱風? Ở Đài Loan dùng tự nhiên nhất là: 有颱風 (có bão), 颱風要來了 (bão sắp đổ bộ rồi), 颱風登陸 (bão đổ bộ đất liền), 防颱準備 (chuẩn bị chống bão). Lượng từ: 個 (一個強烈的颱風 một cơn bão mạnh).",
+   "co": [
+    "颱風來了|bão tới rồi",
+    "放颱風假|được nghỉ bão (đặc sản văn hóa Đài Loan!)",
+    "颱風天|ngày bão đổ bộ",
+    "防颱準備|chuẩn bị đồ đạc chống bão"
+   ],
+   "sy": [
+    "暴風雨|mưa to gió lớn nói chung"
+   ],
+   "cf": [
+    "颱風 vs 風|風 = GIÓ nói chung; 颱風 = CƠN BÃO NHIỆT ĐỚI dữ dội có gió giật mưa lớn mùa hè-thu. Chú ý người Đài còn phân cấp độ bão: 輕度颱風 (bão nhẹ) → 中度颱風 (bão trung bình) → 強烈颱風 (siêu bão)!"
+   ],
+   "lt": "個 (一個颱風 một cơn bão). Phồn thể ĐÀI LOAN viết chuẩn chữ đầu là 臺/颱 (chữ 颱 CÓ bộ 風 ở ngoài + 台 bên trong!), đọc thanh 2 + thanh 1: táifēng.",
+   "mk": "1) Chớ nhầm chữ *台 phong ❌ không có bộ 風 bên ngoài (chữ chuẩn Phồn thể là 颱!). 2) Ở Đài Loan khi mưa bão nghỉ làm không phải 'nghỉ tùy tiện' mà do 縣市政府 (chính quyền thành phố) công bố chính thức vào buổi tối hôm trước!",
+   "tw": "Ở Đài Loan từ 7–9 hàng năm là mùa bão 颱風季! Nét văn hóa đặc trưng nhất là tối trước khi bão tới cả nhà dán băng dính hình chữ thập lên kính, mua mì gói siêu thị dự trữ (防颱準備), và hồi hộp đợi thông báo lúc 8 giờ tối xem ngày mai có được 放颱風假 (nghỉ học nghỉ làm tránh bão!) hay không!",
+   "mh": "Đài Phong → táifēng. ĐỌC: 'đài' → tái (đ- bật sang t- + ai thanh 2); 'phong' → fēng (ph- → f- + eng thanh 1). NGHĨA: 颱 (bộ 風 gió + 台 phiên âm) cơn gió xoáy dữ dội trên biển Đông/Thái Bình Dương + 風 gió → bão nhiệt đới.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "夏末秋初是台灣最容易有颱風的季節，出發登山前一定要隨時關注氣象動態。",
+     "vn": "Cuối hè đầu thu là mùa Đài Loan dễ có bão nhất, trước khi xuất phát leo núi nhất định phải luôn theo dõi diễn biến thời tiết."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "每次氣象預報說週末可能放颱風假，各大超市的青菜和泡麵貨架很快就被搶空。",
+     "vn": "Mỗi lần dự báo thời tiết nói cuối tuần có thể được nghỉ bão là kệ rau xanh và mì gói ở các siêu thị lớn lại nhanh chóng bị mua sạch."
+    },
+    {
+     "t": "An toàn",
+     "zh": "颱風天風雨很大，外送員跟服務人員都很辛苦，還是盡量在家自己煮比較安全。",
+     "vn": "Ngày bão gió mưa rất to, shipper và nhân viên phục vụ đều rất vất vả, cứ cố gắng tự nấu ăn ở nhà cho an toàn."
+    }
+   ]
+  },
+  "照顧": {
+   "vn": "chăm sóc; trông nom; quan tâm giữ gìn",
+   "ng": [
+    "(động từ) chăm sóc, trông nom chu đáo (người thân, trẻ nhỏ, bệnh nhân, thú cưng, cây cối: 照顧小孩 trông con, 照顧病人 chăm sóc người bệnh)",
+    "(động từ) tự giữ gìn sức khỏe, bảo trọng bản thân (照顧好自己 chăm sóc bản thân cho tốt nhé)",
+    "(động từ mở rộng) chiếu cố, ưu ái giúp đỡ trong công việc/làm ăn (謝謝老闆照顧 cảm ơn sếp chiếu cố/ủng hộ)"
+   ],
+   "us": "Dùng trực tiếp với đối tượng cần chăm sóc: 照顧爸爸媽媽 (chăm sóc bố mẹ), 幫忙照顧貓咪 (chăm mèo giúp), 照顧好身體 (giữ gìn sức khỏe cho tốt). Đảo cấu trúc bị động khá hay: 被照顧得很好 (được chăm sóc rất chu đáo). Không dùng *照顧 vật vô tri kiểu 'giữ đồ đạc' (*照顧包包 ❌ -> giữ đồ phải nói 看管 / 顧好東西!).",
+   "co": [
+    "照顧自己|chăm sóc bản thân",
+    "照顧小孩 / 病人|trông con / chăm người bệnh",
+    "互相照顧|chăm sóc giúp đỡ lẫn nhau",
+    "照顧好身體|giữ gìn sức khỏe thật tốt"
+   ],
+   "sy": [
+    "關心|quan tâm, hỏi han tinh thần",
+    "照料|chăm lo, lo liệu sinh hoạt"
+   ],
+   "cf": [
+    "照顧 vs 關心|關心 = QUAN TÂM về mặt TINH THẦN, hỏi han lo lắng ('bố mẹ rất quan tâm tới việc học của con'); 照顧 = HÀNH ĐỘNG CHĂM SÓC TRỰC TIẾP về ăn ở, sức khỏe, đưa đón ('bà ngoại giúp tôi trông nom chăm sóc em bé ở nhà'!)"
+   ],
+   "lt": "Thanh 4 + thanh 4: zhàogù (chú ý chữ Phồn thể 顧 gồm 雇 + 頁 rất nhiều nét).",
+   "mk": "1) Đừng dùng *照顧 hành lý tại sân bay ❌ -> coi giữ đồ đạc nói 看好行李 / 顧好隨身物品! 2) Câu tạm biệt người thân đi xa cực ấm ở Đài Loan: 自己出門在外要好好照顧自己喔!",
+   "tw": "Ở Đài Loan khi cảm ơn người bán hàng hoặc đối tác hay dìu dắt đồng nghiệp mới rất lịch sự nói: 謝謝你的照顧 (Cảm ơn sự chiếu cố/quan tâm của bạn!), còn trong bệnh viện/gia đình dịch vụ hỗ trợ người cao tuổi gọi là 長照 (trường chiếu = chăm sóc dài hạn!).",
+   "mh": "Chiếu Cố → zhàogù. ĐỌC: 'chiếu' → zhào (ch- → zh- + ao thanh 4); 'cố' → gù (c- → g- + u thanh 4). NGHĨA: 照 soi sáng quan sát kỹ + 顧 ngoái đầu nhìn lại bảo bọc → luôn hướng mắt trông chừng, bảo bọc đỡ đần tận tâm = chăm sóc.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "姊姊生完寶寶後，媽媽特地北上幫她坐月子和照顧剛出生的小外孫。",
+     "vn": "Sau khi chị gái sinh em bé, mẹ đặc biệt lên phía Bắc giúp chị ở cữ và chăm sóc cháu ngoại mới sinh."
+    },
+    {
+     "t": "Nhắn nhủ",
+     "zh": "你一個人去高雄念書，飲食要正常，天氣變冷的時候記得好好照顧自己喔！",
+     "vn": "Bạn đi học một mình ở Cao Hùng nhớ ăn uống điều độ, khi trời trở lạnh nhớ chăm sóc bản thân cho thật tốt nhé!"
+    },
+    {
+     "t": "Bạn bè",
+     "zh": "我這禮拜得出差三天，這幾天能拜託你順便來我家幫忙照顧那隻愛撒嬌的橘貓嗎？",
+     "vn": "Tuần này tôi phải đi công tác ba ngày, mấy hôm nay nhờ bạn tiện đường ghé nhà giúp tôi chăm chú mèo mướp hay làm nũng kia được không?"
+    }
+   ]
+  },
+  "摩托車/機車": {
+   "vn": "xe máy; xe gắn máy; (lóng Đài Loan) khó tính / khó ưa",
+   "ng": [
+    "(danh từ) xe máy, xe tay ga/xe số hai bánh (CHUẨN 100% ở Đài Loan gọi là 機車; ở Đại Lục và sách vở quốc tế mới gọi 摩托車)",
+    "(tính từ — tiếng lóng Đài Loan cực phổ biến!) khó chịu, nhỏ nhen, hay bắt bẻ, đáng ghét (這個人很機車 người này khó ưa ghê!)"
+   ],
+   "us": "Đi xe máy dùng động từ 騎 (騎機車 đi xe máy / chạy xe máy — KHÔNG dùng *開機車 hay *搭機車!). Cần gắn thêm ở Đài Loan: 機車駕照 (bằng lái xe máy), 機車停車格 (ô đỗ xe máy), 安全帽 (mũ bảo hiểm). Khi đùa trêu bạn bè ở Đài Loan chớ bất ngờ nếu nghe: 你真的很機車耶! ('Cậu thật là quái chiêu/khó chịu ghê á!'). Lượng từ: 台, 輛.",
+   "co": [
+    "騎機車|đi xe máy / lái xe máy",
+    "機車駕照|bằng lái xe máy",
+    "機車行|tiệm sửa xe / bán xe máy (ở Đài Loan)",
+    "重型機車 / 重機|xe mô tô phân khối lớn"
+   ],
+   "sy": [
+    "電動機車|xe máy điện (như hãng Gogoro siêu phổ biến ở Đài Loan!)",
+    "重機|xe mô tô phân khối lớn"
+   ],
+   "cf": [
+    "機車 vs 摩托車|Ở ĐÀI LOAN nói 100% là 機車 (jīchē — thậm chí các biển giao thông chính phủ đều ghi 機車專用道, 機車待轉區!); chỉ có xe phân khối lớn hoặc đọc tên quốc tế mới thấy 摩托車 hoặc 重機!"
+   ],
+   "lt": "台、輛 (một chiếc xe máy: 一台機車). Động từ luôn dùng 騎!",
+   "mk": "1) Đừng nói *我坐摩托車 ❌ hay *我開機車 ❌ khi tự chạy xe máy — PHẢI nói 我騎機車! 2) Khi bạn Đài đùa kêu '你好機車喔!', đừng dịch thành 'Bạn giống chiếc xe máy quá' ❌ mà đó là tiếng lóng vui của Đài Loan nghĩa là 'Bạn khó tính/hóc búa ghê á!'",
+   "tw": "Đài Loan nổi tiếng khắp thế giới là 'Vương quốc xe máy' (機車王國) với hàng nghìn chiếc 機車 dựng kín phố và đi 騎機車 dùng xe ga/xe điện Gogoro; luật đặc trưng ở ngã tư lớn Đài Loan có 機車待轉區 (ô chờ rẽ trái hai nhịp dành riêng cho xe máy!).",
+   "mh": "Ma Thác Xa / Cơ Xa → mótuōchē / jīchē. ĐỌC: 'cơ' → jī (c- → j- + i thanh 1); 'xa' → chē (thanh 1). NGHĨA: 機 động cơ máy móc + 車 xe cộ (và 摩托 phiên âm tiếng Anh 'motor'!) → chiếc xe hai bánh chạy bằng động cơ máy = xe máy.",
+   "vd": [
+    {
+     "t": "Đi lại",
+     "zh": "在台灣很多大學生滿十八歲就會先去考駕照，然後騎機車上學跟打工，機動性很高。",
+     "vn": "Ở Đài Loan nhiều sinh viên đại học đủ 18 tuổi là đi thi bằng lái ngay rồi chạy xe máy đi học và làm thêm, cực kỳ cơ động."
+    },
+    {
+     "t": "Đường phố",
+     "zh": "有些外國朋友第一次在雜誌上看到摩托車大軍在路口等紅燈的「機車瀑布」，都覺得相當壯觀。",
+     "vn": "Nhiều bạn nước ngoài lần đầu xem ảnh 'thác xe máy' hàng trăm chiếc mô tô đợi đèn đỏ ở ngã tư trên tạp chí đều thấy rất ngoạn mục."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "這家咖啡廳巷口前面畫滿了白色的機車停車格，停起車來非常方便不怕被開單。",
+     "vn": "Trước đầu hẻm quán cà phê này kẻ đầy các ô đậu xe máy màu trắng, đỗ xe cực tiện không sợ bị phạt."
+    }
+   ]
+  },
+  "捷運": {
+   "vn": "tàu điện ngầm / đường sắt đô thị MRT (từ đặc hữu Đài Loan)",
+   "ng": [
+    "(danh từ) hệ thống đường sắt đô thị / tàu điện ngầm MRT tại Đài Loan (từ viết tắt chính thức của 大眾捷運系統: 搭捷運 đi MRT, 捷運站 ga MRT)"
+   ],
+   "us": "Đi tàu điện ngầm ở Đài Bắc, Tân Bắc, Đào Viên, Đài Trung hay Cao Hùng bắt buộc dùng động từ 搭 / 坐 + 捷運: 搭捷運 (đi MRT), 捷運站 (ga MRT), 轉捷運 (đổi tuyến MRT), 捷運出口 (lối ra ga MRT), 捷運悠遊卡. Lượng từ tuyến: 條 (這條捷運線), chuyến: 班 (最後一班捷運 / 末班車).",
+   "co": [
+    "搭捷運|đi tàu điện ngầm MRT",
+    "捷運站|ga tàu điện ngầm",
+    "捷運路線圖|bản đồ các tuyến MRT",
+    "轉捷運|chuyển tuyến tàu điện ngầm"
+   ],
+   "sy": [
+    "地鐵|tàu điện ngầm (từ dùng cho hệ thống ở Nhật, Hàn, Trung Quốc, châu Âu)"
+   ],
+   "cf": [
+    "捷運 vs 地鐵|ĐÂY LÀ TỪ ĐẶC TRƯNG ĐÀI LOAN NHẤT: Ở Đài Loan 100% người dân, biển hiệu và báo chí nói 捷運 (MRT — viết tắt của Mass Rapid Transit phiên dịch Tiệp Vận); tuyệt đối không nói *台北地鐵 mà gọi là 台北捷運!"
+   ],
+   "lt": "Thanh 2 + thanh 4: jiéyùn. Chú ý quy định vàng trên MRT Đài Loan: CẤM ĂN UỐNG hoàn toàn sau khi đã quẹt thẻ bước qua cổng kiểm soát (kể cả uống nước lọc hay nhai kẹo cao su cũng bị phạt tiền nặng từ 1.500 TWD trở lên!).",
+   "mk": "1) Khi đi Đài Loan hỏi đường luôn nói 捷運 (jiéyùn), đừng nói *地鐵! 2) Nhớ tuyệt đối không uống trà sữa/ăn vặt bên trong khu vực soát vé của ga MRT Đài Loan!",
+   "tw": "Hệ thống 捷運 tại Đài Loan nổi tiếng sạch đẹp, an toàn và văn minh bậc nhất thế giới với quy định nghiêm ngặt '禁止飲食' (cấm ăn uống trong khu vực ga/trên tàu) và ghế ưu tiên 博愛座. Ở Đài Bắc có tuyến Đỏ (紅線), Xanh lam (藍線), Xanh lá (綠線), Cam (橘線), Nâu (文湖線)!",
+   "mh": "Tiệp Vận → jiéyùn. ĐỌC: 'tiệp' → jié (t- → j- + ie thanh 2); 'vận' → yùn (v- → y- + vần tròn môi ün viết là un thanh 4). NGHĨA: 捷 nhanh chóng tiện lợi + 運 vận chuyển hành khách → hệ thống giao thông công cộng vận chuyển nhanh chóng trong đô thị = tàu điện đô thị / MRT Đài Loan.",
+   "vd": [
+    {
+     "t": "Đi lại",
+     "zh": "台北捷運的路線四通八達而且準時又乾淨，幾乎所有熱門觀光景點都能搭車到達。",
+     "vn": "Mạng lưới MRT Đài Bắc thông suốt khắp nơi lại đúng giờ và sạch sẽ, hầu như mọi điểm tham quan nổi tiếng đều đi tàu tới được."
+    },
+    {
+     "t": "Quy định",
+     "zh": "進入捷運站刷卡閘門以後就嚴禁吃東西和喝飲料，違規的話可能會被開罰一千五百元喔！",
+     "vn": "Sau khi bước qua cổng quẹt thẻ vào ga MRT là bị nghiêm cấm ăn uống, nếu vi phạm có thể bị phạt tới 1.500 Đài tệ đấy nhé!"
+    },
+    {
+     "t": "Thuê nhà",
+     "zh": "這間公寓離板南線捷運站走路只要三分鐘，就算下雨天通勤也不會淋得太狼狽。",
+     "vn": "Căn hộ này đi bộ ra ga tàu điện ngầm tuyến Bản Nam chỉ mất ba phút, dù trời mưa đi làm cũng chẳng lo bị ướt nhẹp."
+    }
+   ]
+  },
+  "發燒": {
+   "vn": "bị sốt; lên cơn sốt",
+   "ng": [
+    "(động từ ly hợp) bị sốt, thân nhiệt tăng cao bất thường (發燒了 bị sốt rồi, 發高燒 sốt cao)"
+   ],
+   "us": "Là động từ ly hợp (V-sep), có thể tách chèn bổ ngữ mức độ hoặc thời lượng: 發高燒 (sốt cao — nhớ dùng tính từ 高 'cao' chứ không nói *大燒!), 發了三天燒 (sốt liền 3 ngày), 退燒 (hạ sốt / hết sốt), 發燒藥 / 退燒藥 (thuốc hạ sốt). Khi kiểm tra có sốt hay không nói 量體溫 (đo thân nhiệt).",
+   "co": [
+    "發燒了|bị sốt rồi",
+    "發高燒|sốt cao",
+    "退燒|hạ sốt",
+    "發燒喉嚨痛|sốt kèm đau họng"
+   ],
+   "sy": [
+    "體溫過高|nhiệt độ cơ thể quá cao (trên máy đo nhiệt y tế)"
+   ],
+   "an": [
+    "退燒|hết sốt, hạ sốt"
+   ],
+   "cf": [
+    "發燒 vs 燒|燒 đứng một mình là 'đốt cháy/thiêu/cháy khét' (燒開水 đun nước sôi, 燒垃圾 đốt rác); ghép thành 發燒 mới chỉ triệu chứng cơ thể BỊ SỐT nóng người! Khi hết sốt dùng cặp từ đối là 退燒 (thuốc hạ sốt: 退燒藥)!"
+   ],
+   "lt": "V-sep: đừng nói *很發燒 ❌ -> sốt cao phải tách thành 發高燒 hoặc 燒到39度 (sốt lên tới 39 độ!).",
+   "mk": "Lỗi cực hay gặp: dịch 'sốt nặng/sốt cao' thành *大燒 ❌ hay *重發燒 ❌ -> PHẢI nói 發高燒 (hoặc 燒得很厲害)!",
+   "tw": "Trong mùa cúm hay dịch bệnh ở Đài Loan khi có trẻ con hay đồng nghiệp 發燒了, mọi người hay hỏi: 燒到幾度？有看醫生跟吃退燒藥了嗎？ (Sốt lên mấy độ rồi? Đã đi khám và uống thuốc hạ sốt chưa?), đồng thời gắn miếng dán hạ sốt 退熱貼 lên trán!",
+   "mh": "Phát Thiêu → fāshāo. ĐỌC: 'phát' → fā (ph- → f- + a thanh 1); 'thiêu' → shāo (th- → sh- uốn lưỡi + ao thanh 1). NGHĨA: 發 phát khởi bùng lên + 燒 (bộ 火 lửa) cháy nóng hầm hập → thân nhiệt phát nóng bừng lên = bị sốt.",
+   "vd": [
+    {
+     "t": "Phòng khám",
+     "zh": "昨天半夜弟弟突然發燒到三十九度，爸爸媽媽急忙帶他去附近醫院掛急診。",
+     "vn": "Nửa đêm hôm qua em trai bỗng dưng sốt tới 39 độ, bố mẹ vội vàng đưa bé tới bệnh viện gần nhà khám cấp cứu."
+    },
+    {
+     "t": "Chăm sóc",
+     "zh": "你額頭摸起來好燙，是不是開始發燒了？趕快拿耳溫槍量一下體溫看看！",
+     "vn": "Trán bạn sờ thấy nóng ran quá, có phải bắt đầu bị sốt rồi không? Mau lấy nhiệt kế đo tai kiểm tra nhiệt độ thử xem!"
+    },
+    {
+     "t": "Nghỉ ốm",
+     "zh": "吃過醫生開的退燒藥睡了一覺以後，我今天終於退燒沒那麼頭暈了。",
+     "vn": "Uống thuốc hạ sốt bác sĩ kê xong ngủ một giấc, hôm nay cuối cùng tôi đã hạ sốt và đỡ chóng mặt hơn rồi."
+    }
+   ]
+  },
+  "掛號": {
+   "vn": "lấy số đăng ký khám bệnh; gửi thư bảo đảm",
+   "ng": [
+    "(động từ ly hợp — y tế) đăng ký khám bệnh, bốc số đăng ký gặp bác sĩ (去醫院掛號 đi bệnh viện đăng ký khám, 網路掛號 đặt lịch khám online, 掛號費 phí đăng ký khám)",
+    "(động từ / định ngữ — bưu điện) gửi thư bảo đảm, bưu phẩm có ký nhận an toàn (掛號信 thư bảo đảm, 寄掛號 gửi bảo đảm)"
+   ],
+   "us": "HAI NGHĨA SIÊU THIẾT THỰC Ở ĐÀI LOAN: 1) Ở bệnh viện/phòng khám: đến nơi lấy số hoặc đặt trước trên mạng gọi 掛號 (現場掛號 lấy số trực tiếp tại quầy, 網路掛號 đặt hẹn online, 掛號費 phí khám ban đầu ~150–250 tệ ở phòng khám!); 2) Ở bưu điện: gửi giấy tờ quan trọng, hộ chiếu, hợp đồng dùng 寄掛號 / 掛號信 (có mã theo dõi và phải ký nhận!).",
+   "co": [
+    "去掛號 / 網路掛號|đăng ký khám bệnh / đặt lịch khám trực tuyến",
+    "掛號費|phí đăng ký khám bệnh",
+    "掛號信|thư bảo đảm (gửi bưu điện)",
+    "寄掛號|gửi thư/bưu phẩm bảo đảm"
+   ],
+   "sy": [
+    "預約看診|đặt lịch khám bệnh",
+    "雙掛號|thư bảo đảm có giấy báo phát hoàn về cho người gửi (rất phổ biến ở bưu điện Đài Loan!)"
+   ],
+   "cf": [
+    "掛號 (bệnh viện) vs 掛號 (bưu điện)|Điểm chung đều là 'ghi tên vào sổ đăng ký chính thức (có số thứ tự/mã theo dõi)': vào bệnh viện là ghi tên vào danh sách chờ gặp bác sĩ; ra bưu điện là ghi mã vào sổ đảm bảo không thất lạc!"
+   ],
+   "lt": "Chú ý chữ 掛 đọc guà thanh 4, 號 hào thanh 4 (guàhào). Nhớ khi đặt lịch khám bệnh cho khoa nào ở bệnh viện lớn Đài Loan phải chọn khoa (如 掛內科 đăng ký khoa Nội, 掛牙科 nha khoa!).",
+   "mk": "Đừng ngạc nhiên khi ra bưu điện Đài Loan gửi thư mà nhân viên hỏi '要寄平信還是掛號？' — 平信 là thư thường bỏ hòm thư, còn 掛號 là thư bảo đảm giao tận tay ký nhận!",
+   "tw": "Đi khám bệnh ở Đài Loan cực kỳ văn minh và tiện lợi: có thể dùng App hoặc trang web bệnh viện 網路掛號 trước rồi xem số thứ tự hiện tại trên mạng (看診進度) để sát giờ mới tới! Còn ra bưu điện gửi giấy tờ quan trọng luôn chọn 寄掛號 hoặc 限時掛號 (bảo đảm hỏa tốc)!",
+   "mh": "Quải Hiệu → guàhào. ĐỌC: 'quải' → guà (qu- → gu- + a thanh 4); 'hiệu' → hào (thanh 4). NGHĨA: 掛 treo lên/ghi tên vào danh sách + 號 con số/ký hiệu thứ tự → ghi tên gắn vào một mã số theo dõi ở bệnh viện hoặc bưu điện = đăng ký khám bệnh, gửi bảo đảm.",
+   "vd": [
+    {
+     "t": "Bệnh viện",
+     "zh": "台北那家大醫院有名氣的醫生非常搶手，有時候得半夜上網掛號才排得到看診。",
+     "vn": "Bác sĩ nổi tiếng ở bệnh viện lớn Đài Bắc đó cực kỳ đông khách, có khi phải nửa đêm lên mạng đăng ký khám mới xếp được lượt."
+    },
+    {
+     "t": "Phòng khám",
+     "zh": "帶上健保卡去附近診所掛號，加上掛號費總共只要兩百塊就能看病領藥，非常方便。",
+     "vn": "Mang thẻ bảo hiểm y tế ra phòng khám gần nhà đăng ký khám, cộng cả phí đăng ký tổng cộng chỉ hết hai trăm tệ là khám lấy thuốc xong, cực kỳ tiện."
+    },
+    {
+     "t": "Bưu điện",
+     "zh": "這份是學校的正式錄取通知書和成績單，寄的時候千萬要選掛號才不會寄丟！",
+     "vn": "Đây là giấy báo trúng tuyển chính thức và bảng điểm của trường, lúc gửi nhất định phải chọn gửi bảo đảm để không bị thất lạc nhé!"
+    }
+   ]
+  },
+  "逛街": {
+   "vn": "đi dạo phố; đi mua sắm (shopping)",
+   "ng": [
+    "(động từ ly hợp) đi dạo phố ngắm nghía hàng quán, mua sắm giải trí (去逛街 đi dạo phố mua sắm, 陪女朋友逛街 đi dạo phố với bạn gái)"
+   ],
+   "us": "Là động từ ly hợp (V-sep), có thể tách chèn thời lượng hoặc nơi chốn: 逛了一個下午的街 (dạo phố suốt cả buổi chiều), 逛完街再去吃飯 (dạo phố xong rồi hãy đi ăn cơm!). Khi ghép cụ thể với chỗ khác (chợ đêm, hiệu sách, siêu thị) chỉ giữ động từ đơn 逛 + Địa điểm: 逛夜市 (đi dạo chợ đêm), 逛書店 (lượn nhà sách), 逛百貨公司 (dạo trung tâm thương mại) — KHÔNG ghép cả *逛街夜市 ❌!",
+   "co": [
+    "去逛街|đi dạo phố / đi mua sắm",
+    "陪朋友逛街|đi shopping với bạn",
+    "逛夜市|đi dạo chợ đêm (thay 街 bằng 夜市!)",
+    "逛街買衣服|dạo phố mua quần áo"
+   ],
+   "sy": [
+    "血拚|(từ phiên âm 'shopping' rất quen ở Đài Loan: 去血拚一頓 đi shopping xả láng!)",
+    "散步|đi dạo bộ hít thở (không nhằm mục đích xem shop/mua sắm!)"
+   ],
+   "cf": [
+    "逛街 vs 散步 vs 逛夜市|散步 = đi dạo bộ thể dục thư giãn trong công viên (không đi xem shop); 逛街 = đi dọc khu phố/khu mua sắm ngắm đồ hoặc shopping; khi đi dạo 1 điểm cụ thể như chợ đêm/siêu thị thì bỏ 街, nói thẳng 逛夜市 / 逛超商!"
+   ],
+   "lt": "Chữ 逛 đọc guàng thanh 4 (đây là một trong số ít từ đọc vần guàng, bộ 辶 bước đi + 狂 lang thang dạo chơi).",
+   "mk": "Lỗi cực hay sai: ghép thêm chữ 街 vào tên khu mua sắm (*逛街西門町 ❌ -> phải nói 去西門町逛街 hoặc 逛西門町!).",
+   "tw": "Cuối tuần giới trẻ Đài Bắc cực thích tụ họp 去信義區逛街 (dạo khu trung tâm thương mại Tín Nghĩa 101), 去西門町 / 中山站逛街, hoặc lướt sàn thương mại điện tử (như Shopee 蝦皮) trên điện thoại gọi đùa là 在網路上逛街 / 逛網拍!",
+   "mh": "Cuống Nhai → guàngjiē. ĐỌC: 'cuống' → guàng (c- → g- + uang thanh 4); 'nhai' → jiē (nh- → j- + ie thanh 1). NGHĨA: 逛 dạo chơi thư thả qua lại + 街 con phố buôn bán → thong thả dạo dọc các khu phố ngắm hàng quán mua sắm = đi dạo phố, đi shopping.",
+   "vd": [
+    {
+     "t": "Cuối tuần",
+     "zh": "領薪水以後的第一個週末，我約了幾個好姊妹一起去信義區逛街買新衣服。",
+     "vn": "Cuối tuần đầu tiên sau khi nhận lương, tôi rủ mấy cô bạn thân cùng đi khu Tín Nghĩa dạo phố mua quần áo mới."
+    },
+    {
+     "t": "Hẹn hò",
+     "zh": "我們下午先去中山區逛街喝咖啡，晚上再去附近的寧夏夜市吃道地小吃。",
+     "vn": "Buổi chiều tụi mình đi dạo phố uống cà phê ở khu Trung Sơn trước, tối lại sang chợ đêm Ninh Hạ gần đó ăn đồ ăn vặt chuẩn vị."
+    },
+    {
+     "t": "Bạn bè",
+     "zh": "他每次跟女朋友逛街都非常有耐心，不但幫忙拿戰利品還會給穿搭建議。",
+     "vn": "Lần nào anh ấy đi dạo phố mua sắm cùng bạn gái cũng cực kỳ kiên nhẫn, không những xách giúp đồ mà còn góp ý phối đồ nữa."
+    }
+   ]
+  },
+  "打折": {
+   "vn": "giảm giá (theo phần trăm); chiết khấu",
+   "ng": [
+    "(động từ ly hợp) giảm giá bán hàng theo tỷ lệ phần trăm kiểu Hoa (打八折 giảm 20% [chỉ trả 80% giá gốc!], 打對折 giảm nửa giá 50%)"
+   ],
+   "us": "QUY TẮC TÍNH GIÁ CỰC KỲ QUAN TRỌNG CHO NGƯỜI VIỆT: Trong tiếng Hoa con số đi với 打……折 là PHẦN GIÁ KHÁCH PHẢI TRẢ chứ KHÔNG phải phần được trừ! Cụ thể: 打九折 (chỉ trả 90% = giảm 10%), 打八折 (trả 80% = giảm 20%), 打七五折 (trả 75% = giảm 25%), 打五折 / 打對折 (trả 50% = giảm một nửa!). Khi là động từ hỏi chung: 有沒有打折？ (Có giảm giá không?).",
+   "co": [
+    "打八折|giảm 20% (trả 80% giá gốc)",
+    "打七折|giảm 30% (trả 70% giá gốc)",
+    "打對折 / 打五折|giảm một nửa 50%",
+    "不打折 / 沒打折|không giảm giá"
+   ],
+   "sy": [
+    "特價|giá ưu đãi đặc biệt (giảm xuống một mức giá tròn sẵn: 特價99元)",
+    "折扣|chiết khấu, sự giảm giá (danh từ: 學生折扣 ưu đãi sinh viên)"
+   ],
+   "cf": [
+    "打折 vs 特價|特價 = ĐƯA RA GIÁ KHUYẾN MÃI CỐ ĐỊNH ('hôm nay giá đặc biệt 50 tệ!'); 打折 = GIẢM THEO TỶ LỆ PHẦN TRĂM trên giá gốc (tính ngược: 打九折 là chỉ giảm 10%, 打一折 là giảm tới tận 90%!)"
+   ],
+   "lt": "Hai thanh 3 + thanh 2: dǎzhé. Tách ly hợp khi chèn mức giảm vào giữa: 打了八折, 打很多折.",
+   "mk": "LỖI TÍNH TIỀN KINH ĐIỂN NHẤT Ở ĐÀI LOAN: Thấy biển 「全面八折」 cứ ngỡ được giảm 80% nên lao vào mua, hóa ra 打八折 chỉ GIẢM CÓ 20% (bạn phải trả 80% giá trên mác!). Nhớ mẹo: lấy 100% trừ đi con số trước 折 (ví dụ 8折 → giảm 20%, 75折 → giảm 25%, 2折 → giảm 80%)!",
+   "tw": "Ở Đài Loan vào cửa hàng tiện lợi buổi tối (từ sau 8 giờ tối tại FamilyMart hay 7-ELEVEN) có tem '友善時光 / i珍食' cơm hộp thực phẩm 打七折 / 打六五折 (giảm 30–35% chống lãng phí thực phẩm!), cực kỳ tiết kiệm cho sinh viên!",
+   "mh": "Đả Chiết → dǎzhé. ĐỌC: 'đả' → dǎ (đ- → d- + a thanh 3); 'chiết' → zhé (ch- → zh- + e thanh 2). NGHĨA: 打 đánh dấu/tính + 折 bẻ gập, chiết giảm tỷ lệ xuống → chiết giảm bớt phần trăm trên giá niêm yết gốc = giảm giá.",
+   "vd": [
+    {
+     "t": "Mua sắm",
+     "zh": "這家服飾店換季清倉全面打七折，原本一千元的外套現在只要七百元就能帶走。",
+     "vn": "Shop quần áo này xả hàng chuyển mùa giảm giá 30% toàn bộ, chiếc áo khoác vốn 1.000 tệ giờ chỉ cần 700 tệ là mang về được rồi."
+    },
+    {
+     "t": "Cửa hàng 24h",
+     "zh": "每天晚上八點以後超商的鮮食便當都會貼上打折標籤七折出售，很多學生常特地等這時間來買。",
+     "vn": "Sau tám giờ tối mỗi ngày cơm hộp tươi ở cửa hàng tiện lợi đều dán tem giảm 30%, nhiều sinh viên hay cố ý đợi giờ này tới mua."
+    },
+    {
+     "t": "Hỏi giá",
+     "zh": "請問這個背包已經有特價了嗎？出示大學學生證能不能再打折呢？",
+     "vn": "Xin hỏi chiếc ba lô này đã là giá khuyến mãi chưa ạ? Xuất trình thẻ sinh viên đại học thì có được giảm giá thêm nữa không?"
+    }
+   ]
+  },
+  "零錢": {
+   "vn": "tiền lẻ; tiền xu",
+   "ng": [
+    "(danh từ) tiền lẻ mệnh giá nhỏ (bao gồm tiền xu 硬幣 và tờ tiền giấy nhỏ 100 tệ để dễ trả tiền khi mua sắm, đi xe)"
+   ],
+   "us": "Dùng hằng ngày khi mua bán, đi chợ đêm, bỏ máy giặt xu: 換零錢 (đổi tiền lẻ), 找零錢 (trả lại tiền thừa/thối tiền), 沒有零錢 (không có tiền lẻ), 零錢包 (ví nhỏ đựng tiền xu — cực kỳ hữu ích ở Đài Loan!). Lượng từ: 些 / 點 (一點零錢 một ít tiền lẻ).",
+   "co": [
+    "換零錢|đổi tiền lẻ",
+    "沒有零錢|không có tiền lẻ",
+    "找零錢|thối lại tiền lẻ / tiền thừa",
+    "零錢包|ví nhỏ đựng tiền xu"
+   ],
+   "sy": [
+    "硬幣|tiền xu kim loại (ở Đài Loan có xu 1, 5, 10, 50 tệ!)",
+    "小鈔|tiền giấy mệnh giá nhỏ (như tờ 100 tệ màu đỏ)"
+   ],
+   "an": [
+    "整鈔|tiền chẵn mệnh giá lớn (tờ 1000 tệ / 500 tệ)"
+   ],
+   "cf": [
+    "零錢 vs 找錢|零錢 là DANH TỪ chỉ tiền lẻ/tiền xu cầm sẵn trong ví ('Tôi không có tiền lẻ': 我沒有零錢); 找錢 là ĐỘNG TỪ 'trả lại tiền thừa' ('Không trả lại tiền thừa trên xe buýt': 車上不找錢)!"
+   ],
+   "lt": "Thanh 2 + thanh 2: língqián.",
+   "mk": "1) Chớ nhầm 'máy đổi xu ở tiệm giặt tự động' — nó gọi là 兌幣機 (duìbìjī: máy đổi tiền xu lấy 零錢). 2) Ở Đài Loan xu 10 tệ và 50 tệ nặng túi lắm nên hầu như ai cũng dùng thêm một chiếc 零錢包!",
+   "tw": "Ở Đài Loan lưu thông rất nhiều tiền xu (零錢 / 硬幣 gồm đồng 1, 5, 10, 50 Đài tệ) để bỏ máy bán hàng tự động, máy giặt ký túc xá (投幣式洗衣機) hoặc ăn vặt chợ đêm — vì thế có chiếc 零錢包 (ví đựng xu) và nhớ đổi sẵn 零錢 khi lên xe buýt không quẹt thẻ!",
+   "mh": "Linh Tiền → língqián. ĐỌC: 'linh' → líng (thanh 2); 'tiền' → qián (t- bật sang q- + ian thanh 2). NGHĨA: 零 phần lẻ rơi ra ngoài số chẵn + 錢 tiền bạc → những đồng tiền mệnh giá nhỏ lẻ ngoài tờ tiền lớn = tiền lẻ, tiền xu.",
+   "vd": [
+    {
+     "t": "Đi xe buýt",
+     "zh": "上公車投現金是不找零錢的，所以出門前最好先確認錢包裡有沒有帶夠銅板。",
+     "vn": "Lên xe buýt bỏ tiền mặt là không thối lại tiền lẻ đâu, nên trước khi ra ngoài tốt nhất kiểm tra xem trong ví có đủ tiền xu không."
+    },
+    {
+     "t": "Phòng trọ",
+     "zh": "大樓地下室的投幣洗衣機一次要投三個十元硬幣，我得先去對面超商換點零錢。",
+     "vn": "Máy giặt bỏ xu dưới tầng hầm tòa nhà mỗi lần phải bỏ ba đồng xu 10 tệ, tôi phải chạy sang cửa hàng tiện lợi đối diện đổi chút tiền lẻ trước."
+    },
+    {
+     "t": "Mua hàng",
+     "zh": "這攤賣的滷味才五十元，我拿一千元大鈔出來付，真不好意思讓老闆找這麼多零錢。",
+     "vn": "Quầy đồ kho này bán có năm mươi tệ mà tôi rút tờ một nghìn lớn ra trả, thật ngại quá khi làm ông chủ phải thối nhiều tiền lẻ thế."
+    }
+   ]
+  },
+  "豆漿": {
+   "vn": "sữa đậu nành",
+   "ng": [
+    "(danh từ) sữa đậu nành (thức uống sáng truyền thống làm từ đậu nành xay nấu: 冰豆漿 sữa đậu nành đá, 熱豆漿 sữa đậu nành nóng, 鹹豆漿 sữa đậu nành mặn đặc sản Đài Loan)"
+   ],
+   "us": "Đi kèm động từ 喝 (uống): 喝豆漿 (uống sữa đậu nành), 無糖豆漿 (sữa đậu nành không đường — rất nhiều người tập gym ở Đài Loan uống sau khi tập thay đạm!), 清漿 ('thanh tương' = cách gọi tắt ở tiệm ăn sáng truyền thống chỉ sữa đậu nành không đường!). Lượng từ: 杯 (ly/cốc), 瓶 (chai), 碗 (bát — cho món 鹹豆漿 ăn bằng thìa!).",
+   "co": [
+    "喝豆漿|uống sữa đậu nành",
+    "無糖豆漿|sữa đậu nành không đường",
+    "鹹豆漿|sữa đậu nành mặn (kèm quẩy, tôm khô, hành lá)",
+    "豆漿油條|sữa đậu nành và quẩy chiên (combo sáng kinh điển)"
+   ],
+   "sy": [
+    "清漿|sữa đậu nành nguyên chất không đường (cách gọi quen tại tiệm ăn sáng Đài Loan)",
+    "米漿|sữa gạo rang lạc (màu nâu sánh bán song song trong tiệm 豆漿店!)"
+   ],
+   "cf": [
+    "豆漿 vs 米漿 vs 牛奶|Tại tiệm ăn sáng Đài Loan luôn bán song hành 3 thứ: 豆漿 (sữa đậu nành màu trắng đục), 米漿 (nước gạo rang đậu phộng màu nâu sánh ngọt bùi!), và 鮮奶/牛奶 (sữa bò); có người còn thích gọi nửa này nửa kia gọi là 「混漿」!"
+   ],
+   "lt": "杯 (1 ly), 碗 (1 bát — đặc biệt với 鹹豆漿 dùng thìa múc như súp mềm), 瓶 (chai siêu thị).",
+   "mk": "1) Phân biệt rõ 甜豆漿 (uống ngọt bằng ống hút — gọi theo độ đường 無糖/半糖/微糖) với 鹹豆漿 (sữa đậu nành mặn vắt chút giấm cho kết tủa giống óc đậu mềm kèm ruốc thịt, củ cải muối và quẩy giòn — ăn bằng thìa chứ không cắm ống hút!). 2) Nhớ bộ chữ 漿 có bộ Thủy 水 ở dưới.",
+   "tw": "Ở Đài Loan hệ thống tiệm ăn sáng 24h hoặc sáng sớm nổi tiếng khắp nơi chính là 永和豆漿 (Sữa đậu nành Vĩnh Hòa) — nơi vừa bán 豆漿 nóng hổi mới nấu thơm mùi đậu, vừa bán bánh nướng lò 燒餅油條, bánh cuốn trứng 蛋餅 và màn thầu kẹp trứng!",
+   "mh": "Đậu Tương → dòujiāng. ĐỌC: 'đậu' → dòu (đ- → d- + ou thanh 4); 'tương' → jiāng (t- → j- + iang thanh 1). NGHĨA: 豆 hạt đậu (đậu nành/đậu tương) + 漿 chất lỏng sánh nấu lọc từ ngũ cốc → nước sữa sánh thơm nấu từ hạt đậu nành = sữa đậu nành.",
+   "vd": [
+    {
+     "t": "Bữa sáng",
+     "zh": "台灣傳統早餐店最經典的組合就是一套燒餅油條配上一碗熱騰騰的豆漿。",
+     "vn": "Combo kinh điển nhất của tiệm ăn sáng truyền thống Đài Loan chính là một phần bánh nướng kẹp quẩy ăn cùng một bát sữa đậu nành nóng hổi."
+    },
+    {
+     "t": "Thể hình",
+     "zh": "為了多補充植物性蛋白質又不想攝取太多糖分，他運動後固定喝一瓶無糖豆漿。",
+     "vn": "Để bổ sung nhiều đạm thực vật mà không nạp quá nhiều đường, tập xong anh ấy luôn uống cố định một chai sữa đậu nành không đường."
+    },
+    {
+     "t": "Đặc sản",
+     "zh": "剛來台灣的同學第一次看到加入油條、菜脯和蔥花的鹹豆漿時，幾乎都覺得超新奇！",
+     "vn": "Các bạn mới sang Đài Loan lần đầu nhìn thấy món sữa đậu nành mặn cho thêm quẩy, củ cải muối và hành hoa hầu như ai cũng thấy siêu lạ mắt!"
+    }
+   ]
+  }
+ }
+}

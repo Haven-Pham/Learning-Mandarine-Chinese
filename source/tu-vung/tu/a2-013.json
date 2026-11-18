@@ -1,0 +1,1375 @@
+{
+ "tu": {
+  "任何": {
+   "vn": "bất kỳ; bất cứ; nào cũng",
+   "ng": [
+    "(định ngữ / đại từ) bất kỳ, bất cứ ai/thứ gì/nơi nào (luôn dùng với 都 'đều' ở câu khẳng định hoặc 不/沒 ở câu phủ định: 任何人 bất kỳ ai, 任何時候 bất cứ lúc nào)"
+   ],
+   "us": "Đặt trực tiếp trước danh từ (任何人, 任何地方, 任何問題, 任何時間) hoặc không có 的: 1) Trong câu khẳng định đi kèm 都: 任何問題都可以問我 (Bất kỳ câu hỏi nào cũng có thể hỏi tôi); 2) Trong câu phủ định cực mạnh đi với 沒(有) / 不: 我沒有任何意見 (Tôi không có bất kỳ ý kiến nào cả!).",
+   "co": [
+    "任何人|bất kỳ ai",
+    "任何時候|bất cứ lúc nào",
+    "任何地方|bất cứ nơi đâu",
+    "沒有任何問題|không có bất kỳ vấn đề gì"
+   ],
+   "sy": [
+    "所有|tất cả (cả tập thể)",
+    "隨便哪個|cái nào cũng được (khẩu ngữ)"
+   ],
+   "cf": [
+    "任何 vs 沒有任何|Trong câu khẳng định đơn ('Tôi muốn ăn bất kỳ quả táo nào' — KHÔNG phải khẳng định bao trùm với 都), KHÔNG nói được *我想吃任何蘋果 ❌ mà dùng 隨便一顆蘋果; chỉ dùng 任何 khi có 都 ('Mọi loại nào tôi cũng ăn': 任何蘋果我都吃) hoặc có 不/沒 ('Không chút vấn đề nào': 沒有任何問題)!"
+   ],
+   "lt": "Rènhé (thanh 4 + thanh 2). Luôn kiểm tra cặp 任何……都…… hoặc 沒(有)……任何…….",
+   "mk": "Lỗi ngữ pháp hay gặp: dịch từ tiếng Việt/Anh rồi bỏ quên 都 trong câu khẳng định (*任何人喜歡這家店 ❌ -> phải nói 任何人都會喜歡這家店!).",
+   "tw": "Trong hợp đồng, biển thông báo và câu trả lời tận tình của nhân viên dịch vụ Đài Loan hay gặp: 有任何需要歡迎隨時告訴我們！(Có bất kỳ nhu cầu gì xin cứ báo tụi mình bất cứ lúc nào!).",
+   "mh": "Nhậm Hà → rènhé. ĐỌC: 'nhậm' → rèn (nh- → r- + en thanh 4); 'hà' → hé (thanh 2). NGHĨA: 任 tùy ý mặc cho + 何 cái gì/ai → mặc ý chọn lấy cái gì hay người nào cũng không loại trừ = bất kỳ, bất cứ.",
+   "vd": [
+    {
+     "t": "Dịch vụ",
+     "zh": "入住期間如果有任何問題，都可以直接按分機號碼聯絡櫃檯人員。",
+     "vn": "Trong thời gian lưu trú nếu có bất kỳ vấn đề gì đều có thể bấm thẳng số máy lẻ liên hệ quầy lễ tân."
+    },
+    {
+     "t": "Thông báo",
+     "zh": "本圖書館閱覽室內禁止攜帶任何食物與含糖飲料進入。",
+     "vn": "Bên trong phòng đọc thư viện này nghiêm cấm mang bất kỳ đồ ăn và đồ uống có đường nào vào."
+    },
+    {
+     "t": "Cam kết",
+     "zh": "我對這次的比賽充滿信心，絕對不會畏懼任何困難和挑戰。",
+     "vn": "Tôi tràn đầy tự tin vào cuộc thi lần này, tuyệt đối sẽ không chùn bước trước bất kỳ khó khăn và thử thách nào."
+    }
+   ]
+  },
+  "許多": {
+   "vn": "nhiều; rất nhiều",
+   "ng": [
+    "(tính từ / định ngữ) nhiều, rất nhiều, đông đảo (đếm cả danh từ đếm được lẫn không đếm được: 許多人 nhiều người, 許多經驗 nhiều kinh nghiệm)"
+   ],
+   "us": "Dùng trực tiếp trước danh từ (có hoặc không có 的 đều được, không có 的 nghe gọn gàng trang nhã hơn): 許多台灣人 (rất nhiều người Đài Loan), 許多年前 (nhiều năm về trước), 發生了許多事 (đã xảy ra nhiều chuyện). Lưu ý: 許多 KHÔNG đứng cuối câu làm vị ngữ thay cho 很多 (*錢許多 ❌ -> phải nói 錢很多!).",
+   "co": [
+    "許多人|rất nhiều người",
+    "許多年輕人|rất nhiều bạn trẻ",
+    "許多經驗|nhiều kinh nghiệm",
+    "許許多多|vô vàn, biết bao nhiêu là..."
+   ],
+   "sy": [
+    "很多|rất nhiều (dùng cả làm vị ngữ cuối câu lẫn định ngữ khẩu ngữ)",
+    "不少|không ít, khá nhiều"
+   ],
+   "an": [
+    "少數|số ít, thiểu số",
+    "很少|rất ít"
+   ],
+   "cf": [
+    "許多 vs 很多|很多 có thể đứng TRƯỚC danh từ (很多人) VÀ LÀM VỊ NGỮ SAU CHỦ NGỮ ('Sách rất nhiều' = 書很多!); còn 許多 chủ yếu đứng TRƯỚC DANH TỪ (許多書) hoặc sau giới từ, KHÔNG làm vị ngữ trơ cuối câu kiểu *書許多 ❌!"
+   ],
+   "lt": "Thanh 3 + thanh 1: xǔduō (hoặc nói ở Đài khi thành cặp 許許多多 rất nhịp nhàng!).",
+   "mk": "Đừng nói *今天人許多 ❌ ('Hôm nay người rất nhiều') — khi đứng làm vị ngữ cuối câu PHẢI dùng 很多 (今天人很多!). Chỉ đặt 許多 trước danh từ (許多人).",
+   "tw": "Trong sách báo, bài thuyết trình và kể chuyện ở Đài Loan dùng 許多 rất tự nhiên và giàu văn phong hơn 很多.",
+   "mh": "Hứa Đa → xǔduō. ĐỌC: 'hứa' → xǔ (h- → x- + vần ü viết gọn là u thanh 3); 'đa' → duō (thanh 1). NGHĨA: 許 ước lượng nhiều/vượt mức + 多 nhiều → số lượng rất nhiều, đông đảo = nhiều, rất nhiều.",
+   "vd": [
+    {
+     "t": "Văn hóa",
+     "zh": "在台北這座大城市裡，至今依然保存著許多歷史悠久的老街與寺廟。",
+     "vn": "Giữa thành phố lớn Đài Bắc này, đến nay vẫn còn lưu giữ được rất nhiều phố cổ và đền chùa lâu đời."
+    },
+    {
+     "t": "Học tập",
+     "zh": "這份工讀讓我提前認識了許多不同領域的朋友，也學到不少待人處事的道理。",
+     "vn": "Công việc làm thêm này giúp tôi sớm quen biết được nhiều bạn bè ở các lĩnh vực khác nhau, lại học được không ít cách đối nhân xử thế."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "這幾天的連綿大雨導致山區許多道路暫時封閉進行搶修。",
+     "vn": "Mưa lớn kéo dài mấy hôm nay khiến nhiều tuyến đường vùng núi tạm thời bị phong tỏa để khẩn trương sửa chữa."
+    }
+   ]
+  },
+  "新鮮": {
+   "vn": "tươi; tươi mới; mới lạ",
+   "ng": [
+    "(tính từ) tươi sống, vừa hái/mới ra lò không ôi thiu (新鮮水果 hoa quả tươi, 新鮮魚貨 cá tươi, 新鮮空氣 không khí trong lành)",
+    "(tính từ) mới lạ, mới mẻ thú vị chưa từng thấy (新鮮事 chuyện mới lạ, 感覺很新鮮 cảm thấy mới mẻ lắm)"
+   ],
+   "us": "Dùng cho đồ ăn thức uống (這盤生魚片很新鮮 Đĩa sashimi này rất tươi), không khí (早上的空氣真新鮮), hoặc trải nghiệm lạ lẫm (剛來台灣什麼都覺得很新鮮 Mới tới Đài Loan cái gì cũng thấy mới lạ). Không dùng cho đồ vật công nghiệp mới mua (xe mới nói 新車 chứ KHÔNG nói *新鮮車 ❌!).",
+   "co": [
+    "新鮮水果|trái cây tươi",
+    "新鮮空氣|không khí trong lành",
+    "新鮮事|chuyện mới mẻ / tin lạ",
+    "保持新鮮|giữ độ tươi ngon"
+   ],
+   "sy": [
+    "鮮美|tươi ngon đậm đà (thường tả canh, hải sản)",
+    "新奇|mới lạ (sự vật lạ mắt)"
+   ],
+   "an": [
+    "過期|quá hạn (thực phẩm)",
+    "陳舊|cũ kỹ, lạc hậu"
+   ],
+   "cf": [
+    "新鮮 vs 新|新 = MỚI nói chung (mới mua, chưa từng dùng: 新手機 điện thoại mới, 新同學 bạn mới); 新鮮 = TƯƠI NGON (rau, thịt, cá, sữa, không khí) hoặc CẢM GIÁC MỚI LẠ!"
+   ],
+   "lt": "Âm chuẩn Đài Loan hay đọc xīnxiān (thanh 1 + thanh 1) hoặc nhẹ ở âm sau xīnxian.",
+   "mk": "Lỗi cực hay gặp: nói *新鮮的衣服 ❌ cho áo mới mua ở shop -> đồ vật dùng 新 (新衣服), chỉ thực phẩm sống/vừa chế biến, không khí và cảm giác mới lạ mới dùng 新鮮!",
+   "tw": "Ở Đài Loan từ thực phẩm siêu thị hay dùng chữ 生鮮 (như 生鮮超市 siêu thị thực phẩm tươi sống), còn sinh viên năm nhất đại học được gọi vui là 大一新鮮人 (vừa mới mẻ lại vừa đầy sức sống!).",
+   "mh": "Tân Tiên → xīnxiān. ĐỌC: 'tân' → xīn (t- → x- + in thanh 1); 'tiên' → xiān (t- → x- + ian thanh 1, đôi khi đọc nhẹ xian). NGHĨA: 新 mới mẻ + 鮮 (bộ 魚 cá + 羊 thịt cừu) con cá thịt cừu mới làm tươi ngon → thực phẩm còn mới nguyên vẹn chất lượng hoặc sự việc mới lạ = tươi, tươi mới.",
+   "vd": [
+    {
+     "t": "Đi chợ",
+     "zh": "媽媽每天一早就去傳統市場挑菜，就是為了買到最新鮮的蔬菜和海鮮。",
+     "vn": "Sáng sớm nào mẹ cũng đi chợ truyền thống lựa đồ chỉ để mua được rau xanh và hải sản tươi nhất."
+    },
+    {
+     "t": "Thiên nhiên",
+     "zh": "清晨爬上山頂大口呼吸新鮮空氣，整個人頓時神清氣爽了起來。",
+     "vn": "Sáng sớm leo lên đỉnh núi hít thở sâu luồng không khí trong lành, cả người lập tức sảng khoái tỉnh táo hẳn lên."
+    },
+    {
+     "t": "Trải nghiệm",
+     "zh": "剛開始體驗自己包水餃和寫書法，對外國同學來說一切都很新鮮有趣。",
+     "vn": "Mới đầu trải nghiệm tự tay gói sủi cảo và viết thư pháp, đối với các bạn sinh viên nước ngoài mọi thứ đều rất mới mẻ và thú vị."
+    }
+   ]
+  },
+  "熟": {
+   "vn": "chín (đồ ăn/trái cây); quen thân; thành thạo",
+   "ng": [
+    "(tính từ — khẩu ngữ Đài Loan đọc shóu) chín, được nấu chín kỹ (煮熟了 nấu chín rồi, 熟食 thức ăn đã chín)",
+    "(tính từ — đọc shóu) chín muồi (trái cây: 香蕉熟了 chuối chín rồi, 熟透 chín nẫu)",
+    "(tính từ — đọc shóu, văn viết đọc shú) quen biết, thân thuộc, rành rẽ (很熟 rất thân/quen, 熟人 người quen, 這首歌我很熟 bài này tôi thuộc làu, 熟悉 quen thuộc)"
+   ],
+   "us": "Đa nghĩa siêu thiết yếu hàng ngày: 1) Nấu ăn & hoa quả: 菜還沒熟 (rau chưa chín), 全熟 / 七分熟 (chín kỹ / chín tái 70% khi gọi bít tết ở Đài Loan!); 2) Quen thân & thạo việc: 我跟他很熟 (Tôi với anh ấy thân lắm!), 這條路我很熟 (Tôi rành đường này lắm!), 不熟 (không quen / chưa thạo).",
+   "co": [
+    "煮熟了|nấu chín rồi",
+    "很熟 / 不太熟|rất thân quen / không thân lắm",
+    "七分熟 / 全熟|chín vừa (7 phần) / chín hẳn (bít tết/trứng)",
+    "熟人|người quen"
+   ],
+   "sy": [
+    "熟悉|quen thuộc (âm đọc chuẩn shúxī)",
+    "成熟|chín chắn, trưởng thành (âm chuẩn chéngshú)"
+   ],
+   "an": [
+    "生|sống (chưa chín: 生魚 cá sống), lạ (陌生 xa lạ)"
+   ],
+   "cf": [
+    "熟 (shóu) vs 熟 (shú)|ĐIỂM ĐẶC TRƯNG PHÁT ÂM ĐÀI LOAN: Khi dùng đơn trong khẩu ngữ Đài Loan ('chín rồi / quen thân lắm'), người Đài 99% đọc là shóu (thanh 2, vần -ou: 好熟喔, 熟了沒); còn trong các từ ghép hai chữ mang tính văn viết hơn như 熟悉 (shúxī), 成熟 (chéngshú) thì đọc shú!"
+   ],
+   "lt": "Khẩu ngữ đọc shóu (thanh 2); văn viết / một số từ ghép đọc shú (thanh 2).",
+   "mk": "1) Đừng giật mình khi nghe bạn Đài nói '很熟 (hěn shóu)' — đó là phát âm khẩu ngữ CỰC CHUẨN tại Đài Loan thay cho *shú! 2) Đừng nhầm mặt chữ 熟 với 熱 (rè 'nóng' — dưới đều có 4 chấm lửa 灬, nhưng bên trên hoàn toàn khác: 熟 có chữ 享 + 丸!).",
+   "tw": "Ở Đài Loan ăn bít tết đêm ở chợ đêm (夜市牛排) hoặc gọi trứng chiên luôn dùng mức chín: 全熟 (chín hẳn), 七分熟 (chín 70%), 五分熟 (chín tái 50%), 半熟蛋 (trứng ốp la lòng đào!). Khẩu ngữ nghe hàng ngày nói tới mức quen: 熟到不行 (thân không thể tả / rành rọt cực kỳ) đọc là shóu.",
+   "mh": "Thục → shóu / shú. ĐỌC: 'thục' → shú (th- → sh- + u thanh 2 trong từ ghép 熟悉, và đổi sang khẩu ngữ chuẩn Đài Loan shóu khi đứng đơn). NGHĨA: trên phần nấu dâng 享 + bên phải cầm nắm 丸 + dưới 灬 (bốn chấm lửa bếp) → đun nấu trên lửa đến khi thức ăn mềm chín hoàn hảo = chín, rồi mở rộng ra trải qua lâu thành quen thuộc, rành rọt.",
+   "vd": [
+    {
+     "t": "Nấu ăn",
+     "zh": "這塊豬肉比較厚，多煮幾分鐘確定完全熟了再夾起來吃比較安全。",
+     "vn": "Miếng thịt heo này hơi dày, nấu thêm vài phút chắc chắn chín hoàn toàn rồi hãy gắp ra ăn cho an toàn."
+    },
+    {
+     "t": "Bạn bè",
+     "zh": "我跟鄰居阿伯很熟，每天早上在電梯遇到都會互相打招呼聊天。",
+     "vn": "Tôi với bác hàng xóm thân quen lắm, sáng nào gặp nhau trong thang máy cũng chào hỏi trò chuyện."
+    },
+    {
+     "t": "Lái xe",
+     "zh": "剛搬來台中不久，對這裡的小路還不太熟，每次出門都得開手機導航。",
+     "vn": "Mới chuyển tới Đài Trung chưa lâu nên chưa rành đường nhỏ ở đây lắm, lần nào ra ngoài cũng phải bật chỉ đường trên điện thoại."
+    }
+   ]
+  },
+  "炒": {
+   "vn": "xào; rang; chiên cơm (炒飯); thổi giá / đầu cơ",
+   "ng": [
+    "(động từ nấu ăn) xào, đảo chín nhanh trên chảo nóng với ít dầu (炒青菜 xào rau, 炒飯 cơm chiên, 炒麵 mì xào, 熱炒 quán đồ xào)",
+    "(động từ — mở rộng tin tức/kinh tế) thổi phồng đầu cơ đẩy giá (炒房 đầu cơ bất động sản, 炒新聞 câu view tạo scandal)"
+   ],
+   "us": "Chỉ phương pháp nấu dùng chảo đảo liên tục bằng xẻng (không ngập dầu như 炸): 炒青菜 (rau xào), 蛋炒飯 (cơm chiên trứng — nhớ tiếng Hoa gọi cơm chiên là 炒飯 chứ KHÔNG dùng *煎飯 hay *炸飯!), 炒米粉 (bún xào — món truyền thống nổi tiếng Đài Loan!), 炒熱氣氛 (khuấy động bầu không khí cho nóng lên!).",
+   "co": [
+    "蛋炒飯|cơm chiên trứng",
+    "炒青菜|rau xào",
+    "熱炒 / 快炒|quán nhậu đồ xào bình dân Đài Loan",
+    "炒米粉|bún gạo xào (món truyền thống Đài Loan)"
+   ],
+   "sy": [
+    "煎|chiên/rán áp chảo ít dầu (ví dụ trứng ốp la 煎荷包蛋)",
+    "炸|chiên giòn ngập dầu (ví dụ 炸雞排 gà rán)"
+   ],
+   "cf": [
+    "炒 vs 煎 vs 炸|BỘ BA CHẾ BIẾN DẦU MỠ: 1) 炒 = đảo nhanh trong chảo vừa dầu (xào rau, cơm chiên 炒飯, mì xào 炒麵); 2) 煎 = áp chảo phẳng từng mặt ít dầu (trứng ốp la 煎蛋, cá rán 煎魚, bánh hàu 蚵仔煎); 3) 炸 = nhúng ngập trong chảo dầu sôi giòn rụm (gà rán 炸雞, khoai chiên 炸薯條)!"
+   ],
+   "lt": "Thanh 3 chǎo (bộ 火 lửa bên trái + 少 ít/nhỏ bên phải → đảo nhanh trên lửa với chút dầu ít!).",
+   "mk": "1) Cơm chiên trứng phải gọi là 蛋炒飯 (KHÔNG nói *蛋炸飯 hay *蛋煎飯!). 2) Nhớ văn hóa quán 熱炒 (rèchǎo) ở Đài Loan: đây chính là quán nhậu gia đình giá bình dân có hàng chục món xào nóng hổi gọi ra cực nhanh!",
+   "tw": "Văn hóa ẩm thực buổi tối cực kỳ đặc trưng của Đài Loan là 熱炒店 (quán đồ xào nóng — tương tự quán nhậu bình dân nhưng sạch sẽ sôi động, đi kèm bàn thấp ghế nhựa uống 台啤!) và món 炒米粉 (bún xào Tân Trúc), 炒飯 (hệ thống 鼎泰豐 lừng danh thế giới với món 排骨蛋炒飯!).",
+   "mh": "Sao → chǎo. ĐỌC: 'sao' → chǎo (s- → ch- uốn lưỡi + ao thanh 3). NGHĨA: bộ 火 (lửa) bên trái + 少 (ít) bên phải → dùng lửa lớn đảo nhanh nguyên liệu chỉ với ít dầu nước cho chín thơm = xào, rang.",
+   "vd": [
+    {
+     "t": "Nấu ăn",
+     "zh": "下班回家懶得煮太複雜的菜，我經常隨便炒一盤青菜加蛋炒飯當晚餐。",
+     "vn": "Tan làm về nhà lười nấu món cầu kỳ, tôi hay xào đại một đĩa rau cộng thêm đĩa cơm chiên trứng làm bữa tối."
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "台北的熱炒店氣氛非常熱鬧，菜色多、上菜快，是台灣人聚餐的好選擇。",
+     "vn": "Quán đồ xào nóng ở Đài Bắc không khí cực kỳ náo nhiệt, nhiều món lại lên món nhanh, là lựa chọn tuyệt vời cho người Đài Loan tụ họp."
+    },
+    {
+     "t": "Đặc sản",
+     "zh": "新竹最出名的傳統美食之一就是口感香Ｑ、料多實在的炒米粉。",
+     "vn": "Một trong những đặc sản truyền thống nổi tiếng nhất ở Tân Trúc chính là món bún xào sợi dai thơm ngon và đầy đặn nhân."
+    }
+   ]
+  },
+  "嚐/嘗": {
+   "vn": "nếm; nếm thử; trải qua",
+   "ng": [
+    "(động từ) nếm thử mùi vị thức ăn thức uống (嚐一口 nếm một miếng, 嚐嚐看 nếm thử xem sao)",
+    "(động từ mở rộng) trải qua, nếm trải (嚐到成功的滋味 nếm trải hương vị thành công)"
+   ],
+   "us": "Dùng khi thử mùi vị đồ ăn mới nấu hay món ngon lạ: 幫我嚐嚐看鹹度夠不夠 (Nếm thử giúp tôi xem độ mặn vừa chưa), 嚐一口 (nếm một ngụm/miếng), 品嚐美食 (thưởng thức mỹ thực). Lưu ý ở Đài Loan gõ chữ 'nếm món ăn' trong văn viết/tin nhắn rất hay dùng dạng có bộ Khẩu 口 là 嚐 (còn chữ 嘗 thường gặp trong thành ngữ hoặc 嘗試 'thử thách/thử làm').",
+   "co": [
+    "嚐一口|nếm một miếng / một ngụm",
+    "嚐嚐看|nếm thử xem sao",
+    "品嚐|thưởng thức (ẩm thực, trà, cà phê)",
+    "嘗試|thử sức, thử nghiệm (dùng chữ 嘗 không có bộ 口!)"
+   ],
+   "sy": [
+    "試吃|ăn thử (mẫu thử ở siêu thị/quầy bánh Đài Loan)",
+    "品嚐|thưởng thức, nhâm nhi"
+   ],
+   "cf": [
+    "嚐 vs 嘗 vs 試吃|Ở Đài Loan: 嚐 (có bộ 口 cái miệng) thường ưu tiên viết khi NẾM MÓN ĂN thức uống (品嚐, 嚐一口); 嘗 (không bộ 口) chuẩn mực trong 嘗試 (thử nghiệm làm một việc gì mới) và 曾經 cũ; còn xin ăn mẫu thử ở cửa hàng bánh kẹo/chợ dùng 試吃!"
+   ],
+   "lt": "Thanh 2 cháng (cùng âm với 長 'dài' và 常 'thường xuyên').",
+   "mk": "Chú ý khi ghép thành động từ lặp nhẹ trong khẩu ngữ Đài Loan: 嚐嚐看 hoặc 嚐一下! Còn nói 'thử làm chuyện gì lần đầu' dùng 嘗試 (không phải *嚐試 nhiều bằng 嘗試!).",
+   "tw": "Trên mạng đánh giá ẩm thực Đài Loan rất hay viết: 來花蓮一定要品嚐道地的麻糬 (Đến Hoa Liên nhất định phải thưởng thức bánh mochi chuẩn vị), hoặc khi nấu canh đưa muỗng mời người nhà nếm thử nói: 你先嚐一口看看太淡還是太鹹？",
+   "mh": "Thường → cháng. ĐỌC: 'thường' → cháng (th- → ch- uốn lưỡi + ang thanh 2). NGHĨA: trên chữ 尚 (đưa lên/dâng cao) + dưới 旨 (vị ngon; hay thêm bộ 口 cái miệng thành 嚐) → đưa đồ ăn ngon vào miệng nhấp thử = nếm, nếm thử.",
+   "vd": [
+    {
+     "t": "Nấu ăn",
+     "zh": "這鍋排骨湯我剛加了一點鹽，你先幫我嚐一口看看味道夠不夠。",
+     "vn": "Nồi canh sườn này mình vừa nêm thêm chút muối, bạn nếm thử một miếng giúp xem vị đã vừa chưa."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "好不容易飛來台南旅遊，當然要盡情品嚐道地的牛肉湯和碗粿！",
+     "vn": "Khó khăn lắm mới bay tới Đài Nam du lịch, đương nhiên phải thỏa sức thưởng thức canh thịt bò và bánh bát chuẩn vị!"
+    },
+    {
+     "t": "Bữa tối",
+     "zh": "這盤新推出的抹茶甜點看起來很精緻，大家都想嘗一塊試試味道。",
+     "vn": "Đĩa bánh tráng miệng matcha mới ra mắt này trông tinh xảo quá, ai cũng muốn thử một miếng xem vị thế nào."
+    }
+   ]
+  },
+  "裝": {
+   "vn": "đựng, bỏ vào; đóng gói; lắp đặt; giả vờ; trang phục",
+   "ng": [
+    "(động từ) đựng, chứa, đổ/bỏ đồ vật vào túi/hộp/bình (袋子裡裝滿了水果 trong túi đựng đầy hoa quả, 裝水 rót nước vào bình)",
+    "(động từ) lắp đặt thiết bị hoặc cài phần mềm (裝冷氣 lắp máy lạnh, 裝App cài ứng dụng vào điện thoại)",
+    "(động từ) giả vờ, làm bộ (假裝 giả vờ, 裝睡 giả vờ ngủ, 裝傻 giả ngây, 裝可愛 làm nũng/giả bộ dễ thương)",
+    "(danh từ / hình vị) trang phục, quần áo, hóa trang (服裝 trang phục, 西裝 bộ vest, 套裝 đồ bộ/combo)"
+   ],
+   "us": "Động từ đa năng top đầu ở trình độ A2: 1) Đựng/rót: 用碗裝 (múc vào bát), 裝一瓶水 (lấy đầy một bình nước ở cây lọc nước!), 裝進袋子裡 (cho vào trong túi); 2) Lắp/cài: 裝電腦軟體, 裝網路; 3) Giả bộ: 別裝了 (Đừng diễn/giả vờ nữa!), 假裝不知道 (giả vờ không biết); 4) Quần áo: 服裝店, 男裝/女裝.",
+   "co": [
+    "裝水|lấy nước / rót đầy nước vào bình",
+    "假裝|giả vờ",
+    "裝冷氣 / 裝App|lắp máy điều hòa / cài ứng dụng",
+    "服裝 / 西裝|trang phục / bộ com-lê vest"
+   ],
+   "sy": [
+    "放|đặt, bỏ vào",
+    "安裝|lắp đặt, cài đặt (từ hai âm tiết đầy đủ)",
+    "假裝|giả bộ"
+   ],
+   "cf": [
+    "裝 vs 妝|CỰC HAY NHẦM KHI GÕ: 裝 (bộ Y 衣 quần áo ở dưới -> zhuāng) = ĐỰNG ĐỒ, LẮP ĐẶT, GIẢ VỜ, QUẦN ÁO (服裝, 西裝, 裝水); 妝 (bộ Nữ 女 bên trái -> zhuāng) = TRANG ĐIỂM phấn son cho phụ nữ (化妝 trang điểm, 卸妝 tẩy trang)!"
+   ],
+   "lt": "Thanh 1 zhuāng.",
+   "mk": "1) Đừng gõ nhầm *化裝 cho 'trang điểm' (phải là 化妝 bộ Nữ) hay *服妝 cho 'trang phục' (phải là 服裝 bộ Y!). 2) Nhớ nghĩa cực tiện ở trường học/công sở Đài Loan: 裝水 là đi lấy nước từ máy lọc 飲水機 vào bình cá nhân!",
+   "tw": "Ở trường học, văn phòng Đài Loan đi đâu cũng mang bình cá nhân đi 裝水 (hứng nước ở máy 飲水機 — một nét tiết kiệm và thân thiện môi trường nổi bật!). Trong khẩu ngữ cũng cực hay nói 裝可愛 (tỏ ra dễ thương), 裝熟 (tỏ vẻ quen thân dù mới gặp!), 裝死 (giả chết / lờ tịt đi!).",
+   "mh": "Trang → zhuāng. ĐỌC: 'trang' → zhuāng (tr- uốn lưỡi → zh- + uang thanh 1). NGHĨA: phần trên 壯 (khỏe mạnh, oai vệ chỉnh tề) + phần dưới 衣 (áo quần) → mặc áo quần tề chỉnh vào người, rồi mở rộng ra đựng nhét đồ vào vỏ bao, lắp ráp máy móc hoặc khoác vỏ bọc bề ngoài = trang phục, đựng, lắp đặt, giả vờ.",
+   "vd": [
+    {
+     "t": "Văn phòng",
+     "zh": "去開會以前，我先拿著保溫瓶去茶水間裝一點溫水喝。",
+     "vn": "Trước khi đi họp, tôi cầm bình giữ nhiệt ra phòng pha trà lấy một ít nước ấm để uống trước."
+    },
+    {
+     "t": "Siêu thị",
+     "zh": "今天東西買得太多，這個紙袋快要裝不下了，再加購一個環保袋吧。",
+     "vn": "Hôm nay mua nhiều đồ quá, chiếc túi giấy này sắp không đựng nổi nữa rồi, mua thêm một chiếc túi vải nữa nhé."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "每次叫弟弟起來寫功課的時候，他總愛閉著眼睛在床上裝睡。",
+     "vn": "Mỗi lần gọi em trai dậy làm bài tập, thằng bé cứ thích nhắm nghiền mắt nằm trên giường giả vờ ngủ."
+    }
+   ]
+  },
+  "不用": {
+   "vn": "không cần; khỏi phải; không cần đâu",
+   "ng": [
+    "(phó từ / trợ động từ) không cần phải làm gì (不用擔心 không cần lo, 不用客氣 đừng khách sáo, 不用麻煩了 khỏi phiền đâu)"
+   ],
+   "us": "Đặt TRƯỚC động từ hoặc đứng độc lập để từ chối khéo / trấn an người khác: 不用謝 (Không có gì đâu), 不用買那麼多 (Không cần mua nhiều thế đâu), 這裡不用脫鞋 (Ở đây không cần cởi giày). Nếu muốn nói 'cái này KHÔNG DÙNG NỮA / bỏ không dùng' cũng có thể hiểu tùy câu, nhưng ý nghĩa chính ở A2 là 'KHÔNG CẦN' (= 不需要 / 不必)!",
+   "co": [
+    "不用客氣|không cần khách sáo / đừng ngại",
+    "不用擔心|không cần lo lắng",
+    "不用了，謝謝|không cần đâu ạ, cảm ơn (từ chối lịch sự ở cửa hàng)",
+    "不用麻煩|khỏi phải phiền đâu"
+   ],
+   "sy": [
+    "不必|không cần thiết (hơi trang trọng hơn một chút)",
+    "不需要|không cần đến (cần vật/tiền/sự giúp đỡ)"
+   ],
+   "an": [
+    "需要|cần",
+    "必須|bắt buộc phải"
+   ],
+   "cf": [
+    "不用 vs 不能|CỰC HAY NHẦM: 不能 = KHÔNG ĐƯỢC PHÉP hoặc KHÔNG CÓ KHẢ NĂNG ('Ở đây không được phép hút thuốc': 不能抽菸); 不用 = KHÔNG CẦN THIẾT phải làm ('Hôm nay được nghỉ không cần đi làm': 不用上班 — muốn làm cũng không ai cấm!). Ngoài ra người Bắc Kinh hay hợp âm 不用 thành 甭 béng, nhưng người Đài KHÔNG dùng 甭!"
+   ],
+   "lt": "CHÚ Ý BIẾN THANH: 不 đứng trước 用 yòng (thanh 4) nên BẮT BUỘC đọc thanh 2 búyòng!",
+   "mk": "1) Lỗi dịch sai nghĩa phổ biến: dịch 'Bạn không cần đợi tôi' thành *你不能等我 ❌ (thành 'Bạn bị cấm không được đợi tôi'!) — phải nói 你不用等我! 2) Đọc sai *bùyòng -> nhớ đọc búyòng (thanh 2 + thanh 4).",
+   "tw": "Câu từ chối lịch sự chuẩn nhất tại quầy thu ngân cửa hàng 7-ELEVEN hay quán ăn ở Đài Loan khi nhân viên hỏi lấy túi, hóa đơn hay nĩa đũa là: 不用，謝謝！(Không cần đâu ạ, cảm ơn!). Cũng hay nói ngắn 不用了 (Thôi khỏi ạ!).",
+   "mh": "Bất Dụng → búyòng. ĐỌC: 'bất' → bù biến thanh thành bú trước 用 thanh 4; 'dụng' → yòng (d- → y- + ong thanh 4). NGHĨA: 不 không + 用 cần dùng tới → không cần phải bỏ công sử dụng tới = không cần.",
+   "vd": [
+    {
+     "t": "Cửa hàng 24h",
+     "zh": "店員問我要不要買塑膠袋，我拿出自己的布袋笑著說：「不用了，謝謝！」",
+     "vn": "Nhân viên hỏi tôi có mua túi ni-lông không, tôi lấy túi vải của mình ra cười đáp: 'Không cần đâu ạ, cảm ơn!'"
+    },
+    {
+     "t": "Khích lệ",
+     "zh": "這裡的路標非常清楚，你不用擔心會迷路，照著指示牌走就對了。",
+     "vn": "Biển chỉ đường ở đây vô cùng rõ ràng, bạn không cần lo bị lạc đâu, cứ đi theo bảng hướng dẫn là chuẩn."
+    },
+    {
+     "t": "Nghỉ lễ",
+     "zh": "明天是國定假日，全體員工都不用上班，可以好好在家睡到自然醒。",
+     "vn": "Ngày mai là ngày nghỉ lễ quốc gia, toàn thể nhân viên đều không cần đi làm, có thể ở nhà ngủ thoải mái tới lúc tự tỉnh."
+    }
+   ]
+  },
+  "不但": {
+   "vn": "không những; chẳng những",
+   "ng": [
+    "(liên từ) không những, không chỉ (nêu vế đầu tiên, luôn đi cặp với 而且 / 也 / 還 ở vế sau để tăng tiến: 不但……，而且……)"
+   ],
+   "us": "QUY TẮC VỊ TRÍ CHỦ NGỮ RẤT QUAN TRỌNG: 1) Khi HAI vế CÙNG MỘT chủ ngữ, chủ ngữ đặt ĐẦU CÂU trước 不但 (這家店不但東西好吃，而且老闆也很親切 Quán này không chỉ đồ ăn ngon mà ông chủ còn rất thân thiện); 2) Khi HAI vế KHÁC chủ ngữ, mỗi chủ ngữ đặt SAU từ nối (不但我喜歡吃芒果，連我弟弟也很愛吃 Không những tôi thích ăn xoài mà ngay cả em trai tôi cũng cực thích).",
+   "co": [
+    "不但……而且……|không những... mà còn...",
+    "不但……還……|không chỉ... lại còn...",
+    "不但不……反而……|chẳng những không... mà ngược lại còn...",
+    "不但便宜而且好吃|không những rẻ mà còn ngon"
+   ],
+   "sy": [
+    "不僅|không chỉ (hơi trang trọng/văn viết hơn 不但)",
+    "不只|không chỉ dừng lại ở (hay dùng trước số lượng và hành động!)"
+   ],
+   "cf": [
+    "不但 vs 不只|不但 chuyên dùng ghép cặp cấu trúc 2 vế tăng tiến với 而且/也/還; 不只 (bùzhǐ) vừa dùng như 不但 vừa đứng được trực tiếp trước SỐ LƯỢNG ('Không chỉ 10 người đâu': 不只十個人 — không nói được *不但十個人 ❌!)"
+   ],
+   "lt": "CHÚ Ý BIẾN THANH: 不 đứng trước 但 dàn (thanh 4) nên BẮT BUỘC đọc thanh 2 búdàn!",
+   "mk": "Lỗi trật tự câu cực hay mắc khi hai vế cùng một chủ ngữ: đặt sai thành *不但這家店便宜，而且這家店好吃 ❌ -> đúng chuẩn là 這家店不但便宜，而且好吃!",
+   "tw": "Ở Đài Loan trong khẩu ngữ thân mật người ta rất hay phối hợp gọn 不但……，還…… hoặc 不但……，而且也…… để tăng cảm xúc khen ngợi hoặc phàn nàn tự nhiên!",
+   "mh": "Bất Đãn → búdàn. ĐỌC: 'bất' → bù biến thanh thành bú trước 但 thanh 4; 'đãn' → dàn (thanh 4). NGHĨA: 不 không + 但 chỉ là → không chỉ dừng lại ở riêng điều thứ nhất mà còn mở rộng thêm điều thứ hai = không những, chẳng những.",
+   "vd": [
+    {
+     "t": "Giới thiệu quán",
+     "zh": "這間巷口的小火鍋店不但食材非常新鮮，而且價格也很平價實惠。",
+     "vn": "Quán lẩu mini đầu hẻm này không những nguyên liệu cực kỳ tươi ngon mà giá cả cũng rất bình dân hợp lý."
+    },
+    {
+     "t": "Tài năng",
+     "zh": "我那位台灣朋友不但中文寫得好，連英文跟日文都能流利溝通。",
+     "vn": "Người bạn Đài Loan kia của tôi không chỉ viết tiếng Hoa giỏi mà ngay cả tiếng Anh với tiếng Nhật cũng giao tiếp trôi chảy."
+    },
+    {
+     "t": "Khách sạn",
+     "zh": "這間飯店不但離夜市走路只要五分鐘，還提供免費腳踏車給房客借用。",
+     "vn": "Khách sạn này không những đi bộ tới chợ đêm chỉ mất năm phút mà còn cung cấp xe đạp miễn phí cho khách thuê phòng mượn nữa."
+    }
+   ]
+  },
+  "不必": {
+   "vn": "không cần; chẳng cần phải; không nhất thiết",
+   "ng": [
+    "(phó từ / trợ động từ) không cần thiết, chẳng cần phải (khuyên nhủ hoặc giải thích rằng một việc không bắt buộc phải làm: 不必擔心 không cần lo, 不必客氣 đừng khách sáo)"
+   ],
+   "us": "Đặt TRƯỚC động từ giống hệt 不用, nhưng sắc thái hơi gãy gọn, chín chắn và văn bản hơn một chút: 不必緊張 (Không cần căng thẳng), 大可不必 (chẳng việc gì phải thế cả), 不必親自去 (không cần tự đi tới nơi đâu). Lưu ý rất ít dùng đứng cộc một mình đáp thay 'Không cần đâu' như *不必了 ❌ (tự nhiên phải nói 不用了!).",
+   "co": [
+    "不必客氣|không cần khách sáo",
+    "不必擔心|chẳng cần phải lo đâu",
+    "大可不必|chẳng việc gì phải làm vậy",
+    "不必急|không cần vội đâu"
+   ],
+   "sy": [
+    "不用|không cần (khẩu ngữ tự nhiên nhất hàng ngày)",
+    "無須|không cần (trang trọng trên văn bản, bảng quy định)"
+   ],
+   "an": [
+    "必須|nhất định phải, bắt buộc phải"
+   ],
+   "cf": [
+    "不必 vs 不用|Cả hai đều đặt TRƯỚC động từ với nghĩa 'không cần phải làm'. Nhưng khi từ chối khéo một món đồ/túi đựng trong cửa hàng ('Thôi khỏi ạ, cảm ơn!'), người Đài nói 不用了，謝謝 chứ KHÔNG nói *不必了，謝謝!"
+   ],
+   "lt": "CHÚ Ý BIẾN THANH: 不 đứng trước 必 bì (thanh 4) nên đọc thanh 2 búbì!",
+   "mk": "Đừng trả lời nhân viên siêu thị hỏi có lấy túi không bằng *不必了 ❌ -> hãy nói 不用了 (hoặc 不需要).",
+   "tw": "Trong email công sở lịch sự ở Đài Loan hoặc khi trấn an ai đó không phải nhọc lòng, người viết hay dùng: 請不必擔心 (Xin đừng lo lắng) hoặc 您不必特地跑一趟 (Anh/chị không cần mất công chạy qua tận nơi đâu).",
+   "mh": "Bất Tất → búbì. ĐỌC: 'bất' → bù biến thanh thành bú trước 必 thanh 4; 'tất' → bì (b- không bật hơi + i thanh 4). NGHĨA: 不 không + 必 tất yếu bắt buộc → không có tính bắt buộc phải làm = không cần thiết.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "現在文件都改用線上簽核了，大家不必特地把紙本印出來送去主管辦公室。",
+     "vn": "Bây giờ giấy tờ đều chuyển sang ký duyệt trực tuyến rồi, mọi người không cần mất công in bản giấy mang lên phòng sếp nữa."
+    },
+    {
+     "t": "An ủi",
+     "zh": "這只是小誤會而已，事情已經說清楚了，你就不必一直把責任往自己身上攬。",
+     "vn": "Đây chỉ là hiểu lầm nhỏ thôi, mọi chuyện đã nói rõ ràng rồi, bạn không cần cứ nhận hết trách nhiệm về mình đâu."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "這間餐廳平日中午客人不多，直接過去現場就能入座，不必提前打電話訂位。",
+     "vn": "Quán ăn này trưa ngày thường không đông khách, tới thẳng tại chỗ là có bàn ngay, không nhất thiết phải gọi điện đặt trước."
+    }
+   ]
+  },
+  "不得了": {
+   "vn": "vô cùng; cực kỳ; không chịu nổi; gay to rồi",
+   "ng": [
+    "(bổ ngữ mức độ — sau 得) vô cùng, hết sức, cực kỳ (好得不得了 tốt không tả xiết, 累得不得了 mệt rã rời không chịu nổi, 高興得不得了 vui quá trời quá đất)",
+    "(tính từ / cảm thán) nghiêm trọng lớn chuyện, ghê gớm lắm rồi (那還得了/那可不得了了 gay to rồi, chuyện lớn không xong rồi!)"
+   ],
+   "us": "Cách dùng phổ biến nhất 90% là đặt sau Tính từ/Động từ tâm lý + 得 để miêu tả mức độ CỰC ĐỘ: 辣得不得了 (cay muốn xỉu / cay cực kỳ!), 痛得不得了 (đau chịu không nổi!), 忙得不得了 (bận tối tăm mặt mũi!). Cũng hay xuất hiện trong câu lo lắng sự cố: 要是漏水就不得了了 (Nếu mà rò nước là hỏng bét/gay to luôn!).",
+   "co": [
+    "……得不得了|... vô cùng / ... không chịu nổi",
+    "高興得不得了|vui mừng khôn xiết",
+    "忙得不得了|bận kinh khủng",
+    "那可不得了|thế thì gay to rồi!"
+   ],
+   "sy": [
+    "極了|(bổ ngữ mức độ đặt ngay sau tính từ không cần 得: 好極了 tuyệt cực kỳ)",
+    "非常 / 超級|rất, cực kỳ (phó từ đặt TRƯỚC tính từ)"
+   ],
+   "cf": [
+    "不得了 vs 極了 vs 非常|非常/超級 đặt TRƯỚC tính từ (非常高興); 極了 đặt SAU tính từ không có chữ 得 (高興極了 — thiên tích cực); 得不得了 có thêm chữ 得 nối giữa tính từ và bổ ngữ (高興得不得了 / 氣得不得了 giận tím mặt — dùng được cho cả cảm xúc vui lẫn cực tệ!)"
+   ],
+   "lt": "CHÚ Ý ÂM ĐỌC: Chữ 了 ở đây BẮT BUỘC đọc là liǎo thanh 3 ('kết thúc/chịu nổi'), KHÔNG đọc là thanh nhẹ le! Cả cụm đọc bùdéliǎo (hoặc nhấn nhẹ ở âm giữa bùdeliǎo).",
+   "mk": "1) Lỗi đọc sai kinh điển: đọc *bùdéle ❌ -> PHẢI đọc bùdéliǎo (thanh 3 liǎo)! 2) Quên chữ 得 nối trước 不得了 khi miêu tả tính từ (*今天熱不得了 ❌ -> phải nói 今天熱得不得了!).",
+   "tw": "Ở Đài Loan người dân hay dùng 得不得了 rất tự nhiên và giàu cảm xúc: 好吃得不得了 (ngon không gì tả nổi!), 緊張得不得了 (hồi hộp muốn chết đi được!), và khi chuyện lớn xảy ra thốt lên 那還不得了!",
+   "mh": "Bất Đắc Liễu → bùdéliǎo. ĐỌC: 'bất' → bù (thanh 4); 'đắc' → dé (thanh 2); 'liễu' → liǎo (thanh 3 mang nghĩa 'xong/chịu nổi'). NGHĨA: 不 không + 得 có được + 了 kết thúc nổi → trạng thái lên cao tới mức không thể thu xếp hay dừng nổi = vô cùng, cực kỳ, lớn chuyện rồi.",
+   "vd": [
+    {
+     "t": "Ẩm thực",
+     "zh": "這鍋麻辣鴨血臭豆腐又香又入味，只是大辣真的辣得不得了！",
+     "vn": "Nồi đậu hũ thối tiết vịt tê cay này vừa thơm vừa ngấm gia vị, mỗi tội độ cay nhiều đúng là cay muốn xỉu!"
+    },
+    {
+     "t": "Công việc",
+     "zh": "這陣子剛好碰上年底結帳，會計部門的所有同事都忙得不得了。",
+     "vn": "Dạo này đúng dịp chốt sổ cuối năm, tất cả đồng nghiệp phòng kế toán đều bận tối tăm mặt mũi."
+    },
+    {
+     "t": "Cảnh báo",
+     "zh": "出門前一定要再三確認瓦斯關好沒有，要是忘記關那可就不得了了。",
+     "vn": "Trước khi ra khỏi nhà nhất định phải kiểm tra lại bếp ga đã tắt kỹ chưa, nhỡ quên tắt là gay to đấy."
+    }
+   ]
+  },
+  "不管": {
+   "vn": "bất kể; cho dù; mặc kệ",
+   "ng": [
+    "(liên từ) bất kể, dù cho, không quản (luôn mở ra điều kiện rộng không giới hạn, kết hợp từ nghi vấn hoặc lựa chọn A還是B, vế sau đi với 都 / 也)"
+   ],
+   "us": "HAI MẪU CÂU BẮT BUỘC THUỘC NẰM LÒNG: 1) 不管 + Từ nghi vấn (誰/什麼/哪裡/怎麼/多+Adj) + 都/也…… (不管天氣怎麼樣，我們都照常出發 Bất kể thời tiết thế nào chúng tôi vẫn xuất phát bình thường); 2) 不管 + A 還是 B / X不X + 都/也…… (不管晴天還是雨天 bất kể nắng hay mưa, 不管他去不去 dù anh ấy đi hay không...).",
+   "co": [
+    "不管怎麼樣|dù thế nào đi nữa",
+    "不管……都……|bất kể... đều...",
+    "不管誰|bất kể ai",
+    "不管多久|bất kể bao lâu"
+   ],
+   "sy": [
+    "無論|bất luận, dù cho (trang trọng hơn trong văn viết, cùng cấu trúc dùng với 都/也!)",
+    "別管|đừng bận tâm / kệ đi (nghĩa động từ trực tiếp 'mặc kệ')"
+   ],
+   "cf": [
+    "不管 vs 雖然|雖然 nêu một SỰ THẬT CỤ THỂ ĐÃ ĐỊNH ('Tuy hôm nay trời mưa...'); 不管 phải đi với TỪ NGHI VẤN hoặc HAI LỰA CHỌN ('Bất kể trời CÓ MƯA HAY KHÔNG...'). CẤM dùng câu khẳng định đơn lẻ sau 不管 như *不管今天下雨 ❌!"
+   ],
+   "lt": "Thanh 4 + thanh 3: bùguǎn (vì 管 thanh 3 nên giữ nguyên bù thanh 4!).",
+   "mk": "Lỗi ngữ pháp cực hay sai: 1) Quên chữ nghi vấn / lựa chọn bên trong vế 不管 (*不管很貴，我都要買 ❌ -> phải sửa thành 不管多貴，我都要買!). 2) Quên chữ 都 / 也 ở vế kết quả phía sau!",
+   "tw": "Trong đời sống Đài Loan câu khuyên dứt khoát cực hay nói: 不管怎麼樣，健康最重要！(Dù thế nào đi nữa thì sức khỏe vẫn là quan trọng nhất!). Nếu bảo ai 'kệ người ta đi đừng lo' dùng 別管他!",
+   "mh": "Bất Quản → bùguǎn. ĐỌC: 'bất' → bù (thanh 4); 'quản' → guǎn (qu- → gu- + an thanh 3). NGHĨA: 不 không + 管 quản lý, bận tâm xét đoán → không xét đến điều kiện ra sao đi nữa thì kết quả vẫn giữ nguyên = bất kể, dù cho.",
+   "vd": [
+    {
+     "t": "Kiên trì",
+     "zh": "不管外面刮風還是下雨，我每天早上六點都會準時起來練跑。",
+     "vn": "Bất kể bên ngoài nổi gió hay mưa rào, sáng nào đúng 6 giờ tôi cũng dậy chạy bộ."
+    },
+    {
+     "t": "Động viên",
+     "zh": "不管這次面試結果怎麼樣，這段準備的過程都是很寶貴的經驗。",
+     "vn": "Dù kết quả phỏng vấn lần này ra sao đi nữa, quá trình chuẩn bị vừa qua cũng là kinh nghiệm vô cùng quý giá."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "不管是平日還是假日，只要父母打電話來，我一定立刻放下手邊的事先接聽。",
+     "vn": "Bất kể ngày thường hay ngày nghỉ, hễ bố mẹ gọi điện tới là tôi nhất định gác ngay việc đang làm để nghe máy trước."
+    }
+   ]
+  },
+  "只好": {
+   "vn": "đành phải; đành lòng; chỉ còn cách",
+   "ng": [
+    "(phó từ) đành phải, chẳng còn lựa chọn nào khác nên miễn cưỡng làm việc gì đó (下雨了，只好回家 Mưa rồi, đành phải về nhà thôi)"
+   ],
+   "us": "Đặt TRƯỚC động từ (luôn sau chủ ngữ: 我只好……) để diễn tả việc bất đắc dĩ phải chọn sau khi gặp trở ngại/nguyên nhân vế trước: 餐廳沒開，我們只好去吃別家 (Nhà hàng đóng cửa rồi, chúng tôi đành phải sang ăn quán khác), 忘了帶鑰匙，只好等室友回來 (Quên chìa khóa nên đành đợi bạn cùng phòng về).",
+   "co": [
+    "只好這樣|đành vậy thôi / chỉ còn cách thế",
+    "也只好|cũng đành phải...",
+    "只好改天|đành hẹn hôm khác vậy",
+    "沒辦法，只好……|hết cách rồi, đành phải..."
+   ],
+   "sy": [
+    "不得不|không thể không (cưỡng bức mạnh hơn từ hoàn cảnh/nghĩa vụ)",
+    "只能|chỉ có thể (trung tính hơn về giới hạn khả năng)"
+   ],
+   "cf": [
+    "只好 vs 最好|RẤT HAY NHẦM MỘT CHỮ: 最好 = TỐT NHẤT NÊN LÀM (lời khuyên tích cực chủ động: 'Trời lạnh tốt nhất nên mặc áo ấm'); 只好 = ĐÀNH PHẢI LÀM (bất đắc dĩ vì hết cách khác rồi: 'Quên mang tiền mặt nên đành phải trả bằng thẻ'!)"
+   ],
+   "lt": "Hai thanh 3 đi liền: zhǐ + hǎo đọc biến thanh thành zhíhǎo!",
+   "mk": "1) Đừng đặt 只好 đứng trước chủ ngữ trong câu thông thường (*只好我回家 ❌ -> phải nói 我只好回家!). 2) Nhớ nghĩa bất đắc dĩ của 只好, đừng nhầm với 最好 ('tốt nhất nên...').",
+   "tw": "Ở Đài Loan người dân hay nói rất mềm khi kế hoạch đổ bể: 沒辦法，那就只好改約下禮拜囉！(Hết cách rồi, vậy thì đành hẹn sang tuần sau vậy nhé!).",
+   "mh": "Chỉ Hảo → zhǐhǎo. ĐỌC: 'chỉ' → zhǐ (thanh 3, đọc nối thành zhí trước hǎo); 'hảo' → hǎo (thanh 3). NGHĨA: 只 chỉ còn duy nhất + 好 cách tốt/ổn thỏa → giữa lúc kẹt đường chỉ còn duy nhất một lối ấy là ổn thỏa nhất để chọn = đành phải.",
+   "vd": [
+    {
+     "t": "Cửa hàng",
+     "zh": "我想吃的牛肉麵剛好賣完了，只好改點一碗排骨乾麵先填飽肚子。",
+     "vn": "Món mì bò tôi muốn ăn vừa hay bán hết mất rồi, đành phải đổi sang gọi một tô mì khô sườn lót dạ tạm vậy."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "最後一班公車已經開走了，我只好叫一輛計程車趕快回宿舍。",
+     "vn": "Chuyến xe buýt cuối cùng đã chạy mất rồi, tôi đành phải gọi một chiếc taxi chạy nhanh về ký túc xá."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "原本大家約好要去海邊看日落，因為突然下起大雨只好臨時取消行程。",
+     "vn": "Vốn dĩ mọi người đã hẹn nhau ra biển ngắm hoàng hôn, nhưng vì trời đột ngột đổ mưa to nên đành phải hủy lịch phút chót."
+    }
+   ]
+  },
+  "或": {
+   "vn": "hoặc; hay là",
+   "ng": [
+    "(liên từ) hoặc, hay là (nêu lựa chọn giữa các danh từ, cụm động từ trong câu kể hoặc biển hiệu/tài liệu: 你或我 bạn hoặc tôi, 現金或刷卡 tiền mặt hoặc quẹt thẻ)"
+   ],
+   "us": "Là dạng rút gọn cô đọng của 或是 / 或者, dùng rất nhiều để nối trực tiếp hai lựa chọn ngắn gọn hoặc liệt kê trong văn bản: A hoặc B (今天或明天 hôm nay hoặc ngày mai, 咖啡或茶 cà phê hoặc trà). Vẫn tuân thủ quy tắc: CHỈ dùng trong câu trần thuật, câu điều kiện, KHÔNG dùng trong câu hỏi lựa chọn (câu hỏi dùng 還是)!",
+   "co": [
+    "你或我|bạn hoặc tôi",
+    "今天或明天|hôm nay hoặc ngày mai",
+    "現金或刷卡|tiền mặt hoặc quẹt thẻ",
+    "五點或六點|năm giờ hoặc sáu giờ"
+   ],
+   "sy": [
+    "或是|hoặc là (tự nhiên trong lời nói ở Đài Loan)",
+    "或者|hoặc là"
+   ],
+   "cf": [
+    "或 / 或是 vs 還是|Câu KỂ dùng 或 / 或是 ('Tôi thích đi bộ hoặc đạp xe' = 我喜歡走路或騎車); câu HỎI lựa chọn A hay B BẮT BUỘC dùng 還是 ('Bạn muốn tiền mặt hay quẹt thẻ?' = 您要付現還是刷卡？)!"
+   ],
+   "lt": "Thanh 4 huò.",
+   "mk": "1) CẤM dùng *或 để đặt câu hỏi trực tiếp (*你要喝紅茶或綠茶？ ❌ -> phải hỏi 你要喝紅茶還是綠茶？). 2) Không đặt chữ 或 làm trạng ngữ đầu câu khi ý muốn nói 'có lẽ' (có lẽ phải nói 或許 / 也許!).",
+   "tw": "Trên cửa kính cửa hàng, hóa đơn hoặc thông báo ở Đài Loan viết cực gọn chữ 或 thay vì 或是: 本店可使用現金、信用卡或悠遊卡 (Tiệm chúng tôi chấp nhận tiền mặt, thẻ tín dụng hoặc thẻ EasyCard!).",
+   "mh": "Hoặc → huò. ĐỌC: 'hoặc' → huò (bỏ âm cuối -c thanh 4). NGHĨA: hình một người cầm vũ khí 戈 giữ vùng đất 口 có ranh giới 一 — ban đầu nghĩa là lãnh địa/nghi ngờ phân vân chưa định ranh giới, sau mượn làm liên từ chỉ khả năng thay thế = hoặc, hay là.",
+   "vd": [
+    {
+     "t": "Thanh toán",
+     "zh": "在台北多數餐廳都能使用行動支付或信用卡，出門不用帶太多現金。",
+     "vn": "Ở đa số nhà hàng Đài Bắc đều dùng được ví điện tử hoặc thẻ tín dụng, ra ngoài không cần mang quá nhiều tiền mặt."
+    },
+    {
+     "t": "Lịch hẹn",
+     "zh": "我這禮拜四或禮拜五晚上都有空，你看哪一天方便約出來吃飯？",
+     "vn": "Tối thứ Năm hoặc thứ Sáu tuần này tôi đều rảnh, xem hôm nào tiện thì tụi mình hẹn ra ngoài ăn cơm nhé?"
+    },
+    {
+     "t": "Sở thích",
+     "zh": "放假沒事的時候，我最喜歡在家看看電影或聽聽輕音樂放鬆一下。",
+     "vn": "Ngày nghỉ không có việc gì làm, tôi thích nhất ở nhà xem chút phim hoặc nghe nhạc nhẹ thư giãn."
+    }
+   ]
+  },
+  "而且": {
+   "vn": "mà còn; hơn nữa; vả lại",
+   "ng": [
+    "(liên từ) mà còn, hơn nữa, lại còn (nối bổ sung ý cùng chiều hướng với ý trước, thường đi cặp với 不但: 不但……，而且……)"
+   ],
+   "us": "Dùng đứng đầu vế câu thứ 2 (sau dấu phẩy) hoặc trực tiếp giữa hai tính từ tích cực/tiêu cực cùng chiều: 這雙鞋子好看而且很舒服 (Đôi giày này đẹp mà lại còn êm chân), 他中文說得很流利，而且還會寫書法 (Anh ấy nói tiếng Hoa trôi chảy, hơn nữa còn biết viết thư pháp!). Tuyệt đối KHÔNG nối hai tính chất trái ngược nhau (ví dụ '*ngon mà lại đắt' ❌ không dùng 而且!).",
+   "co": [
+    "不但……而且……|không những... mà còn...",
+    "好看而且便宜|đẹp mà lại rẻ",
+    "而且還……|hơn nữa còn...",
+    "……，而且……|..., hơn nữa..."
+   ],
+   "sy": [
+    "並且|đồng thời, và hơn nữa (trang trọng hơn trong văn viết)",
+    "加上|cộng thêm nữa là"
+   ],
+   "cf": [
+    "而且 vs 但是|RẤT QUAN TRỌNG VỀ HƯỚNG Ý: Tốt + Tốt ('rẻ mà lại ngon') hoặc Xấu + Xấu ('đắt mà lại dở') dùng 而且 (CÙNG CHIỀU!); còn Tốt + Xấu ('ngon nhưng hơi đắt': 好吃但是有點貴) BẮT BUỘC dùng 但是 / 可是 (NGƯỢC CHIỀU)!"
+   ],
+   "lt": "Thanh 2 + thanh 3: érqiě.",
+   "mk": "1) Lỗi logic hay gặp: nối ý khen + chê bằng *而且 (*那家餐廳好吃而且很貴 ❌ -> phải nói 好吃但是有點貴!). 2) Nhớ vế đầu có thể bỏ 不但 mà vẫn dùng 而且 ở giữa rất tự nhiên!",
+   "tw": "Trong lời khen bán hàng hay review ẩm thực của người Đài Loan dùng nhiều nhất câu: 超好吃，而且又大碗！(Ngon quá trời, hơn nữa tô lại còn to ú ụ!).",
+   "mh": "Nhi Thả → érqiě. ĐỌC: 'nhi' → ér (âm uốn lưỡi thanh 2); 'thả' → qiě (th- bật sang q- + ie thanh 3). NGHĨA: 而 nối tiếp liên kết + 且 lại còn thêm chồng lên (hình cái bục chồng tầng) → chồng thêm một ý nối tiếp tăng tiến nữa = mà còn, hơn nữa.",
+   "vd": [
+    {
+     "t": "Mua sắm",
+     "zh": "這件發熱衣不但材質非常輕薄保暖，而且洗完以後乾得特別快。",
+     "vn": "Chiếc áo giữ nhiệt này không những chất liệu cực kỳ mỏng nhẹ ấm áp, mà giặt xong lại còn khô rất nhanh."
+    },
+    {
+     "t": "Quán ăn",
+     "zh": "那家自助餐的菜色每天都會換新口味，而且環境乾淨衛生，所以我幾乎天天去吃。",
+     "vn": "Món ăn của quán cơm tự chọn đó ngày nào cũng đổi vị mới, hơn nữa không gian sạch sẽ vệ sinh nên hầu như hôm nào tôi cũng ghé ăn."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "騎腳踏車上班既省錢環保，而且每天早上還能順便運動流流汗。",
+     "vn": "Đạp xe đi làm vừa tiết kiệm tiền vừa bảo vệ môi trường, hơn nữa mỗi sáng còn tiện thể vận động toát mồ hôi luôn."
+    }
+   ]
+  },
+  "原來": {
+   "vn": "thì ra là; hóa ra là; vốn dĩ ban đầu",
+   "ng": [
+    "(phó từ biểu thị sự ngộ ra bất ngờ) hóa ra là, thì ra là (nhận ra sự thật ẩn giấu trước đó: 原來是你 thì ra là bạn!, 原來如此 hóa ra là vậy!)",
+    "(tính từ / định ngữ / phó từ chỉ thời điểm gốc) ban đầu, vốn dĩ, cũ trước đây (原來的樣子 dáng vẻ ban đầu, 原來他住在這 thì ra/ban đầu anh ấy sống ở đây)"
+   ],
+   "us": "HAI NGHĨA SIÊU HAY PHẢI PHÂN BIỆT NGAY: 1) Vỡ lẽ ngạc nhiên: Đặt đầu câu hoặc sau chủ ngữ → 原來如此！(À hóa ra là thế!), 難怪你沒來，原來是生病了 (Bảo sao bạn không tới, hóa ra là bị ốm!); 2) Gốc gác ban đầu: Đứng trước danh từ có 的 (原來的計畫 kế hoạch ban đầu, 原來的顏色 màu gốc) hoặc làm phó từ (這裡原來是一座工廠 Nơi này trước kia vốn là một nhà máy).",
+   "co": [
+    "原來如此|hóa ra là vậy!",
+    "原來是你|thì ra là bạn à!",
+    "原來是這樣|hóa ra là thế này",
+    "原來的……|... ban đầu / ... cũ lúc đầu"
+   ],
+   "sy": [
+    "本來|vốn dĩ, lúc đầu (chỉ dùng cho nghĩa 'vốn ban đầu', KHÔNG dùng nghĩa 'hóa ra!')"
+   ],
+   "cf": [
+    "原來 vs 本來|Đều có nghĩa 'vốn dĩ trước đây' (這裡本來/原來是書店). NHƯNG khi thốt lên ngộ ra một chân lý mới ('À! Thì ra là thế!'), 100% BẮT BUỘC dùng 原來 (原來如此! / 原來是他拿走的!), KHÔNG bao giờ dùng *本來如此 ❌!"
+   ],
+   "lt": "Thanh 2 + thanh 2: yuánlái.",
+   "mk": "Đừng viết nhầm *本來是你 ❌ khi gặp người quen bất ngờ — muốn nói 'Hóa ra là cậu!' phải dùng 原來是你!",
+   "tw": "Ở Đài Loan khẩu ngữ cửa miệng cực phổ biến khi nghe ai giải thích vỡ lẽ là 喔～原來是這樣喔！(Ồ~ Hóa ra là thế à!) hoặc 原來你也是越南人！(Hóa ra bạn cũng là người Việt Nam à!).",
+   "mh": "Nguyên Lai → yuánlái. ĐỌC: 'nguyên' → yuán (âm tròn môi thanh 2); 'lai' → lái (thanh 2). NGHĨA: 原 cội nguồn, khởi nguyên (dòng suối chảy ra từ vách đá) + 來 đi tới nay → truy ngược về gốc rễ ban đầu nên ngộ ra bản chất thật = ban đầu vốn là, hóa ra là.",
+   "vd": [
+    {
+     "t": "Ngạc nhiên",
+     "zh": "看你今天一直咳嗽還穿這麼多衣服，原來是不小心感冒發燒了啊！",
+     "vn": "Thấy hôm nay cậu ho suốt lại mặc nhiều áo thế, hóa ra là lỡ bị cảm sốt rồi à!"
+    },
+    {
+     "t": "Trùng hợp",
+     "zh": "聊了半天才發現，原來我們兩個人竟然畢業於同一所高中，真是太巧了！",
+     "vn": "Nói chuyện hồi lâu mới phát hiện ra, hóa ra hai đứa mình lại tốt nghiệp cùng một trường cấp ba, đúng là trùng hợp quá!"
+    },
+    {
+     "t": "Đô thị",
+     "zh": "這座文創園區原來的建築是一間歷史悠久的舊酒廠，後來才改造成展覽空間。",
+     "vn": "Khu công viên sáng tạo văn hóa này kiến trúc ban đầu vốn là một nhà máy rượu cũ lâu đời, sau này mới cải tạo thành không gian triển lãm."
+    }
+   ]
+  },
+  "也許": {
+   "vn": "có lẽ; biết đâu; có thể",
+   "ng": [
+    "(phó từ) có lẽ, có thể, chắc là (diễn tả sự phán đoán hoặc suy đoán với xác suất khoảng 50%: 也許明天會放晴 Có lẽ ngày mai trời sẽ hửng nắng)"
+   ],
+   "us": "Đặt ở ĐẦU câu (trước chủ ngữ) hoặc NGAY SAU chủ ngữ (trước động từ): 也許他忘了 / 他也許已經回家了 (Có lẽ anh ấy đã về nhà rồi). Dùng tương đồng với 可能 trong vai trò phó từ suy đoán, nhưng mang ngữ khí dịu dàng, uyển chuyển hơn.",
+   "co": [
+    "也許吧|có lẽ vậy / chắc thế",
+    "也許會|có lẽ sẽ",
+    "也許明天|có lẽ ngày mai",
+    "也許你說得對|có lẽ bạn nói đúng"
+   ],
+   "sy": [
+    "可能|có thể, có lẽ",
+    "大概|chắc khoảng, đại khái",
+    "說不定|biết đâu chừng (khẩu ngữ rất hay dùng ở Đài Loan!)"
+   ],
+   "cf": [
+    "也許 vs 可能|可能 có thể dùng kèm 很 (很有可能 rất có khả năng) hoặc làm DANH TỪ/PHỦ ĐỊNH MẠNH (不可能 không thể nào!); còn 也許 CHỈ LÀ PHÓ TỪ đứng câu suy đoán nhẹ nhàng, KHÔNG có *不也許 ❌ hay *很也許 ❌!"
+   ],
+   "lt": "Hai thanh 3 đi liền: yě + xǔ đọc biến thanh thành yéxǔ!",
+   "mk": "1) Tuyệt đối KHÔNG phủ định bằng *不也許 ❌ -> muốn nói 'có lẽ không' phải đặt 不/沒 sau 也許: 也許不會來 (Có lẽ sẽ không đến). 2) Chú ý thanh điệu biến thanh yéxǔ.",
+   "tw": "Trong đối thoại thường ngày ở Đài Loan ngoài 也許 còn rất hay dùng 說不定 (shuōbùdìng = biết đâu đấy!) hoặc trả lời lấp lửng dịu nhẹ là 也許喔！.",
+   "mh": "Dã Hứa → yěxǔ. ĐỌC: 'dã' → yě (d- → y- + e thanh 3, đọc nối thành yé trước xǔ); 'hứa' → xǔ (h- → x- + vần ü viết là u thanh 3). NGHĨA: 也 cũng + 許 cho phép/ước chừng → cũng ước chừng một khả năng có thể xảy ra = có lẽ, biết đâu.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "傍晚風吹得涼涼的，我看這片烏雲飄過來，也許等一下會下一場小雨。",
+     "vn": "Chiều tối gió thổi mát rượi, tôi nhìn đám mây đen này trôi tới thì có lẽ lát nữa sẽ có một cơn mưa nhỏ."
+    },
+    {
+     "t": "Tâm sự",
+     "zh": "他這兩天都沒有回訊息，也許剛好在忙工作，我們再等他到晚上看看。",
+     "vn": "Hai hôm nay cậu ấy chẳng nhắn tin trả lời, có lẽ vừa hay đang bận công việc, tụi mình chờ đến tối xem sao."
+    },
+    {
+     "t": "Dự định",
+     "zh": "如果年底獎金發得不錯，明年春節也許我就能帶爸媽去北海道看雪了。",
+     "vn": "Nếu cuối năm thưởng phát khá khấm khá, Tết năm sau biết đâu tôi có thể đưa bố mẹ sang Hokkaido ngắm tuyết rồi."
+    }
+   ]
+  },
+  "必須": {
+   "vn": "bắt buộc; phải; nhất thiết phải",
+   "ng": [
+    "(phó từ / trợ động từ) phải, bắt buộc phải (nhấn mạnh điều kiện tất yếu về quy định, hoàn cảnh hoặc logic: 必須戴安全帽 bắt buộc phải đội mũ bảo hiểm, 必須先預約 phải đặt hẹn trước)"
+   ],
+   "us": "Đặt TRƯỚC động từ hoặc trước nhóm tính từ/giới từ: 你必須早點出發 (Bạn phải xuất phát sớm hơn), 出國必須帶護照 (Đi nước ngoài bắt buộc phải mang hộ chiếu). Phủ định không nói *不必須 ❌ -> mà dùng 不必 / 不用 (không cần thiết) hoặc 不得 (không được phép)!",
+   "co": [
+    "必須注意|nhất thiết phải chú ý",
+    "必須遵守|phải tuân thủ",
+    "必須帶……|bắt buộc phải mang theo...",
+    "必須提前|phải làm trước thời hạn"
+   ],
+   "sy": [
+    "一定得 / 得|phải (đọc děi — dùng nhiều trong khẩu ngữ thân mật hàng ngày!)",
+    "需要|cần (cần thứ gì hay nhu cầu)"
+   ],
+   "an": [
+    "不必|không cần thiết",
+    "不用|không cần"
+   ],
+   "cf": [
+    "必須 vs 必需 vs 需要|CỰC HAY NHẦM CHÍNH TẢ: 1) 必須 (bộ Hiệt 頁) + ĐỘNG TỪ = PHẢI LÀM gì ('phải đến đúng giờ': 必須準時到); 2) 必需 (bộ Vũ 雨 trên + 而) + DANH TỪ = NHU YẾU PHẨM CẦN THIẾT (生活必需品 đồ dùng thiết yếu); 3) 需要 = CẦN (danh từ hoặc động từ: 需要水 cần nước)!"
+   ],
+   "lt": "Hai âm đều thanh 4/thanh 1: bìxū.",
+   "mk": "1) Lỗi chính tả kinh điển: gõ nhầm chữ *必需要 ❌ hoặc nhầm sang 必需品! Nhớ 必須 (không có bộ Vũ 雨 ở đầu chữ 須) mới đi trước ĐỘNG TỪ! 2) Không nói *不必須 ❌ (phải nói 不必 hoặc 不用).",
+   "tw": "Trên quy định ở bệnh viện, ngân hàng, nhà ga Đài Loan luôn viết chuẩn chữ 必須 (ví dụ: 進入診間必須佩戴口罩 — vào phòng khám bắt buộc đeo khẩu trang); còn khi trò chuyện bình thường người Đài hay nói 要 hoặc 得 (děi).",
+   "mh": "Tất Tu → bìxū. ĐỌC: 'tất' → bì (b- không bật hơi + i thanh 4); 'tu' → xū (t- → x- + vần tròn môi u thanh 1). NGHĨA: 必 tất yếu + 須 râu cằm/cần thiết không thể thiếu → điều tất yếu bắt buộc phải thực hiện = bắt buộc, phải.",
+   "vd": [
+    {
+     "t": "Ngân hàng",
+     "zh": "來台灣開銀行帳戶的時候，必須攜帶護照、居留證以及第二證件才行。",
+     "vn": "Khi đi mở tài khoản ngân hàng ở Đài Loan, bắt buộc phải mang theo hộ chiếu, thẻ cư trú và giấy tờ tùy thân thứ hai mới được."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "醫生叮囑他吃完藥必須多喝溫開水，而且這幾天要盡量早睡休息。",
+     "vn": "Bác sĩ dặn dò anh ấy uống thuốc xong phải uống nhiều nước ấm, hơn nữa mấy hôm nay cần cố gắng ngủ sớm nghỉ ngơi."
+    },
+    {
+     "t": "Học tập",
+     "zh": "想通過高階華語檢定，每天必須花時間大量閱讀長篇文章才夠扎實。",
+     "vn": "Muốn thi đỗ kỳ thi Hoa ngữ bậc cao, mỗi ngày nhất thiết phải dành thời gian đọc thật nhiều bài văn dài mới vững được."
+    }
+   ]
+  },
+  "多麼": {
+   "vn": "biết bao; thật là; xiết bao",
+   "ng": [
+    "(phó từ cảm thán) biết bao, dường nào (đứng trước tính từ hoặc động từ tâm lý để cảm thán mức độ cao: 多麼漂亮 đẹp biết bao!, 多麼希望 mong muốn biết bao!)"
+   ],
+   "us": "Mẫu câu cảm thán mang màu sắc truyền cảm hoặc văn viết rõ: (Chủ ngữ) + 多麼 + Tính từ (+ 啊/呀)! Ví dụ: 台灣的風景多麼迷人啊！(Phong cảnh Đài Loan quyến rũ biết bao nhiêu!), 那時候我們多麼快樂 (Hồi đó chúng ta vui sướng biết nhường nào). Ở cuối câu thường kèm 啊 / 呀. Trong hội thoại hàng ngày ở Đài Loan thường rút ngắn chỉ còn 多 (今天多好啊!).",
+   "co": [
+    "多麼漂亮|đẹp biết bao nhiêu",
+    "多麼希望|mong muốn biết dường nào",
+    "多麼重要|quan trọng biết bao",
+    "多麼幸福|hạnh phúc biết bao"
+   ],
+   "sy": [
+    "好|biết bao / quá trời (khẩu ngữ: 好漂亮喔!)",
+    "多|bao nhiêu / biết bao (rút gọn câu cảm thán hàng ngày)"
+   ],
+   "cf": [
+    "多麼 vs 這麼/那麼|多麼 mang sắc thái CẢM THÁN NGỠ NGÀNG / TRỮ TÌNH cao hơn nhiều ('đẹp biết nhường nào!'); 這麼 / 那麼 chỉ mức độ trực quan thực tế trước mắt ('đắt thế này / to thế kia!')"
+   ],
+   "lt": "Chữ 麼 đọc thanh nhẹ: duōme (duō thanh 1 + me nhẹ).",
+   "mk": "1) Chú ý 麼 Phồn thể chuẩn nét; không dùng *多麼 trong câu hỏi số lượng (*這本書多麼錢 ❌ -> phải hỏi 多少錢!). 2) Chỉ đứng trước TÍNH TỪ hoặc ĐỘNG TỪ TÂM LÝ, không đứng trực tiếp trước danh từ!",
+   "tw": "Ở Đài Loan người dân khi nói chuyện bạn bè hay rút gọn thành 好……喔! hoặc 多……啊!, còn từ đầy đủ 多麼 dùng nhiều trong bài phát biểu cảm ơn, văn viết, tin nhắn chúc Tết chân thành và lời bài hát!",
+   "mh": "Đa Ma → duōme. ĐỌC: 'đa' → duō (đ- → d- + uo thanh 1); 'ma' → me (thanh nhẹ làm hậu tố). NGHĨA: 多 rất nhiều + 麼 hậu tố mức độ → không thể đong đếm hết được độ sâu rộng đó = biết bao, xiết bao.",
+   "vd": [
+    {
+     "t": "Cảm xúc",
+     "zh": "站在高山上看著日出慢慢照亮雲海，讓人感受到大自然是多麼壯麗神奇。",
+     "vn": "Đứng trên đỉnh núi cao ngắm bình minh dần soi sáng biển mây khiến người ta cảm nhận thiên nhiên thật hùng vĩ kỳ diệu biết bao."
+    },
+    {
+     "t": "Biết ơn",
+     "zh": "在異鄉生病時有室友幫忙買藥煮粥，那份溫暖對我來說是多麼珍貴！",
+     "vn": "Lúc ốm đau nơi đất khách có bạn cùng phòng giúp mua thuốc nấu cháo, sự ấm áp ấy đối với tôi thật quý giá biết dường nào!"
+    },
+    {
+     "t": "Hồi tưởng",
+     "zh": "翻看小時候全家人一起出遊的相片，那段無憂無慮的童年是多麼幸福啊。",
+     "vn": "Giở xem lại ảnh hồi nhỏ cả nhà cùng đi du lịch, quãng tuổi thơ vô tư không lo nghĩ ấy thật hạnh phúc biết bao."
+    }
+   ]
+  },
+  "這樣": {
+   "vn": "như thế này; như vậy; theo cách này",
+   "ng": [
+    "(đại từ chỉ thị cách thức/trạng thái) như thế này, thế này (這樣做 làm thế này, 就這樣 nhé/thế nhé, 這樣一來 làm như vậy thì...)",
+    "(tính từ / định ngữ) kiểu này, như vậy (這樣的設計 thiết kế như thế này, 這樣的人 người như vậy)"
+   ],
+   "us": "Cực đa dụng trong giao tiếp hằng ngày: 1) Đứng một mình trả lời: 就這樣吧 (Cứ thế đi nhé!), 是這樣嗎？ (Là vậy sao?); 2) Đặt trước động từ làm trạng ngữ: 你這樣說不對 (Bạn nói thế là không đúng), 這樣學比較快 (Học kiểu này nhanh hơn); 3) Đặt trước danh từ có 的: 這樣的天氣 (kiểu thời tiết thế này).",
+   "co": [
+    "就這樣|cứ thế nhé / vậy thôi à",
+    "這樣的話|nếu như vậy thì...",
+    "這樣一來|nhờ vậy / nếu làm vậy thì...",
+    "這樣做|làm theo cách này"
+   ],
+   "sy": [
+    "如此|như vậy (văn viết trang trọng)",
+    "這麼|thế này (chuyên đứng trước TÍNH TỪ: 這麼大)"
+   ],
+   "an": [
+    "那樣|như thế kia, kiểu đó"
+   ],
+   "cf": [
+    "這樣 vs 這麼|NGUYÊN TẮC DỄ NHỚ: Trước ĐỘNG TỪ hoặc cuối câu ('làm thế này, cứ vậy nhé, người kiểu này') dùng 這樣 (這樣寫, 就這樣); trước TÍNH TỪ ('to thế này, nhanh thế này') dùng 這麼 (這麼大, 這麼快 — ít nói *這樣大!)."
+   ],
+   "lt": "Thanh 4 + thanh 4: zhèyàng (ở Đài Loan đọc từng âm rõ ràng, ít đọc gộp lướt quá nhanh).",
+   "mk": "1) Đừng dịch 'lớn như thế này' là *這樣大 ❌ khi có chữ 這麼 đứng sẵn cho tính từ -> nói 這麼大 tự nhiên hơn! 2) Đừng quên câu chốt cuộc hẹn chuẩn Đài Loan: 那我們就這樣決定囉！",
+   "tw": "Ở Đài Loan người dân hay dùng cụm câu điều kiện mềm cực hay gặp: 這樣的話，我們就…… (Nếu như vậy thì tụi mình...), và câu đồng ý 這樣啊！(Thế à! / Vậy hả!).",
+   "mh": "Giá Dạng → zhèyàng. ĐỌC: 'giá' → zhè (thanh 4); 'dạng' → yàng (thanh 4). NGHĨA: 這 đây/này + 樣 kiểu mẫu/hình dạng → theo đúng kiểu dáng hoặc tình huống ngay đây = như thế này, như vậy.",
+   "vd": [
+    {
+     "t": "Hướng dẫn",
+     "zh": "這個漢字要先寫左邊再寫右邊，像我這樣一筆一畫慢慢寫就不會錯了。",
+     "vn": "Chữ Hán này phải viết bên trái trước rồi mới viết bên phải, viết chậm từng nét như tôi thế này sẽ không bị sai đâu."
+    },
+    {
+     "t": "Hẹn hò",
+     "zh": "既然大家星期六都有空，那就這樣決定囉，晚上六點在捷運站出口集合！",
+     "vn": "Đã thế thứ Bảy mọi người đều rảnh thì cứ quyết định vậy nhé, sáu giờ tối tập trung ở lối ra tàu điện ngầm!"
+    },
+    {
+     "t": "Góp ý",
+     "zh": "把重點整理成表格放在簡報裡，這樣一來主管看一眼就能馬上掌握進度。",
+     "vn": "Tổng hợp trọng tâm thành bảng đưa vào slide, làm như vậy sếp nhìn lướt qua là nắm được ngay tiến độ."
+    }
+   ]
+  },
+  "那樣": {
+   "vn": "như thế kia; kiểu đó; như vậy",
+   "ng": [
+    "(đại từ chỉ thị) như thế kia, kiểu đó (tương phản với 這樣 hoặc ví von như điều gì đã nhắc tới: 像你那樣 giống như bạn thế kia, 不要那樣做 đừng làm kiểu đó)"
+   ],
+   "us": "Dùng đối xứng với 這樣 hoặc đi trong mẫu so sánh 像……那樣 (giống như... vậy): 別像小孩子那樣哭鬧 (Đừng khóc lóc ăn vạ như trẻ con thế kia), 那樣的話太貴了 (Nếu kiểu đó thì đắt quá), 那樣的人 (kiểu người như vậy). Cũng giữ quy tắc: trước động từ dùng 那樣, trước tính từ dùng 那麼.",
+   "co": [
+    "像……那樣|giống như... vậy",
+    "不要那樣|đừng làm thế / đừng nói kiểu đó",
+    "那樣的話|nếu thế thì...",
+    "那樣的生活|cuộc sống kiểu đó"
+   ],
+   "sy": [
+    "那麼|thế kia (trước tính từ: 那麼遠)",
+    "那種|loại kia"
+   ],
+   "an": [
+    "這樣|như thế này"
+   ],
+   "cf": [
+    "那樣 vs 那麼|Giống cặp 這樣/這麼: 那樣 đứng trước ĐỘNG TỪ hoặc cùng 的 trước DANH TỪ ('làm thế kia': 那樣做, 'người như vậy': 那樣的人); 那麼 đứng trước TÍNH TỪ ('xa thế kia': 那麼遠, 'tốt thế kia': 那麼好)."
+   ],
+   "lt": "Thanh 4 + thanh 4: nàyàng.",
+   "mk": "Đừng viết/nói nhầm *哪樣 ❌ (có bộ 口 nghĩa nghi vấn là 'kiểu nào? nǎyàng') với 那樣 ('kiểu kia, như vậy' nàyàng)!",
+   "tw": "Ở Đài Loan người nói rất hay dùng mẫu khen hoặc mơ ước: 真希望能像你那樣精通兩三種語言！(Thật mong có thể thông thạo hai ba ngoại ngữ giống như bạn vậy!).",
+   "mh": "Na Dạng → nàyàng. ĐỌC: 'na' → nà (thanh 4); 'dạng' → yàng (thanh 4). NGHĨA: 那 kia/đó + 樣 kiểu mẫu/dáng vẻ → theo kiểu cách hay hình dáng ở đằng kia / đã nhắc trước đó = như thế kia, kiểu đó.",
+   "vd": [
+    {
+     "t": "Khuyên bạn",
+     "zh": "有話可以好好溝通，千萬不要像剛才那樣大聲爭吵，容易傷感情。",
+     "vn": "Có chuyện gì cứ từ tốn trao đổi, tuyệt đối đừng cãi nhau to tiếng như vừa rồi kẻo rạn nứt tình cảm."
+    },
+    {
+     "t": "Ước mơ",
+     "zh": "我也好嚮往像他那樣每天背著相機到處旅行、寫文章記錄世界。",
+     "vn": "Tôi cũng ao ước lắm được như anh ấy mỗi ngày vác máy ảnh đi du lịch khắp nơi, viết bài ghi lại thế giới."
+    },
+    {
+     "t": "Lựa chọn",
+     "zh": "如果是那樣的條件，我想再多考慮幾天再給公司正式答覆。",
+     "vn": "Nếu là điều kiện như thế kia thì tôi muốn suy nghĩ thêm vài ngày rồi mới trả lời chính thức cho công ty."
+    }
+   ]
+  },
+  "等/等等": {
+   "vn": "vân vân (liệt kê); đợi, chờ",
+   "ng": [
+    "(trợ từ liệt kê) vân vân, các thứ tương tự (đặt cuối chuỗi 2–3 ví dụ để kết liệt kê: 台灣小吃有雞排、珍珠奶茶、臭豆腐等等 / 蘋果、香蕉等水果)",
+    "(động từ — đã gặp ở phần cơ bản) chờ đợi (等一下 đợi chút, 等車 đợi xe — trong hội thoại liệt kê đọc rõ sắc thái trợ từ 'vân vân' của 等等!)"
+   ],
+   "us": "Cực kỳ hữu ích khi tóm liệt kê mà không cần kể hết: 1) Dùng văn viết/trang trọng: 台北、台中、高雄等城市 (các thành phố như Đài Bắc, Đài Trung, Cao Hùng...); 2) Dùng ở cuối chuỗi liệt kê: 他喜歡打籃球、游泳、跑步等等 (Anh ấy thích chơi bóng rổ, bơi lội, chạy bộ, v.v.). NHỚ: KHÔNG bao giờ dùng đồng thời cả 和/跟 trước toàn bộ lẫn 等等 dư thừa vô lý nếu ngắn, hoặc tránh lặp `*等等的東西` quá nhiều; khi giữ dấu câu liệt kê ở Đài Loan giữa các danh từ dùng dấu chấm ngập 頓號 `、`!",
+   "co": [
+    "……、……等等|..., ..., vân vân",
+    "……等國家 / 等城市|các quốc gia / thành phố như...",
+    "等一下|đợi một chút (nghĩa động từ)",
+    "等車|đợi xe"
+   ],
+   "sy": [
+    "諸如此類|vân vân những thứ tương tự (văn viết trang trọng)",
+    "等待|chờ đợi (nghĩa động từ)"
+   ],
+   "cf": [
+    "等 vs 等等 (liệt kê)|Sau danh sách ví dụ nếu ĐỨNG CUỐI CÂU (hết câu) thường dùng 等等 (ví dụ: 買了書、筆、筆記本等等.); nếu PHÍA SAU CÒN DANH TỪ TỔNG HỢP ('các môn như Toán, Văn, Anh') dùng gọn một chữ 等 (數學、英文等科目)!"
+   ],
+   "lt": "Hai thanh 3 nối nhau trong 等等 đọc biến thanh thành déngděng! Cũng nhắc luôn nhớ dùng dấu 頓號 (、) khi liệt kê trước 等/等等 ở Đài Loan!",
+   "mk": "1) Đừng dịch 'vân vân' tiếng Việt sang *雲雲 ❌ (bắt buộc phải viết 等 hoặc 等等!). 2) Nhớ phân biệt nghĩa động từ 'đợi một lát' là 等一下 (děng yīxià) vs nghĩa 'vân vân' là 等等 (déngděng)!",
+   "tw": "Trên báo chí, thực đơn, tài liệu hành chính Đài Loan liệt kê dùng dấu `、` (ví dụ: 牛肉麵、水餃、滷味等台灣美食) rất chuẩn xác; khẩu ngữ khi nói chuyện kể lể thêm cũng hay bật miệng '...等等啦'.",
+   "mh": "Đẳng / Đẳng Đẳng → děng / děngděng. ĐỌC: 'đẳng' → děng (đ- → d- + eng thanh 3; khi lặp 等等 đọc biến thanh déngděng). NGHĨA: bộ 竹 (thẻ tre xếp thứ bậc ngang nhau) + 寺 (pháp độ chuẩn) → xếp các món ngang hàng nhau cùng hạng rồi thu gọn ý lại = vân vân, cùng loại; cũng nghĩa dừng xếp hàng chờ tới lượt = đợi.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "花蓮有太魯閣、七星潭、東大門夜市等等知名景點，非常值得安排三天兩夜。",
+     "vn": "Hoa Liên có những điểm tham quan nổi tiếng như Taroko, Thất Tinh Đàm, chợ đêm Đông Đại Môn v.v., rất đáng đi ba ngày hai đêm."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "出發露營前得把帳篷、睡袋、手電筒、防蚊液等露營裝備全部檢查一遍。",
+     "vn": "Trước khi xuất phát đi cắm trại phải kiểm tra lại hết các trang bị như lều, túi ngủ, đèn pin, xịt chống muỗi..."
+    },
+    {
+     "t": "Hẹn gặp",
+     "zh": "請在捷運站一號出口等我十分鐘，我買完手搖杯飲料就馬上過去。",
+     "vn": "Đợi tôi mười phút ở lối ra số 1 ga tàu điện ngầm nhé, tôi mua xong ly trà sữa sẽ qua ngay."
+    }
+   ]
+  },
+  "別的": {
+   "vn": "khác; thứ khác; cái khác",
+   "ng": [
+    "(định ngữ / đại từ) cái khác, thứ khác, việc khác (別的地方 nơi khác, 還有別的嗎？ còn thứ gì khác nữa không?, 問別的事 hỏi chuyện khác)"
+   ],
+   "us": "Đứng trước danh từ (別的東西 đồ khác, 別的顏色 màu khác, 別的辦法 cách khác) hoặc đứng độc lập thay cho danh từ đã biết (換別的好不好？ Đổi món khác nhé?, 沒有別的了 Không còn gì khác nữa rồi). LƯU Ý QUAN TRỌNG: Không nói *別的人 cho trôi chảy khi có sẵn từ gọn 別人 (người khác)!",
+   "co": [
+    "別的地方|nơi khác / chỗ khác",
+    "別的事情|chuyện khác / việc khác",
+    "還有別的嗎|còn thứ gì khác nữa không",
+    "別的辦法|cách khác"
+   ],
+   "sy": [
+    "其他的|cái khác (rộng hơn, dùng cả với số người/vật cụ thể)",
+    "另外的|cái khác nữa / thêm vào"
+   ],
+   "cf": [
+    "別的 vs 其他|Đứng trước danh từ không có số từ đều rất ổn (別的地方 = 其他地方); nhưng sau 其他 có thể chèn SỐ TỪ (其他三個同學 3 bạn học kia), còn sau 別的 thì KHÔNG chèn số từ được (*別的三個人 ❌)!"
+   ],
+   "lt": "Biéde (thanh 2 + thanh nhẹ de). Không gắn *別的 + Người bằng trực tiếp 別人!",
+   "mk": "1) Đừng viết/nói *別的人 ❌ nếu ý nói 'người khác' chung chung -> người Hoa nói 別人! 2) Đừng nhầm 別人 với từ tiếng Việt 'biệt ly/phân biệt'.",
+   "tw": "Ở tiệm ăn hay cửa hàng Đài Loan nhân viên bán hết món khách hỏi sẽ rất hay lịch sự đáp: 這個賣完了，要不要試試看別的口味？ (Món này bán hết rồi ạ, anh/chị có muốn thử vị khác không?).",
+   "mh": "Biệt Đích → biéde. ĐỌC: 'biệt' → bié (b- + ie thanh 2); 'đích' → de (thanh nhẹ). NGHĨA: 別 tách riêng khác ra + 的 trợ từ sở hữu/định ngữ → cái tách riêng thuộc nhóm khác = cái khác, thứ khác.",
+   "vd": [
+    {
+     "t": "Cửa hàng",
+     "zh": "不好意思，這款黑色的包包已經缺貨了，您想看看別的顏色嗎？",
+     "vn": "Xin lỗi, mẫu túi màu đen này hết hàng rồi ạ, quý khách có muốn xem thử màu khác không?"
+    },
+    {
+     "t": "Ăn uống",
+     "zh": "今天中午我們吃了這家的招牌排骨飯，明天換別家餐廳試試看好不好？",
+     "vn": "Trưa nay chúng ta ăn cơm sườn trứ danh quán này rồi, mai đổi qua quán khác ăn thử xem sao nhé?"
+    },
+    {
+     "t": "Công việc",
+     "zh": "如果這份報告沒有別的問題，我就先寄給客戶那邊確認了喔。",
+     "vn": "Nếu bản báo cáo này không còn vấn đề gì khác nữa thì tôi gửi trước sang bên khách hàng xác nhận nhé."
+    }
+   ]
+  },
+  "除了": {
+   "vn": "ngoài ... ra (trừ ra / bổ sung thêm)",
+   "ng": [
+    "(giới từ — đi với 都 / 沒) ngoại trừ ... ra thì tất cả đều / không có (除了他以外，大家都到了 Trừ anh ấy ra, mọi người đều đã tới)",
+    "(giới từ — đi với 還 / 也) ngoài ... ra thì còn thêm cả ... (除了中文以外，我還會說英文 Ngoài tiếng Hoa ra, tôi còn biết nói tiếng Anh)"
+   ],
+   "us": "CẤU TRÚC KHUNG ĐÔI CỰC KỲ QUAN TRỌNG: 除了 + A + (以外/之外), + B + 都/還/也……。 Điểm quyết định nghĩa TRỪ RA HAY THÊM VÀO nằm ở vế sau: 1) Vế sau có 都 -> loại trừ A ('ngoài A ra thì tất cả đều...'); 2) Vế sau có 還 / 也 -> cộng thêm A ('ngoài A ra thì còn biết thêm...'). Chữ 以外 ở cuối cụm có thể lược bớt trong câu ngắn nhưng giữ đủ 除了……以外 sẽ cực chuẩn!",
+   "co": [
+    "除了……以外|ngoài ... ra (khung chuẩn nhất)",
+    "除了……都……|trừ ... ra thì tất cả đều...",
+    "除了……還……|ngoài ... ra còn...",
+    "除了我以外|ngoài tôi ra"
+   ],
+   "sy": [
+    "除了……之外|ngoài ... ra (tương đương 以外, hơi trang trọng nhẹ)"
+   ],
+   "cf": [
+    "除了……都 vs 除了……還|CẨN THẬN HAI NGHĨA NGƯỢC NHAU: '除了小王以外，大家都會去' = Mọi người đi hết, TRỪ Tiểu Vương (Tiểu Vương KHÔNG đi); '除了小王以外，小李也會去' = Tiểu Vương CÓ đi, và ngoài ra Tiểu Lý CŨNG đi thêm!"
+   ],
+   "lt": "Chú ý dùng cặp hoàn chỉnh 除了……(以外), không đặt thêm giới từ *在 trước 除了!",
+   "mk": "Lỗi cực hay sai của người Việt: bỏ quên 都 hoặc 還/也 ở vế thứ hai (*除了星期日，我每天工作 ❌ -> tự nhiên phải là 除了星期日以外，我每天都工作!).",
+   "tw": "Ở Đài Loan nói cực tự nhiên: 除了……以外, trong văn nói nhanh thường rút gọn chỉ còn 除了 A, …… (ví dụ: 除了吃飯，我們還去看了場電影 Ngoài ăn cơm ra tụi mình còn đi xem một bộ phim nữa!).",
+   "mh": "Trừ Liễu → chúle. ĐỌC: 'trừ' → chú (tr- → ch- uốn lưỡi + u thanh 2); 'liễu' → le (thanh nhẹ đánh dấu hoàn thành cụm). NGHĨA: 除 gạt bỏ tách riêng sang một bên + 了 xong → tách riêng đối tượng ấy ra để đối chiếu với phần còn lại = ngoài ... ra.",
+   "vd": [
+    {
+     "t": "Kỹ năng",
+     "zh": "他非常有語言天分，除了母語越南文以外，還精通中文和英語。",
+     "vn": "Anh ấy cực kỳ có năng khiếu ngoại ngữ, ngoài tiếng mẹ đẻ là tiếng Việt ra còn thông thạo cả tiếng Hoa và tiếng Anh."
+    },
+    {
+     "t": "Lớp học",
+     "zh": "今天大家都有來上課，除了小美因為重感冒請病假以外。",
+     "vn": "Hôm nay mọi người đều có đi học, trừ Tiểu Mỹ bị cảm nặng xin nghỉ ốm ra."
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "這間自助餐店除了現場各式各樣的炒青菜和肉類，也提供免費熱湯與紅茶。",
+     "vn": "Quán cơm tự chọn này ngoài đủ loại rau xào và thịt tại quầy ra còn phục vụ miễn phí canh nóng và hồng trà."
+    }
+   ]
+  },
+  "從來": {
+   "vn": "từ trước tới nay; chưa từng (trong câu phủ định)",
+   "ng": [
+    "(phó từ — chủ yếu trong câu phủ định) chưa từng bao giờ, không bao giờ (從來不 không bao giờ [thói quen], 從來沒(有)……過 chưa từng bao giờ [trải nghiệm quá khứ])",
+    "(phó từ — khẳng định đi với 都 / 就) từ xưa tới nay luôn luôn (從來都是這樣 xưa nay lúc nào cũng vậy)"
+   ],
+   "us": "HAI MẪU PHỦ ĐỊNH KINH ĐIỂN: 1) Thói quen / nguyên tắc không bao giờ làm: 從來不 + V (他從來不喝咖啡 Anh ấy không bao giờ uống cà phê, 他從來不遲到 Anh ấy chưa bao giờ đi trễ); 2) Trải nghiệm quá khứ chưa từng làm: 從來沒(有) + V + 過 (我從來沒去過台北 Tôi chưa từng tới Đài Bắc bao giờ!). CẤM quên chữ 過 hoặc chữ 不/沒 đi kèm!",
+   "co": [
+    "從來不|không bao giờ (thói quen, tính cách)",
+    "從來沒……過|chưa từng bao giờ (trải nghiệm quá khứ)",
+    "從來沒有|chưa bao giờ có",
+    "從來都是|xưa nay vẫn luôn là..."
+   ],
+   "sy": [
+    "一直以來|từ trước tới giờ luôn (dùng cho khẳng định đều đặn)",
+    "始終|từ đầu đến cuối luôn"
+   ],
+   "an": [
+    "總是|lúc nào cũng, luôn luôn"
+   ],
+   "cf": [
+    "從來不 vs 從來沒(過)|CHÚ Ý SỰ KHÁC BIỆT THỜI GIAN: 從來不 = THÓI QUEN/CHỦ Ý không bao giờ làm từ trước đến tương lai (從來不抽菸 không bao giờ hút thuốc); 從來沒 + V + 過 = TRẢI NGHIỆM QUÁ KHỨ TÍNH ĐẾN NAY chưa từng làm ('chưa từng ăn sầu riêng' = 從來沒吃過榴槤 — KHÔNG nói được *從來不吃過 ❌!)"
+   ],
+   "lt": "Thanh 2 + thanh 2: cónglái. Nếu là trải nghiệm chưa từng làm nhớ gắn 過 sau động từ!",
+   "mk": "Lỗi cực kỳ phổ biến: ghép *從來不……過 ❌ hoặc dùng 從來 đứng một mình không có 不/沒 mang nghĩa 'luôn luôn' trong câu đơn (*我從來喝水 ❌ -> phải nói 我都喝水 hoặc 我總是喝水!).",
+   "tw": "Trong khẩu ngữ Đài Loan nhiều khi nói nhấn mạnh ngắn gọn còn 從來沒……過 (ví dụ: 這家店開五年了我竟然從來沒吃過! — Quán này mở 5 năm rồi mà tôi lại chưa từng ăn lần nào!).",
+   "mh": "Tòng Lai → cónglái. ĐỌC: 'tòng' → cóng (t- bật hơi sang c- + ong thanh 2); 'lai' → lái (thanh 2). NGHĨA: 從 từ thuở trước + 來 kéo dài tới nay → suốt dọc chiều dài thời gian từ xưa đến bây giờ = từ trước tới nay.",
+   "vd": [
+    {
+     "t": "Kinh nghiệm",
+     "zh": "我以前在國外從來沒吃過臭豆腐，這次來台灣才鼓起勇氣嚐了第一口。",
+     "vn": "Trước đây ở nước ngoài tôi chưa từng ăn đậu hũ thối bao giờ, lần này sang Đài Loan mới lấy hết can đảm nếm thử miếng đầu tiên."
+    },
+    {
+     "t": "Thói quen",
+     "zh": "陳教授生活非常有規律，工作再忙也從來不會熬夜，每天晚上十一點準時睡覺。",
+     "vn": "Giáo sư Trần sinh hoạt cực kỳ điều độ, công việc bận mấy cũng không bao giờ thức khuya, mỗi tối đúng 11 giờ là đi ngủ."
+    },
+    {
+     "t": "Nhắn tin",
+     "zh": "真不好意思，我從來沒碰過電腦當機成這樣，現在完全不知道該按哪個鍵才好。",
+     "vn": "Thật ngại quá, tôi chưa từng gặp máy tính bị treo nặng thế này bao giờ, giờ hoàn toàn không biết phải bấm phím nào nữa."
+    }
+   ]
+  },
+  "大概": {
+   "vn": "khoảng; ước chừng; có lẽ; đại khái",
+   "ng": [
+    "(phó từ ước lượng số) khoảng, chừng, xấp xỉ (đặt TRƯỚC số đếm/thời lượng: 大概十個人 khoảng mười người, 大概五分鐘 khoảng 5 phút)",
+    "(phó từ suy đoán) có lẽ, chắc là (đoán xác suất khá cao ~70%: 他大概回家了 Chắc anh ấy về nhà rồi)",
+    "(danh từ / phó từ) đại khái, sơ lược (大概了解一下 tìm hiểu đại khái chút)"
+   ],
+   "us": "Dùng cực hay ở hai tình huống: 1) Ước lượng số/giờ/tiền đứng TRƯỚC số lượng: 這件衣服大概兩千塊 (Chiếc áo này khoảng hai nghìn tệ), 大概十點左右 (Tầm khoảng mười giờ — có thể ghép cùng 左右 ở cuối để nghe rất Đài Loan!); 2) Đoán việc: 今天大概不會下雨吧 (Hôm nay chắc là không mưa đâu nhỉ).",
+   "co": [
+    "大概多少錢|khoảng bao nhiêu tiền",
+    "大概幾點|khoảng mấy giờ",
+    "大概……左右|tầm khoảng... (ghép nhấn mạnh ước lượng)",
+    "大概了解|nắm được đại khái / sơ sơ"
+   ],
+   "sy": [
+    "約 / 大約|khoảng chừng (chỉ dùng cho số lượng, hơi trang trọng hơn trên văn bản)",
+    "左右|khoảng (đặt SAU con số)",
+    "也許|có lẽ (suy đoán ~50%, không dùng ước lượng con số!)"
+   ],
+   "cf": [
+    "大概 vs 也許 vs 左右|1) Ước lượng CON SỐ: 大概 đặt TRƯỚC số (大概十天); 左右 đặt SAU số (十天左右); không dùng *也許十天 cho khoảng số lượng! 2) Suy đoán XÁC SUẤT: 大概 đoán chắc chắn hơn (~70%) so với 也許 (~50%)"
+   ],
+   "lt": "Thanh 4 + thanh 4: dàgài.",
+   "mk": "1) Đừng đặt 大概 ra SAU con số như tiếng Anh/chữ 左右 (*十點大概 ❌ -> phải nói 大概十點 hoặc 大概十點左右!). 2) Nhớ thanh 4 gài, đừng đọc nhầm sang kài.",
+   "tw": "Ở Đài Loan đi hỏi đường xe mất bao lâu hay hẹn giờ gặp, câu trả lời 90% bắt đầu bằng 大概…… (Ví dụ: 大概要等十五分鐘 Chắc đợi khoảng 15 phút hoặc 大概快到了 Chắc sắp tới nơi rồi!).",
+   "mh": "Đại Khái → dàgài. ĐỌC: 'đại' → dà (thanh 4); 'khái' → gài (kh- không bật hơi sang g- + ai thanh 4). NGHĨA: 大 phần lớn, nét lớn + 概 thanh gạt ngang miệng đấu đong gạo lấy mức chung → ước lượng đại thể nét chính chứ không đong chi li = đại khái, khoảng chừng, chắc là.",
+   "vd": [
+    {
+     "t": "Đi lại",
+     "zh": "從這裡騎機車去夜市，如果一路都沒遇到紅燈的話，大概十分鐘左右就會到了。",
+     "vn": "Từ đây chạy xe máy ra chợ đêm, nếu suốt đường không vướng đèn đỏ thì khoảng mười phút là tới nơi thôi."
+    },
+    {
+     "t": "Dự đoán",
+     "zh": "現在已經晚上十一點多了，那家甜點店大概已經打烊休息了吧。",
+     "vn": "Bây giờ đã hơn mười một giờ tối rồi, tiệm bánh ngọt đó chắc là đóng cửa nghỉ rồi nhỉ."
+    },
+    {
+     "t": "Công việc",
+     "zh": "剛接手這個新專案時我只有個模糊的概念，現在聽完前輩說明總算大概了解了。",
+     "vn": "Khi mới nhận dự án mới này tôi chỉ có ý niệm mơ hồ, giờ nghe đàn anh giải thích xong cuối cùng cũng nắm được đại khái rồi."
+    }
+   ]
+  },
+  "還好": {
+   "vn": "may mà; cũng tạm ổn; không tệ lắm",
+   "ng": [
+    "(phó từ biểu thị may mắn) may mà, may sao, hên quá (還好有帶傘 may mà có mang ô, 還好沒遲到 may mà không trễ)",
+    "(tính từ / câu đáp khiêm tốn) cũng ổn, bình thường, không đến nỗi nào, tạm được (考試怎麼樣？— 還好 Thi thế nào? — Cũng tạm ổn; 還好嗎？ Có ổn không / Đỡ chưa?)"
+   ],
+   "us": "HAI NGHĨA SIÊU ĐỜI THƯỜNG Ở ĐÀI LOAN: 1) May mắn thở phào: 還好趕上了！(May quá bắt kịp rồi!), 還好你提醒我 (May mà bạn nhắc tôi!); 2) Đánh giá mức trung bình vừa phải hoặc đỡ: 這道菜辣嗎？— 還好，不會太辣 (Món này cay không? — Cũng bình thường, không cay quá đâu); 身體好點了嗎？— 還好 (Khỏe hơn chút chưa? — Cũng ổn rồi).",
+   "co": [
+    "還好有……|may mà có...",
+    "還好趕上了|may mà kịp rồi",
+    "還好啦 / 還好吧|cũng tạm ổn mà / bình thường thôi",
+    "你還好嗎？|bạn có ổn không? (hỏi thăm khi thấy ai mệt/ngã)"
+   ],
+   "sy": [
+    "幸好|may mà (chỉ dùng cho nghĩa 'may mắn', hơi trang trọng nhẹ hơn 還好)",
+    "還可以|cũng tạm được (cho chất lượng/trình độ)"
+   ],
+   "cf": [
+    "還好 vs 幸好|幸好 CHỈ mang 1 nghĩa 'may mắn quá'; còn 還好 vừa có nghĩa 'may mà' (還好沒下雨 May mà trời không mưa) vừa có nghĩa 'bình thường / không quá mức' (會貴嗎？— 還好 Đắt không? — Cũng vừa phải thôi / Không đắt lắm!)"
+   ],
+   "lt": "Chữ 還 ở đây đọc hái thanh 2 (háihǎo — KHÔNG đọc *huánhǎo!).",
+   "mk": "1) Rất nhiều người học hiểu nhầm khi hỏi người Đài 'Đắt không? / Khó không?' rồi nghe đáp '還好' cứ tưởng nghĩa là 'VẪN TỐT/RẤT TỐT' ❌ — thực chất '還好' khi trả lời tính chất mang nghĩa KHIÊM TỐN/TRUNG BÌNH ('cũng bình thường thôi / không đến mức ấy đâu!'). 2) Đọc đúng háihǎo.",
+   "tw": "Đây là từ cửa miệng TOP 5 ở Đài Loan! Hễ có chuyện hú vía đều kêu 還好……喔！(May mà...!), hỏi có mệt không/cay không/đắt không đều khiêm tốn đáp 還好還好 / 還好啦 (Cũng bình thường thôi mà!), và thấy ai vấp ngã liền hỏi 還好嗎？ (Có sao không?).",
+   "mh": "Hoàn Hảo → háihǎo. ĐỌC: 'hoàn' đổi sang âm phó từ 'vẫn còn' là hái (thanh 2); 'hảo' → hǎo (thanh 3). NGHĨA: 還 vẫn còn + 好 tốt/yên ổn → tình huống vẫn còn giữ được ở mức tốt lành, chưa rơi vào xấu hẳn = may mà, cũng tạm ổn.",
+   "vd": [
+    {
+     "t": "Bắt tàu",
+     "zh": "今天出門太趕忘記拿雨傘，還好一整天都是好天氣完全沒下雨！",
+     "vn": "Hôm nay ra ngoài vội quá quên cầm ô, may mà cả ngày trời đẹp hoàn toàn chẳng mưa chút nào!"
+    },
+    {
+     "t": "Hỏi thăm",
+     "zh": "同事關心我這份工作會不會壓力太大，我笑著說：「還好啦，比我之前那份輕鬆多了。」",
+     "vn": "Đồng nghiệp hỏi thăm công việc này có áp lực quá không, tôi cười đáp: 'Cũng ổn mà, nhẹ nhàng hơn chỗ cũ của tôi nhiều.'"
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "這碗麵看起來紅通通的很嚇人，其實吃起來辣度還好，帶點麻香非常順口。",
+     "vn": "Bát mì này trông đỏ rực hơi đáng sợ vậy thôi chứ thực ra ăn độ cay cũng vừa phải, có chút vị tê thơm rất dễ ăn."
+    }
+   ]
+  },
+  "極": {
+   "vn": "cực kỳ; hết sức; tột cùng; cực (địa lý/vật lý)",
+   "ng": [
+    "(bổ ngữ mức độ — ghép 極了) vô cùng, hết sức, cực kỳ (đứng NGAY SAU tính từ hoặc động từ tâm lý: 好極了 tuyệt cực kỳ, 美極了 đẹp tuyệt trần, 喜歡極了 thích vô cùng)",
+    "(danh từ / hình vị phó từ) hai đầu cực Trái Đất/nam châm (北極 Bắc Cực, 南極 Nam Cực), hoặc cực độ/cực kỳ (積極 tích cực, 極力 hết sức, 極端 cực đoan)"
+   ],
+   "us": "Ở trình độ sơ-trung cấp dùng tự nhiên nhất trong cấu trúc cảm thán TÍNH TỪ + 極了 (rất tích cực hoặc cực kỳ rõ nét): 這道台灣菜好吃極了！(Món Đài Loan này ngon cực kỳ!), 今天的天氣冷極了 (Thời tiết hôm nay lạnh thấu xương!), 我開心極了! Chú ý KHÔNG thêm 字 得 vào giữa (*好得極了 ❌ -> nói thẳng 好極了!).",
+   "co": [
+    "好極了|tuyệt vời cực kỳ",
+    "美極了 / 棒極了|đẹp tuyệt vời / xuất sắc cực kỳ",
+    "積極|tích cực",
+    "北極 / 南極|Bắc Cực / Nam Cực"
+   ],
+   "sy": [
+    "得不得了|(bổ ngữ mức độ có chữ 得 đứng trước)",
+    "非常 / 超級|(phó từ đặt TRƯỚC tính từ)"
+   ],
+   "cf": [
+    "極了 vs 得不得了|Adj + 極了 KHÔNG dùng 得 (高興極了 — vui cực kỳ, trang nhã giàu cảm xúc); Adj + 得不得了 BẮT BUỘC có 得 (高興得不得了). Ngoài ra trong văn nói Đài Loan không đặt một chữ *極 đơn đứng trước tính từ (*極好 ❌ ít nói trừ cụm viết 極佳/極大)!"
+   ],
+   "lt": "Thanh 2 jí. Cấu trúc chuẩn: Tính từ / Động từ tâm lý + 極了 (cực hiếm dùng phủ định với 極了).",
+   "mk": "1) Lỗi ngữ pháp hay gặp: nhét thêm 得 vào trước 極了 (*漂亮得極了 ❌ -> phải nói 漂亮極了!). 2) Nói thẳng *我極喜歡 ❌ nghe hơi văn chương cổ — tự nhiên hãy nói 我極了? Không, 我喜歡極了 hoặc 我非常喜歡!",
+   "tw": "Ở Đài Loan câu cảm thán hài lòng nhất hay gặp trong văn chương, quảng cáo ẩm thực và giao tiếp lịch sự là 棒極了！(Tuyệt đỉnh!) hay 好極了! (Hay quá!), cũng như từ rất thông dụng hàng ngày là 積極 (tích cực chủ động) và 北極熊 (gấu Bắc Cực).",
+   "mh": "Cực → jí. ĐỌC: 'cực' → jí (c- → j- + i thanh 2, bỏ âm cuối -c). NGHĨA: bộ 木 (cây gỗ) bên trái + 亟 (vươn tới tận cùng đỉnh nóc) bên phải → cây xà nóc cao nhất tận cùng của ngôi nhà = tột đỉnh, cực điểm, cực kỳ.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "站在合歡山山頂望向一片雲海與夕陽，那畫面實在是美極了！",
+     "vn": "Đứng trên đỉnh núi Hợp Hoan phóng tầm mắt ra biển mây và hoàng hôn, khung cảnh đó thực sự đẹp tuyệt vời!"
+    },
+    {
+     "t": "Đồ ăn",
+     "zh": "這家師大夜市的菠蘿油剛烤好端出來，夾著冰奶油吃起來真的香極了！",
+     "vn": "Bánh mì dứa kẹp bơ của khu chợ đêm Sư Đại này vừa nướng xong bưng ra, kẹp miếng bơ lạnh ăn vào thật sự thơm hết chỗ chê!"
+    },
+    {
+     "t": "Địa lý",
+     "zh": "因為全球暖化越來越嚴重，北極的冰層融化速度也跟着加快了許多。",
+     "vn": "Vì sự nóng lên toàn cầu ngày càng nghiêm trọng, tốc độ tan băng ở Bắc Cực cũng theo đó tăng nhanh hơn hẳn."
+    }
+   ]
+  },
+  "接著": {
+   "vn": "tiếp theo; tiếp tục; kế tiếp ngay sau đó",
+   "ng": [
+    "(phó từ / liên từ) tiếp theo đó, nối tiếp ngay sau việc vừa rồi (……，接著……: 先洗菜，接著切肉 Rửa rau trước, tiếp theo thái thịt)",
+    "(động từ + trợ từ 著) tiếp nối, nối tiếp, nhận tiếp (接著往下講 nói tiếp xuống phần dưới đi, 接著做 làm tiếp công việc đang dang dở)"
+   ],
+   "us": "Dùng cực mạch lạc khi trình bày quy trình từng bước hoặc kể câu chuyện liên hoàn (thường đi sau 首先 / 先): 我們先去故宮參觀，接著去士林夜市吃晚飯 (Chúng mình đi tham quan Bảo tàng Cố Cung trước, tiếp theo đi chợ đêm Sĩ Lâm ăn tối). Cũng có thể dùng với động từ: 接著看 (xem tiếp), 接著走 (đi tiếp), 接著說 (nói tiếp đi).",
+   "co": [
+    "接著說|nói tiếp đi",
+    "緊接著|tiếp nối ngay sau đó",
+    "先……，接著……|trước tiên..., tiếp theo...",
+    "接著做|tiếp tục làm tiếp"
+   ],
+   "sy": [
+    "然後|sau đó (khẩu ngữ thông dụng nhất hàng ngày)",
+    "繼續|tiếp tục (nhấn mạnh duy trì việc đang làm chứ không chuyển sang việc mới!)"
+   ],
+   "cf": [
+    "接著 vs 然後 vs 繼續|1) 然後 và 接著 đều nối BƯỚC TIẾP THEO sang hành động mới (接著 nhấn mạnh tính liên hoàn sát nút hơn 然後); 2) 繼續 nhấn mạnh TIẾP TỤC làm công việc cũ sau khi tạm ngưng (nghỉ 5 phút rồi học tiếp: 繼續上課 — không nói *接著上課 nếu vẫn đang tiếp 1 việc đó trừ kể trình tự lịch)!"
+   ],
+   "lt": "Chú ý âm đọc: jiēzhe (jiē thanh 1 + zhe thanh nhẹ).",
+   "mk": "1) Đừng đọc nhầm *jiēzháo ❌ — chữ 著 đóng vai trò trợ từ trạng thái đọc thanh nhẹ zhe! 2) Không nói *接著我的話 sau danh từ khi ý là 'lắng nghe/nói tiếp' — đặt 接著 TRƯỚC động từ (接著說).",
+   "tw": "Ở Đài Loan giáo viên, MC và người thuyết trình rất hay dùng từ nối chuyển ý tự nhiên là 接下來 (tiếp theo đây) và 接著 (sau đó tiếp tới) để phần trình bày gãy gọn chuyên nghiệp.",
+   "mh": "Tiếp Trước → jiēzhe. ĐỌC: 'tiếp' → jiē (t- → j- + ie thanh 1); 'trước' → zhe (trợ từ động thái đọc thanh nhẹ). NGHĨA: 接 nối chạm vào tay người trước truyền qua + 著 trạng thái đang nối tiếp → nối liền tay không đứt quãng = tiếp theo, kế tiếp.",
+   "vd": [
+    {
+     "t": "Kế hoạch",
+     "zh": "明天早上我們先去淡水老街吃阿給，接著搭渡輪過河去八里騎腳踏車。",
+     "vn": "Sáng mai tụi mình đi phố cổ Đạm Thủy ăn A-gei trước, tiếp theo đi phà sang sông tới Bát Lý đạp xe."
+    },
+    {
+     "t": "Nấu ăn",
+     "zh": "先把蒜末放進熱油鍋裡爆香，接著倒進高麗菜大火快炒兩分鐘就完成了。",
+     "vn": "Trước tiên cho tỏi băm vào chảo dầu nóng phi thơm, tiếp theo đổ bắp cải vào đảo nhanh lửa lớn hai phút là xong."
+    },
+    {
+     "t": "Lớp học",
+     "zh": "老師喝了一口水後笑著說：「好，我們現在翻到下一頁，接著看第三段課文。」",
+     "vn": "Thầy giáo uống một ngụm nước rồi cười nói: 'Được rồi, bây giờ chúng ta lật sang trang sau, tiếp tục xem đoạn bài khóa thứ ba nhé.'"
+    }
+   ]
+  },
+  "結果": {
+   "vn": "kết quả; rốt cuộc (thế mà cuối cùng lại...); kết trái",
+   "ng": [
+    "(danh từ) kết quả, thành quả cuối cùng (考試結果 kết quả thi, 討論結果 kết quả thảo luận, 好結果 kết quả tốt)",
+    "(liên từ / phó từ) rốt cuộc, cuối cùng thì, ai ngờ kết cục là (nối vế sau thường mang kết quả thực tế hoặc bất ngờ: 說好五點到，結果六點才來 Hẹn 5 giờ tới, rốt cuộc 6 giờ mới đến!)",
+    "(động từ ly hợp — âm ở một số vùng đọc jiēguǒ, nhưng chuẩn Đài đọc chung jiéguǒ cho cả đơm quả nếu nói chung 開花結果) đơm hoa kết trái"
+   ],
+   "us": "HAI CÁCH DÙNG CHÍNH CỰC KỲ THƯỜNG XUYÊN: 1) Danh từ 'kết quả': 等結果 (chờ kết quả), 查考試結果 (tra kết quả thi), lượng từ 個; 2) Liên từ kể chuyện cực tự nhiên ở Đài Loan: 結果 (+ Chủ ngữ) + kết quả thực tế! (Ví dụ: 我以為沒希望了，結果竟然錄取了! Tôi cứ tưởng hết hy vọng rồi, rốt cuộc lại trúng tuyển chứ!).",
+   "co": [
+    "考試結果|kết quả thi",
+    "討論結果|kết quả thảo luận",
+    "結果呢？|kết quả thì sao? (hóng chuyện!)",
+    "沒想到結果……|không ngờ rốt cuộc lại..."
+   ],
+   "sy": [
+    "後來|sau đó (kể trình tự thời gian quá khứ thuần túy)",
+    "成果|thành quả (chỉ kết quả tích cực tốt đẹp)"
+   ],
+   "an": [
+    "原因|nguyên nhân"
+   ],
+   "cf": [
+    "結果 vs 後來|後來 CHỈ kể bước diễn biến xảy ra SAU VỀ MẶT THỜI GIAN trong quá khứ ('Tôi gặp anh ấy năm ngoái, sau đó hai đứa thành bạn'); 結果 nhấn mạnh KẾT CỤC HỆ QUẢ hoặc TÌNH HUỐNG TRỚ TRÊU BẤT NGỜ ('Đi vội ra bến xe, rốt cuộc hôm nay tài xế nghỉ!') và còn làm danh từ đếm được!"
+   ],
+   "lt": "Chú ý ở Đài Loan: chữ 結 đọc thanh 2 jié (jiéguǒ) cho hầu hết mọi nghĩa danh từ lẫn liên từ (trừ vài từ ghép thực vật như 結實 đọc jiēshi khi chỉ chắc nịch/ra quả ở giọng Bắc).",
+   "mk": "Đừng đọc sai thanh *jiěguǒ ❌ (nhầm với 解 jiě 'giải') — chữ 結 trong 結果, 結婚, 結束 luôn đọc jié thanh 2!",
+   "tw": "Trong kể chuyện phiếm hàng ngày ở Đài Loan, từ 結果 xuất hiện với tần suất cực dày kèm thái độ bất ngờ thú vị — khi nghe bạn kể nửa chừng mà tò mò muốn hóng kết cục, người Đài luôn hỏi ngay: 然後呢？結果呢？ (Rồi sao? Kết cục thế nào?!).",
+   "mh": "Kết Quả → jiéguǒ. ĐỌC: 'kết' → jié (c/k- → j- + ie thanh 2); 'quả' → guǒ (qu- → gu- + o thanh 3). NGHĨA: 結 đơm kết lại + 果 trái cây → hoa rụng thì trái kết lại thành hình = kết quả, kết cục cuối cùng.",
+   "vd": [
+    {
+     "t": "Kể chuyện",
+     "zh": "我本來以為今天去會大排長龍，結果十點半剛開門時完全不用等就有座位！",
+     "vn": "Ban đầu tôi cứ tưởng hôm nay tới sẽ phải xếp hàng dài lắm, ai dè mười giờ rưỡi vừa mở cửa hoàn toàn không phải đợi đã có chỗ ngồi!"
+    },
+    {
+     "t": "Thi cử",
+     "zh": "等待放榜的這一個星期好緊張，希望下週一公布的結果能讓全家開心。",
+     "vn": "Một tuần chờ công bố điểm thi hồi hộp quá chừng, hy vọng kết quả công bố thứ Hai tuần sau sẽ khiến cả nhà vui mừng."
+    },
+    {
+     "t": "Làm việc",
+     "zh": "經過整個下午的熱烈討論，各部門終於達成共識，得出了令人滿意的結果。",
+     "vn": "Sau cả buổi chiều thảo luận sôi nổi, các phòng ban cuối cùng cũng đạt được đồng thuận và đi đến kết quả đáng hài lòng."
+    }
+   ]
+  },
+  "立刻": {
+   "vn": "lập tức; ngay lập tức; tức khắc",
+   "ng": [
+    "(phó từ) lập tức, ngay lúc đó không chần chừ một giây (đặt TRƯỚC động từ: 立刻出發 xuất phát ngay lập tức, 立刻處理 xử lý ngay)"
+   ],
+   "us": "Đặt TRƯỚC động từ (luôn sau chủ ngữ: 他立刻站起來 Anh ấy lập tức đứng dậy). Giống 馬上 nhưng sắc thái có phần dứt khoát, khẩn trương hoặc dùng nhiều hơn một chút trong văn kể chuyện, thông báo khẩn, công việc nghiêm túc: 發現火災要立刻報警 (Phát hiện cháy phải báo cảnh sát ngay lập tức).",
+   "co": [
+    "立刻出發|lập tức xuất phát",
+    "立刻處理|lập tức xử lý",
+    "立刻回答|trả lời ngay lập tức",
+    "立刻行動|hành động ngay tức thì"
+   ],
+   "sy": [
+    "馬上|ngay lập tức (thông dụng thân mật nhất trong giao tiếp hàng ngày)",
+    "立即|ngay lập tức (trang trọng nhất trên biển báo, luật, thông báo chính thức)"
+   ],
+   "an": [
+    "慢慢|từ từ, chậm rãi"
+   ],
+   "cf": [
+    "立刻 vs 馬上 vs 立即|Cả ba đều nghĩa 'ngay lập tức' và đặt trước động từ: 1) 馬上 tự nhiên nhất trong giao tiếp ('Chờ chút tôi ra ngay đây': 我馬上出來!); 2) 立刻 vừa nói vừa kể chuyện, sắc thái hành động phản xạ nhanh dứt khoát ('nghe xong anh ấy lập tức chạy ra'); 3) 立即 trang trọng nhất trong quy định công cộng!"
+   ],
+   "lt": "Thanh 4 + thanh 4: lìkè.",
+   "mk": "Đừng đặt 立刻 ra cuối câu (*你過來立刻 ❌ -> phải nói 你立刻過來!).",
+   "tw": "Ở Đài Loan trong tin tức, công sở hay nhắn nhắc xử lý sự cố nhanh hay nói: 我立刻請工程師幫您確認 (Tôi sẽ lập tức nhờ kỹ sư kiểm tra giúp anh/chị ngay!).",
+   "mh": "Lập Khắc → lìkè. ĐỌC: 'lập' → lì (thanh 4, bỏ âm cuối -p); 'khắc' → kè (kh- bật sang k- + e thanh 4). NGHĨA: 立 đứng ngay tại chỗ + 刻 khắc giờ (đơn vị thời gian xưa ~15 phút, ngắn ngủi tức thì) → ngay tại thời khắc ấy chẳng kịp chậm trễ = lập tức.",
+   "vd": [
+    {
+     "t": "Khẩn cấp",
+     "zh": "看到路邊發生車禍時，路人立刻拿出手機撥打110報警並叫救護車。",
+     "vn": "Khi nhìn thấy ven đường xảy ra tai nạn giao thông, người đi đường lập tức lấy điện thoại gọi 110 báo cảnh sát và gọi xe cứu thương."
+    },
+    {
+     "t": "Tin vui",
+     "zh": "一聽到妹妹順利考上第一志願的消息，全家人都立刻開心地歡呼起來。",
+     "vn": "Vừa nghe tin em gái thi đỗ nguyện vọng một thuận lợi, cả gia đình đều lập tức vui sướng reo hò vang dậy."
+    },
+    {
+     "t": "Công việc",
+     "zh": "客戶剛剛通知訂單數量有更動，請相關同仁立刻進系統更新資料。",
+     "vn": "Khách hàng vừa thông báo số lượng đơn hàng có thay đổi, xin các đồng nghiệp liên quan lập tức vào hệ thống cập nhật lại dữ liệu."
+    }
+   ]
+  },
+  "沒想到": {
+   "vn": "không ngờ; ai ngờ đâu; chẳng ngờ tới",
+   "ng": [
+    "(cụm động từ / liên ngữ) không ngờ rằng, ngoài dự đoán (dùng trước mệnh đề bất ngờ: 真沒想到 thật không ngờ, 沒想到居然…… không ngờ lại...)"
+   ],
+   "us": "Đặt đầu câu hoặc ngay sau chủ ngữ để bày tỏ sự ngạc nhiên (cả chuyện vui lẫn chuyện éo le): 沒想到台北的捷運這麼乾淨方便 (Không ngờ tàu điện ngầm Đài Bắc lại sạch sẽ và tiện lợi đến thế!), 真沒想到會在夜市遇到你 (Thật không ngờ lại gặp bạn ở chợ đêm!). Hay kết hợp cùng 竟然 / 居然 (lại có chuyện bất ngờ thế!) ở mệnh đề sau.",
+   "co": [
+    "真沒想到|thật không ngờ",
+    "沒想到居然……|không ngờ lại...",
+    "完全沒想到|hoàn toàn không ngờ tới",
+    "萬萬沒想到|ngàn lần không ngờ / hoàn toàn bất ngờ"
+   ],
+   "sy": [
+    "想不到|không thể nghĩ tới / bất ngờ (rất giống 沒想到 nhưng 沒想到 phổ biến hơn cho sự việc đã xảy ra!)",
+    "竟然|lại bất ngờ... (phó từ đứng sau chủ ngữ)"
+   ],
+   "cf": [
+    "沒想到 vs 以為|Thường ghép cặp hoàn hảo: 我原本以為……，沒想到…… ('Tôi vốn cứ tưởng tiệm đóng cửa rồi, AI NGỜ bên trong vẫn còn sáng đèn đông khách!')"
+   ],
+   "lt": "Thanh 2 + thanh 3 + thanh 4: méi xiǎngdào (cũng có thể nói đầy đủ là 沒有想到).",
+   "mk": "Đừng viết/nói nhầm *不想到 ❌ để dịch 'không ngờ' — sự việc quá khứ ngoài dự đoán PHẢI dùng phủ định 沒 (沒想到 hoặc 想不到 'không thể nghĩ ra')!",
+   "tw": "Ở Đài Loan người dân cực hay mở đầu câu chuyện bất ngờ thú vị bằng: 真的沒想到…… hoặc 誰也沒想到…… (Chẳng ai ngờ được là...).",
+   "mh": "Một Tưởng Đáo → méi xiǎngdào. ĐỌC: 'một' → méi (thanh 2 — phủ định quá khứ); 'tưởng' → xiǎng (t- → x- + iang thanh 3); 'đáo' → dào (đ- → d- + ao thanh 4). NGHĨA: 沒 chưa từng/không + 想 nghĩ + 到 chạm tới được kết cục ấy → sự việc nằm ngoài tầm suy nghĩ trước đó = không ngờ, ai ngờ.",
+   "vd": [
+    {
+     "t": "Gặp bất ngờ",
+     "zh": "十年不見的高中好友今天居然出現在我家門口，真是太讓我沒想到了！",
+     "vn": "Người bạn thân cấp ba mười năm không gặp hôm nay lại xuất hiện ngay trước cửa nhà tôi, thật sự làm tôi quá bất ngờ!"
+    },
+    {
+     "t": "Du lịch",
+     "zh": "出發前原本以為山上會很無聊，沒想到民宿老闆帶我們去看滿天星星，超級浪漫！",
+     "vn": "Trước khi đi vốn tưởng trên núi sẽ chán lắm, không ngờ anh chủ homestay dẫn tụi mình đi ngắm bầu trời đầy sao, lãng mạn cực kỳ!"
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "這間不起眼的小麵攤看起來普通，沒想到吃過一次以後竟然讓人天天想念。",
+     "vn": "Quán mì nhỏ bình dị này trông rất bình thường, không ngờ ăn thử một lần xong lại khiến người ta ngày nào cũng thèm nhớ."
+    }
+   ]
+  }
+ }
+}

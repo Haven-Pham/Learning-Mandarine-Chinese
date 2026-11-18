@@ -1,0 +1,1364 @@
+{
+ "tu": {
+  "生意": {
+   "vn": "kinh doanh; buôn bán; việc làm ăn; (ít dùng) sức sống, sinh khí",
+   "ng": [
+    "(danh từ) (shēngyì) việc buôn bán, kinh doanh, làm ăn (lượng từ: 筆)",
+    "(danh từ) (shēngyì) lượng khách đến mua bán, tình hình buôn bán (ví dụ: 生意很好 = buôn bán rất đắt khách)",
+    "(danh từ) (shēngyì) sức sống, sinh khí, sinh lực (nghĩa văn viết)"
+   ],
+   "us": "Thường đi với động từ 做 (做生意 = làm ăn, kinh doanh), 談 (談生意 = bàn chuyện làm ăn), hoặc tính từ 好/不好 (生意很好 = đắt khách, làm ăn phát đạt).",
+   "co": [
+    "做生意|làm ăn, kinh doanh",
+    "生意很好|buôn bán rất đắt khách",
+    "談生意|bàn chuyện làm ăn",
+    "小生意|buôn bán nhỏ"
+   ],
+   "sy": [
+    "買賣|mua bán, làm ăn",
+    "商業|thương mại"
+   ],
+   "cf": [
+    "工作|công việc làm thuê hoặc nghề nghiệp nói chung; còn 生意 là tự kinh doanh, buôn bán"
+   ],
+   "lt": "筆 (lượng từ cho một thương vụ/mối làm ăn: 一筆生意). Không dùng *工作生意; phải nói 做生意.",
+   "mk": "Người Việt hay dịch sát 'sinh ý' thành ý tưởng hay sinh lực trong giao tiếp hàng ngày, thực tế gần như luôn dùng 生意 với nghĩa buôn bán, kinh doanh (做生意).",
+   "tw": "Ở Đài Loan đọc rõ thanh 4 là shēngyì (nhiều nơi ở Đại Lục đọc thanh nhẹ shēngyi).",
+   "mh": "Sinh Ý → shēngyì. ĐỌC: 'sinh' → shēng (thanh 1, ngang cao); 'ý' → yì (thanh 4, dứt khoát; chuẩn Đài Loan giữ thanh 4). NGHĨA: 生 sinh sôi nảy nở + 意 ý định/chủ ý → chủ ý kiếm lời từ mua bán = việc kinh doanh, làm ăn; nghĩa gốc còn chỉ sức sống đang sinh sôi.",
+   "vd": [
+    {
+     "t": "Chợ đêm",
+     "zh": "這家夜市攤位的小吃很有名，每天生意都很好。",
+     "vn": "Quầy đồ ăn vặt ở chợ đêm này rất nổi tiếng, ngày nào cũng đông khách."
+    },
+    {
+     "t": "Nghề nghiệp",
+     "zh": "我叔叔自己開了一間咖啡店做生意。",
+     "vn": "Chú tôi tự mở một quán cà phê để kinh doanh."
+    },
+    {
+     "t": "Sức sống",
+     "zh": "春天來了，公園裡的樹木充滿了生意。",
+     "vn": "Mùa xuân đến rồi, cây cối trong công viên tràn đầy sức sống."
+    }
+   ]
+  },
+  "商人": {
+   "vn": "thương nhân; nhà buôn; doanh nhân",
+   "ng": [
+    "(danh từ) thương nhân, người buôn bán, nhà buôn, doanh nhân"
+   ],
+   "us": "Chỉ người làm nghề buôn bán, kinh doanh. Có thể ghép thành 大商人 (thương nhân lớn), 外國商人 (thương nhân nước ngoài).",
+   "co": [
+    "大商人|thương nhân lớn",
+    "外國商人|thương nhân nước ngoài",
+    "當商人|làm nghề buôn bán",
+    "誠實的商人|nhà buôn trung thực"
+   ],
+   "sy": [
+    "生意人|người làm ăn buôn bán (khẩu ngữ)",
+    "商家|cửa hàng, giới kinh doanh"
+   ],
+   "cf": [
+    "生意人|rất thông dụng trong khẩu ngữ để chỉ người buôn bán; 商人 mang sắc thái trang trọng hoặc chỉ nghề nghiệp chung"
+   ],
+   "lt": "個、位 (一位商人, 很多商人).",
+   "tw": "Trong giao tiếp đời thường ở Đài Loan, người dân cũng rất hay gọi người buôn bán là 生意人 hoặc 老闆.",
+   "mh": "Thương Nhân → shāngrén. ĐỌC: 'thương' → shāng (thanh 1); 'nhân' → rén (thanh 2). NGHĨA: 商 buôn bán, thương nghiệp + 人 người → người làm nghề buôn bán = thương nhân.",
+   "vd": [
+    {
+     "t": "Lịch sử",
+     "zh": "幾百年前就有許多商人來到台灣做買賣。",
+     "vn": "Vài trăm năm trước đã có rất nhiều thương nhân đến Đài Loan buôn bán."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "他的爸爸是一位很有經驗的商人。",
+     "vn": "Bố của anh ấy là một doanh nhân rất có kinh nghiệm."
+    },
+    {
+     "t": "Đầu tư",
+     "zh": "那位外國商人打算在台灣開新公司。",
+     "vn": "Vị thương nhân nước ngoài đó dự định mở công ty mới ở Đài Loan."
+    }
+   ]
+  },
+  "老闆娘/老板娘": {
+   "vn": "bà chủ; cô chủ; vợ ông chủ",
+   "ng": [
+    "(danh từ) bà chủ, cô chủ (người phụ nữ làm chủ cửa hàng, quán ăn, công ty)",
+    "(danh từ) vợ của ông chủ (cách gọi lịch sự, thân mật ở quán xá)"
+   ],
+   "us": "Dùng để gọi trực tiếp hoặc nhắc đến nữ chủ quán, chủ tiệm hoặc vợ của ông chủ. Rất hay dùng ở quán ăn, chợ đêm, tiệm tạp hóa.",
+   "co": [
+    "老闆娘好|chào bà chủ",
+    "老闆娘，結帳|chị chủ ơi, tính tiền",
+    "熱心的老闆娘|cô chủ nhiệt tình",
+    "問老闆娘|hỏi bà chủ"
+   ],
+   "sy": [
+    "女老闆|nữ giám đốc, bà chủ (trang trọng hơn)"
+   ],
+   "an": [
+    "店員|nhân viên cửa hàng",
+    "客人|khách hàng"
+   ],
+   "cf": [
+    "老闆|ông chủ hoặc người làm chủ nói chung; 老闆娘 chuyên chỉ nữ chủ quán hoặc vợ ông chủ"
+   ],
+   "lt": "個、位 (一位老闆娘).",
+   "mk": "Không dịch 'nương' theo kiểu cổ trang; ở tiệm ăn cứ gọi tự nhiên là 老闆娘 (chị chủ/cô chủ), dù trẻ hay lớn tuổi đều thân thiện.",
+   "tw": "Ở Đài Loan đi ăn quán bình dân, mua trà sữa hay đi chợ đêm đều rất hay gọi 「老闆娘」 khi gọi món hoặc tính tiền; chính tự Phồn thể viết là 老闆娘.",
+   "mh": "Lão Bản Nương → lǎobǎnniáng. ĐỌC: 'lão' → lǎo + 'bản' → bǎn (hai thanh 3 liền nhau nên 老 biến thành láo → láobǎn); 'nương' → niáng (thanh 2). NGHĨA: 老闆 ông chủ + 娘 phụ nữ/phu nhân → người phụ nữ làm chủ quán hoặc vợ ông chủ = bà chủ.",
+   "vd": [
+    {
+     "t": "Quán ăn",
+     "zh": "老闆娘，請問這碗牛肉麵多少錢？",
+     "vn": "Cô chủ ơi, cho hỏi tô mì bò này bao nhiêu tiền ạ?"
+    },
+    {
+     "t": "Chợ đêm",
+     "zh": "這攤的老闆娘非常熱情，還多送了我一顆貢丸。",
+     "vn": "Chị chủ quầy này cực kỳ nhiệt tình, còn tặng thêm cho tôi một viên mọc nữa."
+    },
+    {
+     "t": "Tính tiền",
+     "zh": "吃飽了，我們叫老闆娘來結帳吧。",
+     "vn": "Ăn no rồi, chúng ta gọi bà chủ lại tính tiền thôi."
+    }
+   ]
+  },
+  "店員": {
+   "vn": "nhân viên cửa hàng; nhân viên bán hàng",
+   "ng": [
+    "(danh từ) nhân viên cửa hàng, người bán hàng, nhân viên tại tiệm/siêu thị"
+   ],
+   "us": "Chỉ nhân viên làm việc trong cửa hàng tiện lợi, tiệm quần áo, tiệm bánh, hiệu sách... Khi gọi họ thường nói 不好意思 hoặc 請問.",
+   "co": [
+    "超商店員|nhân viên cửa hàng tiện lợi",
+    "女店員|nữ nhân viên bán hàng",
+    "問店員|hỏi nhân viên cửa hàng",
+    "熱心的店員|nhân viên bán hàng nhiệt tình"
+   ],
+   "sy": [
+    "服務員|nhân viên phục vụ",
+    "售貨員|nhân viên bán hàng (trang trọng hơn)"
+   ],
+   "an": [
+    "老闆|ông chủ",
+    "客人|khách hàng",
+    "顧客|khách hàng"
+   ],
+   "cf": [
+    "服務生|nhân viên phục vụ bàn ở nhà hàng/quán ăn; 店員 dùng cho cửa hàng, siêu thị, tiệm bán lẻ"
+   ],
+   "lt": "個、位 (一位店員).",
+   "mk": "Không gọi trực tiếp nhân viên là *店員！ như tiếng Việt gọi 'Nhân viên ơi!'; ở Đài Loan hãy nói 不好意思，請問... hoặc 先生/小姐.",
+   "tw": "Ở Đài Loan, 超商店員 (nhân viên 7-Eleven, FamilyMart) nổi tiếng là đa năng vì từ pha cà phê, tính tiền đến nhận bưu kiện, thanh toán hóa đơn đều làm hết.",
+   "mh": "Điếm Viên → diànyuán. ĐỌC: 'điếm' → diàn (thanh 4); 'viên' → yuán (thanh 2). NGHĨA: 店 cửa hàng, tiệm + 員 nhân viên, thành viên → nhân viên làm việc trong cửa hàng.",
+   "vd": [
+    {
+     "t": "Cửa hàng tiện lợi",
+     "zh": "台灣便利商店的店員都會親切地說「歡迎光臨」。",
+     "vn": "Nhân viên cửa hàng tiện lợi ở Đài Loan đều nói câu 'Kính chào quý khách' rất thân thiện."
+    },
+    {
+     "t": "Mua quần áo",
+     "zh": "這件衣服沒有我的尺寸，我去問一下店員。",
+     "vn": "Chiếc áo này không có cỡ của tôi, để tôi đi hỏi nhân viên bán hàng một chút."
+    },
+    {
+     "t": "Siêu thị",
+     "zh": "那位店員幫我找到了我要買的醬油。",
+     "vn": "Người nhân viên cửa hàng đó đã giúp tôi tìm thấy loại nước tương tôi cần mua."
+    }
+   ]
+  },
+  "訂": {
+   "vn": "đặt (hàng, bàn, vé, phòng); đặt báo; ký kết, lập (hợp đồng, kế hoạch)",
+   "ng": [
+    "(động từ) đặt trước, đặt mua (đặt hàng, đặt vé, đặt phòng, đặt bàn, đặt báo chí)",
+    "(động từ) ký kết, lập ra, đề ra (hợp đồng, kế hoạch, quy định)",
+    "(động từ) đóng gáy, ghim lại (sách vở, tài liệu - đồng nghĩa với 裝訂)"
+   ],
+   "us": "Rất hay kết hợp trực tiếp với danh từ: 訂機票 (đặt vé máy bay), 訂飯店 (đặt khách sạn), 訂飲料 (đặt đồ uống), 訂計畫 (lập kế hoạch). Đã đặt xong nói 訂好了.",
+   "co": [
+    "訂飲料|đặt đồ uống/trà sữa",
+    "訂機票|đặt vé máy bay",
+    "訂飯店|đặt khách sạn",
+    "訂計畫|lập kế hoạch"
+   ],
+   "sy": [
+    "預訂|đặt trước",
+    "點|gọi món (tại quán)"
+   ],
+   "an": [
+    "退訂|hủy đặt",
+    "取消|hủy bỏ"
+   ],
+   "cf": [
+    "點|gọi món tại chỗ ở quán ăn (點菜); còn 訂 là đặt trước hoặc đặt giao hàng/đặt chỗ trước (訂便當, 訂位)",
+    "定|cùng đọc dìng: 定 thiên về 'quyết định, ổn định, chắc chắn' (決定, 一定); 訂 thiên về 'đặt trước, thỏa thuận, đính kèm' (訂位, 訂書)"
+   ],
+   "mk": "Người Việt dễ nhầm 訂 (đặt trước/đặt giao) với 點 (gọi món tại bàn). Ngoài ra hay viết nhầm 訂 với 定 (đọc giống nhau dìng).",
+   "tw": "Ở Đài Loan công sở hay trường học rất hay rủ nhau 訂飲料 (đặt trà sữa theo nhóm) hoặc 訂便當 (đặt cơm hộp giao tận nơi).",
+   "mh": "Đính → dìng. ĐỌC: 'đính' → dìng (thanh 4, dứt khoát). NGHĨA: Bộ 言 (ngôn - lời nói) + 丁 (đinh - chốt chặt) → dùng lời nói để chốt trước với nhau = đặt trước, đặt hàng, ký kết.",
+   "vd": [
+    {
+     "t": "Đặt trà sữa",
+     "zh": "下午大家要一起訂珍珠奶茶，你要喝什麼？",
+     "vn": "Chiều nay mọi người định đặt trà sữa trân châu chung, bạn uống gì?"
+    },
+    {
+     "t": "Du lịch",
+     "zh": "我們已經先訂好去花蓮的火車票和飯店了。",
+     "vn": "Chúng tôi đã đặt trước xong vé tàu hỏa và khách sạn đi Hoa Liên rồi."
+    },
+    {
+     "t": "Ký kết",
+     "zh": "公司和客戶訂了一份新的合作契約。",
+     "vn": "Công ty và khách hàng đã ký kết một bản hợp đồng hợp tác mới."
+    }
+   ]
+  },
+  "訂位": {
+   "vn": "đặt chỗ; đặt bàn",
+   "ng": [
+    "(động từ ly hợp) đặt chỗ, đặt bàn (ở nhà hàng, quán ăn, quán cà phê, phương tiện)"
+   ],
+   "us": "Là động từ ly hợp (có thể tách ra thêm số lượng/bổ ngữ vào giữa): 訂兩個位子 (đặt hai chỗ), 訂到位了 (đặt được chỗ rồi), 訂好了位 (đã đặt chỗ xong).",
+   "co": [
+    "電話訂位|đặt bàn qua điện thoại",
+    "網路訂位|đặt chỗ qua mạng",
+    "提前訂位|đặt bàn trước",
+    "沒有訂位|chưa đặt bàn"
+   ],
+   "sy": [
+    "預約|đặt hẹn, đặt lịch trước"
+   ],
+   "an": [
+    "取消訂位|hủy đặt bàn",
+    "現場候位|đến trực tiếp chờ bàn"
+   ],
+   "cf": [
+    "定位|cùng đọc dìngwèi nhưng 定位 là 'định vị (GPS), xác định vị trí'; còn 訂位 là 'đặt chỗ, đặt bàn'"
+   ],
+   "lt": "Không đặt tân ngữ trực tiếp sau 訂位 (*訂位餐廳 ❌), phải nói 跟餐廳訂位 hoặc 訂這家餐廳的位子.",
+   "mk": "Hay viết nhầm thành 定位 (định vị) hoặc gắn thẳng tên quán vào sau: *我想訂位這家店 ❌ → phải nói 我想訂這家店的位子 ✅.",
+   "tw": "Ở các nhà hàng nổi tiếng Đài Loan thường chia hai hình thức: 訂位 (đặt bàn trước) và 現場候位 (lấy số chờ bàn tại chỗ).",
+   "mh": "Đính Vị → dìngwèi. ĐỌC: 'đính' → dìng (thanh 4); 'vị' → wèi (thanh 4). NGHĨA: 訂 đặt trước + 位 chỗ ngồi (位子) → đặt trước chỗ ngồi = đặt bàn, đặt chỗ.",
+   "vd": [
+    {
+     "t": "Nhà hàng",
+     "zh": "這家火鍋店週末客人很多，一定要先訂位。",
+     "vn": "Quán lẩu này cuối tuần rất đông khách, nhất định phải đặt bàn trước."
+    },
+    {
+     "t": "Gọi điện",
+     "zh": "你好，我要訂位，今天晚上七點，總共四個人。",
+     "vn": "Xin chào, tôi muốn đặt bàn, tối nay 7 giờ, tổng cộng bốn người ạ."
+    },
+    {
+     "t": "Đón khách",
+     "zh": "請問兩位有訂位嗎？還是要現場候位？",
+     "vn": "Xin hỏi hai vị có đặt bàn trước chưa ạ? Hay mình chờ bàn tại chỗ?"
+    }
+   ]
+  },
+  "得到": {
+   "vn": "được; đạt được; nhận được; có được",
+   "ng": [
+    "(động từ) nhận được, đạt được, có được, giành được (giải thưởng, sự giúp đỡ, cơ hội, thông tin)"
+   ],
+   "us": "Kết cấu động từ + bổ ngữ kết quả (得 + 到). Thường đi với danh từ trừu tượng hoặc thành quả: 得到機會 (có được cơ hội), 得到消息 (nhận được tin), 得到第一名 (đạt hạng nhất).",
+   "co": [
+    "得到幫助|nhận được sự giúp đỡ",
+    "得到機會|có được cơ hội",
+    "得到第一名|đạt giải nhất",
+    "得到好消息|nhận được tin vui"
+   ],
+   "sy": [
+    "獲得|đạt được, thu được (trang trọng hơn)",
+    "收到|nhận được (thư, quà, tin nhắn)",
+    "拿到|lấy được, nhận được (cầm tay)"
+   ],
+   "an": [
+    "失去|mất đi"
+   ],
+   "cf": [
+    "收到|nhận đồ vật gửi tới (thư, bưu kiện, quà); 拿到 lấy được vật cụ thể hoặc điểm số/bằng cấp; 得到 nhấn mạnh đạt được kết quả, cơ hội, tri thức hoặc sự giúp đỡ"
+   ],
+   "mk": "Không dùng 得到 cho nhận tin nhắn hay bưu kiện thông thường (*得到你的簡訊 ❌ → 收到你的簡訊 ✅).",
+   "tw": "Ở Đài Loan trong khẩu ngữ cũng rất hay nói 拿到 (lấy được/nhận được giấy tờ, học bổng, điểm cao), còn 得到 trang trọng và hay dùng cho giá trị tinh thần, bài học, sự ủng hộ.",
+   "mh": "Đắc Đáo → dédào. ĐỌC: 'đắc' → dé (thanh 2); 'đáo' → dào (thanh 4). NGHĨA: 得 thu được + 到 tới nơi/đạt tới → thu được về tay = đạt được, nhận được.",
+   "vd": [
+    {
+     "t": "Thi đấu",
+     "zh": "他在這次演講比賽中得到了第一名。",
+     "vn": "Anh ấy đã đạt được giải nhất trong cuộc thi hùng biện lần này."
+    },
+    {
+     "t": "Cảm ơn",
+     "zh": "很開心在台灣的這段時間，得到了大家這麼多幫助。",
+     "vn": "Rất vui vì khoảng thời gian ở Đài Loan đã nhận được nhiều sự giúp đỡ của mọi người như vậy."
+    },
+    {
+     "t": "Học tập",
+     "zh": "多讀書可以讓我們得到很多新知識。",
+     "vn": "Đọc nhiều sách có thể giúp chúng ta thu nhận được rất nhiều kiến thức mới."
+    }
+   ]
+  },
+  "困難": {
+   "vn": "khó khăn; gian nan; trắc trở",
+   "ng": [
+    "(danh từ) sự khó khăn, trở ngại, tình cảnh khó khăn (lượng từ: 個)",
+    "(tính từ) khó khăn, gian nan, trắc trở (dùng cho việc làm, cuộc sống, tình huống)"
+   ],
+   "us": "Khi làm danh từ: 遇到困難 (gặp khó khăn), 解決困難 (giải quyết khó khăn), 生活有困難 (cuộc sống gặp khó khăn). Khi làm tính từ: 很困難 (rất khó khăn), 非常困難 (vô cùng khó khăn).",
+   "co": [
+    "遇到困難|gặp khó khăn",
+    "解決困難|giải quyết khó khăn",
+    "生活困難|cuộc sống khó khăn",
+    "非常困難|vô cùng khó khăn"
+   ],
+   "sy": [
+    "艱難|gian nan",
+    "麻煩|phiền phức, rắc rối",
+    "難|khó"
+   ],
+   "an": [
+    "容易|dễ dàng",
+    "順利|thuận lợi",
+    "簡單|đơn giản"
+   ],
+   "cf": [
+    "難|chỉ tính chất 'khó' nói chung (這題很難 = câu này rất khó); 困難 mang sắc thái nghiêm trọng hơn (hoàn cảnh, nhiệm vụ, trở ngại) và còn làm danh từ đếm được (一個困難)"
+   ],
+   "lt": "個 (一個困難). Có thể đi với 很 khi làm tính từ (這件事很困難).",
+   "mk": "Người Việt hay dùng 困難 cho bài tập khó (*這個漢字很困難 ❌ → 這個漢字很難 ✅); 困難 chủ yếu dùng cho hoàn cảnh, tình huống hoặc việc khó thực hiện.",
+   "tw": "Ở Đài Loan chuẩn phát âm chính thức đọc thanh 2 là kùnnán (khác Đại Lục hay đọc thanh nhẹ kùnnan).",
+   "mh": "Khốn Nan → kùnnán. ĐỌC: 'khốn' → kùn (thanh 4); 'nan' → nán (thanh 2, chuẩn Đài Loan). NGHĨA: 困 chữ 木 (cây) bị nhốt trong khung 囗 (vây hãm) = bị vây khốn + 難 khó khăn → bị vây khốn và gian nan = khó khăn.",
+   "vd": [
+    {
+     "t": "Giúp đỡ",
+     "zh": "如果你在工作上遇到什麼困難，隨時可以告訴我。",
+     "vn": "Nếu bạn gặp khó khăn gì trong công việc, bất cứ lúc nào cũng có thể nói với tôi."
+    },
+    {
+     "t": "Nỗ lực",
+     "zh": "雖然剛來台灣時生活有點困難，但他很快就適應了。",
+     "vn": "Tuy lúc mới sang Đài Loan cuộc sống hơi khó khăn chút, nhưng anh ấy đã thích nghi rất nhanh."
+    },
+    {
+     "t": "Giải quyết",
+     "zh": "只要大家一起努力，就能解決這個困難。",
+     "vn": "Chỉ cần mọi người cùng nhau cố gắng thì có thể giải quyết được khó khăn này."
+    }
+   ]
+  },
+  "百貨公司": {
+   "vn": "trung tâm thương mại; cửa hàng bách hóa",
+   "ng": [
+    "(danh từ) trung tâm thương mại lớn, tòa nhà bách hóa tổng hợp (bán quần áo, mỹ phẩm, đồ gia dụng, có khu ẩm thực)"
+   ],
+   "us": "Chỉ các trung tâm thương mại lớn nhiều tầng (như SOGO, 新光三越, 台北101...). Lượng từ: 家, 間.",
+   "co": [
+    "逛百貨公司|đi dạo trung tâm thương mại",
+    "百貨公司週年慶|lễ kỷ niệm giảm giá của trung tâm thương mại",
+    "百貨公司美食街|khu ẩm thực trong trung tâm thương mại"
+   ],
+   "sy": [
+    "購物中心|trung tâm mua sắm (shopping mall)",
+    "商場|khu thương mại"
+   ],
+   "an": [
+    "夜市|chợ đêm",
+    "路邊攤|quán vỉa hè"
+   ],
+   "cf": [
+    "超市 / 超級市場|siêu thị (chủ yếu bán thực phẩm, đồ dùng hàng ngày); 超商 là cửa hàng tiện lợi (7-11, FamilyMart); 百貨公司 là trung tâm thương mại bán đồ hiệu, mỹ phẩm, thời trang"
+   ],
+   "lt": "家、間 (一家百貨公司).",
+   "mk": "Ở Việt Nam chữ 'bách hóa' nghe giống tiệm tạp hóa nhỏ, nhưng ở Đài Loan 百貨公司 là trung tâm thương mại lớn, sang trọng (department store).",
+   "tw": "Ở Đài Loan đi 百貨公司 cực kỳ phổ biến, đặc biệt vào mùa 週年慶 (dịp kỷ niệm giảm giá lớn cuối năm) và khu 美食街 (khu ẩm thực dưới tầng hầm).",
+   "mh": "Bách Hóa Công Ty → bǎihuògōngsī. ĐỌC: 'bách' → bǎi (thanh 3); 'hóa' → huò (thanh 4); 'công' → gōng (thanh 1); 'ty' → sī (thanh 1). NGHĨA: 百 trăm + 貨 hàng hóa + 公司 công ty → công ty bán đủ trăm thứ hàng hóa = trung tâm thương mại/bách hóa.",
+   "vd": [
+    {
+     "t": "Mua sắm",
+     "zh": "天氣太熱了，我們去百貨公司吹冷氣逛街吧。",
+     "vn": "Trời nóng quá rồi, tụi mình vào trung tâm thương mại hóng máy lạnh đi dạo đi."
+    },
+    {
+     "t": "Khuyến mãi",
+     "zh": "這家百貨公司最近在辦週年慶，化妝品打九折。",
+     "vn": "Trung tâm thương mại này dạo này đang tổ chức tuần lễ kỷ niệm, mỹ phẩm được giảm 10%."
+    },
+    {
+     "t": "Ăn uống",
+     "zh": "百貨公司的地下樓通常有很大的美食街。",
+     "vn": "Tầng hầm của trung tâm thương mại thường có khu ẩm thực rất lớn."
+    }
+   ]
+  },
+  "夜市": {
+   "vn": "chợ đêm",
+   "ng": [
+    "(danh từ) chợ đêm (khu chợ họp vào buổi tối, bán đồ ăn vặt, quần áo, trò chơi dân gian)"
+   ],
+   "us": "Thường đi với 逛 (逛夜市 = đi dạo chợ đêm), 去 (去夜市 = đi chợ đêm). Lượng từ: 個, 家.",
+   "co": [
+    "逛夜市|đi dạo chợ đêm",
+    "夜市小吃|đồ ăn vặt chợ đêm",
+    "士林夜市|chợ đêm Sĩ Lâm",
+    "逢甲夜市|chợ đêm Phùng Giáp"
+   ],
+   "sy": [
+    "市場|chợ (ban ngày/nói chung)",
+    "黃昏市場|chợ chiều"
+   ],
+   "an": [
+    "早市|chợ sáng"
+   ],
+   "lt": "個 (一個夜市).",
+   "tw": "夜市 là nét văn hóa đặc trưng hàng đầu của Đài Loan (士林夜市, 饒河夜市, 寧夏夜市, 逢甲夜市, 六合夜市...). Người Đài thường nói 逛夜市.",
+   "mh": "Dạ Thị → yèshì. ĐỌC: 'dạ' → yè (thanh 4); 'thị' → shì (thanh 4). NGHĨA: 夜 ban đêm + 市 chợ → khu chợ họp vào ban đêm = chợ đêm.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "來台灣旅遊，晚上一定要去逛夜市吃小吃。",
+     "vn": "Đến Đài Loan du lịch, buổi tối nhất định phải đi dạo chợ đêm ăn đồ ăn vặt."
+    },
+    {
+     "t": "Đồ ăn",
+     "zh": "這個夜市的臭豆腐和珍珠奶茶都非常有名。",
+     "vn": "Đậu hũ thối và trà sữa trân châu của chợ đêm này đều vô cùng nổi tiếng."
+    },
+    {
+     "t": "Cuối tuần",
+     "zh": "星期六晚上夜市總是擠滿了人。",
+     "vn": "Tối thứ Bảy chợ đêm lúc nào cũng chật kín người."
+    }
+   ]
+  },
+  "逛": {
+   "vn": "đi dạo; lượn lờ ngắm; đi chơi (chợ, phố, trung tâm thương mại)",
+   "ng": [
+    "(động từ) đi dạo chơi, tản bộ ngắm nghía, đi mua sắm thong thả (chợ đêm, phố, cửa hàng, siêu thị, công viên)"
+   ],
+   "us": "Động từ mang sắc thái thư thả, vừa đi vừa xem, có thể mua hoặc không. Hay dùng: 逛街 (đi dạo phố mua sắm), 逛夜市 (đi chợ đêm), 逛超市 (đi dạo siêu thị), 逛一逛 (đi dạo một lát).",
+   "co": [
+    "逛街|đi dạo phố, đi shopping",
+    "逛夜市|đi chợ đêm",
+    "逛超市|đi dạo siêu thị",
+    "隨便逛逛|đi dạo loanh quanh"
+   ],
+   "sy": [
+    "散步|đi bộ tản bộ (không mua sắm)",
+    "走走|đi loanh quanh"
+   ],
+   "cf": [
+    "散步|chỉ đi bộ thư giãn (ở công viên, bờ sông); còn 逛 nhấn mạnh đi ngắm hàng hóa, xem chỗ này chỗ kia (dù vẫn có thể nói 逛公園 = đi dạo ngắm công viên)"
+   ],
+   "mk": "Không dùng 逛 với nghĩa 'thăm người thân/bệnh nhân' (*去逛朋友 ❌ → 去看朋友/拜訪朋友 ✅).",
+   "tw": "Ở Đài Loan người trẻ rất hay nói 逛網拍 (lướt shop online xem đồ), 逛全聯 (đi dạo siêu thị PX Mart), 逛寶雅 (đi dạo cửa hàng Poya).",
+   "mh": "Cuống → guàng. ĐỌC: 'cuống' → guàng (thanh 4, đọc như 'quáng' tròn môi). NGHĨA: Bộ 辶 (sước - bước đi) + 狂 (cuồng - đi khắp nơi không gò bó) → bước đi thong dong khắp chốn để ngắm nghía = đi dạo, lượn phố.",
+   "vd": [
+    {
+     "t": "Cuối tuần",
+     "zh": "週末我喜歡跟朋友一起去東區逛街。",
+     "vn": "Cuối tuần tôi thích cùng bạn bè đi dạo phố mua sắm ở khu Đông."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "我們先隨便逛一逛，看到喜歡的再買。",
+     "vn": "Chúng ta cứ đi dạo xem qua một vòng trước đã, thấy cái nào thích rồi hẵng mua."
+    },
+    {
+     "t": "Chợ đêm",
+     "zh": "昨天晚上我帶日本朋友去逛士林夜市。",
+     "vn": "Tối hôm qua tôi dẫn người bạn Nhật Bản đi dạo chợ đêm Sĩ Lâm."
+    }
+   ]
+  },
+  "排隊": {
+   "vn": "xếp hàng",
+   "ng": [
+    "(động từ ly hợp) xếp hàng (đợi mua đồ, lên xe, vào cửa, tính tiền)"
+   ],
+   "us": "Là động từ ly hợp: có thể nói 排了很久的隊 (xếp hàng rất lâu), 排好隊 (xếp hàng ngay ngắn), 正在排隊 (đang xếp hàng).",
+   "co": [
+    "排隊買票|xếp hàng mua vé",
+    "排隊結帳|xếp hàng tính tiền",
+    "排長隊|xếp hàng dài",
+    "不要插隊|đừng chen ngang"
+   ],
+   "an": [
+    "插隊|chen hàng, chen ngang"
+   ],
+   "lt": "Không đặt tân ngữ trực tiếp cho nơi chốn sau 排隊 (*排隊結帳檯 ❌ → phải nói 在結帳檯排隊 ✅).",
+   "mk": "Hay quên tách ly hợp khi thêm thời lượng: không nói *排隊了半小時 ❌, phải nói 排了半小時的隊 ✅.",
+   "tw": "Văn hóa xếp hàng ở Đài Loan rất nghiêm túc (lên tàu điện MRT phải xếp hàng theo vạch kẻ, mua đồ ăn nổi tiếng cũng sẵn sàng 排長隊). Còn có cụm 「排隊美食」 chỉ món ngon phải xếp hàng mới mua được.",
+   "mh": "Bài Đội → páiduì. ĐỌC: 'bài' → pái (thanh 2, bật hơi p); 'đội' → duì (thanh 4). NGHĨA: 排 sắp thành hàng + 隊 đội ngũ, hàng ngũ → đứng sắp thành một hàng = xếp hàng.",
+   "vd": [
+    {
+     "t": "Quán nổi tiếng",
+     "zh": "這家早餐店的蛋餅太好吃了，每天早上都要排隊。",
+     "vn": "Bánh trứng cuộn của quán ăn sáng này ngon quá, sáng nào cũng phải xếp hàng."
+    },
+    {
+     "t": "Tính tiền",
+     "zh": "前面排隊結帳的人很多，我們先在這裡等一下吧。",
+     "vn": "Phía trước người xếp hàng tính tiền đông lắm, tụi mình đợi ở đây một lát đã."
+    },
+    {
+     "t": "Chờ lâu",
+     "zh": "為了買這家店的珍珠奶茶，我排了二十分鐘的隊。",
+     "vn": "Để mua trà sữa trân châu của quán này, tôi đã xếp hàng tận 20 phút."
+    }
+   ]
+  },
+  "客滿": {
+   "vn": "hết chỗ; kín chỗ; cháy vé (quán, rạp, xe, khách sạn)",
+   "ng": [
+    "(động từ trạng thái) kín khách, hết bàn, hết chỗ ngồi, hết phòng, hết vé"
+   ],
+   "us": "Dùng khi nhà hàng, quán cà phê, khách sạn, xe buýt, rạp phim đã đủ khách, không còn chỗ trống. Thường dùng với 了 (客滿了) hoặc 已經客滿.",
+   "co": [
+    "已經客滿|đã kín chỗ rồi",
+    "餐廳客滿|nhà hàng hết bàn",
+    "車廂客滿|toa xe chật kín khách",
+    "客滿告示|biển báo hết chỗ"
+   ],
+   "sy": [
+    "滿座|kín chỗ ngồi",
+    "爆滿|đông nghẹt, cháy vé"
+   ],
+   "an": [
+    "有空位|còn chỗ trống"
+   ],
+   "cf": [
+    "滿了|đầy rồi (nước đầy, hộp đầy, bộ nhớ đầy); 客滿 chuyên dùng cho khách đã kín chỗ ở quán, xe, phòng, rạp"
+   ],
+   "lt": "Không dùng với 很 (*很客滿 ❌) và không có tân ngữ phía sau.",
+   "tw": "Trên xe buýt công cộng hoặc bảng thông báo ở cửa hàng, bãi đỗ xe Đài Loan rất hay hiện chữ 「客滿」(hết chỗ/đầy chỗ), hoặc trên biển đèn bãi xe ghi 「車位已滿」.",
+   "mh": "Khách Mãn → kèmǎn. ĐỌC: 'khách' → kè (thanh 4); 'mãn' → mǎn (thanh 3). NGHĨA: 客 khách hàng + 滿 đầy ắp → khách đã ngồi đầy ắp không còn chỗ = kín chỗ, hết bàn.",
+   "vd": [
+    {
+     "t": "Nhà hàng",
+     "zh": "不好意思，我們店裡現在已經客滿了，需要等半小時。",
+     "vn": "Xin lỗi, trong quán chúng tôi bây giờ đã kín bàn rồi, cần đợi nửa tiếng ạ."
+    },
+    {
+     "t": "Xe khách",
+     "zh": "這班開往台中的客運已經客滿，請搭下一班。",
+     "vn": "Chuyến xe khách đi Đài Trung này đã hết chỗ, xin vui lòng đi chuyến tiếp theo."
+    },
+    {
+     "t": "Khách sạn",
+     "zh": "連續假期的時候，墾丁的民宿幾乎都客滿了。",
+     "vn": "Vào dịp nghỉ lễ dài ngày, các homestay ở Khẩn Đinh hầu như đều kín phòng hết rồi."
+    }
+   ]
+  },
+  "刷卡": {
+   "vn": "quẹt thẻ; thanh toán bằng thẻ",
+   "ng": [
+    "(động từ ly hợp) quẹt thẻ, thanh toán bằng thẻ tín dụng hoặc thẻ ngân hàng",
+    "(động từ ly hợp) quẹt thẻ (thẻ xe buýt/tàu điện như EasyCard, hoặc thẻ chấm công ra vào)"
+   ],
+   "us": "Có thể tách ra: 刷了兩千塊的卡 (quẹt thẻ hết 2000 tệ), 刷信用卡 (quẹt thẻ tín dụng), 不能刷卡 (không nhận quẹt thẻ).",
+   "co": [
+    "可以刷卡嗎|có quẹt thẻ được không",
+    "刷卡付款|thanh toán bằng quẹt thẻ",
+    "刷信用卡|quẹt thẻ tín dụng",
+    "刷悠遊卡|quẹt thẻ EasyCard"
+   ],
+   "sy": [
+    "行動支付|thanh toán di động (LINE Pay, Apple Pay)"
+   ],
+   "an": [
+    "付現|trả tiền mặt",
+    "收現金|nhận tiền mặt"
+   ],
+   "lt": "Khi nói số tiền, dùng 刷了 + số tiền (他刷了三千元) hoặc 刷卡付了三千元.",
+   "mk": "Đừng dịch '刷' thành 'chải' (刷牙) khi đi mua sắm; với thẻ thì 刷 luôn nghĩa là 'quẹt/chạm thẻ'.",
+   "tw": "Ở Đài Loan chợ đêm và quán ăn nhỏ đa số nhận 現金 (tiền mặt) hoặc LINE Pay, nhưng siêu thị/bách hóa đều dùng 刷卡; đi MRT/xe buýt thì nói 刷悠遊卡 (quẹt thẻ EasyCard) hoặc 逼卡 (chạm thẻ kêu 'tít').",
+   "mh": "Xoát Tạp → shuākǎ. ĐỌC: 'xoát' → shuā (thanh 1); 'tạp' → kǎ (thanh 3). NGHĨA: 刷 quét/quẹt qua + 卡 thẻ (card) → quẹt tấm thẻ qua máy = quẹt thẻ.",
+   "vd": [
+    {
+     "t": "Thanh toán",
+     "zh": "請問這裡可以刷卡嗎？還是只能付現金？",
+     "vn": "Xin hỏi ở đây có quẹt thẻ được không ạ? Hay chỉ trả tiền mặt được thôi?"
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "我今天忘記帶現金了，還好這家店能刷卡。",
+     "vn": "Hôm nay tôi quên mang tiền mặt rồi, may mà cửa hàng này quẹt thẻ được."
+    },
+    {
+     "t": "Đi tàu điện",
+     "zh": "進捷運站的時候，記得拿出悠遊卡來刷卡。",
+     "vn": "Lúc vào trạm tàu điện MRT, nhớ lấy thẻ EasyCard ra quẹt nhé."
+    }
+   ]
+  },
+  "提": {
+   "vn": "xách; nâng; nhắc đến; nêu lên; (dī) đề phòng",
+   "ng": [
+    "(động từ) (tí) xách (đồ vật có quai rủ xuống tay như túi, giỏ, cặp)",
+    "(động từ) (tí) nhắc đến, đề cập, nêu lên (vấn đề, ý kiến, tên ai đó)",
+    "(động từ) (tí) nâng lên, rút (tiền: 提款), dời sớm lên (提前)",
+    "(động từ) (dī) đề phòng, cảnh giác (dùng trong từ ghép 提防 dīfáng)"
+   ],
+   "us": "Nghĩa xách đồ: 提著袋子 (xách túi), 手裡提著東西 (tay xách đồ). Nghĩa nhắc đến: 提到這件事 (nhắc đến chuyện này), 提意見 (nêu ý kiến), 別提了 (đừng nhắc nữa).",
+   "co": [
+    "提袋子|xách túi",
+    "提到這件事|nhắc đến chuyện này",
+    "提意見|nêu ý kiến",
+    "別提了|đừng nhắc nữa"
+   ],
+   "sy": [
+    "拿|cầm, lấy",
+    "講到|nói đến",
+    "說起|kể đến"
+   ],
+   "cf": [
+    "拿|cầm nắm bằng tay nói chung; 提 là xách vật có quai thòng xuống hoặc nâng lên",
+    "背|đeo trên lưng/vai (背書包); 抱 là ôm trước ngực"
+   ],
+   "mk": "Người Việt hay dùng 拿 cho mọi động tác cầm nắm, nhưng khi xách túi đồ đi chợ, cặp táp có quai thì dùng 提 mới chuẩn xác.",
+   "tw": "Ở Đài Loan rút tiền ATM hay nói 提款 hoặc 領錢; túi nilon/túi giấy có quai để xách đồ mua mang về gọi là 提袋 (手提袋).",
+   "mh": "Đề → tí (và dī trong 提防). ĐỌC: 'đề' → tí (thanh 2, bật hơi t); riêng từ 提防 (đề phòng) đọc thanh 1 là dīfáng. NGHĨA: Bộ 扌 (thủ - tay) + 是 (thị - ngay thẳng) → dùng tay nhấc thẳng lên = xách lên; mở rộng nghĩa là nêu lên, nhắc đến.",
+   "vd": [
+    {
+     "t": "Đi siêu thị",
+     "zh": "你買了這麼多東西，手裡提得動嗎？",
+     "vn": "Bạn mua nhiều đồ thế này, tay xách nổi không đấy?"
+    },
+    {
+     "t": "Trò chuyện",
+     "zh": "剛剛老師在課堂上提到了下星期的考試。",
+     "vn": "Lúc nãy thầy giáo trên lớp có nhắc đến bài kiểm tra tuần sau."
+    },
+    {
+     "t": "Cẩn thận",
+     "zh": "他平常很小心，出門在外總是懂得提防壞人。",
+     "vn": "Anh ấy bình thường rất cẩn thận, đi ra ngoài luôn biết đề phòng kẻ xấu."
+    }
+   ]
+  },
+  "流行": {
+   "vn": "thịnh hành; phổ biến; mốt; lan truyền (bệnh)",
+   "ng": [
+    "(tính từ / động từ) thịnh hành, phổ biến, hợp mốt, đang được ưa chuộng (quần áo, bài hát, xu hướng)",
+    "(động từ) lưu hành, lan truyền, lây lan (dùng cho bệnh dịch, cảm cúm)"
+   ],
+   "us": "Có thể làm vị ngữ (很流行 = rất thịnh hành), định ngữ (流行音樂 = nhạc pop, 流行病 = dịch bệnh), hoặc mang tân ngữ: 流行穿寬褲 (đang mốt mặc quần ống rộng).",
+   "co": [
+    "很流行|rất thịnh hành, đang mốt",
+    "流行音樂|nhạc pop, nhạc trẻ",
+    "流行服飾|thời trang thịnh hành",
+    "流行性感冒|cảm cúm mùa"
+   ],
+   "sy": [
+    "受歡迎|được yêu thích",
+    "熱門|nóng, hot",
+    "普遍|phổ biến"
+   ],
+   "an": [
+    "過時|lỗi thời",
+    "老土|quê mùa, lỗi mốt"
+   ],
+   "cf": [
+    "普遍|phổ biến rộng rãi, có mặt khắp nơi (tính chất lâu dài); 流行 là thịnh hành theo trào lưu, theo mùa hoặc lan truyền (bệnh dịch)"
+   ],
+   "lt": "Đi được với phó từ mức độ: 很流行, 最流行, 非常流行.",
+   "tw": "Ở Đài Loan hay gọi chung dòng nhạc trẻ là 華語流行音樂 (C-pop), cảm cúm mùa gọi tắt là 流感 (từ 流行性感冒).",
+   "mh": "Lưu Hành → liúxíng. ĐỌC: 'lưu' → liú (thanh 2); 'hành' → xíng (thanh 2). NGHĨA: 流 chảy trôi + 行 đi khắp nơi → lan tỏa đi khắp mọi nơi = thịnh hành, phổ biến, lưu hành.",
+   "vd": [
+    {
+     "t": "Thời trang",
+     "zh": "今年台灣很流行穿這種寬鬆的牛仔褲。",
+     "vn": "Năm nay ở Đài Loan rất thịnh hành mặc kiểu quần bò ống rộng này."
+    },
+    {
+     "t": "Âm nhạc",
+     "zh": "我平常喜歡聽台灣和韓國的流行音樂。",
+     "vn": "Bình thường tôi thích nghe nhạc pop của Đài Loan và Hàn Quốc."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "冬天到了，最近正在流行感冒，出門要戴口罩。",
+     "vn": "Mùa đông đến rồi, dạo này đang có dịch cảm cúm, ra ngoài nhớ đeo khẩu trang."
+    }
+   ]
+  },
+  "藍色": {
+   "vn": "màu xanh dương; màu xanh lam",
+   "ng": [
+    "(danh từ) màu xanh dương, màu xanh nước biển, màu xanh lam"
+   ],
+   "us": "Dùng làm danh từ hoặc bổ nghĩa cho danh từ qua 的: 藍色的衣服 (áo màu xanh dương), 喜歡藍色 (thích màu xanh dương). Phân biệt sắc độ: 淺藍色 (xanh nhạt), 深藍色 (xanh đậm), 天藍色 (xanh da trời).",
+   "co": [
+    "淺藍色|xanh dương nhạt",
+    "深藍色|xanh dương đậm",
+    "藍色牛仔褲|quần jean xanh",
+    "天藍色|xanh da trời"
+   ],
+   "sy": [
+    "藍|xanh dương (gọi tắt khi ghép: 藍天 = bầu trời xanh)"
+   ],
+   "cf": [
+    "綠色|màu xanh lá cây; người Việt hay gọi chung là 'màu xanh', tiếng Hoa phải tách rõ 藍色 (xanh dương) và 綠色 (xanh lá)"
+   ],
+   "lt": "種 (一種顏色). Không dùng *很藍色 ❌, muốn nói xanh đậm dùng 深藍色.",
+   "mk": "Người Việt rất hay nhầm giữa 藍色 (xanh biển/dương) và 綠色 (xanh lá) vì tiếng Việt đều gọi tắt là 'màu xanh'.",
+   "tw": "Trong tin tức Đài Loan, 藍營 / 藍軍 cũng dùng để chỉ phe Quốc Dân Đảng (màu cờ xanh lam), còn 綠營 chỉ phe Dân Tiến Đảng.",
+   "mh": "Lam Sắc → lánsè. ĐỌC: 'lam' → lán (thanh 2); 'sắc' → sè (thanh 4). NGHĨA: 藍 cây chàm (bộ 艹 thảo dùng nhuộm màu chàm) + 色 màu sắc → màu chàm/xanh lam = màu xanh dương.",
+   "vd": [
+    {
+     "t": "Mua áo",
+     "zh": "這件藍色的襯衫很適合你，穿起來很好看。",
+     "vn": "Chiếc áo sơ mi màu xanh dương này rất hợp với bạn, mặc lên trông rất đẹp."
+    },
+    {
+     "t": "Sở thích",
+     "zh": "在這麼多顏色裡面，我最喜歡的是藍色。",
+     "vn": "Trong nhiều màu sắc như vậy, màu tôi thích nhất là màu xanh dương."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "今天天氣真好，天空是漂亮的淺藍色。",
+     "vn": "Hôm nay thời tiết thật đẹp, bầu trời có màu xanh dương nhạt thật xinh."
+    }
+   ]
+  },
+  "綠色": {
+   "vn": "màu xanh lá cây; màu xanh lục",
+   "ng": [
+    "(danh từ) màu xanh lá cây, màu xanh lục",
+    "(danh từ / định ngữ) thân thiện với môi trường, 'xanh' (ví dụ: 綠色能源 = năng lượng xanh)"
+   ],
+   "us": "Dùng tương tự các màu khác: 綠色的葉子 (lá màu xanh), 淺綠色 (xanh lá nhạt), 深綠色 (xanh lá đậm).",
+   "co": [
+    "淺綠色|xanh lá nhạt",
+    "深綠色|xanh lá đậm",
+    "綠色的樹葉|lá cây xanh",
+    "綠色能源|năng lượng xanh"
+   ],
+   "sy": [
+    "綠|xanh lá (dạng ngắn trong 綠茶 = trà xanh, 綠燈 = đèn xanh)"
+   ],
+   "cf": [
+    "藍色|màu xanh dương/nước biển; 綠色 là màu xanh lá cây"
+   ],
+   "lt": "Không nói *很綠色 ❌; muốn nhấn mạnh mức độ xanh của lá dùng 很綠 ✅.",
+   "mk": "Phát âm âm 'lǜ' cần chú ý âm ü (tròn môi), đừng đọc nhầm thành 'lù' (lộ/hươu). Không dùng 綠色 cho màu xanh da trời.",
+   "tw": "Ở Đài Loan trà xanh gọi là 綠茶; hộp sữa tươi hoặc đậu nành bao bì xanh lá hay được gọi theo màu, còn đèn giao thông xanh gọi là 綠燈.",
+   "mh": "Lục Sắc → lǜsè. ĐỌC: 'lục' → lǜ (thanh 4, âm ü tròn môi); 'sắc' → sè (thanh 4). NGHĨA: 綠 bộ 糸 (mịch - tơ lụa) nhuộm sắc xanh lá + 色 màu → màu xanh lục = màu xanh lá cây.",
+   "vd": [
+    {
+     "t": "Thiên nhiên",
+     "zh": "春天到了，山上的樹都變成綠色的了。",
+     "vn": "Mùa xuân đến rồi, cây cối trên núi đều biến thành màu xanh lá hết rồi."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "那雙綠色的運動鞋看起來很特別，我想試穿看看。",
+     "vn": "Đôi giày thể thao màu xanh lá đó trông rất đặc biệt, tôi muốn đi thử xem sao."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "過馬路的時候，一定要看到綠色的燈亮了才能走。",
+     "vn": "Khi qua đường, nhất định phải thấy đèn xanh sáng lên rồi mới được đi."
+    }
+   ]
+  },
+  "紅色": {
+   "vn": "màu đỏ",
+   "ng": [
+    "(danh từ) màu đỏ",
+    "(danh từ) mang sắc thái cách mạng hoặc hỷ sự, may mắn (văn hóa Hoa ngữ coi màu đỏ là cát tường)"
+   ],
+   "us": "Thường dùng làm định ngữ có 的: 紅色的外套 (áo khoác đỏ), 喜歡紅色 (thích màu đỏ). Không dùng làm vị ngữ có 很 (*很紅色 ❌, nói 很紅 ✅).",
+   "co": [
+    "紅色的衣服|quần áo màu đỏ",
+    "大紅色|màu đỏ tươi, đỏ rực",
+    "暗紅色|màu đỏ sẫm",
+    "紅包|lì xì đỏ"
+   ],
+   "sy": [
+    "紅|màu đỏ (dùng ngắn trong 紅包, 紅茶, 紅燈)"
+   ],
+   "cf": [
+    "紅|làm tính từ nhận xét được (這朵花很紅 = bông hoa này rất đỏ); 紅色 là danh từ chỉ tên màu sắc (我買了紅色的)"
+   ],
+   "lt": "Không dùng 很 đứng trước 紅色 (*這件衣服很紅色 ❌ → 這件衣服是紅色的 ✅).",
+   "mk": "Người Việt học Hán Việt thấy 'hồng sắc' hay tưởng nhầm là màu hồng! Thực tế 紅色 là MÀU ĐỎ; còn màu hồng (pink) là 粉紅色.",
+   "tw": "Trong văn hóa Đài Loan, màu đỏ (紅色) tượng trưng cho may mắn, hỷ sự (Tết dán 紅色春聯, mừng cưới tặng 紅包); ngược lại tuyệt đối tránh viết tên người bằng bút mực đỏ (紅筆) vì bị coi là điềm xui.",
+   "mh": "Hồng Sắc → hóngsè. ĐỌC: 'hồng' → hóng (thanh 2); 'sắc' → sè (thanh 4). NGHĨA: 紅 bộ 糸 (tơ) nhuộm sắc đỏ tươi + 色 màu → màu đỏ (lưu ý: không phải màu hồng cánh sen!).",
+   "vd": [
+    {
+     "t": "Tết Nguyên Đán",
+     "zh": "過年的時候，大家都喜歡穿紅色的衣服，覺得比較喜氣。",
+     "vn": "Vào dịp Tết, mọi người đều thích mặc quần áo màu đỏ vì thấy vui tươi may mắn hơn."
+    },
+    {
+     "t": "Mua quà",
+     "zh": "媽媽最喜歡紅色，所以我買了一個紅色的皮包送給她。",
+     "vn": "Mẹ tôi thích nhất màu đỏ, nên tôi đã mua một chiếc túi da màu đỏ tặng bà."
+    },
+    {
+     "t": "Cảnh báo",
+     "zh": "寫名字的時候不要用紅色的筆，在台灣這樣不太禮貌。",
+     "vn": "Khi viết tên đừng dùng bút màu đỏ, ở Đài Loan làm vậy không lịch sự lắm đâu."
+    }
+   ]
+  },
+  "黑色": {
+   "vn": "màu đen",
+   "ng": [
+    "(danh từ) màu đen"
+   ],
+   "us": "Dùng chỉ màu đen: 黑色的皮鞋 (giày da đen), 穿黑色 (mặc màu đen). Không đặt 很 trước 黑色 (*很黑色 ❌, chỉ dùng 很黑 ✅).",
+   "co": [
+    "黑色的褲子|quần màu đen",
+    "全黑色|màu đen tuyền",
+    "黑白|đen trắng",
+    "深黑色|màu đen đậm"
+   ],
+   "sy": [
+    "黑|đen (dùng trong 黑板 = bảng đen, 黑咖啡 = cà phê đen)"
+   ],
+   "an": [
+    "白色|màu trắng"
+   ],
+   "cf": [
+    "黑|có thể chỉ 'tối tăm, sạm da, đen đủi' (天黑了 = trời tối rồi); 黑色 chỉ đơn thuần tên gọi màu đen"
+   ],
+   "lt": "Không dùng *很黑色 ❌; dùng 黑色的 để làm định ngữ.",
+   "tw": "Ở Đài Loan quần áo màu đen (黑色) rất dễ phối đồ và lịch sự khi đi làm, nhưng khi đi đám cưới truyền thống người lớn tuổi thường tránh mặc đồ nguyên cây đen.",
+   "mh": "Hắc Sắc → hēisè. ĐỌC: 'hắc' → hēi (thanh 1); 'sắc' → sè (thanh 4). NGHĨA: 黑 chữ tượng hình ngọn lửa 灬 hun khói đen bám lên ống khói + 色 màu → màu đen.",
+   "vd": [
+    {
+     "t": "Mua giày",
+     "zh": "這雙黑色的皮鞋很耐看，上班穿最合適。",
+     "vn": "Đôi giày da màu đen này nhìn rất bền dáng, mang đi làm là hợp nhất."
+    },
+    {
+     "t": "Tìm đồ",
+     "zh": "我的手機是黑色的，剛剛忘在桌子上了。",
+     "vn": "Điện thoại của tôi màu đen, lúc nãy để quên ở trên bàn mất rồi."
+    },
+    {
+     "t": "Phối đồ",
+     "zh": "她今天穿了一件白色的上衣配黑色的裙子。",
+     "vn": "Hôm nay cô ấy mặc một chiếc áo màu trắng phối với chân váy màu đen."
+    }
+   ]
+  },
+  "毛衣": {
+   "vn": "áo len",
+   "ng": [
+    "(danh từ) áo len (áo dệt từ sợi len lông cừu hoặc sợi tổng hợp giữ ấm, lượng từ: 件)"
+   ],
+   "us": "Động từ mặc áo len là 穿 (穿毛衣), cởi áo len là 脫 (脫毛衣).",
+   "co": [
+    "穿毛衣|mặc áo len",
+    "厚毛衣|áo len dày",
+    "羊毛衣|áo len lông cừu",
+    "買一件毛衣|mua một chiếc áo len"
+   ],
+   "sy": [
+    "針織衫|áo dệt kim (mỏng hơn, thời trang hơn)"
+   ],
+   "lt": "件 (一件毛衣).",
+   "mk": "Người Việt hay dịch theo mặt chữ 'mao y' thành 'áo lông' (áo lông thú là 皮草 hoặc áo phao lông vũ là 羽絨衣), nhưng 毛衣 chính xác là ÁO LEN.",
+   "tw": "Mùa đông ở miền Bắc Đài Loan (Đài Bắc, Cơ Long) ẩm và gió lạnh, mặc 毛衣 bên trong áo khoác chống gió rất phổ biến.",
+   "mh": "Mao Y → máoyī. ĐỌC: 'mao' → máo (thanh 2); 'y' → yī (thanh 1). NGHĨA: 毛 lông (len sợi lông cừu) + 衣 áo → áo dệt từ sợi lông cừu = áo len.",
+   "vd": [
+    {
+     "t": "Mùa đông",
+     "zh": "這幾天寒流來了，出門要穿厚一點的毛衣。",
+     "vn": "Mấy hôm nay gió mùa lạnh tràn về, ra ngoài phải mặc áo len dày một chút."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這件藍色的毛衣摸起來好軟，價格也不貴。",
+     "vn": "Chiếc áo len màu xanh dương này sờ vào mềm quá, giá cũng không đắt."
+    },
+    {
+     "t": "Giặt giũ",
+     "zh": "純羊毛做的毛衣不要用熱水洗，不然會縮小。",
+     "vn": "Áo len làm từ lông cừu nguyên chất đừng giặt bằng nước nóng, kẻo bị co lại."
+    }
+   ]
+  },
+  "雨衣": {
+   "vn": "áo mưa",
+   "ng": [
+    "(danh từ) áo mưa (lượng từ: 件)"
+   ],
+   "us": "Động từ mặc áo mưa là 穿 (穿雨衣), cởi áo mưa là 脫 (脫雨衣). Áo mưa một mảnh gọi là 一件式雨衣, áo mưa bộ hai mảnh gọi là 兩截式雨衣.",
+   "co": [
+    "穿雨衣|mặc áo mưa",
+    "輕便雨衣|áo mưa tiện lợi dùng một lần",
+    "買雨衣|mua áo mưa",
+    "兩截式雨衣|áo mưa bộ (áo + quần)"
+   ],
+   "sy": [
+    "雨傘|ô, dù (cùng nhóm đồ đi mưa)"
+   ],
+   "lt": "件 (一件雨衣).",
+   "tw": "Ở Đài Loan đi xe máy (騎機車) rất nhiều nên người dân lúc nào cũng để sẵn 雨衣 trong cốp xe; cửa hàng tiện lợi nào cũng bán 輕便雨衣 (áo mưa nilon mỏng) với giá rẻ.",
+   "mh": "Vũ Y → yǔyī. ĐỌC: 'vũ' → yǔ (thanh 3); 'y' → yī (thanh 1). NGHĨA: 雨 mưa + 衣 áo → áo mặc khi trời mưa = áo mưa.",
+   "vd": [
+    {
+     "t": "Đi xe máy",
+     "zh": "外面下大雨了，騎機車出門記得穿雨衣。",
+     "vn": "Ngoài trời mưa to rồi, đi xe máy ra ngoài nhớ mặc áo mưa nhé."
+    },
+    {
+     "t": "Cửa hàng tiện lợi",
+     "zh": "我忘記帶傘了，只好去超商買一件輕便雨衣。",
+     "vn": "Tôi quên mang dù rồi, đành phải ra cửa hàng tiện lợi mua một chiếc áo mưa mỏng."
+    },
+    {
+     "t": "Cất đồ",
+     "zh": "下過雨後，記得把濕掉的雨衣晾乾再收起來。",
+     "vn": "Sau khi trời tạnh mưa, nhớ phơi khô chiếc áo mưa bị ướt rồi hẵng cất đi."
+    }
+   ]
+  },
+  "內衣": {
+   "vn": "đồ lót; áo lót; nội y",
+   "ng": [
+    "(danh từ) đồ lót mặc bên trong, áo lót, đồ nội y (lượng từ: 件, 套)"
+   ],
+   "us": "Dùng chỉ quần áo lót mặc bên trong nói chung, hoặc ở cửa hàng thời trang nữ chỉ áo ngực/bộ đồ lót nữ.",
+   "co": [
+    "買內衣|mua đồ lót",
+    "穿內衣|mặc đồ lót",
+    "純棉內衣|đồ lót cotton",
+    "內衣褲|quần áo lót"
+   ],
+   "sy": [
+    "打底衣|áo mặc lót bên trong"
+   ],
+   "an": [
+    "外衣|áo khoác ngoài",
+    "外套|áo khoác"
+   ],
+   "lt": "件 (một chiếc áo lót), 套 (một bộ đồ lót).",
+   "tw": "Ở Đài Loan, nói riêng quần lót người ta thường nói 內褲, áo lót nữ hay gọi 內衣 (cửa hàng 內衣店), còn bộ quần áo lót nói chung là 內衣褲.",
+   "mh": "Nội Y → nèiyī. ĐỌC: 'nội' → nèi (thanh 4); 'y' → yī (thanh 1). NGHĨA: 內 bên trong + 衣 quần áo → áo/đồ mặc ở lớp bên trong sát người = đồ lót, nội y.",
+   "vd": [
+    {
+     "t": "Mua sắm",
+     "zh": "百貨公司的三樓有好幾家賣女性內衣的專櫃。",
+     "vn": "Tầng ba của trung tâm thương mại có mấy quầy bán đồ lót nữ."
+    },
+    {
+     "t": "Chất liệu",
+     "zh": "買貼身內衣的時候，選純棉材質的穿起來比較舒服。",
+     "vn": "Khi mua đồ lót mặc sát người, chọn chất liệu cotton mặc sẽ thoải mái hơn."
+    },
+    {
+     "t": "Chuẩn bị hành lý",
+     "zh": "去旅行五天，記得多帶幾套換洗的內衣褲。",
+     "vn": "Đi du lịch năm ngày, nhớ mang thêm vài bộ quần áo lót để thay giặt."
+    }
+   ]
+  },
+  "上衣": {
+   "vn": "áo (phần thân trên); áo mặc ngoài",
+   "ng": [
+    "(danh từ) áo nói chung (phân biệt với quần/váy phần thân dưới, lượng từ: 件)",
+    "(danh từ) áo mặc ngoài phần thân trên"
+   ],
+   "us": "Rất tiện khi đi mua sắm quần áo mà không cần gọi tên cụ thể kiểu áo (áo sơ mi, áo thun, áo kiểu... đều gọi chung là 上衣).",
+   "co": [
+    "一件上衣|một chiếc áo",
+    "白色上衣|áo màu trắng",
+    "長袖上衣|áo dài tay",
+    "短袖上衣|áo ngắn tay"
+   ],
+   "sy": [
+    "衣服|quần áo nói chung"
+   ],
+   "an": [
+    "褲子|quần",
+    "裙子|váy"
+   ],
+   "cf": [
+    "衣服|có thể chỉ cả quần lẫn áo nói chung; còn 上衣 chỉ riêng phần ÁO (từ eo trở lên)",
+    "外套|áo khoác ngoài (mặc chồng lên 上衣)"
+   ],
+   "lt": "件 (一件上衣).",
+   "tw": "Trên các trang mua sắm online Đài Loan (như 蝦皮 Shopee, Momo, PChome), mục phân loại sản phẩm thường ghi là 「上衣」(áo các loại) tách riêng với 「褲子 / 裙子」.",
+   "mh": "Thượng Y → shàngyī. ĐỌC: 'thượng' → shàng (thanh 4); 'y' → yī (thanh 1). NGHĨA: 上 phía trên + 衣 áo → trang phục mặc cho phần thân trên = áo.",
+   "vd": [
+    {
+     "t": "Thử đồ",
+     "zh": "小姐，請問這件白色的上衣有小一點的尺寸嗎？",
+     "vn": "Chị ơi, cho hỏi chiếc áo màu trắng này có cỡ nhỏ hơn một chút không ạ?"
+    },
+    {
+     "t": "Phối đồ",
+     "zh": "我已經買好裙子了，現在還想找一件配得上的上衣。",
+     "vn": "Tôi đã mua xong chân váy rồi, giờ còn muốn tìm một chiếc áo phối hợp được với nó."
+    },
+    {
+     "t": "Đi học",
+     "zh": "學校規定夏天要穿短袖的制服上衣。",
+     "vn": "Trường quy định mùa hè phải mặc áo đồng phục ngắn tay."
+    }
+   ]
+  },
+  "皮鞋": {
+   "vn": "giày da",
+   "ng": [
+    "(danh từ) giày da (lượng từ: 雙 cho một đôi, 隻 cho một chiếc)"
+   ],
+   "us": "Động từ đi/mang giày là 穿 (穿皮鞋), cởi giày là 脫 (脫皮鞋), đánh giày là 擦 (擦皮鞋).",
+   "co": [
+    "穿皮鞋|đi giày da",
+    "黑皮鞋|giày da đen",
+    "擦皮鞋|đánh giày da",
+    "一雙皮鞋|một đôi giày da"
+   ],
+   "sy": [
+    "鞋子|giày nói chung"
+   ],
+   "cf": [
+    "運動鞋 / 球鞋|giày thể thao; 涼鞋 là dép quai hậu; 拖鞋 là dép lê; 皮鞋 là giày da lịch sự"
+   ],
+   "lt": "雙 (一雙皮鞋 = một đôi giày da), 隻 (一隻皮鞋 = một chiếc giày da).",
+   "mk": "Người Việt hay dùng động từ 'đeo' hay 'mang' rồi dịch nhầm thành *帶皮鞋 ❌; mang giày dép trong tiếng Hoa luôn dùng 穿 (穿皮鞋 ✅).",
+   "tw": "Ở Đài Loan đi phỏng vấn hoặc dự tiệc trang trọng thường nói 穿正式一點, phổ biến nhất là 西裝配皮鞋 (vest phối giày da).",
+   "mh": "Bì Hài → píxié. ĐỌC: 'bì' → pí (thanh 2, bật hơi p); 'hài' → xié (thanh 2). NGHĨA: 皮 da (thuộc) + 鞋 giày (có bộ 革 da thú) → giày làm bằng chất liệu da = giày da.",
+   "vd": [
+    {
+     "t": "Phỏng vấn",
+     "zh": "明天要去大公司面試，他特別買了一雙新的黑色皮鞋。",
+     "vn": "Ngày mai đi phỏng vấn ở công ty lớn, anh ấy đặc biệt mua một đôi giày da đen mới."
+    },
+    {
+     "t": "Đi làm",
+     "zh": "爸爸每天上班前都會把皮鞋擦得很亮。",
+     "vn": "Bố ngày nào trước khi đi làm cũng đánh giày da rất bóng."
+    },
+    {
+     "t": "Thử giày",
+     "zh": "這雙皮鞋穿起來有點緊，可以幫我拿大一號的嗎？",
+     "vn": "Đôi giày da này đi vào hơi chật, có thể lấy giúp tôi cỡ lớn hơn một số không?"
+    }
+   ]
+  },
+  "手套": {
+   "vn": "găng tay; bao tay",
+   "ng": [
+    "(danh từ) găng tay, bao tay (giữ ấm, chạy xe, làm bếp, y tế; lượng từ: 雙, 隻)"
+   ],
+   "us": "Động từ đeo/mang găng tay là 戴 (戴手套), KHÔNG dùng 穿. Tháo găng tay là 脫 hoặc 拿下來.",
+   "co": [
+    "戴手套|đeo găng tay",
+    "保暖手套|găng tay giữ ấm",
+    "防曬手套|găng tay chống nắng",
+    "一雙手套|một đôi găng tay"
+   ],
+   "cf": [
+    "戴 vs 穿|phụ kiện như mũ, kính, khẩu trang, găng tay, đồng hồ dùng 戴 (戴手套); còn quần áo, giày, tất dùng 穿 (穿襪子)"
+   ],
+   "lt": "雙 (一雙手套 = một đôi găng tay), 隻 (一隻手套 = một chiếc găng tay).",
+   "mk": "Lỗi kinh điển: nói *穿手套 ❌! Găng tay bắt buộc dùng động từ 戴 (戴手套 ✅).",
+   "tw": "Ở Đài Loan người đi xe máy mùa hè hay đeo 防曬手套 (găng tay chống nắng) hoặc gắn 機車防曬手套 vào tay lái; mùa đông 騎機車 thì đeo 防風防水手套.",
+   "mh": "Thủ Sáo → shǒutào. ĐỌC: 'thủ' → shǒu (thanh 3); 'sáo' → tào (thanh 4). NGHĨA: 手 bàn tay + 套 cái bao bọc bên ngoài → cái bao bọc lấy bàn tay = găng tay.",
+   "vd": [
+    {
+     "t": "Mùa đông",
+     "zh": "騎車的時候風很大，戴一雙手套手才不會冷。",
+     "vn": "Lúc chạy xe gió to lắm, đeo một đôi găng tay vào thì tay mới không bị lạnh."
+    },
+    {
+     "t": "Làm bếp",
+     "zh": "端熱湯的時候記得戴隔熱手套，小心燙到。",
+     "vn": "Lúc bưng canh nóng nhớ đeo găng tay cách nhiệt nhé, kẻo bị bỏng."
+    },
+    {
+     "t": "Tìm đồ",
+     "zh": "奇怪，我的左手套怎麼不見了，只剩下一隻？",
+     "vn": "Lạ thật, chiếc găng tay bên trái của tôi đâu mất rồi, chỉ còn lại một chiếc?"
+    }
+   ]
+  },
+  "口袋": {
+   "vn": "túi (túi áo, túi quần); cái túi, bao",
+   "ng": [
+    "(danh từ) túi áo, túi quần (lượng từ: 個)",
+    "(danh từ) bao tải, túi vải nhỏ (nghĩa ít gặp hơn)"
+   ],
+   "us": "Thường nói 放在口袋裡 (để trong túi quần/túi áo), 從口袋裡拿出來 (lấy ra từ trong túi), 口袋很深 (túi sâu).",
+   "co": [
+    "口袋裡|trong túi áo/quần",
+    "褲子口袋|túi quần",
+    "外套口袋|túi áo khoác",
+    "口袋名單|danh sách quán quen/ứng viên bỏ túi"
+   ],
+   "sy": [
+    "袋子|cái túi (túi đựng đồ rời, túi nilon/túi giấy)",
+    "包包|túi xách, ba lô"
+   ],
+   "cf": [
+    "袋子 / 包包|袋子 là túi đựng đồ rời (túi nilon, túi giấy), 包包 là túi xách đeo người; còn 口袋 là cái túi may liền trên quần áo"
+   ],
+   "lt": "個 (一個口袋).",
+   "mk": "Đừng dùng 口袋 để gọi túi xách đeo vai hay túi nilon đi siêu thị (túi xách gọi là 包包, túi đựng đồ siêu thị gọi là 袋子 / 購物袋).",
+   "tw": "Ở Đài Loan có cụm rất hay gặp trên mạng và báo chí: 口袋名單 (danh sách 'bỏ túi' — tức danh sách quán ăn ngon bí mật hoặc danh sách ứng viên yêu thích của riêng ai đó).",
+   "mh": "Khẩu Đại → kǒudài. ĐỌC: 'khẩu' → kǒu (thanh 3); 'đại' → dài (thanh 4). NGHĨA: 口 cái miệng/lỗ mở + 袋 cái túi → cái túi nhỏ có miệng mở may trên quần áo = túi áo, túi quần.",
+   "vd": [
+    {
+     "t": "Cất đồ",
+     "zh": "我的零錢和鑰匙都放在外套的口袋裡。",
+     "vn": "Tiền lẻ và chìa khóa của tôi đều để trong túi áo khoác."
+    },
+    {
+     "t": "Quần áo",
+     "zh": "這件裙子沒有口袋，手機不知道要放哪裡。",
+     "vn": "Chiếc váy này không có túi, không biết phải để điện thoại ở đâu nữa."
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "台北有很多好吃的小店，都在我的口袋名單裡。",
+     "vn": "Đài Bắc có rất nhiều quán nhỏ ngon, tất cả đều nằm trong danh sách 'bỏ túi' của tôi."
+    }
+   ]
+  },
+  "小費": {
+   "vn": "tiền boa; tiền tip",
+   "ng": [
+    "(danh từ) tiền boa, tiền tip (tiền thưởng thêm cho nhân viên phục vụ, tài xế, hướng dẫn viên)"
+   ],
+   "us": "Động từ đi kèm là 給 (給小費 = đưa tiền boa), 收 (收小費 = nhận tiền boa), 不用給小費 (không cần boa).",
+   "co": [
+    "給小費|đưa tiền boa",
+    "收小費|nhận tiền boa",
+    "小費文化|văn hóa tiền boa",
+    "留下小費|để lại tiền tip"
+   ],
+   "sy": [
+    "服務費|phí phục vụ (tính sẵn 10% trong hóa đơn)"
+   ],
+   "cf": [
+    "服務費|phí phục vụ (thường là 10% nhà hàng Đài Loan tính thẳng vào hóa đơn); 小費 là tiền boa tự nguyện cho nhân viên",
+    "零錢|tiền lẻ (tiền xu/tiền mệnh giá nhỏ), khác hẳn 小費"
+   ],
+   "lt": "筆 (一筆小費), 些 (一些小費). Không dùng đơn vị đếm trực tiếp *一個小費.",
+   "mk": "Hay nhầm với 'chi phí nhỏ' (小費用) hoặc 'tiền lẻ' (零錢); thực tế 小費 luôn chỉ tiền tip/tiền boa.",
+   "tw": "Văn hóa Đài Loan KHÔNG có thói quen 給小費 khi ăn uống hay đi taxi; thay vào đó, nhiều nhà hàng trung-cao cấp thu sẵn 「一成服務費」(10% phí phục vụ) trên hóa đơn.",
+   "mh": "Tiểu Phí → xiǎofèi. ĐỌC: 'tiểu' → xiǎo (thanh 3); 'phí' → fèi (thanh 4). NGHĨA: 小 nhỏ + 費 chi phí, tiền chi trả → khoản tiền nhỏ thưởng thêm cho người phục vụ = tiền boa, tiền tip.",
+   "vd": [
+    {
+     "t": "Văn hóa Đài Loan",
+     "zh": "在台灣吃飯通常不用另外給小費，餐廳會直接加收一成服務費。",
+     "vn": "Ở Đài Loan đi ăn thường không cần cho thêm tiền boa, nhà hàng sẽ thu thẳng thêm 10% phí phục vụ."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "去美國旅遊的時候，在餐廳用餐記得要給服務生小費。",
+     "vn": "Khi đi du lịch Mỹ, dùng bữa ở nhà hàng nhớ phải đưa tiền tip cho nhân viên phục vụ."
+    },
+    {
+     "t": "Khách sạn",
+     "zh": "他覺得飯店員工服務得很好，所以給了一些小費。",
+     "vn": "Anh ấy thấy nhân viên khách sạn phục vụ rất tốt nên đã gửi một ít tiền boa."
+    }
+   ]
+  },
+  "零用錢": {
+   "vn": "tiền tiêu vặt",
+   "ng": [
+    "(danh từ) tiền tiêu vặt (thường là bố mẹ cho con cái hoặc khoản tiền chi tiêu lặt vặt cá nhân)"
+   ],
+   "us": "Thường dùng với 給 (給零用錢 = cho tiền tiêu vặt), 領 (領零用錢 = nhận tiền tiêu vặt), 存 (存零用錢 = để dành tiền tiêu vặt), 花 (花零用錢 = tiêu tiền tiêu vặt).",
+   "co": [
+    "給零用錢|cho tiền tiêu vặt",
+    "存零用錢|tiết kiệm tiền tiêu vặt",
+    "發零用錢|phát tiền tiêu vặt",
+    "賺零用錢|kiếm thêm tiền tiêu vặt"
+   ],
+   "sy": [
+    "零花錢|tiền tiêu vặt (cách nói hay gặp ở Đại Lục)"
+   ],
+   "cf": [
+    "零錢|tiền lẻ (xu, tờ tiền nhỏ dùng thối lại); 零用錢 là tiền tiêu vặt (dùng hàng ngày/hàng tháng)",
+    "零花錢|cách nói phổ biến ở Trung Quốc Đại Lục; ở Đài Loan nói 零用錢"
+   ],
+   "lt": "筆 (一筆零用錢), 塊 (兩百塊零用錢).",
+   "tw": "Người Đài Loan hầu như chỉ dùng 零用錢 (rất ít nói 零花錢). Học sinh sinh viên hay đi làm thêm (打工) để 賺零用錢 (kiếm tiền tiêu vặt).",
+   "mh": "Linh Dụng Tiền → língyòngqián. ĐỌC: 'linh' → líng (thanh 2); 'dụng' → yòng (thanh 4); 'tiền' → qián (thanh 2). NGHĨA: 零 lẻ tẻ + 用 chi dùng + 錢 tiền → tiền dùng cho các khoản lặt vặt hàng ngày = tiền tiêu vặt.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "媽媽每個星期會給弟弟兩百塊的零用錢。",
+     "vn": "Mỗi tuần mẹ sẽ cho em trai 200 tệ tiền tiêu vặt."
+    },
+    {
+     "t": "Tiết kiệm",
+     "zh": "妹妹把每天存下來的零用錢，拿去買了一本畫冊。",
+     "vn": "Em gái lấy số tiền tiêu vặt tiết kiệm được mỗi ngày đi mua một cuốn sách tranh."
+    },
+    {
+     "t": "Sinh viên",
+     "zh": "他週末在咖啡店打工，想自己賺一點零用錢。",
+     "vn": "Cuối tuần cậu ấy làm thêm ở quán cà phê để tự kiếm chút tiền tiêu vặt."
+    }
+   ]
+  },
+  "存": {
+   "vn": "tiết kiệm, để dành (tiền); gửi (ngân hàng); lưu (dữ liệu); giữ, tồn tại",
+   "ng": [
+    "(động từ) tiết kiệm, để dành, tích góp (tiền bạc)",
+    "(động từ) gửi (tiền vào ngân hàng: 存錢; gửi đồ tạm: 寄放)",
+    "(động từ) lưu, lưu trữ (lưu số điện thoại, lưu tập tin máy tính: 存檔)",
+    "(động từ) tồn tại, giữ lại, bảo tồn (保存, 存在)"
+   ],
+   "us": "Hay kết hợp với tiền bạc hoặc dữ liệu: 存錢 (tiết kiệm/gửi tiền), 存到銀行 (gửi vào ngân hàng), 存起來 (cất giữ lại/để dành lại), 存檔 (lưu file).",
+   "co": [
+    "存錢|tiết kiệm tiền, gửi tiền",
+    "存起來|cất giữ/để dành lại",
+    "存進銀行|gửi vào ngân hàng",
+    "存檔|lưu tập tin"
+   ],
+   "sy": [
+    "儲蓄|tiết kiệm, tích lũy (trang trọng)",
+    "省錢|tiết kiệm (bằng cách chi tiêu ít lại)",
+    "保存|bảo tồn, lưu giữ"
+   ],
+   "an": [
+    "花|tiêu (tiền)",
+    "領|rút (tiền)",
+    "提|rút (tiền)"
+   ],
+   "cf": [
+    "省錢 vs 存錢|省錢 là 'tiết kiệm không tiêu phung phí' (mua đồ rẻ để đỡ tốn); 存錢 là 'để dành, gửi ngân hàng tích góp lại'",
+    "取 / 領|rút tiền ra; còn 存錢 là bỏ tiền vào"
+   ],
+   "mk": "Khi nói 'tiết kiệm nước/điện' không dùng *存水/存電 ❌ mà dùng 省水/省電 (hoặc 節約用水/用電).",
+   "tw": "Ở ngân hàng hoặc bưu điện (郵局) Đài Loan, sổ tiết kiệm gọi là 存摺; máy ATM có mục 存款 là nộp/gửi tiền, 提款 là rút tiền.",
+   "mh": "Tồn → cún. ĐỌC: 'tồn' → cún (thanh 2, âm c đọc như 'ts' bật hơi). NGHĨA: Bộ 子 (tử - đứa trẻ) được che chở dưới mái tay → giữ gìn, bảo tồn = giữ lại, để dành, gửi tiền, lưu trữ.",
+   "vd": [
+    {
+     "t": "Tài chính",
+     "zh": "我每個月都會存一部分薪水，準備以後出國旅遊。",
+     "vn": "Tháng nào tôi cũng để dành một phần tiền lương để chuẩn bị sau này đi du lịch nước ngoài."
+    },
+    {
+     "t": "Ngân hàng",
+     "zh": "他把這個月賺的錢都存到郵局裡去了。",
+     "vn": "Anh ấy đã gửi hết số tiền kiếm được tháng này vào bưu điện rồi."
+    },
+    {
+     "t": "Máy tính",
+     "zh": "寫完報告以後，一定要記得先存檔才關電腦。",
+     "vn": "Sau khi viết xong báo cáo, nhất định phải nhớ lưu file trước rồi mới tắt máy tính."
+    }
+   ]
+  },
+  "高級": {
+   "vn": "cao cấp; sang trọng; trình độ cao",
+   "ng": [
+    "(tính từ) cao cấp, sang trọng, chất lượng cao (nhà hàng, hàng hóa, khách sạn)",
+    "(tính từ) trình độ cao, cấp cao (lớp học, chức vụ, kỹ năng)"
+   ],
+   "us": "Dùng bổ nghĩa cho danh từ hoặc làm vị ngữ: 高級餐廳 (nhà hàng cao cấp/sang trọng), 看起來很高級 (trông rất cao cấp/xịn), 高級班 (lớp nâng cao/cao cấp).",
+   "co": [
+    "高級餐廳|nhà hàng cao cấp",
+    "高級飯店|khách sạn sang trọng",
+    "高級班|lớp cao cấp",
+    "看起來很高級|trông rất xịn/sang"
+   ],
+   "sy": [
+    "高檔|hàng cao cấp, sang chảnh",
+    "豪華|xa hoa, sang trọng"
+   ],
+   "an": [
+    "低級|thấp kém, cấp thấp",
+    "普通|bình thường",
+    "平價|bình dân, giá phải chăng"
+   ],
+   "cf": [
+    "高級 vs 高等|高級 dùng cho hàng hóa sang trọng, cấp bậc, lớp học; 高等 thường dùng trong thuật ngữ như 高等教育 (giáo dục đại học), 高等數學 (toán cao cấp)"
+   ],
+   "lt": "Đi được với 很, 非常: 這間餐廳非常高級.",
+   "tw": "Trong tiếng Đài Loan hàng ngày, giới trẻ còn hay khen đồ dùng hoặc quán xá thiết kế đẹp, sang là 「很有質感」 hoặc 「很高級」; đối lập với nhà hàng 高級 là 平價美食 (ẩm thực giá bình dân).",
+   "mh": "Cao Cấp → gāojí. ĐỌC: 'cao' → gāo (thanh 1); 'cấp' → jí (thanh 2). NGHĨA: 高 cao + 級 cấp bậc → bậc cao = cao cấp, sang trọng, trình độ cao.",
+   "vd": [
+    {
+     "t": "Ẩm thực",
+     "zh": "為了慶祝結婚週年，他們去了一家高級的牛排餐廳。",
+     "vn": "Để kỷ niệm ngày cưới, họ đã đến một nhà hàng bít tết cao cấp."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這個皮包的材質非常好，摸起來感覺很高級。",
+     "vn": "Chất liệu của chiếc túi da này rất tốt, sờ vào cảm giác rất cao cấp."
+    },
+    {
+     "t": "Học tiếng Hoa",
+     "zh": "學完中級華語以後，他打算明年報名高級班。",
+     "vn": "Sau khi học xong tiếng Hoa trung cấp, anh ấy dự định năm sau đăng ký lớp cao cấp."
+    }
+   ]
+  },
+  "一般": {
+   "vn": "bình thường; thông thường; bình dân; nói chung; giống như",
+   "ng": [
+    "(tính từ) bình thường, tầm thường, không có gì đặc biệt (chất lượng, mức độ)",
+    "(tính từ / định ngữ) thông thường, phổ thông, bình dân (nhân viên bình thường, người bình thường)",
+    "(phó từ) nói chung, thông thường, thường thì (一般來說 = nói chung)",
+    "(trợ từ / văn viết) giống như, như thể (dùng cuối cụm so sánh: 如飛一般 = như bay)"
+   ],
+   "us": "1) Nhận xét chất lượng tàm tạm: 味道很一般 (vị bình thường thôi). 2) Định ngữ thông thường: 一般人 (người bình thường), 一般來說 (nói chung là). 3) Phó từ: 一般都在家吃 (thông thường đều ăn ở nhà).",
+   "co": [
+    "一般來說|nói chung là",
+    "一般人|người bình thường",
+    "很一般|rất bình thường, tàm tạm",
+    "跟平常一般|giống như thường lệ"
+   ],
+   "sy": [
+    "普通|bình thường, phổ thông",
+    "通常|thông thường"
+   ],
+   "an": [
+    "特別|đặc biệt",
+    "高級|cao cấp",
+    "優秀|ưu tú"
+   ],
+   "cf": [
+    "一般 vs 普通|Cả hai đều có nghĩa 'bình thường', nhưng 一般 hay dùng làm trạng ngữ thói quen (我一般七點起床 = tôi thường dậy lúc 7 giờ) và trong cụm 一般來說; 普通 hay nhấn mạnh phổ biến hoặc dung mạo/năng lực bình thường"
+   ],
+   "mk": "Lưu ý biến thanh của 一: trong 一般, 一 đứng trước thanh 1 (般 bān) nên nói đọc thành thanh 4 là yìbān (chữ từ điển ghi yībān).",
+   "tw": "Ở Đài Loan rất hay dùng cụm 「一般來說」 hoặc 「一般而言」 khi mở đầu giải thích một quy luật chung; khi đánh giá quán ăn không ngon không dở hay nói 「就一般般」 hoặc 「很普通」.",
+   "mh": "Nhất Bàn → yībān (đọc nối yìbān). ĐỌC: 'nhất' → yī (biến thanh yì trước thanh 1 般); 'bàn' → bān (thanh 1). NGHĨA: 一 một + 般 loại/hạng → cùng một loại giống nhau như mọi thứ khác = thông thường, bình thường, nói chung.",
+   "vd": [
+    {
+     "t": "Đánh giá quán ăn",
+     "zh": "這家店的裝潢很漂亮，可是菜的味道其實很一般。",
+     "vn": "Quán này trang trí rất đẹp, nhưng hương vị món ăn thật ra rất bình thường."
+    },
+    {
+     "t": "Thói quen",
+     "zh": "一般來說，台灣的便利商店都是二十四小時營業的。",
+     "vn": "Nói chung là các cửa hàng tiện lợi ở Đài Loan đều mở cửa 24/24."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "這只是我們一般人的想法，專家可能有不同的看法。",
+     "vn": "Đây chỉ là suy nghĩ của người bình thường chúng ta thôi, chuyên gia có lẽ có góc nhìn khác."
+    }
+   ]
+  }
+ }
+}

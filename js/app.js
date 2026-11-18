@@ -43,6 +43,10 @@ function formsOf(w) {
     if (f.includes("(")) { out.push(f.replace(/[()]/g, "")); out.push(f.replace(/\([^)]*\)/g, "")); } else out.push(f); }
   return [...new Set(out)];
 }
+function noteOfWord(w) {
+  if (!w) return null;
+  return S.noteByWord.get(w) || formsOf(w).map((f) => S.noteByWord.get(f)).find(Boolean) || null;
+}
 function buildNotes() {
   S.notes = []; S.noteByWord = new Map(); S.noteByKey = new Map();
   const add = (n) => { S.notes.push(n); S.noteByKey.set(n.key, n); };
@@ -72,9 +76,19 @@ function enOf(w) {
   return e.map(([, defs]) => defs.split("/").filter((d) => !/^(variant of|old variant|see |CL:|surname )/.test(d)).slice(0, 3).join("; ")).filter(Boolean).slice(0, 2).join(" | ");
 }
 // The content shown on a card. Rich notes have full content; basic notes are built from the official list + CEDICT + Vietnamese batches.
+const hasRichExpl = (it) => !!(it && (it.us || it.mh || it.mi || (it.ng && it.ng.length)));
+const needsRich = (n) => !!(n && n.kind !== "grammar" && (!n.rich || !hasRichExpl(n.it)));
 function itemOf(n) {
-  if (n.rich) return n.it;
-  const v = S.vi.get(n.w) || {};
+  const v = S.vi.get(n.w) || (n.display && S.vi.get(n.display)) || (n.official && S.vi.get(n.official.w)) || {};
+  if (n.rich) {
+    if (hasRichExpl(n.it)) return n.it;
+    return Object.assign({}, v, n.it, {
+      w: n.it.w,
+      band: n.it.band || v.band,
+      ng: n.it.ng || v.ng,
+      vd: n.it.vd || v.vd
+    });
+  }
   return Object.assign({ w: n.w, py: n.py, pos: n.pos, band: n.band, en: enOf(n.w), vn: "", hv: "" }, v);
 }
 function typesOf(n) {
@@ -213,21 +227,30 @@ async function ensureVi(words) {
 }
 window.ensureVi = ensureVi;
 // Full explanations for single words (data/rich-tu/NN.json, built by tools/build_rich_words.py), loaded per shard when needed.
-const RICH_SHARDS = new Map(); let RICH_INDEX = null;
+const RICH_SHARDS = new Map(); const RICH_ALIAS = new Set(); let RICH_INDEX = null;
 async function ensureRich(words) {
   if (RICH_INDEX === null) { try { RICH_INDEX = new Set((await getJSON("data/rich-tu/index.json")).shards); } catch (e) { RICH_INDEX = new Set(); } }
-  const ks = [...new Set(words.filter(Boolean).map((w) => w.codePointAt(0) % 64))].filter((k) => RICH_INDEX.has(k) && !RICH_SHARDS.has(k));
+  const expanded = words.filter(Boolean).flatMap((w) => {
+    const n = noteOfWord(w);
+    return [w, ...formsOf(w), ...(n ? [n.w, n.display, ...(n.forms || []), n.official && n.official.w] : [])];
+  }).filter(Boolean);
+  const ks = [...new Set(expanded.map((w) => w.codePointAt(0) % 64))].filter((k) => RICH_INDEX.has(k) && !RICH_SHARDS.has(k));
   if (!ks.length) return false;
   let changed = false;
+  const putRich = (k, r, alias) => {
+    const v = S.vi.get(k) || {};
+    const hasOwn = !RICH_ALIAS.has(k) && (v.us || (v.ng && v.ng.length));
+    if (hasOwn || (alias && (v.us || (v.ng && v.ng.length)))) return;
+    if (alias) RICH_ALIAS.add(k); else RICH_ALIAS.delete(k);
+    S.vi.set(k, Object.assign({}, v, r));
+    changed = true;
+  };
   await Promise.all(ks.map(async (k) => {
     let d = {};
     try { d = await getJSON(`data/rich-tu/${String(k).padStart(2, "0")}.json`); } catch (e) { /* offline: try again later */ return; }
     RICH_SHARDS.set(k, d);
-    for (const [w, r] of Object.entries(d)) {
-      const v = S.vi.get(w) || {};
-      if (v.us || (v.ng && v.ng.length)) continue;   // a lesson already explains this word
-      S.vi.set(w, Object.assign({}, v, r)); changed = true;
-    }
+    for (const [w, r] of Object.entries(d)) putRich(w, r, false);
+    for (const [w, r] of Object.entries(d)) for (const f of formsOf(w)) if (f !== w) putRich(f, r, true);
   }));
   return changed;
 }
@@ -2927,7 +2950,7 @@ function renderCard() {
   }
 
   // load the full explanation of this word if it lives in a shard not loaded yet, then redraw the answer side
-  if (ss.shown && r.n.kind !== "grammar" && !r.n.rich) {
+  if (ss.shown && needsRich(r.n)) {
     const cur = ss.current;
     ensureRich([r.n.w]).then((ch) => { if (ch && S.session === ss && ss.current === cur && ss.shown) renderCard(); }).catch(() => {});
   }
@@ -5861,23 +5884,27 @@ async function autoTranslateEnToVi(text) {
   }
 }
 
-// Shared helper to render the Stitch 7+5 Master Dictionary Showcase for any word `w`
-function buildStitchWordShowcaseHTML(w) {
-  const n = S.noteByWord.get(w);
-  const e = cedFirst(w);
-  const inLearn = n && inLearning(n);
-  const customVi = S.vi ? S.vi.get(w) : null;
+function showcaseItemOf(w) {
+  const n = noteOfWord(w);
+  const e = cedFirst(w) || (n ? cedFirst(n.w) : null);
+  const customVi = S.vi ? (S.vi.get(w) || formsOf(w).map((f) => S.vi.get(f)).find(Boolean)) : null;
   const it = n
     ? itemOf(n)
-    : {
+    : Object.assign({}, customVi || {}, {
         w,
         py: (customVi && customVi.py) || (e ? e[0][0] : (w === "璀璨" ? "cuǐ càn" : "")),
         vn: (customVi && customVi.vn) || (w === "璀璨" ? "Mô tả sắc ngọc quý toả ánh sáng lấp lánh rạng ngời, hoa lệ rực rỡ tuyệt mỹ." : ""),
         hv: (customVi && customVi.hv) || (w === "璀璨" ? "Tuy Xán" : ""),
         en: e ? e[0][1].split("/").join("; ") : (w === "璀璨" ? "bright and resplendent; glittering" : ""),
         pos: (customVi && customVi.pos) || (w === "璀璨" ? "Tính từ (形容詞)" : "Từ vựng"),
-        band: w === "璀璨" ? "C1 • Lưu loát" : ""
-      };
+        band: (customVi && customVi.band) || (w === "璀璨" ? "C1 • Lưu loát" : "")
+      });
+  return { n, e, inLearn: !!(n && inLearning(n)), it };
+}
+
+// Shared helper to render the Stitch 7+5 Master Dictionary Showcase for any word `w`
+function buildStitchWordShowcaseHTML(w) {
+  const { n, e, inLearn, it } = showcaseItemOf(w);
   const chars = [...new Set([...hanOnly(w)])];
   if (!chars.length && w) chars.push(w[0]);
   const containing = (c) => S.notes.filter((x) => x.kind === "vocab" && x.w.includes(c) && x.w !== w).slice(0, 8);
@@ -6209,21 +6236,7 @@ function buildStitchWordShowcaseHTML(w) {
 function renderStitchWordShowcase(w, containerSelector, onRefresh) {
   const host = $(containerSelector);
   if (!host) return;
-  const n = S.noteByWord.get(w);
-  const e = cedFirst(w);
-  const inLearn = n && inLearning(n);
-  const customVi = S.vi ? S.vi.get(w) : null;
-  const it = n
-    ? itemOf(n)
-    : {
-        w,
-        py: (customVi && customVi.py) || (e ? e[0][0] : (w === "璀璨" ? "cuǐ càn" : "")),
-        vn: (customVi && customVi.vn) || (w === "璀璨" ? "Mô tả sắc ngọc quý toả ánh sáng lấp lánh rạng ngời, hoa lệ rực rỡ tuyệt mỹ." : ""),
-        hv: (customVi && customVi.hv) || (w === "璀璨" ? "Tuy Xán" : ""),
-        en: e ? e[0][1].split("/").join("; ") : (w === "璀璨" ? "bright and resplendent; glittering" : ""),
-        pos: (customVi && customVi.pos) || (w === "璀璨" ? "Tính từ (形容詞)" : "Từ vựng"),
-        band: w === "璀璨" ? "C1 • Lưu loát" : ""
-      };
+  const { n, it } = showcaseItemOf(w);
   const chars = [...new Set([...hanOnly(w)])];
   if (!chars.length && w) chars.push(w[0]);
   host.innerHTML = buildStitchWordShowcaseHTML(w);
@@ -10091,7 +10104,7 @@ function initSyncUI() {
     route();
     fillMissingVi(true);
     // background: explanations for the words in today's folders, so card types and the answer side are complete
-    setTimeout(() => ensureRich(S.notes.filter((n) => !n.rich && (inLearning(n) || noteLevel(n) > 0)).map((n) => n.w)).catch(() => {}), 1500);
+    setTimeout(() => ensureRich(S.notes.filter((n) => needsRich(n) && (inLearning(n) || noteLevel(n) > 0)).map((n) => n.w)).catch(() => {}), 1500);
     if (window.Sync && Sync.isConfigured() && Sync.getConfig().autoSync) {
       Sync.syncNow().then(() => {
         if (typeof syncAllInboxNotes === "function") syncAllInboxNotes();

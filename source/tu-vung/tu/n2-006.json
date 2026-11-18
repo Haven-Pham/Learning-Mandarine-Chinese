@@ -1,0 +1,1321 @@
+{
+ "tu": {
+  "菜": {
+   "vn": "rau; món ăn; gu (người mình thích)",
+   "ng": [
+    "(danh từ) rau xanh, rau củ (買菜 đi chợ mua rau, 青菜 rau xanh)",
+    "(danh từ) món ăn, thức ăn (點菜 gọi món, 做菜 nấu ăn, 台灣菜/台菜 món Đài Loan)",
+    "(tính từ / tiếng lóng) yếu, gà mờ, kém (kỹ năng chơi game, tay nghề: 很菜 gà quá, 菜鳥 lính mới)",
+    "(danh từ / tiếng lóng Đài Loan) đúng gu, mẫu người mình thích (他是我的菜 anh ấy đúng gu của tôi)"
+   ],
+   "us": "Hai nghĩa cơ bản nhất: 'rau' (炒菜 xào rau, 買菜 đi chợ mua rau/đồ ăn) và 'món ăn' (點菜 gọi món, 四菜一湯 4 món 1 canh). Ngoài ra nghĩa lóng giới trẻ Đài Loan: 我的菜 (gu của tôi).",
+   "co": [
+    "點菜|gọi món ăn",
+    "買菜|đi chợ mua rau / thức ăn",
+    "燙青菜|rau luộc (món rất phổ biến ở Đài Loan)",
+    "拿手菜|món tủ"
+   ],
+   "sy": [
+    "青菜|rau xanh",
+    "蔬菜|rau củ nói chung",
+    "料理|món ăn / ẩm thực (Đài Loan rất hay dùng: 台灣料理)"
+   ],
+   "cf": [
+    "菜 vs 飯|吃飯 = ăn cơm / ăn bữa ăn nói chung; 吃菜 = ăn thức ăn/rau. Ở nhà hàng gọi đồ ăn dùng 點菜 (không nói *點飯 trừ khi gọi cơm trắng)"
+   ],
+   "lt": "道、盤 (món ăn: 三道菜 3 món); 棵、把 (cây/bó rau: 一把青菜).",
+   "mk": "1) Thanh 4 cài (nhớ phát âm bật hơi từ 'thái', đừng nhầm âm c sang ch). 2) Dùng *拿菜 cho 'gọi món' là sai — phải nói 點菜.",
+   "tw": "Ở tiệm cơm bình dân Đài Loan (自助餐 / 小吃店), món 'rau luộc chần nước nóng rưới nước tương/tỏi' gọi là 燙青菜 (tàng qīngcài). Tiếng lóng giới trẻ cũng hay nói 菜鳥 (lính mới) và 我的菜 (đúng gu tôi).",
+   "mh": "Thái → cài. ĐỌC: phụ âm th- bật hơi nhẹ tiếng Việt tương ứng âm bật hơi xát đầu lưỡi c- + vần -ai thanh 4 (cài). NGHĨA: bộ 艹 (cỏ cây) ở trên + 采 (hái lượm bằng tay) ở dưới → cây cỏ hái ăn được = rau, sau mở rộng ra các món ăn chế biến.",
+   "vd": [
+    {
+     "t": "Nhà hàng",
+     "zh": "服務生，請問我們現在可以點菜了嗎？",
+     "vn": "Phục vụ ơi, xin hỏi bây giờ chúng tôi gọi món được chưa ạ?"
+    },
+    {
+     "t": "Chợ truyền thống",
+     "zh": "媽媽每天一大早就去菜市場買新鮮的菜。",
+     "vn": "Mẹ tôi sáng sớm nào cũng đi chợ truyền thống mua rau tươi."
+    },
+    {
+     "t": "Nấu ăn",
+     "zh": "這間自助餐店的菜色很多，我最喜歡吃他們的燙青菜。",
+     "vn": "Quán cơm tự chọn này có rất nhiều món, tôi thích nhất món rau luộc của họ."
+    }
+   ]
+  },
+  "肉": {
+   "vn": "thịt; cùi quả",
+   "ng": [
+    "(danh từ) thịt (động vật làm thực phẩm: 豬肉 thịt heo, 牛肉 thịt bò, 雞肉 thịt gà)",
+    "(danh từ) phần thịt quả, cùi quả (cơm sầu riêng, cùi nhãn: 果肉 cùi trái cây)",
+    "(tính từ / khẩu ngữ) mũm mĩm, có da có thịt (肉肉的) hoặc (quả) mềm nhũn, (tính cách) chậm chạp"
+   ],
+   "us": "Ghép sau tên con vật để chỉ loại thịt: 豬肉 (thịt heo), 牛肉 (thịt bò), 雞肉 (thịt gà), 羊肉 (thịt dê). Nếu chỉ nói ăn 肉 trống không trong văn hóa Hoa ngữ thường ngầm hiểu là thịt heo.",
+   "co": [
+    "豬肉 / 牛肉 / 雞肉|thịt heo / thịt bò / thịt gà",
+    "烤肉|thịt nướng (BBQ)",
+    "滷肉飯|cơm thịt kho (món quốc dân Đài Loan)",
+    "吃肉|ăn thịt"
+   ],
+   "sy": [
+    "肉類|các loại thịt (thực phẩm)",
+    "果肉|thịt/cùi trái cây"
+   ],
+   "cf": [
+    "瘦肉 vs 肥肉|瘦肉 = thịt nạc; 肥肉 = thịt mỡ; 五花肉 = thịt ba chỉ (Đài Loan cũng gọi là 三層肉)"
+   ],
+   "lt": "塊 (miếng thịt), 片 (lát thịt), 斤 (cân Đài 600g: 一斤肉).",
+   "mk": "Âm đầu r- đọc cong lưỡi, tránh nhầm thành l- (*lòu ❌). Ở Đài Loan ăn kiêng/ăn chay cần nói rõ 我不吃豬肉 / 我吃素.",
+   "tw": "Cơm thịt kho trứ danh Đài Loan viết là 滷肉飯 (lǔròufàn, miền Nam Đài Loan đôi khi gọi là 肉燥飯 ròuzàofàn nếu thịt băm nhỏ, còn 控肉飯 là cơm thịt ba chỉ kho miếng lớn). Trung thu người Đài thích tụ họp 烤肉 (nướng BBQ).",
+   "mh": "Nhục → ròu. ĐỌC: phụ âm nh- tiếng Việt thường sang r- (nhân → rén, nhật → rì) + vần -ou thanh 4 (ròu). NGHĨA: chữ tượng hình miếng thịt có thớ/sườn bên trong (khác với chữ 內 bên trong là 入; cũng biến thành bộ Nguyệt 月 bên trái chữ chỉ bộ phận cơ thể như 肥, 胖, 肚子).",
+   "vd": [
+    {
+     "t": "Đi chợ",
+     "zh": "這塊豬肉看起來很新鮮，煮湯一定很好喝。",
+     "vn": "Miếng thịt heo này trông rất tươi, nấu canh chắc chắn sẽ rất ngọt."
+    },
+    {
+     "t": "Ăn uống",
+     "zh": "來到台灣一定要試試看道地的滷肉飯。",
+     "vn": "Đến Đài Loan nhất định phải ăn thử món cơm thịt kho chuẩn vị."
+    },
+    {
+     "t": "Tụ họp",
+     "zh": "中秋節的時候，我們約在院子裡一起烤肉。",
+     "vn": "Vào dịp Tết Trung Thu, chúng tôi hẹn nhau cùng nướng thịt ở ngoài sân."
+    }
+   ]
+  },
+  "酒": {
+   "vn": "rượu; đồ uống có cồn",
+   "ng": [
+    "(danh từ) rượu, bia, đồ uống có cồn nói chung (啤酒 bia, 紅酒 rượu vang đỏ, 白酒 rượu trắng)"
+   ],
+   "us": "Đi với động từ 喝 (uống): 喝酒 (uống rượu/nhậu), 喝醉了 (say rượu rồi), 戒酒 (cai rượu). Cấm lái xe sau khi uống rượu bia gọi là 酒駕 (lái xe khi say xỉn — phạt cực nặng ở Đài Loan!).",
+   "co": [
+    "喝酒|uống rượu / đi nhậu",
+    "啤酒|bia",
+    "紅酒|rượu vang đỏ",
+    "禁止酒駕|cấm uống rượu bia khi lái xe"
+   ],
+   "sy": [
+    "啤酒|bia",
+    "酒類|đồ uống có cồn"
+   ],
+   "lt": "杯 (1 ly), 瓶 (1 chai), 罐 (1 lon).",
+   "mk": "Chú ý bộ bên trái là 氵 (3 chấm thủy) + 酉 (chỉnh/bình rượu cổ) thành 酒 (chứ không phải chữ 灑 vẩy nước!).",
+   "tw": "Ở Đài Loan bia địa phương nổi tiếng nhất là 台灣啤酒 (viết tắt 台啤), rượu mạnh đặc sản là 金門高粱酒 (rượu Cao Lương Kim Môn). Nhớ khẩu hiệu cửa miệng của cảnh sát và quảng cáo Đài Loan: 開車不喝酒，喝酒不開車!",
+   "mh": "Tửu → jiǔ. ĐỌC: phụ âm t- đôi khi sang j- trước i/u + vần -iu thanh 3 (jiǔ, quy tắc ghép viết tắt bỏ o của jiǒu). NGHĨA: bộ 氵 (chất lỏng) bên trái + 酉 (cái vò/bình ủ men rượu cổ) bên phải → chất lỏng ủ lên men trong vò = rượu.",
+   "vd": [
+    {
+     "t": "An toàn",
+     "zh": "台灣對酒駕罰得很重，所以喝酒以後千萬不能開車。",
+     "vn": "Đài Loan phạt lái xe sau khi uống rượu rất nặng, vì vậy uống rượu xong tuyệt đối không được lái xe."
+    },
+    {
+     "t": "Tiệc tối",
+     "zh": "我不太會喝酒，喝一點啤酒臉就會紅。",
+     "vn": "Tôi không uống được rượu bia mấy, chỉ uống chút bia là mặt đỏ bừng ngay."
+    },
+    {
+     "t": "Siêu thị",
+     "zh": "買酒的時候，店員可能會請你出示證件確認年齡。",
+     "vn": "Lúc mua rượu bia, nhân viên cửa hàng có thể sẽ yêu cầu bạn xuất trình giấy tờ kiểm tra tuổi."
+    }
+   ]
+  },
+  "喝": {
+   "vn": "uống; húp (canh)",
+   "ng": [
+    "(động từ) uống (喝水 uống nước, 喝茶 uống trà, 喝咖啡 uống cà phê)",
+    "(động từ) húp, ăn đồ lỏng như canh, cháo loãng (喝湯 húp canh — khác tiếng Việt nói 'ăn canh'!)",
+    "(động từ — âm đọc khác hè) quát, hò reo, hô lớn (大喝一聲 quát to một tiếng; hiếm ở N2)"
+   ],
+   "us": "Dùng cho mọi chất lỏng: 喝茶, 喝湯, 喝飲料, 喝藥 (uống thuốc nước; thuốc viên dùng 吃藥!). Ngon về đồ uống/canh là 好喝 (khác đồ ăn rắn là 好吃). Muốn nói uống thêm chút: 多喝水.",
+   "co": [
+    "喝水|uống nước",
+    "喝茶 / 喝咖啡|uống trà / uống cà phê",
+    "喝湯|uống canh / húp canh",
+    "好喝|ngon (dùng cho đồ uống và canh)"
+   ],
+   "sy": [
+    "飲|uống (văn viết: 飲料 đồ uống, 飲水機 máy lọc nước uống)"
+   ],
+   "an": [
+    "吃|ăn (đồ rắn)"
+   ],
+   "cf": [
+    "喝 vs 吃|Mọi đồ uống và canh lỏng đều dùng 喝 (喝湯, 喝珍奶); thuốc viên, cơm, cháo đặc dùng 吃 (吃藥 uống thuốc viên, 吃飯)"
+   ],
+   "lt": "Âm đọc chính là hē (thanh 1). Khi nói 'uống thuốc' dạng viên/bột Tây y người Hoa nói 吃藥 (chī yào) chứ không nói *喝藥!",
+   "mk": "Lỗi cực hay mắc do ảnh hưởng tiếng Việt: nói *吃湯 ❌ ('ăn canh') và *喝藥 ❌ ('uống thuốc viên'). Phải nói 喝湯 và 吃藥!",
+   "tw": "Ở Đài Loan văn hóa quán trà sữa 飲料店 / 手搖飲 rất phát triển — bạn bè rủ nhau hay nói 要喝飲料嗎？ hoặc 來喝一杯珍奶！. Máy lọc nước ở trường học/công sở gọi là 飲水機.",
+   "mh": "Hát → hē (âm phụ: hè). ĐỌC: 'hát' bỏ âm cuối -t chuyển sang âm gốc hē thanh 1 khi là 'uống'; khi là 'quát tháo' đọc hè thanh 4. NGHĨA: bộ 口 (cái miệng) bên trái + 曷 (bổ trợ âm và ý há miệng khao khát) → đưa chất lỏng vào miệng = uống.",
+   "vd": [
+    {
+     "t": "Sức khỏe",
+     "zh": "天氣這麼熱，出門記得要多喝水才不會中暑。",
+     "vn": "Trời nóng thế này, ra ngoài nhớ uống nhiều nước kẻo bị say nắng đấy."
+    },
+    {
+     "t": "Quán ăn",
+     "zh": "這碗貢丸湯很清甜，非常好喝！",
+     "vn": "Bát canh cá viên mọc này rất thanh ngọt, ngon tuyệt!"
+    },
+    {
+     "t": "Quán nước",
+     "zh": "下午大家一起訂手搖杯來喝吧，你想喝什麼？",
+     "vn": "Buổi chiều mọi người cùng đặt trà sữa pha tay về uống đi, bạn muốn uống gì?"
+    }
+   ]
+  },
+  "多": {
+   "vn": "nhiều; hơn (số lẻ); bao nhiêu (mức độ)",
+   "ng": [
+    "(tính từ) nhiều, đông (人很多 người rất đông, 錢不多 tiền không nhiều)",
+    "(phó từ trước động từ) nhiều hơn, thêm (nhiều: 多吃一點 ăn nhiều thêm chút, 多休息 nghỉ ngơi nhiều vào)",
+    "(phó từ nghi vấn / cảm thán) bao nhiêu, ... biết bao (đứng trước tính từ: 多久 bao lâu, 多大 bao nhiêu tuổi/lớn, 多高 cao bao nhiêu; Đa số người Đài đọc thanh 2 duó!)",
+    "(số từ ước lượng sau số/lượng từ) hơn ..., ... lẻ (十多年 hơn 10 năm, 兩百多塊 hơn 200 tệ, 三十多歲 hơn 30 tuổi)"
+   ],
+   "us": "Bốn vị trí cực hay gặp: 1) V + 得 + 很 + 多 / S + 很 + 多 (工作很多); 2) 多 + V (khuyên nhủ làm thêm: 多喝水); 3) 多 + Adj? (hỏi mức độ: 多遠？); 4) Số + 多 + Lượng từ hoặc Số chẵn chục + Lượng từ + 多 (二十多個人 hơn 20 người vs 兩個多小時 hơn 2 tiếng).",
+   "co": [
+    "多吃一點|ăn nhiều thêm chút đi",
+    "多久 / 多遠 / 多大|bao lâu / bao xa / bao nhiêu tuổi",
+    "太多了|nhiều quá rồi",
+    "十幾個 / 二十多個|mười mấy / hơn hai mươi cái"
+   ],
+   "sy": [
+    "不少|không ít, khá nhiều"
+   ],
+   "an": [
+    "少|ít"
+   ],
+   "cf": [
+    "多 trong 'hơn'|Chú ý vị trí: số kết thúc bằng 0 đặt 多 TRƯỚC lượng từ (三十多個人 hơn 30 người); số 1–9 đặt 多 SAU lượng từ (三個多月 hơn 3 tháng, 兩點多 hơn 2 giờ)!"
+   ],
+   "lt": "Khi 多 dùng để hỏi mức độ trước tính từ (多高, 多重, 多久, 多可愛), chuẩn Đài Loan hay đọc thanh 2 duó; các nghĩa khác đọc duō.",
+   "mk": "1) Đặt sai chỗ chữ 多 trong 'hơn 2 tiếng' (*兩多小時 ❌ -> phải nói 兩個多小時!). 2) Nói thẳng *我有很多錢 hay *很多好 ở đầu câu thiếu cấu trúc (tính từ đứng vị ngữ thường thêm 很: 人很多, KHÔNG nói *人多 trừ khi so sánh!).",
+   "tw": "Ở Đài Loan trong văn nói hầu như ai cũng đọc 多 khi hỏi mức độ với thanh 2: 要等多久 (duójiǔ)? 有多大 (duódà)? Cũng rất hay dùng 不多 (khoảng chừng/tương đối: 差不多 xong chưa/tạm ổn).",
+   "mh": "Đa → duō (âm hỏi mức độ tại Đài: duó). ĐỌC: 'đa' giữ nguyên phụ âm đ → d + đổi vần sang -uo thanh 1 (duō; riêng đứng trước tính từ hỏi mức độ đọc biến thanh duó ở Đài Loan). NGHĨA: hai chữ 夕 (miếng thịt/trăng chiều) chồng lên nhau → hết lớp này đến lớp khác = nhiều.",
+   "vd": [
+    {
+     "t": "Khuyên bạn",
+     "zh": "你最近太累了，回家要多休息，多吃一點蔬菜。",
+     "vn": "Dạo này bạn mệt quá rồi, về nhà phải nghỉ ngơi nhiều vào và ăn thêm nhiều rau xanh nhé."
+    },
+    {
+     "t": "Hỏi đường",
+     "zh": "請問從這裡坐公車到夜市大概要多久？",
+     "vn": "Xin hỏi đi xe buýt từ đây đến chợ đêm mất khoảng bao lâu?"
+    },
+    {
+     "t": "Thời gian",
+     "zh": "我在台中住了兩年多，已經很習慣這裡的生活了。",
+     "vn": "Tôi đã sống ở Đài Trung hơn hai năm rồi, rất quen với cuộc sống ở đây."
+    }
+   ]
+  },
+  "小吃": {
+   "vn": "đồ ăn vặt; món ăn đường phố",
+   "ng": [
+    "(danh từ) món ăn vặt, đặc sản đường phố giá bình dân (thường ăn từng phần nhỏ ở chợ đêm, quán ven đường)"
+   ],
+   "us": "Chỉ nét văn hóa ẩm thực đường phố đặc trưng: 台灣小吃 (món ăn đường phố Đài Loan), 夜市小吃 (đồ ăn chợ đêm), 小吃攤 (quầy bán đồ ăn vặt), 小吃店 (quán ăn bình dân).",
+   "co": [
+    "台灣小吃|ẩm thực đường phố Đài Loan",
+    "夜市小吃|đồ ăn vặt chợ đêm",
+    "傳統小吃|món ăn vặt truyền thống",
+    "小吃攤 / 小吃店|quầy ăn vặt / quán ăn bình dân"
+   ],
+   "sy": [
+    "點心|điểm tâm, bánh trái ăn nhẹ",
+    "零食|đồ ăn vặt đóng gói (snack, kẹo bánh)"
+   ],
+   "cf": [
+    "小吃 vs 零食|小吃 là món ăn nóng/chế biến sẵn phần nhỏ bán ở quán hay chợ đêm (bánh hàu chiên, đậu hũ thối, mì bò viên); 零食 là bim bim, kẹo bánh, hạt ăn vặt đóng gói mua ở siêu thị"
+   ],
+   "lt": "種、道 (một loại/món ăn vặt); 家 (một tiệm ăn: 一家小吃店).",
+   "tw": "Ở Đài Loan 小吃 là niềm tự hào ẩm thực! Các món nổi tiếng khắp chợ đêm như 蚵仔煎 (trứng chiên hàu), 臭豆腐 (đậu hũ thối), 雞排 (gà rán miếng to), 潤餅, 鹽酥雞. Ở Đài Nam được gọi là thủ phủ Tiểu Ngật (小吃之都).",
+   "mh": "Tiểu Ngật → xiǎochī. ĐỌC: 'tiểu' → xiǎo (t- → x-, thanh 3); 'ngật' → chī (ch- uốn lưỡi thanh 1). NGHĨA: 小 nhỏ + 吃 ăn → những phần đồ ăn nhỏ gọn thưởng thức chơi giữa buổi hoặc ăn hàng quán đường phố = đồ ăn vặt/món đặc sản nhỏ.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "來台灣玩的人，幾乎都會去夜市吃各種當地小吃。",
+     "vn": "Ai đến Đài Loan chơi hầu như cũng đi chợ đêm ăn đủ loại đặc sản đường phố."
+    },
+    {
+     "t": "Quán xá",
+     "zh": "公司附近開了一家很道地的台南小吃店。",
+     "vn": "Gần công ty mới mở một quán ăn vặt đặc sản Đài Nam rất chuẩn vị."
+    },
+    {
+     "t": "Giới thiệu",
+     "zh": "珍珠奶茶和臭豆腐都是很有名的台灣小吃。",
+     "vn": "Trà sữa trân châu và đậu hũ thối đều là những món ăn vặt rất nổi tiếng của Đài Loan."
+    }
+   ]
+  },
+  "牛奶": {
+   "vn": "sữa bò; sữa tươi",
+   "ng": [
+    "(danh từ) sữa bò (đồ uống hàng ngày từ bò sữa)"
+   ],
+   "us": "Dùng với động từ 喝 (uống): 喝牛奶, 一瓶牛奶, 熱牛奶 (sữa nóng), 冰牛奶 (sữa lạnh). Ghép làm hương vị: 草莓牛奶 (sữa dâu), 巧克力牛奶, 木瓜牛奶 (sinh tố đu đủ sữa — cực nổi tiếng ở chợ đêm Đài Loan!).",
+   "co": [
+    "喝牛奶|uống sữa bò",
+    "鮮奶 / 純牛奶|sữa tươi nguyên chất",
+    "木瓜牛奶|sinh tố đu đủ sữa",
+    "牛奶麵包|bánh mì sữa"
+   ],
+   "sy": [
+    "鮮奶|sữa tươi thanh trùng (từ rất chuộng ở Đài Loan)",
+    "乳製品|sản phẩm từ sữa"
+   ],
+   "cf": [
+    "牛奶 vs 鮮奶 vs 豆漿|牛奶 chỉ sữa bò nói chung; ở siêu thị/quán trà sữa Đài Loan chữ 鮮奶 nhấn mạnh 100% sữa tươi thanh trùng (không dùng bột kem béo 奶精); còn 豆漿 là sữa đậu nành!"
+   ],
+   "lt": "杯 (1 ly), 瓶 (1 chai), 盒 (1 hộp giấy).",
+   "mk": "1) Đừng dùng 吃 để nói uống sữa (*吃牛奶 ❌, trừ sữa chua 優格 thì dùng 吃). 2) Phân biệt 牛奶 (sữa bò) với 豆漿 (sữa đậu nành — món ăn sáng phổ biến ở Đài Loan).",
+   "tw": "Ở Đài Loan người dân hay chọn trà sữa pha bằng sữa tươi (鮮奶茶) thay vì 奶精, và đặc sản chợ đêm rất được ưa chuộng là 木瓜牛奶 (đu đủ xay sữa tươi).",
+   "mh": "Ngưu Nãi → niúnǎi. ĐỌC: 'ngưu' → niú (ng- → n- + iu thanh 2); 'nãi' → nǎi (thanh 3). NGHĨA: 牛 con bò + 奶 bầu vú/sữa → sữa lấy từ bò = sữa bò.",
+   "vd": [
+    {
+     "t": "Bữa sáng",
+     "zh": "弟弟每天早上都吃一個麵包、喝一杯熱牛奶。",
+     "vn": "Em trai sáng nào cũng ăn một cái bánh mì và uống một ly sữa nóng."
+    },
+    {
+     "t": "Chợ đêm",
+     "zh": "這攤的木瓜牛奶好香濃，每次來我都一定會買。",
+     "vn": "Quầy sinh tố đu đủ sữa này thơm ngậy lắm, lần nào tới tôi cũng nhất định mua."
+    },
+    {
+     "t": "Siêu thị",
+     "zh": "冰箱裡的牛奶快過期了，這兩天趕快喝完吧。",
+     "vn": "Sữa trong tủ lạnh sắp hết hạn rồi, hai hôm nay uống hết nhanh đi nhé."
+    }
+   ]
+  },
+  "蛋": {
+   "vn": "trứng",
+   "ng": [
+    "(danh từ) trứng (của chim, gà, vịt, cá... nói chung: 雞蛋 trứng gà, 鴨蛋 trứng vịt, 魚蛋 trứng cá)",
+    "(danh từ mở rộng) vật hình bầu dục giống quả trứng (với tên ghép: 蛋糕 bánh bông lan, 壞蛋 kẻ xấu/đồ tồi)"
+   ],
+   "us": "Ghép sau tên loài vật: 雞蛋 (trứng gà), 鴨蛋 (trứng vịt); hoặc tên món: 煎蛋 (trứng chiên), 煮蛋 / 水煮蛋 (trứng luộc), 蒸蛋 (trứng hấp), 炒蛋 (trứng khuấy), 荷包蛋 (trứng ốp la), 皮蛋 (trứng bắc thảo), 鹹蛋 (trứng muối).",
+   "co": [
+    "雞蛋|trứng gà",
+    "茶葉蛋|trứng luộc nước trà (bán ở cửa hàng tiện lợi Đài Loan)",
+    "荷包蛋|trứng ốp la",
+    "壞蛋|kẻ xấu, đồ tồi (hay mắng đùa)"
+   ],
+   "lt": "顆 (Đài Loan hay dùng 一顆蛋 1 quả trứng; 一個蛋 cũng hiểu nhưng 顆 tự nhiên hơn), 打 (1 tá = 12 quả: 一打蛋), 盒 (1 vỉ/hộp).",
+   "mk": "Khi gọi mì/cơm bình dân ở Đài Loan muốn thêm trứng ốp la đừng nói chung chung, hãy nói 加一顆蛋 / 加荷包蛋!",
+   "tw": "Vào cửa hàng tiện lợi (超商 như 7-ELEVEN, 全家) ở Đài Loan, mùi thơm đặc trưng nhất là nồi 茶葉蛋 (trứng gà luộc nước trà và ngũ vị hương). Ngoài ra các quán ăn sáng 早餐店 luôn bán 蛋餅 (bánh cuốn trứng buổi sáng siêu ngon!).",
+   "mh": "Đản → dàn. ĐỌC: phụ âm đ- tiếng Việt sang d- + vần -an thanh 4 (dàn). NGHĨA: phần trên 疋 biến thể + phần dưới 虫 (côn trùng/sinh vật nhỏ nở ra từ bọc) → vỏ bọc sinh ra sự sống = quả trứng.",
+   "vd": [
+    {
+     "t": "Cửa hàng 24h",
+     "zh": "台灣便利商店賣的茶葉蛋又香又入味。",
+     "vn": "Trứng trà bán ở cửa hàng tiện lợi Đài Loan vừa thơm vừa đậm đà."
+    },
+    {
+     "t": "Nấu ăn",
+     "zh": "媽媽把雞蛋和番茄一起炒，顏色漂亮又下飯。",
+     "vn": "Mẹ xào trứng gà cùng cà chua, màu sắc đẹp mắt lại cực kỳ đưa cơm."
+    },
+    {
+     "t": "Bữa sáng",
+     "zh": "老闆，我要一份起司蛋餅，再加一顆荷包蛋！",
+     "vn": "Ông chủ ơi, cho tôi một phần bánh cuốn trứng phô mai, thêm một quả trứng ốp la nữa!"
+    }
+   ]
+  },
+  "餃(子)": {
+   "vn": "sủi cảo; há cảo; bánh gối nhân thịt",
+   "ng": [
+    "(danh từ) bánh sủi cảo / há cảo nhân thịt rau (nổi bật: 水餃 sủi cảo luộc, 蒸餃 hấp, 煎餃 chiên giòn)"
+   ],
+   "us": "Người Hoa nói chung gọi món sủi cảo là 餃子; khi đi quán gọi món tại Đài Loan người ta phân biệt rõ cách chế biến: 水餃 (luộc nước), 煎餃 (chiên áp chảo đáy giòn), 蒸餃 (hấp xửng), 鍋貼 (há cảo chiên dáng thuôn dài).",
+   "co": [
+    "水餃|sủi cảo luộc",
+    "包餃子|gói sủi cảo",
+    "煎餃 / 鍋貼|sủi cảo chiên / há cảo áp chảo",
+    "高麗菜水餃|sủi cảo nhân bắp cải"
+   ],
+   "sy": [
+    "水餃|sủi cảo (cách gọi phổ biến nhất ở quán ăn Đài Loan)",
+    "鍋貼|há cảo áp chảo"
+   ],
+   "lt": "顆 (ở Đài Loan gọi theo viên: 十顆水餃 10 cái sủi cảo), 盤 (1 đĩa), 盒 (1 hộp đông lạnh).",
+   "mk": "Đừng gọi 餃子 ở tiệm Đài Loan bằng lượng từ *十個; người Đài gọi 幾顆 (ví dụ: 我要十顆高麗菜水餃!). Ngoài ra chữ sau 子 đọc thanh nhẹ (jiǎozi).",
+   "tw": "Ở Đài Loan chuỗi quán sủi cảo nổi tiếng nhất đâu đâu cũng có là 八方雲集 (Bāfāng Yúnjí) và 四海遊龍 — nơi bán lẻ theo TỪNG VIÊN (顆), nhân phổ biến là 高麗菜 (bắp cải), 韭菜 (hẹ) và 鮮蝦 (tôm). Dịp Tết người dân hay cùng 包餃子 vì hình dáng giống thỏi vàng 元寶 mang lại tài lộc.",
+   "mh": "Giảo (Tử) → jiǎo(zi). ĐỌC: 'giảo' → jiǎo (gi- → j-, -ao → -iao thanh 3); 'tử' → zǐ đứng sau đọc thanh nhẹ zi. NGHĨA: bộ 食 (thức ăn) + 交 (giao nhau, xếp mí ghép mép bột lại) → món ăn làm từ vỏ bột gấp mép bọc nhân bên trong = bánh sủi cảo.",
+   "vd": [
+    {
+     "t": "Tết Nguyên Đán",
+     "zh": "過年的時候，我們全家人一起自己包餃子。",
+     "vn": "Vào dịp Tết, cả gia đình chúng tôi cùng nhau tự tay gói sủi cảo."
+    },
+    {
+     "t": "Quán ăn",
+     "zh": "中午不想吃飯，我點了十顆高麗菜水餃和一碗酸辣湯。",
+     "vn": "Buổi trưa không muốn ăn cơm, tôi gọi mười viên sủi cảo bắp cải và một bát canh chua cay."
+    },
+    {
+     "t": "Bữa tối",
+     "zh": "這家店的煎餃外皮脆脆的，裡面還會噴湯汁。",
+     "vn": "Bánh sủi cảo chiên của quán này vỏ ngoài giòn rụm, bên trong còn ngập nước cốt thịt."
+    }
+   ]
+  },
+  "麵": {
+   "vn": "mì (sợi); bột mì",
+   "ng": [
+    "(danh từ) mì sợi, các món mì nói chung (牛肉麵 mì bò, 乾麵 mì trộn khô, 湯麵 mì nước, 泡麵 mì ăn liền)",
+    "(danh từ) bột mì (麵粉 bột mì, 麵包 bánh mì, 麵條 sợi mì chưa nấu)"
+   ],
+   "us": "Ăn mì: 吃麵, nấu mì: 煮麵, trộn mì: 乾麵, mì nước: 湯麵. Lượng từ cho 1 bát mì là 碗 (一碗麵), 1 gói mì ăn liền là 包 (一包泡麵).",
+   "co": [
+    "牛肉麵|mì bò (món biểu tượng Đài Loan)",
+    "泡麵|mì gói ăn liền",
+    "乾麵 / 湯麵|mì trộn khô / mì nước",
+    "麵粉|bột mì"
+   ],
+   "sy": [
+    "麵條|sợi mì",
+    "麵食|các món làm từ bột mì"
+   ],
+   "cf": [
+    "麵 vs 面|ĐẠI KỴ NHẦM CHỮ: Trong Phồn thể Đài Loan, 麵 (có bộ 麥 lúa mạch bên trái) là MÌ/BỘT MÌ; còn 面 là BỀ MẶT/MẶT MŨI (見面, 裡面). (Chỉ chữ Giản thể mới gộp cả hai thành 面!)"
+   ],
+   "lt": "碗 (1 tô/bát mì: 一碗牛肉麵), 包 (1 gói mì ăn liền), 根 (1 sợi mì).",
+   "mk": "Người học gõ nhầm *牛腩面 / *吃面 ❌ dùng chữ 面 (cái mặt!) để viết 'mì' — ở Đài Loan PHẢI dùng 麵!",
+   "tw": "Món mì bò Đài Loan (台灣牛肉麵) nổi tiếng thế giới với hai vị chính: 紅燒 (kho đậm đà) và 清燉 (hầm thanh). Mì gói ở Đài Loan gọi là 泡麵 (pàomiàn), còn người miền Trung/Nam lại gọi mì trộn phổ biến như 意麵 / 乾麵 / 陽春麵.",
+   "mh": "Miến → miàn. ĐỌC: 'miến' đổi sang vần gần âm -ian thanh 4 (miàn). NGHĨA: bộ 麥 (cây lúa mạch/lúa mì) bên trái + 面 (mặt/phương diện — ở đây chỉ thanh âm) → thứ thực phẩm chế biến từ bột lúa mì cán ra = bột mì, sợi mì.",
+   "vd": [
+    {
+     "t": "Đặc sản",
+     "zh": "很多外國朋友來台北，第一件事就是吃牛肉麵。",
+     "vn": "Nhiều bạn nước ngoài đến Đài Bắc, việc đầu tiên là đi ăn mì bò."
+    },
+    {
+     "t": "Đi tiệm mì",
+     "zh": "請問你們家的陽春麵要做乾的還是湯的？",
+     "vn": "Xin hỏi bát mì Dương Xuân nhà mình làm mì khô hay mì nước ạ?"
+    },
+    {
+     "t": "Đêm khuya",
+     "zh": "半夜肚子餓的時候，煮一碗泡麵加蛋最方便了。",
+     "vn": "Nửa đêm đói bụng mà nấu một tô mì gói thêm quả trứng là tiện nhất."
+    }
+   ]
+  },
+  "湯": {
+   "vn": "canh; súp; nước dùng",
+   "ng": [
+    "(danh từ) canh, súp, nước dùng của món ăn (喝湯 uống canh, 牛肉湯 canh thịt bò, 玉米濃湯 súp kem bắp)",
+    "(danh từ) thuốc sắc Đông y hoặc nước nóng/suối nước nóng (湯藥, 泡湯 tắm suối nước nóng — rất phổ biến ở Đài Loan!)"
+   ],
+   "us": "Động từ đi cùng là 喝 (喝湯 = ăn/húp canh), nấu canh là 煮湯 / 燉湯. Ở quán ăn thường có combo 四菜一湯 (4 món mặn 1 canh). Đi Đài Loan mùa đông rất thích đi 泡湯 (tắm suối khoáng nóng Bắc Đầu 北投).",
+   "co": [
+    "喝湯|ăn/uống canh",
+    "煮湯|nấu canh",
+    "湯頭|nước dùng, nước lèo (từ quán ăn Đài Loan)",
+    "泡湯|tắm suối nước nóng / (lóng) đổ bể hết kế hoạch"
+   ],
+   "sy": [
+    "湯汁|nước sốt, nước cốt món ăn",
+    "高湯|nước dùng hầm xương"
+   ],
+   "cf": [
+    "湯 vs 糖|Chú ý phân biệt thanh điệu & nét chữ: 湯 (tāng thanh 1, bộ Thủy 氵) = canh/nước dùng; 糖 (táng thanh 2, bộ Mễ 米) = đường/kẹo!"
+   ],
+   "lt": "碗 (1 bát canh), 鍋 (1 nồi lẩu/canh), 口 (1 ngụm canh).",
+   "mk": "1) Nói *吃湯 ❌ ('ăn canh') -> phải nói 喝湯! 2) Đọc nhầm tāng (thanh 1 = canh) với táng (thanh 2 = đường).",
+   "tw": "Ở Đài Loan từ 湯 rất đa năng: quán mì có 湯麵 (mì nước) và khách hay khen nước lèo ngon là 湯頭很棒 (nước dùng tuyệt quá); đi 泡湯 là ngâm mình thư giãn ở suối khoáng nóng như Bắc Đầu (北投), Ô Lai (烏來), Tiêu Khê (礁溪). Cũng hay nói kế hoạch bị hỏng là 泡湯了 (tan thành mây khói rồi!).",
+   "mh": "Thang → tāng. ĐỌC: 'thang' → tāng (th- bật hơi thành t-, thanh 1). NGHĨA: bộ 氵 (nước) bên trái + 易 (dương/nóng ấm) bên phải → nước nấu nóng hổi = nước canh, súp, nước nóng (Hán Việt: thang thuốc, kim thang).",
+   "vd": [
+    {
+     "t": "Bữa cơm",
+     "zh": "天氣冷的時候，喝一碗熱呼呼的雞湯最舒服了。",
+     "vn": "Trời lạnh mà húp một bát canh gà nóng hổi là thoải mái nhất."
+    },
+    {
+     "t": "Quán ăn",
+     "zh": "這家牛肉麵的湯頭是用牛骨熬了好幾個小時的。",
+     "vn": "Nước dùng mì bò của quán này được ninh từ xương bò suốt nhiều tiếng đồng hồ."
+    },
+    {
+     "t": "Thư giãn",
+     "zh": "冬天很多人喜歡搭捷運去北投泡湯。",
+     "vn": "Mùa đông rất nhiều người thích đi tàu điện ngầm tới Bắc Đầu tắm suối nước nóng."
+    }
+   ]
+  },
+  "包子": {
+   "vn": "bánh bao (có nhân)",
+   "ng": [
+    "(danh từ) bánh bao hấp có nhân bên trong (nhân thịt 肉包, nhân rau 菜包, nhân đậu đỏ 豆沙包)"
+   ],
+   "us": "Bánh bao truyền thống có nhân, mua từng cái lẻ hay dùng tên cụ thể + 包 (鮮肉包, 高麗菜包) hoặc gọi chung là 包子. Lượng từ thường là 顆 (Đài Loan) hoặc 個.",
+   "co": [
+    "買包子|mua bánh bao",
+    "肉包 / 菜包|bánh bao thịt / bánh bao rau",
+    "蒸包子|hấp bánh bao",
+    "熱騰騰的包子|bánh bao nóng hổi"
+   ],
+   "sy": [
+    "小籠包|tiểu long bao (bánh bao hấp nhỏ mỏng vỏ ngập nước cốt thịt)"
+   ],
+   "cf": [
+    "包子 vs 饅頭|包子 là bánh bao CÓ NHÂN bên trong (thịt, rau, đậu đỏ); 饅頭 (màn thầu) là bánh bột hấp KHÔNG NHÂN (hoặc chỉ có đường nâu, hành lá trộn trong bột)"
+   ],
+   "lt": "顆、個 (兩顆包子 hai chiếc bánh bao), 籠 (1 xửng hấp).",
+   "mk": "Chữ 子 ở cuối đọc thanh nhẹ (bāozi), và đừng nhầm 包 (gói/túi) sang bánh bao không nhân 饅頭.",
+   "tw": "Ở Đài Loan bánh bao và màn thầu hay bán chung ở tiệm ăn sáng truyền thống (傳統早餐店) hoặc cửa hàng 24h (hấp trong tủ kính). Chuỗi đặc sản 肉包 nổi tiếng có ở Lộc Cảng (鹿港肉包) và Đông Hà Đài Đông.",
+   "mh": "Bao Tử → bāozi. ĐỌC: 'bao' → bāo (b- không bật hơi + ao thanh 1); 'tử' → zi thanh nhẹ làm hậu tố. NGHĨA: 包 bọc kín bên ngoài + 子 hậu tố danh từ → miếng bột bọc kín phần nhân bên trong = bánh bao.",
+   "vd": [
+    {
+     "t": "Bữa sáng",
+     "zh": "早上去買豆漿的時候，順便買兩顆包子當早餐。",
+     "vn": "Buổi sáng lúc đi mua sữa đậu nành, tiện đường mua thêm hai cái bánh bao ăn sáng."
+    },
+    {
+     "t": "Chế biến",
+     "zh": "冰箱裡還有冷凍包子，放到電鍋裡蒸一下就能吃了。",
+     "vn": "Trong tủ lạnh vẫn còn bánh bao đông lạnh, bỏ vào nồi cơm điện hấp một lát là ăn được ngay."
+    },
+    {
+     "t": "Đặc sản",
+     "zh": "鹿港有好幾家非常有名的手工肉包店，常常大排長龍。",
+     "vn": "Ở Lộc Cảng có mấy tiệm bánh bao thịt thủ công cực kỳ nổi tiếng, lúc nào cũng xếp hàng dài."
+    }
+   ]
+  },
+  "蛋糕": {
+   "vn": "bánh ngọt; bánh kem; bánh bông lan",
+   "ng": [
+    "(danh từ) bánh ngọt, bánh bông lan hoặc bánh kem sinh nhật nói chung"
+   ],
+   "us": "Chỉ hầu hết các loại bánh xốp ngọt nướng/hấp: 生日蛋糕 (bánh sinh nhật), 起司蛋糕 (cheesecake), 巧克力蛋糕 (bánh sô-cô-la), 雞蛋糕 (bánh trứng nướng đường phố). Lượng từ: 個 (cả ổ tròn), 塊 / 片 (1 miếng cắt).",
+   "co": [
+    "生日蛋糕|bánh kem sinh nhật",
+    "切蛋糕|cắt bánh kem",
+    "買蛋糕|mua bánh ngọt",
+    "雞蛋糕|bánh trứng gà nướng (món vặt Đài Loan)"
+   ],
+   "sy": [
+    "甜點|đồ ngọt, món tráng miệng",
+    "派|bánh tart/pie"
+   ],
+   "cf": [
+    "蛋糕 vs 麵包|蛋糕 là bánh ngọt bông xốp (có nhiều trứng, đường, kem — tráng miệng/sinh nhật); 麵包 là bánh mì (làm từ bột mì men nở — ăn sáng/ăn no)"
+   ],
+   "lt": "個 (cả cái bánh tròn: 一個生日蛋糕); 塊 / 片 (1 miếng bánh cắt: 一塊蛋糕).",
+   "mk": "Gọi đúng lượng từ: một miếng bánh cắt tam giác dùng 一塊蛋糕 (không nói *一個蛋糕 nếu chỉ 1 lát cắt nhỏ).",
+   "tw": "Ở Đài Loan các tiệm bánh ngọt / quán trà chiều (下午茶) cực kỳ phát triển; ở chợ đêm hay cổng trường tiểu học còn có xe đẩy bán 雞蛋糕 (bánh trứng gà nướng hình thù ngộ nghĩnh rất thơm!).",
+   "mh": "Đản Cao → dàngāo. ĐỌC: 'đản' → dàn (đ- → d-, thanh 4); 'cao' → gāo (c- → g- không bật hơi + ao thanh 1). NGHĨA: 蛋 quả trứng + 糕 loại bánh mềm hấp/nướng → bánh làm từ bột trộn nhiều trứng đánh bông mềm xốp = bánh bông lan, bánh ngọt.",
+   "vd": [
+    {
+     "t": "Sinh nhật",
+     "zh": "大家幫小美買了一個草莓生日蛋糕。",
+     "vn": "Mọi người đã mua cho Tiểu Mỹ một chiếc bánh kem sinh nhật vị dâu."
+    },
+    {
+     "t": "Quán cà phê",
+     "zh": "下午茶時間，我點了一杯紅茶和一塊起司蛋糕。",
+     "vn": "Giờ trà chiều, tôi gọi một ly hồng trà và một miếng bánh phô mai."
+    },
+    {
+     "t": "Chợ đêm",
+     "zh": "剛烤好的雞蛋糕香噴噴的，外酥內軟很好吃。",
+     "vn": "Bánh trứng gà vừa nướng xong thơm phức, ngoài giòn trong mềm rất ngon."
+    }
+   ]
+  },
+  "麵包": {
+   "vn": "bánh mì",
+   "ng": [
+    "(danh từ) bánh mì (nói chung các loại bánh làm từ bột mì nướng)"
+   ],
+   "us": "Dùng cho mọi loại bánh mì: 麵包店 (tiệm bánh mì), 烤麵包 (nướng bánh mì / bánh mì nướng), 買麵包 (mua bánh mì). Bánh mì gối/lát dùng riêng là 吐司 (tǔsī — mượn tiếng Anh toast).",
+   "co": [
+    "麵包店|tiệm bánh mì",
+    "烤麵包|nướng bánh mì",
+    "菠蘿麵包|bánh mì dứa (rất nổi tiếng)",
+    "吐司麵包|bánh mì lát gối (sandwich)"
+   ],
+   "sy": [
+    "吐司|bánh mì lát (Đài Loan hay gọi riêng 吐司)"
+   ],
+   "cf": [
+    "麵包 vs 包子|麵包 là bánh mì nướng kiểu Tây/Nhật (lò nướng); 包子 là bánh bao hấp kiểu Hoa có nhân thịt/rau (xửng hấp)"
+   ],
+   "lt": "個 (1 ổ/chiếc bánh mì tròn), 條 (1 ổ dài/bánh mì gối), 塊 / 片 (1 lát/miếng bánh mì).",
+   "mk": "Chú ý bộ 麥 trong chữ 麵 (đừng viết nhầm sang 面 của 'khuôn mặt'!).",
+   "tw": "Ở Đài Loan tiệm bánh mì khu dân cư (麵包店) mở từ chiều với khay bánh mới ra lò đủ loại: 菠蘿麵包 (bánh mì ca-la-thầu / dứa vỏ giòn), 蔥花麵包 (bánh mì hành lá mặn — cực phổ biến!), và sandwich bánh mì lát gọi là 吐司.",
+   "mh": "Miến Bao → miànbāo. ĐỌC: 'miến' → miàn (thanh 4); 'bao' → bāo (b- không bật hơi + ao thanh 1). NGHĨA: 麵 bột mì + 包 khối/bọc nướng phồng → khối bột mì nướng chín = bánh mì.",
+   "vd": [
+    {
+     "t": "Buổi sáng",
+     "zh": "我趕時間出門，在路邊麵包店買了一個麵包就走了。",
+     "vn": "Tôi vội ra ngoài nên ghé tiệm bánh mì ven đường mua một cái bánh rồi đi luôn."
+    },
+    {
+     "t": "Siêu thị",
+     "zh": "這家店的蔥花麵包和菠蘿麵包每天下午四點出爐。",
+     "vn": "Bánh mì hành lá và bánh mì vỏ dứa của tiệm này ngày nào cũng ra lò lúc bốn giờ chiều."
+    },
+    {
+     "t": "Bữa nhẹ",
+     "zh": "早上把吐司放進烤箱烤一下，抹一點果醬很好吃。",
+     "vn": "Buổi sáng cho bánh mì lát vào lò nướng sơ qua rồi phết chút mứt trái cây ăn rất ngon."
+    }
+   ]
+  },
+  "水果": {
+   "vn": "trái cây; hoa quả",
+   "ng": [
+    "(danh từ) trái cây, hoa quả nói chung"
+   ],
+   "us": "Chỉ nhóm thực phẩm hoa quả: 買水果 (mua trái cây), 切水果 (gọt/bổ trái cây), 新鮮水果 (trái cây tươi), 水果茶 (trà trái cây — món cực nổi ở quán trà Đài Loan!).",
+   "co": [
+    "吃水果|ăn trái cây",
+    "切水果|gọt / bổ trái cây",
+    "新鮮水果|trái cây tươi",
+    "水果攤 / 水果行|sạp / cửa hàng trái cây"
+   ],
+   "sy": [
+    "鮮果|trái cây tươi (văn viết/nhãn hàng)"
+   ],
+   "an": [
+    "蔬菜|rau củ"
+   ],
+   "lt": "種 (loại trái cây: 三種水果 3 loại quả), 盤 (1 đĩa hoa quả cắt), 籃 (1 giỏ quà trái cây đi thăm người ốm/lễ tết).",
+   "mk": "Đừng dịch từ 'hoa quả' trong tiếng Việt theo từng chữ Hán Việt thành *花果 ❌ — tiếng Hoa nói chuẩn là 水果!",
+   "tw": "Đài Loan nổi tiếng là 'Vương quốc trái cây' (水果王國) với xoài 芒果, dứa 鳳梨, ổi 芭樂, na 釋迦, liên vụ 蓮霧. Ở quán ăn/karaoke hay đi chợ đêm có sạp 水果攤 bán hoa quả gọt sẵn rất tiện, còn đi thăm bạn bè/đồng nghiệp hay tặng 進口水果禮盒 (hộp quà trái cây).",
+   "mh": "Thủy Quả → shuǐguǒ. ĐỌC: 'thủy' → shuǐ (th- uốn lưỡi thành sh- + ui thanh 3); 'quả' → guǒ (qu- → gu-, -o thanh 3; hai thanh 3 nối nhau đọc shuíguǒ!). NGHĨA: 水 nước + 果 quả cây → loại quả mọc trên cây mọng nước (để phân biệt với 堅果 các loại hạt cứng khô) = trái cây.",
+   "vd": [
+    {
+     "t": "Chăm sóc",
+     "zh": "醫生建議每天都要多吃蔬菜和水果。",
+     "vn": "Bác sĩ khuyên mỗi ngày đều phải ăn nhiều rau xanh và trái cây."
+    },
+    {
+     "t": "Khách đến chơi",
+     "zh": "媽媽切了一大盤新鮮的水果請客人吃。",
+     "vn": "Mẹ gọt một đĩa lớn trái cây tươi mời khách ăn."
+    },
+    {
+     "t": "Đồ uống",
+     "zh": "台灣夏天的芒果和鳳梨都很甜，做水果茶超好喝！",
+     "vn": "Xoài và dứa mùa hè của Đài Loan đều rất ngọt, pha trà trái cây uống siêu ngon!"
+    }
+   ]
+  },
+  "香蕉": {
+   "vn": "quả chuối",
+   "ng": [
+    "(danh từ) chuối (loại trái cây vỏ vàng ruột mềm thơm)"
+   ],
+   "us": "Dùng như danh từ bình thường: 吃香蕉 (ăn chuối), 剝香蕉 (bóc vỏ chuối), 香蕉牛奶 (sữa chuối), 香蕉蛋糕 (bánh chuối). Lượng từ 1 quả dùng 根 (一根香蕉), 1 nải dùng 串 hoặc 把.",
+   "co": [
+    "一根香蕉|một quả chuối",
+    "一串香蕉 / 一把香蕉|một nải chuối",
+    "剝香蕉|bóc vỏ chuối",
+    "香蕉牛奶|sữa chuối"
+   ],
+   "lt": "根 (1 quả chuối: 一根香蕉); 串 / 把 (1 nải chuối).",
+   "mk": "Lượng từ cho một quả chuối thuôn dài là 根 (không dùng *一條 hay *一顆 chuối; một nải mới dùng 串/把).",
+   "tw": "Đài Loan từng có mệnh danh 'Vương quốc Chuối' (香蕉王國) nổi tiếng với giống chuối vàng thơm dẻo vùng Kỳ Sơn (旗山香蕉, Cao Hùng) và Bình Đông. Ở cửa hàng 7-ELEVEN thường bán từng quả chuối đơn lẻ bọc túi rất tiện cho dân văn phòng mua ăn sáng!",
+   "mh": "Hương Tiêu → xiāngjiāo. ĐỌC: 'hương' → xiāng (h- → x- + iang thanh 1); 'tiêu' → jiāo (t- biến nhẹ thành j- + iao thanh 1). NGHĨA: 香 mùi thơm ngát + 蕉 cây chuối (bộ 艹 cây cỏ + 焦) → quả của loài cây lá to có mùi thơm ngọt đặc trưng = quả chuối.",
+   "vd": [
+    {
+     "t": "Thể thao",
+     "zh": "運動完吃一根香蕉可以補充能量，也不容易抽筋。",
+     "vn": "Tập thể dục xong ăn một quả chuối có thể bổ sung năng lượng, lại đỡ bị chuột rút."
+    },
+    {
+     "t": "Siêu thị",
+     "zh": "這串香蕉已經有點熟了，今天趕快把它吃掉吧！",
+     "vn": "Nải chuối này hơi chín rồi, hôm nay ăn nhanh cho hết đi nhé!"
+    },
+    {
+     "t": "Đặc sản",
+     "zh": "高雄旗山產的香蕉又香又甜，非常受歡迎。",
+     "vn": "Chuối trồng ở vùng Kỳ Sơn Cao Hùng vừa thơm vừa ngọt, rất được ưa chuộng."
+    }
+   ]
+  },
+  "食物": {
+   "vn": "thức ăn; thực phẩm; đồ ăn",
+   "ng": [
+    "(danh từ) thức ăn, đồ ăn, thực phẩm nói chung (đối với người hoặc động vật: 健康食物 thực phẩm lành mạnh, 寵物食物 thức ăn thú cưng)"
+   ],
+   "us": "Từ khái quát hơn 菜 hay 飯 để nói chung về đồ ăn: 準備食物 (chuẩn bị thức ăn), 買食物 (mua đồ ăn), 浪費食物 (lãng phí thức ăn), 食物中毒 (ngộ độc thực phẩm).",
+   "co": [
+    "浪費食物|lãng phí thức ăn",
+    "垃圾食物|đồ ăn vặt không lành mạnh (junk food)",
+    "食物中毒|ngộ độc thực phẩm",
+    "傳統食物|món ăn truyền thống"
+   ],
+   "sy": [
+    "食品|thực phẩm (chỉ hàng hóa chế biến đóng gói, siêu thị: 食品公司)",
+    "吃的東西|đồ ăn (khẩu ngữ)"
+   ],
+   "cf": [
+    "食物 vs 食品|食物 là thức ăn nói chung (cơm, canh, trái cây, thức ăn vật nuôi); 食品 thường chỉ sản phẩm thực phẩm công nghiệp đóng gói bán trong siêu thị (保健食品 thực phẩm chức năng)"
+   ],
+   "lt": "種、樣 (các loại thức ăn: 各種食物 đủ loại đồ ăn).",
+   "tw": "Ở Đài Loan trong cửa hàng tiện lợi có dán nhãn '惜福' hoặc '友善時光' (giảm giá thức ăn cận hạn để tránh 浪費食物). Món ăn vặt nhanh nhiều dầu mỡ gọi là 垃圾食物.",
+   "mh": "Thực Vật → shíwù. ĐỌC: 'thực' → shí (th- uốn lưỡi → sh-, thanh 2); 'vật' → wù (v- → w-, thanh 4). NGHĨA: 食 ăn uống + 物 vật thể → mọi thứ ăn được vào bụng để nuôi cơ thể = thức ăn, thực phẩm.",
+   "vd": [
+    {
+     "t": "Thói quen",
+     "zh": "在餐廳吃不完可以打包，不要隨便浪費食物。",
+     "vn": "Ở nhà hàng ăn không hết có thể gói mang về, đừng tùy tiện lãng phí thức ăn."
+    },
+    {
+     "t": "Siêu thị",
+     "zh": "這家超市賣很多來自東南亞的特色食物。",
+     "vn": "Siêu thị này bán rất nhiều đồ ăn đặc sản đến từ Đông Nam Á."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "少吃油炸的垃圾食物，對身體比較健康。",
+     "vn": "Ít ăn đồ ăn nhanh chiên rán kém lành mạnh lại sẽ tốt cho sức khỏe hơn."
+    }
+   ]
+  },
+  "飲料": {
+   "vn": "đồ uống; nước giải khát",
+   "ng": [
+    "(danh từ) đồ uống, thức uống giải khát nói chung (trà, cà phê, nước ngọt, trà sữa, nước trái cây...)"
+   ],
+   "us": "Đi với động từ 喝 (uống) hoặc 買 / 點 (mua / gọi): 買飲料 (mua nước), 喝飲料 (uống nước giải khát), 飲料店 (quán trà sữa/đồ uống). Lượng từ hay dùng: 杯 (ly/cốc), 瓶 (chai), 罐 (lon).",
+   "co": [
+    "買飲料|mua đồ uống / trà sữa",
+    "飲料店|tiệm bán đồ uống / trà sữa",
+    "無糖飲料|đồ uống không đường",
+    "含糖飲料|đồ uống có đường"
+   ],
+   "sy": [
+    "飲品|thức uống (thường in trên thực đơn nhà hàng/quán)",
+    "手搖飲|trà sữa/nước pha chế mang đi (đặc sản Đài Loan)"
+   ],
+   "lt": "杯 (1 ly), 瓶 (1 chai), 罐 (1 lon), 種 (1 loại đồ uống).",
+   "mk": "Trong tiếng Hoa không dùng 飲料 cho 'nước lọc/nước đun sôi' — nước trắng nói 水 hoặc 開水; 飲料 chỉ các thức uống pha chế, nước ngọt, trà, cà phê đóng chai.",
+   "tw": "Ở Đài Loan gần như mỗi con phố đều có 飲料店 / 手搖飲料店 (như 50嵐, 迷客夏, 可不可) bán đủ loại 飲料. Khi gọi có thể chọn độ đường và lượng đá (ví dụ 微糖去冰 = 30% đường, không đá!).",
+   "mh": "Ẩm Liệu → yǐnliào. ĐỌC: 'ẩm' mất phụ âm chuyển thành yǐn (thanh 3); 'liệu' → liào (thanh 4). NGHĨA: 飲 uống (bộ 食 thực + 欠) + 料 nguyên liệu → thứ pha chế để uống giải khát = đồ uống.",
+   "vd": [
+    {
+     "t": "Văn phòng",
+     "zh": "大家下午工作累了，要不要一起訂飲料來喝？",
+     "vn": "Chiều rồi mọi người làm việc mệt chưa, có muốn cùng nhau đặt đồ uống về giải khát không?"
+    },
+    {
+     "t": "Đường phố",
+     "zh": "台灣街頭到處都是手搖飲料店，選擇非常多。",
+     "vn": "Trên đường phố Đài Loan đâu đâu cũng thấy tiệm nước pha chế, lựa chọn cực kỳ phong phú."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "為了減肥，我最近改喝無糖飲料和白開水。",
+     "vn": "Để giảm cân, dạo này tôi chuyển sang uống đồ uống không đường và nước lọc."
+    }
+   ]
+  },
+  "果汁": {
+   "vn": "nước ép trái cây; sinh tố",
+   "ng": [
+    "(danh từ) nước ép từ các loại trái cây tươi hoặc đóng chai (柳橙汁 nước cam, 蘋果汁 nước táo, 西瓜汁 nước dưa hấu)"
+   ],
+   "us": "Đứng một mình để gọi nước ép trái cây nói chung (喝果汁 uống nước ép) hoặc lấy 汁 gắn sau tên quả (芒果汁 nước xoài, 檸檬汁 nước chanh, 芭樂汁 nước ổi). Lượng từ dùng 杯 / 瓶.",
+   "co": [
+    "現榨果汁|nước ép tươi tại chỗ",
+    "喝果汁|uống nước ép trái cây",
+    "綜合果汁|nước ép thập cẩm",
+    "西瓜汁 / 柳橙汁|nước dưa hấu / nước cam"
+   ],
+   "sy": [
+    "果茶|trà trái cây (có pha thêm nước trà)"
+   ],
+   "lt": "杯 (1 ly nước ép), 瓶 (1 chai), 盒 (1 hộp giấy).",
+   "tw": "Ở chợ đêm Đài Loan (夜市) quầy bán 現榨果汁 (nước ép tươi tại chỗ) rất nhiều, nhất là 西瓜汁 (dưa hấu), 木瓜牛奶 (đu đủ sữa) và 芭樂汁 (nước ổi). Nước cam ở Đài Loan thường ghi 柳橙汁 hoặc 柳丁汁.",
+   "mh": "Quả Trấp → guǒzhī. ĐỌC: 'quả' → guǒ (qu- → gu- + o thanh 3); 'trấp' → zhī (tr- uốn lưỡi → zh-, -âp → -i thanh 1). NGHĨA: 果 trái cây + 汁 chất lỏng vắt/ép ra (bộ 氵 nước + 十) → nước chắt từ trái cây = nước ép hoa quả.",
+   "vd": [
+    {
+     "t": "Chợ đêm",
+     "zh": "這攤的現榨果汁很新鮮，完全不加水也不加糖。",
+     "vn": "Quầy nước ép tươi tại chỗ này rất chất lượng, hoàn toàn không pha thêm nước hay đường."
+    },
+    {
+     "t": "Bữa sáng",
+     "zh": "除了咖啡以外，早餐店通常也有賣柳橙汁和其他果汁。",
+     "vn": "Ngoài cà phê ra, tiệm ăn sáng thường cũng có bán nước cam và các loại nước ép khác."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "夏天把冰過的果汁倒進杯子裡喝，既消暑又健康。",
+     "vn": "Mùa hè rót nước ép đã ướp lạnh vào cốc uống vừa giải nhiệt lại vừa tốt cho sức khỏe."
+    }
+   ]
+  },
+  "甜": {
+   "vn": "ngọt; êm đềm (giấc ngủ, nụ cười)",
+   "ng": [
+    "(tính từ) ngọt, có vị ngọt (水果很甜 trái cây rất ngọt, 甜點 đồ ngọt)",
+    "(tính từ) ngọt ngào, dễ chịu, say giấc (笑得很甜 cười rất tươi/ngọt ngào, 睡得很甜 ngủ rất ngon)"
+   ],
+   "us": "Dùng trực tiếp với phó từ mức độ: 很甜 (rất ngọt), 太甜了 (ngọt quá), 有點甜 (hơi ngọt), 不太甜 (không ngọt lắm). Mua trà sữa muốn bớt ngọt nói 不要太甜 / 半糖 / 微糖.",
+   "co": [
+    "甜點|đồ ngọt / món tráng miệng",
+    "好甜|ngọt quá / ngọt ghê",
+    "半甜 / 不太甜|không ngọt lắm",
+    "甜言蜜語|lời ngon tiếng ngọt"
+   ],
+   "sy": [
+    "甘甜|ngọt thanh, ngọt hậu (thường khen trà hoặc canh ngon)"
+   ],
+   "an": [
+    "苦|đắng",
+    "酸|chua",
+    "辣|cay",
+    "鹹|mặn"
+   ],
+   "cf": [
+    "甜 vs 糖|甜 (tính từ) là VỊ NGỌT; 糖 (danh từ) là ĐƯỜNG / KẸO! Ở quán trà sữa Đài Loan điều chỉnh vị ngọt dùng mức 糖 (全糖 100%, 少糖 70%, 半糖 50%, 微糖 30%, 一分糖 10%, 無糖 0%)"
+   ],
+   "lt": "Láy âm tăng mức độ đáng yêu: 甜甜的 (ngọt ngào, hơi ngòn ngọt).",
+   "mk": "Đừng gọi trà sữa bằng *半甜 ❌ ở Đài Loan — người ta dùng chữ 糖 (đường): 半糖 / 微糖 / 無糖! Chỉ nhận xét vị bánh/quả mới dùng 好甜 / 太甜了.",
+   "tw": "Văn hóa trà sữa Đài Loan có thang 甜度 (độ ngọt) chuẩn mực: 全糖 / 少糖 / 半糖 / 微糖 / 一分糖 / 無糖. Ngoài ra ẩm thực Đài Nam nổi tiếng có khẩu vị hơi thiên ngọt (偏甜).",
+   "mh": "Điềm → tián. ĐỌC: 'điềm' → tián (đ- sang t- bật hơi nhẹ + -iêm → -ian thanh 2). NGHĨA: bộ 舌 (cái lưỡi) bên trái + 甘 (vị ngọt, ngon) bên phải → đầu lưỡi nếm thấy vị dịu ngon = ngọt.",
+   "vd": [
+    {
+     "t": "Hoa quả",
+     "zh": "這顆台南產的芒果又香又甜，水分很多。",
+     "vn": "Quả xoài trồng ở Đài Nam này vừa thơm vừa ngọt, lại rất nhiều nước."
+    },
+    {
+     "t": "Quán bánh",
+     "zh": "我喜歡這家的蛋糕，吃起來清爽不會太甜。",
+     "vn": "Tôi thích bánh ngọt của tiệm này, ăn rất thanh chứ không bị ngọt gắt."
+    },
+    {
+     "t": "Chân dung",
+     "zh": "那個小妹妹笑起來好甜，大家都非常喜歡她。",
+     "vn": "Cô bé kia cười lên trông ngọt ngào đáng yêu ghê, ai cũng quý cô bé hết."
+    }
+   ]
+  },
+  "巧克力": {
+   "vn": "sô-cô-la",
+   "ng": [
+    "(danh từ) sô-cô-la (đồ ngọt làm từ ca cao, dùng làm kẹo, bánh, kem, đồ uống)"
+   ],
+   "us": "Dùng cho kẹo sô-cô-la hoặc vị sô-cô-la: 黑巧克力 (sô-cô-la đen), 白巧克力 (sô-cô-la trắng), 熱巧克力 (sô-cô-la nóng), 巧克力牛奶 / 巧克力蛋糕.",
+   "co": [
+    "黑巧克力|sô-cô-la đen",
+    "熱巧克力|sô-cô-la nóng",
+    "吃巧克力|ăn sô-cô-la",
+    "巧克力口味|vị sô-cô-la"
+   ],
+   "sy": [
+    "可可|ca cao (hot cocoa: 熱可可)"
+   ],
+   "lt": "顆 (1 viên), 塊 (1 miếng/cục), 條 (1 thanh), 片 (1 miếng mỏng), 盒 (1 hộp).",
+   "mk": "Người Việt hay đọc thành âm Pháp 'sô-cô-la' rồi viết nhầm phiên âm; trong tiếng Hoa Đài Loan chuẩn chỉ viết và đọc 巧克力 (qiǎokèlì).",
+   "tw": "Ở Đài Loan vùng Phố Lý (埔里, Nam Đầu) có hẳn nhà máy sô-cô-la thủ công nổi tiếng (18度C巧克力工房) và Bình Đông là vùng trồng ca cao đạt giải thưởng quốc tế!",
+   "mh": "Xảo Khắc Lực → qiǎokèlì. ĐỌC: 'xảo' → qiǎo (thanh 3); 'khắc' → kè (thanh 4); 'lực' → lì (thanh 4). Phiên âm trực tiếp từ tiếng Anh 'chocolate' kết hợp chọn chữ Hán đẹp ý. NGHĨA: mượn âm 'cho-co-late' = sô-cô-la.",
+   "vd": [
+    {
+     "t": "Quà tặng",
+     "zh": "情人節的時候，很多情侶會互送巧克力表達心意。",
+     "vn": "Vào ngày lễ Tình nhân, nhiều cặp đôi hay tặng sô-cô-la cho nhau để bày tỏ tình cảm."
+    },
+    {
+     "t": "Quán nước",
+     "zh": "冷冷的冬天晚上，喝一杯熱巧克力覺得好幸福。",
+     "vn": "Buổi tối mùa đông lành lạnh, uống một ly sô-cô-la nóng thấy hạnh phúc ghê."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "我不喜歡吃太甜的東西，所以通常都選百分之七十的黑巧克力。",
+     "vn": "Tôi không thích ăn đồ quá ngọt nên thường chỉ chọn sô-cô-la đen 70%."
+    }
+   ]
+  },
+  "碗": {
+   "vn": "cái bát; cái chén; bát/tô (lượng từ)",
+   "ng": [
+    "(danh từ) cái bát, cái tô, cái chén ăn cơm (洗碗 rửa bát, 空碗 bát rỗng)",
+    "(lượng từ) bát, tô (chứa đồ ăn thức uống: 一碗飯 một bát cơm, 兩碗牛肉麵 hai tô mì bò)"
+   ],
+   "us": "Dùng làm đồ vật (去拿兩個碗 đi lấy hai cái bát, 洗碗 rửa bát) hoặc làm lượng từ đo đồ ăn đựng trong bát (一碗湯, 大碗/小碗 size tô lớn/tô nhỏ khi gọi món).",
+   "co": [
+    "洗碗|rửa bát / rửa chén",
+    "一碗飯|một bát cơm",
+    "大碗 / 小碗|tô lớn / tô nhỏ",
+    "一碗湯|một bát canh"
+   ],
+   "sy": [
+    "飯碗|bát cơm (cũng ví von là 'công việc mưu sinh': 鐵飯碗 công việc ổn định cả đời)"
+   ],
+   "cf": [
+    "碗 vs 盤子|碗 là cái bát/tô sâu lòng (đựng cơm, canh, mì, chè); 盤子 là cái đĩa dẹt (đựng đồ xào, thịt nướng, trái cây gọt)"
+   ],
+   "lt": "個 (khi đếm bản thân chiếc bát rỗng trên kệ: 這三個碗都很漂亮).",
+   "mk": "Chú ý phân biệt với từ đồng âm wǎn 晚 (buổi tối, muộn): 碗 có bộ 石 (đá/sành sứ) ở bên trái.",
+   "tw": "Khi gọi mì hay cơm thịt kho ở quán Đài Loan, người bán luôn hỏi: 大碗還是小碗？ (Tô lớn hay tô nhỏ?) và khách mang về thường nói 內用 dùng tại chỗ hay 外帶 mang đi.",
+   "mh": "Uyển → wǎn. ĐỌC: 'uyển' → wǎn (thanh 3). NGHĨA: bộ 石 (đá/đồ gốm sành sứ) bên trái + 宛 (khum tròn uốn cong) bên phải → đồ gốm sứ nặn khum tròn = cái bát, cái chén.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "晚飯吃完以後，爸爸幫忙收拾桌子，哥哥去洗碗。",
+     "vn": "Sau khi ăn tối xong, bố phụ dọn bàn, còn anh trai đi rửa bát."
+    },
+    {
+     "t": "Quán ăn",
+     "zh": "老闆，我要一碗小碗的滷肉飯和一碗魚丸湯。",
+     "vn": "Ông chủ ơi, cho tôi một bát cơm thịt kho cỡ nhỏ và một bát canh cá viên."
+    },
+    {
+     "t": "Nhà bếp",
+     "zh": "我們家還需要買幾個新碗，客人來的時候才夠用。",
+     "vn": "Nhà mình vẫn cần mua thêm mấy chiếc bát mới thì khi khách tới mới đủ dùng."
+    }
+   ]
+  },
+  "冰": {
+   "vn": "nước đá; băng; lạnh; ướp lạnh",
+   "ng": [
+    "(danh từ) băng, tuyết đóng băng, đá viên (冰塊 viên đá, 結冰 đóng băng)",
+    "(danh từ) các món đá bào, kem lạnh nói chung ở Đài Loan (吃冰 ăn kem/đá bào, 芒果冰 đá bào xoài)",
+    "(động từ) ướp lạnh, để vào tủ lạnh (先把飲料冰起來 cho nước vào tủ lạnh làm mát trước)",
+    "(tính từ) lạnh buốt, mát lạnh (水好冰 nước lạnh quá, 冰奶茶 trà sữa đá)"
+   ],
+   "us": "Cực đa dụng trong đời sống Đài Loan: gọi trà sữa chọn độ đá (正常冰 đá thường / 少冰 ít đá / 微冰 rất ít đá / 去冰 không đá); cất đồ vào tủ lạnh nói 拿去冰 (đem đi bỏ tủ lạnh); mùa hè rủ bạn đi ăn chè đá bào/kem nói 去吃冰!",
+   "co": [
+    "少冰 / 去冰|ít đá / không đá (gọi trà sữa)",
+    "冰塊|đá viên",
+    "吃冰 / 芒果冰|ăn kem đá bào / đá bào xoài",
+    "冰起來|bỏ vào tủ lạnh làm mát"
+   ],
+   "sy": [
+    "冰涼|mát lạnh",
+    "冰淇淋|kem ốc quế/kem ly"
+   ],
+   "an": [
+    "熱|nóng"
+   ],
+   "cf": [
+    "冰 vs 冷|冷 dùng cho thời tiết, nhiệt độ không khí, thái độ hoặc thức ăn nguội lạnh (天氣很冷, 飯冷了); 冰 dùng cho cảm giác lạnh buốt như chạm vào nước đá (手很冰, 飲料很冰), hoặc món đá lạnh"
+   ],
+   "lt": "塊 (1 viên/tảng đá: 加兩塊冰塊); 碗 / 盤 (1 tô/đĩa đá bào ở Đài Loan: 一碗芒果冰).",
+   "mk": "1) Để gọi 'trà sữa ít đá' ở Đài Loan nhớ dùng 少冰 / 微冰 / 去冰 (nhiều bạn hay dịch từng chữ *少水/沒有冰 ❌ nghe không tự nhiên). 2) Dùng động từ 冰 (bỏ tủ lạnh ướp lạnh) thay cho 冷.",
+   "tw": "Ở Đài Loan mùa hè từ 吃冰 bao trùm hết kem, đá bào 剉冰 (cuòbīng), đá bào xoài Vĩnh Khang (永康街芒果冰), chè đá truyền thống. Gọi trà sữa nhớ 4 mức đá: 正常冰 (100%) / 少冰 (70%) / 微冰 (30%) / 去冰 (0%).",
+   "mh": "Băng → bīng. ĐỌC: 'băng' → bīng (b- không bật hơi + -ing thanh 1). NGHĨA: bộ 冫 (hai chấm băng) bên trái + 水 (nước) bên phải → nước gặp lạnh đóng kết lại thành khối cứng = băng, nước đá.",
+   "vd": [
+    {
+     "t": "Gọi trà sữa",
+     "zh": "請問這杯烏龍奶茶要正常冰還是去冰？我要微糖微冰。",
+     "vn": "Xin hỏi ly trà sữa Ô Long này dùng đá bình thường hay không đá ạ? Cho tôi ít đường rất ít đá nhé."
+    },
+    {
+     "t": "Mùa hè",
+     "zh": "天氣這麼熱，我們去吃一碗芒果冰消暑吧！",
+     "vn": "Trời nóng thế này, chúng mình đi ăn một tô đá bào xoài giải nhiệt đi!"
+    },
+    {
+     "t": "Ở nhà",
+     "zh": "西瓜剛買回來還不涼，先放進冰箱冰一下會更好吃。",
+     "vn": "Dưa hấu mới mua về chưa mát, bỏ vào tủ lạnh làm lạnh một lát ăn sẽ ngon hơn."
+    }
+   ]
+  },
+  "一起": {
+   "vn": "cùng nhau; ở chung; tổng cộng",
+   "ng": [
+    "(phó từ) cùng nhau, cùng với nhau (chỉ nhiều người cùng làm một việc hoặc ở một chỗ: 一起去 đi cùng nhau, 住在一起 sống chung)"
+   ],
+   "us": "Đặt TRƯỚC động từ trong mẫu quen thuộc: A 跟/和 B + 一起 + V (我跟朋友一起看電影 Tôi xem phim cùng bạn). Riêng một số động từ hướng tới chỗ đứng chung thì 一起 đặt sau trong bổ ngữ kết quả: 住在一起 (ở chung với nhau), 在一起 (ở bên nhau / yêu nhau).",
+   "co": [
+    "一起去|cùng đi nhé",
+    "跟朋友一起|cùng với bạn bè",
+    "在一起|ở bên nhau / yêu nhau",
+    "住在一起|sống chung với nhau"
+   ],
+   "sy": [
+    "一同|cùng nhau (văn viết/trang trọng hơn)",
+    "一塊兒|(khẩu ngữ Bắc Kinh, Đài Loan rất ít nói)"
+   ],
+   "an": [
+    "單獨|một mình, đơn độc",
+    "分開|tách ra, chia tay"
+   ],
+   "cf": [
+    "一起 vs 跟|跟 là giới từ ('với ai'), 一起 là phó từ ('cùng nhau'). Nên nối cặp: 我跟弟弟一起去 (Tôi cùng em trai đi), không nói *我一起弟弟 đi ❌"
+   ],
+   "lt": "Biến thanh chữ 一: 一 đứng trước thanh 3 起 nên đọc thành thanh 4 yìqǐ.",
+   "mk": "Lỗi sai trật tự câu kinh điển của người Việt: đặt 一起 ra cuối câu (*我們吃飯一起 ❌ hoặc *我去台北跟他一起 ❌). Phải đặt TRƯỚC động từ chính: 我們一起吃飯 / 我跟他一起去台北!",
+   "tw": "Ở Đài Loan câu tỏ tình hay hỏi đã yêu nhau chưa chính là 我們在一起好嗎？ / 你們什麼時候在一起的？. Không dùng âm uốn lưỡi 一塊兒.",
+   "mh": "Nhất Khởi → yìqǐ. ĐỌC: 'nhất' → yī, đứng trước thanh 3 起 đọc biến thanh thành yì; 'khởi' → qǐ (kh- → q- thanh 3). NGHĨA: 一 cùng một chỗ + 起 đứng lên khởi hành → mọi người đứng lên làm cùng một lúc = cùng nhau.",
+   "vd": [
+    {
+     "t": "Rủ bạn",
+     "zh": "下課以後，大家一起去夜市逛逛好不好？",
+     "vn": "Tan học xong mọi người cùng đi dạo chợ đêm nhé?"
+    },
+    {
+     "t": "Sinh hoạt",
+     "zh": "我和室友雖然生活習慣不同，但住在一起還是很開心。",
+     "vn": "Tuy thói quen sinh hoạt khác nhau nhưng tôi và bạn cùng phòng ở chung vẫn rất vui."
+    },
+    {
+     "t": "Lên kế hoạch",
+     "zh": "週末我打算跟家人一起去動物園玩。",
+     "vn": "Cuối tuần tôi dự định đi chơi sở thú cùng với gia đình."
+    }
+   ]
+  },
+  "因為": {
+   "vn": "bởi vì; vì; do",
+   "ng": [
+    "(liên từ) bởi vì, vì (nêu nguyên nhân/lý do, hay đi cặp với 所以 'cho nên': 因為……，所以……)"
+   ],
+   "us": "Có hai vị trí: 1) Đứng đầu hoặc sau chủ ngữ mệnh đề nguyên nhân: 因為今天下雨，所以我不出門 (Vì hôm nay trời mưa nên tôi không ra ngoài) hoặc 他因為生病請假了 (Anh ấy xin nghỉ vì bị ốm). 2) Đặt sau câu kết quả để giải thích bổ sung: 我今天沒去上班，因為發燒了.",
+   "co": [
+    "因為……所以……|bởi vì... cho nên...",
+    "因為這樣|vì vậy / vì chuyện này",
+    "不是因為……而是因為……|không phải vì... mà là vì...",
+    "因為時間不夠|vì không đủ thời gian"
+   ],
+   "sy": [
+    "由於|do, bởi vì (trang trọng hơn trong văn viết, báo chí)"
+   ],
+   "cf": [
+    "因為 vs 為了|因為 chỉ NGUYÊN NHÂN đã/đang có ('vì trời mưa'); 為了 chỉ MỤC ĐÍCH hướng tới tương lai ('vì muốn khỏe mạnh / vì gia đình'). Người Việt hay dùng chung 1 chữ 'vì' nên rất dễ nhầm!"
+   ],
+   "lt": "Khẩu ngữ ở Đài Loan ngoài âm yīnwèi đôi khi nghe người ta đọc lướt yīnwéi, nhưng chuẩn thi TOCFL là yīnwèi (thanh 4). Đặc biệt lưu ý tiếng Hoa CÓ THỂ dùng cả cặp 因為……所以…… cùng một câu (khác tiếng Anh không dùng both because... so...).",
+   "mk": "Lỗi cực hay gặp: dùng *因為 để chỉ mục đích ('Tôi đi Đài Loan vì tìm việc' phải nói 為了找工作 chứ KHÔNG nói *因為找工作 nếu là mục đích chưa xảy ra!).",
+   "tw": "Ở Đài Loan khẩu ngữ trả lời lý do ngắn gọn hay mở đầu bằng 因為……嘛 / 因為說……",
+   "mh": "Nhân Vị (Vi) → yīnwèi. ĐỌC: 'nhân' → yīn (thanh 1); 'vị' → wèi (thanh 4 trong 因為/為了; phân biệt với wéi 'làm, trở thành'). NGHĨA: 因 nguyên do + 為 bởi tại → duyên cớ dẫn đến sự việc = bởi vì.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "因為外面下大雨，所以我們決定改坐計程車回家。",
+     "vn": "Vì bên ngoài trời mưa to nên chúng tôi quyết định chuyển sang đi taxi về nhà."
+    },
+    {
+     "t": "Công việc",
+     "zh": "他因為工作太忙，常常忘記按時吃午飯。",
+     "vn": "Anh ấy vì công việc bận quá nên thường quên ăn trưa đúng giờ."
+    },
+    {
+     "t": "Giải thích",
+     "zh": "我之所以喜歡住在高雄，是因為這裡天氣溫暖、人情味濃。",
+     "vn": "Sở dĩ tôi thích sống ở Cao Hùng là vì thời tiết ở đây ấm áp, tình người nồng hậu."
+    }
+   ]
+  },
+  "所以": {
+   "vn": "vì vậy; cho nên; do đó; nên",
+   "ng": [
+    "(liên từ) vì vậy, cho nên, nên (nêu kết quả, thường đứng sau 因為 hoặc đứng một mình nối câu kết quả)"
+   ],
+   "us": "Nối tiếp sau mệnh đề nguyên nhân: 今天很冷，所以要多穿衣服 (Hôm nay rất lạnh, vì vậy phải mặc thêm áo) hoặc ghép đủ cặp 因為……，所以……. Lưu ý khi dùng chung chủ ngữ, 所以 vẫn hay đứng TRƯỚC hoặc SAU chủ ngữ vế 2 đều được, đặt đầu vế 2 là tự nhiên nhất.",
+   "co": [
+    "因為……所以……|bởi vì... cho nên...",
+    "所以說|nên mới nói / vì thế mới bảo",
+    "所以才|cho nên mới...",
+    "那所以呢？|vậy thì sao nữa?"
+   ],
+   "sy": [
+    "因此|do đó, vì thế (văn viết trang trọng hơn)"
+   ],
+   "lt": "Hai thanh 3 đi liền: suǒ + yǐ đọc nối biến thanh thành suóyǐ!",
+   "mk": "CẤM ghép thừa 'nhưng' với 'nên' (*因為……但是…… ❌); cũng tránh viết sai chữ 因為 sau nhưng quên có dấu phẩy giữa vế nguyên nhân và 所以.",
+   "tw": "Trong hội thoại Đài Loan người dân hay nối nhanh hai chữ 所以說…… (nên mới nói...) để chuyển ý tóm gọn câu chuyện.",
+   "mh": "Sở Dĩ → suǒyǐ. ĐỌC: 'sở' → suǒ (thanh 3, đọc nối thành suó trước yǐ); 'dĩ' → yǐ (thanh 3). NGHĨA: 所 cái mà + 以 lấy làm cớ → cái kết quả suy ra từ duyên cớ đó = cho nên, vì vậy.",
+   "vd": [
+    {
+     "t": "Đi lại",
+     "zh": "捷運就在我家樓下，所以我每天通勤都很方便。",
+     "vn": "Tàu điện ngầm ở ngay dưới nhà tôi nên hằng ngày đi lại làm việc đều rất tiện."
+    },
+    {
+     "t": "Học tập",
+     "zh": "因為他每天練習聽力，所以中文進步得很快。",
+     "vn": "Vì ngày nào bạn ấy cũng luyện nghe nên tiếng Hoa tiến bộ rất nhanh."
+    },
+    {
+     "t": "Nhắc nhở",
+     "zh": "明天一早要搭飛機，所以今晚別太晚睡喔。",
+     "vn": "Sáng sớm mai phải lên máy bay rồi, cho nên tối nay đừng ngủ muộn quá nhé."
+    }
+   ]
+  },
+  "一定": {
+   "vn": "chắc chắn; nhất định; (mức độ) cố định nào đó",
+   "ng": [
+    "(phó từ) chắc chắn, nhất định, ắt hẳn (biểu thị quyết tâm cao hoặc suy đoán có cơ sở: 我一定去 Tôi nhất định đi, 他一定知道 Chắc chắn anh ấy biết)",
+    "(phó từ phủ định) 不一定: chưa chắc, không hẳn (chỉ tính không chắc chắn)",
+    "(tính từ / định ngữ) nhất định, cố định, quy định sẵn (一定的時間 thời gian cố định, 一定的水準 trình độ nhất định)"
+   ],
+   "us": "Đặt TRƯỚC động từ hoặc trợ động từ: 我一定會準時到 (Tôi nhất định sẽ đến đúng giờ), 一定要記得 (Nhất định phải nhớ). Khi trả lời nghi ngờ không chắc: 不一定! (Chưa chắc đâu!).",
+   "co": [
+    "一定要|nhất định phải",
+    "不一定|chưa chắc, không nhất định",
+    "一定會|chắc chắn sẽ",
+    "一定的時間|một khoảng thời gian cố định"
+   ],
+   "sy": [
+    "肯定|chắc chắn, khẳng định",
+    "必定|tất yếu, ắt hẳn (văn viết)"
+   ],
+   "an": [
+    "不一定|chưa chắc, không hẳn"
+   ],
+   "cf": [
+    "不一定 vs 一定不|CỰC KỲ KHÁC NGHĨA: 不一定 = chưa chắc (có thể có hoặc không, 50/50); 一定不 = chắc chắn KHÔNG (0%, quả quyết sẽ không làm)!"
+   ],
+   "lt": "Biến thanh của 一: đứng trước 定 (thanh 4) nên đọc thanh 2 yídìng.",
+   "mk": "Rất hay nhầm trật tự phủ định giữa 不一定 ('chưa chắc') và 一定不 ('chắc chắn không')!",
+   "tw": "Ở Đài Loan người dân hay khích lệ nhau bằng 一定沒問題！(Chắc chắn không vấn đề gì!), và từ chối/để ngỏ lịch hẹn khéo bằng 再看看，不一定 (Để xem đã, chưa chắc nữa).",
+   "mh": "Nhất Định → yídìng. ĐỌC: 'nhất' → yī, đứng trước thanh 4 定 đọc biến thanh thành yí; 'định' → dìng (đ- → d-, -inh → -ing thanh 4). NGHĨA: 一 một mực + 定 ấn định vững chắc → đã đóng đinh một lòng không thay đổi = chắc chắn, nhất định.",
+   "vd": [
+    {
+     "t": "Cam kết",
+     "zh": "放心吧，這件事我一定會幫你處理好。",
+     "vn": "Yên tâm đi, chuyện này tôi nhất định sẽ giúp bạn xử lý ổn thỏa."
+    },
+    {
+     "t": "Suy đoán",
+     "zh": "他平常這麼認真念書，這次考試一定沒問題。",
+     "vn": "Bình thường bạn ấy học hành chăm chỉ thế, kỳ thi lần này chắc chắn không vấn đề gì."
+    },
+    {
+     "t": "Trò chuyện",
+     "zh": "明天會不會下雨還不一定，出門還是帶把傘比較保險。",
+     "vn": "Ngày mai trời có mưa hay không thì chưa chắc, ra ngoài cứ mang theo cái ô cho an toàn."
+    }
+   ]
+  },
+  "可能": {
+   "vn": "có thể; có lẽ; khả năng",
+   "ng": [
+    "(trợ động từ / phó từ) có thể, có lẽ, biết đâu (dự đoán sự việc có xác suất xảy ra: 可能會下雨 có thể sẽ mưa, 他可能已經回家了 có lẽ anh ấy về nhà rồi)",
+    "(danh từ) khả năng, xác suất (mục bổ sung cấp A2: 有這個可能 có khả năng này, 沒有任何可能 không có chút khả năng nào)"
+   ],
+   "us": "1) Làm trợ động từ/phó từ đứng trước động từ (cả trước/sau chủ ngữ đều được: 可能他忘了 / 他可能忘了) để dự đoán khả năng xảy ra, phủ định dùng 不可能 (không đời nào) hoặc 可能不 (có lẽ không). 2) Làm danh từ sau 有 / 沒有: 很有可能 (rất có khả năng), 這種可能性 (khả năng này).",
+   "co": [
+    "可能會|có thể sẽ",
+    "不可能|không thể nào / không đời nào",
+    "有可能|có khả năng",
+    "不太可能|khó có thể xảy ra"
+   ],
+   "sy": [
+    "也許|có lẽ",
+    "大概|chắc khoảng, đại khái"
+   ],
+   "cf": [
+    "可能 vs 可以 vs 會|可能 = XÁC SUẤT xảy ra hay không ('có lẽ mưa'); 可以 = ĐƯỢC PHÉP hoặc CÓ ĐIỀU KIỆN ('có thể hút thuốc không? / tôi có thể giúp gì?'); 會 = NĂNG LỰC học được hoặc KẾT QUẢ CHẮC HƠN 80% ('tôi biết bơi / ngày mai sẽ mưa')"
+   ],
+   "lt": "Một từ đa từ loại liên cấp (Novice 2 trợ động từ + A2 danh từ): đều đọc kěnéng (chú ý 'kě' thanh 3 + 'néng' thanh 2).",
+   "mk": "Lỗi siêu kinh điển của người Việt: dùng *可能 cho câu xin phép hoặc năng lực (*我可能進來嗎？ ❌ -> phải nói 我可以進來嗎？; *你明天可能來嗎？ ❌ -> 你明天能/可以來嗎？). Chỉ dùng 可能 để ĐOÁN XÁC SUẤT!",
+   "tw": "Ở Đài Loan hay nhấn mạnh 很有可能 (rất có khả năng) làm danh từ hoặc phó từ; khi phủ nhận dứt khoát dùng 怎麼可能！(Làm sao có chuyện đó được!).",
+   "mh": "Khả Năng → kěnéng. ĐỌC: 'khả' → kě (kh- bật hơi thành k- + e thanh 3); 'năng' → néng (thanh 2). NGHĨA: 可 có thể/chấp nhận được + 能 năng lực/năng lượng → điều có đủ điều kiện để xảy ra = có lẽ, khả năng.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "下午天氣陰陰的，等一下可能會下大雨。",
+     "vn": "Buổi chiều trời âm u quá, lát nữa có thể sẽ mưa to đấy."
+    },
+    {
+     "t": "Khẳng định",
+     "zh": "這家店的東西不可能賣這麼便宜，你再看清楚一點。",
+     "vn": "Đồ của tiệm này không thể nào bán rẻ thế đâu, bạn nhìn kỹ lại chút đi."
+    },
+    {
+     "t": "Thảo luận",
+     "zh": "計畫臨時改變的可能性很大，我們要提前準備。",
+     "vn": "Khả năng kế hoạch thay đổi đột xuất là rất lớn, chúng ta cần chuẩn bị trước."
+    }
+   ]
+  },
+  "邊/邊兒": {
+   "vn": "bên; phía; cạnh; bờ",
+   "ng": [
+    "(danh từ phương vị) bên, phía (ghép sau phương hướng/đại từ: 左邊 bên trái, 右邊 bên phải, 旁邊 bên cạnh, 這邊 bên này, 那邊 bên kia)",
+    "(danh từ) mép, bờ, rìa (海邊 bờ biển, 路邊 ven đường, 河邊 bờ sông)",
+    "(liên từ rút gọn của 一邊……一邊……) vừa ... vừa ... (邊走邊聊 vừa đi vừa nói chuyện)"
+   ],
+   "us": "Cực hay dùng làm danh từ chỉ vị trí đặt sau đại từ hoặc danh từ: 學校旁邊 (cạnh trường học), 請看這邊 (xin nhìn phía này), 去海邊 (đi biển). Khi dùng đôi làm trạng từ đồng thời: 邊吃邊看 (vừa ăn vừa xem).",
+   "co": [
+    "這邊 / 那邊|bên này / bên kia",
+    "左邊 / 右邊|bên trái / bên phải",
+    "旁邊|bên cạnh",
+    "海邊 / 路邊|bờ biển / ven đường"
+   ],
+   "sy": [
+    "側|bên, phía cạnh",
+    "面|mặt, phía (前面, 裡面)"
+   ],
+   "cf": [
+    "這邊 vs 這裡|這邊 chỉ phía/hướng bên này rộng hơn ('mời qua bên này'), còn 這裡 chỉ điểm/chỗ tại đây chính xác"
+   ],
+   "lt": "Ở Đài Loan dùng hoàn toàn 邊 (biān), hầu như không đọc âm uốn lưỡi 邊兒 (biānr).",
+   "mk": "Đừng viết theo thói quen đọc Bắc Kinh thành *這兒/*那邊兒 khi giao tiếp ở Đài Loan — nói 這邊 / 那邊 rất tự nhiên và lịch sự.",
+   "tw": "Ở Đài Loan đi hỏi đường, nhân viên chỉ chỗ hay nói 在左邊那邊 (ở phía bên trái đằng kia), còn rủ đi biển chơi hay nói 去海邊看海!",
+   "mh": "Biên (Nhi) → biān / biānr. ĐỌC: 'biên' → biān (b- không bật hơi + -ian thanh 1); dạng có 兒 thêm -r cuối ở giọng Bắc. NGHĨA: bộ 辶 (bước đi) bên ngoài + chữ phức tạp chỉ vùng ranh giới xa → đường ranh, mép rìa = bên, phía, bờ.",
+   "vd": [
+    {
+     "t": "Chỉ đường",
+     "zh": "便利商店就在前面路口右邊的那棟大樓一樓。",
+     "vn": "Cửa hàng tiện lợi nằm ngay tầng một tòa nhà phía bên phải ngã tư đằng trước."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "夏天我最喜歡和朋友一起去海邊吹風、看夕陽。",
+     "vn": "Mùa hè tôi thích nhất là cùng bạn bè ra bờ biển hóng gió, ngắm hoàng hôn."
+    },
+    {
+     "t": "Ăn uống",
+     "zh": "大家坐在桌子那邊，邊吃火鍋邊聊天。",
+     "vn": "Mọi người ngồi bên bàn kia, vừa ăn lẩu vừa trò chuyện."
+    }
+   ]
+  },
+  "別": {
+   "vn": "đừng; khác",
+   "ng": [
+    "(phó từ cấm đoán) đừng, chớ, không được (別 + động từ/tính từ: 別說話 đừng nói, 別擔心 đừng lo, 別客氣 đừng khách sáo)",
+    "(tính từ / đại từ) khác, cái khác (別 + (的) + danh từ: 別人 người khác, 別的地方 nơi khác, 別的東西 thứ khác)",
+    "(động từ) chia tay, từ biệt (告別 tạm biệt, 分別 chia ly) hoặc cài/ghim (別針 cái ghim cài)"
+   ],
+   "us": "Hai nghĩa siêu phổ biến ở sơ cấp: 1) Khuyên/cấm thân mật: 別 + V (+ 了) như 別生氣了 (Đừng giận nữa mà), 別忘了 (Đừng quên nhé); 2) Chỉ cái khác: 別的 + N (你有別的顏色嗎？ Bạn có màu khác không?), 別人 (người khác — KHÔNG thêm 的 giữa 別 và 人!).",
+   "co": [
+    "別客氣|đừng khách sáo",
+    "別擔心|đừng lo lắng",
+    "別人|người khác",
+    "別的東西 / 別的事情|thứ khác / việc khác"
+   ],
+   "sy": [
+    "不要|đừng (trực tiếp hơn một chút trong khẩu ngữ Đài Loan)",
+    "其他 / 另外|khác, cái khác"
+   ],
+   "cf": [
+    "別 vs 不要|Trong câu khuyên ngăn, 不要 nhiều khi nghe hơi dứt khoát/ngắn gọn kiểu trẻ con hoặc ra lệnh nhẹ; 別 nghe tự nhiên, mềm hơn (nhưng ở Đài Loan người ta cũng dùng cả 不要 như 不要客氣, 不要忘了!)"
+   ],
+   "lt": "Chú ý KHÔNG nói *別的人 (ít tự nhiên, dùng thẳng 別人), nhưng với danh từ khác hay có 的: 別的同學 (các bạn khác), 別的地方 (chỗ khác).",
+   "mk": "Đừng viết lẫn với thanh 3 hoặc quên bật chữ 別 ở nghĩa 'khác' — khi hỏi 'còn món gì khác không' ở nhà hàng có thể hỏi 還有別的嗎？",
+   "tw": "Ở Đài Loan người dân dùng xen kẽ cả 別 và 不要 (như 別緊張 / 不要緊張 đừng căng thẳng, 別吵了 / 不要吵 đừng ồn nữa); từ 'người khác' luôn nói 別人.",
+   "mh": "Biệt → bié. ĐỌC: 'biệt' → bié (b- không bật hơi, bỏ âm cuối -t chuyển vần sang -ie thanh 2). NGHĨA: bên trái là xương cốt tách ra + bên phải là 刂 (con dao) → dùng dao tách xương lìa ra = chia lìa, khác biệt, tách riêng → mở rộng thành khuyên ngăn đừng làm.",
+   "vd": [
+    {
+     "t": "An ủi",
+     "zh": "這件事不算太嚴重，你別太擔心了。",
+     "vn": "Chuyện này không tính là quá nghiêm trọng đâu, bạn đừng lo lắng quá nhé."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "請問這雙球鞋還有別的顏色可以試穿嗎？",
+     "vn": "Xin hỏi đôi giày thể thao này còn màu nào khác để thử không ạ?"
+    },
+    {
+     "t": "Ứng xử",
+     "zh": "在捷運上聽音樂要戴耳機，才不會吵到別人。",
+     "vn": "Nghe nhạc trên tàu điện ngầm phải đeo tai nghe để không làm phiền người khác."
+    }
+   ]
+  },
+  "馬上": {
+   "vn": "ngay lập tức; lập tức; liền ngay",
+   "ng": [
+    "(phó từ) ngay lập tức, ngay bây giờ, sắp sửa tức thì (đặt trước động từ: 馬上來 tới ngay, 馬上好 xong ngay đây)"
+   ],
+   "us": "Đặt TRƯỚC động từ để báo việc sắp làm tức thì (我馬上出門 Tôi ra cửa ngay đây), hoặc kết hợp với 就 để nhấn mạnh thời điểm cận kề: 電影馬上就要開始了 (Phim sắp bắt đầu ngay bây giờ rồi). Trong nhà hàng phục vụ hay nói 馬上好 / 馬上為您送來!",
+   "co": [
+    "馬上來 / 馬上到|đến ngay đây",
+    "馬上好|xong ngay đây",
+    "馬上開始|bắt đầu ngay",
+    "馬上就……|sắp sửa ... ngay tức thì"
+   ],
+   "sy": [
+    "立刻|lập tức (hơi trang trọng hơn một chút)",
+    "趕快|mau lên, nhanh chóng lên (thúc giục người khác)"
+   ],
+   "an": [
+    "慢慢來|cứ từ từ thôi"
+   ],
+   "cf": [
+    "馬上 vs 趕快|馬上 tự mô tả hành động sắp xảy ra ngay không chần chừ ('tôi ra ngay' = 我馬上去); 趕快 dùng để HỐI THÚC ai đó làm nhanh lên ('mau đi đi!' = 趕快去!). Không nói *你馬上 đi theo nghĩa thúc giục gắt bằng 趕快"
+   ],
+   "lt": "Hai thanh 3? Không! 馬 (thanh 3) + 上 (thanh 4) nên giữ nguyên thanh 3 mǎ + shàng (mǎshàng).",
+   "mk": "Đặt sai vị trí ra cuối câu (*我來馬上 ❌ -> phải đặt trước động từ: 我馬上來!).",
+   "tw": "Ở quán ăn, tiệm trà sữa, shipper Đài Loan câu cửa miệng thân thiện nhất khi khách hỏi đồ đến chưa là: 馬上好，請稍等一下！(Sắp xong ngay đây ạ, xin đợi một chút!).",
+   "mh": "Mã Thượng → mǎshàng. ĐỌC: 'mã' → mǎ (thanh 3); 'thượng' → shàng (th- → sh-, thanh 4). NGHĨA: 馬 con ngựa + 上 trên → ở thời xưa ngồi ngay trên lưng ngựa là tốc độ nhanh nhất lúc bấy giờ → lập tức, ngay tức khắc.",
+   "vd": [
+    {
+     "t": "Hẹn gặp",
+     "zh": "我已經到巷口了，馬上就上樓找你！",
+     "vn": "Tôi tới đầu hẻm rồi, lên lầu tìm bạn ngay đây!"
+    },
+    {
+     "t": "Quán ăn",
+     "zh": "不好意思久等了，您的牛肉麵馬上就好！",
+     "vn": "Xin lỗi để quý khách đợi lâu, tô mì bò của anh sắp xong ngay đây ạ!"
+    },
+    {
+     "t": "Công việc",
+     "zh": "這封信很重要，看到以後要馬上回覆。",
+     "vn": "Bức thư này rất quan trọng, xem xong phải trả lời ngay lập tức."
+    }
+   ]
+  },
+  "然後": {
+   "vn": "sau đó; rồi thì; tiếp theo",
+   "ng": [
+    "(liên từ) sau đó, rồi sau đó, tiếp theo (nối hành động thứ hai diễn ra kế tiếp hành động thứ nhất: 先……，然後……)"
+   ],
+   "us": "Mẫu kể chuỗi sự việc chuẩn xác nhất: 先 + V1，然後 (+ 再) + V2 (我先回家吃飯，然後再去圖書館 Tôi về nhà ăn cơm trước, sau đó lại đi thư viện). Rất tự nhiên khi kể lịch trình trong ngày.",
+   "co": [
+    "先……然後……|trước tiên..., sau đó...",
+    "然後再……|sau đó lại...",
+    "然後就……|sau đó liền...",
+    "然後呢？|rồi sao nữa?"
+   ],
+   "sy": [
+    "接著|tiếp theo đó",
+    "後來|sau này (kể hồi tưởng một sự việc đã chuyển biến trong quá khứ)"
+   ],
+   "cf": [
+    "然後 vs 後來 vs 以後|然後 = bước tiếp theo NGAY trong chuỗi hành động (có thể ở quá khứ, thói quen, hoặc tương lai); 後來 = 'sau đó/về sau' CHỈ dùng để kể chuyện quá khứ; 以後 = 'sau này/sau khi' kể từ hiện tại về tương lai hoặc sau một mốc"
+   ],
+   "lt": "Dùng cặp 先……，然後…… giúp câu nói mạch lạc cực kỳ tự nhiên.",
+   "mk": "1) Chú ý âm đọc ránhòu (thanh 2 + thanh 4), đừng nhầm với 後 lái (hòulái). 2) Hạn chế lặp liên tiếp '然後... 然後... 然後...' quá nhiều trong một đoạn văn nói như thói quen đệm chữ.",
+   "tw": "Trong khẩu ngữ Đài Loan giới trẻ hay hỏi tiếp câu chuyện bằng 然後呢？ (Rồi sao nữa kể tiếp đi!), nhưng cũng hay vô thức dùng 然後 làm từ nối đệm đầu câu.",
+   "mh": "Nhiên Hậu → ránhòu. ĐỌC: 'nhiên' → rán (nh- → r-, thanh 2); 'hậu' → hòu (thanh 4). NGHĨA: 然 như thế (đã xong phần trước) + 後 phía sau → ngay phía sau việc vừa rồi = sau đó, tiếp theo.",
+   "vd": [
+    {
+     "t": "Thói quen",
+     "zh": "我每天早上先喝一杯溫水，然後再去刷牙洗臉。",
+     "vn": "Sáng nào tôi cũng uống một cốc nước ấm trước, sau đó mới đi đánh răng rửa mặt."
+    },
+    {
+     "t": "Chỉ đường",
+     "zh": "你先直走過馬路，然後左轉就會看到郵局了。",
+     "vn": "Trước tiên bạn đi thẳng qua đường, sau đó rẽ trái là sẽ thấy bưu điện ngay."
+    },
+    {
+     "t": "Kể chuyện",
+     "zh": "我們先去吃晚餐，然後去看八點的電影，怎麼樣？",
+     "vn": "Chúng mình đi ăn tối trước, rồi sau đó đi xem phim suất 8 giờ, thấy sao?"
+    }
+   ]
+  }
+ }
+}

@@ -1,0 +1,1347 @@
+{
+ "tu": {
+  "選擇": {
+   "vn": "tuyển trạch; chọn lựa; lựa chọn; phương án",
+   "ng": [
+    "(động từ) chọn, lựa chọn, chọn lựa",
+    "(danh từ) sự lựa chọn, phương án, lựa chọn"
+   ],
+   "us": "Dùng làm động từ: 選擇 + danh từ/động từ (選擇大學 chọn đại học, 選擇留下 chọn ở lại). Dùng làm danh từ: 做選擇 (đưa ra lựa chọn), 最好的選擇 (lựa chọn tốt nhất), 沒有別的選擇 (không còn lựa chọn nào khác).",
+   "co": [
+    "做選擇|đưa ra lựa chọn",
+    "最好的選擇|lựa chọn tốt nhất",
+    "選擇題|câu hỏi trắc nghiệm",
+    "選擇留下|chọn ở lại"
+   ],
+   "sy": [
+    "挑選|chọn lựa kỹ càng, lựa chọn (thường dùng với đồ vật)"
+   ],
+   "cf": [
+    "挑選|挑選 thiên về chọn lọc tỉ mỉ đồ vật hoặc ứng viên (挑選水果); 選擇 mang nghĩa rộng hơn, dùng cho quyết định, môn học, con đường sống",
+    "選|選 ngắn gọn, khẩu ngữ hơn (選這個); 選擇 trang trọng hơn và dùng được cả làm danh từ"
+   ],
+   "lt": "Thường đi với 做出 / 做 (做一個選擇). Ở trường học, 選擇題 là dạng câu hỏi trắc nghiệm.",
+   "mk": "Khi chọn món ăn hay đồ vật đơn giản hằng ngày, người Đài hay dùng 選 hoặc 挑 hơn; 選擇 thường dùng cho quyết định quan trọng hoặc văn viết.",
+   "tw": "Ở trường học và kỳ thi Đài Loan (như TOCFL, 會考), 選擇題 là câu hỏi trắc nghiệm (A/B/C/D). Các biển quảng cáo hay viết 「這是您的好選擇」.",
+   "mh": "Tuyển Trạch → xuǎnzé. ĐỌC: 'tuyển' → xuǎn (thanh 3, x + u đọc như 'suyển'); 'trạch' → zé (thanh 2, âm z đầu lưỡi thẳng không bật hơi). NGHĨA: 選 gồm 辶 (sước - bước đi) + 巽 (chọn lựa) → chọn con đường đi; 擇 gồm 扌 (thủ - tay) + 睪 → dùng tay nhặt chọn. Ghép lại nghĩa là lựa chọn.",
+   "vd": [
+    {
+     "t": "Chọn trường",
+     "zh": "他最後選擇到臺北的大學讀書。",
+     "vn": "Cuối cùng anh ấy chọn đến trường đại học ở Đài Bắc để học."
+    },
+    {
+     "t": "Cuộc sống",
+     "zh": "有時候我們必須做出困難的選擇。",
+     "vn": "Đôi khi chúng ta bắt buộc phải đưa ra những lựa chọn khó khăn."
+    },
+    {
+     "t": "Ăn uống",
+     "zh": "這家餐廳的素食選擇很多，很適合大家。",
+     "vn": "Nhà hàng này có rất nhiều lựa chọn món chay, rất phù hợp với mọi người."
+    }
+   ]
+  },
+  "建議": {
+   "vn": "kiến nghị; đề nghị; đề xuất; lời khuyên",
+   "ng": [
+    "(động từ) đề nghị, đề xuất, khuyên",
+    "(danh từ) lời đề nghị, lời khuyên, kiến nghị"
+   ],
+   "us": "Động từ: 建議 + ai + làm gì (我建議你早點睡 tôi khuyên bạn ngủ sớm) hoặc 建議 + việc (建議先訂位 đề nghị đặt chỗ trước). Danh từ: 給建議 (cho lời khuyên), 提出建議 (đưa ra đề xuất), 接受建議 (tiếp nhận lời khuyên).",
+   "co": [
+    "提出建議|đưa ra đề xuất",
+    "給點建議|cho chút lời khuyên",
+    "接受建議|chấp nhận đề nghị",
+    "我建議你|tôi khuyên/đề nghị bạn"
+   ],
+   "sy": [
+    "提議|đề nghị, kiến nghị",
+    "意見|ý kiến"
+   ],
+   "cf": [
+    "意見|意見 là ý kiến, quan điểm đánh giá; 建議 là đề xuất hướng giải quyết hoặc lời khuyên hành động"
+   ],
+   "lt": "個、點 (一點建議 / 幾個建議)",
+   "mk": "Tránh nói *我建議你應該... gây lặp nghĩa khi 建議 đã mang sắc thái khuyên bảo; chỉ cần nói 我建議你... là tự nhiên.",
+   "tw": "Ở Đài Loan khi hỏi ý kiến đồng nghiệp, bạn bè rất hay nói 「你有什麼建議嗎？」, còn tại cơ quan công quyền hay có hộp thư 「建議事項 / 意見箱」.",
+   "mh": "Kiến Nghị → jiànyì. ĐỌC: 'kiến' → jiàn (thanh 4, vần -ian đọc gần 'chiên' hạ mạnh); 'nghị' → yì (thanh 4, giống âm 'i' dứt khoát). NGHĨA: 建 (kiến - dựng lên) + 議 (nghị - bàn bạc, có bộ 言 ngôn) → nêu ra điều cần bàn bạc = kiến nghị, đề nghị.",
+   "vd": [
+    {
+     "t": "Sức khỏe",
+     "zh": "醫生建議他每天早上起來喝一杯溫開水。",
+     "vn": "Bác sĩ khuyên anh ấy mỗi sáng thức dậy uống một cốc nước ấm."
+    },
+    {
+     "t": "Hỏi ý kiến",
+     "zh": "這件事我不知道該怎麼辦，你有什麼建議嗎？",
+     "vn": "Việc này tôi không biết nên làm thế nào, bạn có lời khuyên gì không?"
+    },
+    {
+     "t": "Du lịch",
+     "zh": "大家一致同意採用他的建議，這週末去花蓮玩。",
+     "vn": "Mọi người nhất trí đồng ý áp dụng đề xuất của anh ấy, cuối tuần này đi Hoa Liên chơi."
+    }
+   ]
+  },
+  "知識": {
+   "vn": "tri thức; kiến thức",
+   "ng": [
+    "(danh từ) kiến thức, tri thức, hiểu biết",
+    "(danh từ) người có tri thức (trong cụm 知識分子 giới trí thức)"
+   ],
+   "us": "Là danh từ trừu tượng nhưng có thể đi với lượng từ 門 (一門知識 một lĩnh vực kiến thức) hoặc 方面/領域. Động từ thường đi kèm: 學到知識 (học được kiến thức), 吸收知識 (tiếp thu kiến thức), 豐富知識 (làm phong phú kiến thức), 缺乏知識 (thiếu kiến thức).",
+   "co": [
+    "學到知識|học được kiến thức",
+    "基本知識|kiến thức cơ bản",
+    "生活知識|kiến thức đời sống",
+    "知識分子|giới trí thức"
+   ],
+   "sy": [
+    "學問|học vấn, kiến thức chuyên sâu",
+    "常識|kiến thức phổ thông, thường thức"
+   ],
+   "cf": [
+    "常識|常識 là kiến thức phổ thông ai cũng nên biết trong đời sống; 知識 là kiến thức nói chung, bao gồm cả chuyên môn sách vở"
+   ],
+   "lt": "門 (cũng có thể dùng 一些知識 / 一點知識 để chỉ một ít kiến thức)",
+   "mk": "Không dịch cứng 'một kiến thức' thành *一個知識 ❌; người bản xứ dùng 一些知識 (một ít kiến thức), 很多知識 hoặc 一項知識 / 一門知識.",
+   "tw": "Ở Đài Loan, chữ 識 trong 知識 đọc chuẩn thanh 4 zhīshì (khác với Đại Lục hay đọc thanh nhẹ zhīshi). Cụm phổ biến trên mạng Đài Loan: 冷知識 (kiến thức thú vị ít người biết).",
+   "mh": "Tri Thức → zhīshì. ĐỌC: 'tri' → zhī (thanh 1, âm zh cong lưỡi, i đọc như 'ư'); 'thức' → shì (thanh 4 chuẩn Đài Loan, sh cong lưỡi). NGHĨA: 知 (gồm 矢 mũi tên + 口 miệng → nói trúng đích = hiểu biết) + 識 (gồm 言 lời nói → nhận biết) → sự hiểu biết = kiến thức.",
+   "vd": [
+    {
+     "t": "Đọc sách",
+     "zh": "多看書可以幫助我們學習到很多新知識。",
+     "vn": "Đọc nhiều sách có thể giúp chúng ta học được rất nhiều kiến thức mới."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "這本書介紹了很多實用的生活知識。",
+     "vn": "Cuốn sách này giới thiệu rất nhiều kiến thức đời sống thiết thực."
+    },
+    {
+     "t": "Giảng dạy",
+     "zh": "老師除了教課本的知識，還會分享自己的經驗。",
+     "vn": "Thầy cô ngoài việc dạy kiến thức trong sách giáo khoa còn chia sẻ kinh nghiệm của bản thân."
+    }
+   ]
+  },
+  "座": {
+   "vn": "tòa, ngọn, cây (lượng từ); chỗ ngồi",
+   "ng": [
+    "(lượng từ) tòa, ngọn, cây (dùng cho vật thể lớn, cố định: núi, tòa nhà, cầu, công viên, thành phố)",
+    "(danh từ) chỗ ngồi, bệ, đế (座位 chỗ ngồi, 讓座 nhường chỗ, 插座 ổ cắm điện)"
+   ],
+   "us": "Lượng từ đặt giữa số từ/chỉ thị từ và danh từ lớn cố định: 一座山 (một ngọn núi), 這座大樓 (tòa nhà này), 一座橋 (một cây cầu), 一座公園 (một công viên). Cũng ghép từ chỉ ghế ngồi (讓座 nhường ghế) hoặc chòm sao (星座 cung hoàng đạo).",
+   "co": [
+    "一座山|một ngọn núi",
+    "這座城市|thành phố này",
+    "讓座|nhường chỗ ngồi",
+    "星座|chòm sao, cung hoàng đạo"
+   ],
+   "sy": [
+    "棟|tòa, căn (lượng từ chuyên dùng cho nhà ở, tòa nhà)"
+   ],
+   "cf": [
+    "棟|棟 chuyên dùng cho nhà cửa, tòa nhà (一棟大樓); 座 dùng rộng hơn cho núi, cầu, tượng, công viên, thành phố và tòa nhà quy mô lớn (一座山, 一座橋)"
+   ],
+   "lt": "Dùng làm lượng từ cho núi (山), cầu (橋), tháp (塔), chùa/miếu (廟), công viên (公園), thành phố (城市), tòa nhà lớn (大樓).",
+   "mk": "Người Việt hay dùng nhầm 個 cho núi hoặc cầu (*一個山, *一個橋 ❌); phải dùng 座 (一座山, 一座橋).",
+   "tw": "Trên tàu điện ngầm MRT (捷運) và xe buýt Đài Loan luôn có chữ 博愛座 (ghế ưu tiên) và biển nhắc 讓座 (nhường ghế). Người Đài cũng rất hay hỏi cung hoàng đạo: 你是什麼星座？",
+   "mh": "Tọa → zuò. ĐỌC: 'tọa' → zuò (thanh 4, âm z đầu lưỡi thẳng, vần uo đọc 'ua' hạ mạnh). NGHĨA: Bộ nghiễm (mái nhà) che trên 坐 (tọa - hai người ngồi trên đất 土) → chỗ ngồi có mái che, mở rộng thành lượng từ cho vật đứng sừng sững như núi, tòa nhà.",
+   "vd": [
+    {
+     "t": "Leo núi",
+     "zh": "我們家後面有一座很漂亮的小山。",
+     "vn": "Phía sau nhà chúng tôi có một ngọn núi nhỏ rất đẹp."
+    },
+    {
+     "t": "Kiến trúc",
+     "zh": "這座橋已經有將近一百年的歷史了。",
+     "vn": "Cây cầu này đã có lịch sử gần một trăm năm rồi."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "高雄是一座又熱情又方便的海港城市。",
+     "vn": "Cao Hùng là một thành phố cảng biển vừa nồng hậu vừa tiện lợi."
+    }
+   ]
+  },
+  "臥室": {
+   "vn": "ngọa thất; phòng ngủ",
+   "ng": [
+    "(danh từ) phòng ngủ"
+   ],
+   "us": "Chỉ phòng ngủ trong nhà, căn hộ, khách sạn. Hay dùng: 主臥室 (phòng ngủ chính/master), 次臥室 (phòng ngủ phụ), 進臥室 (vào phòng ngủ), 整理臥室 (dọn phòng ngủ).",
+   "co": [
+    "主臥室|phòng ngủ chính",
+    "這間臥室|phòng ngủ này",
+    "臥室門|cửa phòng ngủ",
+    "整理臥室|dọn dẹp phòng ngủ"
+   ],
+   "sy": [
+    "臥房|phòng ngủ",
+    "房間|phòng (thường gọi tắt phòng ngủ trong sinh hoạt)"
+   ],
+   "cf": [
+    "臥房|臥室 và 臥房 đều là phòng ngủ; 臥室 dùng phổ biến hơn trong bản vẽ và tin thuê/mua nhà (như 主臥室), còn 臥房 hơi thiên về văn nói hoặc sắc thái gia đình"
+   ],
+   "lt": "間",
+   "mk": "Trong tiếng Trung Đài Loan không nói *睡覺室 ❌; phải dùng 臥室, 臥房 hoặc gọi thân mật là 房間.",
+   "tw": "Khi tìm thuê nhà ở Đài Loan (trên trang 591 租屋網), tin đăng hay ghi 主臥室 (phòng ngủ chính có nhà tắm riêng) để phân biệt với các phòng nhỏ hơn.",
+   "mh": "Ngọa Thất → wòshì. ĐỌC: 'ngọa' → wò (thanh 4, w + o đọc như 'ua' xuống giọng); 'thất' → shì (thanh 4, âm sh cong lưỡi). NGHĨA: 臥 (nằm nghỉ) + 室 (căn phòng, có bộ 宀 mái nhà) → căn phòng để nằm nghỉ = phòng ngủ.",
+   "vd": [
+    {
+     "t": "Thuê nhà",
+     "zh": "這間公寓有兩間臥室、一個客廳和一間浴室。",
+     "vn": "Căn hộ này có hai phòng ngủ, một phòng khách và một phòng tắm."
+    },
+    {
+     "t": "Nội thất",
+     "zh": "我把大衣櫃放在臥室的角落。",
+     "vn": "Tôi đặt chiếc tủ quần áo lớn ở góc phòng ngủ."
+    },
+    {
+     "t": "Sinh hoạt",
+     "zh": "她的臥室陽臺看出去就是公園，採光很好。",
+     "vn": "Ban công phòng ngủ của cô ấy nhìn ra chính là công viên, đón nắng rất tốt."
+    }
+   ]
+  },
+  "臥房": {
+   "vn": "ngọa phòng; phòng ngủ",
+   "ng": [
+    "(danh từ) phòng ngủ",
+    "(danh từ) toa giường nằm (trên tàu hỏa — ít dùng ở Đài Loan)"
+   ],
+   "us": "Dùng tương tự 臥室 để chỉ phòng ngủ trong nhà ở. Hay đi với tính từ miêu tả: 寬敞的臥房 (phòng ngủ rộng rãi), 溫馨的臥房 (phòng ngủ ấm cúng), 雙人臥房 (phòng ngủ đôi).",
+   "co": [
+    "主臥房|phòng ngủ chính",
+    "一間臥房|một phòng ngủ",
+    "整理臥房|dọn dẹp phòng ngủ",
+    "雙人臥房|phòng ngủ đôi"
+   ],
+   "sy": [
+    "臥室|phòng ngủ",
+    "睡房|phòng ngủ (ít dùng ở Đài Loan)"
+   ],
+   "cf": [
+    "房間|房間 là căn phòng nói chung (có thể là phòng ngủ hoặc phòng trọ); 臥房 chỉ đích danh phòng dùng để ngủ"
+   ],
+   "lt": "間",
+   "tw": "Trong giao tiếp hằng ngày ở Đài Loan mọi người thường gọi ngắn là 房間 (phòng), khi cần phân biệt công năng với 書房 hay 客房 mới nói 臥房 hoặc 臥室.",
+   "mh": "Ngọa Phòng → wòfáng. ĐỌC: 'ngọa' → wò (thanh 4); 'phòng' → fáng (thanh 2). NGHĨA: 臥 (nằm ngủ) + 房 (căn phòng, gồm 戶 cửa + 方) → căn phòng dùng để nằm ngủ = phòng ngủ.",
+   "vd": [
+    {
+     "t": "Trang trí",
+     "zh": "媽媽把這間臥房佈置得很溫暖舒適。",
+     "vn": "Mẹ trang trí phòng ngủ này rất ấm áp và thoải mái."
+    },
+    {
+     "t": "Nhà ở",
+     "zh": "他們家樓上有三間臥房，樓下是客廳和廚房。",
+     "vn": "Trên lầu nhà họ có ba phòng ngủ, tầng dưới là phòng khách và bếp."
+    },
+    {
+     "t": "Nghỉ ngơi",
+     "zh": "他累了一整天，一回家就走進臥房休息。",
+     "vn": "Anh ấy mệt cả một ngày dài, vừa về đến nhà liền đi vào phòng ngủ nghỉ ngơi."
+    }
+   ]
+  },
+  "浴室": {
+   "vn": "dục thất; phòng tắm",
+   "ng": [
+    "(danh từ) phòng tắm, nhà tắm"
+   ],
+   "us": "Chỉ phòng dùng để tắm rửa (có vòi sen hoặc bồn tắm; trong căn hộ Đài Loan đa số gộp cả bồn cầu và bồn rửa mặt). Hay dùng: 去浴室 (vào phòng tắm), 浴室裡 (trong phòng tắm), 乾濕分離的浴室 (phòng tắm tách khu khô - ướt).",
+   "co": [
+    "乾濕分離的浴室|phòng tắm tách khô ướt",
+    "公共浴室|phòng tắm công cộng",
+    "浴室門|cửa phòng tắm",
+    "打掃浴室|cọ rửa phòng tắm"
+   ],
+   "sy": [
+    "洗手間|nhà vệ sinh (lịch sự, nơi công cộng)",
+    "廁所|nhà vệ sinh, toilet"
+   ],
+   "cf": [
+    "廁所 / 洗手間|廁所 và 洗手間 dùng cho nơi đi vệ sinh (ở nhà hàng, trung tâm thương mại chỉ hỏi 洗手間/廁所, không hỏi 浴室); 浴室 nhấn mạnh phòng có vòi sen, bồn tắm ở nhà hoặc khách sạn"
+   ],
+   "lt": "間",
+   "mk": "Ra ngoài đường hoặc vào nhà hàng hỏi nhà vệ sinh tuyệt đối không hỏi *浴室在哪裡？ ❌ (người nghe sẽ tưởng bạn hỏi phòng để tắm!); phải hỏi 洗手間在哪裡？ hoặc 廁所在哪裡？.",
+   "tw": "Khi thuê nhà ở Đài Loan rất hay gặp cụm 乾濕分離的浴室 (phòng tắm ngăn khu khô - ướt) và 獨立衛浴 (vệ sinh khép kín riêng). Lưu ý nhiều nơi ở Đài bỏ giấy vệ sinh vào thùng rác bên cạnh thay vì xả bồn cầu.",
+   "mh": "Dục Thất → yùshì. ĐỌC: 'dục' → yù (thanh 4, u tròn môi viết thành yu đọc gần 'uy'); 'thất' → shì (thanh 4). NGHĨA: 浴 gồm 氵(thủy - nước) + 谷 (thung lũng) → tắm gội bằng nước; 室 (phòng) → phòng dùng để tắm = phòng tắm.",
+   "vd": [
+    {
+     "t": "Sinh hoạt",
+     "zh": "弟弟現在正在浴室裡洗澡，你要等一下。",
+     "vn": "Em trai hiện đang tắm trong phòng tắm, bạn phải đợi một lát."
+    },
+    {
+     "t": "Tìm phòng",
+     "zh": "我們想要找一間有對外窗和獨立浴室的套房。",
+     "vn": "Chúng tôi muốn tìm một phòng trọ khép kín có cửa sổ thông ra ngoài và phòng tắm riêng."
+    },
+    {
+     "t": "Dọn nhà",
+     "zh": "這間浴室的地板很滑，走路要小心一點。",
+     "vn": "Sàn phòng tắm này rất trơn, đi lại phải cẩn thận một chút."
+    }
+   ]
+  },
+  "院(子)": {
+   "vn": "viện (tử); sân, sân nhà, sân vườn",
+   "ng": [
+    "(danh từ) sân, sân vườn, khoảng sân nhà (thường nói 院子)",
+    "(danh từ) (dạng 院) ghép từ chỉ cơ quan, bệnh viện, học viện (醫院, 法院, 學院)"
+   ],
+   "us": "Khi chỉ sân nhà nói 院子 (có đuôi 子): 在院子裡種花 (trồng hoa trong sân). Khi ghép phương hướng thì dùng dạng 1 chữ 院: 前院 (sân trước), 後院 (sân sau), 庭院 (sân vườn). Không dùng 院 đứng một mình để chỉ cái sân.",
+   "co": [
+    "前院|sân trước",
+    "後院|sân sau",
+    "在院子裡|ở trong sân",
+    "打掃院子|quét dọn sân"
+   ],
+   "sy": [
+    "庭院|sân vườn (trang trọng hơn)",
+    "花園|vườn hoa"
+   ],
+   "cf": [
+    "花園|花園 chuyên chỉ vườn trồng nhiều hoa và cây cảnh; 院子 chỉ khoảng sân gắn với ngôi nhà (có thể lát gạch để xe hoặc trồng cây)"
+   ],
+   "lt": "個",
+   "mk": "Khi nói 'trong sân' một mình phải có 子: 在院子裡 (không nói *在院裡 ❌ vì 院 đứng riêng dễ bị hiểu nhầm là bệnh viện 醫院 hoặc cơ quan).",
+   "tw": "Nhà mặt đất truyền thống ở Đài Loan (透天厝) thường có 前院 để xe máy và trồng cây; còn khu chung cư (大樓) thường có 中庭花園 (sân vườn chung ở giữa tòa nhà).",
+   "mh": "Viện (Tử) → yuàn / yuànzi. ĐỌC: 'viện' → yuàn (thanh 4, yu tròn môi đọc 'uyên'); 'tử' → zi (thanh nhẹ). NGHĨA: 院 gồm 阝(phụ - tường đất) + 完 (trọn vẹn) → khu đất có tường bao quanh = khoảng sân (院子) hoặc trụ sở cơ quan lớn (醫院).",
+   "vd": [
+    {
+     "t": "Nhà quê",
+     "zh": "阿公在鄉下的院子裡種了很多青菜和果樹。",
+     "vn": "Ông nội trồng rất nhiều rau xanh và cây ăn quả trong sân nhà ở quê."
+    },
+    {
+     "t": "Thú cưng",
+     "zh": "那隻小狗喜歡在院子裡跑來跑去。",
+     "vn": "Chú chó nhỏ kia thích chạy qua chạy lại ở ngoài sân."
+    },
+    {
+     "t": "Trung Thu",
+     "zh": "中秋節晚上，我們全家人坐在前院一邊烤肉一邊聊天。",
+     "vn": "Tối Tết Trung Thu, cả gia đình chúng tôi ngồi ở sân trước vừa nướng thịt vừa trò chuyện."
+    }
+   ]
+  },
+  "書房": {
+   "vn": "thư phòng; phòng đọc sách; phòng làm việc",
+   "ng": [
+    "(danh từ) phòng đọc sách, phòng làm việc (tại nhà)"
+   ],
+   "us": "Chỉ căn phòng riêng trong nhà dùng để đọc sách, học tập hoặc làm việc. Hay dùng: 在書房看書 (đọc sách trong phòng làm việc), 整理書房 (dọn phòng đọc sách), 當作書房 (dùng làm phòng làm việc).",
+   "co": [
+    "在書房工作|làm việc trong phòng đọc sách",
+    "一間書房|một phòng đọc sách",
+    "書房的書架|kệ sách trong phòng làm việc",
+    "整理書房|dọn dẹp phòng đọc sách"
+   ],
+   "sy": [
+    "工作室|phòng làm việc chuyên dụng, studio",
+    "辦公室|văn phòng (ở công ty)"
+   ],
+   "cf": [
+    "辦公室|辦公室 là văn phòng tại công ty, cơ quan; 書房 là phòng đọc sách, làm việc ở nhà riêng"
+   ],
+   "lt": "間",
+   "mk": "Không dịch 'phòng làm việc ở nhà' là *工作房 ❌ hay dùng nhầm 辦公室 (dễ hiểu là văn phòng công ty); ở nhà người Đài nói 書房 hoặc 工作室.",
+   "tw": "Trong quảng cáo căn hộ ở Đài Loan, dạng nhà 「2+1房」 thường lấy phần diện tích phụ 「+1」 làm 書房 (phòng đọc sách/làm việc tại nhà).",
+   "mh": "Thư Phòng → shūfáng. ĐỌC: 'thư' → shū (thanh 1, sh cong lưỡi); 'phòng' → fáng (thanh 2). NGHĨA: 書 (thư - sách vở) + 房 (phòng - căn phòng) → căn phòng chứa sách để đọc và làm việc = phòng đọc sách.",
+   "vd": [
+    {
+     "t": "Làm việc",
+     "zh": "爸爸下班後常常在書房處理公司的文件。",
+     "vn": "Sau khi tan làm bố thường xử lý tài liệu công ty trong phòng làm việc."
+    },
+    {
+     "t": "Học tập",
+     "zh": "我在書房讀書的時候，希望家裡安靜一點。",
+     "vn": "Khi tôi học bài trong phòng đọc sách, mong trong nhà yên tĩnh một chút."
+    },
+    {
+     "t": "Bố trí nhà",
+     "zh": "這間小房間光線很好，非常適合當作書房。",
+     "vn": "Căn phòng nhỏ này ánh sáng rất tốt, vô cùng thích hợp dùng làm phòng đọc sách."
+    }
+   ]
+  },
+  "洗衣機": {
+   "vn": "tẩy y cơ; máy giặt",
+   "ng": [
+    "(danh từ) máy giặt"
+   ],
+   "us": "Chỉ thiết bị giặt quần áo. Động từ đi kèm: 用洗衣機洗衣服 (giặt đồ bằng máy giặt), 開洗衣機 (bật máy giặt), 把衣服放進洗衣機 (cho quần áo vào máy giặt), 投幣式洗衣機 (máy giặt bỏ xu).",
+   "co": [
+    "用洗衣機|dùng máy giặt",
+    "投幣式洗衣機|máy giặt bỏ xu",
+    "洗衣機壞了|máy giặt hỏng rồi",
+    "洗脫烘洗衣機|máy giặt vắt sấy kết hợp"
+   ],
+   "cf": [
+    "烘衣機|烘衣機 là máy sấy quần áo (hay đặt cạnh 洗衣機 ở Đài Loan vì trời hay mưa); 洗碗機 là máy rửa bát"
+   ],
+   "lt": "臺",
+   "mk": "Lượng từ cho máy móc thiết bị như máy giặt là 臺 (一臺洗衣機), tránh dùng nhầm *一個洗衣機 ❌.",
+   "tw": "Ở Đài Loan máy giặt thường được đặt ngoài ban công (陽臺). Sinh viên ở trọ hay dùng 投幣式洗衣機 (máy giặt bỏ đồng xu 10/50 Đài tệ) hoặc ra tiệm 自助洗衣店 (tiệm giặt sấy tự động mở 24h).",
+   "mh": "Tẩy Y Cơ → xǐyījī. ĐỌC: 'tẩy' → xǐ (thanh 3, x + i đọc nhẹ như 'xỉ'); 'y' → yī (thanh 1); 'cơ' → jī (thanh 1). NGHĨA: 洗 (tẩy - giặt rửa) + 衣 (y - quần áo) + 機 (cơ - máy móc) → máy dùng để giặt quần áo = máy giặt.",
+   "vd": [
+    {
+     "t": "Việc nhà",
+     "zh": "請幫我把這些髒衣服放進洗衣機裡。",
+     "vn": "Làm ơn giúp tôi cho đống quần áo bẩn này vào trong máy giặt."
+    },
+    {
+     "t": "Thuê trọ",
+     "zh": "租屋處的陽臺有一臺大家共用的洗衣機。",
+     "vn": "Ngoài ban công chỗ thuê trọ có một chiếc máy giặt mọi người dùng chung."
+    },
+    {
+     "t": "Sửa chữa",
+     "zh": "家裡的洗衣機好像壞了，洗到一半就停下來。",
+     "vn": "Máy giặt ở nhà hình như hỏng rồi, giặt được nửa chừng thì dừng lại."
+    }
+   ]
+  },
+  "餐桌": {
+   "vn": "xan trác; bàn ăn",
+   "ng": [
+    "(danh từ) bàn ăn"
+   ],
+   "us": "Chỉ chiếc bàn dùng để ăn cơm. Thường đi với từ chỉ vị trí: 在餐桌上 (trên bàn ăn), 坐在餐桌旁 (ngồi bên bàn ăn), 擦餐桌 (lau bàn ăn), 擺上餐桌 (bày lên bàn ăn).",
+   "co": [
+    "坐在餐桌旁|ngồi bên bàn ăn",
+    "在餐桌上|ở trên bàn ăn",
+    "擦餐桌|lau bàn ăn",
+    "一張餐桌|một chiếc bàn ăn"
+   ],
+   "cf": [
+    "書桌 / 飯桌|書桌 là bàn học/bàn viết; 飯桌 mang tính khẩu ngữ gia đình giống 餐桌, nhưng 餐桌 phổ biến và trang nhã hơn (dùng cả ở nhà hàng, cửa hàng nội thất)"
+   ],
+   "lt": "張",
+   "mk": "Lượng từ của bàn là 張 (一張餐桌), không dùng *一個餐桌 ❌.",
+   "tw": "Căn hộ chung cư nhỏ ở Đài Loan thường thiết kế liền phòng khách và khu ăn uống (客餐廳), đặt một 張餐桌 vừa dùng ăn cơm vừa làm việc hoặc tiếp bạn bè.",
+   "mh": "Xan Trác → cānzhuō. ĐỌC: 'xan' → cān (thanh 1, âm c bật hơi); 'trác' → zhuō (thanh 1, zh cong lưỡi). NGHĨA: 餐 (bữa ăn) + 桌 (cái bàn, bộ 木 gỗ) → cái bàn dùng cho bữa ăn = bàn ăn.",
+   "vd": [
+    {
+     "t": "Bữa tối",
+     "zh": "晚餐已經煮好了，快點來餐桌這邊吃飯吧。",
+     "vn": "Bữa tối nấu xong rồi, mau lại phía bàn ăn này ăn cơm thôi."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "我們想買一張大一點的實木餐桌，這樣客人來才坐得下。",
+     "vn": "Chúng tôi muốn mua một chiếc bàn ăn gỗ tự nhiên lớn hơn chút, như vậy khách đến mới ngồi đủ."
+    },
+    {
+     "t": "Dọn dẹp",
+     "zh": "吃完飯以後，記得把餐桌上的碗盤收進廚房。",
+     "vn": "Sau khi ăn cơm xong, nhớ dọn bát đĩa trên bàn ăn vào bếp nhé."
+    }
+   ]
+  },
+  "打開": {
+   "vn": "đả khai; mở ra; bật lên",
+   "ng": [
+    "(động từ) mở ra (cửa, cửa sổ, hộp, sách, dù, gói hàng, tập tin)",
+    "(động từ) bật lên (đèn, ti vi, máy tính, điều hòa — khẩu ngữ thường dùng gọn là 開)",
+    "(động từ) mở rộng, khai mở (打開心門 mở lòng, 打開市場 mở rộng thị trường)"
+   ],
+   "us": "Động từ kết quả (V + 開): 打開門 (mở cửa), 打開窗戶 (mở cửa sổ), 打開箱子 (mở thùng), 打開電腦 (bật máy tính), 打開書 (mở sách). Có thể tách khi dùng khả năng: 打得開 (mở được), 打不開 (không mở được).",
+   "co": [
+    "打開門|mở cửa",
+    "打開窗戶|mở cửa sổ",
+    "打不開|không mở ra được",
+    "打開包裝|mở bao bì"
+   ],
+   "sy": [
+    "開啟|bật, khởi động, mở (trang trọng/giao diện phần mềm)"
+   ],
+   "an": [
+    "關上|đóng lại",
+    "關掉|tắt đi"
+   ],
+   "cf": [
+    "開|開 dùng cho hầu hết hành động mở/bật (開車, 開燈, 開門); 打開 nhấn mạnh thao tác dùng tay mở vật đang đóng/gấp/bọc kín (打開盒子, 打開雨傘) hoặc mở rộng thông thoáng (打開窗戶)"
+   ],
+   "lt": "Dạng khả năng mới tách thành 打得開 / 打不開; bình thường giữ liền rồi đặt tân ngữ sau: 打開盒子 (hoặc 把盒子打開).",
+   "mk": "Không chèn tân ngữ vào giữa 打開 (*打盒子開 ❌), phải nói 打開盒子 hoặc 把盒子打開. Ngoài ra khi nói 'bật đèn/máy lạnh', khẩu ngữ Đài hay nói gọn 開燈 / 開冷氣 hơn.",
+   "tw": "Ở Đài Loan trên bao bì đồ ăn vặt, hộp sữa hoặc thùng hàng hay in mũi tên ghi 「由此打開」 (mở từ đây) hoặc 「打開即可食用」 (mở ra là ăn được ngay).",
+   "mh": "Đả Khai → dǎkāi. ĐỌC: 'đả' → dǎ (thanh 3); 'khai' → kāi (thanh 1, âm k bật hơi). NGHĨA: 打 (tác động bằng tay, bộ 扌 thủ) + 開 (mở ra) → dùng tay tác động cho mở ra = mở, bật.",
+   "vd": [
+    {
+     "t": "Nhận hàng",
+     "zh": "我回家後馬上打開網購的包裹，看看衣服合不合身。",
+     "vn": "Sau khi về nhà tôi lập tức mở gói hàng mua trên mạng ra xem quần áo có vừa không."
+    },
+    {
+     "t": "Mở khóa",
+     "zh": "這道大門鎖住了，沒有鑰匙的話就沒辦法打開。",
+     "vn": "Cánh cửa chính này khóa rồi, nếu không có chìa khóa thì không thể nào mở ra được."
+    },
+    {
+     "t": "Thông gió",
+     "zh": "房間裡有點悶，我們把窗戶打開讓空氣流通一下。",
+     "vn": "Trong phòng hơi ngột ngạt, chúng ta mở cửa sổ ra cho không khí lưu thông chút đi."
+    }
+   ]
+  },
+  "箱/箱(子)": {
+   "vn": "tương (tử); thùng, hộp (lượng từ); cái thùng, cái rương",
+   "ng": [
+    "(danh từ) cái thùng, cái hộp lớn, cái rương, vali (thường nói 箱子, hoặc ghép 紙箱 thùng giấy, 行李箱 vali)",
+    "(lượng từ) thùng, hộp (dạng 1 chữ 箱: 一箱書 một thùng sách, 兩箱芒果 hai thùng xoài)"
+   ],
+   "us": "Khi làm danh từ độc lập phải có 子: 一個箱子 (một cái thùng), 把東西放進箱子裡 (bỏ đồ vào thùng). Khi làm lượng từ chỉ dùng 箱 (không có 子): 一箱水 (một thùng nước), 買了兩箱蘋果 (mua hai thùng táo).",
+   "co": [
+    "一箱水|một thùng nước",
+    "紙箱|thùng carton",
+    "行李箱|vali hành lý",
+    "大箱子|cái thùng lớn"
+   ],
+   "sy": [
+    "盒(子)|hộp nhỏ (thường kích thước nhỏ vừa tay hơn 箱子)"
+   ],
+   "cf": [
+    "盒子|盒子 dùng cho hộp nhỏ gọn (禮物盒 hộp quà, 便當盒 hộp cơm); 箱子 dùng cho thùng/hộp to đựng được nhiều đồ (紙箱 thùng giấy, 行李箱 vali)"
+   ],
+   "lt": "個 (cho danh từ 箱子: 一個箱子); bản thân chữ 箱 là lượng từ (一箱).",
+   "mk": "Không nói *一箱子書 ❌ khi dùng làm lượng từ; lượng từ chỉ dùng 一箱書. Ngược lại, khi dùng làm danh từ đứng một mình thì cần có 子: 買一個箱子.",
+   "tw": "Ở Đài Loan người dân hay mua nước đóng chai hoặc hoa quả đặc sản (xoài 芒果, bưởi 文旦) theo thùng 「一箱一箱買」; lúc chuyển nhà hay xin 紙箱 (thùng giấy) miễn phí ở siêu thị 全聯 hoặc cửa hàng tiện lợi 超商.",
+   "mh": "Tương (Tử) → xiāng / xiāngzi. ĐỌC: 'tương' → xiāng (thanh 1, đọc nhẹ nhàng 'siang'); 'tử' → zi (thanh nhẹ). NGHĨA: 箱 gồm bộ 竹 (trúc - tre) + 相 (tương) → vật đan ghép bằng tre có hình dáng vuông vức để đựng đồ = hòm, thùng, hộp.",
+   "vd": [
+    {
+     "t": "Dọn nhà",
+     "zh": "我們把不常穿的冬衣都放進大箱子裡收好。",
+     "vn": "Chúng tôi cất hết quần áo mùa đông ít mặc vào trong thùng lớn."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "他從臺南訂了一箱新鮮的芒果寄給朋友。",
+     "vn": "Anh ấy đặt một thùng xoài tươi từ Đài Nam gửi tặng bạn bè."
+    },
+    {
+     "t": "Nhận đồ",
+     "zh": "請把這個裝滿書的箱子搬到二樓去。",
+     "vn": "Xin hãy khiêng chiếc thùng đựng đầy sách này lên tầng hai."
+    }
+   ]
+  },
+  "層": {
+   "vn": "tằng; tầng (nhà); lớp (bụi, sơn, áo)",
+   "ng": [
+    "(lượng từ) tầng (của tòa nhà: 五層樓 nhà 5 tầng, 樓上那層 tầng trên kia)",
+    "(lượng từ) lớp, tầng (bụi, sơn, áo, kem, ý nghĩa: 一層灰 một lớp bụi, 穿兩層衣服 mặc hai lớp áo)"
+   ],
+   "us": "Dùng đếm tổng số tầng nhà hoặc chỉ vị trí lớp: 這棟大樓有十層 (tòa nhà này có 10 tầng), 兩層樓高的房子 (ngôi nhà cao 2 tầng), 一層雪 (một lớp tuyết), 多穿一層衣服 (mặc thêm một lớp áo).",
+   "co": [
+    "這棟樓有幾層|tòa nhà này có mấy tầng",
+    "兩層樓|hai tầng lầu",
+    "一層灰|một lớp bụi",
+    "多穿一層|mặc thêm một lớp áo"
+   ],
+   "sy": [
+    "樓|tầng (khi gọi số tầng cụ thể: 一樓, 二樓)"
+   ],
+   "cf": [
+    "樓|樓 dùng trực tiếp sau số để chỉ tầng thứ mấy (我住五樓 tôi ở tầng 5, không nói *我住五層); 層 dùng để đếm tổng số tầng (有五層樓) hoặc đếm lớp vật chất (一層油 một lớp dầu)"
+   ],
+   "lt": "Là lượng từ chuyên dùng cho tầng lầu (樓層) và các vật xếp thành lớp.",
+   "mk": "Người Việt hay dịch 'tôi ở tầng 3' thành *我住三層 ❌; người Đài Loan nói 我住三樓 hoặc 我住在三樓 (chỉ nói 第三層 cho ngăn tủ, tầng bánh hoặc văn viết).",
+   "tw": "Ở Đài Loan trong thang máy ghi 樓層 (tầng lầu), tầng trệt gọi là 一樓 (1F), tầng hầm gọi là 地下一樓 (B1). Nhà ống nhiều tầng ở khu dân cư gọi là 透天厝 (thường 3~4 層樓).",
+   "mh": "Tằng → céng. ĐỌC: 'tằng' → céng (thanh 2, âm c bật hơi 'tsxớng'). NGHĨA: Bộ mái che trên + 曾 (tằng - chất chồng lên) → các lớp chồng lên nhau = tầng, lớp.",
+   "vd": [
+    {
+     "t": "Kiến trúc",
+     "zh": "學校對面那棟新大樓一共有十二層。",
+     "vn": "Tòa nhà mới đối diện trường học tổng cộng có mười hai tầng."
+    },
+    {
+     "t": "Nấu ăn",
+     "zh": "這個生日蛋糕裡面夾了好幾層水果和奶油。",
+     "vn": "Chiếc bánh sinh nhật này bên trong kẹp mấy lớp trái cây và kem tươi."
+    },
+    {
+     "t": "Dọn dẹp",
+     "zh": "這張桌子太久沒擦，上面積了厚厚的一層灰。",
+     "vn": "Chiếc bàn này lâu quá không lau, bên trên đóng một lớp bụi dày."
+    }
+   ]
+  },
+  "櫃(子)": {
+   "vn": "quỹ (tử); cái tủ",
+   "ng": [
+    "(danh từ) cái tủ, tủ đựng đồ (thường gọi 櫃子)",
+    "(danh từ) (dạng 櫃) ghép từ chỉ loại tủ cụ thể hoặc quầy giao dịch (衣櫃 tủ quần áo, 書櫃 tủ sách, 鞋櫃 tủ giày, 櫃檯 quầy thu ngân/lễ tân)"
+   ],
+   "us": "Khi gọi cái tủ chung chung thì phải dùng 櫃子: 打開櫃子 (mở tủ), 把碗放進櫃子裡 (cất bát vào tủ). Khi ghép tên loại tủ phía trước thì bỏ 子: 衣櫃 (tủ quần áo), 書櫃 (tủ sách), 鞋櫃 (tủ giày).",
+   "co": [
+    "打開櫃子|mở tủ ra",
+    "衣櫃|tủ quần áo",
+    "鞋櫃|tủ giày",
+    "置物櫃|tủ gửi đồ / tủ locker"
+   ],
+   "sy": [
+    "櫥|tủ (thường dùng trong 碗櫥 tủ bát, 櫥窗 tủ kính trưng bày)"
+   ],
+   "cf": [
+    "箱子|箱子 là thùng/hộp di động để đóng gói chứa đồ; 櫃子 là tủ nội thất cố định có cánh cửa hoặc ngăn kéo"
+   ],
+   "lt": "個 (一個櫃子)",
+   "mk": "Chú ý không ghép thừa thành *衣櫃子 ❌ hay *書櫃子 ❌; đã nói loại tủ cụ thể thì bỏ 子 (衣櫃, 書櫃), chỉ nói 櫃子 khi gọi chung.",
+   "tw": "Ở các ga tàu điện ngầm MRT (捷運站) và ga tàu hỏa Đài Loan đều có 置物櫃 hoặc 寄物櫃 (tủ gửi đồ tự động) rất tiện cho khách du lịch. Ngoài ra quầy thu ngân/lễ tân ở Đài gọi là 櫃檯.",
+   "mh": "Quỹ (Tử) → guì / guìzi. ĐỌC: 'quỹ' → guì (thanh 4, đọc gần 'guây' hạ mạnh); 'tử' → zi (thanh nhẹ). NGHĨA: 櫃 gồm bộ 木 (mộc - gỗ) + 匱 (quỹ - hộp đựng quý) → đồ nội thất làm bằng gỗ dùng để cất giữ đồ đạc = cái tủ.",
+   "vd": [
+    {
+     "t": "Phòng khách",
+     "zh": "請把這雙鞋子整齊地放進門口的櫃子裡。",
+     "vn": "Xin hãy xếp đôi giày này ngay ngắn vào trong tủ ở cửa ra vào."
+    },
+    {
+     "t": "Cất đồ",
+     "zh": "你需要用的剪刀和膠帶就在左邊那個櫃子的第二層。",
+     "vn": "Cái kéo và băng dính bạn cần dùng nằm ngay ở ngăn thứ hai của chiếc tủ bên trái kia."
+    },
+    {
+     "t": "Mua nội thất",
+     "zh": "房間太小了，沒辦法再多放一個大櫃子。",
+     "vn": "Phòng nhỏ quá rồi, không thể đặt thêm một cái tủ lớn nữa."
+    }
+   ]
+  },
+  "大門": {
+   "vn": "đại môn; cổng chính, cửa chính",
+   "ng": [
+    "(danh từ) cửa chính, cổng chính (của nhà, tòa nhà, trường học, công viên)",
+    "(danh từ) (nghĩa mở rộng) cánh cửa bước vào lĩnh vực, cơ hội mới"
+   ],
+   "us": "Chỉ cổng lớn hoặc cửa ra vào chính thức của ngôi nhà, tòa nhà, khuôn viên trường. Hay dùng: 學校大門 (cổng chính trường học), 大門口 (ngay trước cổng chính), 鎖大門 (khóa cửa chính), 從大門進來 (đi vào từ cửa chính).",
+   "co": [
+    "大門口|trước cổng chính",
+    "學校大門|cổng chính trường học",
+    "關上大門|đóng cửa chính",
+    "鎖好大門|khóa kỹ cửa chính"
+   ],
+   "sy": [
+    "正門|cửa chính (đối lập với 側門 cửa phụ, 後門 cửa sau)"
+   ],
+   "an": [
+    "後門|cửa sau",
+    "側門|cửa bên, cửa phụ"
+   ],
+   "cf": [
+    "門口|門口 chỉ khu vực ngay trước cửa bất kỳ (cửa phòng, cửa tiệm); 大門 chỉ bản thân cánh cổng/cửa lớn chính thức của cả ngôi nhà hay khuôn viên"
+   ],
+   "lt": "扇、道 (hoặc 個)",
+   "mk": "Không gọi cửa phòng ngủ hay cửa nhà vệ sinh bên trong là *大門 ❌; các cửa nhỏ bên trong nhà chỉ gọi là 門 hoặc 房門.",
+   "tw": "Các tòa nhà chung cư ở Đài Loan thường có 大門 lắp khóa thẻ từ (門禁卡) và có bác bảo vệ (管理員) trực ngay 大門口 để giữ an ninh và nhận bưu kiện giúp cư dân.",
+   "mh": "Đại Môn → dàmén. ĐỌC: 'đại' → dà (thanh 4); 'môn' → mén (thanh 2). NGHĨA: 大 (to lớn) + 門 (cánh cửa, vẽ hình hai cánh cửa khép lại) → cánh cửa lớn nhất của nhà hay khuôn viên = cổng chính, cửa chính.",
+   "vd": [
+    {
+     "t": "Hẹn gặp",
+     "zh": "我們約好下午兩點在博物館的大門口見面。",
+     "vn": "Chúng tôi hẹn nhau hai giờ chiều gặp mặt ở trước cổng chính bảo tàng."
+    },
+    {
+     "t": "An ninh",
+     "zh": "晚上睡覺前，一定要確認家裡的大門有沒有鎖好。",
+     "vn": "Buổi tối trước khi đi ngủ, nhất định phải kiểm tra xem cửa chính trong nhà đã khóa kỹ chưa."
+    },
+    {
+     "t": "Trường học",
+     "zh": "走到學校大門的時候，剛好下起了一場大雨。",
+     "vn": "Khi đi đến cổng chính trường học thì vừa lúc đổ một cơn mưa lớn."
+    }
+   ]
+  },
+  "熱鬧": {
+   "vn": "nhiệt náo; náo nhiệt, nhộn nhịp, đông vui",
+   "ng": [
+    "(tính từ) náo nhiệt, nhộn nhịp, tấp nập, đông vui",
+    "(động từ) khuấy động không khí cho vui vẻ (熱鬧一下 làm cho rộn ràng chút)",
+    "(danh từ) cảnh náo nhiệt, cuộc vui (看熱鬧 xem náo nhiệt, 湊熱鬧 góp vui, hùa theo)"
+   ],
+   "us": "Thường làm vị ngữ miêu tả nơi chốn, sự kiện: 很熱鬧 (rất náo nhiệt), 非常熱鬧 (vô cùng nhộn nhịp). Cũng dùng 熱鬧一下 (vui vẻ náo nhiệt chút), 湊熱鬧 (tham gia góp vui), 看熱鬧 (đứng xem cho vui/hóng chuyện).",
+   "co": [
+    "非常熱鬧|vô cùng nhộn nhịp",
+    "看熱鬧|xem náo nhiệt, hóng chuyện",
+    "湊熱鬧|góp vui, hùa theo đám đông",
+    "熱鬧的夜市|chợ đêm náo nhiệt"
+   ],
+   "sy": [
+    "繁華|phồn hoa, sầm uất",
+    "吵鬧|ồn ào (thiên về nghĩa tiêu cực hơn)"
+   ],
+   "an": [
+    "冷清|vắng vẻ, đìu hiu",
+    "安靜|yên tĩnh"
+   ],
+   "cf": [
+    "吵|熱鬧 mang sắc thái tích cực, vui tươi, đông người qua lại (夜市很熱鬧); 吵 mang sắc thái tiêu cực, gây phiền nhiễu (這裡太吵了)"
+   ],
+   "lt": "Dạng lặp lại kiểu AABB là 熱熱鬧鬧 (rộn ràng vui vẻ).",
+   "mk": "Đừng dùng 熱鬧 để khen một người nói nhiều hay miêu tả tiếng ồn khó chịu; tiếng ồn khó chịu phải dùng 吵.",
+   "tw": "Ở Đài Loan, từ 熱鬧 gắn liền với không khí 夜市 (chợ đêm), lễ hội 廟會 (miếu hội) hay dịp 過年 (Tết Nguyên Đán). Câu chúc Tết hay nói 「熱熱鬧鬧過新年」.",
+   "mh": "Nhiệt Náo → rènao. ĐỌC: 'nhiệt' → rè (thanh 4, âm r cong lưỡi đọc gần 'rơ'); 'náo' → nao (thanh nhẹ, đọc nhẹ nhàng hơn âm gốc nào). NGHĨA: 熱 (nóng, có 灬 bốn chấm hỏa) + 鬧 (náo nhiệt, gồm 門 cổng + 市 chợ) → đông đúc ấm nóng như phiên chợ = náo nhiệt, đông vui.",
+   "vd": [
+    {
+     "t": "Chợ đêm",
+     "zh": "到了週末晚上，臺中的逢甲夜市總是特別熱鬧。",
+     "vn": "Đến tối cuối tuần, chợ đêm Phùng Giáp ở Đài Trung lúc nào cũng đặc biệt náo nhiệt."
+    },
+    {
+     "t": "Đón Tết",
+     "zh": "大家聚在一起吃年夜飯，家裡顯得非常熱鬧。",
+     "vn": "Mọi người quây quần bên nhau ăn bữa cơm tất niên, trong nhà trở nên vô cùng rộn ràng."
+    },
+    {
+     "t": "Lễ hội",
+     "zh": "今天街上有迎神活動，好多人都跑出來看熱鬧。",
+     "vn": "Hôm nay ngoài phố có lễ rước thần, rất nhiều người chạy ra xem náo nhiệt."
+    }
+   ]
+  },
+  "吵": {
+   "vn": "sảo; ồn ào; làm ồn; cãi nhau",
+   "ng": [
+    "(tính từ) ồn ào, inh ỏi (很吵 rất ồn, 太吵了 ồn quá)",
+    "(động từ) làm ồn, làm phiền (別吵 đừng làm ồn, 吵到別人 làm phiền người khác, 吵醒 đánh thức bằng tiếng ồn)",
+    "(động từ) cãi nhau, tranh cãi (吵架 cãi nhau, 吵起來 bắt đầu cãi nhau)"
+   ],
+   "us": "Miêu tả tiếng ồn: 這裡很吵 (ở đây ồn quá). Làm phiền người khác: 吵到鄰居 (làm ồn đến hàng xóm), 吵死人了 (ồn chết đi được). Cãi vã: 吵架 (cãi nhau), 為了小事吵起來 (cãi nhau vì chuyện nhỏ).",
+   "co": [
+    "太吵了|ồn quá đi",
+    "吵架|cãi nhau",
+    "吵到別人|làm phiền người khác",
+    "別吵|đừng làm ồn"
+   ],
+   "sy": [
+    "吵鬧|ồn ào, náo loạn",
+    "爭吵|tranh cãi"
+   ],
+   "an": [
+    "安靜|yên tĩnh"
+   ],
+   "cf": [
+    "熱鬧|熱鬧 là đông vui náo nhiệt (ý tốt); 吵 là tiếng động lớn gây khó chịu (ý xấu)",
+    "吵架|吵 đứng một mình dễ hiểu là 'ồn ào'; khi nói rõ 'hai người cãi nhau' nên dùng 吵架 (他們吵架了)"
+   ],
+   "lt": "Hay dùng với bổ ngữ 吵到 + người (làm phiền ai), 吵醒 + người (làm ai tỉnh giấc).",
+   "mk": "Khi muốn nói 'hai người họ đang cãi nhau', không nói *他們在吵 ❌ cụt lủn dễ hiểu nhầm là 'họ đang làm ồn', nên nói rõ 他們在吵架.",
+   "tw": "Ở Đài Loan trong ký túc xá, quán cà phê hay tàu điện ngầm MRT, mọi người rất chú trọng giữ yên tĩnh để không 吵到別人 (làm phiền người khác). Tại Đài Loan chữ 吵 luôn đọc thanh 3 chǎo.",
+   "mh": "Sảo → chǎo. ĐỌC: 'sảo' → chǎo (thanh 3, âm ch cong lưỡi bật hơi). NGHĨA: Bộ 口 (khẩu - miệng) + 少 (thiểu - ít/nhỏ) → cái miệng nhỏ mà nói không ngừng gây inh ỏi = ồn ào, cãi vã.",
+   "vd": [
+    {
+     "t": "Tìm nhà",
+     "zh": "這間房子雖然便宜，可是離馬路太近，晚上會有點吵。",
+     "vn": "Căn nhà này tuy rẻ nhưng gần đường lớn quá, buổi tối sẽ hơi ồn."
+    },
+    {
+     "t": "Cư xử",
+     "zh": "圖書館裡大家都需要安靜，請不要大聲說話吵到別人。",
+     "vn": "Trong thư viện mọi người đều cần yên tĩnh, xin đừng nói lớn tiếng làm phiền người khác."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "兩兄弟剛才為了搶玩具又吵了一架。",
+     "vn": "Hai anh em vừa nãy vì tranh đồ chơi lại cãi nhau một trận."
+    }
+   ]
+  },
+  "亂": {
+   "vn": "loạn; bừa bộn, lộn xộn; bừa, lung tung",
+   "ng": [
+    "(tính từ) bừa bộn, lộn xộn, ngổn ngang (房間很亂 phòng rất bừa bộn)",
+    "(tính từ) rối bời, hỗn loạn (心裡很亂 lòng rối bời, 交通很亂 giao thông hỗn loạn)",
+    "(phó từ) bừa bãi, lung tung, bậy bạ (đứng trước động từ: 亂說 nói bậy, 亂丟垃圾 vứt rác bừa bãi, 亂買東西 mua đồ lung tung)"
+   ],
+   "us": "Dùng làm tính từ: 房間好亂 (phòng bừa quá), 頭髮很亂 (tóc rối bù). Dùng làm phó từ đặt TRƯỚC động từ chỉ làm tùy tiện, không quy củ: 亂講 (nói bừa), 亂花錢 (tiêu tiền bừa bãi), 亂跑 (chạy lung tung).",
+   "co": [
+    "房間很亂|phòng rất bừa bộn",
+    "亂丟垃圾|vứt rác bừa bãi",
+    "亂花錢|tiêu tiền lung tung",
+    "心裡很亂|trong lòng rối bời"
+   ],
+   "sy": [
+    "雜亂|lộn xộn, tạp nham",
+    "混亂|hỗn loạn"
+   ],
+   "an": [
+    "整齊|ngăn nắp, gọn gàng",
+    "有序|có trật tự"
+   ],
+   "cf": [
+    "髒|髒 là bẩn, dơ (nhiều bụi bẩn, vết bẩn); 亂 là bừa bộn, đồ đạc vứt lung tung không ngăn nắp. Hai chữ hay ghép thành 又髒又亂 (vừa bẩn vừa bừa)"
+   ],
+   "lt": "Dùng với phó từ mức độ: 很亂, 亂七八糟 (bừa bộn lung tung). Khi làm phó từ luôn đứng TRƯỚC động từ (亂說話).",
+   "mk": "Người Việt hay dịch 'nói bậy/mua bừa' rồi đặt 亂 ra sau động từ (*買亂 ❌, *說亂 ❌); tiếng Hoa PHẢI đặt 亂 trước động từ: 亂買, 亂說.",
+   "tw": "Ở Đài Loan nơi công cộng hay có biển cảnh báo 「請勿亂丟垃圾」 (Cấm vứt rác bừa bãi) hoặc 「請勿亂停車」 (Cấm đỗ xe bừa bãi). Khẩu ngữ Đài cũng hay nói 「別亂講！」 (Đừng có nói bậy!).",
+   "mh": "Loạn → luàn. ĐỌC: 'loạn' → luàn (thanh 4, vần uan đọc như 'oan' hạ giọng). NGHĨA: Bên trái hình hai tay gỡ tơ rối, bên phải bộ 乙 (móc) → gỡ mãi không ra tơ vò = rối loạn, bừa bộn, lung tung.",
+   "vd": [
+    {
+     "t": "Phòng ốc",
+     "zh": "你的書桌上太亂了，趕快整理一下吧。",
+     "vn": "Trên bàn học của bạn bừa bộn quá rồi, mau dọn dẹp một chút đi."
+    },
+    {
+     "t": "Ý thức chung",
+     "zh": "在公園裡大家都要愛護環境，不可以亂丟垃圾。",
+     "vn": "Ở trong công viên mọi người đều phải giữ gìn môi trường, không được vứt rác bừa bãi."
+    },
+    {
+     "t": "Tâm trạng",
+     "zh": "最近發生太多事情，讓我心裡覺得很亂。",
+     "vn": "Gần đây xảy ra quá nhiều chuyện khiến trong lòng tôi cảm thấy rất rối bời."
+    }
+   ]
+  },
+  "房東": {
+   "vn": "phòng đông; chủ nhà (cho thuê)",
+   "ng": [
+    "(danh từ) chủ nhà, chủ trọ (người cho thuê nhà hoặc phòng)"
+   ],
+   "us": "Chỉ chủ sở hữu căn nhà/phòng cho thuê. Thường dùng: 找房東 (tìm chủ nhà), 跟房東簽約 (ký hợp đồng với chủ nhà), 房東太太 (bà chủ nhà), 房東人很好 (chủ nhà rất tốt tính).",
+   "co": [
+    "房東太太|bà chủ nhà",
+    "跟房東簽約|ký hợp đồng với chủ nhà",
+    "聯絡房東|liên lạc với chủ nhà",
+    "好房東|chủ nhà tốt"
+   ],
+   "an": [
+    "房客|người thuê nhà, khách trọ"
+   ],
+   "cf": [
+    "主人|主人 là chủ nhân nói chung (chủ nhà khi tiếp khách, chủ nuôi thú cưng); 房東 chuyên chỉ chủ nhà cho thuê phòng/nhà (đối lập với 房客 người thuê)"
+   ],
+   "lt": "個、位 (一位房東)",
+   "mk": "Đừng gọi chủ nhà trọ là *屋主 ❌ nếu đang nhấn mạnh quan hệ thuê và thu tiền nhà hằng tháng; người thuê gọi bên cho mình thuê là 房東 (còn 屋主 là chủ sở hữu khi mua bán nhà).",
+   "tw": "Ở Đài Loan khi thuê nhà, người thuê thường đóng 押金 (tiền cọc, thường 2 tháng) cho 房東 và có thể trao đổi với 房東 về việc xin 租屋補助 (trợ cấp thuê nhà của chính phủ Đài Loan).",
+   "mh": "Phòng Đông → fángdōng. ĐỌC: 'phòng' → fáng (thanh 2); 'đông' → dōng (thanh 1). NGHĨA: 房 (căn nhà, phòng) + 東 (đông - xưa chủ nhà ngồi ở phía đông khi tiếp khách nên 東 chỉ người làm chủ) → chủ cho thuê nhà = chủ nhà.",
+   "vd": [
+    {
+     "t": "Thuê phòng",
+     "zh": "我們的房東人很親切，東西壞了都會馬上請人來修。",
+     "vn": "Chủ nhà của chúng tôi rất thân thiện, đồ đạc hỏng đều lập tức gọi người tới sửa."
+    },
+    {
+     "t": "Ký hợp đồng",
+     "zh": "昨天我和房東簽了一年的租屋合約。",
+     "vn": "Hôm qua tôi và chủ nhà đã ký hợp đồng thuê nhà một năm."
+    },
+    {
+     "t": "Báo sửa đồ",
+     "zh": "房間的冷氣不涼了，我得打電話通知房東。",
+     "vn": "Máy lạnh trong phòng không mát nữa, tôi phải gọi điện báo cho chủ nhà."
+    }
+   ]
+  },
+  "房屋": {
+   "vn": "phòng ốc; nhà cửa, nhà ở",
+   "ng": [
+    "(danh từ) nhà cửa, căn nhà, bất động sản nhà ở (thiên về văn viết, hành chính, giao dịch)"
+   ],
+   "us": "Mang sắc thái trang trọng, hành chính hơn 房子. Hay dùng trong hợp đồng, tin tức, thuế, môi giới bất động sản: 房屋仲介 (môi giới nhà đất), 房屋出租 (cho thuê nhà), 房屋稅 (thuế nhà ở), 修理房屋 (sửa sang nhà cửa).",
+   "co": [
+    "房屋仲介|môi giới nhà đất",
+    "房屋出租|cho thuê nhà",
+    "房屋稅|thuế nhà ở",
+    "房屋修繕|sửa chữa nhà cửa"
+   ],
+   "sy": [
+    "房子|nhà (khẩu ngữ thông dụng)",
+    "住宅|nhà ở (chính quy)"
+   ],
+   "cf": [
+    "房子|房子 dùng cực kỳ phổ biến trong giao tiếp hằng ngày (買房子, 租房子); 房屋 trang trọng hơn, thường gặp trên biển quảng cáo 房屋出租, giấy tờ thuế hoặc luật"
+   ],
+   "lt": "所、套、棟 (hoặc 間)",
+   "mk": "Trong hội thoại thường ngày muốn nói 'tôi muốn thuê nhà', nói 我想租房子 tự nhiên hơn nhiều so với *我想租房屋.",
+   "tw": "Trên đường phố Đài Loan rất dễ thấy các công ty môi giới nhà đất (房屋仲介, gọi tắt là 房仲) như 信義房屋, 永慶房屋, hoặc tờ dán 「房屋出租」 trên bảng tin.",
+   "mh": "Phòng Ốc → fángwū. ĐỌC: 'phòng' → fáng (thanh 2); 'ốc' → wū (thanh 1). NGHĨA: 房 (căn phòng/nhà) + 屋 (ngôi nhà, gồm bộ mái + 至 đến nơi) → công trình nhà cửa nói chung = nhà cửa, nhà ở.",
+   "vd": [
+    {
+     "t": "Thuê nhà",
+     "zh": "捷運站附近常常可以看到房屋出租的廣告。",
+     "vn": "Gần ga tàu điện ngầm thường xuyên có thể thấy quảng cáo cho thuê nhà."
+    },
+    {
+     "t": "Mua bán",
+     "zh": "最近幾年臺北市區的房屋價格越來越高。",
+     "vn": "Mấy năm gần đây giá nhà ở khu vực nội thành Đài Bắc ngày càng cao."
+    },
+    {
+     "t": "Thiên tai",
+     "zh": "昨天晚上的大地震造成幾間老舊房屋受損。",
+     "vn": "Trận động đất lớn tối qua đã khiến vài ngôi nhà cũ bị hư hại."
+    }
+   ]
+  },
+  "開水": {
+   "vn": "khai thủy; nước đun sôi (nước chín)",
+   "ng": [
+    "(danh từ) nước đun sôi, nước chín (nước đã đun sôi xong, bất kể còn nóng hay đã để nguội)"
+   ],
+   "us": "Chỉ nước đã đun sôi để uống được (khác với nước lã 生水). Thường dùng: 喝開水 (uống nước đun sôi), 煮開水 (đun nước sôi), 熱開水 (nước sôi nóng), 溫開水 (nước ấm đã đun sôi), 涼開水 (nước đun sôi để nguội).",
+   "co": [
+    "溫開水|nước ấm đã đun sôi",
+    "涼開水 / 冷開水|nước đun sôi để nguội",
+    "煮開水|đun nước sôi",
+    "多喝開水|uống nhiều nước đun sôi"
+   ],
+   "sy": [
+    "白開水|nước lọc đun sôi (không pha trà hay đường)"
+   ],
+   "an": [
+    "生水|nước lã (chưa đun sôi)"
+   ],
+   "cf": [
+    "熱水|熱水 là nước nóng nói chung (kể cả nước nóng để tắm); 開水 là nước đã đun sôi dùng để uống (nên có cả 冷開水/涼開水 nước sôi để nguội)"
+   ],
+   "lt": "杯、壺、瓶 (一杯溫開水 một cốc nước ấm)",
+   "mk": "Đừng tưởng 開水 lúc nào cũng nóng bỏng; 涼開水 / 冷開水 là nước đã đun sôi để nguội, còn nước máy chưa đun gọi là 生水 (ở Đài Loan nước máy không uống trực tiếp từ vòi).",
+   "tw": "Tại trường học, bệnh viện, ga tàu ở Đài Loan đều có máy lọc nước (飲水機) cung cấp 熱開水, 溫開水 và 冰開水 miễn phí. Ngoài ra người Đài hay dùng 煮開水 (đun nước), còn ở Đại Lục hay nói 燒開水.",
+   "mh": "Khai Thủy → kāishuǐ. ĐỌC: 'khai' → kāi (thanh 1, âm k bật hơi); 'thủy' → shuǐ (thanh 3, sh cong lưỡi, vần uei viết là ui đọc 'uây'). NGHĨA: 開 (mở ra, bùng lên khi nước sôi sùng sục) + 水 (nước) → nước đã được đun sôi.",
+   "vd": [
+    {
+     "t": "Sức khỏe",
+     "zh": "天氣很熱，出門運動要記得多喝開水。",
+     "vn": "Thời tiết rất nóng, ra ngoài vận động nhớ phải uống nhiều nước đun sôi."
+    },
+    {
+     "t": "Uống thuốc",
+     "zh": "吃藥的時候最好配溫開水，不要配茶或咖啡。",
+     "vn": "Lúc uống thuốc tốt nhất nên uống cùng nước ấm đun sôi, đừng uống cùng trà hay cà phê."
+    },
+    {
+     "t": "Tiện ích",
+     "zh": "這家餐廳有免費提供熱開水和冰開水。",
+     "vn": "Nhà hàng này có cung cấp miễn phí nước lọc nóng và nước lọc đá."
+    }
+   ]
+  },
+  "鄉下": {
+   "vn": "hương hạ; nông thôn, miền quê, vùng quê",
+   "ng": [
+    "(danh từ) nông thôn, miền quê, làng quê (vùng ngoài đô thị, yên tĩnh, nhiều ruộng vườn)"
+   ],
+   "us": "Chỉ vùng quê (đối lập với thành phố 城市 / 都市). Hay dùng trực tiếp làm nơi chốn: 在鄉下 (ở quê), 回鄉下 (về quê), 搬到鄉下住 (chuyển về quê sống), 鄉下空氣很好 (không khí ở quê rất trong lành).",
+   "co": [
+    "回鄉下|về quê",
+    "在鄉下長大|lớn lên ở quê",
+    "鄉下地方|vùng quê",
+    "鄉下空氣好|không khí ở quê trong lành"
+   ],
+   "sy": [
+    "農村|nông thôn (mang sắc thái kinh tế - xã hội hơn)",
+    "郊區|ngoại ô"
+   ],
+   "an": [
+    "城市|thành phố",
+    "都市|đô thị"
+   ],
+   "cf": [
+    "老家 / 家鄉|老家 và 家鄉 là 'quê hương/quê nhà' (dù quê ở thành phố lớn vẫn gọi là 老家/家鄉); 鄉下 chỉ 'vùng nông thôn, đồng quê' nói chung"
+   ],
+   "lt": "個 (hoặc dùng trực tiếp với 在/去/回: 在鄉下)",
+   "mk": "Nếu quê bạn ở trung tâm thành phố lớn không nên gọi là 鄉下 (vì 鄉下 nghĩa là vùng quê nông thôn), mà hãy nói 我的家鄉 / 我的老家.",
+   "tw": "Ở Đài Loan chữ 下 trong 鄉下 đọc rõ thanh 4 xiāngxià. Những vùng quê yên bình ở Vân Lâm, Gia Nghĩa, Hoa Liên, Đài Đông thường được gọi thân thương là 鄉下地方, nhịp sống chậm và người dân rất hiếu khách.",
+   "mh": "Hương Hạ → xiāngxià. ĐỌC: 'hương' → xiāng (thanh 1); 'hạ' → xià (thanh 4 chuẩn Đài Loan). NGHĨA: 鄉 (làng xóm, quê hương) + 下 (bên dưới, vùng ngoài kinh thành xưa) → vùng thôn quê ngoài thành thị = nông thôn, miền quê.",
+   "vd": [
+    {
+     "t": "Nghỉ lễ",
+     "zh": "每次放長假，我們都會回鄉下看阿公和阿嬤。",
+     "vn": "Mỗi lần được nghỉ dài ngày, chúng tôi đều về quê thăm ông nội và bà nội."
+    },
+    {
+     "t": "Cuộc sống",
+     "zh": "退休以後，他想搬到鄉下種菜養花，過安靜的生活。",
+     "vn": "Sau khi nghỉ hưu, ông ấy muốn chuyển về quê trồng rau nuôi hoa, sống một cuộc sống yên tĩnh."
+    },
+    {
+     "t": "Môi trường",
+     "zh": "鄉下的晚上沒有光害，抬頭就能看到滿天星星。",
+     "vn": "Buổi tối ở vùng quê không bị ô nhiễm ánh sáng, ngẩng đầu lên là có thể thấy đầy trời sao."
+    }
+   ]
+  },
+  "傘": {
+   "vn": "tán; cái ô, cái dù",
+   "ng": [
+    "(danh từ) cái ô, cái dù (雨傘 dù che mưa, 陽傘 dù che nắng, 摺疊傘 dù gấp)"
+   ],
+   "us": "Động từ đi kèm: 帶傘 (mang theo dù), 撐傘 (giương/che dù - rất phổ biến ở Đài Loan), 打傘 (che dù), 收傘 (thu/gập dù), 忘記帶傘 (quên mang dù).",
+   "co": [
+    "帶傘|mang theo dù",
+    "撐傘|bung dù, che dù",
+    "一把傘|một cây dù",
+    "摺疊傘|dù gấp gọn"
+   ],
+   "sy": [
+    "雨傘|ô/dù che mưa (cách gọi rõ ràng thường dùng)"
+   ],
+   "cf": [
+    "雨衣|雨衣 là áo mưa (ở Đài Loan người chạy xe máy 機車 mặc áo mưa, còn đi bộ thì 撐傘)"
+   ],
+   "lt": "把 (一把傘)",
+   "mk": "Lượng từ của dù là 把 (一把傘 - vật có cán cầm), không dùng *一個傘 ❌. Động từ 'che dù' người Đài hay dùng 撐傘 (chēngsǎn) hơn là 打傘.",
+   "tw": "Đài Loan (đặc biệt phía bắc như Đài Bắc, Cơ Long) mưa bất chợt rất nhiều nên trong cặp ai cũng hay mang một 把摺疊傘 (dù gấp). Trước cửa cửa hàng hay siêu thị Đài Loan luôn có 傘架 (giá cắm dù) hoặc 傘套 (túi bọc dù).",
+   "mh": "Tán → sǎn. ĐỌC: 'tán' → sǎn (thanh 3, âm s đầu lưỡi thẳng). NGHĨA: Chữ 傘 tượng hình rất sinh động: mái vòm bên trên (人) che cho bốn người nhỏ (人) đứng dưới, ở giữa là cán dọc (十) → hình dáng cái ô/cái dù!",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "氣象預報說下午會下雨，你出門記得帶把傘。",
+     "vn": "Dự báo thời tiết nói buổi chiều sẽ mưa, bạn ra ngoài nhớ mang theo một cây dù."
+    },
+    {
+     "t": "Bị ướt mưa",
+     "zh": "我今天忘記帶傘了，結果下班的時候淋成落湯雞。",
+     "vn": "Hôm nay tôi quên mang dù rồi, kết quả lúc tan làm bị ướt như chuột lột."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這把摺疊傘很輕又防風，放在包包裡非常方便。",
+     "vn": "Cây dù gấp này rất nhẹ lại chống gió, để trong túi xách vô cùng tiện lợi."
+    }
+   ]
+  },
+  "朵": {
+   "vn": "đóa; bông, đám (lượng từ cho hoa, mây)",
+   "ng": [
+    "(lượng từ) đóa, bông, đám (dùng cho hoa, đám mây và một số vật xòe tròn như nấm)",
+    "(danh từ) (kết hợp 耳朵) cái tai; (ghép 花朵) bông hoa"
+   ],
+   "us": "Đặt giữa số từ/chỉ thị từ và danh từ: 一朵花 (một bông hoa), 兩朵玫瑰 (hai bông hoa hồng), 一朵白雲 (một đám mây trắng), 一朵香菇 (một tai nấm hương). Cũng dùng trong từ ghép 花朵 (bông hoa), 耳朵 (cái tai).",
+   "co": [
+    "一朵花|một bông hoa",
+    "一朵白雲|một đám mây trắng",
+    "這朵玫瑰|bông hồng này",
+    "花朵|đóa hoa, bông hoa"
+   ],
+   "cf": [
+    "束 / 枝|一朵花 là 1 bông hoa lẻ; 一枝花 là 1 cành hoa (có thân dài); 一束花 là 1 bó hoa nhiều bông"
+   ],
+   "lt": "Là lượng từ chuyên dùng cho hoa (花), mây (雲), đôi khi dùng cho nấm (香菇).",
+   "mk": "Không dùng 個 cho hoa hay mây (*一個花, *一個雲 ❌); phải dùng 朵: 一朵花, 一朵雲.",
+   "tw": "Ngoài dùng cho hoa và mây, trong quán lẩu (火鍋) ở Đài Loan cũng gọi 一朵香菇 (một tai nấm hương) hoặc 一朵花椰菜 (một bông súp lơ).",
+   "mh": "Đóa → duǒ. ĐỌC: 'đóa' → duǒ (thanh 3, vần uo đọc 'ua' xuống rồi lên giọng). NGHĨA: Phần trên mô phỏng bông hoa rủ xuống + bên dưới 木 (mộc - cây cối) → bông hoa nở trên cành cây = đóa, bông.",
+   "vd": [
+    {
+     "t": "Tặng quà",
+     "zh": "母親節的時候，我送給媽媽一朵漂亮的康乃馨。",
+     "vn": "Vào Ngày của Mẹ, tôi tặng mẹ một bông hoa cẩm chướng thật đẹp."
+    },
+    {
+     "t": "Phong cảnh",
+     "zh": "今天的藍天上飄著好幾朵白雲，看起來像棉花糖一樣。",
+     "vn": "Trên bầu trời xanh hôm nay trôi mấy đám mây trắng, trông giống hệt kẹo bông gòn."
+    },
+    {
+     "t": "Trồng cây",
+     "zh": "陽臺上的那盆植物終於開出第一朵小花了。",
+     "vn": "Chậu cây ngoài ban công cuối cùng cũng nở ra bông hoa nhỏ đầu tiên rồi."
+    }
+   ]
+  },
+  "蚊(子)": {
+   "vn": "văn (tử); con muỗi",
+   "ng": [
+    "(danh từ) con muỗi (gọi đầy đủ là 蚊子)",
+    "(danh từ) (dạng 蚊) ghép với từ khác chỉ muỗi hoặc đồ chống muỗi (電蚊拍 vợt muỗi điện, 防蚊液 thuốc xịt chống muỗi, 蚊帳 màn chống muỗi, 小黑蚊 dĩn đen)"
+   ],
+   "us": "Nói con muỗi độc lập luôn dùng 蚊子: 被蚊子叮 / 被蚊子咬 (bị muỗi đốt), 打蚊子 (đập muỗi). Khi tạo từ ghép thường dùng 1 chữ 蚊: 蚊香 (nhang muỗi), 防蚊液 (xịt chống muỗi), 蚊蟲 (muỗi và côn trùng).",
+   "co": [
+    "被蚊子叮|bị muỗi đốt",
+    "被蚊子咬|bị muỗi cắn/đốt",
+    "防蚊液|xịt chống muỗi",
+    "電蚊拍|vợt muỗi điện"
+   ],
+   "lt": "隻 (一隻蚊子)",
+   "mk": "Không gọi con muỗi là *一個蚊子 ❌ (phải dùng lượng từ 隻 cho động vật nhỏ: 一隻蚊子), và không bỏ 子 khi nói câu độc lập (*打蚊 ❌ -> 打蚊子).",
+   "tw": "Ở Đài Loan mùa hè rất nhiều 蚊子, đặc biệt ở vùng núi, công viên có 小黑蚊 (loài dĩn đen nhỏ đốt rất ngứa). Người Đài hay dùng 電蚊拍 (vợt muỗi điện) và mang theo 防蚊液 khi đi dã ngoại. 'Bị muỗi đốt' nói là 被蚊子叮 hoặc 被蚊子咬.",
+   "mh": "Văn (Tử) → wén / wénzi. ĐỌC: 'văn' → wén (thanh 2, vần en đọc 'ân'); 'tử' → zi (thanh nhẹ). NGHĨA: 蚊 gồm bộ 虫 (trùng - côn trùng) + 文 (văn - âm đọc & đường vằn) → loài côn trùng nhỏ có vằn bay vo ve = con muỗi.",
+   "vd": [
+    {
+     "t": "Mùa hè",
+     "zh": "夏天的晚上如果忘記關紗窗，房間裡就會飛進很多蚊子。",
+     "vn": "Buổi tối mùa hè nếu quên đóng cửa lưới, trong phòng sẽ bay vào rất nhiều muỗi."
+    },
+    {
+     "t": "Dã ngoại",
+     "zh": "去公園散步之前最好先噴防蚊液，才不會被蚊子叮。",
+     "vn": "Trước khi đi dạo công viên tốt nhất nên xịt thuốc chống muỗi trước, kẻo bị muỗi đốt."
+    },
+    {
+     "t": "Bắt muỗi",
+     "zh": "剛才有一隻蚊子一直在我耳朵旁邊嗡嗡叫，吵得我睡不著。",
+     "vn": "Vừa nãy có một con muỗi cứ bay vo ve bên tai tôi, ồn đến mức tôi không ngủ được."
+    }
+   ]
+  },
+  "自然": {
+   "vn": "tự nhiên; thiên nhiên; một cách tự nhiên",
+   "ng": [
+    "(tính từ) tự nhiên, thoải mái, không gượng gạo (笑得很自然 cười rất tự nhiên)",
+    "(danh từ) thiên nhiên, giới tự nhiên; môn khoa học tự nhiên (大自然 thiên nhiên, 自然風景 phong cảnh thiên nhiên, 自然課 tiết tự nhiên)",
+    "(phó từ) tự nhiên, đương nhiên, tất nhiên (時間久了自然會習慣 lâu dần tự nhiên sẽ quen)"
+   ],
+   "us": "Tính từ: 表現得很自然 (thể hiện rất tự nhiên), 很不自然 (rất gượng gạo). Danh từ: 親近大自然 (gần gũi thiên nhiên), 自然環境 (môi trường tự nhiên). Phó từ: 只要努力，成績自然會進步 (chỉ cần cố gắng, thành tích tự nhiên sẽ tiến bộ).",
+   "co": [
+    "大自然|thiên nhiên, giới tự nhiên",
+    "很自然|rất tự nhiên",
+    "自然環境|môi trường tự nhiên",
+    "順其自然|thuận theo tự nhiên"
+   ],
+   "sy": [
+    "天然|thiên nhiên, tự nhiên (không nhân tạo, dùng cho thực phẩm/nguyên liệu)"
+   ],
+   "an": [
+    "人工|nhân tạo",
+    "不自然|gượng gạo, không tự nhiên"
+   ],
+   "cf": [
+    "天然|天然 chỉ vật chất không qua chế biến hay hóa chất nhân tạo (天然果汁 nước ép tự nhiên, 天然氣 khí tự nhiên); 自然 chỉ phong cảnh thiên nhiên (大自然), thái độ tự nhiên hoặc lẽ đương nhiên"
+   ],
+   "lt": "Phủ định cho thái độ là 不自然 (gượng gạo); khi nói giới thiên nhiên rộng lớn người Đài rất hay thêm 大 thành 大自然.",
+   "mk": "Đừng nhầm dùng *自然果汁 ❌ để nói 'nước ép tự nhiên/nguyên chất'; thực phẩm không chất phụ gia phải dùng 天然 (天然果汁, 純天然).",
+   "tw": "Ở trường tiểu học (國小) và THCS (國中) Đài Loan, môn khoa học tổng hợp (Lý, Hóa, Sinh, Địa) được gọi tắt là 自然課 hoặc 自然科. Câu cửa miệng hay nói ở Đài là 「順其自然」 (thuận theo tự nhiên).",
+   "mh": "Tự Nhiên → zìrán. ĐỌC: 'tự' → zì (thanh 4, âm z thẳng lưỡi, i đọc gần 'ư'); 'nhiên' → rán (thanh 2, r cong lưỡi). NGHĨA: 自 (tự bản thân) + 然 (như thế) → vốn dĩ tự nó như vậy không do ai gò ép = tự nhiên, thiên nhiên.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "我很喜歡到花蓮旅遊，因為那裡有很多美麗的自然風景。",
+     "vn": "Tôi rất thích đi du lịch Hoa Liên, vì ở đó có rất nhiều phong cảnh thiên nhiên tươi đẹp."
+    },
+    {
+     "t": "Chụp ảnh",
+     "zh": "他面對鏡頭的時候有點緊張，笑起來不太自然。",
+     "vn": "Khi đứng trước ống kính anh ấy hơi hồi hộp, cười lên trông không được tự nhiên lắm."
+    },
+    {
+     "t": "Học ngoại ngữ",
+     "zh": "只要每天多聽多說，你的中文自然就會進步。",
+     "vn": "Chỉ cần mỗi ngày nghe nhiều nói nhiều, tiếng Hoa của bạn tự nhiên sẽ tiến bộ thôi."
+    }
+   ]
+  },
+  "月亮": {
+   "vn": "nguyệt lượng; mặt trăng, vầng trăng",
+   "ng": [
+    "(danh từ) mặt trăng, ánh trăng"
+   ],
+   "us": "Danh từ chỉ mặt trăng trên bầu trời (khác với 月 chỉ tháng). Hay đi với tính từ miêu tả: 月亮很圓 (trăng rất tròn), 月亮很亮 (trăng rất sáng), 月亮出來了 (trăng lên rồi), 看月亮 (ngắm trăng).",
+   "co": [
+    "看月亮|ngắm trăng",
+    "月亮很圓|trăng rất tròn",
+    "月亮出來了|trăng lên rồi",
+    "滿月|trăng tròn"
+   ],
+   "sy": [
+    "月球|mặt trăng (thuật ngữ thiên văn/khoa học)"
+   ],
+   "cf": [
+    "月|月 đứng một mình thường mang nghĩa 'tháng' (一個月, 一月); khi nói 'mặt trăng' trong giao tiếp phải dùng 月亮 (chỉ dùng 月 trong từ ghép như 賞月 ngắm trăng, 滿月 trăng tròn)"
+   ],
+   "lt": "個 (一個圓圓的月亮)",
+   "mk": "Không nói *今天晚上看月 ❌; nói một mình phải là 看月亮 (hoặc nói gọn theo từ ghép văn viết là 賞月).",
+   "tw": "Ở Đài Loan dịp 中秋節 (Tết Trung Thu), cả nhà hay vừa nướng thịt ngoài trời (烤肉) vừa 看月亮 (賞月) và ăn bánh trung thu, ăn bưởi (柚子). Trong khẩu ngữ Đài Loan, 亮 trong 月亮 có thể đọc thanh 4 yuèliàng hoặc thanh nhẹ yuèliang.",
+   "mh": "Nguyệt Lượng → yuèliàng. ĐỌC: 'nguyệt' → yuè (thanh 4, yu tròn môi + e đọc 'uê'); 'lượng' → liàng (thanh 4 hoặc đọc thanh nhẹ). NGHĨA: 月 (hình vầng trăng lưỡi liềm) + 亮 (sáng sủa) → vầng sáng trên bầu trời đêm = mặt trăng.",
+   "vd": [
+    {
+     "t": "Trung Thu",
+     "zh": "今年中秋節的月亮又大又圓，看起來特別漂亮。",
+     "vn": "Mặt trăng dịp Tết Trung Thu năm nay vừa to vừa tròn, trông đặc biệt đẹp."
+    },
+    {
+     "t": "Buổi tối",
+     "zh": "今晚天氣很晴朗，在陽臺就能看到明亮的月亮。",
+     "vn": "Tối nay trời rất quang đãng, ở ngoài ban công thôi là có thể nhìn thấy vầng trăng sáng vằng vặc."
+    },
+    {
+     "t": "Trẻ em",
+     "zh": "小朋友指著天空問媽媽，為什麼月亮會一直跟著我們走。",
+     "vn": "Em nhỏ chỉ lên bầu trời hỏi mẹ tại sao mặt trăng cứ đi theo chúng ta mãi thế."
+    }
+   ]
+  },
+  "星星": {
+   "vn": "tinh tinh; ngôi sao, các vì sao",
+   "ng": [
+    "(danh từ) ngôi sao, các vì sao trên bầu trời",
+    "(danh từ) (nghĩa mở rộng) điểm số đánh giá bằng sao (給五顆星星 cho 5 sao); đốm nhỏ"
+   ],
+   "us": "Chỉ sao trên bầu trời (không phân biệt số ít/nhiều): 看星星 (ngắm sao), 數星星 (đếm sao), 滿天星星 (đầy trời sao), 一顆星星 (một ngôi sao). Cũng dùng cho xếp hạng đánh giá trên mạng: 五顆星星 (5 sao).",
+   "co": [
+    "看星星|ngắm sao",
+    "滿天星星|bầu trời đầy sao",
+    "一顆星星|một ngôi sao",
+    "五顆星星|đánh giá 5 sao"
+   ],
+   "sy": [
+    "星辰|tinh tú, các vì sao (văn chương)"
+   ],
+   "cf": [
+    "明星|星星 là ngôi sao trên trời hoặc biểu tượng ngôi sao (★); người nổi tiếng (ca sĩ, diễn viên) phải gọi là 明星 hoặc 偶像, không gọi là 星星"
+   ],
+   "lt": "顆 (一顆星星)",
+   "mk": "Lượng từ của ngôi sao là 顆 (一顆星星), không dùng *一個星星 ❌. Ngoài ra 星星 chỉ ngôi sao trên trời, không dùng cho 'ngôi sao điện ảnh' (*電影星星 ❌ -> 電影明星).",
+   "tw": "Ở Đài Loan cuối tuần mọi người rất thích lên núi (như 陽明山 Dương Minh Sơn, 合歡山 Hợp Hoan Sơn) để 露營看星星 (cắm trại ngắm sao). Khi đánh giá quán trên Google Maps cũng hay nói 「給五顆星星」 (cho 5 sao).",
+   "mh": "Tinh Tinh → xīngxing. ĐỌC: 'tinh' → xīng (thanh 1, âm x đọc nhẹ gần 'siêng'), chữ thứ hai đọc thanh nhẹ xing. NGHĨA: 星 gồm 日 (nhật - mặt trời/ánh sáng) bên trên + 生 (sinh ra) bên dưới → vật thể phát sáng trên trời; lặp lại hai lần 星星 thành danh từ khẩu ngữ chỉ ngôi sao.",
+   "vd": [
+    {
+     "t": "Cắm trại",
+     "zh": "昨晚我們去山上露營，看到了滿天的星星。",
+     "vn": "Tối qua chúng tôi lên núi cắm trại, đã nhìn thấy bầu trời đầy sao."
+    },
+    {
+     "t": "Đánh giá quán",
+     "zh": "這家牛肉麵店又好吃又乾淨，我要在網路上給它五顆星星。",
+     "vn": "Quán mì bò này vừa ngon vừa sạch, tôi sẽ lên mạng chấm cho quán 5 sao."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "今晚雲太多了，天空黑黑的，一顆星星也看不到。",
+     "vn": "Tối nay nhiều mây quá, bầu trời tối đen, một ngôi sao cũng chẳng thấy."
+    }
+   ]
+  },
+  "環境": {
+   "vn": "hoàn cảnh; môi trường",
+   "ng": [
+    "(danh từ) môi trường (thiên nhiên, môi trường sống, môi trường làm việc/học tập)",
+    "(danh từ) hoàn cảnh, điều kiện xung quanh"
+   ],
+   "us": "Dùng rộng cho cả tự nhiên lẫn xã hội/không gian sống: 自然環境 (môi trường tự nhiên), 生活環境 (môi trường sống), 工作環境 (môi trường làm việc), 學習環境 (môi trường học tập), 保護環境 (bảo vệ môi trường), 適應環境 (thích nghi với môi trường).",
+   "co": [
+    "保護環境|bảo vệ môi trường",
+    "工作環境|môi trường làm việc",
+    "生活環境|môi trường sống",
+    "適應新環境|thích nghi với môi trường mới"
+   ],
+   "sy": [
+    "周圍|xung quanh",
+    "條件|điều kiện"
+   ],
+   "cf": [
+    "情況|情況 là tình hình, tình huống diễn biến sự việc; 環境 là môi trường, bối cảnh xung quanh tác động đến con người hay sinh vật"
+   ],
+   "lt": "個",
+   "mk": "Tiếng Việt hay nói 'hoàn cảnh gia đình khó khăn', nhưng trong tiếng Hoa để nói hoàn cảnh kinh tế gia đình thường dùng 家庭背景 / 家境 hơn là *家庭環境 (家庭環境 chỉ bầu không khí, môi trường nuôi dạy trong nhà).",
+   "tw": "Ở Đài Loan ý thức về 環境保護 (gọi tắt là 環保) rất cao: đi mua sắm mang túi riêng (環保袋), mang bình riêng (環保杯 được giảm 5 Đài tệ khi mua trà sữa!), và phân loại rác tái chế (資源回收) rất kỹ.",
+   "mh": "Hoàn Cảnh → huánjìng. ĐỌC: 'hoàn' → huán (thanh 2, vần uan đọc 'oan'); 'cảnh' → jìng (thanh 4). NGHĨA: 環 (vòng tròn, bao quanh) + 境 (cảnh giới, vùng đất) → tất cả vùng không gian bao quanh lấy ta = môi trường, hoàn cảnh.",
+   "vd": [
+    {
+     "t": "Bảo vệ thiên nhiên",
+     "zh": "隨手做垃圾分類，是保護環境最簡單的方法。",
+     "vn": "Tiện tay phân loại rác là cách đơn giản nhất để bảo vệ môi trường."
+    },
+    {
+     "t": "Công việc",
+     "zh": "這家公司的工作環境很舒適，同事之間也很友善。",
+     "vn": "Môi trường làm việc của công ty này rất thoải mái, đồng nghiệp với nhau cũng rất thân thiện."
+    },
+    {
+     "t": "Du học",
+     "zh": "剛來到臺灣的時候，我花了一點時間才適應這裡的新環境。",
+     "vn": "Lúc mới đến Đài Loan, tôi mất một chút thời gian mới thích nghi được với môi trường mới ở đây."
+    }
+   ]
+  },
+  "晴天": {
+   "vn": "tình thiên; trời nắng, ngày nắng ráo, trời quang",
+   "ng": [
+    "(danh từ) ngày nắng, trời nắng, trời quang mây tạnh"
+   ],
+   "us": "Chỉ kiểu thời tiết quang đãng có nắng (đối lập với 雨天 ngày mưa, 陰天 ngày âm u). Thường dùng: 今天是晴天 (hôm nay là ngày nắng), 大晴天 (ngày nắng to/trời quang rực rỡ), 晴天出門 (ra ngoài vào ngày nắng).",
+   "co": [
+    "大晴天|ngày nắng ráo rực rỡ",
+    "今天是晴天|hôm nay trời nắng đẹp",
+    "多雲時晴|nhiều mây có lúc nắng",
+    "晴天娃娃|búp bê cầu nắng"
+   ],
+   "sy": [
+    "好天氣|thời tiết đẹp",
+    "晴朗的天氣|thời tiết quang đãng"
+   ],
+   "an": [
+    "雨天|ngày mưa",
+    "陰天|ngày âm u"
+   ],
+   "cf": [
+    "晴朗|晴天 là danh từ chỉ 'ngày nắng / trời nắng' (今天是晴天); 晴朗 là tính từ chỉ 'quang đãng, trong xanh' (今天天氣很晴朗), không nói *今天很晴天 ❌"
+   ],
+   "lt": "個 (一個大晴天)",
+   "mk": "晴天 là DANH TỪ chứ không phải tính từ, tuyệt đối không nói *今天很晴天 ❌! Phải nói 今天是晴天 hoặc 今天天氣很晴朗.",
+   "tw": "Ở Đài Loan mọi người hay xem dự báo trên trang/app của 中央氣象署 (Cục Khí tượng Trung ương). Trước chuyến đi chơi sợ mưa, người Đài hay treo 晴天娃娃 (búp bê cầu nắng màu trắng).",
+   "mh": "Tình Thiên → qíngtiān. ĐỌC: 'tình' → qíng (thanh 2, âm q bật hơi 'tsching'); 'thiên' → tiān (thanh 1). NGHĨA: 晴 gồm bộ 日 (nhật - mặt trời) + 青 (xanh) → mặt trời tỏa sáng trên nền trời xanh = trời nắng đẹp; 天 (ngày/trời) → ngày nắng.",
+   "vd": [
+    {
+     "t": "Giặt giũ",
+     "zh": "今天難得是個大晴天，趕快把洗好的衣服拿出去曬吧。",
+     "vn": "Hôm nay hiếm khi có một ngày nắng đẹp thế này, mau mang quần áo đã giặt ra ngoài phơi đi."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "連著下了好幾天雨，大家都很期待週末會是晴天。",
+     "vn": "Mưa liên tiếp mấy ngày rồi, mọi người đều rất mong cuối tuần sẽ là ngày nắng ráo."
+    },
+    {
+     "t": "Dã ngoại",
+     "zh": "只要遇到晴天，這座公園裡就會有很多人來野餐。",
+     "vn": "Chỉ cần gặp hôm trời nắng, trong công viên này sẽ có rất nhiều người đến dã ngoại."
+    }
+   ]
+  },
+  "暖和": {
+   "vn": "noãn hòa; ấm áp, ấm",
+   "ng": [
+    "(tính từ) ấm áp, ấm dễ chịu (thời tiết, phòng ốc, quần áo, chăn đệm)",
+    "(động từ) làm cho ấm lên (暖和一下 làm ấm người một chút)"
+   ],
+   "us": "Thường dùng miêu tả thời tiết hoặc đồ giữ ấm: 天氣很暖和 (thời tiết rất ấm áp), 這件外套很暖和 (chiếc áo khoác này rất ấm), 屋子裡很暖和 (trong nhà rất ấm). Cũng dùng làm động từ: 喝杯熱茶暖和一下 (uống cốc trà nóng cho ấm người).",
+   "co": [
+    "天氣很暖和|thời tiết rất ấm áp",
+    "穿得暖和|mặc thật ấm",
+    "房間很暖和|phòng rất ấm áp",
+    "暖和一下|sưởi ấm một chút"
+   ],
+   "sy": [
+    "溫暖|ấm áp (dùng được cả cho thời tiết và tình cảm)"
+   ],
+   "an": [
+    "寒冷|lạnh lẽo",
+    "冰冷|lạnh buốt"
+   ],
+   "cf": [
+    "溫暖|暖和 chỉ cảm giác ấm áp về mặt vật lý (thời tiết, áo quần, căn phòng); 溫暖 ngoài nghĩa vật lý còn chỉ sự ấm áp về tinh thần, tình cảm (溫暖的笑容 nụ cười ấm áp)"
+   ],
+   "lt": "Dạng lặp lại của tính từ là 暖暖和和. Khi miêu tả mức độ nhớ thêm phó từ như 很/真/非常.",
+   "mk": "Không dùng 暖和 để khen tấm lòng hay thái độ của ai đó (*他對人很暖和 ❌ -> phải dùng 溫暖 hoặc 親切).",
+   "tw": "Ở Đài Loan mùa đông miền bắc khá ẩm lạnh và đa số nhà không lắp sưởi trung tâm, nên người Đài rất hay nhắc nhau 「穿暖和一點」 (mặc ấm chút nhé) hoặc dùng 電暖器 (máy sưởi điện). Chữ 和 trong 暖和 đọc thanh nhẹ huo.",
+   "mh": "Noãn Hòa → nuǎnhuo. ĐỌC: 'noãn' → nuǎn (thanh 3, đọc như 'noản'); 'hòa' → huo (thanh nhẹ, không đọc là hé ở từ này). NGHĨA: 暖 (bộ 日 mặt trời + 爰 ấm áp) + 和 (ôn hòa) → ấm áp dịu nhẹ dễ chịu.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "今天的太陽出來了，下午的天氣感覺暖和多了。",
+     "vn": "Hôm nay mặt trời ló ra rồi, thời tiết buổi chiều cảm thấy ấm áp hơn nhiều."
+    },
+    {
+     "t": "Trang phục",
+     "zh": "冬天騎機車的時候，穿這件羽絨外套特別暖和。",
+     "vn": "Mùa đông lúc chạy xe máy, mặc chiếc áo phao lông vũ này đặc biệt ấm áp."
+    },
+    {
+     "t": "Thăm hỏi",
+     "zh": "外面風很大，快進來喝碗熱湯暖和一下吧。",
+     "vn": "Bên ngoài gió to lắm, mau vào uống bát canh nóng cho ấm người chút đi."
+    }
+   ]
+  }
+ }
+}

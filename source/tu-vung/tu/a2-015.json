@@ -1,0 +1,195 @@
+{"tu": {
+ "傳": {
+  "vn": "truyền; truyền đạt; gửi đi; lan truyền",
+  "ng": [
+   "(động từ — đọc chuán) truyền đạt, chuyển giao, gửi qua tin nhắn/email (傳訊息 nhắn tin, 傳檔案 gửi file, 傳照片 gửi ảnh)",
+   "(động từ — đọc chuán) truyền lại, lưu truyền, lan truyền, lây lan (傳說 truyền thuyết, 傳染 lây nhiễm, 傳統 truyền thống)",
+   "(danh từ — âm đọc khác zhuàn) truyện kể, tiểu sử ghi chép cuộc đời (自傳 tự truyện, 傳記 truyện ký, 水滸傳 Thủy Hử Truyện)"
+  ],
+  "us": "Trong giao tiếp hiện đại ở Đài Loan nghĩa dùng hằng ngày nhất của 傳 là 'gửi' qua mạng/tin nhắn (傳LINE給我 Gửi LINE cho mình nhé, 傳圖片 gửi ảnh, 傳簡訊 gửi tin nhắn SMS). Ngoài ra còn nghĩa truyền nghề/truyền thống (傳下去) hay lây bệnh (傳染給別人). Chú ý tách bạch hai âm chuán (truyền) và zhuàn (truyện).",
+  "co": [
+   "傳訊息|gửi tin nhắn (LINE, Messenger...)",
+   "傳檔案 / 傳照片|gửi tập tin / gửi ảnh",
+   "傳染|lây nhiễm, truyền bệnh",
+   "傳統|truyền thống"
+  ],
+  "sy": ["送|gửi (bưu phẩm thật)", "寄|gửi thư / bưu kiện"],
+  "cf": [
+   "傳 vs 寄|Ở Đài Loan: 寄 dùng cho gửi đồ vật qua BƯU ĐIỆN / ship hàng / gửi EMAIL (寄信, 寄包裹); 傳 dùng cực phổ biến cho gửi TIN NHẮN ĐIỆN THOẠI / LINE / ảnh qua mạng (傳訊息, 傳LINE, 傳檔案)!"
+  ],
+  "lt": "Đa âm: chuán (động từ truyền, gửi, lan truyền — trọng tâm A2) và zhuàn (danh từ tiểu sử, truyện ký như 自傳).",
+  "mk": "Đừng dùng *寄 LINE / *給訊息 ❌ ở Đài Loan — người Đài luôn nói 傳LINE / 傳訊息 (nhắn tin qua LINE/app chat)!",
+  "tw": "Cửa miệng của mọi người ở Đài Loan khi chia tay sau buổi chụp ảnh hoặc bàn việc là: 回去我再傳給你！ / 幫我傳一下LINE喔！ (Về rồi mình gửi ảnh qua LINE cho bạn nhé!).",
+  "mh": "Truyền → chuán (âm phụ: zhuàn trong 自傳). ĐỌC: 'truyền' → chuán (tr- → ch- uốn lưỡi + -uan thanh 2); nghĩa 'truyện' đọc zhuàn thanh 4. NGHĨA: bộ 亻 (người) bên trái + 專 (chuyên chú chuyển giao) bên phải → người nối tay truyền tiếp từ đời này sang đời khác / từ người này sang người khác = truyền, chuyển gửi.",
+  "vd": [
+   {"t": "Tin nhắn", "zh": "我已經把明天開會的資料和簡報傳到你的信箱裡了。", "vn": "Tôi đã gửi tài liệu và slide họp ngày mai vào hộp thư của bạn rồi đấy."},
+   {"t": "Sức khỏe", "zh": "最近流行性感冒很容易傳染，出門搭捷運還是戴上口罩比較安心。", "vn": "Gần đây cúm mùa rất dễ lây truyền, ra ngoài đi tàu điện ngầm cứ đeo khẩu trang vào cho yên tâm."},
+   {"t": "Liên lạc", "zh": "照片我等一下再傳給你，你先在手機裡確認一下有沒有收到！", "vn": "Ảnh lát nữa tôi gửi sang cho bạn nhé, bạn kiểm tra thử trong điện thoại xem nhận được chưa!"}
+  ]
+ },
+ "另": {
+  "vn": "khác; riêng; tách biệt; nữa",
+  "ng": [
+   "(định ngữ / đại từ) khác, một cái/người/mặt khác (另一個人 người khác, 另一方面 mặt khác, 另找時間 tìm thời gian khác)",
+   "(phó từ — văn bản/quy định) tính riêng, thêm riêng (運費另計 phí vận chuyển tính riêng, 另行通知 thông báo riêng sau)"
+  ],
+  "us": "Thường đi trực tiếp với 一 + lượng từ (另一個人 người khác, 另一邊 phía bên kia), ghép cố định trong văn nói/viết (另一方面 mặt khác, 另找工作 tìm việc khác), hoặc dùng gọn trên hóa đơn/thông báo cửa hàng (服務費另計 Phí phục vụ tính riêng).",
+  "co": [
+   "另一個人 / 另一邊|một người khác / phía bên kia",
+   "另一方面|mặt khác",
+   "另計 / 另加|tính riêng / cộng thêm riêng",
+   "另行通知|sẽ thông báo riêng sau"
+  ],
+  "sy": ["另外|ngoài ra, cái khác", "別的|khác (khẩu ngữ hơn trước danh từ không có số từ)"],
+  "cf": [
+   "另 vs 另外|另 gọn và hay ghép trực tiếp với 一 hoặc cụm 4 chữ (另一天, 另一方面, 費用另計); 另外 có thể đứng đầu câu làm từ nối ('Ngoài ra, ...') hoặc tự nhiên hơn trong hội thoại (另外一個人)"
+  ],
+  "lt": "Phát âm thanh 4 lìng. Chữ 另 thường KHÔNG đứng một mình tách rời danh từ trừ cụm từ chuyên biệt.",
+  "mk": "Đừng nói trơ *另書 ❌ cho 'cuốn sách khác' — phải thêm số+lượng từ thành 另一本書 (hoặc 另外一本書).",
+  "tw": "Trên thực đơn quán ăn hay trang đặt hàng Đài Loan cực kỳ hay ghi: 以上價格不含稅，服務費另計 (Giá trên chưa bao gồm thuế, phí phục vụ tính riêng) hoặc 運費另計 (chưa bao gồm phí ship).",
+  "mh": "Lánh → lìng. ĐỌC: 'lánh' → lìng (l- + -ing thanh 4). NGHĨA: phần trên 口 (vùng miệng/khoảng riêng) + phần dưới 力 (tách sức phân ra) → tách riêng sang một nhánh khác biệt = khác, riêng biệt.",
+  "vd": [
+   {"t": "Học tập", "zh": "這家咖啡店雖然氣氛很好，但另一方面價格也比較高一些。", "vn": "Quán cà phê này tuy không khí rất tốt, nhưng mặt khác giá cả cũng hơi cao hơn một chút."},
+   {"t": "Thực đơn", "zh": "這份套餐包含主餐和湯品，如果想喝飲料的話需要另點。", "vn": "Suất ăn này bao gồm món chính và canh, nếu muốn uống nước giải khát thì cần gọi riêng thêm."},
+   {"t": "Chỉ đường", "zh": "你往馬路的另一邊看過去，郵局就在那家麵包店的隔壁。", "vn": "Bạn nhìn sang phía bên kia đường đi, bưu điện nằm ngay sát bên tiệm bánh mì đó đấy."}
+  ]
+ },
+ "另外": {
+  "vn": "ngoài ra; hơn nữa; khác",
+  "ng": [
+   "(liên từ / phó từ) ngoài ra, thêm vào đó, mặt khác (nối ý bổ sung đầu vế câu mới: 另外，別忘了帶護照 Ngoài ra, đừng quên mang hộ chiếu)",
+   "(định ngữ / đại từ) cái khác, người khác, riêng biệt (另外一個人 một người khác, 另外一種 cách khác)"
+  ],
+  "us": "Hai cách dùng cực hay: 1) Mở đầu câu/vế mới để liệt kê thêm ý (另外，我也想提醒大家…… Ngoài ra tôi cũng muốn nhắc mọi người...); 2) Trước số từ + lượng từ + danh từ (另外兩位 đồng nghiệp khác: 另外兩位同事), hoặc làm phó từ trước động từ với nghĩa 'làm thêm riêng' (這個要另外買 Cái này phải mua riêng bên ngoài).",
+  "co": [
+   "另外，……|Ngoài ra, ...",
+   "另外一個|một cái khác",
+   "另外付錢 / 另外買|trả tiền riêng / mua riêng",
+   "另外一方面|một mặt khác"
+  ],
+  "sy": ["此外|ngoài ra (hơi trang trọng hơn trong văn viết)", "還有|còn có (khẩu ngữ)"],
+  "cf": [
+   "另外 vs 而且|而且 nối hai ý CÙNG TÍNH CHẤT tăng tiến về cùng một sự vật ('vừa rẻ mà lại còn ngon'); 另外 chuyển sang BỔ SUNG MỘT Ý/MỤC KHÁC ('tôi đã chuẩn bị đồ ăn rồi; ngoài ra, ngày mai cũng đặt xe xong xuôi')"
+  ],
+  "lt": "Thanh 4 + thanh 4: lìngwài.",
+  "mk": "1) Khi dịch 'ngoài cái A ra' thì tiếng Hoa nói 除了A以外 (KHÔNG nói *另外A ❌!). 2) Nhớ nghĩa 'tính riêng/mua riêng': 這個需要另外買!",
+  "tw": "Ở cửa hàng Đài Loan khách hỏi túi ni-lông có kèm không hay nghe nhân viên đáp lịch sự: 購物袋要另外購買喔！(Túi mua hàng cần phải mua riêng bên ngoài ạ!).",
+  "mh": "Lánh Ngoại → lìngwài. ĐỌC: 'lánh' → lìng (thanh 4); 'ngoại' → wài (ng- mất thành w- + ai thanh 4). NGHĨA: 另 riêng khác + 外 ở bên ngoài phần chính → phần cộng thêm nằm ở ngoài danh sách vừa nói = ngoài ra, cái khác.",
+  "vd": [
+   {"t": "Cửa hàng", "zh": "這個套餐只含漢堡跟薯條，飲料需要另外加購喔！", "vn": "Combo này chỉ gồm burger và khoai tây chiên, đồ uống cần mua thêm riêng bên ngoài ạ!"},
+   {"t": "Du lịch", "zh": "去花蓮玩可以搭火車，另外也可以選擇自己租車沿著海邊開。", "vn": "Đi Hoa Liên chơi có thể đi tàu hỏa, ngoài ra cũng có thể chọn tự thuê xe chạy dọc bờ biển."},
+   {"t": "Thông báo", "zh": "這間會議室有人預約了，我們去另外一間討論報告吧。", "vn": "Phòng họp này có người đặt trước rồi, chúng mình sang một phòng khác thảo luận báo cáo đi."}
+  ]
+ },
+ "左右": {
+  "vn": "khoảng; chừng; trái phải; chi phối",
+  "ng": [
+   "(trợ từ ước lượng sau số/thời gian) khoảng, xấp xỉ, tầm (三點左右 khoảng 3 giờ, 三十歲左右 tầm 30 tuổi, 兩千塊左右 khoảng 2000 tệ)",
+   "(danh từ) bên trái và bên phải, xung quanh hai bên (左右兩邊 hai bên trái phải, 左右看 nhìn trái nhìn phải)",
+   "(động từ — mức mở rộng) chi phối, tác động ảnh hưởng (不要被別人左右情緒 Đừng để người khác chi phối cảm xúc của mình)"
+  ],
+  "us": "Nghĩa phổ biến nhất ở A2 là ĐẶT NGAY SAU số lượng, thời gian, tuổi tác hoặc tiền bạc để ước lượng 'khoảng chừng': 每天十一點左右睡覺 (Mỗi ngày tầm 11 giờ ngủ), 大概五分鐘左右 (Chắc khoảng chừng 5 phút). Chú ý đặt SAU con số (trái ngược với 大概 đặt TRƯỚC!).",
+  "co": [
+   "三點左右|khoảng 3 giờ / tầm 3 giờ",
+   "五分鐘左右|khoảng chừng 5 phút",
+   "三十歲左右|tầm 30 tuổi",
+   "左右兩邊|hai bên trái phải"
+  ],
+  "sy": ["上下|xấp xỉ trên dưới (tầm tuổi, mức cân/tiền: 三十歲上下)", "大概|khoảng chừng (đặt TRƯỚC số lượng!)"],
+  "cf": [
+   "大概 vs 左右|Vị trí ngược nhau hoàn toàn: 大概 đặt TRƯỚC con số (大概十點 khoảng 10 giờ); 左右 đặt SAU con số (十點左右)! Tuy nhiên trong khẩu ngữ có thể ghép cả hai để nhấn mạnh ước lượng: 大概十點左右 (Tầm khoảng 10 giờ)"
+  ],
+  "lt": "Hành khách qua đường: 先左看右看 (nhìn trái nhìn phải). Đọc zuǒ (thanh 3) + yòu (thanh 4).",
+  "mk": "Lỗi trật tự câu cực hay gặp: đặt 左右 lên trước số (*左右八點 ❌ -> phải nói 八點左右!).",
+  "tw": "Trong hẹn hò hay hỏi giờ xe đến ở Đài Loan, câu cửa miệng là 大概幾點到？ — 六點半左右吧！(Khoảng 6 giờ rưỡi nhé!). Giao thông Đài Loan đi bên phải đường, lái xe sang đường nhắc nhau 左右來車 (xe cộ hai bên trái phải).",
+  "mh": "Tả Hữu → zuǒyòu. ĐỌC: 'tả' → zuǒ (t- → z- + uo thanh 3); 'hữu' → yòu (h- mất thành y- + ou thanh 4). NGHĨA: 左 tay trái (hình chữ 工 thợ khéo) + 右 tay phải (hình chữ 口 miệng dùng tay phải gắp ăn) → dao động nhẹ sang hai bên trái-phải của một mốc chuẩn = trái phải, khoảng chừng.",
+  "vd": [
+   {"t": "Hẹn gặp", "zh": "我今天下午四點左右會到台北車站，到時候打給你。", "vn": "Chiều nay khoảng bốn giờ tôi sẽ tới ga Đài Bắc, lúc đó tôi gọi cho bạn nhé."},
+   {"t": "Thuê nhà", "zh": "台北捷運站附近的套房，一個月租金大概一萬五千元左右。", "vn": "Phòng khép kín gần ga tàu điện ngầm Đài Bắc giá thuê một tháng khoảng chừng mười lăm nghìn Đài tệ."},
+   {"t": "An toàn", "zh": "過馬路的時候一定要先左右看看有沒有轉彎的車輛。", "vn": "Khi băng qua đường nhất định phải nhìn trái nhìn phải xem có xe đang rẽ không."}
+  ]
+ },
+ "當": {
+  "vn": "làm (nghề); khi, lúc; đáng, nên; coi như",
+  "ng": [
+   "(động từ — đọc dāng) làm (nghề nghiệp, vai trò, chức vụ: 當老師 làm giáo viên, 當老闆 làm chủ, 當義工 làm tình nguyện viên)",
+   "(giới từ — đọc dāng) đúng lúc, khi (dùng trong khung 當……的時候: 當我還是學生的時候 Khi tôi còn là sinh viên)",
+   "(phó từ / động từ năng nguyện — đọc dāng) đáng, nên (應當 nên, 當然 đương nhiên, 相當 khá/tương đương)",
+   "(động từ — âm đọc khác dàng) coi như, xem như (當作/當成 coi là, 把台灣當成第二個家 coi Đài Loan là ngôi nhà thứ hai), hoặc bị lừa (上當 mắc lừa)"
+  ],
+  "us": "Bốn cách dùng cốt lõi ở sơ-trung cấp: 1) Làm nghề: 他想當醫生 (Anh ấy muốn làm bác sĩ — tự nhiên hơn *做醫生 khi nói nghề nghiệp lý tưởng/chức vụ!); 2) Đang lúc/khi: 當……(的)時候 (khi...); 3) Đương nhiên: 當然; 4) Coi như (âm dàng): 別當真 (Đừng tưởng thật), 把我當成好朋友.",
+  "co": [
+   "當老師 / 當醫生|làm giáo viên / làm bác sĩ",
+   "當……的時候|khi / vào lúc...",
+   "當然|đương nhiên / tất nhiên rồi",
+   "當作 / 當成|(đọc dàng) coi như, xem như là"
+  ],
+  "sy": ["做|làm (công việc chân tay/nội trợ/dự án)", "在……的時候|vào lúc..."],
+  "cf": [
+   "當 vs 做 (chỉ nghề nghiệp)|Khi nói 'làm nghề gì có thân phận/chức danh' (làm bác sĩ, kỹ sư, quản lý, hướng dẫn viên, mẹ/bố), người Đài chuộng dùng 當 (當工程師, 當主管, 當媽媽); Làm việc lặt vặt hoặc ngành kinh doanh nói chung dùng 做 (做生意 buôn bán, 做家事 làm việc nhà)"
+  ],
+  "lt": "Chữ đa âm cực quan trọng: dāng (làm nghề, đúng lúc, nên) vs dàng (coi như 當作/當成, mắc lừa 上當, đúng lúc 當天/當時 theo chuẩn một số từ).",
+  "mk": "1) Quên đọc âm dàng thanh 4 trong 把他當成朋友 (dàngchéng) và 上當 (shàngdàng bị lừa). 2) Chữ 當地 (địa phương bản xứ) và 當天 (ngay ngày hôm đó) nhiều người hay phân vân: chuẩn Đài Loan đọc 當地 dāngdì, 當天 dāngtiān (hoặc dàngtiān).",
+  "tw": "Trong đời sống Đài Loan từ 當 rất hay gặp trong 當兵 (đi nghĩa vụ quân sự — chủ đề nói chuyện kinh điển của con trai Đài Loan!), 當班 (trực ca) và câu an ủi vui: 沒關係，就當作學一次經驗！(Không sao, cứ coi như học một bài học kinh nghiệm!).",
+  "mh": "Đương → dāng (âm phụ: dàng trong 當作, 上當). ĐỌC: 'đương' → dāng (đ- → d- + -ang thanh 1); khi mang nghĩa 'coi như / đúng lúc thích hợp / cầm cố' đọc dàng thanh 4. NGHĨA: bên trên 尚 (cao, ngang tầm) + bên dưới 田 (ruộng đất chia cân bằng) → hai mảnh cân xứng ngang hàng nhau = đảm đương vai trò, đúng lúc, tương xứng.",
+  "vd": [
+   {"t": "Ước mơ", "zh": "我妹妹從小就喜歡照顧小動物，長大以後想當一名獸醫。", "vn": "Em gái tôi từ nhỏ đã thích chăm sóc thú cưng, lớn lên muốn làm bác sĩ thú y."},
+   {"t": "Kinh nghiệm", "zh": "當你遇到困難不知道怎麼辦時，隨時都可以打電話找我聊聊。", "vn": "Khi bạn gặp khó khăn không biết làm sao, bất cứ lúc nào cũng có thể gọi điện tâm sự với mình."},
+   {"t": "Cảm nhận", "zh": "來台灣生活這麼多年，我早就把這裡當成自己的第二個家了。", "vn": "Sang Đài Loan sống ngần ấy năm, từ lâu tôi đã coi nơi đây là ngôi nhà thứ hai của mình rồi."}
+  ]
+ },
+ "類": {
+  "vn": "loại; nhóm; hạng; giống",
+  "ng": [
+   "(danh từ / lượng từ) loại, hạng, nhóm cùng tính chất (這一類 loại này, 各種不同類 các loại khác nhau)",
+   "(danh từ ghép) phân loại, chủng loại (種類 chủng loại, 分類 phân loại, 人類 loài người, 類似 tương tự)"
+  ],
+  "us": "Thường dùng ghép tạo từ hoặc đứng sau 這/那/哪 như lượng từ phân nhóm rộng: 這一類的書 (loại sách thuộc nhóm này), 垃圾分類 (phân loại rác), 各類美食 (đủ các loại món ngon), 人類 (nhân loại), 類似 (tương tự nhau).",
+  "co": [
+   "這一類|loại này / nhóm này",
+   "垃圾分類|phân loại rác",
+   "種類|chủng loại / các loại",
+   "人類|loài người"
+  ],
+  "sy": ["種|loại, thứ (cụ thể, phổ thông hơn trong khẩu ngữ hàng ngày)", "型|kiểu, loại"],
+  "cf": [
+   "類 vs 種|這種 thường dùng cho MỘT thứ/chủng cụ thể hơn ('tôi thích loại trà này' 這一種茶); 這一類 thường gom CẢ MỘT NHÓM có điểm chung rộng hơn ('những bộ phim thuộc dòng/thể loại này' 這類電影)"
+  ],
+  "lt": "Phát âm thanh 4 lèi (đồng âm với 累 'mệt', nên đọc chữ 類 nhớ kèm ngữ cảnh phân loại!).",
+  "mk": "Chú ý chữ Phồn thể 類 (bên trái trên 米 gạo, dưới 大 to; bên phải là 頁 trang/đầu — đừng nhầm nửa dưới bên trái với 犬 ở một số font cũ; ở chuẩn Đài Loan bên trái là 米 + 犬 hay 米 + 大 gần nhau, nhưng gõ bộ gõ máy tính Phồn thể ra chuẩn chữ 類).",
+  "tw": "Ở Đài Loan khái niệm gắn liền đời sống mỗi tối khi nghe nhạc xe rác phát bản 'Thư gửi Elise' chính là 垃圾分類 (phân loại rác: 一般垃圾 rác thường, 資源回收 rác tái chế như giấy 紙類/nhựa 塑膠類, và 廚餘 đồ thừa!).",
+  "mh": "Loại → lèi. ĐỌC: 'loại' → lèi (l- + -ei thanh 4). NGHĨA: bên trái 類 có hình gạo/hạt và khuyển (các giống vật cùng bầy đàn) + bên phải 頁 (cái đầu/loại) → gom những vật có đặc điểm đầu mối giống nhau vào chung một bầy = loại, hạng.",
+  "vd": [
+   {"t": "Sở thích", "zh": "我平常最喜歡看偵探和懸疑這一類的小說，覺得特別吸引人。", "vn": "Bình thường tôi thích nhất đọc thể loại tiểu thuyết trinh thám và kỳ bí, thấy cực kỳ cuốn hút."},
+   {"t": "Đời sống", "zh": "在台灣倒垃圾一定要做好分類，紙類和塑膠類要分開回收。", "vn": "Đổ rác ở Đài Loan nhất định phải phân loại cho kỹ, loại giấy và loại nhựa phải tách riêng để tái chế."},
+   {"t": "Mua sắm", "zh": "這家大賣場販賣各類生活用品，從家電到生鮮蔬果應有盡有。", "vn": "Siêu thị lớn này bán đủ các loại đồ dùng sinh hoạt, từ đồ gia dụng đến rau quả tươi sống không thiếu thứ gì."}
+  ]
+ },
+ "樣": {
+  "vn": "loại; thứ; kiểu; dáng vẻ; mẫu",
+  "ng": [
+   "(lượng từ) món, thứ, loại (cách dùng phổ biến A2: 點兩樣小菜 gọi hai món phụ nhỏ, 一樣東西 một thứ đồ, 各樣 đủ mọi thứ)",
+   "(danh từ / hình vị) dáng vẻ, bộ dạng, kiểu cách, mẫu mã (樣子 dáng vẻ, 一樣 giống nhau, 怎麼樣 thế nào, 這樣 thế này, 榜樣 tấm gương)"
+  ],
+  "us": "Làm lượng từ đếm số thứ/món riêng lẻ: 買三樣水果 (mua 3 thứ trái cây), 你要買哪幾樣東西？ (Bạn định mua mấy món đồ nào?). Ngoài ra đóng vai trò hình vị cực quen trong hàng loạt từ A1: 一樣 (giống nhau), 這樣 (thế này), 那樣 (thế kia), 樣子 (bộ dạng), 花樣 (kiểu dáng/trò mới).",
+  "co": [
+   "這幾樣東西|mấy thứ đồ này",
+   "點兩樣菜|gọi hai món ăn",
+   "一樣 / 不一樣|giống nhau / khác nhau",
+   "這樣 / 怎麼樣|thế này / như thế nào"
+  ],
+  "sy": ["種|loại, thứ (đồng nghĩa cao khi đếm loại hàng, 樣 thiên về 'từng món hàng/món đồ riêng')"],
+  "cf": [
+   "樣 vs 種|這兩樣東西 = hai món đồ này (nhấn vào từng item cụ thể đặt trước mặt, ví dụ 2 món ăn hay 2 đồ vật trên bàn); 這兩種東西 = hai chủng loại khác nhau (nhấn vào phân loại tính chất/chất liệu)"
+  ],
+  "lt": "Chính chữ 樣 (yàng thanh 4) dùng trực tiếp làm lượng từ không thêm 個.",
+  "mk": "Đừng viết lẫn chữ 樣 với chữ Giản thể không có nét phức tạp bên phải; ở Đài Loan nhớ lượng từ đếm từng món đồ ăn hay vật dụng hay nói 好幾樣東西 (mấy món đồ liền) rất tự nhiên.",
+  "tw": "Ở quán ăn tự chọn (自助餐) hay hàng đồ kho 滷味 tại Đài Loan người ta hay gọi theo món bằng 樣: 夾了四樣菜 (gắp 4 món rau/thịt), 挑幾樣喜歡吃的 (chọn vài món mình thích ăn)!",
+  "mh": "Dạng → yàng. ĐỌC: 'dạng' mất phụ âm d- sang bán nguyên âm y- + -ang thanh 4 (yàng). NGHĨA: bộ 木 (gỗ) bên trái + 羕 (lượn sóng nước / hình khuôn mẫu) bên phải → khuôn gỗ khắc kiểu dáng tiêu chuẩn = hình dáng, kiểu mẫu, món thứ.",
+  "vd": [
+   {"t": "Đi chợ", "zh": "媽媽去市場買了這幾樣新鮮的食材，準備晚上燉排骨湯。", "vn": "Mẹ đi chợ mua mấy thứ nguyên liệu tươi này để tối nay hầm canh sườn non."},
+   {"t": "Quán ăn", "zh": "這家滷味攤有三十多種料可以選，我每次都固定夾五樣。", "vn": "Quầy đồ kho gia vị này có hơn ba mươi loại nguyên liệu để chọn, lần nào tôi cũng gắp đúng năm món."},
+   {"t": "Cảm nhận", "zh": "五年沒見面了，他的說話方式跟以前還是完全一樣。", "vn": "Năm năm rồi không gặp, cách nói chuyện của anh ấy vẫn giống hệt như trước đây."}
+  ]
+ }
+}}

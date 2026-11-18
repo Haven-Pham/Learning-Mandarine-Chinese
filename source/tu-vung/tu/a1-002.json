@@ -1,0 +1,1399 @@
+{
+ "tu": {
+  "參加": {
+   "vn": "tham gia; tham dự",
+   "ng": [
+    "(động từ) tham gia, tham dự (hoạt động, cuộc thi, tiệc cưới, hội thao, kỳ thi)",
+    "(động từ) gia nhập, vào sinh hoạt trong một tập thể (câu lạc bộ, đội nhóm)"
+   ],
+   "us": "Dùng trực tiếp với tân ngữ chỉ sự kiện, hoạt động hoặc tổ chức: 參加比賽 (tham gia cuộc thi), 參加活動 (tham gia hoạt động), 參加社團 (vào câu lạc bộ). Không đặt trực tiếp trước danh từ chỉ người (*參加朋友 ❌).",
+   "co": [
+    "參加活動|tham gia hoạt động",
+    "參加比賽|tham gia cuộc thi",
+    "參加婚禮|dự đám cưới",
+    "參加社團|tham gia câu lạc bộ"
+   ],
+   "sy": [
+    "參與|tham dự, góp phần (trang trọng hơn)",
+    "加入|gia nhập (nhóm, tổ chức, nhóm chat)"
+   ],
+   "an": [
+    "退出|rút lui, rời khỏi",
+    "缺席|vắng mặt"
+   ],
+   "cf": [
+    "加入|參加 nhấn mạnh việc có mặt, góp mặt trong một sự kiện hay hoạt động (參加派對); 加入 nhấn mạnh trở thành thành viên của một nhóm, công ty hay nhóm LINE (加入社團, 加入群組)"
+   ],
+   "lt": "Cấu trúc 'tham gia cùng ai': 跟 + ai + 一起參加 (chứ không dùng *參加 + ai).",
+   "mk": "Người Việt hay dịch 'tham gia với bạn' thành *參加你 ❌; đúng phải nói 跟你們一起去 hoặc 陪你參加.",
+   "tw": "Ở Đài Loan sinh viên rất hay nói 參加社團 (tham gia CLB trường) và 參加活動; rủ bạn đi tiệc hay sự kiện thường hỏi 要來參加嗎？",
+   "mh": "Tham Gia → cānjiā. ĐỌC: 'tham' → cān (âm th chuyển sang c bật hơi + an, thanh 1 ngang); 'gia' → jiā (gi chuyển sang j mềm + ia, thanh 1 ngang). NGHĨA: 參 (nhiều người cùng tụ họp) + 加 (thêm vào) → góp mặt thêm vào cùng mọi người = tham gia.",
+   "vd": [
+    {
+     "t": "Trường học",
+     "zh": "這個週末你要不要參加學校的運動會？",
+     "vn": "Cuối tuần này bạn có muốn tham gia hội thao của trường không?"
+    },
+    {
+     "t": "Câu lạc bộ",
+     "zh": "我大一的時候參加了熱舞社，認識了很多新朋友。",
+     "vn": "Hồi năm nhất tôi tham gia câu lạc bộ nhảy hiện đại và quen được rất nhiều bạn mới."
+    },
+    {
+     "t": "Đám cưới",
+     "zh": "下個月表姊結婚，我們全家都要去參加她的婚禮。",
+     "vn": "Tháng sau chị họ kết hôn, cả nhà tôi đều sẽ đi dự đám cưới của chị ấy."
+    }
+   ]
+  },
+  "文化": {
+   "vn": "văn hóa",
+   "ng": [
+    "(danh từ) văn hóa, nền văn hóa (phong tục, lối sống, ẩm thực, nghệ thuật, ngôn ngữ)",
+    "(danh từ) trình độ học vấn, kiến thức (dùng trong cụm như 文化程度)"
+   ],
+   "us": "Dùng độc lập làm danh từ hoặc ghép sau tên quốc gia, vùng miền, lĩnh vực: 臺灣文化 (văn hóa Đài Loan), 飲食文化 (văn hóa ẩm thực), 文化差異 (khác biệt văn hóa), 文化交流 (giao lưu văn hóa).",
+   "co": [
+    "臺灣文化|văn hóa Đài Loan",
+    "飲食文化|văn hóa ẩm thực",
+    "文化差異|khác biệt văn hóa",
+    "文化交流|giao lưu văn hóa"
+   ],
+   "sy": [
+    "習俗|phong tục tập quán",
+    "傳統|truyền thống"
+   ],
+   "cf": [
+    "文明|文化 chỉ tổng thể lối sống, phong tục, ẩm thực, nghệ thuật (夜市文化); 文明 nhấn mạnh mức độ phát triển tiến bộ của xã hội hoặc nếp sống văn minh, lịch sự (古文明, 文明社會)"
+   ],
+   "lt": "個、種",
+   "tw": "Ở Đài Loan hay nhắc đến 夜市文化 (văn hóa chợ đêm), 排隊文化 (văn hóa xếp hàng), và các địa danh quen thuộc như 文化大學 (ĐH Văn Hóa), 文化中心 (Trung tâm Văn hóa).",
+   "mh": "Văn Hóa → wénhuà. ĐỌC: 'văn' → wén (v chuyển thành w + en, thanh 2 đi lên); 'hóa' → huà (h + ua, thanh 4 dứt khoát). NGHĨA: 文 (chữ viết, hoa văn đẹp) + 化 (biến đổi, giáo hóa) → dùng tri thức và lễ nghĩa để cảm hóa con người = văn hóa.",
+   "vd": [
+    {
+     "t": "Sở thích",
+     "zh": "我很喜歡學習不同國家的歷史和文化。",
+     "vn": "Tôi rất thích tìm hiểu lịch sử và văn hóa của các quốc gia khác nhau."
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "夜市小吃是臺灣文化非常重要的一部分。",
+     "vn": "Đồ ăn vặt chợ đêm là một phần rất quan trọng của văn hóa Đài Loan."
+    },
+    {
+     "t": "Du học",
+     "zh": "剛來臺北的時候，我覺得這裡的生活文化跟越南有點不一樣。",
+     "vn": "Lúc mới đến Đài Bắc, tôi thấy văn hóa sinh hoạt ở đây hơi khác với Việt Nam một chút."
+    }
+   ]
+  },
+  "認為": {
+   "vn": "cho rằng; nhận thấy; nghĩ rằng",
+   "ng": [
+    "(động từ) cho rằng, nhận định, tin rằng (thường dùng khi nêu quan điểm có suy xét, đánh giá)"
+   ],
+   "us": "Cấu trúc: Chủ ngữ + 認為 + mệnh đề nhận định: 我認為這樣比較好 (Tôi cho rằng như vậy tốt hơn). Phủ định đặt trước 認為: 我不認為…… (Tôi không cho rằng……).",
+   "co": [
+    "我認為|tôi cho rằng",
+    "大家認為|mọi người đều cho rằng",
+    "一般認為|thông thường người ta cho rằng",
+    "不認為|không cho rằng"
+   ],
+   "sy": [
+    "覺得|cảm thấy, thấy (thân mật, khẩu ngữ hơn)",
+    "以為|tưởng rằng (nghĩ sai so với thực tế)"
+   ],
+   "cf": [
+    "覺得 / 以為|覺得 dùng tự nhiên cho cảm giác và ý kiến hằng ngày (我覺得很好吃); 認為 trang trọng hơn, nêu quan điểm có lý lẽ (我認為這個辦法可行); 以為 dùng khi tưởng nhầm trái với sự thật (我以為今天放假)"
+   ],
+   "lt": "Không dùng phó từ mức độ như *很認為 ❌ vì theo sau 認為 là mệnh đề quan điểm.",
+   "mk": "Người Việt hay dịch 'tôi tưởng là' thành *我認為 ❌ (phải dùng 以為), hoặc dùng 認為 trong câu khen món ăn thân mật như *我認為這杯飲料很好喝 (nên dùng 我覺得).",
+   "tw": "Trong nói chuyện hằng ngày người Đài thích dùng 我覺得, còn khi phát biểu trên lớp, họp hành hay viết văn mới dùng 我認為. Lưu ý ở Đài Loan 為 trong 認為 đọc thanh 2 là wéi (không đọc wèi).",
+   "mh": "Nhận Vi → rènwéi. ĐỌC: 'nhận' → rèn (nh đổi thành r cong lưỡi + en, thanh 4); 'vi' → wéi (v đổi thành w + ei, thanh 2). NGHĨA: 認 (bộ Ngôn 言 lời nói + 忍 ghi nhận) là nhìn nhận + 為 là làm, coi là → nhìn nhận và coi điều gì là đúng = cho rằng.",
+   "vd": [
+    {
+     "t": "Học tập",
+     "zh": "老師認為每天練習聽力對學中文很有幫助。",
+     "vn": "Thầy giáo cho rằng luyện nghe mỗi ngày rất có ích cho việc học tiếng Hoa."
+    },
+    {
+     "t": "Thảo luận",
+     "zh": "我認為這個辦法比以前那個更方便，也更省時間。",
+     "vn": "Tôi cho rằng cách này tiện hơn cách trước kia, lại tiết kiệm thời gian hơn."
+    },
+    {
+     "t": "Lên kế hoạch",
+     "zh": "你認為我們明天幾點出發去機場比較合適？",
+     "vn": "Bạn thấy ngày mai mấy giờ chúng ta xuất phát ra sân bay thì phù hợp hơn?"
+    }
+   ]
+  },
+  "清楚": {
+   "vn": "rõ ràng; hiểu rõ; rành mạch",
+   "ng": [
+    "(tính từ) rõ ràng, rành mạch (hình ảnh, âm thanh, chữ viết, giải thích)",
+    "(động từ) nắm rõ, biết rõ, hiểu rõ (我很清楚 tôi rất rõ)",
+    "(bổ ngữ kết quả) rõ ràng (đặt sau động từ: 看清楚, 聽清楚, 講清楚, 寫清楚)"
+   ],
+   "us": "1) Vị ngữ tính từ: 很清楚 (rất rõ), 不太清楚 (không rõ lắm). 2) Bổ ngữ sau động từ: 看得清楚 (nhìn rõ), 聽不清楚 (nghe không rõ), 寫清楚 (viết cho rõ). 3) Động từ: 我清楚這件事 (Tôi nắm rõ chuyện này).",
+   "co": [
+    "不太清楚|không rõ lắm",
+    "看清楚|nhìn cho rõ",
+    "聽清楚|nghe cho rõ",
+    "講清楚|nói cho rõ ràng"
+   ],
+   "sy": [
+    "明白|hiểu rõ, thông suốt",
+    "明確|rõ ràng, dứt khoát"
+   ],
+   "an": [
+    "模糊|mơ hồ, nhòe",
+    "糊塗|hồ đồ, lơ mơ"
+   ],
+   "cf": [
+    "明白|清楚 thiên về âm thanh, hình ảnh, chữ nghĩa hay thông tin rõ nét (聽清楚, 寫清楚); 明白 thiên về hiểu thấu lý lẽ, ý tứ (我明白你的意思)"
+   ],
+   "lt": "Khi muốn trả lời 'tôi không biết rõ' một cách lịch sự, dùng 我不太清楚.",
+   "mk": "Người Việt hay nói *我看很清楚 ❌ (thiếu chữ 得 của bổ ngữ trình độ); phải nói 我看得很清楚 hoặc 我看清楚了.",
+   "tw": "Ở Đài Loan 清楚 đọc thanh 3 ở âm sau là qīngchǔ (ít đọc thanh nhẹ như ở Đại Lục). Hỏi đường ở Đài Loan, câu 我不太清楚喔 là cách trả lời rất phổ biến và lịch sự.",
+   "mh": "Thanh Sở → qīngchǔ. ĐỌC: 'thanh' → qīng (q bật hơi + ing, thanh 1); 'sở' → chǔ (ch cong lưỡi bật hơi + u, thanh 3; chuẩn Đài Loan đọc đủ thanh 3). NGHĨA: 清 (nước 氵 trong xanh 青) là trong veo + 楚 (rừng cây thoáng nét) là tách bạch → trong trẻo và tách bạch = rõ ràng.",
+   "vd": [
+    {
+     "t": "Lớp học",
+     "zh": "教室後面有點遠，我看不清楚黑板上的字。",
+     "vn": "Phía sau lớp học hơi xa, tôi nhìn không rõ chữ trên bảng đen."
+    },
+    {
+     "t": "Hỏi đường",
+     "zh": "不好意思，我是外地來的，對這裡的路不太清楚。",
+     "vn": "Xin lỗi, tôi từ nơi khác đến nên không rõ đường sá ở đây lắm."
+    },
+    {
+     "t": "Gọi điện",
+     "zh": "捷運裡訊號不好，你可以再講清楚一點嗎？",
+     "vn": "Trong tàu điện ngầm sóng yếu quá, bạn có thể nói rõ hơn một chút được không?"
+    }
+   ]
+  },
+  "決定": {
+   "vn": "quyết định",
+   "ng": [
+    "(động từ) quyết định, quyết tâm làm gì (決定 + V / mệnh đề)",
+    "(danh từ) quyết định, sự lựa chọn (做一個決定 đưa ra một quyết định)"
+   ],
+   "us": "1) Động từ: 決定 + cụm động từ: 決定去臺灣留學 (quyết định sang Đài Loan du học), 還沒決定要不要去 (chưa quyết định có đi không). 2) Danh từ: 做決定 (đưa ra quyết định), 這個決定很正確 (quyết định này rất đúng đắn).",
+   "co": [
+    "做決定|đưa ra quyết định",
+    "決定好了|quyết định xong rồi",
+    "還沒決定|vẫn chưa quyết định",
+    "最後的決定|quyết định cuối cùng"
+   ],
+   "sy": [
+    "下定決心|hạ quyết tâm",
+    "選擇|lựa chọn"
+   ],
+   "an": [
+    "猶豫|do dự, lưỡng lự",
+    "改變|thay đổi"
+   ],
+   "cf": [
+    "決心|決定 chỉ hành động chọn một phương án cụ thể (決定明年畢業後工作); 決心 nhấn mạnh ý chí kiên định theo đuổi mục tiêu (有決心學好中文)"
+   ],
+   "lt": "個、項 (khi làm danh từ)",
+   "mk": "Người Việt hay dịch 'đưa ra quyết định' thành *給決定 ❌; tiếng Hoa phải dùng 做決定 hoặc 下決定.",
+   "tw": "Ở quán ăn Đài Loan nhân viên hay hỏi 決定好要點什麼了嗎？ (Bạn đã quyết định gọi món gì chưa?); bạn bè bàn xong lịch hẹn cũng hay chốt bằng câu 就這麼決定囉！ (Cứ quyết định vậy nha!).",
+   "mh": "Quyết Định → juédìng. ĐỌC: 'quyết' → jué (j + üe bỏ dấu chấm thành ue, thanh 2); 'định' → dìng (đ → d không bật hơi + ing, thanh 4). NGHĨA: 決 (nước 氵 được khơi thông dứt khoát) + 定 (mái nhà 宀 giữ yên ổn) → dứt khoát chốt lại cho ổn định = quyết định.",
+   "vd": [
+    {
+     "t": "Nghề nghiệp",
+     "zh": "他今年大學畢業以後，決定留在臺灣工作。",
+     "vn": "Sau khi tốt nghiệp đại học năm nay, anh ấy quyết định ở lại Đài Loan làm việc."
+    },
+    {
+     "t": "Gọi món",
+     "zh": "菜單上的菜看起來都很好吃，我還沒決定要點什麼。",
+     "vn": "Món nào trên thực đơn trông cũng ngon, tôi vẫn chưa quyết định nên gọi món gì."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "搬家是一件大事，我們需要跟家人一起做決定。",
+     "vn": "Chuyển nhà là chuyện lớn, chúng ta cần cùng người nhà đưa ra quyết định."
+    }
+   ]
+  },
+  "記得": {
+   "vn": "nhớ (không quên)",
+   "ng": [
+    "(động từ) nhớ, còn nhớ (một sự việc, con người, thông tin trong ký ức)",
+    "(động từ) nhớ, đừng quên (dặn dò ai làm việc gì: 記得 + động từ)"
+   ],
+   "us": "1) Nhớ sự việc: 我記得這家店 (Tôi nhớ tiệm này), 不太記得了 (Không nhớ rõ lắm nữa). 2) Nhắc nhở làm gì: 出門記得帶傘 (Ra ngoài nhớ mang ô), 記得吃藥 (Nhớ uống thuốc nhé).",
+   "co": [
+    "記得帶|nhớ mang theo",
+    "我記得|tôi nhớ là",
+    "不記得了|không nhớ nữa rồi",
+    "還記得嗎|còn nhớ không"
+   ],
+   "sy": [
+    "記住|ghi nhớ thật kỹ",
+    "想起來|nhớ lại được"
+   ],
+   "an": [
+    "忘|quên",
+    "忘記|quên mất"
+   ],
+   "cf": [
+    "記住 / 想起來|記得 là trạng thái vẫn lưu trong đầu (我記得他的名字) hoặc lời dặn nhẹ nhàng (記得關燈); 記住 nhấn mạnh cố gắng ghi sâu vào đầu (請記住這個密碼); 想起來 là bỗng nhớ ra điều từng quên (我想起來了!)"
+   ],
+   "lt": "Phủ định của 記得 là 不記得 (không nhớ), không dùng *沒記得 ❌.",
+   "mk": "Người Việt hay phủ định nhầm thành *我沒記得 ❌ (phải nói 我不記得了), hoặc dặn bạn bè nhưng dùng 記住 nghe hơi gắt thay vì 記得.",
+   "tw": "Trên tàu điện ngầm MRT hay xe buýt Đài Loan luôn có loa nhắc xuống xe: 請記得攜帶隨身物品！(Xin nhớ mang theo đồ dùng cá nhân!). Bạn bè nhắn tin cũng hay dặn 記得穿暖一點喔！",
+   "mh": "Ký Đắc → jìde. ĐỌC: 'ký' → jì (j + i, thanh 4); 'đắc' → de (d + e, thanh nhẹ). NGHĨA: 記 (lời nói 言 ghi cho bản thân 己) + 得 (đạt được, giữ được) → giữ lại được trong đầu = nhớ.",
+   "vd": [
+    {
+     "t": "Nhắc nhở",
+     "zh": "今天下午可能會下雨，出門記得帶雨傘。",
+     "vn": "Chiều nay có thể sẽ mưa, ra ngoài nhớ mang theo ô nhé."
+    },
+    {
+     "t": "Ký ức",
+     "zh": "我還記得我們第一次見面是在臺北車站的出口。",
+     "vn": "Tôi vẫn nhớ lần đầu tiên chúng ta gặp nhau là ở cửa ra ga Đài Bắc."
+    },
+    {
+     "t": "Mật khẩu",
+     "zh": "太久沒用這個帳號了，我完全不記得密碼是什麼。",
+     "vn": "Lâu quá không dùng tài khoản này, tôi hoàn toàn không nhớ mật khẩu là gì."
+    }
+   ]
+  },
+  "忘": {
+   "vn": "quên",
+   "ng": [
+    "(động từ) quên, quên mất (thường đi kèm 了: 忘了 + danh từ/động từ)",
+    "(động từ) để quên đồ vật ở một nơi nào đó (cấu trúc 把)"
+   ],
+   "us": "1) Quên làm gì/điều gì: 我忘了帶錢包 (Tôi quên mang ví), 差點忘了 (Suýt nữa thì quên), 別忘了 (Đừng quên nhé). 2) Để quên ở đâu: 把 + đồ + 忘在 + nơi chốn (把手機忘在計程車上).",
+   "co": [
+    "忘了帶|quên mang theo",
+    "別忘了|đừng quên nhé",
+    "差點忘了|suýt thì quên",
+    "忘在車上|để quên trên xe"
+   ],
+   "sy": [
+    "忘記|quên, quên mất",
+    "遺忘|lãng quên (văn viết)"
+   ],
+   "an": [
+    "記得|nhớ",
+    "記住|ghi nhớ"
+   ],
+   "cf": [
+    "忘記|Trong khẩu ngữ 忘 và 忘記 dùng giống nhau, nhưng 忘 gọn hơn và hay đi ngay với 了 hoặc chữ ở giữa (忘了說, 忘不了); 忘記 nghe đầy đặn hơn chút khi đứng cuối mệnh đề hoặc viết văn"
+   ],
+   "lt": "Khi nói để quên đồ ở đâu đó phải dùng giới từ 把 (把雨傘忘在餐廳了), không đặt địa điểm tách rời sau danh từ.",
+   "mk": "Người Việt hay dịch thẳng 'tôi quên điện thoại ở nhà' thành *我忘了手機在家 ❌; đúng ngữ pháp phải dùng 把: 我把手機忘在家裡了.",
+   "tw": "Khẩu ngữ Đài Loan rất hay nói 我忘了！ (Tôi quên mất tiêu!) hoặc 不要忘了喔！; tại cửa phòng thi hoặc cổng trường hay thấy biển nhắc 勿忘帶證件 (Đừng quên mang giấy tờ).",
+   "mh": "Vong → wàng. ĐỌC: 'vong' → wàng (v đổi thành w + ang, thanh 4 rơi mạnh). NGHĨA: Trên là chữ 亡 (mất đi), dưới là bộ Tâm 心 (tâm trí) → biến mất khỏi tâm trí = quên.",
+   "vd": [
+    {
+     "t": "Đi học",
+     "zh": "糟了，我今天忘了帶作業來學校！",
+     "vn": "Chết rồi, hôm nay tôi quên mang bài tập đến trường mất rồi!"
+    },
+    {
+     "t": "Dặn dò",
+     "zh": "下班回家的時候，別忘了去便利商店買一瓶牛奶。",
+     "vn": "Lúc tan làm về nhà, đừng quên ghé cửa hàng tiện lợi mua một chai sữa nhé."
+    },
+    {
+     "t": "Quên đồ",
+     "zh": "剛才在餐廳吃飯，我把雨傘忘在椅子上了。",
+     "vn": "Lúc nãy ăn cơm ở nhà hàng, tôi để quên chiếc ô trên ghế rồi."
+    }
+   ]
+  },
+  "棒": {
+   "vn": "tuyệt vời; giỏi; cây gậy",
+   "ng": [
+    "(tính từ) giỏi, tuyệt vời, xuất sắc, rất ổn (dùng để khen ngợi)",
+    "(danh từ) cây gậy, dùi, thanh (球棒 gậy bóng chày, 棒棒糖 kẹo mút)",
+    "(lượng từ) chặng trong thi chạy tiếp sức (跑第一棒 chạy chặng đầu tiên)"
+   ],
+   "us": "Khen ngợi: 真棒！(Tuyệt quá!), 太棒了！(Quá tuyệt vời!), 很棒 (rất giỏi/hay), 做得很棒 (làm rất tốt). Danh từ ghép: 棒球 (bóng chày), 棒棒糖 (kẹo mút).",
+   "co": [
+    "太棒了|quá tuyệt vời",
+    "真棒|thật giỏi, thật tuyệt",
+    "很棒的點子|ý tưởng rất hay",
+    "棒球比賽|trận đấu bóng chày"
+   ],
+   "sy": [
+    "厲害|giỏi, lợi hại",
+    "優秀|ưu tú, xuất sắc",
+    "讚|đỉnh, tuyệt vời (khẩu ngữ Đài Loan)"
+   ],
+   "an": [
+    "差|kém, tệ",
+    "糟糕|tệ hại"
+   ],
+   "cf": [
+    "厲害 / 讚|棒 mang sắc thái khen ngợi ấm áp, động viên (你畫得好棒!); 厲害 nhấn mạnh trình độ siêu đẳng khiến người ta nể phục (他中文好厲害); 讚 là khẩu ngữ cực quen ở Đài Loan khi khen món ngon hay việc gì quá đỉnh (超讚的!)"
+   ],
+   "lt": "根、支 (lượng từ khi 棒 là danh từ chỉ cây gậy)",
+   "tw": "Ở Đài Loan bóng chày (棒球) là môn thể thao rất được yêu thích; cổ vũ đội nhà hay hô 好棒！ Ngoài ra bạn trẻ Đài Loan cũng dùng 超棒 song song với 超讚.",
+   "mh": "Bổng → bàng. ĐỌC: 'bổng' → bàng (b không bật hơi + ang, thanh 4). NGHĨA: Bộ Mộc 木 (gỗ) + chữ 奉 (hai tay dâng nắm) → hai tay nắm một khúc gỗ chắc = cây gậy; từ nét nghĩa 'cứng cáp, vững vàng' chuyển thành khen 'giỏi, tuyệt vời'.",
+   "vd": [
+    {
+     "t": "Khen ngợi",
+     "zh": "你只學了三個月中文就能這樣聊天，真的很棒！",
+     "vn": "Bạn mới học tiếng Hoa ba tháng mà đã trò chuyện được thế này, thật sự rất giỏi!"
+    },
+    {
+     "t": "Tin vui",
+     "zh": "太棒了！我們這個星期五不用補課了。",
+     "vn": "Tuyệt quá! Thứ sáu tuần này chúng ta không phải học bù nữa rồi."
+    },
+    {
+     "t": "Thể thao",
+     "zh": "哥哥很喜歡打棒球，他有一支自己的木頭球棒。",
+     "vn": "Anh trai rất thích chơi bóng chày, anh ấy có một cây gậy bóng chày bằng gỗ của riêng mình."
+    }
+   ]
+  },
+  "行": {
+   "vn": "được, ổn; đi, hành; hàng, dãy; ngành nghề",
+   "ng": [
+    "(tính từ / động từ) [xíng] được, ổn, đồng ý, có khả năng (行嗎？, 不行, 這樣也行)",
+    "(động từ / danh từ) [xíng] đi lại, lưu hành, thi hành, hành vi (行走, 人行道, 旅行, 行動, 行為)",
+    "(lượng từ) [háng] hàng, dòng chữ, dãy (一行字 một dòng chữ, 兩行樹 hai hàng cây)",
+    "(danh từ) [háng] ngành nghề, hãng, cửa hàng chuyên doanh (這一行 nghề này, 銀行 ngân hàng, 同行 cùng ngành)"
+   ],
+   "us": "1) Âm xíng: Hỏi ý kiến hoặc từ chối: 行不行？(Có được không?), 不行！(Không được!); hoặc ghép từ chỉ đi lại/hành động: 人行道 (vỉa hè), 行李 (hành lý), 行為 (hành vi). 2) Âm háng: Đếm hàng/dòng: 一行字 (một dòng chữ), 寫了三行 (viết ba dòng); chỉ nghề/cửa hàng: 銀行 (ngân hàng), 做這一行 (làm nghề này).",
+   "co": [
+    "行不行|có được không (xíng)",
+    "這樣也行|như vậy cũng được (xíng)",
+    "人行道|vỉa hè (xíng)",
+    "一行字|một dòng chữ (háng)",
+    "這一行|ngành nghề này (háng)"
+   ],
+   "sy": [
+    "可以|được, có thể (thay cho xíng)",
+    "排|hàng, dãy (lượng từ thay cho háng khi xếp hàng người hoặc ghế)"
+   ],
+   "an": [
+    "不行|không được (xíng)",
+    "列|hàng ngang trong bảng ở Đài Loan (khi 行 dùng làm cột dọc)"
+   ],
+   "cf": [
+    "可以 / 排|行 (xíng) gọn và dứt khoát hơn 可以 khi trả lời đồng ý/từ chối (行！/ 不行！); lượng từ 行 (háng) đếm dòng chữ, hàng cây, còn 排 đếm hàng người xếp hàng hoặc dãy ghế (排隊, 第一排)"
+   ],
+   "lt": "Từ đa âm (破音字) cực kỳ quan trọng: đọc xíng khi mang nghĩa 'được / đi lại / hành vi', và đọc háng khi mang nghĩa 'hàng, dòng (lượng từ) / ngành nghề / ngân hàng'.",
+   "mk": "Người Việt hay đọc nhầm 銀行 (ngân hàng) thành *yínxíng ❌ (phải là yínháng) hoặc đọc 一行字 thành *yī xíng zì ❌ (đúng là yī háng zì).",
+   "tw": "Ở Đài Loan: 1) Vỉa hè là 人行道 (xíng), vạch qua đường là 行人穿越道. 2) 行為 (hành vi) ở Đài Loan đọc xíngwéi (học viên hay nhớ nhầm sang xíngwèi). 3) Trong bảng biểu máy tính ở Đài Loan, hàng ngang gọi là 列 còn cột dọc gọi là 行 (háng) — ngược với quy ước ở Đại Lục; nhưng dòng chữ trên giấy viết tay vẫn đếm là 一行字 (háng).",
+   "mh": "Hành / Hàng → xíng / háng. ĐỌC: 1) 'hành' → xíng (h chuyển sang x + ing, thanh 2: đi, được, hành vi); 2) 'hàng' → háng (h giữ nguyên + ang, thanh 2: hàng lối, ngành nghề, ngân hàng). NGHĨA: Hình tượng ngã tư đường cái → ban đầu là 'con đường, bước đi' (xíng), rồi mở rộng sang 'đi thành hàng, dãy, ngành nghề buôn bán' (háng).",
+   "vd": [
+    {
+     "t": "Hẹn gặp (xíng)",
+     "zh": "我們明天上午九點在捷運站出口見面，行嗎？",
+     "vn": "Ngày mai 9 giờ sáng chúng ta gặp nhau ở cửa ra ga tàu điện ngầm, được không?"
+    },
+    {
+     "t": "Đi bộ (xíng)",
+     "zh": "這條路的人行道很寬，我們從這裡走過去也行。",
+     "vn": "Vỉa hè con đường này rất rộng, chúng ta đi bộ từ đây sang cũng ổn đấy."
+    },
+    {
+     "t": "Ngân hàng & viết (háng)",
+     "zh": "請把銀行帳號寫在表格第一行，寫一行就好了。",
+     "vn": "Xin vui lòng viết số tài khoản ngân hàng vào dòng đầu tiên của biểu mẫu, viết một dòng là được rồi."
+    }
+   ]
+  },
+  "講": {
+   "vn": "nói; giảng; kể; giải thích",
+   "ng": [
+    "(động từ) nói, trò chuyện (rất thông dụng trong khẩu ngữ Đài Loan thay cho 說)",
+    "(động từ) giảng giải, giải thích (講課 giảng bài, 講清楚 nói rõ)",
+    "(động từ) kể chuyện (講故事 kể chuyện, 講笑話 kể chuyện cười)",
+    "(động từ) chú trọng, coi trọng (講衛生 giữ vệ sinh, 講道理 biết điều)"
+   ],
+   "us": "講 + tân ngữ: 講中文 (nói tiếng Hoa), 講電話 (nói chuyện điện thoại), 講故事 (kể chuyện). Nói với ai dùng 跟 / 對 + người + 講: 我跟你講 (Tôi nói bạn nghe).",
+   "co": [
+    "講中文|nói tiếng Hoa",
+    "講電話|nói chuyện điện thoại",
+    "講故事|kể chuyện",
+    "講清楚|nói cho rõ"
+   ],
+   "sy": [
+    "說|nói",
+    "談|trò chuyện, bàn bạc",
+    "解釋|giải thích"
+   ],
+   "an": [
+    "聽|nghe",
+    "沉默|im lặng"
+   ],
+   "cf": [
+    "說|Ở Đài Loan 講 và 說 thường thay thế cho nhau trong khẩu ngữ, nhưng 講 mang âm điệu thân mật, tự nhiên rất đặc trưng Đài Loan (講電話, 講臺語, 講話). Các từ ghép cố định như 聽說, 說明 thì chỉ dùng 說"
+   ],
+   "lt": "Cấu trúc 'nói với ai' là 跟某人講 hoặc 對某人講; không đặt tân ngữ người trực tiếp sau 講 (*講他 ❌).",
+   "mk": "Người Việt hay dịch 'nói với bạn' thành *講你 ❌; đúng phải nói 跟你講.",
+   "tw": "Từ cực kỳ đặc trưng phong cách nói tiếng Hoa ở Đài Loan! Người Đài dùng 講電話 (nói chuyện điện thoại), 講臺語 (nói tiếng Đài), 講話 (nói chuyện), và câu mở đầu chuyện phiếm kinh điển 我跟你講喔…… (Này tôi kể bạn nghe……).",
+   "mh": "Giảng → jiǎng. ĐỌC: 'giảng' → jiǎng (gi sang j mềm + iang, thanh 3). NGHĨA: Bộ Ngôn 言 (lời nói) + chữ 冓 (hai phần giao nhau đối đáp) → dùng lời nói trao đổi, giải thích = nói, giảng.",
+   "vd": [
+    {
+     "t": "Ngôn ngữ",
+     "zh": "他在臺灣住了五年，不但會講中文，還會講一點臺語。",
+     "vn": "Anh ấy sống ở Đài Loan năm năm rồi, không những biết nói tiếng Hoa mà còn nói được một chút tiếng Đài."
+    },
+    {
+     "t": "Điện thoại",
+     "zh": "爸爸現在正在跟客戶講電話，請等一下再找他。",
+     "vn": "Bố bây giờ đang nói chuyện điện thoại với khách hàng, xin đợi một lát nữa hãy tìm bố."
+    },
+    {
+     "t": "Lớp học",
+     "zh": "今天老師講的語法很實用，我全部都聽懂了。",
+     "vn": "Ngữ pháp hôm nay thầy giảng rất thực tế, tôi nghe hiểu hết rồi."
+    }
+   ]
+  },
+  "加": {
+   "vn": "thêm; cộng; gia tăng",
+   "ng": [
+    "(động từ) thêm vào, cho thêm (加糖 thêm đường, 加冰 thêm đá, 加水 thêm nước)",
+    "(động từ) cộng (toán học: 二加三等於五)",
+    "(động từ) tăng thêm, tiếp thêm (加班 tăng ca, 加油 đổ xăng / cố lên)",
+    "(động từ) kết bạn, thêm vào nhóm mạng xã hội (加 LINE, 加好友)"
+   ],
+   "us": "加 + danh từ: 加糖 (thêm đường), 加辣 (thêm cay), 加班 (làm thêm giờ), 加油 (đổ xăng / cố lên). Phép cộng: A 加 B 等於 C. Mạng xã hội: 加一下 LINE (kết bạn LINE nhé).",
+   "co": [
+    "加糖|thêm đường",
+    "加班|làm thêm giờ, tăng ca",
+    "加油|cố lên; đổ xăng",
+    "加 LINE|kết bạn LINE"
+   ],
+   "sy": [
+    "增加|tăng thêm (trang trọng hơn)",
+    "添|thêm vào"
+   ],
+   "an": [
+    "減|trừ, giảm bớt",
+    "少|bớt đi"
+   ],
+   "cf": [
+    "增加|加 ngắn gọn, dùng cho đồ ăn thức uống, phép cộng, kết bạn mạng xã hội (加糖, 加好友); 增加 dùng với danh từ trừu tượng hoặc số lượng lớn (增加收入, 增加壓力)"
+   ],
+   "lt": "Ở quán đồ uống Đài Loan, nhân viên hỏi thêm topping hay không sẽ nói 要加料嗎？",
+   "mk": "Người Việt hay dịch 'cho thêm ít đá' thành *給加冰 ❌; chỉ cần nói 加一點冰 hoặc nói theo chuẩn quán trà sữa là 少冰 / 微冰.",
+   "tw": "Ở Đài Loan, chữ 加 xuất hiện dày đặc mỗi ngày: quán trà sữa có 加珍珠 (thêm trân châu), 加料 (thêm topping); giao tiếp dùng 加 LINE / 加 IG; cổ vũ hoặc ghé trạm xăng là 加油！",
+   "mh": "Gia → jiā. ĐỌC: 'gia' → jiā (gi sang j mềm + ia, thanh 1 ngang). NGHĨA: Bộ Lực 力 (sức lực) + bộ Khẩu 口 (miệng nói cổ vũ) → góp thêm sức lực, thêm lời = thêm vào, cộng.",
+   "vd": [
+    {
+     "t": "Mua trà sữa",
+     "zh": "老闆，我的紅茶少冰，不用加糖，謝謝。",
+     "vn": "Chủ quán ơi, hồng trà của tôi ít đá, không cần thêm đường, cảm ơn."
+    },
+    {
+     "t": "Kết bạn",
+     "zh": "我們等一下先加一下 LINE，以後比較方便聯絡。",
+     "vn": "Lát nữa chúng ta kết bạn LINE trước nhé, sau này tiện liên lạc hơn."
+    },
+    {
+     "t": "Công việc",
+     "zh": "這個禮拜工作太多了，我每天都要加班到晚上八點。",
+     "vn": "Tuần này nhiều việc quá, ngày nào tôi cũng phải tăng ca đến 8 giờ tối."
+    }
+   ]
+  },
+  "算": {
+   "vn": "tính; tính toán; coi như",
+   "ng": [
+    "(động từ) tính toán, đếm, tính tiền (算數學 giải toán, 算一下多少錢 tính thử bao nhiêu tiền)",
+    "(động từ) tính là, coi như là, được kể vào (這樣算便宜了 tính thế là rẻ rồi, 算我的 tính cho tôi trả)",
+    "(động từ) dùng trong 算了 (thôi bỏ đi, thôi kệ vậy)"
+   ],
+   "us": "1) Tính toán: 幫我算一下 (tính giúp tôi thử), 算錯了 (tính nhầm rồi). 2) Coi là: 這不算難 (cái này không tính là khó), 算我一份 (tính tôi một suất). 3) Nhượng bộ: 算了，別生氣了 (Thôi bỏ đi, đừng giận nữa).",
+   "co": [
+    "算一下|tính thử xem",
+    "算了|thôi bỏ đi",
+    "算錯了|tính nhầm rồi",
+    "這樣算|tính như vậy là"
+   ],
+   "sy": [
+    "計算|tính toán (trang trọng, kỹ thuật)",
+    "結帳|thanh toán, tính tiền ở quầy"
+   ],
+   "cf": [
+    "計算 / 結帳|算 dùng linh hoạt trong khẩu ngữ để nhẩm tính hoặc ước lượng (你幫我算算看); 計算 mang tính chính thức cho số liệu, máy tính; khi ăn xong ở quán Đài Loan gọi tính tiền phải nói 結帳 hoặc 買單, không nói *算錢"
+   ],
+   "lt": "算了 luôn đứng riêng làm câu hoặc vế câu mang nghĩa 'thôi bỏ qua đi', không mang nghĩa 'đã tính xong'.",
+   "mk": "Người Việt hay dịch 'tính tiền đi em' ở nhà hàng thành *老闆，算錢 ❌; ở Đài Loan phải nói 老闆，結帳 hoặc 不好意思，要結帳.",
+   "tw": "Ở Đài Loan người ta cực kỳ hay nói 算了吧！(Thôi kệ đi / Thôi bỏ đi!), 不算貴 (cũng không đắt lắm đâu), và khi đi ăn chia tiền với bạn là 我先算一下每個人要出多少.",
+   "mh": "Toán → suàn. ĐỌC: 'toán' → suàn (t sang s thẳng lưỡi + uan, thanh 4). NGHĨA: Trên là 竹 (thẻ tre tính toán thời xưa), giữa là 目 (mắt nhìn), dưới là 廾 (hai tay nâng) → hai tay nâng thẻ tre nhìn đếm = tính toán.",
+   "vd": [
+    {
+     "t": "Chia tiền",
+     "zh": "這頓飯一共一千二百塊，我們四個人算一算每人要付多少。",
+     "vn": "Bữa cơm này tổng cộng 1.200 tệ, bốn đứa mình tính thử xem mỗi người phải trả bao nhiêu."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這件外套打折以後只要八百塊，算很便宜了。",
+     "vn": "Chiếc áo khoác này sau khi giảm giá chỉ còn 800 tệ, tính ra là rất rẻ rồi."
+    },
+    {
+     "t": "Thôi bỏ đi",
+     "zh": "雨下得這麼大，今天還是算了，我們改天再去爬山吧。",
+     "vn": "Mưa to thế này, hôm nay thôi bỏ đi, hôm khác chúng ta hãy đi leo núi nhé."
+    }
+   ]
+  },
+  "交": {
+   "vn": "nộp; giao; kết giao",
+   "ng": [
+    "(động từ) nộp, giao nộp (交作業 nộp bài tập, 交報告 nộp báo cáo)",
+    "(động từ) giao cho, bàn giao (把文件交給經理 giao tài liệu cho giám đốc)",
+    "(động từ) đóng, nộp tiền (交房租 đóng tiền thuê nhà, 交學費 đóng học phí)",
+    "(động từ) kết bạn, làm quen (交朋友 kết bạn)"
+   ],
+   "us": "1) 交 + bài/hồ sơ: 交作業 (nộp bài), 交申請表 (nộp đơn). 2) 交給 + người: 交給我吧 (cứ giao cho tôi). 3) 交朋友 (kết bạn), 交到好朋友 (kết được bạn tốt).",
+   "co": [
+    "交作業|nộp bài tập",
+    "交朋友|kết bạn",
+    "交給老師|nộp cho giáo viên",
+    "交房租|trả tiền thuê nhà"
+   ],
+   "sy": [
+    "繳|đóng, nộp tiền (rất phổ biến ở Đài Loan)",
+    "遞|đưa tận tay"
+   ],
+   "cf": [
+    "繳|Nộp bài tập, hồ sơ hay giao việc dùng 交 (交作業, 交給他); còn đóng tiền học, tiền điện nước, hóa đơn ở Đài Loan thường ưu tiên dùng 繳 (繳學費, 繳水電費, 繳費), dù nói 交房租 vẫn rất tự nhiên"
+   ],
+   "lt": "Không dùng 交 cho 'giao hàng ăn uống/ship hàng' (phải dùng 外送 hoặc 送貨).",
+   "mk": "Người Việt hay dịch 'shipper giao hàng' thành *交貨 ❌; trong đời sống ở Đài Loan giao cơm hay giao hàng online phải dùng 外送 hoặc 送貨 / 寄到.",
+   "tw": "Ở Đài Loan, ngoài 交作業, giới trẻ rất hay nói 交男/女朋友 (có người yêu / quen bạn trai, bạn gái); còn đóng tiền hóa đơn ở siêu thị 7-11 gọi là 繳費.",
+   "mh": "Giao → jiāo. ĐỌC: 'giao' → jiāo (gi sang j mềm + iao, thanh 1 ngang). NGHĨA: Hình dáng hai cánh tay/hai chân đan chéo nhau → sự giao thoa, trao tay qua lại = giao, nộp, kết giao.",
+   "vd": [
+    {
+     "t": "Học tập",
+     "zh": "這份報告明天下午五點以前一定要交給老師。",
+     "vn": "Bản báo cáo này trước 5 giờ chiều mai nhất định phải nộp cho thầy giáo."
+    },
+    {
+     "t": "Kết bạn",
+     "zh": "我很喜歡參加社團活動，因為可以交到很多新朋友。",
+     "vn": "Tôi rất thích tham gia hoạt động câu lạc bộ vì có thể kết thêm được nhiều bạn mới."
+    },
+    {
+     "t": "Thuê nhà",
+     "zh": "每個月五號之前，我都要轉帳交房租給房東。",
+     "vn": "Trước ngày 5 mỗi tháng, tôi đều phải chuyển khoản đóng tiền thuê nhà cho chủ nhà."
+    }
+   ]
+  },
+  "借": {
+   "vn": "mượn; cho mượn",
+   "ng": [
+    "(động từ) mượn, vay (借書 mượn sách, 借錢 vay tiền, 借筆 mượn bút)",
+    "(động từ) cho mượn (借給 + ai / 把 đồ 借給 + ai)",
+    "(động từ) xin đi nhờ qua (借過 xin nhường đường)"
+   ],
+   "us": "1) Đi mượn của ai: 跟 + người + 借 + vật: 我跟你借一支筆 (Tôi mượn bạn cây bút). 2) Cho ai mượn: 把 + vật + 借給 + người hoặc 借給 + người + vật: 我把傘借給你 (Tôi cho bạn mượn ô). 3) Xin nhường lối: 借過一下！",
+   "co": [
+    "借書|mượn sách",
+    "借過一下|cho đi nhờ qua một chút",
+    "借給你|cho bạn mượn",
+    "跟你借|mượn của bạn"
+   ],
+   "sy": [
+    "租|thuê có trả tiền (租房子, 租車)",
+    "貸|vay ngân hàng (貸款)"
+   ],
+   "an": [
+    "還|trả lại (huán)"
+   ],
+   "cf": [
+    "租 / 還|借 là mượn không mất phí rồi sẽ trả lại (還); 租 là thuê có trả phí (租房子 thuê nhà, 租機車 thuê xe máy). Phải gắn 跟 (mượn từ) hoặc 給 (cho mượn) để không bị ngược chiều"
+   ],
+   "lt": "Đi mượn của ai bắt buộc dùng 跟 + ai + 借 (跟同學借筆記); cho ai mượn dùng 借給 + ai.",
+   "mk": "Người Việt hay nói mơ hồ *我借他一本書 khiến người nghe không rõ bạn đi mượn hay cho mượn; hãy nói rõ 我跟他借 (mượn của anh ấy) hoặc 我借給他 (cho anh ấy mượn).",
+   "tw": "Ở Đài Loan mỗi lần chen trên tàu điện MRT giờ cao điểm hay đi chợ đêm đông đúc, câu cửa miệng lịch sự nhất là 不好意思，借過一下！ (Xin lỗi, cho tôi đi nhờ qua một chút!).",
+   "mh": "Tá → jiè. ĐỌC: 'tá' → jiè (đọc lái theo nhóm chữ có âm t/gi sang j mềm + ie, thanh 4). NGHĨA: Bộ Nhân 亻 (người) + chữ 昔 (xếp chồng, ngày xưa) → người dựa vào đồ đạc của người khác dùng tạm = mượn, cho mượn.",
+   "vd": [
+    {
+     "t": "Thư viện",
+     "zh": "我用學生證在圖書館借了三本中文小說。",
+     "vn": "Tôi dùng thẻ sinh viên mượn ba cuốn tiểu thuyết tiếng Hoa ở thư viện."
+    },
+    {
+     "t": "Mượn đồ",
+     "zh": "我的筆剛好沒水了，可以跟你借一支來寫嗎？",
+     "vn": "Bút của tôi vừa hay hết mực rồi, tôi có thể mượn bạn một cây để viết không?"
+    },
+    {
+     "t": "Trên MRT",
+     "zh": "不好意思，我要下車了，請問可以借過一下嗎？",
+     "vn": "Xin lỗi, tôi sắp xuống tàu rồi, xin hỏi có thể cho tôi đi nhờ qua chút được không?"
+    }
+   ]
+  },
+  "辦法": {
+   "vn": "biện pháp; cách giải quyết",
+   "ng": [
+    "(danh từ) biện pháp, cách giải quyết, lối thoát cho một tình huống hay vấn đề cụ thể"
+   ],
+   "us": "Thường đi trong các cụm cố định: 有辦法 (có cách), 沒(有)辦法 (hết cách rồi, đành chịu), 想辦法 (nghĩ cách), 解決的辦法 (biện pháp giải quyết).",
+   "co": [
+    "沒辦法|hết cách rồi, đành chịu",
+    "想辦法|nghĩ cách giải quyết",
+    "有辦法|có cách",
+    "好辦法|cách hay"
+   ],
+   "sy": [
+    "方法|phương pháp, cách thức",
+    "主意|ý kiến, ý tưởng"
+   ],
+   "cf": [
+    "方法|辦法 nhấn mạnh giải pháp xử lý một rắc rối hoặc trở ngại cụ thể (想辦法解決, 沒辦法); 方法 thiên về cách thức, kỹ thuật làm việc hoặc học tập nói chung (學習方法)"
+   ],
+   "lt": "個、條",
+   "mk": "Người Việt hay dịch 'tôi hết cách rồi' thành *我沒有方法 ❌; đúng và tự nhiên phải nói 我沒辦法了.",
+   "tw": "沒辦法！(Hết cách rồi / Đành chịu thôi!) là câu cửa miệng cực kỳ phổ biến của người Đài Loan khi gặp chuyện bất khả kháng như kẹt xe hay bão tố.",
+   "mh": "Biện Pháp → bànfǎ. ĐỌC: 'biện' → bàn (b không bật hơi + an, thanh 4); 'pháp' → fǎ (ph → f + a, thanh 3). NGHĨA: 辦 (xử lý công việc cần hai bên và sức lực) + 法 (phép tắc ngay thẳng như dòng nước) → cách xử lý công việc ổn thỏa = biện pháp, cách.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "明天可能會放颱風假，我們也沒辦法出去玩了。",
+     "vn": "Ngày mai có thể sẽ nghỉ bão, chúng ta cũng hết cách ra ngoài đi chơi rồi."
+    },
+    {
+     "t": "Giải quyết",
+     "zh": "車子突然壞掉了，我們趕快想個辦法去機場吧。",
+     "vn": "Xe tự dưng bị hỏng mất rồi, chúng ta mau nghĩ cách ra sân bay đi."
+    },
+    {
+     "t": "Góp ý",
+     "zh": "你提出來的這個辦法很好，大家可以試試看。",
+     "vn": "Cách giải quyết bạn đề xuất này rất hay, mọi người có thể thử xem sao."
+    }
+   ]
+  },
+  "方法": {
+   "vn": "phương pháp; cách thức",
+   "ng": [
+    "(danh từ) phương pháp, cách thức, kỹ thuật (trong học tập, làm việc, nấu ăn, rèn luyện)"
+   ],
+   "us": "Đi với động từ 找 (tìm), 用 (dùng), 學 (học), 換 (đổi): 學習方法 (phương pháp học tập), 一個好方法 (một cách hay), 用這個方法 (dùng phương pháp này).",
+   "co": [
+    "學習方法|phương pháp học tập",
+    "好方法|phương pháp hay",
+    "用這個方法|dùng cách này",
+    "找方法|tìm phương pháp"
+   ],
+   "sy": [
+    "辦法|biện pháp, cách giải quyết",
+    "方式|phương thức, kiểu cách"
+   ],
+   "cf": [
+    "辦法 / 方式|方法 chỉ quy trình, cách làm mang tính kỹ năng hoặc hệ thống (記憶生詞的方法); 辦法 chỉ cách xoay xở giải quyết sự cố cụ thể (沒辦法); 方式 thiên về hình thức, phong cách thực hiện (生活方式)"
+   ],
+   "lt": "個、種",
+   "mk": "Tránh nói *沒有方法 ❌ với nghĩa 'bó tay, đành chịu' (phải dùng 沒有辦法).",
+   "tw": "Trong các lớp tiếng Hoa ở Đài Loan, giáo viên rất hay khuyên học viên 找對方法很重要 (Tìm đúng phương pháp rất quan trọng) và chia sẻ 練習發音的方法.",
+   "mh": "Phương Pháp → fāngfǎ. ĐỌC: 'phương' → fāng (ph → f + ang, thanh 1); 'pháp' → fǎ (f + a, thanh 3). NGHĨA: 方 (phương hướng ngay ngắn) + 法 (phép tắc chuẩn mực) → phép tắc chỉ hướng đi đúng đắn = phương pháp.",
+   "vd": [
+    {
+     "t": "Học ngoại ngữ",
+     "zh": "學好中文需要每天練習，也要找到適合自己的方法。",
+     "vn": "Học giỏi tiếng Hoa cần luyện tập mỗi ngày, cũng phải tìm được phương pháp phù hợp với bản thân."
+    },
+    {
+     "t": "Nấu ăn",
+     "zh": "媽媽教我做菜的方法很簡單，看一次就學會了。",
+     "vn": "Cách nấu ăn mẹ dạy tôi rất đơn giản, xem một lần là học được ngay."
+    },
+    {
+     "t": "Công việc",
+     "zh": "我們換別的方法試試看，也許能把事情做得更快。",
+     "vn": "Chúng ta đổi sang phương pháp khác thử xem sao, biết đâu có thể làm xong việc nhanh hơn."
+    }
+   ]
+  },
+  "有用": {
+   "vn": "có ích; hữu ích",
+   "ng": [
+    "(tính từ) có ích, hữu ích, hữu dụng, có tác dụng"
+   ],
+   "us": "Làm vị ngữ thường đi kèm phó từ mức độ: 很有用 (rất có ích), 非常有用 (vô cùng hữu ích); hoặc làm định ngữ: 有用的資訊 (thông tin hữu ích). Muốn nói 'có ích cho ai/cái gì' dùng: 對 + A + 很有用.",
+   "co": [
+    "很有用|rất có ích",
+    "沒有用|vô ích, không có tác dụng",
+    "有用的資訊|thông tin hữu ích",
+    "對學習有用|có ích cho việc học"
+   ],
+   "sy": [
+    "有幫助|có ích, giúp ích được",
+    "實用|thực tế, thiết thực"
+   ],
+   "an": [
+    "沒用|vô dụng, không có ích",
+    "無用|vô ích (trang trọng)"
+   ],
+   "cf": [
+    "有幫助 / 實用|有用 nhấn mạnh có giá trị sử dụng (這個App很有用); 有幫助 nhấn mạnh sự trợ giúp cho ai đó hoặc mục tiêu nào đó (對我很有幫助); 實用 nhấn mạnh tính ứng dụng thực tế cao trong đời sống"
+   ],
+   "lt": "Khi muốn nói 'hữu ích cho việc gì', dùng giới từ 對: 對找工作很有用.",
+   "mk": "Người Việt hay quên thêm 很 khi dùng làm vị ngữ (*這本書有用 ❌); câu khẳng định tự nhiên cần có phó từ mức độ như 這本書很有用.",
+   "tw": "Người Đài Loan rất hay khen mẹo vặt đời sống hoặc ứng dụng tra xe buýt trên điện thoại bằng câu 超有用的！ (Siêu hữu ích luôn!).",
+   "mh": "Hữu Dụng → yǒuyòng. ĐỌC: 'hữu' → yǒu (y + ou, thanh 3); 'dụng' → yòng (d sang y + ong, thanh 4). NGHĨA: 有 (có) + 用 (dùng, công dụng) → có công dụng dùng được = có ích, hữu ích.",
+   "vd": [
+    {
+     "t": "Học tập",
+     "zh": "老師推薦的這本字典對初學者非常有用。",
+     "vn": "Cuốn từ điển thầy giáo giới thiệu này rất có ích cho người mới học."
+    },
+    {
+     "t": "Đi lại",
+     "zh": "在臺北搭公車的時候，查公車時間的軟體很有用。",
+     "vn": "Lúc đi xe buýt ở Đài Bắc, ứng dụng tra giờ xe buýt rất hữu ích."
+    },
+    {
+     "t": "Tìm nhà",
+     "zh": "我在網路上看到很多有用的租房子資訊，對大家很有幫助。",
+     "vn": "Tôi xem được rất nhiều thông tin thuê nhà hữu ích trên mạng, giúp ích rất nhiều cho mọi người."
+    }
+   ]
+  },
+  "進步": {
+   "vn": "tiến bộ",
+   "ng": [
+    "(động từ) tiến bộ, khá lên, cải thiện (trình độ, kỹ năng, điểm số)",
+    "(danh từ) sự tiến bộ (有很大進步 có tiến bộ lớn)",
+    "(tính từ) tiến bộ, tiên tiến (科技很進步 công nghệ rất tiến bộ)"
+   ],
+   "us": "1) Động từ: 進步了 (tiến bộ rồi), 進步很多 (tiến bộ nhiều), 進步得很快 (tiến bộ nhanh). 2) Danh từ: 有進步 (có tiến bộ). 3) Tính từ: 很進步 (tiên tiến, hiện đại).",
+   "co": [
+    "進步很多|tiến bộ rất nhiều",
+    "有進步|có tiến bộ",
+    "進步得很快|tiến bộ rất nhanh",
+    "科技進步|công nghệ tiến bộ"
+   ],
+   "sy": [
+    "改善|cải thiện",
+    "成長|trưởng thành, phát triển"
+   ],
+   "an": [
+    "退步|thụt lùi, kém đi",
+    "落後|lạc hậu"
+   ],
+   "cf": [
+    "改善|進步 chỉ sự đi lên tích cực về trình độ hay khoa học kỹ thuật (中文進步了); 改善 chỉ sửa đổi, khắc phục tình trạng chưa tốt cho khá hơn (改善空氣品質, 改善生活)"
+   ],
+   "lt": "個 (khi làm danh từ chỉ một bước tiến, ít dùng bằng 有進步). 進步 là nội động từ, không mang tân ngữ trực tiếp phía sau (*進步中文 ❌).",
+   "mk": "Lỗi rất hay gặp của người Việt là đặt tân ngữ trực tiếp sau 進步 (*我想進步我的中文 ❌); đúng phải nói 我想讓我的中文進步 hoặc 我的中文進步了.",
+   "tw": "Khi nói chuyện với người Đài Loan bằng tiếng Hoa, câu khen bạn rất hay nghe nhất chính là 你的中文進步好多喔！ (Tiếng Hoa của bạn tiến bộ nhiều quá nha!).",
+   "mh": "Tiến Bộ → jìnbù. ĐỌC: 'tiến' → jìn (t → j mềm + in, thanh 4); 'bộ' → bù (b không bật hơi + u, thanh 4). NGHĨA: 進 (bước chân 辶 tiến về trước) + 步 (bước đi) → từng bước tiến lên phía trước = tiến bộ.",
+   "vd": [
+    {
+     "t": "Khen ngợi",
+     "zh": "你最近每天練習講話，中文進步很多喔！",
+     "vn": "Gần đây bạn luyện nói mỗi ngày, tiếng Hoa tiến bộ nhiều lắm đấy!"
+    },
+    {
+     "t": "Học tập",
+     "zh": "只要肯花時間複習，成績一定會慢慢進步。",
+     "vn": "Chỉ cần chịu khó dành thời gian ôn tập, điểm số nhất định sẽ dần tiến bộ."
+    },
+    {
+     "t": "Công nghệ",
+     "zh": "現在的科技很進步，用手機就能線上點餐。",
+     "vn": "Công nghệ bây giờ rất tiến bộ, dùng điện thoại là có thể gọi món trực tuyến rồi."
+    }
+   ]
+  },
+  "圖書館": {
+   "vn": "thư viện",
+   "ng": [
+    "(danh từ) thư viện (nơi lưu trữ, cho mượn sách báo và tự học)"
+   ],
+   "us": "Đi với động từ 去 (đi), 在 (ở), 進 (vào): 去圖書館看書 (đi thư viện đọc sách), 在圖書館準備考試 (ôn thi ở thư viện), 市立圖書館 (thư viện thành phố).",
+   "co": [
+    "去圖書館|đi thư viện",
+    "學校圖書館|thư viện trường học",
+    "市立圖書館|thư viện thành phố",
+    "圖書館借書|mượn sách ở thư viện"
+   ],
+   "sy": [
+    "書店|hiệu sách (nơi mua sách)"
+   ],
+   "cf": [
+    "書店 / 書局|圖書館 là thư viện công cộng hoặc trường học để mượn sách miễn phí và ngồi học; còn cửa hàng bán sách, văn phòng phẩm ở Đài Loan gọi là 書店 hoặc 書局"
+   ],
+   "lt": "家、間、座",
+   "tw": "Tại Đài Loan hệ thống thư viện công cộng cực kỳ tiện nghi như 臺北市立圖書館 và 國家圖書館; người dân có thể tích hợp thẻ 悠遊卡 (EasyCard) làm thẻ mượn sách và tự mượn trả qua máy tự động!",
+   "mh": "Đồ Thư Quán → túshūguǎn. ĐỌC: 'đồ' → tú (t bật hơi + u, thanh 2); 'thư' → shū (sh cong lưỡi + u, thanh 1); 'quán' → guǎn (g không bật hơi + uan, thanh 3). NGHĨA: 圖 (bản đồ, tranh vẽ) + 書 (sách vở) + 館 (tòa nhà công cộng) → tòa nhà lưu giữ sách vở và tư liệu = thư viện.",
+   "vd": [
+    {
+     "t": "Ôn thi",
+     "zh": "快要期末考了，學校圖書館每天都坐滿了學生。",
+     "vn": "Sắp thi cuối kỳ rồi, thư viện trường ngày nào cũng ngồi kín sinh viên."
+    },
+    {
+     "t": "Cuối tuần",
+     "zh": "這家圖書館非常安靜，我週末常常來這裡看書。",
+     "vn": "Thư viện này rất yên tĩnh, cuối tuần tôi thường đến đây đọc sách."
+    },
+    {
+     "t": "Mượn sách",
+     "zh": "我們等一下一起去市立圖書館借幾本中文書吧。",
+     "vn": "Lát nữa chúng ta cùng đi thư viện thành phố mượn mấy cuốn sách tiếng Hoa nhé."
+    }
+   ]
+  },
+  "洗手間/廁所": {
+   "vn": "nhà vệ sinh; phòng rửa tay",
+   "ng": [
+    "(danh từ) 洗手間 (xǐshǒujiān): nhà vệ sinh, phòng rửa tay (cách nói lịch sự, nhã nhặn nơi công cộng)",
+    "(danh từ) 廁所 (cèsuǒ): nhà vệ sinh, toilet (cách nói phổ thông hằng ngày)"
+   ],
+   "us": "Đi vệ sinh dùng động từ 去 hoặc 上: 去洗手間 / 上廁所. Khi hỏi đường ở nhà hàng, quán cà phê hay cơ quan, dùng 洗手間 sẽ lịch sự hơn: 請問洗手間在哪裡？",
+   "co": [
+    "上洗手間|đi vệ sinh (lịch sự)",
+    "上廁所|đi vệ sinh (thông thường)",
+    "洗手間在哪裡|nhà vệ sinh ở đâu",
+    "公共廁所|nhà vệ sinh công cộng"
+   ],
+   "sy": [
+    "化妝室|nhà vệ sinh (trên biển hiệu trung tâm thương mại ở Đài Loan)"
+   ],
+   "cf": [
+    "洗手間 / 廁所 / 化妝室|洗手間 nghĩa gốc là phòng rửa tay nên rất lịch sự khi hỏi ở quán ăn, công ty; 廁所 là từ bình dân dùng hằng ngày; còn trên biển chỉ dẫn trung tâm thương mại hay rạp phim Đài Loan thường ghi 化妝室"
+   ],
+   "lt": "間 (一間廁所)",
+   "mk": "Người Việt hay dịch sát nghĩa 'nhà vệ sinh' thành *衛生間 ❌ (từ này chủ yếu dùng ở Đại Lục, người Đài rất hiếm nói) hoặc nói cụt thành *去洗手 ❌; ở Đài Loan hãy dùng 洗手間 hoặc 廁所.",
+   "tw": "Ở Đài Loan dùng phổ biến 洗手間, 廁所 và biển chỉ dẫn 化妝室. Chú ý phát âm chuẩn Đài Loan: 洗手間 do hai thanh 3 đi liền nên 洗 biến âm đọc xíshǒujiān; còn 廁所 đọc rõ thanh 4 + thanh 3 là cèsuǒ.",
+   "mh": "Tẩy Thủ Gian / Xí Sở → xǐshǒujiān / cèsuǒ. ĐỌC: 'tẩy thủ gian' → xǐshǒujiān (biến thanh xíshǒujiān + jiān thanh 1); 'xí sở' → cèsuǒ (c bật hơi + e thanh 4 + s thẳng lưỡi + uo thanh 3). NGHĨA: 洗 (rửa) + 手 (tay) + 間 (phòng) → phòng rửa tay = nhà vệ sinh lịch sự; 廁 (mái nhà 广) + 所 (nơi chốn) → nơi riêng tư giải quyết nhu cầu = nhà vệ sinh.",
+   "vd": [
+    {
+     "t": "Nhà hàng",
+     "zh": "不好意思，請問這家餐廳的洗手間在哪裡？",
+     "vn": "Xin lỗi, cho hỏi nhà vệ sinh của nhà hàng này ở đâu vậy ạ?"
+    },
+    {
+     "t": "Trong lớp",
+     "zh": "老師，我想先去上一下洗手間，馬上回來。",
+     "vn": "Thưa cô, em muốn ra đi vệ sinh một lát, em quay lại ngay ạ."
+    },
+    {
+     "t": "Ga MRT",
+     "zh": "臺北捷運每個車站裡面都有很乾淨的廁所，不用擔心。",
+     "vn": "Bên trong mỗi ga tàu điện ngầm Đài Bắc đều có nhà vệ sinh rất sạch sẽ, không cần lo đâu."
+    }
+   ]
+  },
+  "宿舍": {
+   "vn": "ký túc xá; nhà ở tập thể",
+   "ng": [
+    "(danh từ) ký túc xá (cho học sinh, sinh viên hoặc nhân viên công ty)"
+   ],
+   "us": "學生宿舍 (ký túc xá sinh viên), 員工宿舍 (ký túc xá nhân viên), 住宿舍 (ở ký túc xá), 回宿舍 (về ký túc xá), 宿舍規定 (nội quy ký túc xá).",
+   "co": [
+    "學生宿舍|ký túc xá sinh viên",
+    "員工宿舍|ký túc xá nhân viên",
+    "住宿舍|ở ký túc xá",
+    "回宿舍|về ký túc xá"
+   ],
+   "sy": [
+    "寢室|phòng ngủ trong ký túc xá",
+    "宿舍樓|tòa nhà ký túc xá"
+   ],
+   "an": [
+    "校外租屋|thuê trọ ngoài trường"
+   ],
+   "cf": [
+    "寢室 / 租屋|宿舍 chỉ toàn bộ khu hoặc tòa ký túc xá; từng phòng ngủ cụ thể bên trong ký túc xá gọi là 寢室 (hoặc 宿舍房間); còn thuê phòng bên ngoài trường gọi là 在外面租房子 / 租屋"
+   ],
+   "lt": "間、棟、座",
+   "tw": "Sinh viên ở Đài Loan rất hay gọi tắt ký túc xá nam là 男宿, ký túc xá nữ là 女宿. Nhiều công ty sản xuất và khu công nghệ cao ở Đài Loan cũng bố trí 員工宿舍 cho nhân viên và kỹ sư.",
+   "mh": "Túc Xá → sùshè. ĐỌC: 'túc' → sù (s thẳng lưỡi + u, thanh 4); 'xá' → shè (sh cong lưỡi + e, thanh 4). NGHĨA: 宿 (mái nhà 宀 + người 亻 nằm ngủ trên chiếu 百) là ngủ trọ qua đêm + 舍 (mái nhà) là ngôi nhà → khu nhà để nhiều người ăn ở tập thể = ký túc xá.",
+   "vd": [
+    {
+     "t": "Sinh viên",
+     "zh": "剛上大學的時候，大一新生通常會先住學校宿舍。",
+     "vn": "Khi mới vào đại học, sinh viên năm nhất thường sẽ ở ký túc xá trường trước."
+    },
+    {
+     "t": "Tan học",
+     "zh": "下課以後，我跟室友一起走路回宿舍休息。",
+     "vn": "Sau khi tan học, tôi cùng bạn cùng phòng đi bộ về ký túc xá nghỉ ngơi."
+    },
+    {
+     "t": "Công việc",
+     "zh": "這家公司離市區有點遠，不過有提供免費的員工宿舍。",
+     "vn": "Công ty này hơi xa trung tâm thành phố, nhưng có cung cấp ký túc xá nhân viên miễn phí."
+    }
+   ]
+  },
+  "屋(子)": {
+   "vn": "nhà; căn phòng",
+   "ng": [
+    "(danh từ) 屋子 (wūzi): ngôi nhà, căn phòng (chỉ không gian bên trong phòng hoặc ngôi nhà nhỏ)",
+    "(danh từ) 屋 (wū): nhà, mái nhà (dùng trong từ ghép: 屋裡 trong nhà, 屋頂 mái nhà, 租屋 thuê nhà, 房屋 nhà cửa)"
+   ],
+   "us": "1) 屋子 làm danh từ độc lập: 一間屋子 (một căn phòng/ngôi nhà), 整理屋子 (dọn dẹp nhà/phòng), 屋子裡很亮 (trong nhà rất sáng). 2) 屋 dùng kết hợp: 屋裡 (trong nhà), 屋頂 (mái nhà), 租屋 (thuê nhà).",
+   "co": [
+    "屋裡|trong nhà, trong phòng",
+    "打掃屋子|dọn dẹp nhà cửa",
+    "屋頂|mái nhà",
+    "租屋|thuê nhà"
+   ],
+   "sy": [
+    "房子|nhà, căn nhà",
+    "房間|căn phòng"
+   ],
+   "cf": [
+    "房子 / 房間|房子 chỉ cả căn nhà/căn hộ để ở hoặc mua bán (買房子); 房間 chỉ một phòng riêng trong nhà; 屋子 gợi cảm giác không gian khép kín ấm cúng bên trong nhà hoặc phòng (屋子裡很暖和). Ở Đài Loan từ thuê trọ phổ biến nhất là 租屋 và 租房子"
+   ],
+   "lt": "間、棟",
+   "mk": "Không dùng *一間屋 ❌ đứng lẻ một chữ; phải nói 一間屋子 hoặc ghép thành 屋裡, 屋頂.",
+   "tw": "Ở Đài Loan người dân thường nói 房子 để chỉ nhà ở, còn 屋 hay xuất hiện cực nhiều trong thuật ngữ thuê nhà 租屋 (như trang web 591 租屋網) và từ 小木屋 (nhà gỗ nghỉ dưỡng); 屋子 hay dùng khi nói không gian bên trong nhà (屋子裡).",
+   "mh": "Ốc (Tử) → wū (zi). ĐỌC: 'ốc' → wū (w + u, thanh 1 ngang); 'tử' → zi (thanh nhẹ). NGHĨA: Bộ Thi 尸 (hình mái nhà che chở) + chữ 至 (đi đến dừng lại) → nơi dừng chân dưới mái che = ngôi nhà, căn phòng.",
+   "vd": [
+    {
+     "t": "Dọn nhà",
+     "zh": "快過年了，我們全家人一起把屋子打掃得很乾淨。",
+     "vn": "Sắp Tết rồi, cả nhà tôi cùng nhau dọn dẹp nhà cửa thật sạch sẽ."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "外面的風很大，快進屋子裡面休息一下吧。",
+     "vn": "Bên ngoài gió to lắm, mau vào trong nhà nghỉ ngơi một chút đi."
+    },
+    {
+     "t": "Thuê trọ",
+     "zh": "他在租屋網站上找到一間屋裡光線很好的套房。",
+     "vn": "Anh ấy tìm được trên trang web thuê nhà một phòng khép kín bên trong ánh sáng rất tốt."
+    }
+   ]
+  },
+  "間": {
+   "vn": "căn, gian (lượng từ); khoảng giữa",
+   "ng": [
+    "(lượng từ) căn, gian, phòng, quán, công ty (一間房間, 一間教室, 一間餐廳, 一間公司)",
+    "(danh từ) khoảng giữa, không gian, thời gian (dùng trong từ ghép: 中間 ở giữa, 時間 thời gian, 空間 không gian)"
+   ],
+   "us": "1) Lượng từ đứng trước danh từ chỉ phòng ốc, cửa hàng, trường học, công ty: 一間房間 (một căn phòng), 這間咖啡廳 (quán cà phê này), 那間銀行 (ngân hàng kia). 2) Hậu tố chỉ khoảng: 教室跟辦公室之間 (giữa phòng học và văn phòng).",
+   "co": [
+    "一間房間|một căn phòng",
+    "這間餐廳|nhà hàng này",
+    "這間公司|công ty này",
+    "兩間教室|hai phòng học"
+   ],
+   "sy": [
+    "家|nhà, quán, công ty (lượng từ thay cho cửa hàng/công ty: 這家餐廳)"
+   ],
+   "cf": [
+    "家|Ở Đài Loan, 間 vừa đếm được phòng ốc (一間廁所, 一間廚房) vừa đếm được hàng quán, công ty, trường học (這間7-11, 那間學校) giống 家; nhưng riêng phòng học/phòng ngủ thì chỉ dùng 間 (không nói *一家房間 ❌)"
+   ],
+   "lt": "Cấu trúc lượng từ: Số từ / 這 / 那 + 間 + Danh từ (兩間教室, 這間套房). (Lưu ý 間 còn âm phụ jiàn trong 間接 gián tiếp, học ở cấp cao hơn.)",
+   "mk": "Người Việt hay dịch 'một cái phòng' thành *一個房間 ❌; câu tự nhiên và đúng chuẩn là 一間房間 hoặc 一間房.",
+   "tw": "Ở Đài Loan người bản xứ dùng lượng từ 間 cực kỳ thường xuyên cho quán ăn, tiệm trà sữa, cửa hàng tiện lợi và công ty (ví dụ: 這間飲料店超好喝, 那間大學), còn phổ biến hơn cả 家 trong khẩu ngữ.",
+   "mh": "Gian → jiān. ĐỌC: 'gian' → jiān (gi sang j mềm + ian, thanh 1 ngang). NGHĨA: Ngoài là 門 (hai cánh cửa) + giữa là 日 (mặt trời) → ánh sáng chiếu qua khe giữa hai cánh cửa = khoảng giữa, gian phòng.",
+   "vd": [
+    {
+     "t": "Thuê phòng",
+     "zh": "我剛租了一間套房，裡面有書桌跟冷氣。",
+     "vn": "Tôi vừa thuê một căn phòng khép kín, bên trong có bàn học và máy lạnh."
+    },
+    {
+     "t": "Chợ đêm",
+     "zh": "夜市裡面這間牛肉麵店非常有名，每天都要排隊。",
+     "vn": "Quán mì bò này ở trong chợ đêm rất nổi tiếng, ngày nào cũng phải xếp hàng."
+    },
+    {
+     "t": "Trường học",
+     "zh": "我們學校一樓有五間教室跟一間很大的圖書館。",
+     "vn": "Tầng một trường chúng tôi có năm phòng học và một thư viện rất lớn."
+    }
+   ]
+  },
+  "大樓": {
+   "vn": "tòa nhà cao tầng; cao ốc",
+   "ng": [
+    "(danh từ) tòa nhà lớn nhiều tầng (tòa nhà văn phòng, chung cư cao tầng, tòa giảng đường)"
+   ],
+   "us": "辦公大樓 (tòa nhà văn phòng), 住宅大樓 / 社區大樓 (chung cư cao tầng), 教學大樓 (tòa giảng đường), 商業大樓 (tòa nhà thương mại).",
+   "co": [
+    "辦公大樓|tòa nhà văn phòng",
+    "社區大樓|tòa chung cư",
+    "教學大樓|tòa giảng đường",
+    "臺北101大樓|tòa nhà Đài Bắc 101"
+   ],
+   "sy": [
+    "高樓|nhà cao tầng",
+    "大廈|cao ốc (hay dùng trong tên riêng tòa nhà)"
+   ],
+   "cf": [
+    "公寓 / 房子|房子 là nhà nói chung; ở Đài Loan 公寓 chỉ chung cư cũ 4–5 tầng thường không có thang máy; còn 大樓 (hoặc 電梯大樓) là tòa nhà cao nhiều tầng hiện đại có thang máy và bảo vệ"
+   ],
+   "lt": "棟、座",
+   "tw": "Khi tìm thuê nhà ở Đài Loan, phân loại 電梯大樓 là tòa chung cư hiện đại có thang máy và quản lý/bảo vệ tầng trệt nhận bưu kiện hộ cư dân; biểu tượng nổi tiếng nhất là 臺北101大樓.",
+   "mh": "Đại Lâu → dàlóu. ĐỌC: 'đại' → dà (đ → d không bật hơi + a, thanh 4); 'lâu' → lóu (l + ou, thanh 2 đi lên). NGHĨA: 大 (to lớn) + 樓 (gỗ 木 xếp tầng lớp 婁) → công trình xây dựng cao lớn nhiều tầng = tòa nhà, cao ốc.",
+   "vd": [
+    {
+     "t": "Đi làm",
+     "zh": "我的公司在車站旁邊那棟白色的大樓裡。",
+     "vn": "Công ty của tôi nằm trong tòa nhà màu trắng ngay cạnh nhà ga kia."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "站在臺北101大樓上面，可以看到整個城市的風景。",
+     "vn": "Đứng trên tòa nhà Đài Bắc 101 có thể ngắm toàn cảnh thành phố."
+    },
+    {
+     "t": "Trường đại học",
+     "zh": "中文課在圖書館對面的教學大樓三樓上課。",
+     "vn": "Lớp tiếng Hoa học ở tầng ba tòa nhà giảng đường đối diện thư viện."
+    }
+   ]
+  },
+  "樓上": {
+   "vn": "tầng trên; lầu trên",
+   "ng": [
+    "(danh từ) tầng trên, lầu trên (tầng cao hơn vị trí hiện tại)",
+    "(danh từ) (tiếng lóng mạng) người đăng/bình luận phía trên trong một bài thảo luận"
+   ],
+   "us": "Dùng trực tiếp làm từ chỉ vị trí: 在樓上 (ở tầng trên), 上樓上 / 去樓上 (lên tầng trên), 樓上的房間 (phòng ở trên lầu). Không thêm 邊 hay 面 phía sau.",
+   "co": [
+    "在樓上|ở trên lầu",
+    "樓上的鄰居|hàng xóm tầng trên",
+    "去樓上|lên tầng trên",
+    "樓上樓下|tầng trên tầng dưới"
+   ],
+   "sy": [
+    "上層|tầng trên (kệ, tủ, lớp)"
+   ],
+   "an": [
+    "樓下|tầng dưới"
+   ],
+   "cf": [
+    "二樓 / 三樓|樓上 chỉ vị trí tương đối cao hơn tầng mình đang đứng (ở tầng 1 thì tầng 2 trở lên là 樓上); muốn chỉ chính xác tầng thứ mấy phải nói 二樓, 三樓"
+   ],
+   "lt": "Không nói *樓上面 ❌ hoặc *樓上邊 ❌.",
+   "mk": "Người Việt hay thêm 面 theo thói quen của 上面, nói nhầm thành *樓上面 ❌; đúng chỉ là 樓上.",
+   "tw": "Trên các diễn đàn phổ biến tại Đài Loan như Dcard hay PTT, cư dân mạng thường gọi người bình luận trước đó ngay phía trên là 樓上 (ví dụ: 我同意樓上說的 = Tôi đồng ý với bạn ở trên).",
+   "mh": "Lâu Thượng → lóushàng. ĐỌC: 'lâu' → lóu (l + ou, thanh 2); 'thượng' → shàng (sh cong lưỡi + ang, thanh 4). NGHĨA: 樓 (tầng lầu) + 上 (phía trên) → tầng ở phía trên = tầng trên, lầu trên.",
+   "vd": [
+    {
+     "t": "Ở nhà",
+     "zh": "爸爸在樓上的書房工作，我們說話小聲一點。",
+     "vn": "Bố đang làm việc ở phòng đọc sách tầng trên, chúng ta nói nhỏ tiếng một chút nhé."
+    },
+    {
+     "t": "Quán cà phê",
+     "zh": "一樓已經坐滿了，我們拿著飲料去樓上找位子吧。",
+     "vn": "Tầng một ngồi kín hết rồi, chúng ta cầm đồ uống lên tầng trên tìm chỗ ngồi nhé."
+    },
+    {
+     "t": "Chung cư",
+     "zh": "樓上的鄰居每天晚上都很安靜，住起來很舒服。",
+     "vn": "Hàng xóm tầng trên tối nào cũng rất yên tĩnh, sống ở đây rất thoải mái."
+    }
+   ]
+  },
+  "樓下": {
+   "vn": "tầng dưới; lầu dưới; dưới nhà",
+   "ng": [
+    "(danh từ) tầng dưới, lầu dưới (tầng thấp hơn vị trí người nói)",
+    "(danh từ) phía dưới tòa nhà, dưới sảnh (我在樓下等你 tôi đợi bạn ở dưới nhà)"
+   ],
+   "us": "在樓下 (ở tầng dưới / ở dưới tòa nhà), 去樓下 (xuống tầng dưới), 樓下的便利商店 (cửa hàng tiện lợi ngay dưới nhà).",
+   "co": [
+    "在樓下|ở tầng dưới, dưới nhà",
+    "去樓下|xuống tầng dưới",
+    "樓下的超商|cửa hàng tiện lợi dưới nhà",
+    "樓下大廳|sảnh tầng dưới"
+   ],
+   "sy": [
+    "一樓|tầng một / tầng trệt (khi chỉ rõ số tầng mặt đất)"
+   ],
+   "an": [
+    "樓上|tầng trên"
+   ],
+   "cf": [
+    "下樓 / 一樓|樓下 là danh từ chỉ nơi chốn (在樓下 = ở dưới nhà); còn 下樓 là động từ 'đi xuống cầu thang/xuống nhà' (我現在下樓 = tôi xuống ngay đây). Tại Đài Loan tầng mặt đất gọi là 一樓 (không chia tầng trệt G riêng)"
+   ],
+   "lt": "Không ghép thêm 面 hay 邊 (*樓下面 ❌).",
+   "mk": "Nhầm 樓下 (danh từ: phía dưới nhà) với 下樓 (động từ: đi xuống lầu): muốn nói 'tôi đi xuống dưới' phải nói 我下樓 hoặc 我去樓下, không nói *我樓下 ❌.",
+   "tw": "Ở Đài Loan khi đặt đồ ăn qua Uber Eats hay foodpanda, tài xế gọi điện báo giao tới luôn nói 我到樓下了喔！ (Tôi tới dưới nhà rồi nhé!), và bạn bè hay hẹn đứng chờ tại 樓下的7-11 (cửa hàng 7-Eleven dưới tòa nhà).",
+   "mh": "Lâu Hạ → lóuxià. ĐỌC: 'lâu' → lóu (l + ou, thanh 2); 'hạ' → xià (h đổi sang x mềm + ia, thanh 4). NGHĨA: 樓 (tầng lầu) + 下 (phía dưới) → tầng bên dưới hoặc khoảng sân dưới chân tòa nhà = tầng dưới, dưới nhà.",
+   "vd": [
+    {
+     "t": "Đón bạn",
+     "zh": "我已經到你們家樓下了，你現在方便下來嗎？",
+     "vn": "Tôi đã đến dưới nhà bạn rồi, bây giờ bạn xuống được chưa?"
+    },
+    {
+     "t": "Tiện ích",
+     "zh": "這棟大樓的樓下就有一間便利商店，買東西非常方便。",
+     "vn": "Ngay tầng dưới tòa nhà này có một cửa hàng tiện lợi, mua đồ vô cùng tiện lợi."
+    },
+    {
+     "t": "Bữa sáng",
+     "zh": "媽媽已經把早餐放在樓下的餐桌上了，快點下去吃吧。",
+     "vn": "Mẹ đã đặt bữa sáng lên bàn ăn ở tầng dưới rồi, mau xuống ăn đi."
+    }
+   ]
+  },
+  "樓梯": {
+   "vn": "cầu thang (bộ)",
+   "ng": [
+    "(danh từ) cầu thang, cầu thang bộ"
+   ],
+   "us": "Đi với động từ 爬 (leo), 走 (đi), 上 (lên), 下 (xuống): 爬樓梯 (leo cầu thang), 走樓梯 (đi cầu thang bộ), 上樓梯 (lên cầu thang), 下樓梯 (xuống cầu thang).",
+   "co": [
+    "爬樓梯|leo cầu thang",
+    "走樓梯|đi thang bộ",
+    "安全樓梯|cầu thang thoát hiểm",
+    "樓梯間|khu vực cầu thang"
+   ],
+   "sy": [
+    "階梯|bậc thang (ngoài trời, công viên, leo núi)"
+   ],
+   "an": [
+    "電梯|thang máy"
+   ],
+   "cf": [
+    "電梯 / 電扶梯|樓梯 là cầu thang bộ truyền thống (走樓梯); 電梯 là thang máy (搭電梯); còn thang cuốn tự động ở siêu thị và ga MRT Đài Loan gọi là 電扶梯 hoặc 手扶梯"
+   ],
+   "lt": "條、個、座",
+   "mk": "Người Việt hay dịch 'đi thang bộ' thành *用樓梯 ❌; phải nói 走樓梯 hoặc 爬樓梯.",
+   "tw": "Ở Đài Loan rất nhiều nhà tập thể cũ 4–5 tầng (公寓) không có thang máy nên hằng ngày phải 爬樓梯; ở các điểm leo núi nổi tiếng như 象山 (Tượng Sơn) cũng có nhiều bậc cầu thang gọi chung là 階梯 hoặc 樓梯.",
+   "mh": "Lâu Thê → lóutī. ĐỌC: 'lâu' → lóu (l + ou, thanh 2); 'thê' → tī (th → t bật hơi + i, thanh 1 ngang). NGHĨA: 樓 (tầng lầu) + 梯 (gỗ 木 làm thành bậc 弟) → chiếc thang bằng gỗ nối các tầng lầu = cầu thang.",
+   "vd": [
+    {
+     "t": "Sửa thang máy",
+     "zh": "因為電梯在維修，我們今天只好走樓梯上四樓。",
+     "vn": "Vì thang máy đang bảo trì, hôm nay chúng tôi đành đi cầu thang bộ lên tầng bốn."
+    },
+    {
+     "t": "Thuê trọ",
+     "zh": "他租的房子在五樓，沒有電梯，每天回家都要爬樓梯。",
+     "vn": "Nhà anh ấy thuê ở tầng năm, không có thang máy, ngày nào về nhà cũng phải leo cầu thang."
+    },
+    {
+     "t": "An toàn",
+     "zh": "下樓梯的時候請扶好扶手，小心不要滑倒了。",
+     "vn": "Lúc đi xuống cầu thang xin hãy vịn kỹ tay vịn, cẩn thận kẻo bị trượt ngã."
+    }
+   ]
+  },
+  "電梯": {
+   "vn": "thang máy",
+   "ng": [
+    "(danh từ) thang máy (chạy bằng điện đưa người hoặc hàng hóa lên xuống các tầng)"
+   ],
+   "us": "搭電梯 / 坐電梯 (đi thang máy), 等電梯 (đợi thang máy), 按電梯 (bấm nút thang máy), 電梯壞了 (thang máy hỏng rồi).",
+   "co": [
+    "搭電梯|đi thang máy",
+    "坐電梯|đi thang máy",
+    "等電梯|đợi thang máy",
+    "電梯大樓|chung cư có thang máy"
+   ],
+   "sy": [
+    "升降機|thang nâng (từ chuyên môn kỹ thuật)"
+   ],
+   "an": [
+    "樓梯|cầu thang bộ"
+   ],
+   "cf": [
+    "電扶梯 / 樓梯|Tại Đài Loan, 電梯 chỉ thang máy hộp kín đi thẳng đứng; thang cuốn ở trung tâm thương mại hoặc ga tàu điện ngầm gọi là 電扶梯 (hoặc 手扶梯); còn cầu thang bộ là 樓梯"
+   ],
+   "lt": "臺、部",
+   "mk": "Người Việt hay dịch 'đi thang máy' thành *去電梯 ❌; động từ đúng phải là 搭電梯 (chuẩn Đài Loan) hoặc 坐電梯.",
+   "tw": "Ở Đài Loan khẩu ngữ luôn ưu tiên nói 搭電梯 (bắt/đi thang máy) hơn 坐電梯. Nhà thuê có thang máy được ghi rõ là 電梯大樓 để phân biệt với 公寓 (nhà đi bộ không thang máy).",
+   "mh": "Điện Thê → diàntī. ĐỌC: 'điện' → diàn (đ → d không bật hơi + ian, thanh 4); 'thê' → tī (th → t bật hơi + i, thanh 1). NGHĨA: 電 (điện) + 梯 (cái thang) → chiếc thang vận hành bằng điện = thang máy.",
+   "vd": [
+    {
+     "t": "Mua sắm",
+     "zh": "這間百貨公司人太多了，我們等了五分鐘才搭到電梯。",
+     "vn": "Trung tâm thương mại này đông người quá, chúng tôi đợi năm phút mới đi được thang máy."
+    },
+    {
+     "t": "Văn phòng",
+     "zh": "辦公室在十二樓，早上上班時間大家都要排隊搭電梯。",
+     "vn": "Văn phòng ở tầng mười hai, buổi sáng giờ vào làm ai cũng phải xếp hàng đi thang máy."
+    },
+    {
+     "t": "Thuê nhà",
+     "zh": "我帶了很多大行李，所以想找一間有電梯的大樓來住。",
+     "vn": "Tôi mang theo nhiều hành lý to nên muốn tìm một tòa nhà có thang máy để ở."
+    }
+   ]
+  },
+  "廚房": {
+   "vn": "nhà bếp; phòng bếp",
+   "ng": [
+    "(danh từ) nhà bếp, phòng bếp (khu vực nấu nướng trong gia đình, ký túc xá hoặc nhà hàng)"
+   ],
+   "us": "進廚房 (vào bếp), 在廚房做菜 / 煮飯 (nấu ăn trong bếp), 整理廚房 (dọn bếp), 開放式廚房 (bếp mở).",
+   "co": [
+    "進廚房|vào bếp",
+    "在廚房煮飯|nấu cơm trong bếp",
+    "共用廚房|bếp dùng chung",
+    "開放式廚房|bếp không gian mở"
+   ],
+   "sy": [
+    "灶腳|nhà bếp (cách nói dân dã tiếng Đài, đọc là tsàu-kha)"
+   ],
+   "cf": [
+    "餐廳|廚房 là phòng để nấu nướng; còn nơi đặt bàn ăn trong nhà hoặc tiệm ăn bên ngoài gọi là 餐廳"
+   ],
+   "lt": "間",
+   "mk": "Đừng nhầm lẫn 'nấu ăn trong bếp' thành *在餐廳煮飯 ❌ (餐廳 là phòng ăn/nhà hàng, phải dùng 廚房).",
+   "tw": "Ở Đài Loan phần lớn phòng trọ sinh viên (套房) không có bếp riêng (不可開伙); các tòa ký túc xá mới hoặc chung cư chia sẻ sẽ có 共用廚房 (bếp dùng chung) để sinh viên nấu nướng.",
+   "mh": "Trù Phòng → chúfáng. ĐỌC: 'trù' → chú (tr sang ch cong lưỡi bật hơi + u, thanh 2); 'phòng' → fáng (ph → f + ang, thanh 2). NGHĨA: 廚 (bộ Nghiễm 广 mái nhà + bộ phận cái bếp lò dựng đứng) là gian bếp + 房 (căn phòng) → căn phòng dùng để nấu ăn = nhà bếp.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "媽媽每天晚上都在廚房幫全家人準備晚餐。",
+     "vn": "Mẹ tối nào cũng ở trong bếp chuẩn bị bữa tối cho cả nhà."
+    },
+    {
+     "t": "Thuê trọ",
+     "zh": "這間出租的小套房沒有廚房，不能自己開火煮飯。",
+     "vn": "Phòng trọ khép kín cho thuê này không có bếp, không thể tự bật bếp nấu cơm được."
+    },
+    {
+     "t": "Ký túc xá",
+     "zh": "宿舍一樓有共用廚房，大家週末常在那裡一起做菜。",
+     "vn": "Tầng một ký túc xá có bếp dùng chung, cuối tuần mọi người hay nấu ăn cùng nhau ở đó."
+    }
+   ]
+  },
+  "窗(子)/窗戶": {
+   "vn": "cửa sổ",
+   "ng": [
+    "(danh từ) 窗戶 (chuānghu): cửa sổ (cách nói phổ thông, tự nhiên nhất ở Đài Loan)",
+    "(danh từ) 窗(子) (chuāng / chuāngzi): cửa sổ (窗 hay dùng trong cụm 開窗, 關窗, 靠窗, 窗外, 窗簾)"
+   ],
+   "us": "開窗戶 / 打開窗戶 (mở cửa sổ), 關窗戶 (đóng cửa sổ), 靠窗的位子 (chỗ ngồi cạnh cửa sổ), 窗外 (bên ngoài cửa sổ).",
+   "co": [
+    "開窗戶|mở cửa sổ",
+    "關窗戶|đóng cửa sổ",
+    "靠窗的位子|chỗ cạnh cửa sổ",
+    "窗外風景|phong cảnh ngoài cửa sổ"
+   ],
+   "sy": [
+    "窗口|ô cửa sổ, quầy giao dịch"
+   ],
+   "cf": [
+    "門|門 là cửa ra vào đi lại; 窗戶 là cửa sổ lấy sáng và thoáng gió. Cụm ghép 門窗 nghĩa là 'cửa đi và cửa sổ nói chung'"
+   ],
+   "lt": "扇 (một cánh cửa sổ), 個 (một ô cửa sổ)",
+   "mk": "Ở Đài Loan đừng dùng *開窗子 (hơi cứng và thiên văn viết/vùng khác); hãy nói 開窗戶 hoặc 開窗.",
+   "tw": "Người Đài Loan hằng ngày gần như luôn nói 窗戶 (chữ 戶 đọc thanh nhẹ chuānghu), ít dùng 窗子; khi chọn chỗ ngồi trên tàu cao tốc (高鐵), máy bay hay quán cà phê thì nói tắt là 靠窗 (ngồi cạnh cửa sổ).",
+   "mh": "Song (Tử) / Song Hộ → chuāng(zi) / chuānghu. ĐỌC: 'song' → chuāng (s/x trong Song chuyển sang ch cong lưỡi bật hơi + uang, thanh 1); 'hộ' → hu (h + u, thanh nhẹ). NGHĨA: 窗 gồm bộ Huyệt 穴 (ô hổng trên tường) + 囱 (khung lưới thông gió) + 心 → ô mở thông khí trên tường = cửa sổ; ghép 戶 (cánh cửa) thành 窗戶.",
+   "vd": [
+    {
+     "t": "Thông gió",
+     "zh": "房間裡面有點悶，我們把窗戶打開透透氣吧。",
+     "vn": "Trong phòng hơi ngột ngạt, chúng ta mở cửa sổ ra cho thoáng khí nhé."
+    },
+    {
+     "t": "Trời mưa",
+     "zh": "外面開始下雨了，記得趕快去關窗戶。",
+     "vn": "Bên ngoài bắt đầu mưa rồi, nhớ mau đi đóng cửa sổ lại."
+    },
+    {
+     "t": "Quán cà phê",
+     "zh": "我喜歡坐在靠窗的位子，一邊喝咖啡一邊看窗外的風景。",
+     "vn": "Tôi thích ngồi ở chỗ cạnh cửa sổ, vừa uống cà phê vừa ngắm phong cảnh ngoài cửa sổ."
+    }
+   ]
+  },
+  "家具": {
+   "vn": "đồ nội thất; đồ đạc trong nhà",
+   "ng": [
+    "(danh từ) đồ nội thất, bàn ghế giường tủ trang bị trong nhà"
+   ],
+   "us": "Danh từ tập hợp chỉ các vật dụng lớn như bàn, ghế, tủ, giường, sô pha: 買家具 (mua nội thất), 附家具 (có sẵn nội thất), 家具店 (cửa hàng nội thất).",
+   "co": [
+    "買家具|mua đồ nội thất",
+    "附家具|có sẵn nội thất",
+    "家具店|cửa hàng nội thất",
+    "二手家具|đồ nội thất cũ"
+   ],
+   "sy": [
+    "傢俱|đồ nội thất (dạng chữ hay gặp trên biển hiệu ngoài đường ở Đài Loan)"
+   ],
+   "cf": [
+    "家電|家具 là đồ gỗ, bàn ghế, giường tủ; còn tivi, tủ lạnh, máy lạnh, máy giặt chạy điện gọi là 家電 (đồ điện gia dụng). Tin cho thuê nhà Đài Loan hay ghi 附家具家電 (đầy đủ nội thất và điện máy)"
+   ],
+   "lt": "件 (một món), 套 (một bộ)",
+   "mk": "Không dùng lượng từ *一臺家具 ❌; phải dùng 一件家具 hoặc 一套家具, và không gộp bát đũa nồi chảo vào 家具 (đó là 餐具/廚具).",
+   "tw": "Bộ Giáo dục Đài Loan quy chuẩn viết là 家具, nhưng trên các biển hiệu cửa hàng và tin đăng thuê nhà Đài Loan vẫn hay thấy viết 傢俱. Trên web thuê nhà 591, cụm 附全套家具 nghĩa là phòng đã có sẵn giường, tủ, bàn ghế.",
+   "mh": "Gia Cụ → jiājù. ĐỌC: 'gia' → jiā (gi sang j mềm + ia, thanh 1); 'cụ' → jù (j + ü bỏ dấu chấm viết thành u, thanh 4). NGHĨA: 家 (gia đình, ngôi nhà) + 具 (dụng cụ, trang bị) → trang bị đồ dùng lớn cho ngôi nhà = đồ nội thất.",
+   "vd": [
+    {
+     "t": "Thuê nhà",
+     "zh": "我租的這間套房裡面已經附有全部的家具了。",
+     "vn": "Phòng khép kín tôi thuê này bên trong đã có sẵn đầy đủ đồ nội thất rồi."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "他們剛搬進新家，週末打算去大賣場買一些新家具。",
+     "vn": "Họ vừa chuyển vào nhà mới, cuối tuần định đi siêu thị lớn mua ít đồ nội thất mới."
+    },
+    {
+     "t": "Du học sinh",
+     "zh": "剛來留學的時候，很多學生會買二手家具來省錢。",
+     "vn": "Lúc mới sang du học, nhiều sinh viên sẽ mua đồ nội thất cũ để tiết kiệm tiền."
+    }
+   ]
+  },
+  "沙發": {
+   "vn": "ghế sô pha",
+   "ng": [
+    "(danh từ) ghế sô pha, ghế bành bọc nệm (từ phiên âm tiếng Anh 'sofa')",
+    "(tiếng lóng mạng) 'tem', bình luận đầu tiên dưới một bài đăng diễn đàn"
+   ],
+   "us": "坐在沙發上 (ngồi trên sô pha), 躺在沙發上 (nằm dài trên sô pha), 沙發床 (ghế sô pha giường), 買一組沙發 (mua một bộ sô pha).",
+   "co": [
+    "坐在沙發上|ngồi trên sô pha",
+    "皮沙發|sô pha da",
+    "布沙發|sô pha vải",
+    "沙發床|sô pha giường"
+   ],
+   "sy": [
+    "椅子|ghế (nói chung)"
+   ],
+   "cf": [
+    "椅子|椅子 là ghế thông thường (ghế gỗ, ghế văn phòng, ghế ăn); 沙發 là ghế nệm dài êm ái đặt ở phòng khách để tiếp khách và nghỉ ngơi"
+   ],
+   "lt": "張、組、條",
+   "mk": "Người Việt hay quên phương vị từ 上 khi nói 'ngồi trên sô pha': cần nói đủ 坐在沙發上, tránh nói *坐在沙發 ❌.",
+   "tw": "Ở Đài Loan lượng từ thông dụng nhất là 一張沙發 (một chiếc) hoặc 一組沙發 (một bộ phòng khách), phát âm chuẩn cả hai âm đều là thanh 1: shāfā.",
+   "mh": "Sa Phát → shāfā. ĐỌC: 'sa' → shā (s/x sang sh cong lưỡi + a, thanh 1); 'phát' → fā (ph → f + a, thanh 1). Phiên âm từ tiếng Anh 'sofa'. NGHĨA: Mượn hai chữ 沙 (cát mịn) + 發 (phồng lên êm ái) để phiên âm chiếc ghế nệm phòng khách = ghế sô pha.",
+   "vd": [
+    {
+     "t": "Phòng khách",
+     "zh": "客廳裡放了一張很大的灰色沙發，坐起來非常舒服。",
+     "vn": "Trong phòng khách đặt một chiếc ghế sô pha màu xám rất lớn, ngồi lên vô cùng thoải mái."
+    },
+    {
+     "t": "Thư giãn",
+     "zh": "下班回家以後，我最喜歡躺在沙發上看電視休息。",
+     "vn": "Sau khi tan làm về nhà, tôi thích nhất là nằm trên ghế sô pha xem tivi nghỉ ngơi."
+    },
+    {
+     "t": "Tiếp khách",
+     "zh": "外面天氣很熱，快來沙發上坐一下喝杯冰水吧。",
+     "vn": "Bên ngoài trời nóng lắm, mau lại ghế sô pha ngồi một lát uống cốc nước mát đi."
+    }
+   ]
+  }
+ }
+}

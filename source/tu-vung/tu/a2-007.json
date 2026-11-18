@@ -1,0 +1,1325 @@
+{
+ "tu": {
+  "慢跑": {
+   "vn": "chạy bộ (tốc độ chậm rèn sức khỏe)",
+   "ng": [
+    "(động từ) chạy bộ thư giãn, chạy chậm đều đặn để tập thể dục (去公園慢跑 ra công viên chạy bộ, 慢跑鞋 giày chạy bộ)"
+   ],
+   "us": "Dùng như động từ nội động (không mang tân ngữ trực tiếp): 每天早上慢跑半小時 (Mỗi sáng chạy bộ nửa tiếng), 喜歡慢跑, 慢跑鞋 (giày chạy bộ). So với 跑步 (chạy nói chung, gồm cả chạy nhanh thi đấu hay chạy trốn), 慢跑 chuyên chỉ bài tập chạy chậm nâng cao sức khỏe.",
+   "co": [
+    "去慢跑|đi chạy bộ",
+    "公園慢跑|chạy bộ ở công viên",
+    "慢跑鞋|giày chạy bộ",
+    "晨間慢跑|chạy bộ buổi sáng sớm"
+   ],
+   "sy": [
+    "跑步|chạy / chạy bộ (rộng hơn, gồm cả chạy nhanh)"
+   ],
+   "an": [
+    "散步|đi dạo bộ chậm rãi"
+   ],
+   "cf": [
+    "慢跑 vs 跑步 vs 散步|散步 = đi dạo thong thả; 慢跑 = chạy bộ tốc độ chậm đều để rèn thể lực (jogging); 跑步 = chạy nói chung (từ chạy chậm tới chạy nước rút)"
+   ],
+   "lt": "Có thể tách nhẹ nhưng thường dùng liền nguyên cụm 慢跑; nhắc đếm số lần dùng 次 (一個禮拜慢跑三次).",
+   "mk": "Đừng dịch thẳng sang tiếng Anh/Việt rồi nói *跑慢 ❌ khi muốn nói bộ môn chạy bộ — tiếng Hoa dùng đúng 慢跑!",
+   "tw": "Ở Đài Loan phong trào chạy bộ cực kỳ phát triển quanh các công viên ven sông (河濱公園), khu Đại An hoặc các giải chạy cộng đồng cuối tuần gọi là 路跑 (chạy đường phố).",
+   "mh": "Mạn Bào (Mạn Bão) → mànpǎo. ĐỌC: 'mạn' → màn (thanh 4); 'bào' → pǎo (b- bật hơi sang p- + ao thanh 3). NGHĨA: 慢 chậm rãi + 跑 chạy → chạy bước chậm đều đặn = chạy bộ rèn sức khỏe.",
+   "vd": [
+    {
+     "t": "Thể thao",
+     "zh": "自從養成下班後去河濱公園慢跑的習慣，我的睡眠品質變好了。",
+     "vn": "Từ khi rèn thói quen tan làm ra công viên ven sông chạy bộ, chất lượng giấc ngủ của tôi tốt lên hẳn."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "他為了下個月的半程馬拉松，特地去買了一雙透氣又輕便的慢跑鞋。",
+     "vn": "Vì giải chạy bán marathon tháng sau, anh ấy đặc biệt đi mua một đôi giày chạy bộ thoáng khí và nhẹ."
+    },
+    {
+     "t": "Thói quen",
+     "zh": "如果天氣太熱不想在外面曬太陽，去健身房的跑步機慢跑也不錯。",
+     "vn": "Nếu trời nóng quá không muốn phơi nắng ngoài đường, vào phòng gym chạy chậm trên máy chạy bộ cũng khá ổn."
+    }
+   ]
+  },
+  "野餐": {
+   "vn": "dã ngoại; đi picnic",
+   "ng": [
+    "(động từ / danh từ) đi dã ngoại, ăn uống thư giãn ngoài trời trên bãi cỏ (去公園野餐 đi dã ngoại ở công viên, 野餐墊 thảm picnic)"
+   ],
+   "us": "Dùng như động từ không tân ngữ: 週末去野餐 (Cuối tuần đi picnic), 舉辦野餐活動, 帶水果去野餐; hoặc làm định ngữ đồ dùng dã ngoại: 野餐墊 (thảm trải dã ngoại), 野餐籃 (giỏ picnic), 野餐食物.",
+   "co": [
+    "去野餐|đi dã ngoại / đi picnic",
+    "野餐墊|thảm trải dã ngoại",
+    "草地野餐|picnic trên bãi cỏ",
+    "野餐籃|giỏ đồ ăn dã ngoại"
+   ],
+   "sy": [
+    "郊遊|đi chơi ngoại ô / dã ngoại tham quan",
+    "露營|cắm trại qua đêm bằng lều"
+   ],
+   "cf": [
+    "野餐 vs 露營|野餐 = trải thảm ăn uống ban ngày ngoài công viên/bãi cỏ rồi về trong ngày (picnic); 露營 = dựng lều ngủ lại qua đêm ở núi hoặc khu cắm trại (camping)!"
+   ],
+   "lt": "Thanh 3 + thanh 1: yěcān (chú ý chữ 野 phát âm thanh 3 rõ yě, 餐 bật hơi xát đầu lưỡi cān!).",
+   "mk": "Phát âm chữ 餐 là cān (c + an, giống tiếng 'xan' nhưng bật hơi gió nhẹ) — đừng đọc thành *chān ❌!",
+   "tw": "Cuối tuần tiết trời thu/xuân mát mẻ ở Đài Bắc, bãi cỏ ở 大安森林公園 hay Công viên Sáng tạo Hoa Sơn (華山文創園區) chật kín các nhóm bạn trẻ trải 野餐墊 mua đồ ăn ngon, trà sữa ngồi trò chuyện rất chill!",
+   "mh": "Dã Xan → yěcān. ĐỌC: 'dã' → yě (d- → y- + e thanh 3); 'xan' → cān (x- bật hơi sang c- + an thanh 1). NGHĨA: 野 đồng nội ngoài trời + 餐 bữa ăn → cùng nhau ăn uống thư giãn ngoài thiên nhiên = dã ngoại, picnic.",
+   "vd": [
+    {
+     "t": "Cuối tuần",
+     "zh": "這禮拜六天氣涼爽，我們帶三明治和水果去大安森林公園野餐吧！",
+     "vn": "Thứ Bảy tuần này trời mát mẻ, tụi mình mang bánh mì kẹp với trái cây ra công viên rừng Đại An picnic đi!"
+    },
+    {
+     "t": "Chuẩn bị",
+     "zh": "除了準備美味的點心，別忘了帶一張大一點的野餐墊和防蚊液喔。",
+     "vn": "Ngoài chuẩn bị đồ ăn nhẹ ngon lành ra, đừng quên mang một tấm thảm picnic rộng chút và thuốc xịt chống muỗi nhé."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "春天櫻花盛開的時候，很多台灣家庭都喜歡在草地上鋪墊子野餐賞花。",
+     "vn": "Mùa xuân lúc hoa anh đào nở rộ, rất nhiều gia đình Đài Loan thích trải thảm trên bãi cỏ vừa dã ngoại vừa ngắm hoa."
+    }
+   ]
+  },
+  "爬": {
+   "vn": "leo; trèo; bò; (lồm cồm) ngồi dậy",
+   "ng": [
+    "(động từ) leo trèo lên cao bằng tay chân hoặc bước từng bậc (爬山 leo núi, 爬樓梯 leo cầu thang, 爬樹 trèo cây)",
+    "(động từ) bò sát mặt đất (寶寶學會爬了 em bé biết bò rồi, 牆上有蟲在爬 trên tường có con bọ đang bò)",
+    "(động từ — kèm bổ ngữ hướng) lồm cồm bò/đứng dậy (從床上爬起來 lồm cồm bò dậy khỏi giường)"
+   ],
+   "us": "Nghĩa phổ biến nhất ở Đài Loan là 爬山 (leo núi cuối tuần) và 爬樓梯 (leo cầu thang bộ khi không có thang máy — nhất là ở các khu nhà chung cư cũ 4–5 tầng ở Đài Bắc hay gọi 公寓!). Nhắc nhớ: người Đài hay nói 爬起來 (cố gắng đứng dậy/bò dậy).",
+   "co": [
+    "爬山|leo núi",
+    "爬樓梯|leo cầu thang bộ",
+    "爬起來|bò dậy / lồm cồm đứng dậy",
+    "爬蟲類|loài bò sát"
+   ],
+   "sy": [
+    "攀登|leo núi chuyên nghiệp (mức độ cao hơn 爬山)"
+   ],
+   "cf": [
+    "爬山 vs 登山|Ở Đài Loan cả hai đều chỉ đi bộ lên núi, nhưng 爬山 rất khẩu ngữ đời thường (Cuối tuần đi leo núi gần nhà thư giãn); 登山 nghe chuyên nghiệp hơn khi đi các đỉnh núi cao như 玉山 Ngọc Sơn hoặc đường mòn 登山步道!"
+   ],
+   "lt": "Thanh 2 pá (bộ 爪 móng vuốt ở bên trái + chữ 巴 chỉ âm).",
+   "mk": "Nhiều người nhầm 爬 chỉ nghĩa 'bò trườn'; trong tiếng Hoa hiện đại hoạt động đi bộ leo núi hay leo bậc cầu thang đều dùng động từ 爬 (爬山, 爬樓梯)!",
+   "tw": "Ở Đài Loan gần như cuối tuần nào người dân cũng rủ nhau 去爬山 như leo núi Tượng (象山) ngắm tòa 101 hay Dương Minh Sơn! Thuê trọ ở Đài Bắc không có thang máy cũng hay hỏi 要爬幾樓？ (Phải leo mấy tầng lầu?).",
+   "mh": "Bà → pá. ĐỌC: 'bà' bật hơi thành p- + a thanh 2 (pá). NGHĨA: bộ 爪 (bàn tay móng vuốt bấu lấy) bên trái + 巴 (vật bám vào) bên phải → dùng tay chân bấu víu nhích từng bước đi lên hoặc trườn tới = leo, trèo, bò.",
+   "vd": [
+    {
+     "t": "Cuối tuần",
+     "zh": "台北市交通很方便，搭捷運到象山站走出來就能去爬山看夜景。",
+     "vn": "Giao thông Đài Bắc rất tiện, đi tàu điện ngầm tới ga Tượng Sơn bước ra là có thể đi leo núi ngắm cảnh đêm rồi."
+    },
+    {
+     "t": "Thuê nhà",
+     "zh": "那間租屋雖然便宜，但是位在沒有電梯的五樓，每天回家得自己爬樓梯。",
+     "vn": "Phòng trọ đó tuy rẻ nhưng nằm ở tầng năm không có thang máy, ngày nào về nhà cũng phải tự leo cầu thang bộ."
+    },
+    {
+     "t": "Sáng sớm",
+     "zh": "昨天晚上追劇追太晚，今天早上鬧鐘響了半天我才勉強從床上爬起來。",
+     "vn": "Tối qua cày phim khuya quá, sáng nay chuông báo thức reo hồi lâu tôi mới gượng bò dậy khỏi giường nổi."
+    }
+   ]
+  },
+  "拍": {
+   "vn": "chụp (ảnh); quay (phim); vỗ; đập; vợt",
+   "ng": [
+    "(động từ) chụp ảnh, ghi hình, quay phim (拍照 chụp ảnh, 拍影片 quay video, 拍電影 đóng/quay phim)",
+    "(động từ) vỗ nhẹ, đập nhẹ (拍手 vỗ tay, 拍背 vỗ lưng, 拍蚊子 đập muỗi)",
+    "(danh từ / hình vị) cái vợt thể thao/đập muỗi (網球拍 vợt tennis, 羽球拍 vợt cầu lông, 電蚊拍 vợt muỗi điện) hoặc nhịp phách âm nhạc (節拍 nhịp phách)"
+   ],
+   "us": "Nghĩa hiện đại hay dùng nhất ở Đài Loan là 'chụp ảnh / quay clip': 幫我拍一張照片 (Chụp giúp mình một tấm ảnh nhé), 自拍 (tự sướng/selfie), 拍風景 (chụp phong cảnh), 拍YouTube影片 (quay video YouTube). Ngoài ra hành động tán thưởng là 拍手 (vỗ tay).",
+   "co": [
+    "拍照|chụp ảnh (từ dùng nhiều nhất ở Đài Loan!)",
+    "自拍|chụp ảnh tự sướng (selfie)",
+    "拍手|vỗ tay",
+    "拍影片|quay video"
+   ],
+   "sy": [
+    "照相|chụp ảnh (hơi truyền thống hơn 拍照 trong khẩu ngữ trẻ)",
+    "鼓掌|vỗ tay (trang trọng)"
+   ],
+   "cf": [
+    "拍照 vs 照相|Nghĩa giống nhau là 'chụp ảnh', nhưng giới trẻ và đời sống thường ngày ở Đài Loan dùng 拍照 nhiều hơn rất nhiều (ví dụ 拍照打卡 chụp ảnh check-in, 好拍 lên hình đẹp!); 照相 chủ yếu gặp ở 照相機 (máy ảnh) hay 照相館 (tiệm chụp ảnh thẻ)!"
+   ],
+   "lt": "Thanh 1 pāi (bộ 扌 tay bên trái + 白 bên phải).",
+   "mk": "Chú ý ở Đài Loan khi rủ nhau chụp ảnh không nói *照 một tấm ảnh mà nói 拍一張 (chụp một tấm) hoặc 幫我們拍一下 (chụp giúp tụi mình một kiểu)!",
+   "tw": "Ở Đài Loan giới trẻ đi quán cà phê đẹp hay điểm du lịch cực kỳ thích nói 這裡好好拍！(Chỗ này chụp hình đẹp ghê!) và 拍照打卡 (chụp ảnh check-in!). Mùa hè chống muỗi trong nhà ai cũng có cây 電蚊拍 (vợt muỗi điện).",
+   "mh": "Phách → pāi. ĐỌC: 'phách' → pāi (ph- bật hơi sang p- + -ai thanh 1). NGHĨA: bộ 扌 (bàn tay) bên trái + 白 (trắng/phát ra tiếng 'bạch') → dùng lòng bàn tay đập vỗ thành tiếng, sau mở rộng sang bấm máy chụp tách một tiếng màn trập = vỗ, đập, chụp ảnh.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "這裡的花海風景實在太美了，麻煩幫我們站在花前面拍一張合照好嗎？",
+     "vn": "Cánh đồng hoa ở đây phong cảnh đẹp quá trời, phiền bạn chụp giúp tụi mình một tấm ảnh chung đứng trước hoa nhé?"
+    },
+    {
+     "t": "Quán cà phê",
+     "zh": "這家老宅改建的甜點店裝潢很有特色，非常適合來拍照打卡。",
+     "vn": "Tiệm bánh ngọt cải tạo từ nhà cổ này trang trí rất đặc sắc, cực kỳ thích hợp để tới chụp ảnh check-in."
+    },
+    {
+     "t": "Biểu diễn",
+     "zh": "魔術師剛變完精彩的魔術，台下的觀眾立刻開心地大聲拍手叫好。",
+     "vn": "Ảo thuật gia vừa biểu diễn xong màn ảo thuật đặc sắc, khán giả dưới sân khấu lập tức vui vẻ vỗ tay reo hò."
+    }
+   ]
+  },
+  "抓": {
+   "vn": "bắt; nắm lấy; cào; gãi; tải về (từ mạng)",
+   "ng": [
+    "(động từ) bắt giữ, tóm lấy, nắm chặt (抓小偷 bắt trộm, 抓緊 nắm chặt tay nắm, 抓住機會 nắm bắt cơ hội)",
+    "(động từ) cào, gãi bằng móng tay hoặc ngón tay (抓癢 gãi ngứa, 被貓抓傷 bị mèo cào)",
+    "(động từ — ước lượng/kiểm soát) nắm bắt, ước chừng (抓時間 căn thời gian, 抓預算 ước tính ngân sách)",
+    "(động từ — từ mạng Đài Loan) tải xuống file/app (抓檔案 tải tập tin từ mạng về)"
+   ],
+   "us": "Dùng đa dạng trong thực tế: 抓到 (bắt được), 抓不到 (không bắt/nắm được), 抓緊扶手 (nắm chặt tay vịn trên xe buýt/MRT!), 抓癢 (gãi ngứa), 抓藥 (bốc thuốc Đông y — cực quen ở Đài Loan!), 抓預算 (ước tính kinh phí).",
+   "co": [
+    "抓緊|nắm chặt (tay vịn, cơ hội)",
+    "抓時間|căn chỉnh thời gian",
+    "被抓到|bị bắt gặp (làm sai, vi phạm giao thông)",
+    "抓癢|gãi ngứa"
+   ],
+   "sy": [
+    "捉|bắt (trò chơi trốn tìm 捉迷藏, bắt côn trùng 捉蟲)",
+    "把握|nắm bắt (cơ hội)"
+   ],
+   "cf": [
+    "抓 vs 拿|拿 là CẦM / LẤY đồ vật một cách nhẹ nhàng thông thường (拿書 cầm sách, 拿水); 抓 là CHỘP / TÚM MẠNH bằng các ngón tay co lại, hoặc BẮT GIỮ người/động vật/cơ hội/lỗi sai!"
+   ],
+   "lt": "Thanh 1 zhuā (bộ 扌 tay bên trái + 爪 móng vuốt bên phải → năm ngón tay chụm xuống bấu lấy!).",
+   "mk": "1) Chớ nhầm mặt chữ 抓 (bộ Thủ 扌 + 爪 'bắt giữ') với chữ 找 (zhǎo 'tìm kiếm') hay chữ 爬 (pá 'leo trèo')! 2) Đi tiệm thuốc Bắc Đài Loan 'bốc thuốc' nói 抓藥!",
+   "tw": "Ở Đài Loan người dân hay dùng 抓 rất linh hoạt: đi xe đứng thì loa nhắc 請抓緊扶手 (nắm chặt tay vịn), tính toán kinh phí/giờ đi đường nói 抓一下時間 (căn thử giờ xem), hoặc vi phạm giao thông bị cảnh sát bắt gọi là 被警察抓到開罰單!",
+   "mh": "Trảo → zhuā. ĐỌC: 'trảo' → zhuā (tr- uốn lưỡi → zh- + -ua thanh 1). NGHĨA: bộ 扌 (bàn tay) bên trái + 爪 (bộ Trảo — móng vuốt chim thú bấu chặt) bên phải → xòe tay dùng các ngón bấm chặt chộp lấy = bắt, túm, cào, gãi.",
+   "vd": [
+    {
+     "t": "Giao thông",
+     "zh": "公車司機有時候會急煞車，站著的乘客記得要抓緊車上的扶手喔！",
+     "vn": "Tài xế xe buýt thỉnh thoảng sẽ phanh gấp, hành khách đứng nhớ nắm chặt tay vịn trên xe nhé!"
+    },
+    {
+     "t": "Lên lịch",
+     "zh": "下午容易塞車，我們得提前半小時出門，多抓一點交通時間比較保險。",
+     "vn": "Buổi chiều dễ tắc đường, chúng mình phải ra khỏi nhà sớm nửa tiếng, trừ hao thêm chút thời gian đi lại cho an toàn."
+    },
+    {
+     "t": "An toàn",
+     "zh": "騎機車如果沒有戴安全帽被警察抓到，可是會被開罰單罰錢的。",
+     "vn": "Chạy xe máy mà không đội mũ bảo hiểm bị cảnh sát bắt gặp là sẽ bị lập biên bản phạt tiền đấy."
+    }
+   ]
+  },
+  "座位": {
+   "vn": "chỗ ngồi; ghế ngồi (trên xe, rạp, nhà hàng)",
+   "ng": [
+    "(danh từ) chỗ ngồi, vị trí ghế ngồi đã định sẵn (trên xe buýt, tàu hỏa, máy bay, rạp chiếu phim, lớp học, nhà hàng)"
+   ],
+   "us": "Dùng trong giao thông, hàng quán, lớp học: 找座位 (tìm chỗ ngồi), 讓座 / 讓座位 (nhường ghế), 保留座位 (giữ chỗ), 對號座位 (ghế có đánh số đặt trước). Lượng từ: 個 (一個座位 một chỗ ngồi). Nhắc nhở: chữ đầu tiên là 座 (bộ Nghiễm 廣 bên trên chữ 坐) chứ KHÔNG viết *坐位!",
+   "co": [
+    "找座位|tìm chỗ ngồi",
+    "靠窗座位|chỗ ngồi cạnh cửa sổ",
+    "沒有座位|không còn chỗ ngồi",
+    "讓座位|nhường chỗ ngồi"
+   ],
+   "sy": [
+    "位子|chỗ ngồi (khẩu ngữ hàng ngày rất hay nói: 這邊還有位子嗎？)"
+   ],
+   "cf": [
+    "座位 vs 位子|座位 chuẩn mực hơn dùng trên biển hiệu, vé tàu/máy bay, rạp phim (請問您的座位是幾號？); 位子 thân mật hơn trong quán ăn/xe buýt ('Còn chỗ trống không?' hay nói 還有位子嗎？)"
+   ],
+   "lt": "個 (三個座位 ba chỗ ngồi).",
+   "mk": "Lỗi chính tả cực hay mắc: viết sai chữ đầu tiên thành *坐位 ❌ — chữ 'chỗ ngồi' BẮT BUỘC phải có mái che bộ Nghiễm phủ ngoài chữ 坐 thành 座 (座位)!",
+   "tw": "Trên tàu MRT, tàu hỏa và xe buýt ở Đài Loan có những chiếc ghế màu xanh đậm hoặc ký hiệu riêng gọi là 博愛座 (ghế ưu tiên nhường cho người già, phụ nữ mang thai, người khuyết tật hoặc người không khỏe!).",
+   "mh": "Tọa Vị → zuòwèi. ĐỌC: 'tọa' → zuò (t- → z- + uo thanh 4); 'vị' → wèi (v- → w- + ei thanh 4). NGHĨA: 座 (bộ 广 mái che + 坐 ngồi) nơi ngồi có chỗ cố định + 位 vị trí của người → vị trí dành cho một người ngồi cố định = chỗ ngồi.",
+   "vd": [
+    {
+     "t": "Đi tàu",
+     "zh": "這班開往台東的火車假日人很多，最好提前上網訂有座位的車票。",
+     "vn": "Chuyến tàu đi Đài Đông này ngày lễ đông người lắm, tốt nhất đặt trước trên mạng vé có chỗ ngồi."
+    },
+    {
+     "t": "Nhà hàng",
+     "zh": "不好意思，週末晚上人比較多，請問你們大概需要幾個座位呢？",
+     "vn": "Xin lỗi cuối tuần buổi tối khách khá đông, xin hỏi nhóm mình cần khoảng mấy chỗ ngồi ạ?"
+    },
+    {
+     "t": "Lên xe",
+     "zh": "搭捷運的時候看到需要幫助的老人或孕婦，大家通常都會主動讓出座位。",
+     "vn": "Lúc đi tàu điện ngầm thấy người cao tuổi hay phụ nữ mang thai cần giúp đỡ, mọi người thường chủ động nhường chỗ ngồi."
+    }
+   ]
+  },
+  "新聞": {
+   "vn": "tin tức; bản tin thời sự",
+   "ng": [
+    "(danh từ) tin tức thời sự (trên tivi, báo chí, mạng xã hội: 看新聞 xem thời sự, 報新聞 đưa tin, 假新聞 tin giả)"
+   ],
+   "us": "Đi kèm các động từ cố định: 看新聞 (xem/đọc tin tức thời sự), 聽新聞 (nghe bản tin radio), 報新聞 (đưa tin), 上新聞 (lên báo/lên tivi). Lượng từ cho 1 mẩu tin cụ thể ở Đài Loan dùng 則 (一則新聞) hoặc 條.",
+   "co": [
+    "看新聞|xem tin tức / đọc báo",
+    "新聞報導|bản tin đưa tin / phóng sự",
+    "最新新聞|tin tức mới nhất",
+    "假新聞|tin giả (fake news)"
+   ],
+   "sy": [
+    "消息|tin tức/thông tin (phạm vi cá nhân, nội bộ, tin đồn hoặc thông tin mới biết)",
+    "時事|thời sự"
+   ],
+   "cf": [
+    "新聞 vs 消息|新聞 là TIN TỨC BÁO CHÍ / TRUYỀN THÔNG đại chúng đăng tải (xem tivi, báo mạng); còn 消息 là THÔNG TIN / TIN TỨC nói chung, kể cả tin tức cá nhân hoặc tin nội bộ ('lâu ngày không có tin tức gì của cậu ấy / tin tốt là sếp đồng ý rồi!')"
+   ],
+   "lt": "則、條 (một mẩu tin tức: 一則新聞; chú ý chữ 則 zé dùng cực phổ biến ở báo chí Đài Loan!).",
+   "mk": "1) Chớ nhầm 'một tin tức về bạn tôi vừa sinh em bé' thành *我朋友的新聞 ❌ — tin tức đời tư bạn bè phải dùng 消息 (好消息 tin vui!), chỉ chuyện đăng lên báo đài mới gọi 新聞! 2) Đừng gọi xem báo mạng là *讀新聞 nhiều bằng 看新聞.",
+   "tw": "Ở Đài Loan bản tin thời sự TV phát 24/24 gọi là 新聞台, câu cửa miệng hay trêu những vụ việc gây chấn động ngoài đường là 這件事鬧到上新聞了 (Chuyện này ầm ĩ lên cả tivi thời sự rồi!).",
+   "mh": "Tân Văn → xīnwén. ĐỌC: 'tân' → xīn (t- → x- + in thanh 1); 'văn' → wén (v- → w- + en thanh 2). NGHĨA: 新 mới mẻ + 聞 nghe biết (bộ 門 cửa + 耳 tai → ghé tai nghe ngóng) → những chuyện mới mẻ vừa xảy ra được mọi người nghe biết = tin tức.",
+   "vd": [
+    {
+     "t": "Buổi sáng",
+     "zh": "爸爸每天吃早餐的時候，一定要一邊打開電視看新聞一邊喝咖啡。",
+     "vn": "Bố tôi sáng nào lúc ăn sáng cũng nhất định vừa mở tivi xem tin tức thời sự vừa uống cà phê."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "我在網路上看到最新新聞說，這週末可能會有強烈冷氣團報到。",
+     "vn": "Tôi xem tin tức mới nhất trên mạng thấy bảo cuối tuần này có thể có đợt không khí lạnh mạnh tràn về."
+    },
+    {
+     "t": "Mạng xã hội",
+     "zh": "看到網路上流傳的訊息先別急著轉發，要小心可能是誇大的假新聞。",
+     "vn": "Thấy thông tin lan truyền trên mạng khoan hãy vội chia sẻ, phải cẩn thận coi chừng là tin giả thổi phồng."
+    }
+   ]
+  },
+  "體育": {
+   "vn": "thể dục; thể thao",
+   "ng": [
+    "(danh từ) thể dục thể thao (體育新聞 tin thể thao, 體育用品 đồ thể thao)",
+    "(danh từ) môn Thể dục ở trường học (上體育課 học tiết Thể dục, 體育老師 giáo viên thể dục)"
+   ],
+   "us": "Dùng ghép làm danh từ chuyên ngành, môn học hoặc cơ sở vật chất: 體育課 (tiết thể dục), 體育館 (nhà thi đấu/nhà đa năng thể thao), 體育場 (sân vận động), 體育系 (khoa Thể dục Thể thao). Muốn nói hành động 'chơi/tập thể thao hằng ngày' thì phải dùng 運動 (làm thể dục vận động) chứ không nói *做體育 ❌!",
+   "co": [
+    "體育課|tiết học Thể dục",
+    "體育館|nhà thi đấu / phòng thể chất đa năng",
+    "體育新聞|tin tức thể thao",
+    "體育用品|dụng cụ / đồ dùng thể thao"
+   ],
+   "sy": [
+    "運動|thể thao, vận động (chỉ hoạt động rèn luyện thân thể cụ thể hàng ngày)"
+   ],
+   "cf": [
+    "體育 vs 運動|CỰC HAY NHẦM: Hỏi 'Bạn thích môn thể thao nào / cuối tuần đi tập thể thao nhé' dùng 運動 (你喜歡什麼運動？ / 去運動); còn 體育 chỉ KHÁI NIỆM NGÀNH THỂ THAO, TIẾT HỌC THỂ DỤC (體育課), NHÀ THI ĐẤU (體育館), BẢN TIN THỂ THAO (體育新聞)!"
+   ],
+   "lt": "Thanh 3 + thanh 4: tǐyù (chữ 育 đọc yù thanh 4 tròn môi, khác 友 yǒu!).",
+   "mk": "Lỗi cực hay mắc của người Việt: dịch 'Mỗi sáng tôi tập thể dục' thành *我每天做體育 ❌ hoặc 'Tôi thích thể thao' thành *我喜歡體育 ❌ -> phải dùng 運動 (每天運動 / 我很喜歡運動)!",
+   "tw": "Ở các trường ĐH tại Đài Loan đều có khu nhà thể thao lớn trong nhà gọi là 體育館 (hay dùng làm cả sân bóng rổ, cầu lông và tổ chức lễ tốt nghiệp / concert!), và ở Đài Bắc rất nổi tiếng Nhà thi đấu 台北小巨蛋.",
+   "mh": "Thể Dục → tǐyù. ĐỌC: 'thể' → tǐ (th- bật hơi thành t- + i thanh 3); 'dục' → yù (d- mất thành y- + tròn môi u thanh 4). NGHĨA: 體 thân thể (bộ 骨 xương + 曲) + 育 nuôi dưỡng rèn luyện → rèn luyện phát triển thân thể khỏe mạnh = thể dục, thể thao.",
+   "vd": [
+    {
+     "t": "Học đường",
+     "zh": "小學的時候，大家每個禮拜最期待的就是禮拜四下午那兩節體育課。",
+     "vn": "Hồi tiểu học, thứ tư mỗi tuần cả lớp mong chờ nhất chính là hai tiết Thể dục buổi chiều."
+    },
+    {
+     "t": "Đại học",
+     "zh": "今天外面突然下起大雨，原本要在操場舉辦的校慶改到體育館裡面了。",
+     "vn": "Hôm nay bên ngoài bất ngờ đổ mưa to, lễ kỷ niệm ngày thành lập trường vốn định tổ chức ngoài sân vận động phải chuyển vào trong nhà thi đấu."
+    },
+    {
+     "t": "Truyền thông",
+     "zh": "只要有台灣棒球選手在國際賽表現亮眼，隔天體育新聞的版面一定全都是他。",
+     "vn": "Hễ có tuyển thủ bóng chày Đài Loan thi đấu tỏa sáng ở giải quốc tế là hôm sau mặt báo tin tức thể thao chắc chắn toàn hình ảnh anh ấy."
+    }
+   ]
+  },
+  "經常": {
+   "vn": "thường xuyên; hay; luôn luôn",
+   "ng": [
+    "(phó từ) thường xuyên, năng (diễn tả hành động lặp đi lặp lại với tần suất cao và đều đặn: 經常運動 thường xuyên vận động, 不經常 ít khi)"
+   ],
+   "us": "Đặt TRƯỚC động từ hoặc tính từ (có thể đứng trước hoặc sau chủ ngữ nếu nhấn mạnh, phổ biến nhất sau chủ ngữ): 我經常去那家書店 (Tôi thường xuyên tới hiệu sách đó), 這條路下班時間經常塞車 (Con đường này giờ tan làm hay tắc xe lắm). Phủ định có thể dùng 不經常 / 很少.",
+   "co": [
+    "經常去|thường xuyên đi",
+    "經常發生|thường xuyên xảy ra",
+    "不經常|không thường xuyên lắm",
+    "經常練習|thường xuyên luyện tập"
+   ],
+   "sy": [
+    "常常|thường hay (khẩu ngữ rất phổ biến)",
+    "常|thường (gọn nhất trong câu ngắn)",
+    "總是|lúc nào cũng (100% lặp lại)"
+   ],
+   "cf": [
+    "經常 vs 常常|Ý nghĩa gần như tương đương ('thường hay'), nhưng 經常 sắc thái hơi chín chắn, văn viết/trang trọng hơn một chút và dùng được thêm ở dạng định ngữ (經常性的活動 hoạt động định kỳ thường xuyên) hay phủ định 不經常; còn 常常 thân mật cửa miệng trong hội thoại!"
+   ],
+   "lt": "Chữ 常 có thể đứng trước động từ đơn, nhưng KHÔNG được nói *經常的 ở cuối câu trừ trước danh từ.",
+   "mk": "Đừng đặt 經常 ra cuối câu kiểu tiếng Việt (*我去看電影經常 ❌ -> phải đặt trước động từ: 我經常去看電影!). Ngoài ra KHÔNG dùng *經常 không cho tương lai đơn kiểu 'lần sau sẽ thường xuyên... sẽ nói 以後我會經常來'.",
+   "tw": "Trong đời sống hàng ngày ở Đài Loan người dân hay nói ngắn gọn là 常 / 常常 (我常吃這家), còn trên hướng dẫn công việc, tin tức, tư vấn sức khỏe hay dùng 經常 để tăng sắc thái chuẩn mực hơn.",
+   "mh": "Kinh Thường → jīngcháng. ĐỌC: 'kinh' → jīng (k- → j- + ing thanh 1); 'thường' → cháng (th- → ch- uốn lưỡi + ang thanh 2). NGHĨA: 經 đường dọc trục chính nối dài (bộ 糸 sợi tơ dọc) + 常 quy luật cố định lặp lại → diễn ra nối tiếp đều đặn thành nếp quen = thường xuyên.",
+   "vd": [
+    {
+     "t": "Thói quen",
+     "zh": "雖然大家畢業後在不同城市工作，但還是經常在群組裡分享近況。",
+     "vn": "Tuy mọi người tốt nghiệp xong làm việc ở các thành phố khác nhau, nhưng vẫn thường xuyên chia sẻ tình hình trong nhóm chat."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "夏天的午後山區經常會出現短暫雷陣雨，出門爬山記得攜帶雨具。",
+     "vn": "Buổi chiều mùa hè vùng núi thường xuyên xuất hiện mưa giông rào ngắn, đi leo núi nhớ mang theo đồ đi mưa."
+    },
+    {
+     "t": "Học tập",
+     "zh": "老師提醒我們，經常把錯過的生詞拿出來複習，才不容易又忘記。",
+     "vn": "Cô giáo nhắc tụi mình rằng thường xuyên lôi những từ mới từng sai ra ôn lại thì mới đỡ bị quên lại."
+    }
+   ]
+  },
+  "雜誌": {
+   "vn": "tạp chí",
+   "ng": [
+    "(danh từ) tạp chí (ấn phẩm định kỳ in theo tuần, tháng, chuyên đề như thời trang, du lịch, kinh tế: 看雜誌 đọc tạp chí, 時尚雜誌 tạp chí thời trang)"
+   ],
+   "us": "Đọc tạp chí dùng 看雜誌 (đọc sách/báo/tạp chí người Hoa dùng 看!). Lượng từ: 本 (một cuốn tạp chí: 一本雜誌), 期 (một số phát hành định kỳ: 最新一期雜誌 số tạp chí mới nhất). Cũng rất hay gặp chữ 電子雜誌 (tạp chí điện tử).",
+   "co": [
+    "看雜誌|đọc tạp chí",
+    "時尚雜誌|tạp chí thời trang",
+    "這一期雜誌|số tạp chí kỳ này",
+    "雜誌社|tòa soạn / nhà xuất bản tạp chí"
+   ],
+   "sy": [
+    "期刊|tập san / tạp chí học thuật định kỳ",
+    "報紙|báo giấy hằng ngày"
+   ],
+   "cf": [
+    "雜誌 vs 報紙|報紙 = BÁO GIẤY xuất bản hằng ngày (tờ mỏng rời, lượng từ 份/張); 雜誌 = TẠP CHÍ in giấy bóng đóng tập theo tuần/tháng (lượng từ 本 hoặc 期)"
+   ],
+   "lt": "本 (一本旅遊雜誌 một cuốn tạp chí du lịch), 期 (một số phát hành: 上一期的雜誌).",
+   "mk": "1) Đọc tạp chí là 看雜誌 (không nói *讀雜誌 hay *唸雜誌!). 2) Lưu ý chữ Phồn thể 雜誌 giữ đủ chữ 雜 và chữ 誌 (bộ Ngôn 言 bên trái — ĐỪNG nhầm thành *志 khi viết tên tờ tạp chí ở Đài Loan!).",
+   "tw": "Ở Đài Loan hệ thống nhà sách như 誠品 (Eslite), 博客來 và cả 7-ELEVEN đặt riêng kệ tạp chí bán đủ các loại 雜誌 từ du lịch, ẩm thực đến thiết kế (hoặc tạp chí học tiếng Hoa có kèm CD/file nghe cho người học rất nổi tiếng như 大家說英語!).",
+   "mh": "Tạp Chí → zázhì. ĐỌC: 'tạp' → zá (t- → z-, bỏ âm cuối -p thanh 2); 'chí' → zhì (ch- uốn lưỡi → zh- + i thanh 4). NGHĨA: 雜 pha trộn nhiều mảng đa dạng + 誌 ghi chép lại → ấn phẩm tổng hợp ghi chép nhiều chuyên mục phong phú = tạp chí.",
+   "vd": [
+    {
+     "t": "Quán cà phê",
+     "zh": "這家咖啡店架子上擺了好幾本旅遊雜誌，點杯飲料就能慢慢翻閱。",
+     "vn": "Trên kệ của quán cà phê này đặt khá nhiều cuốn tạp chí du lịch, gọi một ly nước là có thể thong thả lật xem."
+    },
+    {
+     "t": "Nhà sách",
+     "zh": "最新一期的美食雜誌封面介紹了台南好幾家百年老店，我看完好想去吃！",
+     "vn": "Trang bìa số mới nhất của tạp chí ẩm thực giới thiệu mấy quán lâu đời trăm năm ở Đài Nam, xem xong tôi thèm đi ăn quá!"
+    },
+    {
+     "t": "Học tiếng",
+     "zh": "許多人會訂閱英文或商業雜誌，利用通勤坐捷運的時間順便充實知識。",
+     "vn": "Nhiều người hay đặt mua tạp chí tiếng Anh hoặc kinh doanh, tận dụng lúc đi tàu điện ngầm đi làm để bồi dưỡng thêm kiến thức."
+    }
+   ]
+  },
+  "美術": {
+   "vn": "mỹ thuật; hội họa & tạo hình",
+   "ng": [
+    "(danh từ) mỹ thuật, nghệ thuật tạo hình (bao gồm hội họa, điêu khắc, thiết kế: 美術館 bảo tàng mỹ thuật, 上美術課 tiết Mỹ thuật)"
+   ],
+   "us": "Dùng cho môn học, bảo tàng, trường/khoa chuyên ngành: 美術課 (tiết mỹ thuật ở trường), 美術館 (bảo tàng mỹ thuật — viết tắt hay gặp 國美館/北美館 ở Đài Loan!), 美術系 (khoa Mỹ thuật), 美術設計 (thiết kế mỹ thuật).",
+   "co": [
+    "美術館|bảo tàng mỹ thuật",
+    "美術課|tiết học Mỹ thuật",
+    "美術系|khoa Mỹ thuật",
+    "美術作品|tác phẩm mỹ thuật"
+   ],
+   "sy": [
+    "藝術|nghệ thuật (rộng hơn, gồm cả âm nhạc, điện ảnh, sân khấu, vũ đạo)",
+    "畫畫|vẽ tranh (hành động vẽ)"
+   ],
+   "cf": [
+    "美術 vs 藝術|美術 chủ yếu chỉ NGÀNH TẠO HÌNH THỊ GIÁC (vẽ tranh, điêu khắc, đồ họa, tiết học vẽ ở trường); 藝術 bao trùm mọi loại hình NGHỆ THUẬT (âm nhạc, múa, kịch, phim, hội họa...)"
+   ],
+   "lt": "Thanh 3 + thanh 4: měishù.",
+   "mk": "Khi nói 'tôi thích vẽ tranh' dùng 我喜歡畫畫 (hành động vẽ); chỉ khi nói tới môn học ở trường, bảo tàng hay thiết kế mỹ thuật mới dùng 美術!",
+   "tw": "Đài Loan rất đầu tư cho không gian văn hóa công cộng với nhiều bảo tàng mỹ thuật lớn miễn phí hoặc giá rẻ như 台北市立美術館 (北美館) và 國立台灣美術館 (國美館 tại Đài Trung) — cuối tuần giới trẻ cực thích rủ nhau 去美術館看展覽 (đi xem triển lãm)!",
+   "mh": "Mỹ Thuật → měishù. ĐỌC: 'mỹ' → měi (m- + ei thanh 3); 'thuật' → shù (th- → sh- + u thanh 4). NGHĨA: 美 cái đẹp (con cừu lớn 羊+大 thời cổ biểu trưng đẹp ngon) + 術 kỹ năng, phương pháp nghệ thuật → kỹ nghệ sáng tạo ra cái đẹp thị giác = mỹ thuật.",
+   "vd": [
+    {
+     "t": "Triển lãm",
+     "zh": "這週末美術館剛好有一個當代繪畫展覽，我們一起去逛逛怎麼樣？",
+     "vn": "Cuối tuần này bảo tàng mỹ thuật vừa hay có một triển lãm hội họa đương đại, tụi mình cùng đi dạo xem thử nhé?"
+    },
+    {
+     "t": "Học đường",
+     "zh": "妹妹在學校最喜歡美術課，老師教大家用紙黏土做可愛的小動物。",
+     "vn": "Em gái ở trường thích nhất là tiết Mỹ thuật, cô giáo dạy cả lớp dùng đất sét giấy nặn các con vật nhỏ đáng yêu."
+    },
+    {
+     "t": "Nghề nghiệp",
+     "zh": "他大學念的是美術設計相關科系，現在在一家遊戲公司畫角色插圖。",
+     "vn": "Anh ấy học đại học chuyên ngành liên quan tới thiết kế mỹ thuật, hiện đang vẽ minh họa nhân vật ở một công ty game."
+    }
+   ]
+  },
+  "畫家": {
+   "vn": "họa sĩ",
+   "ng": [
+    "(danh từ) họa sĩ, người chuyên sáng tác tranh vẽ nghệ thuật"
+   ],
+   "us": "Dùng trực tiếp cho nghề nghiệp nghệ sĩ hội họa: 著名畫家 (họa sĩ nổi tiếng), 當畫家 (làm họa sĩ), 這位畫家的風格 rất độc đáo. Lượng từ lịch sự dùng 位 (一位畫家 một vị họa sĩ) hoặc 個.",
+   "co": [
+    "著名畫家|họa sĩ nổi tiếng",
+    "台灣畫家|họa sĩ Đài Loan",
+    "畫家的作品|tác phẩm của họa sĩ",
+    "成為畫家|trở thành họa sĩ"
+   ],
+   "sy": [
+    "藝術家|nghệ sĩ (nói chung nhiều bộ môn nghệ thuật)",
+    "插畫家|họa sĩ vẽ tranh minh họa (sách, bìa, sticker — cực phổ biến ở Đài Loan!)"
+   ],
+   "lt": "位、個 (một vị họa sĩ: 這位畫家). Hậu tố 家 đọc jiā thanh 1 chỉ người tinh thông nghề/lĩnh vực (như 作家 nhà văn, 音樂家 nhạc sĩ, 科學家 nhà khoa học!).",
+   "mk": "Chú ý viết đủ nét chữ Phồn thể 畫 (tránh viết theo dạng rút gọn phi chuẩn); phần trên là 聿 (cây bút lông) ở giữa là 田 (ô tranh) rất dễ nhớ!",
+   "tw": "Ở Đài Loan ngoài các danh họa truyền thống (như Trần Trừng Ba 陳澄波, Quách Tuyết Hồ), giới trẻ rất hâm mộ các 插畫家 (họa sĩ minh họa trên LINE sticker, sách thiếu nhi như Kỉ Mễ 幾米 — tác giả có tượng công viên 幾米公園 nổi tiếng ở Nghi Lan!).",
+   "mh": "Họa Gia → huàjiā. ĐỌC: 'họa' → huà (thanh 4); 'gia' → jiā (gi- → j- + ia thanh 1). NGHĨA: 畫 vẽ bức tranh (tay cầm bút 聿 phác trên ô ruộng 田) + 家 chuyên gia một nghề → bậc chuyên gia vẽ tranh nghệ thuật = họa sĩ.",
+   "vd": [
+    {
+     "t": "Bảo tàng",
+     "zh": "這幅描寫早期淡水風景的油畫，出自台灣知名畫家陳澄波之手。",
+     "vn": "Bức tranh sơn dầu miêu tả phong cảnh Đạm Thủy thời xưa này là tác phẩm của danh họa nổi tiếng Đài Loan Trần Trừng Ba."
+    },
+    {
+     "t": "Ước mơ",
+     "zh": "弟弟隨身都帶著素描本和鉛筆，夢想長大後能成為一位畫家。",
+     "vn": "Em trai lúc nào cũng mang theo sổ ký họa và bút chì bên người, mơ ước lớn lên trở thành một họa sĩ."
+    },
+    {
+     "t": "Sách tranh",
+     "zh": "我很喜歡幾米這位插畫家的繪本，每張圖都充滿溫暖跟想像力。",
+     "vn": "Tôi rất thích sách tranh của họa sĩ minh họa Kỉ Mễ, bức vẽ nào cũng tràn đầy sự ấm áp và trí tưởng tượng."
+    }
+   ]
+  },
+  "興趣": {
+   "vn": "hứng thú; sở thích; niềm thích thú",
+   "ng": [
+    "(danh từ) niềm hứng thú, sự quan tâm thích thú (對……有興趣 có hứng thú với..., 沒興趣 không hứng thú)",
+    "(danh từ) sở thích cá nhân trong thời gian rảnh (我的興趣是…… Sở thích của tôi là...)"
+   ],
+   "us": "HAI MẪU CÂU ĐẶC BIỆT QUAN TRỌNG: 1) Hỏi và nói sở thích: 你的興趣是什麼？ (Sở thích của bạn là gì? -> 我的興趣是看電影 và 旅遊); 2) Dùng giới từ 對 để nói hứng thú với cái gì: 我對學中文很有興趣 (Tôi rất có hứng thú với việc học tiếng Hoa — ĐỪNG quên chữ 對!). Phủ định: 沒(什麼)興趣.",
+   "co": [
+    "對……有興趣|có hứng thú với...",
+    "很有興趣|rất có hứng thú",
+    "沒興趣|không có hứng thú",
+    "培養興趣|bồi dưỡng sở thích"
+   ],
+   "sy": [
+    "愛好|sở thích (câu tự giới thiệu, văn viết hay dùng)",
+    "嗜好|thú vui quen thuộc (hơi trang trọng hoặc thói quen riêng)"
+   ],
+   "cf": [
+    "興趣 vs 喜歡|喜歡 là ĐỘNG TỪ ('tôi thích nấu ăn' = 我喜歡做菜); 興趣 là DANH TỪ ('sở thích của tôi là nấu ăn' = 我的興趣是做菜 hoặc 我對做菜有興趣 — tuyệt đối KHÔNG nói *我興趣做菜 ❌!)"
+   ],
+   "lt": "Chữ 興 ở đây đọc xìng thanh 4 ('hào hứng'), PHÂN BIỆT với xīng thanh 1 trong 高興 (chú ý trong 高興 chữ 興 đọc xìng thanh 4 giống vậy, chỉ trong 興奮 phấn khích mới đọc xīngfèn!). Giới từ cố định: 對……有興趣.",
+   "mk": "Lỗi cực kỳ phổ biến: 1) Dùng 興趣 làm động từ trực tiếp (*我興趣拍照 ❌ -> phải nói 我對拍照有興趣 hoặc 我的興趣是拍照!). 2) Dùng sai giới từ *在 / *跟 thay cho 對 (*我對音樂有興趣 mới đúng!).",
+   "tw": "Trong phỏng vấn xin việc hoặc làm quen ở Đài Loan người ta hỏi trực tiếp: 你平常有什麼興趣？ và đáp cực tự nhiên là 我對……蠻有興趣的 (Tôi khá là hứng thú với...).",
+   "mh": "Hứng Thú → xìngqù. ĐỌC: 'hứng' → xìng (h- → x- + ing thanh 4); 'thú' → qù (th- bật sang q- + vần ü viết là u thanh 4). NGHĨA: 興 dâng cao tinh thần hăng hái + 趣 chạy nhanh tới tìm cái vui → tinh thần phấn chấn hướng về điều khiến mình thích thú = hứng thú, sở thích.",
+   "vd": [
+    {
+     "t": "Làm quen",
+     "zh": "我的興趣是下班後自己做烘焙，週末偶爾也會去爬爬山。",
+     "vn": "Sở thích của tôi là sau giờ làm tự làm bánh tại nhà, cuối tuần thỉnh thoảng cũng đi leo núi chút."
+    },
+    {
+     "t": "Học tập",
+     "zh": "她對台灣傳統文化和茶藝非常有興趣，所以特地來台北交換一學期。",
+     "vn": "Cô ấy cực kỳ có hứng thú với văn hóa truyền thống và trà đạo Đài Loan nên đã đặc biệt sang Đài Bắc trao đổi một học kỳ."
+    },
+    {
+     "t": "Từ chối",
+     "zh": "這部恐怖片看起來好嚇人，我對這種題材真的完全沒興趣。",
+     "vn": "Bộ phim kinh dị này trông đáng sợ quá, tôi thật sự hoàn toàn không có hứng thú với thể loại này."
+    }
+   ]
+  },
+  "收": {
+   "vn": "nhận; thu (tiền/lại); dọn dẹp cất gọn; đóng cửa (tiệm)",
+   "ng": [
+    "(động từ) nhận lấy (thư từ, hàng hóa, quà tặng — nhấn mạnh hành động hoặc kết quả khi ghép 收到: 收包裹 nhận bưu kiện, 收到禮物 nhận được quà, 收費 thu phí)",
+    "(động từ) thu dọn, cất gọn vào chỗ cũ (把東西收好 cất gọn đồ đạc, 收桌子 dọn bàn, 收起來 cất đi)",
+    "(động từ — khẩu ngữ Đài Loan) dẹp tiệm, đóng cửa ngừng kinh doanh (那家店收起來了 / 收掉了 Tiệm đó dẹp tiệm rồi!)"
+   ],
+   "us": "Rất đa năng trong đời sống: 1) Nhận bưu phẩm/tin nhắn: 收到了! (Nhận được rồi!), 幫我收一下貨 (nhận hàng hộ mình với); 2) Cất dọn: 下雨了，快去收衣服 (Trời mưa rồi, mau đi thu quần áo!), 把手機收起來 (Cất điện thoại đi); 3) Thu tiền/thu phí: 收錢, 收據 (hóa đơn biên nhận!).",
+   "co": [
+    "收到|nhận được (tin nhắn, thư, hàng)",
+    "收起來|cất gọn đi / dẹp tiệm (nghĩa mở rộng)",
+    "收衣服 / 收桌子|thu quần áo / dọn bàn ăn",
+    "收費 / 收據|thu phí / biên lai thu tiền"
+   ],
+   "sy": [
+    "收到|nhận được (nhấn mạnh kết quả đã tới tay)",
+    "收拾|thu dọn, dọn dẹp (phòng ốc, hành lý)",
+    "接受|chấp nhận (tấm lòng, lời đề nghị, quan điểm trừu tượng!)"
+   ],
+   "an": [
+    "寄|gửi đi",
+    "發|phát đi, gửi đi",
+    "放|đặt ra, để ra"
+   ],
+   "cf": [
+    "收 vs 收到 vs 接受|收 = hành động nhận/thu/cất; 收到 = KẾT QUẢ ĐÃ NHẬN ĐƯỢC đồ vật, tin nhắn, email; 接受 = CHẤP NHẬN điều trừu tượng (lời mời, ý kiến, sự thật, thử thách — không dùng *收到你的意見 trừ khi là file/mail!)"
+   ],
+   "lt": "Thanh 1 shōu.",
+   "mk": "1) Chớ nhầm giữa 收 (nhận đồ vật/tiền/thu dọn) với 拿 (cầm tay). 2) Ở lớp học khi cô giáo nhắc học sinh cất điện thoại không dùng *收手機 trống mà nói 把手機收起來!",
+   "tw": "Ở Đài Loan nhiều cửa hàng nhỏ nghỉ bán luôn hay được hàng xóm nói tiếc nuối: 老闆年紀大了，那家老店最近收掉了 (Ông chủ lớn tuổi rồi, tiệm lâu năm đó mới đóng cửa nghỉ hẳn rồi). Ngoài ra mua đồ nhận hóa đơn/biên lai gọi là 收據!",
+   "mh": "Thu → shōu. ĐỌC: 'thu' → shōu (th- → sh- uốn lưỡi + -ou thanh 1). NGHĨA: bên trái 丩 (sợi dây quấn gom vào) + bên phải 攵 (tay cầm roi thu dọn) → gom nắm thu tóm mọi thứ về tay mình = nhận, thu, cất dọn.",
+   "vd": [
+    {
+     "t": "Mua online",
+     "zh": "你網購的那箱零食今天下午寄到了，我已經幫你簽收放進客廳囉。",
+     "vn": "Thùng đồ ăn vặt bạn đặt mua online chiều nay giao tới rồi, mình đã ký nhận hộ và để trong phòng khách rồi nhé."
+    },
+    {
+     "t": "Trời mưa",
+     "zh": "天空烏雲密布好像快下雨了，趕快去陽台把晾好的衣服收進來吧！",
+     "vn": "Bầu trời mây đen kịt hình như sắp mưa rồi, mau ra ban công thu quần áo đã phơi vào nhà đi!"
+    },
+    {
+     "t": "Cửa hàng",
+     "zh": "巷口那家賣了三十年的傳統麵包店因為租約到期，上個月已經收起來了。",
+     "vn": "Tiệm bánh mì truyền thống bán ba mươi năm ở đầu hẻm do hết hạn hợp đồng thuê nên tháng trước đã dẹp tiệm rồi."
+    }
+   ]
+  },
+  "談": {
+   "vn": "nói chuyện; trò chuyện; bàn bạc; yêu đương (談戀愛)",
+   "ng": [
+    "(động từ) trò chuyện, đàm luận, bàn bạc nghiêm túc hoặc sâu hơn (談話 nói chuyện, 談工作 bàn công việc, 談條件 thương lượng điều kiện)",
+    "(động từ trong cụm cố định) yêu đương (談戀愛 yêu đương / hẹn hò)"
+   ],
+   "us": "Dùng cho nói chuyện có chủ đề rõ ràng hoặc thương thảo: 跟老師談一談 (nói chuyện trao đổi với thầy một chút), 談未來 (bàn về tương lai), 談生意 (bàn chuyện làm ăn), 談戀愛 (yêu đương — rất hay tách ra: 談過兩次戀愛 từng yêu hai lần!).",
+   "co": [
+    "談戀愛|yêu đương / hẹn hò",
+    "談一談|nói chuyện / trao đổi một chút",
+    "談工作 / 談生意|bàn công việc / bàn chuyện làm ăn",
+    "談談看法|chia sẻ / bàn luận quan điểm"
+   ],
+   "sy": [
+    "聊|tán gẫu thoải mái cho vui",
+    "討論|thảo luận (cùng phân tích tìm giải pháp)"
+   ],
+   "cf": [
+    "談 vs 聊|聊 = TÁN GẪU thoải mái, vui vẻ không áp lực ('ngồi trà sữa tám chuyện': 聊天); 談 = BÀN BẠC / TRAO ĐỔI đứng đắn, nghiêm túc hơn một bậc ('bàn công việc, nói chuyện riêng giữa thầy và trò, yêu đương' 談戀愛)"
+   ],
+   "lt": "Thanh 2 tán (bộ 言 lời nói + 炎 ngọn lửa → lời nói sôi nổi trao đổi qua lại).",
+   "mk": "Đừng viết/gõ nhầm 談 (nói chuyện, bộ Ngôn 言) sang chữ đồng âm 彈 (tán/đàn: 彈鋼琴 đánh đàn piano)!",
+   "tw": "Trong đời sống Đài Loan từ 談 phổ biến nhất ở hai cụm: 談戀愛 (yêu đương) và 找時間我們談談 (tìm lúc nào đó tụi mình ngồi nói chuyện nghiêm túc chút nhé), hoặc khen ai đó giao tiếp duyên dáng là 很健談!",
+   "mh": "Đàm → tán. ĐỌC: 'đàm' → tán (đ- bật hơi sang t- + an thanh 2; bỏ âm cuối -m). NGHĨA: bộ 言 (lời nói) bên trái + 炎 (hai chữ 火 ngọn lửa rực nóng) bên phải → lời nói trao đổi sôi nổi, tâm huyết qua lại = đàm đạo, bàn bạc, nói chuyện.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "我們約明天下午兩點在咖啡廳見面，好好談一下合作細節。",
+     "vn": "Chúng ta hẹn hai giờ chiều mai gặp nhau ở quán cà phê bàn kỹ một chút chi tiết hợp tác nhé."
+    },
+    {
+     "t": "Tình cảm",
+     "zh": "他大學期間都忙著打工和讀書，直到畢業以後才第一次談戀愛。",
+     "vn": "Thời đại học anh ấy toàn bận đi làm thêm với học bài, mãi đến sau khi tốt nghiệp mới lần đầu yêu đương."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "父子倆很久沒坐下來心平氣和地談談彼此對未來的想法了。",
+     "vn": "Hai bố con đã lâu rồi chưa ngồi xuống bình tĩnh trò chuyện với nhau về suy nghĩ cho tương lai."
+    }
+   ]
+  },
+  "聊": {
+   "vn": "tán gẫu; trò chuyện phiếm; nói chuyện chơi",
+   "ng": [
+    "(động từ) trò chuyện thoải mái, tán gẫu giết thời gian (聊天 trò chuyện, 聊聊 nha/trò chuyện chút đi, 聊得很開心 nói chuyện rất vui)"
+   ],
+   "us": "Chủ yếu dùng theo dạng 聊天 (động từ ly hợp: 跟朋友聊天 trò chuyện với bạn, 聊一下天), lặp động từ 聊聊 (我們來聊聊吧 Chúng ta tán gẫu chút đi!), hoặc theo sau các từ miêu tả kết quả: 聊得來 (nói chuyện hợp cạ!), 聊不完 (nói mãi không hết chuyện!).",
+   "co": [
+    "聊天|trò chuyện / tán gẫu",
+    "聊聊|nói chuyện một chút",
+    "聊得來|nói chuyện hợp nhau / hợp cạ",
+    "無聊|nhàm chán (không có gì để làm/nói!)"
+   ],
+   "sy": [
+    "談|bàn bạc, trò chuyện nghiêm túc hơn",
+    "閒聊|tán dóc chuyện phiếm lúc rảnh"
+   ],
+   "cf": [
+    "聊天 vs 聊|CHÚ Ý NGỮ PHÁP ĐỘNG TỪ LY HỢP: 聊天 là V-sep nên KHÔNG nói *聊天他 ❌ -> phải nói 跟他聊天 hoặc 跟我聊聊! Ngoài ra 無聊 (wúliáo) có chữ 聊 nghĩa là 'không có trò gì giải khuây → nhàm chán'!"
+   ],
+   "lt": "Thanh 2 liáo. Đếm trò chuyện nhẹ nhàng: 聊了兩個小時天 (tám chuyện hai tiếng đồng hồ!).",
+   "mk": "Lỗi cực hay mắc của người Việt: đặt đối tượng trò chuyện ra sau 聊天 (*我聊天我的朋友 ❌ -> đúng PHẢI dùng giới từ 跟 đặt trước: 我跟朋友聊天!).",
+   "tw": "Người Đài Loan cực hay dùng 聊聊 nha / 找你聊一下 (tìm bạn tâm sự chút nha), 好聊 (dễ nói chuyện, bắt chuyện thân thiện), và trên app tin nhắn/diễn đàn thì nói chuyện tâm sự hay gọi chung là 聊天!",
+   "mh": "Liêu → liáo. ĐỌC: 'liêu' → liáo (l- + -iao thanh 2). NGHĨA: bộ 耳 (cái tai lắng nghe) bên trái + 卯 (chữ chỉ âm & đôi cửa mở) bên phải → ghé tai nghe nhau tâm tình thủ thỉ cho khuây khỏa lúc rảnh = tán gẫu, trò chuyện.",
+   "vd": [
+    {
+     "t": "Quán nước",
+     "zh": "好久不見的老同學聚在一起喝下午茶，從大學往事一路聊到天黑都捨不得走。",
+     "vn": "Bạn học cũ lâu ngày không gặp tụ họp uống trà chiều, hàn huyên từ chuyện hồi đại học tới tận tối mịt vẫn chẳng nỡ về."
+    },
+    {
+     "t": "Kết bạn",
+     "zh": "雖然我們今天才剛認識，可是意外地非常聊得來，就像認識很久一樣。",
+     "vn": "Tuy hôm nay chúng tôi mới quen nhau thôi nhưng không ngờ lại nói chuyện cực kỳ hợp gu, cứ như quen từ lâu lắm rồi."
+    },
+    {
+     "t": "Tâm sự",
+     "zh": "你最近看起來心情不太好，要不要晚上出來喝杯飲料聊一聊？",
+     "vn": "Dạo này trông tâm trạng bạn không được vui lắm, tối nay có muốn ra ngoài uống ly nước tâm sự chút không?"
+    }
+   ]
+  },
+  "遲到": {
+   "vn": "đến muộn; đi trễ",
+   "ng": [
+    "(động từ / động từ ly hợp nhẹ) đến muộn, tới trễ so với giờ hẹn hoặc giờ quy định (上課遲到 đi học muộn, 上班遲到 đi làm trễ)"
+   ],
+   "us": "Đặt sau chủ ngữ hoặc làm bổ ngữ thời gian muộn ở cuối: 對不起，我遲到了！ (Xin lỗi, tôi đến muộn rồi!), 遲到了十分鐘 (trễ mất mười phút), 不要遲到喔! (Đừng đến muộn đấy nhé!). Không đặt trực tiếp nơi chốn sau 遲到 (*遲到學校 ❌ -> phải nói 上學遲到 hoặc 去學校遲到了!).",
+   "co": [
+    "我遲到了|tôi đến muộn rồi",
+    "上班遲到|đi làm muộn",
+    "遲到五分鐘|trễ năm phút",
+    "從來不遲到|chưa bao giờ đi muộn"
+   ],
+   "sy": [
+    "晚到|đến muộn hơn dự kiến một chút (giảm nhẹ, không hẳn vi phạm kỷ luật bằng 遲到)"
+   ],
+   "an": [
+    "準時|đúng giờ",
+    "提早|đến sớm hơn hẹn"
+   ],
+   "cf": [
+    "遲到 vs 晚|晚 là tính từ 'muộn/khuya' (現在很晚了 bây giờ khuya rồi, 睡太晚 ngủ muộn); 遲到 là ĐỘNG TỪ 'đến trễ giờ quy định/giờ hẹn' (今天早上開會遲到 sáng nay họp đi trễ)"
+   ],
+   "lt": "Chú ý mẫu đếm thời gian trễ: 遲到了 + Thời lượng (遲到了二十分鐘).",
+   "mk": "Lỗi phổ biến: nói *我晚了 ❌ khi vừa chạy hớt hải tới điểm hẹn trễ giờ — người Hoa dùng 我遲到了! Ngoài ra KHÔNG mang tân ngữ địa điểm phía sau (*遲到公司 ❌ -> 上班遲到).",
+   "tw": "Ở Đài Loan người đi làm trễ hay nhắn LINE cho đồng nghiệp xin lỗi trước: 不好意思路上大塞車，可能會遲到十分鐘喔！",
+   "mh": "Trì Đáo → chídào. ĐỌC: 'trì' → chí (tr- → ch- uốn lưỡi + i thanh 2); 'đáo' → dào (đ- → d- + ao thanh 4). NGHĨA: 遲 chậm trễ (bộ 辶 bước đi + 犀 con tê giác nặng nề đi chậm) + 到 đến nơi → bước chân đến nơi bị chậm hơn giờ hẹn = đến muộn.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "早上下大雨害路上大塞車，我差一點就上班遲到了。",
+     "vn": "Sáng nay trời mưa to làm ngoài đường kẹt xe khủng khiếp, suýt chút nữa thì tôi đi làm muộn."
+    },
+    {
+     "t": "Hẹn bạn",
+     "zh": "非常抱歉讓你久等，因為捷運臨時故障，我才會遲到了十五分鐘。",
+     "vn": "Vô cùng xin lỗi để bạn đợi lâu, tại tàu điện ngầm gặp sự cố đột xuất nên tôi mới đến muộn mười lăm phút."
+    },
+    {
+     "t": "Trường học",
+     "zh": "老師最看重守時習慣，整個學期都沒有遲到過的同學會有額外加分。",
+     "vn": "Thầy cô coi trọng nhất thói quen đúng giờ, bạn nào cả học kỳ chưa từng đi học muộn sẽ được cộng thêm điểm."
+    }
+   ]
+  },
+  "樂器": {
+   "vn": "nhạc cụ",
+   "ng": [
+    "(danh từ) nhạc cụ nói chung (đàn piano, guitar, violin, sáo, trống...: 彈樂器 chơi nhạc cụ, 學樂器 học nhạc cụ)"
+   ],
+   "us": "Đi kèm các động từ 學 (học), 買 (mua), 玩 hoặc động từ riêng theo nhóm nhạc cụ như 彈 (gảy/đánh phím: đàn piano, guitar), 拉 (kéo: violin), 吹 (thổi: sáo), 打 (gõ: trống). Khi nói chung 'chơi một loại nhạc cụ' hay dùng 學一種樂器 / 會彈哪種樂器？. Lượng từ: 種, 件, 樣.",
+   "co": [
+    "學樂器|học chơi nhạc cụ",
+    "買樂器|mua nhạc cụ",
+    "傳統樂器|nhạc cụ truyền thống",
+    "樂器行|cửa hàng bán nhạc cụ (rất hay gặp ở Đài Loan)"
+   ],
+   "lt": "CỰC KỲ LƯU Ý ÂM ĐỌC: Chữ 樂 ở đây đọc là yuè thanh 4 (như 音樂 âm nhạc), TUYỆT ĐỐI KHÔNG đọc *lè (快樂 vui vẻ)!",
+   "mk": "1) Đọc nhầm *lèqì ❌ -> PHẢI đọc yuèqì! 2) Đừng dịch từng chữ 'chơi nhạc cụ' thành *玩樂器 nghe hơi kém tự nhiên bằng 會演奏樂器 / 會彈樂器!",
+   "tw": "Tại Đài Loan phong trào cho trẻ em học nhạc cụ rất phổ biến, khu gần các trường học hay có tiệm bán đàn và lớp dạy gọi là 樂器行 (nhạc cụ hành); nhạc cụ cổ truyền được gọi là 國樂 / 傳統樂器.",
+   "mh": "Nhạc Khí → yuèqì. ĐỌC: 'nhạc' → yuè (âm tròn môi thanh 4); 'khí' → qì (kh- bật sang q- + i thanh 4). NGHĨA: 樂 âm nhạc + 器 dụng cụ → đồ vật chuyên dùng tạo ra tiếng nhạc = nhạc cụ.",
+   "vd": [
+    {
+     "t": "Sở thích",
+     "zh": "從小學習一種樂器不僅能培養氣質，長大後也是一種很好的紓壓方式。",
+     "vn": "Học một loại nhạc cụ từ nhỏ không chỉ bồi dưỡng khí chất mà lớn lên còn là cách giải tỏa áp lực rất tốt."
+    },
+    {
+     "t": "Trường học",
+     "zh": "我們學校管樂社的同學每個人都至少會演奏兩種不同的樂器。",
+     "vn": "Các bạn trong câu lạc bộ kèn đồng của trường tôi ai cũng biết chơi ít nhất hai loại nhạc cụ khác nhau."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這條街上有好幾家老字號的樂器行，不管想買鋼琴還是小提琴都能找到。",
+     "vn": "Trên con phố này có mấy cửa hàng nhạc cụ lâu đời, dù muốn mua piano hay violin đều tìm thấy hết."
+    }
+   ]
+  },
+  "吉他": {
+   "vn": "đàn ghi-ta (guitar)",
+   "ng": [
+    "(danh từ) đàn guitar (木吉他 guitar thùng, 電吉他 guitar điện, 彈吉他 đánh/chơi đàn guitar)"
+   ],
+   "us": "Động từ cố định đi với đàn dây/phím là 彈 (gảy/đánh: 彈吉他 chơi guitar, 邊彈吉他邊唱歌 vừa đánh guitar vừa hát). Lượng từ chuẩn cho vật có cần/tay cầm là 把 (一把吉他 một cây đàn guitar).",
+   "co": [
+    "彈吉他|chơi đàn guitar",
+    "木吉他|guitar gỗ / acoustic",
+    "電吉他|guitar điện",
+    "一把吉他|một cây đàn guitar"
+   ],
+   "sy": [
+    "六弦琴|đàn sáu dây (cách gọi mỹ miều ít dùng hơn 吉他)"
+   ],
+   "lt": "把 (一把木吉他 một cây đàn guitar gỗ). Chữ 吉 đọc jí thanh 2, 他 đọc tā thanh 1.",
+   "mk": "Động từ chơi đàn guitar là 彈吉他 (tán jítā), ĐỪNG nói *打吉他 ❌ hay *玩吉他 ❌!",
+   "tw": "Ở các trường cấp ba và đại học Đài Loan, câu lạc bộ đàn guitar (吉他社) luôn là một trong những câu lạc bộ đông thành viên và lãng mạn nhất, tối đến sinh viên thường mang đàn ra bãi cỏ trường vừa 彈吉他 vừa hát!",
+   "mh": "Cát Tha → jítā. ĐỌC: 'cát' → jí (c- → j- + i thanh 2); 'tha' → tā (th- bật sang t- + a thanh 1). Phiên âm trực tiếp từ tiếng Anh 'guitar' kết hợp chữ 吉 (tốt lành). NGHĨA: mượn âm 'gui-tar' = đàn guitar.",
+   "vd": [
+    {
+     "t": "Sinh viên",
+     "zh": "他大一剛入學就加入了學校的吉他社，現在已經能自彈自唱了。",
+     "vn": "Anh ấy vừa nhập học năm nhất đã gia nhập câu lạc bộ guitar của trường, giờ đã có thể tự đàn tự hát rồi."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這把木吉他音色非常溫暖乾淨，很適合剛開始練習的新手。",
+     "vn": "Cây đàn guitar gỗ này âm sắc rất ấm áp và trong trẻo, rất hợp cho người mới bắt đầu tập."
+    },
+    {
+     "t": "Cắm trại",
+     "zh": "晚上大家圍在營火旁邊，聽阿哲彈吉他唱民歌，氣氛真是太棒了！",
+     "vn": "Buổi tối mọi người quây quần bên lửa trại, nghe A Triết đánh guitar hát nhạc dân ca, bầu không khí tuyệt vời hết sức!"
+    }
+   ]
+  },
+  "可怕": {
+   "vn": "đáng sợ; kinh khủng; khủng khiếp",
+   "ng": [
+    "(tính từ) gây sợ hãi, rùng rợn (恐怖片很可怕 phim kinh dị đáng sợ lắm, 可怕的噩夢 ác mộng đáng sợ)",
+    "(tính từ — nhấn mạnh mức độ tệ) kinh khủng, khủng khiếp (nhiệt độ, tắc đường, số lượng người đông...: 台北夏天的太陽好可怕 Nắng mùa hè Đài Bắc kinh khủng quá)"
+   ],
+   "us": "Dùng bình thường làm vị ngữ hoặc định ngữ: 好可怕！(Đáng sợ quá! / Khiếp quá!), 真可怕 (Thật kinh khủng), 可怕的颱風 (cơn bão khủng khiếp), 沒那麼可怕 (không đáng sợ tới mức đó đâu). Lưu ý nếu chỉ nhận xét 'thật tệ hại/tồi tệ quá' về chất lượng sản phẩm dùng 糟糕 / 爛 chứ không dùng 可怕.",
+   "co": [
+    "好可怕|đáng sợ quá / kinh khủng quá",
+    "真可怕|thật đáng sợ",
+    "可怕的事情|chuyện đáng sợ",
+    "更可怕的是|đáng sợ hơn nữa là..."
+   ],
+   "sy": [
+    "恐怖|kinh dị, rùng rợn (phim kinh dị nói 恐怖片)",
+    "嚇人|làm giật mình, đáng sợ (khẩu ngữ rất tự nhiên: 價格好嚇人 giá khiếp quá!)"
+   ],
+   "an": [
+    "可愛|đáng yêu",
+    "安全|an toàn"
+   ],
+   "cf": [
+    "可怕 vs 害怕|CỰC HAY NHẦM: 害怕 là ĐỘNG TỪ / CẢM XÚC CỦA NGƯỜI SỢ ('Tôi sợ ma' = 我害怕鬼); 可怕 là TÍNH CHẤT GÂY SỢ CỦA SỰ VẬT ('Con ma đó đáng sợ lắm' = 那隻鬼很可怕 — KHÔNG nói *我很可怕 trừ khi tự nhận mình trông rất hung dữ!)"
+   ],
+   "lt": "Hai thanh 3 nối nhau: kě + pà giữ nguyên thanh 3 kěpà (vì pà là thanh 4!).",
+   "mk": "Lỗi cực hay mắc: nói *我很可怕 ❌ khi ý định bảo 'tôi rất sợ' -> nói mình sợ phải dùng 我很害怕 / 我好怕!",
+   "tw": "Ở Đài Loan người dân thường cảm thán vui về cái nóng mùa hè, độ đông ngày lễ hay cân nặng bằng 好可怕喔！(Kinh khủng quá đi!) hoặc câu chuyện ma quỷ trong tháng 7 âm lịch (農曆七月鬼月).",
+   "mh": "Khả Phạ → kěpà. ĐỌC: 'khả' → kě (kh- bật sang k- + e thanh 3); 'phạ' → pà (ph- bật sang p- + a thanh 4). NGHĨA: 可 có thể / đáng khiến người ta + 怕 sợ hãi → đáng để người ta phải khiếp sợ = đáng sợ, kinh khủng.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "這幾天的颱風風力好可怕，連路邊的大樹都被吹倒了好幾棵。",
+     "vn": "Sức gió cơn bão mấy hôm nay đáng sợ quá, ngay cả mấy cái cây to ven đường cũng bị thổi đổ mất mấy cây."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "下班時間忠孝東路上的車潮簡直太可怕了，騎車都要特別小心。",
+     "vn": "Làn xe giờ tan tầm trên đường Trung Hiếu Đông thật sự kinh khủng quá, đi xe máy cũng phải hết sức cẩn thận."
+    },
+    {
+     "t": "Động viên",
+     "zh": "其實考駕照沒有想像中那麼可怕，只要熟練規則就能輕鬆過關。",
+     "vn": "Thực ra thi bằng lái xe không đáng sợ như trong tưởng tượng đâu, chỉ cần thuần thục quy tắc là thi đậu nhẹ nhàng."
+    }
+   ]
+  },
+  "輕鬆": {
+   "vn": "nhẹ nhàng; thư giãn; thoải mái; dễ dàng",
+   "ng": [
+    "(tính từ) nhẹ nhõm, thư thái, không áp lực tinh thần (心情很輕鬆 tâm trạng rất thoải mái, 輕鬆一下 thư giãn chút)",
+    "(tính từ) nhẹ nhàng, dễ dàng không tốn nhiều sức lực (考得很輕鬆 làm bài thi nhẹ tênh, 輕鬆過關 vượt qua dễ dàng)"
+   ],
+   "us": "Dùng cho cả cảm xúc tâm lý lẫn độ dễ của công việc: 輕鬆的工作 (công việc nhàn nhã không áp lực), 放輕鬆 (thả lỏng đi!), 聽點輕鬆的音樂 (nghe chút nhạc nhẹ nhàng), 輕鬆達成目標 (đạt mục tiêu nhẹ nhàng). Láy nhấn mạnh: 輕輕鬆鬆.",
+   "co": [
+    "放輕鬆|thả lỏng / thoải mái đi",
+    "心情輕鬆|tâm trạng nhẹ nhõm thoải mái",
+    "輕鬆一下|thư giãn một chút",
+    "輕輕鬆鬆|một cách nhẹ nhàng thoải mái"
+   ],
+   "sy": [
+    "放鬆|thư giãn, thả lỏng (động từ: 去放鬆一下)",
+    "自在|tự tại, thoải mái"
+   ],
+   "an": [
+    "緊張|căng thẳng",
+    "辛苦|vất vả, cực nhọc"
+   ],
+   "cf": [
+    "輕鬆 vs 舒服|舒服 dùng cho cảm giác THỂ XÁC vật lý ('ghế ngồi êm ái thoải mái', 'người khỏe khoắn dễ chịu'); 輕鬆 dùng cho TINH THẦN / ÁP LỰC CÔNG VIỆC ('không bị stress, nhẹ đầu, làm bài nhẹ tênh!')"
+   ],
+   "lt": "Hai âm đều thanh 1 cao đều nhau: qīngsōng.",
+   "mk": "Đừng nói *我坐這張椅子很輕鬆 ❌ để khen ghế ngồi êm — khen ghế êm/phòng mát phải dùng 舒服! 輕鬆 chỉ tâm lý không áp lực hoặc độ nhẹ của công việc!",
+   "tw": "Ở Đài Loan người dân hay khích lệ bạn bè trước kỳ thi hoặc lúc bị sếp giao việc căng thẳng bằng câu: 放輕鬆啦！(Thư giãn đi mà!), hoặc cuối tuần rủ đi uống trà cho đỡ mệt 輕鬆一下.",
+   "mh": "Khinh Tùng → qīngsōng. ĐỌC: 'khinh' → qīng (kh- → q- + ing thanh 1); 'tùng' → sōng (t- → s- + ong thanh 1). NGHĨA: 輕 nhẹ nhàng + 鬆 thả lỏng ra, không bị buộc chặt → gánh nặng được tháo lỏng nhẹ tênh = nhẹ nhàng, thư giãn.",
+   "vd": [
+    {
+     "t": "Cuối tuần",
+     "zh": "忙完這禮拜的大專案，終於可以好好休息、心情也跟著輕鬆多了。",
+     "vn": "Làm xong dự án lớn tuần này, cuối cùng cũng được nghỉ ngơi tử tế, tâm trạng theo đó nhẹ nhõm hơn hẳn."
+    },
+    {
+     "t": "Phỏng vấn",
+     "zh": "面試官講話很幽默，原本很緊張的我一下子就放輕鬆了。",
+     "vn": "Người phỏng vấn nói chuyện rất hài hước, tôi vốn đang căng thẳng mà thoáng cái đã thấy thoải mái ngay."
+    },
+    {
+     "t": "Tập luyện",
+     "zh": "他平常練習得十分扎實，所以才能輕輕鬆鬆地拿下這次比賽的冠軍。",
+     "vn": "Bình thường anh ấy tập luyện vô cùng chắc chắn nên mới có thể nhẹ nhàng giành chức vô địch giải lần này."
+    }
+   ]
+  },
+  "情形": {
+   "vn": "tình hình; hoàn cảnh; tình huống",
+   "ng": [
+    "(danh từ) tình hình, trạng thái thực tế diễn biến của sự việc tại một thời điểm (這種情形 tình huống này, 了解情形 nắm bắt tình hình)"
+   ],
+   "us": "Dùng làm danh từ với 個 hoặc 種: 看情形再決定 (xem tình hình rồi quyết định sau), 在這種情形下 (trong tình huống như thế này), 我不太清楚詳細情形 (tôi không rõ lắm tình hình chi tiết), 發生什麼情形？.",
+   "co": [
+    "這種情形|tình huống / trường hợp này",
+    "看情形|tùy tình hình mà tính",
+    "了解情形|tìm hiểu nắm tình hình",
+    "具體情形|tình hình cụ thể"
+   ],
+   "sy": [
+    "情況|tình huống, tình trạng (cũng cực phổ biến ở Đài Loan)",
+    "狀況|tình trạng (hay dùng ở Đài Loan khi có sự cố/tình trạng máy móc sức khỏe: 身體狀況)"
+   ],
+   "cf": [
+    "情形 vs 情況 vs 狀況|Cả ba rất gần nghĩa: 情形 nghiêng về BỐI CẢNH / CẢNH TƯỢNG diễn biến thực tế đang thấy; 情況 hơi tổng quát hơn (天氣情況); 狀況 ở Đài Loan rất hay dùng cho SỨC KHỎE, MÁY MÓC hoặc SỰ CỐ bất ngờ (電腦出狀況了 máy tính gặp sự cố rồi!)"
+   ],
+   "lt": "Thanh 2 + thanh 2: qíngxíng. Cụm cố định: 在……的情形下 (trong hoàn cảnh...).",
+   "mk": "Chú ý trật tự âm Hán Việt đảo ngược hoàn toàn: 情形 (Tình Hình) chứ KHÔNG nói ngược thành *形情 ❌ trong tiếng Hoa!",
+   "tw": "Trong đời sống công sở và tin tức Đài Loan rất hay nói 看情形 (tùy tình hình tính tiếp), 了解實際情形 (nắm bắt tình hình thực tế).",
+   "mh": "Tình Hình → qíngxíng. ĐỌC: 'tình' → qíng (t- bật sang q- + ing thanh 2); 'hình' → xíng (h- → x- + ing thanh 2). NGHĨA: 情 tình thế bên trong sự việc + 形 hình thái biểu hiện bên ngoài → toàn bộ diện mạo thực tế đang diễn ra = tình hình, hoàn cảnh.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "等主任回來了解了實際情形以後，我們再討論下一步怎麼處理。",
+     "vn": "Chờ trưởng phòng quay lại nắm rõ tình hình thực tế xong thì chúng ta hãy bàn bước xử lý tiếp theo."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "連假高速公路通常很塞，到時候還是看天氣和車流情形決定幾點出發吧。",
+     "vn": "Kỳ nghỉ dài đường cao tốc thường tắc lắm, lúc đó cứ xem tình hình thời tiết và xe cộ rồi quyết định giờ xuất phát nhé."
+    },
+    {
+     "t": "Lớp học",
+     "zh": "在老師仔細說明下，同學們終於搞懂了當時事件發生的整個情形。",
+     "vn": "Nhờ thầy giải thích cặn kẽ, các bạn học cuối cùng cũng hiểu rõ toàn bộ tình huống sự việc xảy ra lúc bấy giờ."
+    }
+   ]
+  },
+  "消息": {
+   "vn": "tin tức; thông tin; tin nhắn báo tin",
+   "ng": [
+    "(danh từ) tin tức cá nhân, tin nội bộ, thông tin mới nhận được (好消息 tin vui, 壞消息 tin xấu, 得到消息 nhận được tin)",
+    "(danh từ cũ / trên app Trung Quốc) tin nhắn điện thoại — chú ý tại Đài Loan tin nhắn app nói 訊息 xùnxī chứ ít nói 消息!"
+   ],
+   "us": "Chủ yếu đi với 好 / 壞 / 最新: 好消息! (Tin vui đây!), 收到他的消息 (nhận được tin tức từ anh ấy), 聽說一個消息 (nghe được một tin). Lượng từ là 個 (一個好消息 một tin vui) hoặc 則.",
+   "co": [
+    "好消息 / 壞消息|tin vui / tin xấu",
+    "最新消息|tin tức mới nhất (trên web/thông báo)",
+    "沒有消息|bặt vô âm tín / không có tin tức gì",
+    "消息靈通|thạo tin, biết tin rất nhanh"
+   ],
+   "sy": [
+    "訊息|thông tin, tin nhắn trên điện thoại/mạng (từ CHUẨN ĐÀI LOAN cho SMS/LINE!)",
+    "新聞|tin tức thời sự báo chí"
+   ],
+   "cf": [
+    "消息 vs 訊息 vs 新聞|Ở ĐÀI LOAN phân biệt cực rõ: 1) 新聞 = tin tức báo đài đại chúng; 2) 消息 = tin vui/buồn, thông tin sự việc hoặc tung tích của ai (好消息, 台灣免簽消息); 3) 訊息 (xùnxī) = TIN NHẮN trên điện thoại / LINE (傳訊息 nhắn tin — Đài Loan KHÔNG gọi tin nhắn LINE là *發消息 như Đại Lục!)"
+   ],
+   "lt": "CHUẨN ĐÀI LOAN đọc chữ 息 là thanh 2 xí: xiāoxí (giọng Đại Lục hay đọc thanh nhẹ xiāoxi).",
+   "mk": "Khi nhắn tin qua LINE/Messenger ở Đài Loan đừng nói *發消息 ❌ — người Đài luôn nói 傳訊息 (chuán xùnxī)! Chỉ khi báo 'tin mừng/tin xấu/nghe ngóng tin tức' mới dùng 消息!",
+   "tw": "Trên các website chính phủ hoặc cửa hàng Đài Loan mục thông báo mới nhất luôn đặt tên là 最新消息 (Tin mới nhất). Chữ 息 đọc thanh 2 chuẩn Bộ Giáo dục Đài Loan: xiāoxí!",
+   "mh": "Tiêu Tức → xiāoxí. ĐỌC: 'tiêu' → xiāo (t- → x- + iao thanh 1); 'tức' → xí (t- → x- + i thanh 2 chuẩn Đài Loan). NGHĨA: 消 tiêu tán đi + 息 hơi thở sinh sôi lớn lên → sự chuyển biến động tĩnh trong thiên hạ được người ta báo tin cho nhau = tin tức, thông tin.",
+   "vd": [
+    {
+     "t": "Báo tin vui",
+     "zh": "我有一個超級好消息要告訴你，我順利拿到下學期的獎學金了！",
+     "vn": "Mình có một tin siêu vui muốn báo cho bạn biết nè, mình nhận được học bổng học kỳ sau thuận lợi rồi!"
+    },
+    {
+     "t": "Trang web",
+     "zh": "想知道報名什麼時候開始，可以直接上官網的「最新消息」頁面查詢。",
+     "vn": "Muốn biết khi nào bắt đầu đăng ký thì có thể lên thẳng mục 'Tin tức mới nhất' trên trang chủ để tra cứu."
+    },
+    {
+     "t": "Bạn bè",
+     "zh": "他搬去美國工作以後就很少聯絡，最近完全沒有他的消息了。",
+     "vn": "Từ sau khi anh ấy chuyển sang Mỹ làm việc thì ít liên lạc hẳn, dạo này hoàn toàn không có tin tức gì về anh ấy cả."
+    }
+   ]
+  },
+  "看起來": {
+   "vn": "trông có vẻ; xem ra; có vẻ như",
+   "ng": [
+    "(cụm động từ / trợ từ nhận xét) trông có vẻ như, nhìn bề ngoài thấy rằng (dựa vào thị giác để đánh giá: 看起來很好吃 trông có vẻ ngon lắm, 看起來很累 trông có vẻ rất mệt)"
+   ],
+   "us": "Đặt sau chủ ngữ rồi cộng với TÍNH TỪ hoặc MỆNH ĐỀ phán đoán: 這家店看起來很乾淨 (Quán này trông sạch sẽ ghê), 他看起來好像不太高興 (Trông anh ấy hình như không vui lắm), 看起來快下雨了 (Trông trời có vẻ sắp mưa rồi!). Thường kết hợp 好像 / 蠻……的 ở Đài Loan.",
+   "co": [
+    "看起來不錯|trông khá ổn / nhìn có vẻ ngon đấy",
+    "看起來很累|trông có vẻ rất mệt",
+    "看起來像|trông giống như...",
+    "看起來要下雨了|trông trời sắp mưa rồi"
+   ],
+   "sy": [
+    "好像|hình như, có vẻ",
+    "顯得|tỏ ra, trông có vẻ (hơi văn viết hơn)"
+   ],
+   "cf": [
+    "看起來 vs 聽起來 vs 吃起來|Nhóm giác quan siêu hữu ích: 看起來 = TRÔNG có vẻ (bằng mắt nhìn); 聽起來 = NGHE có vẻ (bằng tai nghe: 聽起來不錯 Nghe có vẻ hay đấy!); 吃起來 / 喝起來 = ĂN/UỐNG vào cảm nhận vị thế nào!"
+   ],
+   "lt": "Chữ 起 đứng ở giữa đọc nhẹ qǐlái (hoặc qilai).",
+   "mk": "Đừng viết câu kiểu *我看他很累 theo nghĩa suy đoán khách quan bằng mắt nhìn — dùng 他看起來很累 nghe tự nhiên và chuẩn bản xứ Đài Loan hơn hẳn!",
+   "tw": "Ở Đài Loan người dân cực hay dùng mẫu khen/nhận xét tự nhiên: 看起來好好吃喔！(Trông ngon quá đi!) hoặc 看起來蠻厲害的 (Trông khá lợi hại đấy!).",
+   "mh": "Khán Khởi Lai → kànqǐlái. ĐỌC: 'khán' → kàn (thanh 4); 'khởi' → qǐ (kh- → q- thanh 3); 'lai' → lái (thanh 2, thường đọc lướt nhẹ). NGHĨA: 看 nhìn vào + 起來 bắt đầu dấy lên cảm giác → nhìn lướt qua bề ngoài dấy lên ấn tượng như thế = trông có vẻ, xem ra.",
+   "vd": [
+    {
+     "t": "Quán ăn",
+     "zh": "這盤剛端上桌的炸雞排看起來金黃酥脆，讓人立刻流口水！",
+     "vn": "Đĩa gà rán miếng vừa bưng lên bàn này trông vàng ruộm giòn tan, nhìn là thèm chảy nước miếng ngay!"
+    },
+    {
+     "t": "Quan tâm",
+     "zh": "你今天臉色看起來有點蒼白，是不是昨晚沒睡好或是感冒了？",
+     "vn": "Sắc mặt hôm nay trông bạn hơi nhợt nhạt đấy, có phải tối qua ngủ không ngon hay bị cảm rồi không?"
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這件外套摸起來很軟，穿起來也很輕暖，實際看起來比網路照片更有質感。",
+     "vn": "Chiếc áo khoác này sờ vào rất mềm, mặc lên cũng nhẹ ấm, nhìn thực tế trông có vẻ sang xịn hơn ảnh trên mạng nhiều."
+    }
+   ]
+  },
+  "舞": {
+   "vn": "điệu nhảy; múa; nhảy múa",
+   "ng": [
+    "(danh từ / hình vị) điệu múa, điệu nhảy (跳舞 nhảy múa, 街舞 nhảy hip-hop/đường phố, 跳一支舞 nhảy một điệu nhảy)",
+    "(động từ) múa, vung vẩy (舞獅 múa lân ngày Tết, 舞龍 múa rồng)"
+   ],
+   "us": "Đa số người mới học gặp 舞 trong động từ ly hợp 跳舞 (khiêu vũ/nhảy múa: 跳了一支舞 nhảy một bài/điệu, đi với lượng từ 支 hoặc 段) và các danh từ thể loại nhảy: 街舞 (nhảy đường phố/street dance), 現代舞 (múa đương đại), 民族舞 (múa dân tộc), 舞廳 (sàn nhảy/vũ trường), 舞台 (sân khấu!).",
+   "co": [
+    "跳舞|nhảy múa / khiêu vũ",
+    "街舞|nhảy đường phố (hip-hop / Kpop dance)",
+    "舞台|sân khấu",
+    "舞獅|múa lân"
+   ],
+   "sy": [
+    "舞蹈|vũ đạo, nghệ thuật múa (trang trọng: 學舞蹈)"
+   ],
+   "lt": "Thanh 3 wǔ (đồng âm với 五 'số 5' và 午 'buổi trưa'!). Lượng từ cho 1 điệu nhảy là 支 hoặc 段 (跳一支舞).",
+   "mk": "1) Chú ý 跳舞 là V-sep: muốn nói 'nhảy múa cùng cô ấy' dùng 跟她跳舞 (KHÔNG nói *跳舞她 ❌!); 'nhảy giỏi' nói 舞跳得很好! 2) Đừng nhầm mặt chữ 舞 (wǔ, ở dưới có bộ 舛 hai chân xoay bước múa) với 無 (wú, không có!).",
+   "tw": "Ở Đài Loan giới trẻ cực kỳ chuộng tập 街舞 (có hẳn các khu vực kính ở hành lang ga MRT 中山地下街 để học sinh luyện nhảy trước gương!); và vào lễ khai trương hay Tết cổ truyền sẽ có đội 舞龍舞獅 (múa lân sư rồng) rất náo nhiệt!",
+   "mh": "Vũ → wǔ. ĐỌC: 'vũ' → wǔ (v- → w- + u thanh 3). NGHĨA: hình tượng người cầm đuôi lông trâu/cành hoa hai tay múa lượn, bên dưới hai bàn chân bước nhịp nhàng → nhảy múa, vũ đạo.",
+   "vd": [
+    {
+     "t": "Sở thích",
+     "zh": "捷運中山地下街晚上常聚集很多熱愛街舞的年輕人對著鏡子練舞。",
+     "vn": "Phố đi bộ ngầm ga MRT Trung Sơn buổi tối thường tụ tập rất nhiều bạn trẻ đam mê nhảy đường phố tập nhảy trước gương."
+    },
+    {
+     "t": "Lễ hội",
+     "zh": "廟會和商店開張的時候，常常請來傳統劇團表演精彩的舞獅活動。",
+     "vn": "Vào dịp hội đền và khai trương cửa hàng, người ta thường mời đoàn nghệ thuật truyền thống tới biểu diễn tiết mục múa lân đặc sắc."
+    },
+    {
+     "t": "Tài năng",
+     "zh": "姐姐學了十幾年的民族舞，站在舞台上的氣勢特別優雅動人。",
+     "vn": "Chị gái học múa dân tộc hơn mười năm rồi, khí chất khi đứng trên sân khấu vô cùng uyển chuyển cuốn hút."
+    }
+   ]
+  },
+  "游": {
+   "vn": "bơi; bơi lội (dưới nước)",
+   "ng": [
+    "(động từ) bơi, bơi lội dưới nước (游泳 đi bơi, 游了一公里 bơi được một cây số, 游過來 bơi qua đây)"
+   ],
+   "us": "Dùng làm động từ đơn chỉ hoạt động bơi trong nước (我游得不快 Tôi bơi không nhanh, 游自由式 bơi sải) và gốc của động từ ly hợp siêu phổ biến 游泳 (游泳了 bơi xong rồi, 游過泳 từng bơi, 遊? KHÔNG — bơi lội PHẢI viết 游 có bộ 氵!). Chú ý trong danh từ 游泳, tách được khi đếm thời gian hay kiểu bơi: 游了一個小時的泳!",
+   "co": [
+    "游泳|bơi lội",
+    "游得很快|bơi rất nhanh",
+    "游過去|bơi sang bên kia",
+    "上游 / 下游|thượng nguồn / hạ lưu (dòng sông)"
+   ],
+   "sy": [
+    "游泳|bơi lội (từ 2 âm tiết đầy đủ)"
+   ],
+   "cf": [
+    "游 vs 遊 (CỰC QUAN TRỌNG Ở ĐÀI LOAN)|Trong tiếng Phồn thể Đài Loan TÁCH BẠCH RÕ: 1) 游 (có bộ Thủy 氵 3 chấm nước) dùng cho BƠI DƯỚI NƯỚC / DÒNG SÔNG (游泳, 游水, 上游); 2) 遊 (có bộ Xước 辶 bước đi!) dùng cho ĐI CHƠI / DU LỊCH / TRÒ CHƠI (旅遊 du lịch, 遊戲 trò chơi, 導遊 hướng dẫn viên)!"
+   ],
+   "lt": "Thanh 2 yóu. Ghi nhớ mẹo: xuống NƯỚC bơi dùng 氵 (游); đi BỘ du lịch chơi dùng 辶 (遊)!",
+   "mk": "Lỗi chính tả siêu phổ biến: gõ/viết nhầm *遊泳 ❌ (sai bộ 辶 cho bơi lội ở Đài Loan) hoặc viết nhầm *旅油/旅游 ❌ ở Đài Loan (tuy chữ Giản thể gộp hết thành 游 nhưng Phồn thể Đài Loan phân biệt rạch ròi 游泳 vs 旅遊!).",
+   "tw": "Ở Đài Loan chính tả báo chí và kỳ thi rất nghiêm việc giữ đúng chữ 游泳 (bộ 氵) cho bơi lội và 旅遊 / 遊戲 (bộ 辶) cho du lịch/trò chơi!",
+   "mh": "Du → yóu. ĐỌC: 'du' mất phụ âm d- sang y- + ou thanh 2 (yóu). NGHĨA: bộ 氵 (nước) bên trái + 斿 (cờ bay lượn trên dòng nước) bên phải → người vùng vẫy lướt đi giữa dòng nước = bơi lội.",
+   "vd": [
+    {
+     "t": "Thể thao",
+     "zh": "他以前完全不會游泳，但每天認真練習一個月後已經能游兩百公尺了。",
+     "vn": "Trước đây anh ấy hoàn toàn không biết bơi, nhưng sau một tháng chăm chỉ tập mỗi ngày đã bơi được hai trăm mét rồi."
+    },
+    {
+     "t": "Hồ bơi",
+     "zh": "我在池邊游了三十分鐘自由式，覺得肩膀和背部的痠痛減輕了不少。",
+     "vn": "Tôi bơi sải ở mép hồ suốt ba mươi phút, thấy đau mỏi vai và lưng giảm đi hẳn."
+    },
+    {
+     "t": "Mùa hè",
+     "zh": "天氣好熱，真想跳進清涼的海水裡痛快地游個泳！",
+     "vn": "Trời nóng quá đi, thật muốn nhảy ùm xuống làn nước biển mát lạnh bơi một trận cho đã!"
+    }
+   ]
+  },
+  "游泳池": {
+   "vn": "hồ bơi; bể bơi",
+   "ng": [
+    "(danh từ) hồ bơi, bể bơi nhân tạo để bơi lội và tập luyện (室內游泳池 bể bơi trong nhà, 溫水游泳池 bể bơi nước ấm)"
+   ],
+   "us": "Làm địa điểm đi bơi: 去游泳池 (đi bể bơi), 游泳池很大 (hồ bơi rất lớn), 游泳池的水很乾淨. Đừng quên ở Đài Loan phần lớn các quận đều có 國民運動中心 (Trung tâm thể thao công cộng) có 室內溫水游泳池 (hồ bơi nước ấm bốn mùa rất sạch sẽ!). Lượng từ: 座 hoặc 個.",
+   "co": [
+    "去游泳池|đi hồ bơi",
+    "室內游泳池|bể bơi trong nhà",
+    "溫水游泳池|bể bơi nước ấm",
+    "露天游泳池|bể bơi ngoài trời"
+   ],
+   "sy": [
+    "泳池|hồ bơi (cách viết tắt ngắn gọn trên biển chỉ dẫn, khách sạn)"
+   ],
+   "lt": "座、個 (這座游泳池 bể bơi này). Lưu ý không nhầm lượng từ trong ced là *場 (chữ 場 dùng cho trận thi đấu chứ không dùng đếm cái bể bơi; bể bơi dùng 座/個!).",
+   "mk": "1) Chữ đầu 游 phải là bộ Thủy 氵! 2) Vào bể bơi ở Đài Loan bắt buộc phải đội mũ bơi (泳帽) — nhớ quy định đặc trưng này!",
+   "tw": "Bể bơi công cộng ở các 運動中心 (Trung tâm thể dục thể thao mỗi quận ở Đài Loan) bán vé 50–110 Đài tệ một lượt, có khu 溫水游泳池 (bể nước ấm mùa đông), SPA thủy liệu và xông hơi rất hiện đại! Lưu ý quy định bắt buộc 戴泳帽 (đội mũ bơi).",
+   "mh": "Du Vịnh Trì → yóuyǒngchí. ĐỌC: 'du' → yóu (thanh 2); 'vịnh' → yǒng (thanh 3); 'trì' → chí (ch- uốn lưỡi + i thanh 2). NGHĨA: 游泳 bơi lội + 池 ao hồ (bộ 氵 nước + 也) → hồ nước xây để bơi lội = hồ bơi, bể bơi.",
+   "vd": [
+    {
+     "t": "Quy định",
+     "zh": "台灣的室內游泳池大多規定下水前要先淋浴，而且一定要戴泳帽。",
+     "vn": "Các hồ bơi trong nhà ở Đài Loan đa số đều quy định trước khi xuống nước phải tắm tráng và nhất định phải đội mũ bơi."
+    },
+    {
+     "t": "Khách sạn",
+     "zh": "這間渡假飯店頂樓有一個無邊際游泳池，晚上可以邊游泳邊看海景。",
+     "vn": "Tầng thượng khách sạn nghỉ dưỡng này có một hồ bơi vô cực, buổi tối có thể vừa bơi vừa ngắm cảnh biển."
+    },
+    {
+     "t": "Mùa đông",
+     "zh": "就算寒流來了也不用擔心，運動中心的溫水游泳池一年四季都維持舒適的水溫。",
+     "vn": "Dù có đợt không khí lạnh về cũng chẳng lo, hồ bơi nước ấm của trung tâm thể thao quanh năm đều giữ nhiệt độ dễ chịu."
+    }
+   ]
+  },
+  "遊戲": {
+   "vn": "trò chơi; game",
+   "ng": [
+    "(danh từ) trò chơi giải trí nói chung (trò chơi dân gian, trò chơi tập thể, game điện tử: 玩遊戲 chơi trò chơi, 手機遊戲 game mobile, 桌遊 board game)"
+   ],
+   "us": "Đi kèm động từ 玩 (玩遊戲 chơi trò chơi/chơi game), ghép tên loại trò chơi: 電腦遊戲 (game máy tính), 手機遊戲 / 手遊 (game điện thoại), 團康遊戲 (trò chơi tập thể phá băng). Lượng từ: 個, 款 (một tựa game/mẫu game: 這款遊戲).",
+   "co": [
+    "玩遊戲|chơi trò chơi / chơi game",
+    "手機遊戲 / 手遊|game điện thoại",
+    "電動遊戲|trò chơi điện tử",
+    "遊戲規則|luật chơi"
+   ],
+   "sy": [
+    "電玩|game điện tử (rất hay dùng ở Đài Loan như 電玩展 triển lãm game!)",
+    "桌遊|board game (trò chơi bàn cờ/thẻ bài cực thịnh ở Đài Loan)"
+   ],
+   "lt": "個、款 (một tựa game: 這款手機遊戲很受歡迎). Chú ý viết chữ 遊 có bộ 辶 (không viết 游)!",
+   "mk": "1) Đừng viết *游戲 ❌ trong Phồn thể Đài Loan — phải dùng 遊 (có bộ 辶)! 2) Người lớn chơi game điện tử trên PC/điện thoại ở Đài hay nói tắt là 打電動 hoặc 玩手遊!",
+   "tw": "Ở Đài Loan văn hóa chơi 桌遊 (board game tại các tiệm cà phê chuyên biệt 桌遊店) và 玩手遊 (chơi game di động) hay 打電動 (chơi game nói chung) cực kỳ phát triển trong giới sinh viên và dân văn phòng!",
+   "mh": "Du Hí → yóuxì. ĐỌC: 'du' → yóu (thanh 2); 'hí' → xì (h- → x- + i thanh 4). NGHĨA: 遊 đi chơi dạo chơi + 戲 đùa nghịch diễn kịch → hoạt động đùa vui giải trí theo luật lệ = trò chơi, game.",
+   "vd": [
+    {
+     "t": "Cuối tuần",
+     "zh": "跟朋友聚會的時候如果不想一直滑手機，去桌遊店玩幾個團體遊戲也很開心。",
+     "vn": "Lúc tụ tập bạn bè nếu không muốn cứ cắm mặt lướt điện thoại, ra quán board game chơi vài trò chơi tập thể cũng rất vui."
+    },
+    {
+     "t": "Giải trí",
+     "zh": "這款新上市的手機遊戲畫面很精緻，不過玩的時候也要記得控制時間喔。",
+     "vn": "Tựa game điện thoại mới ra mắt này đồ họa rất sắc nét, nhưng lúc chơi cũng nhớ kiểm soát thời gian nhé."
+    },
+    {
+     "t": "Lớp học",
+     "zh": "華語老師常設計猜單字的小遊戲，讓大家在笑聲中自然記住生詞。",
+     "vn": "Cô giáo Hoa ngữ hay thiết kế trò chơi đoán từ vựng nho nhỏ giúp cả lớp nhớ từ mới một cách tự nhiên giữa tiếng cười."
+    }
+   ]
+  },
+  "茶館/茶館兒": {
+   "vn": "quán trà; trà thất",
+   "ng": [
+    "(danh từ) quán trà truyền thống (nơi ngồi uống trà nóng, ăn điểm tâm, trò chuyện hoặc ngắm cảnh)"
+   ],
+   "us": "Chỉ không gian thưởng trà yên tĩnh truyền thống (trà đạo, ấm chén kiểu xưa): 去茶館喝茶 (tới quán trà uống trà), 貓空茶館 (quán trà vùng Miêu Không), 傳統茶館. Lượng từ: 家, 間 (這家茶館).",
+   "co": [
+    "去茶館|đi quán trà",
+    "傳統茶館|quán trà truyền thống",
+    "茶館泡茶|ngồi quán trà pha trà thưởng thức",
+    "山上的茶館|quán trà trên núi"
+   ],
+   "sy": [
+    "茶藝館|trà nghệ quán (tên gọi sang trọng phổ biến ở Đài Loan cho quán trà truyền thống!)",
+    "茶行|tiệm bán lá trà"
+   ],
+   "cf": [
+    "茶館 vs 飲料店|茶館 (hoặc 茶藝館) là quán ngồi thư thái pha ấm trà lá truyền thống (Ô Long, Thiết Quan Âm, Đông Đỉnh) ngắm cảnh hoặc ăn bánh mứt; 飲料店 / 手搖飲 là tiệm trà sữa pha sẵn mang đi bên đường!"
+   ],
+   "lt": "家、間 (一家風景很好的茶館 một quán trà view rất đẹp). Ở Đài Loan nói 茶館 / 茶藝館, KHÔNG dùng dạng uốn lưỡi 茶館兒.",
+   "mk": "Đừng gọi nhầm quán trà sữa trân châu như 50嵐 bằng *茶館 ❌ — tiệm trà sữa là 飲料店 / 手搖店! Quán trà ngồi pha ấm trà nóng là 茶館 / 茶藝館!",
+   "tw": "Ở Đài Bắc có điểm ngắm cảnh cực nổi tiếng cho dân bản xứ là 貓空 (Miêu Không — đi cáp treo lên núi!) với hàng loạt 茶館 mở tới khuya vừa pha trà Thiết Quan Âm (鐵觀音) vừa ngắm ánh đèn Đài Bắc; ở Cửu Phần có 阿妹茶樓 nổi tiếng!",
+   "mh": "Trà Quán (Nhi) → cháguǎn / cháguǎnr. ĐỌC: 'trà' → chá (thanh 2); 'quán' → guǎn (qu- → gu- + an thanh 3). NGHĨA: 茶 lá trà + 館 tòa nhà tiếp đón/cửa hàng chuyên biệt → ngôi nhà chuyên phục vụ khách thưởng trà = quán trà.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "週末晚上搭纜車上貓空，找一間山景茶館泡一壺熱鐵觀音茶，非常愜意。",
+     "vn": "Tối cuối tuần đi cáp treo lên Miêu Không, tìm một quán trà view núi pha một ấm Thiết Quan Âm nóng thì thật quá đỗi thư thái."
+    },
+    {
+     "t": "Trò chuyện",
+     "zh": "比起吵鬧的夜店，我更喜歡約幾個知心朋友去安靜的茶館聊天。",
+     "vn": "So với những quán bar ồn ào, tôi thích hẹn vài người bạn tri kỷ tới quán trà yên tĩnh trò chuyện hơn."
+    },
+    {
+     "t": "Văn hóa",
+     "zh": "這家老茶館還保留了木頭窗花和復古茶具，一走進去就像回到五十年前。",
+     "vn": "Quán trà cổ này vẫn giữ nguyên khung cửa gỗ hoa văn và bộ ấm chén hoài cổ, vừa bước vào cứ như quay về năm mươi năm trước."
+    }
+   ]
+  },
+  "門票": {
+   "vn": "vé vào cửa",
+   "ng": [
+    "(danh từ) vé vào cổng các khu tham quan, bảo tàng, triển lãm, công viên giải trí, vườn thú (買門票 mua vé vào cửa, 免門票 miễn phí vé vào cổng)"
+   ],
+   "us": "Chỉ riêng vé vào cửa tham quan/vui chơi/sự kiện: 買門票 (mua vé vào cửa), 門票多少錢？ (Vé vào cổng bao nhiêu tiền?), 學生門票 / 半票 (vé ưu đãi sinh viên), 全票 (vé người lớn phổ thông), 免門票 (vào cửa miễn phí). Lượng từ: 張 (一張門票).",
+   "co": [
+    "買門票|mua vé vào cửa",
+    "免門票|miễn phí vé vào cửa",
+    "門票價格|giá vé vào cổng",
+    "門票一張多少錢|một vé vào cổng bao nhiêu tiền"
+   ],
+   "sy": [
+    "入場券|vé vào cổng / thẻ tham dự sự kiện (hơi trang trọng/in trên vé)",
+    "票|vé nói chung"
+   ],
+   "cf": [
+    "門票 vs 車票 vs 電影票|Tiếng Hoa chia tên vé theo mục đích rất rõ: đi xe/tàu dùng 車票, đi máy bay dùng 機票, xem phim dùng 電影票, còn vào cổng bảo tàng/công viên/khu du lịch mới dùng 門票!"
+   ],
+   "lt": "張 (兩張門票 hai vé vào cổng).",
+   "mk": "Đừng gọi vé xem phim hay vé tàu là *門票 ❌! Chỉ cổng công viên, triển lãm, di tích, sở thú mới là 門票!",
+   "tw": "Ở Đài Loan nhiều công viên và điểm tham quan (như 台北市立動物園 Sở thú Đài Bắc hay Bảo tàng Cố Cung) giá 門票 rất rẻ, lại có thể quẹt thẳng thẻ 悠遊卡 (EasyCard) ở cổng không cần xếp hàng mua vé giấy!",
+   "mh": "Môn Phiếu → ménpiào. ĐỌC: 'môn' → mén (thanh 2); 'phiếu' → piào (ph- bật hơi thành p- + -iao thanh 4). NGHĨA: 門 cánh cửa/cổng vào + 票 tấm vé → tấm vé xuất trình ở cổng để được đi vào bên trong = vé vào cửa.",
+   "vd": [
+    {
+     "t": "Tham quan",
+     "zh": "這個現代藝術展覽學生門票只要一百元，還可以折抵館內咖啡廳消費。",
+     "vn": "Triển lãm nghệ thuật đương đại này vé vào cửa cho sinh viên chỉ có 100 tệ thôi, lại còn được khấu trừ vào hóa đơn quán cà phê bên trong nữa."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "這座國家風景區大部分步道都免門票，只需要付一點停車費就好。",
+     "vn": "Phần lớn đường đi bộ ở khu thắng cảnh quốc gia này đều miễn phí vé vào cửa, chỉ cần trả chút phí gửi xe thôi."
+    },
+    {
+     "t": "Vườn thú",
+     "zh": "買好門票進了台北市立動物園後，我們第一站就衝去看超可愛的圓仔熊貓。",
+     "vn": "Mua xong vé vào cửa bước vào Sở thú Đài Bắc, điểm đầu tiên bọn mình chạy thẳng tới xem gấu trúc Viên Tử siêu dễ thương."
+    }
+   ]
+  },
+  "陪": {
+   "vn": "đi cùng; ở bên bầu bạn; tiếp đón",
+   "ng": [
+    "(động từ) đi cùng, ở bên làm bạn cho ai đó đỡ cô đơn hoặc yên tâm hơn (陪媽媽逛街 đi dạo cùng mẹ, 陪我看醫生 đi khám bệnh với tôi)",
+    "(động từ) tiếp khách, ngồi cùng (陪客人吃飯 tiếp khách ăn cơm, 失陪 xin phép cáo lui trước)"
+   ],
+   "us": "Mẫu cực ấm áp và chuẩn xác: 陪 + Ai + (去/做...) gì đó! (我陪你去 Tôi đi cùng bạn nhé, 陪孩子玩 chơi với con, 陪老人家聊天 trò chuyện làm bạn với người lớn tuổi). Khi muốn nói 'từ biệt/xin lỗi không tiếp thêm được' ở bàn tiệc dùng 失陪一下.",
+   "co": [
+    "陪我去|đi cùng với tôi nhé",
+    "陪家人 / 陪孩子|ở bên gia đình / chơi với con",
+    "陪你聊聊天|ở bên tâm sự cùng bạn",
+    "謝謝你陪我|cảm ơn bạn đã ở bên tôi"
+   ],
+   "sy": [
+    "陪伴|bầu bạn, đồng hành bên cạnh (hai âm tiết, tình cảm sâu sắc hơn)",
+    "跟|cùng với (giới từ trung tính không hàm ý chiều chuộng/chăm sóc)"
+   ],
+   "cf": [
+    "陪 vs 跟|Tôi VÀ bạn cùng hẹn nhau đi mua đồ (bình đẳng) dùng 我跟朋友去買東西; Tôi đi THEO BẦU BẠN với mẹ/bạn gái/em nhỏ cho vui hoặc đỡ sợ dùng 我陪媽媽去買菜 / 我陪你去醫院!"
+   ],
+   "lt": "Thanh 2 péi. Luôn nhớ 陪 là ĐỘNG TỪ mang tân ngữ người trực tiếp đứng sau (陪你, không nói *陪跟你 ❌!).",
+   "mk": "Lỗi cực hay mắc do ảnh hưởng tiếng Việt 'cùng với': nói sai thành *我陪跟你去 ❌ -> phải bỏ chữ 跟 đi, nói thẳng 我陪你去!",
+   "tw": "Ở Đài Loan người dân hay dùng từ 陪 rất tình cảm khi động viên nhau: 不然我陪你去吧! (Hay để mình đi cùng bạn cho đỡ ngại/đỡ sợ nhé!), hoặc câu chúc cảm động nhất là 謝謝這段時間的陪伴.",
+   "mh": "Bồi → péi. ĐỌC: 'bồi' bật hơi sang p- + -ei thanh 2 (péi). NGHĨA: bộ 阝 (bên trái là 阜 gò đất/bậc thềm) + 咅 (đắp thêm đất bồi đắp) → đứng kề bên cạnh đắp bồi hỗ trợ cho vững = bầu bạn, đi cùng, tiếp đón.",
+   "vd": [
+    {
+     "t": "Bạn bè",
+     "zh": "你一個人去醫院打針會不會緊張？沒事，明天早上有空我陪你去！",
+     "vn": "Bạn đi bệnh viện tiêm một mình có hồi hộp không? Không sao đâu, sáng mai mình rảnh để mình đi cùng bạn nhé!"
+    },
+    {
+     "t": "Gia đình",
+     "zh": "爸爸平時工作很忙，但每個星期日一定會把手機關靜音，專心陪家人出去走走。",
+     "vn": "Bố bình thường làm việc rất bận, nhưng Chủ nhật nào cũng nhất định để điện thoại im lặng, tập trung đưa gia đình đi dạo chơi."
+    },
+    {
+     "t": "Thú cưng",
+     "zh": "工作一天回到租屋處，有可愛的小貓在門口迎接陪著我，疲勞瞬間消失了一半。",
+     "vn": "Đi làm cả ngày về đến phòng trọ, có chú mèo nhỏ dễ thương đón ở cửa bầu bạn cùng mình, mệt mỏi thoáng chốc tan biến một nửa."
+    }
+   ]
+  },
+  "利用": {
+   "vn": "tận dụng; sử dụng; lợi dụng",
+   "ng": [
+    "(động từ — nghĩa tích cực/trung tính) tận dụng khéo léo, khai thác sử dụng hiệu quả (tài nguyên, thời gian, cơ hội: 利用時間 tận dụng thời gian, 資源再利用 tái sử dụng tài nguyên)",
+    "(động từ — nghĩa tiêu cực) lợi dụng lòng tốt hoặc điểm yếu của người khác (利用別人的善良 lợi dụng sự lương thiện của người khác, 被人利用 bị người ta lợi dụng)"
+   ],
+   "us": "Chú ý ĐIỂM CỰC ĐẮT GIÁ cho người Việt học tiếng Hoa: chữ 'lợi dụng' tiếng Việt 95% mang nghĩa XẤU, nhưng trong tiếng Hoa từ 利用 lại dùng CỰC KỲ TÍCH CỰC cho thời gian, cơ hội, nguồn lực! (利用週末 nghỉ cuối tuần tận dụng đi chơi, 利用網路學中文 tận dụng mạng học tiếng Hoa). Chỉ khi tân ngữ là CON NGƯỜI mới hiểu sang nghĩa xấu 'lợi dụng ai'.",
+   "co": [
+    "利用時間|tận dụng thời gian",
+    "利用週末 / 利用連假|tận dụng cuối tuần / kỳ nghỉ lễ",
+    "資源再利用|tái sử dụng tài nguyên",
+    "被利用|bị lợi dụng (khi đối tượng là người)"
+   ],
+   "sy": [
+    "善用|khéo léo sử dụng hiệu quả",
+    "使用|sử dụng, dùng (công cụ, thiết bị máy móc)"
+   ],
+   "cf": [
+    "利用 vs 使用|使用 là DÙNG một công cụ, phần mềm, đồ vật bình thường (使用信用卡 dùng thẻ tín dụng, 使用這個App); 利用 là TẬN DỤNG tối đa một khoảng thời gian trống/cơ hội/tài nguyên (hoặc LỢI DỤNG con người)!"
+   ],
+   "lt": "Thanh 4 + thanh 4: lìyòng. Câu hay dùng ở Đài Loan: 好好利用 + Thời gian/Cơ hội.",
+   "mk": "Đừng giật mình khi nghe thầy giáo Đài Loan khuyên: 'Em phải 利用 cơ hội này!' — với thời gian/cơ hội/công cụ, 利用 hoàn toàn mang nghĩa TỐT là 'tận dụng'!",
+   "tw": "Ở Đài Loan khẩu hiệu môi trường dán khắp nơi là 資源回收再利用 (Thu hồi tái chế và tái sử dụng tài nguyên); còn dân công sở thường nói 利用中午休息時間 (tận dụng giờ nghỉ trưa) hoặc 利用假日 (tranh thủ ngày nghỉ)!",
+   "mh": "Lợi Dụng → lìyòng. ĐỌC: 'lợi' → lì (thanh 4); 'dụng' → yòng (d- → y- + ong thanh 4). NGHĨA: 利 lợi ích/sắc bén + 用 sử dụng → đem cái lợi có sẵn ra sử dụng triệt để = tận dụng (cho vật/thời gian), lợi dụng (cho người).",
+   "vd": [
+    {
+     "t": "Học tập",
+     "zh": "很多上班族會利用每天搭捷運通勤的四十分鐘聽中文Podcast。",
+     "vn": "Nhiều nhân viên văn phòng hay tận dụng bốn mươi phút đi tàu điện ngầm hằng ngày để nghe podcast tiếng Hoa."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "我們打算利用十月的雙十連假，去台東進行一場三天兩夜的慢活小旅行。",
+     "vn": "Chúng tôi dự định tận dụng kỳ nghỉ Quốc khánh tháng Mười để đi Đài Đông làm một chuyến du lịch chậm ba ngày hai đêm."
+    },
+    {
+     "t": "Cảnh giác",
+     "zh": "交朋友要擦亮眼睛，千萬別被只想利用你的有心人給騙了。",
+     "vn": "Kết bạn phải thật tỉnh táo, tuyệt đối đừng để những kẻ có mưu đồ chỉ muốn lợi dụng mình lừa gạt nhé."
+    }
+   ]
+  }
+ }
+}

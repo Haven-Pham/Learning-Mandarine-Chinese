@@ -1,0 +1,1327 @@
+{
+ "tu": {
+  "涼快": {
+   "vn": "mát mẻ; dễ chịu và mát",
+   "ng": [
+    "(tính từ trạng thái) mát mẻ, mát rượi và dễ chịu (thời tiết, không gian)",
+    "(động từ) hóng mát, nghỉ cho mát (thường lặp lại 涼快涼快)",
+    "(tính từ - khẩu ngữ Đài Loan) ăn mặc mát mẻ, hở hang"
+   ],
+   "us": "Dùng miêu tả thời tiết hoặc không gian mát mẻ dễ chịu: 今天很涼快 (Hôm nay rất mát), 風吹起來真涼快 (Gió thổi thật mát). Dùng như động từ lặp lại 涼快涼快 nghĩa là 'ra hóng mát/nghỉ cho mát'.",
+   "co": [
+    "天氣涼快|thời tiết mát mẻ",
+    "很涼快|rất mát",
+    "涼快涼快|hóng mát một chút",
+    "穿得很涼快|ăn mặc mát mẻ, hở hang"
+   ],
+   "sy": [
+    "涼爽|mát mẻ, thoáng đãng",
+    "清涼|thanh mát"
+   ],
+   "an": [
+    "悶熱|oi bức, ngột ngạt",
+    "炎熱|nóng nực"
+   ],
+   "cf": [
+    "涼|涼 chỉ cảm giác mát, se lạnh hoặc đồ ăn nguội nói chung; 涼快 nhấn mạnh cảm giác mát mẻ dễ chịu của thời tiết hoặc nơi chốn"
+   ],
+   "lt": "Tính từ 2 âm tiết có thể lặp lại kiểu AABB (涼涼快快) hoặc động từ hóa kiểu ABAB (涼快涼快 = đi hóng mát).",
+   "tw": "Ngoài nghĩa thời tiết mát mẻ, trong khẩu ngữ Đài Loan nói ai đó 穿得很涼快 còn mang nghĩa đùa là 'ăn mặc rất hở hang, thiếu vải'.",
+   "mh": "Lương Khoái → liángkuài (khẩu ngữ đọc thanh nhẹ ở 快: liángkuai). ĐỌC: 'lương' → liáng (âm L + vần iáng, thanh 2); 'khoái' → kuài (kh → k, vần uai, thanh 4, nói nhanh thành thanh nhẹ). NGHĨA: 涼 (bộ thủy 氵 + 京 = mát lạnh) + 快 (bộ tâm 忄 + 夬 = sảng khoái) → mát mẻ làm lòng khoan khoái dễ chịu.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "下雨以後，外面的空氣變得很涼快。",
+     "vn": "Sau cơn mưa, không khí bên ngoài trở nên rất mát mẻ."
+    },
+    {
+     "t": "Tránh nóng",
+     "zh": "夏天太熱了，我們去百貨公司吹冷氣、涼快涼快吧！",
+     "vn": "Mùa hè nóng quá, chúng ta vào trung tâm thương mại hưởng máy lạnh cho mát đi!"
+    },
+    {
+     "t": "Trang phục",
+     "zh": "天氣一熱，街上很多年輕人就穿得很涼快。",
+     "vn": "Trời vừa nóng lên là nhiều bạn trẻ ngoài phố ăn mặc rất mát mẻ."
+    }
+   ]
+  },
+  "涼": {
+   "vn": "mát; lạnh; nguội; để nguội (liàng)",
+   "ng": [
+    "(tính từ trạng thái - đọc liáng) mát, se lạnh (thời tiết, nước, gió)",
+    "(tính từ trạng thái - đọc liáng) nguội, lạnh (đồ ăn, thức uống để lâu mất nóng)",
+    "(tính từ - khẩu ngữ Đài Loan) hết hy vọng, toang rồi (涼了)",
+    "(động từ - đọc liàng) để nguội, phơi cho nguội bớt (把茶涼一涼)"
+   ],
+   "us": "Miêu tả thời tiết se mát, đồ ăn bị nguội hoặc cảm giác lạnh: 湯涼了 (canh nguội rồi), 秋天早晚有點涼 (mùa thu sáng tối hơi se lạnh). Khi đọc thanh 4 (liàng) là động từ 'để cho nguội': 把水涼一涼再喝 (để nước nguội bớt rồi uống).",
+   "co": [
+    "著涼|bị cảm lạnh",
+    "好涼|mát quá / lạnh quá",
+    "湯涼了|canh nguội rồi",
+    "涼茶|trà mát, trà giải nhiệt"
+   ],
+   "sy": [
+    "涼快|mát mẻ",
+    "冰涼|lạnh buốt"
+   ],
+   "an": [
+    "熱|nóng",
+    "暖和|ấm áp"
+   ],
+   "cf": [
+    "冷|冷 là lạnh rõ rệt (mùa đông, máy lạnh); 涼 nhẹ hơn, chỉ sự mát mẻ hoặc đồ ăn bị nguội (thức ăn nguội hay nói 菜涼了)"
+   ],
+   "lt": "Từ đa âm: tính từ 'mát/nguội' đọc thanh 2 (liáng); động từ 'để nguội bớt' đọc thanh 4 (liàng).",
+   "mk": "Người Việt hay dịch sát 'đồ ăn lạnh rồi' thành *菜冷了; người bản xứ Đài Loan hay nói 菜涼了 hoặc 菜冷掉了.",
+   "tw": "Ở Đài Loan, bị nhiễm lạnh gây cảm gọi là 著涼 (zháoliáng). Trên mạng giới trẻ Đài còn dùng tiếng lóng 涼了 (nguội rồi) để chỉ việc gì đó hỏng bét, hết cơ hội.",
+   "mh": "Lương → liáng (động từ đọc liàng). ĐỌC: 'lương' → liáng (âm L + vần iáng, thanh 2; khi là động từ làm nguội chuyển thành thanh 4 liàng). NGHĨA: Bộ thủy 氵 (nước) + 京 (cao/kinh đô) → dòng nước mát lành, chỉ sự mát mẻ hay nguội lạnh.",
+   "vd": [
+    {
+     "t": "Ăn uống",
+     "zh": "快點吃吧，等一下麵涼了就不好吃了。",
+     "vn": "Ăn nhanh lên đi, lát nữa mì nguội mất thì không ngon đâu."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "最近早晚比較涼，出門要記得多帶一件外套。",
+     "vn": "Dạo này sáng sớm và tối trời hơi se lạnh, ra ngoài nhớ mang thêm một chiếc áo khoác."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "晚上睡覺沒蓋被子，小心著涼感冒。",
+     "vn": "Buổi tối ngủ không đắp chăn, coi chừng bị nhiễm lạnh cảm cúm đấy."
+    }
+   ]
+  },
+  "乾": {
+   "vn": "khô; cạn; đồ khô; nhận nuôi danh nghĩa",
+   "ng": [
+    "(tính từ/động từ - đọc gān) khô, khô ráo, ráo nước",
+    "(động từ - đọc gān) cạn sạch, uống cạn hết (乾杯)",
+    "(danh từ/tính từ - đọc gān) thực phẩm sấy khô, đồ khô (餅乾, 牛肉乾)",
+    "(tính từ - đọc gān) nhận nuôi, kết nghĩa trên danh nghĩa (乾媽 mẹ nuôi, 乾女兒 con gái nuôi)",
+    "(tính từ - đọc gān) suông, gượng, trống rỗng (乾笑 cười gượng, 乾等 ngồi chờ suông)",
+    "(danh từ - đọc qián) quẻ Càn trong Bát Quái (乾坤 trời đất), họ Tiền/Càn"
+   ],
+   "us": "Dùng chỉ trạng thái khô ráo: 衣服乾了 (quần áo khô rồi), 皮膚很乾 (da rất khô). Ghép sau danh từ chỉ đồ sấy khô: 牛肉乾 (khô bò), 餅乾 (bánh quy). Trên bàn tiệc hô 乾杯 (cạn ly!). Âm đọc qián chỉ xuất hiện trong từ Hán cổ như 乾坤.",
+   "co": [
+    "乾淨|sạch sẽ",
+    "乾杯|cạn ly",
+    "餅乾|bánh quy",
+    "烘乾|sấy khô"
+   ],
+   "an": [
+    "濕|ẩm ướt"
+   ],
+   "cf": [
+    "幹|Chữ 乾 (gān) nghĩa là khô, cạn, sạch sẽ (乾淨); còn 幹 (gàn) nghĩa là làm việc, thân cây (幹嘛, 樹幹). Tiếng Hoa Phồn thể Đài Loan phân biệt rất nghiêm ngặt hai chữ này"
+   ],
+   "lt": "Trong Phồn thể Đài Loan cần viết đúng 乾 (gān: khô, cạn ly, sạch sẽ 乾淨), phân biệt rõ với 幹 (gàn: làm việc, thân cây).",
+   "mk": "Người học hay nhầm 乾 (khô, cạn) với 幹 (làm), dẫn đến viết sai những cụm quen thuộc như *幹杯 hoặc *幹淨.",
+   "tw": "Ở Đài Loan, văn hóa quán nhậu 熱炒 (quán đồ xào bình dân) rất hay hô 乾杯 để chúc nhau uống cạn ly. Còn 乾媽/乾爹 (mẹ nuôi/bố nuôi) dùng rất phổ biến để gọi người lớn thân thiết nhận đỡ đầu con cháu.",
+   "mh": "Can → gān (âm quẻ Càn đọc qián). ĐỌC: 'can' → gān (âm C → g, vần an, thanh 1; riêng nghĩa quẻ Càn đọc qián). NGHĨA: Phần trái tượng hình ánh mặt trời chiếu lên mầm cây + phần phải 乞 (hơi bốc lên) → nắng làm hơi nước bốc lên hết, khiến mọi vật khô ráo.",
+   "vd": [
+    {
+     "t": "Giặt giũ",
+     "zh": "今天的太陽很大，洗好的衣服很快就乾了。",
+     "vn": "Hôm nay nắng to lắm, quần áo giặt xong rất nhanh đã khô rồi."
+    },
+    {
+     "t": "Chăm sóc da",
+     "zh": "冬天的空氣比較乾，我每天都要擦護手霜。",
+     "vn": "Mùa đông không khí khá hanh khô, ngày nào tôi cũng phải bôi kem dưỡng tay."
+    },
+    {
+     "t": "Tụ họp",
+     "zh": "好久不見了，來，大家一起乾杯！",
+     "vn": "Lâu lắm rồi không gặp, nào, mọi người cùng cạn ly nào!"
+    }
+   ]
+  },
+  "濕/溼": {
+   "vn": "ẩm; ướt; ẩm ướt",
+   "ng": [
+    "(tính từ trạng thái) ướt, đẫm nước (do mưa, mồ hôi, nước thấm vào)",
+    "(tính từ trạng thái) ẩm, ẩm ướt (khí hậu, độ ẩm không khí cao)"
+   ],
+   "us": "Miêu tả vật bị thấm nước hoặc thời tiết ẩm ướt: 頭髮濕了 (tóc ướt rồi), 台灣冬天很潮濕 (mùa đông Đài Loan rất ẩm ướt). Có thể làm định ngữ đứng trước danh từ: 濕毛巾 (khăn ướt), 濕紙巾 (khăn giấy ướt).",
+   "co": [
+    "潮濕|ẩm ướt",
+    "濕透|ướt sũng",
+    "濕紙巾|khăn giấy ướt",
+    "除濕機|máy hút ẩm"
+   ],
+   "sy": [
+    "潮濕|ẩm ướt",
+    "潮|ẩm"
+   ],
+   "an": [
+    "乾|khô",
+    "乾燥|khô ráo"
+   ],
+   "lt": "Trong Phồn thể Đài Loan, 濕 và 溼 có cùng âm đọc và ý nghĩa, dùng thay thế được cho nhau (ví dụ 潮濕 / 潮溼, 除濕機 / 除溼機).",
+   "tw": "Khí hậu hải đảo Đài Loan rất ẩm, đặc biệt miền bắc mùa đông mưa nhiều nên hầu như gia đình nào cũng có 除濕機 (máy hút ẩm). Cả 濕 và 溼 đều là chữ Phồn thể chính thống tại Đài Loan.",
+   "mh": "Thấp → shī. ĐỌC: 'thấp' → shī (âm Th → sh, vần i, thanh 1). NGHĨA: Bộ thủy 氵 (nước) bên trái + phần phải tượng hình sợi tơ phơi ngoài nắng vẫn còn đọng nước → thấm nước, ẩm ướt.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "外面的雨越下越大，我的鞋子都濕了。",
+     "vn": "Ngoài trời mưa càng lúc càng to, giày của tôi ướt hết cả rồi."
+    },
+    {
+     "t": "Sinh hoạt",
+     "zh": "基隆常常下雨，家裡太濕的時候要開除濕機。",
+     "vn": "Cơ Long hay mưa lắm, lúc trong nhà ẩm ướt quá phải bật máy hút ẩm."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "連著下了好幾天雨，房間裡的被子摸起來溼溼的。",
+     "vn": "Mưa liền mấy ngày trời, chăn trong phòng sờ vào cứ thấy ẩm ẩm."
+    }
+   ]
+  },
+  "度": {
+   "vn": "độ; mức độ; số điện; trải qua",
+   "ng": [
+    "(lượng từ/danh từ - đọc dù) độ (nhiệt độ: 三十度; góc: 九十度; độ cận thị)",
+    "(lượng từ - đọc dù) số điện (kilowatt-giờ, dùng tính tiền điện: 一度電)",
+    "(lượng từ - đọc dù) lần, lượt (trang trọng: 一年一度 mỗi năm một lần, 再度 một lần nữa)",
+    "(động từ - đọc dù) trải qua, vượt qua (thời gian, kỳ nghỉ: 度假, 度過)",
+    "(danh từ - đọc dù) mức độ, giới hạn, thái độ (溫度, 程度, 態度)",
+    "(động từ - đọc duó / Đài Loan đọc duò) phỏng đoán, suy xét (猜度)"
+   ],
+   "us": "Dùng nhiều nhất làm lượng từ đo nhiệt độ (今天二十五度 - hôm nay 25 độ), đo điện/nước (一度電幾塊錢 - một số điện bao nhiêu tiền), hoặc động từ 'trải qua' (度過週末, 度假). Âm duó/duò chỉ gặp trong một số từ ghép Hán cổ.",
+   "co": [
+    "幾度|mấy độ",
+    "一度電|một số điện",
+    "溫度|nhiệt độ",
+    "度假|đi nghỉ mát"
+   ],
+   "sy": [
+    "過|trải qua (thời gian)"
+   ],
+   "cf": [
+    "渡|渡 dùng cho qua sông, qua phà (渡船, 渡河); còn trải qua thời gian hoặc kỳ nghỉ chuẩn mực dùng 度 (度假, 度過)"
+   ],
+   "lt": "Là lượng từ đo nhiệt độ, góc, số điện; đặt trực tiếp sau số đếm, không thêm 個 (ví dụ 28度, không nói *28個度).",
+   "mk": "Người Việt hay thêm 個 trước 度 khi nói nhiệt độ (*今天三十個度 ❌); đúng phải nói 今天三十度.",
+   "tw": "Ở Đài Loan dùng độ C (攝氏), không dùng độ F. Ngoài ra tiền điện phòng trọ sinh viên Đài Loan thường tính theo 度 (一度電 khoảng 5~6 Đài tệ).",
+   "mh": "Độ → dù (âm suy đoán đọc duó/duò). ĐỌC: 'độ' → dù (âm Đ → d, vần u, thanh 4). NGHĨA: Bộ nghiễm 广 (mái nhà) + 廿 + 又 (bàn tay đo đạc) → dùng tay đo kích thước trong nhà → đo lường, mức độ, đơn vị độ.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "台北今天只有十二度，感覺非常冷。",
+     "vn": "Đài Bắc hôm nay chỉ có 12 độ, cảm giác rất lạnh."
+    },
+    {
+     "t": "Thuê nhà",
+     "zh": "這間套房的電費一度要五塊半，夏天開冷氣會比較貴。",
+     "vn": "Tiền điện phòng trọ khép kín này một số mất năm tệ rưỡi, mùa hè bật máy lạnh sẽ hơi đắt."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "這個長假我們全家打算去花蓮度假。",
+     "vn": "Kỳ nghỉ dài này cả nhà chúng tôi dự định đi Hoa Liên nghỉ mát."
+    }
+   ]
+  },
+  "季節": {
+   "vn": "mùa; thời tiết theo mùa",
+   "ng": [
+    "(danh từ) mùa (xuân, hạ, thu, đông trong năm)",
+    "(danh từ) mùa vụ, khoảng thời gian đặc trưng trong năm (mùa hoa, mùa trái cây)"
+   ],
+   "us": "Chỉ các mùa trong năm hoặc mùa đặc sản: 草莓的季節 (mùa dâu tây), 季節變化 (thay đổi mùa/giao mùa). Thường làm trung tâm ngữ với 的 phía trước: 最喜歡的季節 (mùa thích nhất).",
+   "co": [
+    "四個季節|bốn mùa",
+    "季節變化|chuyển mùa, thay đổi mùa",
+    "梅雨季節|mùa mưa dầm",
+    "草莓的季節|mùa dâu tây"
+   ],
+   "sy": [
+    "季|mùa (dùng ghép: 四季 bốn mùa, 雨季 mùa mưa)"
+   ],
+   "lt": "個",
+   "mk": "Khi nói tên mùa cụ thể thì dùng 春天, 夏天 hoặc 春季, 夏季; không ghép thành *夏天季節 ❌.",
+   "tw": "Đài Loan có bốn mùa khá rõ rệt, đặc biệt có 梅雨季節 (mùa mưa dầm tháng 5–6) và 颱風季節 / 颱風季 (mùa bão tháng 7–9).",
+   "mh": "Quý Tiết → jìjié. ĐỌC: 'quý' → jì (âm Qu → j, vần i, thanh 4); 'tiết' → jié (âm T → j, vần ié, thanh 2). NGHĨA: 季 mùa/vụ lúa (禾 cây lúa + 子) + 節 đốt tre/tiết trời (竹 + 即) → các phân đoạn thời tiết trong năm = mùa.",
+   "vd": [
+    {
+     "t": "Bốn mùa",
+     "zh": "台灣有四個季節，其中我最喜歡涼爽的秋天。",
+     "vn": "Đài Loan có bốn mùa, trong đó tôi thích nhất là mùa thu mát mẻ."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "春天是採草莓的好季節，很多家庭週末會去農場玩。",
+     "vn": "Mùa xuân là mùa tuyệt vời để hái dâu tây, nhiều gia đình cuối tuần hay đi nông trại chơi."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "季節變化的時候，鼻子過敏的人很容易打噴嚏。",
+     "vn": "Lúc chuyển mùa, người bị dị ứng mũi rất dễ hắt hơi."
+    }
+   ]
+  },
+  "環保": {
+   "vn": "bảo vệ môi trường; thân thiện môi trường",
+   "ng": [
+    "(danh từ) việc bảo vệ môi trường (viết tắt của 環境保護)",
+    "(tính từ trạng thái) thân thiện với môi trường, tái sử dụng được"
+   ],
+   "us": "Dùng vừa như danh từ (做環保 - thực hành bảo vệ môi trường) vừa như tính từ (這很環保 - cái này rất thân thiện môi trường) hoặc đứng trực tiếp trước danh từ chỉ vật dụng tái sử dụng (環保袋 túi vải, 環保杯 ly cá nhân, 環保筷 đũa cá nhân).",
+   "co": [
+    "做環保|bảo vệ môi trường / phân loại tái chế",
+    "環保袋|túi bảo vệ môi trường",
+    "環保杯|ly/bình cá nhân",
+    "環保餐具|bộ dụng cụ ăn uống tái sử dụng"
+   ],
+   "sy": [
+    "環境保護|bảo vệ môi trường"
+   ],
+   "lt": "Có thể kết hợp với phó từ chỉ mức độ như tính từ (很環保, 非常環保) hoặc đứng trước danh từ để phân loại đồ dùng xanh.",
+   "tw": "Người Đài Loan cực kỳ chú trọng 環保: đi mua sắm phải tự mang 環保袋 hoặc mua túi; mang 環保杯 đi mua đồ uống ở mọi tiệm trà sữa, cà phê được giảm 5 Đài tệ theo quy định.",
+   "mh": "Hoàn Bảo → huánbǎo. ĐỌC: 'hoàn' → huán (âm H → h, vần uan, thanh 2); 'bảo' → bǎo (thanh 3). NGHĨA: 環 vòng tròn/môi trường (từ 環境) + 保 bảo vệ (từ 保護) → viết tắt của 環境保護 = bảo vệ môi trường.",
+   "vd": [
+    {
+     "t": "Mua sắm",
+     "zh": "現在去超商買東西，大家都會自己帶環保袋。",
+     "vn": "Bây giờ đi cửa hàng tiện lợi mua đồ, mọi người đều tự mang túi thân thiện môi trường."
+    },
+    {
+     "t": "Trà sữa",
+     "zh": "用自己的環保杯買飲料，可以折五塊錢，既省錢又環保。",
+     "vn": "Dùng ly cá nhân của mình mua đồ uống sẽ được giảm 5 tệ, vừa tiết kiệm vừa bảo vệ môi trường."
+    },
+    {
+     "t": "Lối sống",
+     "zh": "為了做環保，台灣人平常會把垃圾分成很多類。",
+     "vn": "Để bảo vệ môi trường, người Đài Loan thường phân loại rác thành rất nhiều loại."
+    }
+   ]
+  },
+  "垃圾": {
+   "vn": "rác; rác thải; (khẩu ngữ) đồ tồi tệ",
+   "ng": [
+    "(danh từ) rác, rác thải, đồ bỏ đi",
+    "(tính từ - khẩu ngữ) kém chất lượng, tồi tệ, rác rưởi (sản phẩm, lời nói)"
+   ],
+   "us": "Danh từ không đếm được, thường kết hợp với động từ 丟 (vứt) hoặc 倒 (đổ): 丟垃圾 (vứt rác vào thùng), 倒垃圾 (đem rác đi đổ cho xe rác), 垃圾分類 (phân loại rác).",
+   "co": [
+    "倒垃圾|đi đổ rác",
+    "丟垃圾|vứt rác",
+    "垃圾車|xe rác",
+    "垃圾桶|thùng rác"
+   ],
+   "sy": [
+    "廢棄物|chất thải (trang trọng)"
+   ],
+   "lt": "Lượng từ theo vật chứa/đống: 包 (túi), 袋 (bọc), 堆 (đống), 桶 (thùng).",
+   "mk": "Người học theo giọng Bắc Kinh hay đọc là lājī; khi sống ở Đài Loan cần nhớ phát âm chuẩn Đài là lèsè.",
+   "tw": "ĐẶC TRƯNG ĐÀI LOAN: chuẩn Đài Loan đọc là lèsè (thanh 4 - thanh 4). Văn hóa 倒垃圾 ở Đài Loan rất đặc sắc: tối nghe tiếng nhạc 《給愛麗絲》 hoặc 《少女的祈禱》 là người dân xách túi rác quy định ra ngõ đợi 垃圾車.",
+   "mh": "Lạp Ngập → lèsè (chuẩn Đài Loan) / lājī (Đại lục). ĐỌC: Chuẩn Đài Loan đọc đặc biệt là lèsè (thanh 4 - thanh 4), không theo âm Hán Việt 'lạp ngập'. NGHĨA: Bộ thổ 土 ở cả hai chữ 垃 và 圾 → đất cát, mảnh vụn dơ bẩn bỏ đi = rác thải.",
+   "vd": [
+    {
+     "t": "Dọn dẹp",
+     "zh": "房間裡太亂了，趕快把桌上的垃圾清一清吧。",
+     "vn": "Trong phòng bừa bộn quá, mau dọn dẹp rác trên bàn đi thôi."
+    },
+    {
+     "t": "Đổ rác",
+     "zh": "每天晚上七點半，我們都要在巷口等垃圾車來倒垃圾。",
+     "vn": "Tối nào lúc 7 giờ rưỡi chúng tôi cũng phải đợi xe rác ở đầu hẻm để đi đổ rác."
+    },
+    {
+     "t": "Phân loại",
+     "zh": "請把塑膠瓶洗乾淨再丟進資源回收桶，不要跟一般垃圾混在一起。",
+     "vn": "Xin hãy rửa sạch chai nhựa rồi bỏ vào thùng tái chế, đừng trộn lẫn với rác thông thường."
+    }
+   ]
+  },
+  "汙染": {
+   "vn": "ô nhiễm; làm ô nhiễm",
+   "ng": [
+    "(động từ) làm ô nhiễm, gây ô nhiễm (không khí, nguồn nước, đất đai)",
+    "(danh từ) sự ô nhiễm, tình trạng ô nhiễm (空氣汙染, 環境汙染)"
+   ],
+   "us": "Dùng làm ngoại động từ: 汙染環境 (làm ô nhiễm môi trường), 河川被工廠汙染了 (con sông bị nhà máy làm ô nhiễm). Dùng làm danh từ: 減少汙染 (giảm ô nhiễm), 空氣汙染 (ô nhiễm không khí).",
+   "co": [
+    "空氣汙染|ô nhiễm không khí",
+    "環境汙染|ô nhiễm môi trường",
+    "水汙染|ô nhiễm nguồn nước",
+    "減少汙染|giảm ô nhiễm"
+   ],
+   "an": [
+    "淨化|làm sạch, thanh lọc"
+   ],
+   "lt": "Chính tả chuẩn Bộ Giáo dục Đài Loan viết chữ 汙 (bộ thủy 氵 + 于) trong 汙染, 空氣汙染.",
+   "tw": "Ở Đài Loan, 'ô nhiễm không khí' 空氣汙染 thường được báo chí và người dân gọi tắt là 空汙 (kōngwū), hay theo dõi kèm chỉ số 空氣品質 (chất lượng không khí) và PM2.5.",
+   "mh": "Ô Nhiễm → wūrǎn. ĐỌC: 'ô' → wū (vần u đọc thành wū, thanh 1); 'nhiễm' → rǎn (âm Nh → r, vần an, thanh 3). NGHĨA: 汙 nước đọng vẩn đục (bộ thủy 氵 + 于) + 染 nhuộm màu (氵 + 九 + 木) → làm vấy bẩn, nhuộm dơ môi trường = ô nhiễm.",
+   "vd": [
+    {
+     "t": "Môi trường",
+     "zh": "工廠排出的廢水嚴重汙染了這條河。",
+     "vn": "Nước thải do nhà máy xả ra đã làm ô nhiễm nghiêm trọng con sông này."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "騎電動機車比較不會造成空氣汙染。",
+     "vn": "Đi xe máy điện sẽ ít gây ra ô nhiễm không khí hơn."
+    },
+    {
+     "t": "Bảo vệ biển",
+     "zh": "大家應該少用塑膠袋，才不會汙染海洋。",
+     "vn": "Mọi người nên dùng ít túi ni-lông lại để không làm ô nhiễm đại dương."
+    }
+   ]
+  },
+  "底": {
+   "vn": "đáy; nền; cuối (tháng, năm); gốc gác",
+   "ng": [
+    "(danh từ) đáy, phần dưới cùng (海底 đáy biển, 鞋底 đế giày, 鍋底 đáy nồi)",
+    "(danh từ - hậu tố thời gian) cuối kỳ (月底 cuối tháng, 年底 cuối năm)",
+    "(danh từ) phông nền, gốc rễ, bản lưu (白底黑字 nền trắng chữ đen, 心底 tận đáy lòng)",
+    "(trợ từ - cổ văn) tương đương 的 hoặc 什麼 (ít gặp ở trình độ cơ bản)"
+   ],
+   "us": "Thường gắn sau danh từ không gian (海底, 井底, 鞋底) hoặc sau danh từ thời gian để chỉ 'cuối...' (月底, 年底, 五月底). Trong khẩu ngữ còn kết hợp thành phó từ 到底 (rốt cuộc là).",
+   "co": [
+    "月底|cuối tháng",
+    "年底|cuối năm",
+    "海底|đáy biển",
+    "鞋底|đế giày"
+   ],
+   "sy": [
+    "底部|phần đáy",
+    "末|cuối (như 月末, 年末)"
+   ],
+   "an": [
+    "頂|đỉnh, chóp",
+    "初|đầu (như 月初, 年初)"
+   ],
+   "cf": [
+    "底下|底 chỉ 'đáy' của bản thân vật đó hoặc 'cuối' khoảng thời gian (海底, 月底); còn 底下 là phương vị từ chỉ 'bên dưới/dưới gầm' của một vật (桌子底下)"
+   ],
+   "lt": "Khi nói cuối tháng hoặc cuối năm thì gắn trực tiếp 底 sau từ chỉ tháng/năm: 八月底 (cuối tháng 8), 年底 (cuối năm).",
+   "tw": "Ở Đài Loan rất hay nói 月底 (cuối tháng - lúc sắp hết tiền lương, giới trẻ hay đùa là 月底吃土 cuối tháng ăn đất) và 年底 (cuối năm - mùa tiệc tất niên 尾牙 và thưởng Tết).",
+   "mh": "Để → dǐ. ĐỌC: 'để' → dǐ (âm Đ → d, vần i, thanh 3). NGHĨA: Bộ nghiễm 广 (mái nhà) + 氐 (thấp xuống, sát gốc) → phần thấp nhất ở dưới cùng = đáy, cuối.",
+   "vd": [
+    {
+     "t": "Thời gian",
+     "zh": "我打算今年年底回越南看家人。",
+     "vn": "Tôi dự định cuối năm nay về Việt Nam thăm gia đình."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "墾丁的海水非常清澈，從船上就能看到海底的珊瑚。",
+     "vn": "Nước biển Khẩn Đinh rất trong xanh, từ trên thuyền đã có thể nhìn thấy san hô dưới đáy biển."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這雙運動鞋的鞋底很軟，走久了腳也不會痛。",
+     "vn": "Đế của đôi giày thể thao này rất mềm, đi bộ lâu chân cũng không bị đau."
+    }
+   ]
+  },
+  "底下": {
+   "vn": "bên dưới; phía dưới; dưới gầm",
+   "ng": [
+    "(danh từ phương vị) bên dưới, phía dưới, dưới gầm của một vật",
+    "(danh từ) cấp dưới, người dưới quyền (他底下的人)",
+    "(phó từ/liên từ - khẩu ngữ cũ) sau đó, tiếp theo"
+   ],
+   "us": "Đặt sau danh từ để chỉ vị trí ngay bên dưới hoặc dưới gầm vật đó: 桌子底下 (dưới gầm bàn), 樹底下 (dưới gốc cây), 床底下 (dưới gầm giường). Thường kết hợp với giới từ 在/到/從: 東西掉在床底下了.",
+   "co": [
+    "桌子底下|dưới gầm bàn",
+    "樹底下|dưới gốc cây",
+    "床底下|dưới gầm giường",
+    "腳底下|dưới chân"
+   ],
+   "sy": [
+    "下面|bên dưới, phía dưới"
+   ],
+   "an": [
+    "上面|bên trên",
+    "頂上|trên đỉnh"
+   ],
+   "cf": [
+    "下面|下面 dùng rộng cho cả vị trí, thứ tự (下面一題 câu bên dưới) và cấp độ; còn 底下 nhấn mạnh vị trí nằm khuất ngay bên dưới hoặc dưới gầm một vật (床底下, 樹底下)"
+   ],
+   "lt": "Cấu trúc cố định: Danh từ + 底下 (không cần 的 ở giữa trong khẩu ngữ hàng ngày).",
+   "mk": "Người Việt hay đặt phương vị từ trước danh từ theo thói quen tiếng Việt (*底下桌子 ❌); tiếng Hoa phải đặt sau danh từ: 桌子底下.",
+   "tw": "Ở Đài Loan, nói về vị trí dưới gầm hoặc được che bóng như 桌子底下、大樹底下、大太陽底下 (dưới trời nắng gắt) dùng 底下 rất tự nhiên và giàu hình ảnh.",
+   "mh": "Để Hạ → dǐxia (下 đọc thanh nhẹ). ĐỌC: 'để' → dǐ (âm Đ → d, thanh 3); 'hạ' → xia (âm X → x, đọc thanh nhẹ). NGHĨA: 底 (đáy) + 下 (dưới) → vị trí nằm ngay phần đáy bên dưới của vật gì đó.",
+   "vd": [
+    {
+     "t": "Thú cưng",
+     "zh": "小貓很害羞，每次有客人來就躲在沙發底下。",
+     "vn": "Chú mèo con rất nhút nhát, hễ có khách đến là lại trốn dưới gầm ghế sô-pha."
+    },
+    {
+     "t": "Công viên",
+     "zh": "夏天的午後，很多阿公阿嬤喜歡坐在大樹底下聊天。",
+     "vn": "Buổi trưa chiều mùa hè, nhiều ông bà thích ngồi dưới gốc cây to trò chuyện."
+    },
+    {
+     "t": "Tìm đồ",
+     "zh": "我找了半天，原來鑰匙掉在書桌底下了。",
+     "vn": "Tôi tìm cả buổi trời, hóa ra chìa khóa bị rơi dưới gầm bàn học."
+    }
+   ]
+  },
+  "內": {
+   "vn": "bên trong; nội bộ; trong vòng",
+   "ng": [
+    "(danh từ phương vị) bên trong, phía trong (室內 trong phòng, 國內 trong nước)",
+    "(hậu tố giới hạn) trong vòng, không quá (thời gian, số lượng: 三天內 trong vòng 3 ngày)",
+    "(tính từ/tiền tố) nội bộ, bên trong (內衣 đồ lót, 內容 nội dung, 內科 khoa nội)"
+   ],
+   "us": "Thường gắn sau danh từ tạo từ ghép hoặc giới hạn phạm vi thời gian/số lượng: 一週內 (trong vòng 1 tuần), 十分鐘內 (trong vòng 10 phút), 國內 (trong nước), 室內 (trong nhà). Khẩu ngữ ít đứng một mình thay cho 裡面, trừ biển hiệu hoặc từ ghép.",
+   "co": [
+    "三天內|trong vòng 3 ngày",
+    "室內|trong nhà, trong phòng",
+    "國內|trong nước",
+    "內用|dùng tại quán"
+   ],
+   "sy": [
+    "裡面|bên trong",
+    "以內|trong vòng, trở xuống"
+   ],
+   "an": [
+    "外|bên ngoài",
+    "外面|phía ngoài"
+   ],
+   "cf": [
+    "裡面|裡面 dùng độc lập chỉ không gian bên trong vật/phòng (房間裡面); còn 內 trang trọng hơn và chuyên đứng sau thời gian/số lượng để chỉ 'trong vòng' (兩小時內, không nói *兩小時裡面)"
+   ],
+   "lt": "Khi diễn đạt 'trong vòng bao lâu', đặt 內 sau khoảng thời gian: Khoảng thời gian + 內 (hoặc 以內).",
+   "mk": "Người Việt hay đặt 內 ra trước khoảng thời gian theo tiếng Việt (*內三天 ❌); đúng ngữ pháp tiếng Hoa phải nói 三天內.",
+   "tw": "Ở mọi quán ăn, quán trà sữa tại Đài Loan nhân viên đều hỏi 內用還是外帶？ (Dùng tại quán hay mang đi?). Biển cửa tiệm cũng hay dán 內有冷氣 (Bên trong có máy lạnh).",
+   "mh": "Nội → nèi. ĐỌC: 'nội' → nèi (âm N → n, vần ei, thanh 4). NGHĨA: Bộ quynh 冂 (vùng vây quanh) + 入 (đi vào) → đi vào bên trong ranh giới = bên trong, nội bộ.",
+   "vd": [
+    {
+     "t": "Quán ăn",
+     "zh": "請問你們要內用還是外帶？",
+     "vn": "Xin hỏi các bạn muốn ăn tại quán hay mang đi ạ?"
+    },
+    {
+     "t": "Công việc",
+     "zh": "這份報告很重要，請大家在三天內交給我。",
+     "vn": "Bản báo cáo này rất quan trọng, xin mọi người nộp lại cho tôi trong vòng ba ngày."
+    },
+    {
+     "t": "Môi trường",
+     "zh": "室內禁止吸菸，要抽菸請到外面的吸菸區。",
+     "vn": "Bên trong phòng cấm hút thuốc, muốn hút thuốc xin mời ra khu vực hút thuốc bên ngoài."
+    }
+   ]
+  },
+  "深": {
+   "vn": "sâu; đậm (màu); sâu sắc; khuya",
+   "ng": [
+    "(tính từ trạng thái) sâu (khoảng cách từ mặt trên xuống đáy: 水很深)",
+    "(tính từ trạng thái) đậm, sẫm (màu sắc: 深藍色 màu xanh dương đậm)",
+    "(tính từ trạng thái) sâu sắc, sâu đậm (ấn tượng, tình cảm, ý nghĩa: 印象很深)",
+    "(tính từ trạng thái) khuya, muộn (夜深了 đêm đã khuya)"
+   ],
+   "us": "Dùng làm vị ngữ (水很深 - nước rất sâu) hoặc đứng trước tên màu để chỉ sắc độ đậm (深紅, 深綠, 深藍). Khi hỏi độ sâu dùng 多深: 這裡有多深？ (Chỗ này sâu bao nhiêu?).",
+   "co": [
+    "很深|rất sâu / rất đậm",
+    "深藍色|màu xanh dương đậm",
+    "印象很深|ấn tượng rất sâu sắc",
+    "夜深了|đêm khuya rồi"
+   ],
+   "sy": [
+    "濃|đậm đặc (màu sắc, mùi vị)",
+    "深刻|sâu sắc"
+   ],
+   "an": [
+    "淺|cạn, nông; nhạt (màu)"
+   ],
+   "cf": [
+    "厚|深 đo chiều sâu từ trên xuống hoặc từ ngoài vào (水深, 洞深) và màu đậm; 厚 chỉ độ dày của vật thể (書很厚, 衣服很厚)"
+   ],
+   "lt": "Khi đứng trước danh từ màu sắc luôn theo mẫu: 深 + Màu (+ 色), ví dụ 深灰色 (xám đậm).",
+   "tw": "Khi mua sắm quần áo ở Đài Loan rất hay nói 深色系 (tông màu tối/đậm) đối lập với 淺色系 (tông màu sáng/nhạt).",
+   "mh": "Thâm → shēn. ĐỌC: 'thâm' → shēn (âm Th → sh, vần en, thanh 1). NGHĨA: Bộ thủy 氵 (nước) + phần phải tượng hình tay cầm đuốc thám hiểm hang sâu → nước sâu hun hút, sâu thẳm.",
+   "vd": [
+    {
+     "t": "Bơi lội",
+     "zh": "這個游泳池的水很深，不會游泳的人不要下去。",
+     "vn": "Nước ở hồ bơi này rất sâu, người không biết bơi đừng xuống nhé."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這件深藍色的外套看起來既乾淨又大方。",
+     "vn": "Chiếc áo khoác màu xanh dương đậm này trông vừa gọn gàng vừa thanh lịch."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "台灣人的熱情給我留下了很深的印象。",
+     "vn": "Sự nhiệt tình của người Đài Loan đã để lại cho tôi ấn tượng rất sâu sắc."
+    }
+   ]
+  },
+  "淺": {
+   "vn": "cạn; nông; nhạt (màu); đơn giản",
+   "ng": [
+    "(tính từ trạng thái) nông, cạn (mực nước, hố, bát đĩa nông lòng)",
+    "(tính từ trạng thái) nhạt, sáng (màu sắc: 淺藍色 xanh dương nhạt, 淺色 màu sáng)",
+    "(tính từ trạng thái) nông cạn, sơ sài, đơn giản (kiến thức, giao tình)"
+   ],
+   "us": "Miêu tả mực nước cạn (水很淺), màu sắc nhạt (淺綠色, 淺色衣服 - quần áo màu sáng/nhạt), hoặc mức độ hiểu biết còn nông (學得很淺). Ít dùng ở dạng động từ.",
+   "co": [
+    "水很淺|nước rất cạn",
+    "淺藍色|màu xanh da trời nhạt",
+    "淺色|màu nhạt, màu sáng",
+    "淺顯|đơn giản dễ hiểu"
+   ],
+   "sy": [
+    "淡|nhạt (màu sắc, mùi vị)"
+   ],
+   "an": [
+    "深|sâu; đậm (màu)"
+   ],
+   "cf": [
+    "淡|淺 và 淡 đều dùng cho màu nhạt (淺藍 / 淡藍), nhưng 淺 còn chỉ mực nước cạn (水淺), còn 淡 dùng cho vị đồ ăn nhạt (湯太淡) hoặc tình cảm nhạt nhòa"
+   ],
+   "lt": "Khi đứng trước tên màu để chỉ màu nhạt dùng: 淺 + Màu (+ 色), ví dụ 淺粉紅 (hồng nhạt).",
+   "mk": "Không dùng 淺 để nói đồ ăn 'nhạt muối/nhạt vị' (*湯很淺 ❌); trường hợp đó phải dùng 淡 (湯很淡).",
+   "tw": "Ở các tiệm giặt ủi Đài Loan hay nhắc khách phân loại 深色衣服 (áo màu đậm) và 淺色衣服 (áo màu nhạt/sáng) để tránh bị phai màu.",
+   "mh": "Thiển → qiǎn (âm cổ ít gặp: jiān). ĐỌC: 'thiển' → qiǎn (âm Th → q, vần ian, thanh 3). NGHĨA: Bộ thủy 氵 (nước) + 戔 (ít, nhỏ bé) → chỗ có ít nước = nông, cạn; mở rộng sang màu sắc nhạt.",
+   "vd": [
+    {
+     "t": "Giặt giũ",
+     "zh": "洗衣服的時候，深色和淺色的衣服要分開洗。",
+     "vn": "Khi giặt quần áo, đồ màu đậm và đồ màu nhạt phải giặt riêng."
+    },
+    {
+     "t": "Đi biển",
+     "zh": "這片海灘的水很淺，很適合帶小朋友來玩水。",
+     "vn": "Nước ở bãi biển này rất cạn, rất thích hợp dẫn trẻ nhỏ tới nghịch nước."
+    },
+    {
+     "t": "Thời trang",
+     "zh": "春天穿淺粉紅色的襯衫，看起來特別有精神。",
+     "vn": "Mùa xuân mặc áo sơ mi màu hồng nhạt trông đặc biệt tươi tắn có sức sống."
+    }
+   ]
+  },
+  "發生": {
+   "vn": "phát sinh; xảy ra; diễn ra",
+   "ng": [
+    "(động từ) xảy ra, phát sinh, nảy sinh (sự việc, biến cố, tai nạn, vấn đề)"
+   ],
+   "us": "Thường dùng hai mẫu chính: 1) 發生 + Sự việc/Vấn đề/Tai nạn (發生車禍 xảy ra tai nạn xe, 發生問題 nảy sinh vấn đề); 2) Sự việc + 發生 + 在 + Thời gian/Địa điểm (這件事發生在去年 - Chuyện này xảy ra vào năm ngoái).",
+   "co": [
+    "發生車禍|xảy ra tai nạn giao thông",
+    "發生問題|nảy sinh vấn đề",
+    "發生什麼事|đã xảy ra chuyện gì vậy",
+    "發生火災|xảy ra hỏa hoạn"
+   ],
+   "sy": [
+    "出現|xuất hiện",
+    "產生|nảy sinh, sản sinh"
+   ],
+   "cf": [
+    "出現|發生 dùng cho sự kiện, biến cố, tình huống diễn ra (發生意外, 發生地震); 出現 dùng cho người hoặc vật thể lộ diện, xuất hiện (出現問題, 出現一個人)"
+   ],
+   "lt": "Là động từ diễn biến tự thân, không lấy người làm tân ngữ trực tiếp và không lặp lại kiểu *發生發生.",
+   "mk": "發生 hay đi với sự việc khách quan, vấn đề, tai nạn, thiên tai; ít khi dùng kiểu *發生一個好消息 (tin vui thường nói 有一個好消息).",
+   "tw": "Ở Đài Loan rất hay gặp trên bản tin các cụm 發生地震 (xảy ra động đất), 發生車禍 (xảy ra tai nạn), và câu hỏi quen thuộc khi thấy chuyện bất ngờ là 發生什麼事了？ (Có chuyện gì xảy ra vậy?).",
+   "mh": "Phát Sinh → fāshēng. ĐỌC: 'phát' → fā (âm Ph → f, vần a, thanh 1); 'sinh' → shēng (âm S → sh, vần eng, thanh 1). NGHĨA: 發 (nảy ra, phóng ra) + 生 (sinh ra) → sự việc tự nảy sinh ra = xảy ra, phát sinh.",
+   "vd": [
+    {
+     "t": "Hỏi thăm",
+     "zh": "外面那麼吵，到底發生什麼事了？",
+     "vn": "Bên ngoài ồn ào thế, rốt cuộc đã xảy ra chuyện gì vậy?"
+    },
+    {
+     "t": "Giao thông",
+     "zh": "剛才路口發生了車禍，所以這條路現在大塞車。",
+     "vn": "Lúc nãy ở ngã tư xảy ra tai nạn giao thông nên con đường này bây giờ đang kẹt xe dữ lắm."
+    },
+    {
+     "t": "Thiên tai",
+     "zh": "台灣常常發生地震，平時要準備好緊急避難包。",
+     "vn": "Đài Loan thường xuyên xảy ra động đất, ngày thường cần chuẩn bị sẵn túi thoát hiểm khẩn cấp."
+    }
+   ]
+  },
+  "日記": {
+   "vn": "nhật ký",
+   "ng": [
+    "(danh từ) nhật ký (cuốn sổ hoặc bài viết ghi lại việc hàng ngày)"
+   ],
+   "us": "Thường đi với động từ 寫 (viết): 寫日記 (viết nhật ký), 記日記 (ghi nhật ký), 看日記 (đọc nhật ký). Đếm theo bài dùng 篇/則, đếm theo cuốn sổ dùng 本.",
+   "co": [
+    "寫日記|viết nhật ký",
+    "一篇日記|một bài nhật ký",
+    "一本日記|một cuốn nhật ký",
+    "交換日記|nhật ký trao đổi"
+   ],
+   "sy": [
+    "筆記|ghi chép, sổ ghi chú"
+   ],
+   "lt": "則、本、篇",
+   "tw": "Học sinh tiểu học Đài Loan thường có bài tập 寫日記 để luyện viết câu và kể chuyện; bạn bè thân thiết ở trường còn hay viết 交換日記 (sổ nhật ký chuyền tay nhau viết).",
+   "mh": "Nhật Ký → rìjì. ĐỌC: 'nhật' → rì (âm Nh → r, thanh 4); 'ký' → jì (âm K → j, thanh 4). NGHĨA: 日 (ngày) + 記 (ghi chép lại) → ghi chép lại chuyện xảy ra mỗi ngày = nhật ký.",
+   "vd": [
+    {
+     "t": "Thói quen",
+     "zh": "她習慣在睡前寫日記，記錄今天開心的事。",
+     "vn": "Cô ấy có thói quen viết nhật ký trước khi đi ngủ để ghi lại những chuyện vui trong ngày."
+    },
+    {
+     "t": "Học tiếng Hoa",
+     "zh": "老師建議我們每天用中文寫一篇短短的日記，練習造句。",
+     "vn": "Thầy giáo khuyên chúng tôi mỗi ngày viết một bài nhật ký ngắn bằng tiếng Hoa để luyện đặt câu."
+    },
+    {
+     "t": "Kỷ niệm",
+     "zh": "整理房間的時候，我找到了一本小學時的日記。",
+     "vn": "Lúc dọn phòng, tôi tìm thấy một cuốn nhật ký hồi tiểu học."
+    }
+   ]
+  },
+  "流": {
+   "vn": "chảy; lưu thông; truyền; trôi dạt",
+   "ng": [
+    "(động từ) chảy, tuôn chảy (nước, máu, nước mắt, mồ hôi: 流血, 流淚)",
+    "(động từ) lưu thông, lan truyền, trôi nổi (流行 thịnh hành, 流浪 lang thang)",
+    "(danh từ) dòng chảy, luồng (水流 dòng nước, 寒流 đợt rét đậm, 交流 giao lưu)",
+    "(danh từ) hạng, cấp bậc (一流 hạng nhất)"
+   ],
+   "us": "Dùng làm động từ chỉ chất lỏng chảy ra hoặc dòng nước chảy: 流血 (chảy máu), 流眼淚 (chảy nước mắt), 流鼻水 (chảy nước mũi), 河水往海裡流 (nước sông chảy ra biển).",
+   "co": [
+    "流血|chảy máu",
+    "流眼淚|chảy nước mắt",
+    "流鼻水|chảy nước mũi",
+    "寒流|đợt rét đậm"
+   ],
+   "sy": [
+    "淌|chảy ròng ròng (nước mắt, mồ hôi)"
+   ],
+   "an": [
+    "停|dừng lại",
+    "止|ngừng lại (như 止血 cầm máu)"
+   ],
+   "cf": [
+    "留|流 (liú) có bộ thủy 氵 nghĩa là 'chảy, trôi'; còn 留 (liú) nghĩa là 'ở lại, giữ lại' (留下, 留學). Hai chữ đồng âm nhưng khác nghĩa hoàn toàn"
+   ],
+   "lt": "Chú ý phân biệt cặp đồng âm 流 (chảy) và 留 (lưu lại/ở lại).",
+   "tw": "Mỗi mùa đông ở Đài Loan hay có 寒流 (đợt không khí lạnh mạnh tràn về), khiến nhiệt độ xuống thấp kèm mưa ẩm rét buốt.",
+   "mh": "Lưu → liú. ĐỌC: 'lưu' → liú (âm L + vần iu, thanh 2). NGHĨA: Bộ thủy 氵 (nước) + phần phải tượng hình dòng nước cuộn chảy → dòng nước tuôn chảy, lưu thông.",
+   "vd": [
+    {
+     "t": "Cảm cúm",
+     "zh": "這幾天寒流來了，我一直打噴嚏、流鼻水。",
+     "vn": "Mấy hôm nay đợt rét đậm tràn về, tôi cứ hắt hơi và chảy nước mũi suốt."
+    },
+    {
+     "t": "Sơ cứu",
+     "zh": "他切菜的時候不小心割傷了手，流了很多血。",
+     "vn": "Lúc thái rau anh ấy không cẩn thận cắt trúng tay, chảy rất nhiều máu."
+    },
+    {
+     "t": "Cảm động",
+     "zh": "這部電影太感人了，很多人都看到流眼淚。",
+     "vn": "Bộ phim này cảm động quá, nhiều người xem đến mức rơi nước mắt."
+    }
+   ]
+  },
+  "流汗": {
+   "vn": "đổ mồ hôi; ra mồ hôi",
+   "ng": [
+    "(động từ ly hợp) đổ mồ hôi, toát mồ hôi"
+   ],
+   "us": "Là động từ ly hợp (V-sep), phải chèn từ chỉ lượng hoặc mức độ vào giữa 流 và 汗: 流了很多汗 (đổ rất nhiều mồ hôi), 流了一身汗 (mồ hôi ướt đẫm cả người), 流滿頭大汗 (mồ hôi đầm đìa trên trán).",
+   "co": [
+    "一直流汗|cứ đổ mồ hôi mãi",
+    "流很多汗|đổ rất nhiều mồ hôi",
+    "流了一身汗|mồ hôi đẫm cả người",
+    "運動流汗|tập thể dục ra mồ hôi"
+   ],
+   "sy": [
+    "出汗|ra mồ hôi (hay dùng ở Đại lục; Đài Loan chuộng 流汗)"
+   ],
+   "lt": "Động từ ly hợp (V-sep): 流 + (lượng/bổ ngữ) + 汗; không nói *流汗很多.",
+   "mk": "Người Việt hay dịch thẳng 'đổ mồ hôi nhiều' thành *流汗很多 ❌; đúng ngữ pháp phải tách ra đặt 很多 ở giữa: 流很多汗.",
+   "tw": "Người Đài Loan gần như luôn nói 流汗, rất ít nói 出汗. Sau khi vận động xong hay nói 流一身汗很痛快 (đổ đẫm mồ hôi thật đã).",
+   "mh": "Lưu Hãn → liúhàn. ĐỌC: 'lưu' → liú (thanh 2); 'hãn' → hàn (âm H → h, vần an, thanh 4). NGHĨA: 流 (chảy) + 汗 (mồ hôi, có bộ thủy 氵) → mồ hôi chảy ra = đổ mồ hôi.",
+   "vd": [
+    {
+     "t": "Thể thao",
+     "zh": "跑完五公里以後，我全身都流汗了。",
+     "vn": "Sau khi chạy xong 5 cây số, toàn thân tôi đổ đầy mồ hôi."
+    },
+    {
+     "t": "Mùa hè",
+     "zh": "高雄的夏天這麼熱，才走幾分鐘就會一直流汗。",
+     "vn": "Mùa hè ở Cao Hùng nóng thế này, mới đi bộ vài phút là đã đổ mồ hôi liên tục rồi."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "每天適度運動流汗，對身體健康很有幫助。",
+     "vn": "Mỗi ngày vận động vừa phải cho ra mồ hôi rất có ích cho sức khỏe."
+    }
+   ]
+  },
+  "夢": {
+   "vn": "giấc mơ; mơ; ước mơ",
+   "ng": [
+    "(danh từ) giấc mơ, cơn chiêm bao",
+    "(danh từ) ước mơ, hoài bão (夢想, 美夢)",
+    "(động từ) nằm mơ, mơ thấy (thường dùng 夢到, 夢見, 做夢)"
+   ],
+   "us": "Dùng làm danh từ đi với 做 (做了一個夢 - mơ một giấc mơ, 做惡夢 - gặp ác mộng). Dùng làm động từ phải kết hợp bổ ngữ kết quả 夢到 / 夢見 mới mang được tân ngữ: 我昨天夢到你了 (Hôm qua tớ mơ thấy cậu đấy).",
+   "co": [
+    "做夢|nằm mơ",
+    "夢到|mơ thấy",
+    "惡夢|ác mộng",
+    "夢想|ước mơ"
+   ],
+   "sy": [
+    "夢想|ước mơ, lý tưởng",
+    "做夢|nằm mơ"
+   ],
+   "an": [
+    "現實|hiện thực"
+   ],
+   "lt": "場、個",
+   "mk": "Khi nói 'mơ thấy ai/cái gì', không dùng *夢 + tân ngữ trực tiếp kiểu *我夢他 ❌ mà phải nói 我夢到他了 hoặc 我夢見他了.",
+   "tw": "Ở Đài Loan dùng 做夢 (hoặc 作夢) và 夢到 rất phổ biến trong giao tiếp; kể giấc mơ cho bạn nghe hay nói 我昨天做了一個奇怪的夢.",
+   "mh": "Mộng → mèng. ĐỌC: 'mộng' → mèng (âm M → m, vần eng, thanh 4). NGHĨA: Bên trên có 艹 + 罒 (đôi mắt nhắm lại) + 冖 (trùm kín) + 夕 (ban đêm) → nhắm mắt chìm vào giấc ngủ ban đêm = giấc mơ.",
+   "vd": [
+    {
+     "t": "Giấc ngủ",
+     "zh": "我昨晚睡得不好，做了一個很奇怪的夢。",
+     "vn": "Tối qua tôi ngủ không ngon, đã mơ một giấc mơ rất kỳ lạ."
+    },
+    {
+     "t": "Trò chuyện",
+     "zh": "真巧！我昨天晚上才夢到你，今天就收到你的訊息了。",
+     "vn": "Trùng hợp thật! Tối qua tớ mới mơ thấy cậu xong, hôm nay đã nhận được tin nhắn của cậu rồi."
+    },
+    {
+     "t": "Tương lai",
+     "zh": "每個人心裡都有一個想要實現的夢。",
+     "vn": "Trong lòng mỗi người đều có một giấc mơ muốn thực hiện."
+    }
+   ]
+  },
+  "枕頭": {
+   "vn": "cái gối; gối đầu",
+   "ng": [
+    "(danh từ) cái gối (dùng kê đầu khi ngủ hoặc tựa lưng)"
+   ],
+   "us": "Danh từ chỉ đồ dùng phòng ngủ: 睡枕頭 (gối đầu ngủ), 枕頭套 (vỏ gối), 抱枕 (gối ôm). Lượng từ phổ biến là 個 hoặc 顆.",
+   "co": [
+    "枕頭套|vỏ gối",
+    "抱枕|gối ôm",
+    "記憶枕|gối cao su non nhớ hình",
+    "一個枕頭|một cái gối"
+   ],
+   "lt": "個、顆",
+   "tw": "Tại Đài Loan thường dùng lượng từ 顆 cho gối (這顆枕頭好軟), gọi gối ôm nhỏ trên ghế sô-pha là 抱枕, vỏ gối là 枕頭套. Ngủ sai tư thế bị vẹo cổ gọi là 落枕.",
+   "mh": "Chẩm Đầu → zhěntou (頭 đọc thanh nhẹ). ĐỌC: 'chẩm' → zhěn (âm Ch → zh, vần en, thanh 3); 'đầu' → tou (thanh nhẹ). NGHĨA: 枕 (bộ mộc 木 vì gối xưa làm bằng gỗ + phần chỉ âm) + 頭 (hậu tố danh từ / cái đầu) → vật dùng để kê đầu khi ngủ = cái gối.",
+   "vd": [
+    {
+     "t": "Phòng ngủ",
+     "zh": "這顆枕頭太高了，我睡了一晚覺得脖子很痠。",
+     "vn": "Chiếc gối này cao quá, tôi ngủ một đêm thấy cổ mỏi nhừ."
+    },
+    {
+     "t": "Giặt giũ",
+     "zh": "媽媽每個星期都會把床單和枕頭套拿去洗。",
+     "vn": "Tuần nào mẹ cũng đem ga giường và vỏ gối đi giặt."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "我想買一個比較軟的枕頭，這樣比較好睡。",
+     "vn": "Tôi muốn mua một cái gối mềm hơn một chút, như vậy sẽ dễ ngủ hơn."
+    }
+   ]
+  },
+  "鬧鐘": {
+   "vn": "đồng hồ báo thức",
+   "ng": [
+    "(danh từ) đồng hồ báo thức (đồng hồ để bàn hoặc tính năng báo thức trên điện thoại)"
+   ],
+   "us": "Thường đi với các động từ 設 / 定 (đặt báo thức), 響 (chuông reo), 關掉 / 按掉 (tắt báo thức): 設鬧鐘 (đặt báo thức), 鬧鐘響了 (đồng hồ báo thức reo rồi).",
+   "co": [
+    "設鬧鐘|đặt báo thức",
+    "鬧鐘響了|báo thức reo rồi",
+    "關掉鬧鐘|tắt báo thức",
+    "調鬧鐘|chỉnh báo thức"
+   ],
+   "cf": [
+    "時鐘|時鐘 là đồng hồ treo tường hoặc để bàn xem giờ; 手錶 là đồng hồ đeo tay; còn 鬧鐘 chuyên chỉ đồng hồ báo thức"
+   ],
+   "lt": "個",
+   "mk": "Lưu ý động từ đi với 'chuông báo thức reo' là 響 (鬧鐘響了), không dùng *叫了 hoặc *說了.",
+   "tw": "Ở Đài Loan, khi đặt báo thức trên điện thoại thường nói 設鬧鐘 (hoặc 定鬧鐘); nhấn nút ngủ nướng thêm vài phút gọi là 按貪睡.",
+   "mh": "Náo Chung → nàozhōng. ĐỌC: 'náo' → nào (âm N → n, vần ao, thanh 4); 'chung' → zhōng (âm Ch → zh, vần ong, thanh 1). NGHĨA: 鬧 (ồn ào, chợ 門 + 市) + 鐘 (cái chuông, bộ kim 金 + 童) → cái đồng hồ đánh chuông inh ỏi gọi dậy = đồng hồ báo thức.",
+   "vd": [
+    {
+     "t": "Buổi sáng",
+     "zh": "今天早上鬧鐘響了三次，我還是差點睡過頭。",
+     "vn": "Sáng nay đồng hồ báo thức reo ba lần rồi mà tôi vẫn suýt ngủ quên."
+    },
+    {
+     "t": "Đi tàu",
+     "zh": "明天要早起搭高鐵，睡前別忘了設鬧鐘。",
+     "vn": "Ngày mai phải dậy sớm đi tàu cao tốc, trước khi ngủ đừng quên đặt báo thức nhé."
+    },
+    {
+     "t": "Ký túc xá",
+     "zh": "室友的鬧鐘每天六點就響，吵得大家都醒了。",
+     "vn": "Đồng hồ báo thức của bạn cùng phòng ngày nào 6 giờ cũng reo, ồn đến nỗi ai nấy đều tỉnh giấc."
+    }
+   ]
+  },
+  "拖鞋": {
+   "vn": "dép lê; dép đi trong nhà",
+   "ng": [
+    "(danh từ) dép lê, dép đi trong nhà (dép xỏ không có quai hậu)",
+    "(danh từ) dép kẹp, dép tông (夾腳拖)"
+   ],
+   "us": "Động từ mang dép là 穿 (穿拖鞋 - đi dép lê), cởi dép là 脫 (脫拖鞋), đổi dép đi trong nhà là 換 (換拖鞋). Lượng từ cả đôi là 雙, một chiếc là 隻.",
+   "co": [
+    "穿拖鞋|đi dép lê",
+    "室內拖鞋|dép đi trong nhà",
+    "夾腳拖|dép kẹp, dép tông",
+    "藍白拖|dép lê xanh trắng kiểu Đài Loan"
+   ],
+   "cf": [
+    "涼鞋|涼鞋 là xăng-đan có quai hậu giữ gót; còn 拖鞋 là dép lê xỏ mũi không quai hậu"
+   ],
+   "lt": "雙、隻",
+   "mk": "Đừng viết nhầm động từ 脫 (tuō - cởi) với chữ 拖 (tuō - kéo lê) trong 拖鞋; 'cởi dép' viết là 脫拖鞋.",
+   "tw": "Tại Đài Loan rất nổi tiếng đôi 藍白拖 (dép lê nhựa xanh trắng truyền thống). Khi vào nhà người Đài hoặc một số phòng khám nha khoa, lớp học đều cần 換室內拖鞋 (đổi sang dép đi trong nhà).",
+   "mh": "Tha Hài → tuōxié. ĐỌC: 'tha' → tuō (âm Th → t, vần uo, thanh 1); 'hài' → xié (âm H → x, vần ié, thanh 2). NGHĨA: 拖 (kéo lê, bộ thủ 扌) + 鞋 (giày dép, bộ da 革 + hai chữ 土) → loại dép đi kéo lê gót không có quai = dép lê.",
+   "vd": [
+    {
+     "t": "Thăm nhà",
+     "zh": "進門以後請脫掉鞋子，換穿室內拖鞋。",
+     "vn": "Sau khi vào cửa xin hãy cởi giày ra và đổi sang dép đi trong nhà."
+    },
+    {
+     "t": "Đời sống Đài Loan",
+     "zh": "他常常穿著一雙藍白拖就出門買晚餐了。",
+     "vn": "Anh ấy thường xuyên mang một đôi dép lê xanh trắng rồi ra ngoài mua bữa tối luôn."
+    },
+    {
+     "t": "Phòng tắm",
+     "zh": "浴室的地板很滑，記得穿防滑拖鞋比較安全。",
+     "vn": "Sàn nhà tắm rất trơn, nhớ mang dép chống trượt sẽ an toàn hơn."
+    }
+   ]
+  },
+  "毛巾": {
+   "vn": "khăn mặt; khăn bông",
+   "ng": [
+    "(danh từ) khăn mặt, khăn lau, khăn bông (dệt bằng sợi bông mềm)"
+   ],
+   "us": "Dùng với lượng từ 條 (一條毛巾 - một chiếc khăn mặt). Thường đi với động từ 擦 (lau): 用毛巾擦臉 (dùng khăn lau mặt), 用毛巾擦汗 (dùng khăn lau mồ hôi).",
+   "co": [
+    "一條毛巾|một chiếc khăn mặt",
+    "濕毛巾|khăn ướt",
+    "擦汗的毛巾|khăn lau mồ hôi",
+    "一條大浴巾|một chiếc khăn tắm lớn"
+   ],
+   "cf": [
+    "浴巾|毛巾 là khăn mặt/khăn lau cỡ nhỏ và vừa; khăn tắm khổ lớn quấn người gọi là 浴巾; khăn tay vải mỏng bỏ túi là 手帕"
+   ],
+   "lt": "條",
+   "tw": "Các nhà hàng truyền thống Đài Loan hay phát 濕毛巾 nhỏ để thực khách lau tay; còn nhiều khách sạn Đài Loan hiện theo chính sách bảo vệ môi trường sẽ khuyến khích khách tự mang 毛巾 và bàn chải cá nhân.",
+   "mh": "Mao Cân → máojīn. ĐỌC: 'mao' → máo (âm M → m, vần ao, thanh 2); 'cân' → jīn (âm C → j, vần in, thanh 1). NGHĨA: 毛 (lông, sợi bông) + 巾 (tấm khăn rủ xuống) → tấm khăn có sợi lông bông mềm = khăn mặt, khăn lau.",
+   "vd": [
+    {
+     "t": "Vệ sinh cá nhân",
+     "zh": "我每天早上起床後，都會用毛巾洗臉。",
+     "vn": "Sáng nào sau khi thức dậy tôi cũng dùng khăn mặt để rửa mặt."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "為了環保，很多台灣飯店現在都不主動提供毛巾和牙刷了。",
+     "vn": "Để bảo vệ môi trường, nhiều khách sạn Đài Loan hiện nay không chủ động cung cấp khăn mặt và bàn chải nữa."
+    },
+    {
+     "t": "Thể thao",
+     "zh": "你流了這麼多汗，拿這條乾淨的毛巾擦一下吧。",
+     "vn": "Cậu đổ nhiều mồ hôi thế này, lấy chiếc khăn sạch này lau đi nhé."
+    }
+   ]
+  },
+  "刷(子)/刷": {
+   "vn": "cái bàn chải; chải, đánh (răng); quẹt (thẻ)",
+   "ng": [
+    "(danh từ - 刷子) cái bàn chải, cây cọ (dụng cụ để chà, chải)",
+    "(động từ - 刷) chải, đánh, cọ rửa (刷牙 đánh răng, 刷鞋子 chà giày)",
+    "(động từ - 刷) quẹt thẻ, quét mã (刷卡 quẹt thẻ ngân hàng, 刷悠遊卡 quẹt thẻ xe buýt)",
+    "(động từ - khẩu ngữ) lướt điện thoại/mạng xã hội (刷手機)"
+   ],
+   "us": "Danh từ 刷子 dùng với lượng từ 把 (一把刷子 - một cái bàn chải). Động từ 刷 đặt trước tân ngữ: 刷牙 (đánh răng), 刷卡 (quẹt thẻ), 刷油漆 (quét sơn). Chú ý bàn chải đánh răng gọi là 牙刷, không nói *牙刷子.",
+   "co": [
+    "刷牙|đánh răng",
+    "刷卡|quẹt thẻ",
+    "一把刷子|một cái bàn chải",
+    "刷悠遊卡|quẹt thẻ EasyCard"
+   ],
+   "sy": [
+    "擦|lau, chùi",
+    "洗|rửa"
+   ],
+   "cf": [
+    "牙刷|刷子 là bàn chải nói chung (chà giày, chải quần áo); riêng bàn chải đánh răng phải gọi là 牙刷"
+   ],
+   "lt": "把",
+   "mk": "Người Việt hay dịch chữ 'đánh' sang 打 thành *打牙 ❌; tiếng Hoa chuẩn phải dùng 刷 trong 刷牙.",
+   "tw": "Ở Đài Loan động từ 刷 dùng cực nhiều: đi xe buýt và MRT phải 刷悠遊卡 (quẹt thẻ EasyCard) hoặc 刷一卡通; đi siêu thị mua đồ hay hỏi 可以刷卡嗎？ (Có quẹt thẻ được không?).",
+   "mh": "Xoát (Tử) → shuā(zi) / shuā. ĐỌC: 'xoát' → shuā (âm X → sh, vần ua, thanh 1); 'tử' → zi (thanh nhẹ). NGHĨA: Bộ đao 刂 (dụng cụ cạo/chải) + phần tả hình cái chổi khăn → dụng cụ có lông dùng để chà sạch = bàn chải / chải, quẹt.",
+   "vd": [
+    {
+     "t": "Vệ sinh",
+     "zh": "這把刷子的毛很軟，用來刷白鞋子剛剛好。",
+     "vn": "Cây bàn chải này lông rất mềm, dùng để chà giày trắng vừa khéo luôn."
+    },
+    {
+     "t": "Thói quen",
+     "zh": "醫生說每天吃完飯後最好都要刷牙，才不會蛀牙。",
+     "vn": "Bác sĩ nói mỗi ngày sau khi ăn cơm xong tốt nhất đều nên đánh răng để không bị sâu răng."
+    },
+    {
+     "t": "Thanh toán",
+     "zh": "請問這家店可以用信用卡刷卡嗎？我忘了帶現金。",
+     "vn": "Xin hỏi cửa hàng này có thể quẹt thẻ tín dụng được không? Tôi quên mang tiền mặt rồi."
+    }
+   ]
+  },
+  "肥皂": {
+   "vn": "xà phòng; xà bông cục",
+   "ng": [
+    "(danh từ) xà phòng, xà bông cục (dùng rửa tay, tắm hoặc giặt)"
+   ],
+   "us": "Chỉ xà phòng dạng bánh/cục (khác với nước rửa tay 洗手乳 hay sữa tắm 沐浴乳). Lượng từ thông dụng là 塊 (一塊肥皂 - một cục xà phòng).",
+   "co": [
+    "一塊肥皂|một cục xà phòng",
+    "香皂|xà bông thơm",
+    "肥皂泡泡|bong bóng xà phòng",
+    "洗衣服的肥皂|xà phòng giặt đồ"
+   ],
+   "sy": [
+    "香皂|xà bông thơm"
+   ],
+   "lt": "塊、條",
+   "tw": "Ở Đài Loan, bánh xà bông tắm có mùi thơm hay gọi là 香皂, còn loại thủ công tự nhiên rất được chuộng ở các chợ sáng tạo gọi là 手工皂 (xà phòng handmade).",
+   "mh": "Phì Tạo → féizào. ĐỌC: 'phì' → féi (âm Ph → f, vần ei, thanh 2); 'tạo' → zào (âm T → z, vần ao, thanh 4). NGHĨA: 肥 (chất béo, mỡ) + 皂 (hạt bồ kết đen) → bánh tẩy rửa làm từ dầu mỡ và bồ kết thời xưa = xà phòng.",
+   "vd": [
+    {
+     "t": "Rửa tay",
+     "zh": "吃東西以前，記得要用肥皂把雙手洗乾淨。",
+     "vn": "Trước khi ăn uống, nhớ phải dùng xà phòng rửa sạch hai bàn tay."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "媽媽去大賣場買了兩塊味道很香的肥皂。",
+     "vn": "Mẹ đi siêu thị lớn mua hai cục xà phòng có mùi rất thơm."
+    },
+    {
+     "t": "Giặt giũ",
+     "zh": "領口髒的地方用肥皂搓一搓，很快就洗掉了。",
+     "vn": "Chỗ cổ áo bị bẩn dùng xà phòng vò một chút là rất nhanh đã giặt sạch."
+    }
+   ]
+  },
+  "牙膏": {
+   "vn": "kem đánh răng",
+   "ng": [
+    "(danh từ) kem đánh răng"
+   ],
+   "us": "Lượng từ là 管 hoặc 條 (一條牙膏 / 一管牙膏 - một tuýp kem đánh răng). Động từ nặn kem đánh răng là 擠 (擠牙膏).",
+   "co": [
+    "一條牙膏|một tuýp kem đánh răng",
+    "擠牙膏|nặn kem đánh răng",
+    "美白牙膏|kem đánh răng làm trắng",
+    "兒童牙膏|kem đánh răng trẻ em"
+   ],
+   "lt": "管、條",
+   "mk": "Không dùng lượng từ 個 hay 瓶 cho tuýp kem đánh răng; phải dùng 條 hoặc 管.",
+   "tw": "Trong khẩu ngữ Đài Loan nói 'một tuýp kem đánh răng' rất hay dùng lượng từ 條 (一條牙膏), bên cạnh 管 theo từ điển. Hai nhãn hàng quen thuộc lâu đời ở Đài Loan là 好來 (trước đây gọi là 黑人牙膏) và 白人牙膏.",
+   "mh": "Nha Cao → yágāo. ĐỌC: 'nha' → yá (thanh 2); 'cao' → gāo (âm C → g, vần ao, thanh 1). NGHĨA: 牙 (răng) + 膏 (chất sệt như cao) → chất kem sệt dùng để đánh răng = kem đánh răng.",
+   "vd": [
+    {
+     "t": "Phòng tắm",
+     "zh": "家裡的牙膏快用完了，下班順便去藥妝店買一條。",
+     "vn": "Kem đánh răng ở nhà sắp dùng hết rồi, tan làm tiện đường ghé cửa hàng mỹ phẩm - dược phẩm mua một tuýp nhé."
+    },
+    {
+     "t": "Thói quen",
+     "zh": "弟弟刷牙的時候總是擠太多牙膏。",
+     "vn": "Em trai lúc đánh răng lúc nào cũng nặn quá nhiều kem đánh răng."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這家超市的薄荷牙膏正在買一送一。",
+     "vn": "Kem đánh răng vị bạc hà ở siêu thị này đang khuyến mãi mua một tặng một."
+    }
+   ]
+  },
+  "衛生紙": {
+   "vn": "giấy vệ sinh; khăn giấy rút (Đài Loan)",
+   "ng": [
+    "(danh từ) giấy vệ sinh (cuộn giấy vệ sinh hoặc bịch giấy rút mềm dễ tan trong nước ở Đài Loan)"
+   ],
+   "us": "Lượng từ: 張 (tờ), 包 (bịch), 捲 (cuộn), 串 (lốc nhiều bịch): 一包衛生紙 (một bịch giấy), 一捲衛生紙 (một cuộn giấy), 拿一張衛生紙 (lấy một tờ giấy).",
+   "co": [
+    "一包衛生紙|một bịch giấy vệ sinh/giấy rút",
+    "一捲衛生紙|một cuộn giấy vệ sinh",
+    "一串衛生紙|một lốc giấy vệ sinh",
+    "抽一張衛生紙|rút một tờ giấy"
+   ],
+   "cf": [
+    "面紙|Ở Đài Loan phân biệt rất kỹ: 衛生紙 sợi ngắn dễ tan trong nước nên bỏ được vào bồn cầu; còn 面紙 (khăn giấy lụa bỏ túi) dai và không tan, không được bỏ vào bồn cầu kẻo tắc ống"
+   ],
+   "lt": "包、捲、張、串",
+   "tw": "Ở Đài Loan, 衛生紙 không chỉ là giấy cuộn trong nhà vệ sinh mà còn là bịch 抽取式衛生紙 (giấy rút bọc vuông) đặt khắp bàn ăn và phòng khách. Người Đài đi siêu thị hay mua theo lốc gọi là 一串衛生紙.",
+   "mh": "Vệ Sinh Chỉ → wèishēngzhǐ. ĐỌC: 'vệ' → wèi (thanh 4); 'sinh' → shēng (âm S → sh, thanh 1); 'chỉ' → zhǐ (âm Ch → zh, thanh 3). NGHĨA: 衛生 (giữ gìn sạch sẽ vệ sinh) + 紙 (giấy, bộ mịch 糹 + 氏) → giấy dùng cho việc giữ vệ sinh = giấy vệ sinh.",
+   "vd": [
+    {
+     "t": "Quán ăn",
+     "zh": "不好意思，請問桌子上的衛生紙用完了，可以再給我一包嗎？",
+     "vn": "Xin lỗi, giấy ăn trên bàn hết rồi, có thể cho tôi thêm một bịch không ạ?"
+    },
+    {
+     "t": "Phòng vệ sinh",
+     "zh": "台灣的公共廁所大多會寫「衛生紙請丟馬桶」。",
+     "vn": "Nhà vệ sinh công cộng ở Đài Loan đa số đều ghi 'Giấy vệ sinh xin hãy bỏ vào bồn cầu'."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這串衛生紙共有十二包，特價只要兩百塊。",
+     "vn": "Lốc giấy vệ sinh này có tổng cộng 12 bịch, giá khuyến mãi chỉ có 200 tệ thôi."
+    }
+   ]
+  },
+  "籃(子)": {
+   "vn": "cái giỏ; cái rổ; cái sọt",
+   "ng": [
+    "(danh từ - 籃子) cái giỏ, cái rổ, cái sọt đan (đựng đồ, rau quả, quần áo)",
+    "(danh từ - 籃) giỏ chuyên dụng (khi ghép từ: 購物籃 giỏ mua hàng, 洗衣籃 sọt đựng đồ giặt) hoặc rổ bóng rổ (籃球)"
+   ],
+   "us": "Đứng một mình dùng 籃子 (提著籃子 - xách giỏ). Khi ghép sau danh từ chỉ công dụng thì bỏ 子 chỉ dùng 籃: 購物籃 (giỏ xách siêu thị), 洗衣籃 (sọt đựng quần áo bẩn), 菜籃 (giỏ đi chợ), 花籃 (lẵng hoa).",
+   "co": [
+    "洗衣籃|giỏ đựng đồ giặt",
+    "購物籃|giỏ mua hàng siêu thị",
+    "竹籃子|giỏ tre",
+    "菜籃|giỏ đi chợ"
+   ],
+   "sy": [
+    "筐|cái sọt, cái rổ lớn"
+   ],
+   "lt": "隻、個",
+   "mk": "Đừng viết nhầm chữ 籃 (bộ trúc 竹 - cái giỏ đan) với chữ 藍 (bộ thảo 艹 - màu xanh dương).",
+   "tw": "Ở các siêu thị Đài Loan như 全聯 hay 家樂福, giỏ xách tay đặt ở lối vào gọi là 購物籃; giỏ gắn phía trước xe đạp hay xe máy đi chợ gọi là 菜籃.",
+   "mh": "Lam (Tử) → lán(zi). ĐỌC: 'lam' → lán (âm L + vần an, thanh 2); 'tử' → zi (thanh nhẹ). NGHĨA: Bộ trúc 竹 (cây tre) ở trên + 監 (ghép âm) → vật đan bằng nan tre để đựng đồ = cái giỏ, cái sọt.",
+   "vd": [
+    {
+     "t": "Việc nhà",
+     "zh": "換下來的髒衣服，記得先放進洗衣籃裡。",
+     "vn": "Quần áo bẩn thay ra nhớ bỏ vào giỏ đựng đồ giặt trước nhé."
+    },
+    {
+     "t": "Đi chợ",
+     "zh": "奶奶手裡提著一個裝滿青菜和水果的籃子。",
+     "vn": "Trong tay bà nội xách một cái giỏ đầy ắp rau xanh và trái cây."
+    },
+    {
+     "t": "Siêu thị",
+     "zh": "我只是要買幾樣東西，拿個購物籃就夠了。",
+     "vn": "Tôi chỉ định mua vài món thôi, lấy một cái giỏ mua hàng là đủ rồi."
+    }
+   ]
+  },
+  "假日": {
+   "vn": "ngày nghỉ; ngày lễ cuối tuần",
+   "ng": [
+    "(danh từ) ngày nghỉ (cuối tuần thứ Bảy, Chủ nhật hoặc ngày lễ)"
+   ],
+   "us": "Dùng như danh từ thời gian đứng trước động từ: 假日去郊外玩 (ngày nghỉ đi ngoại ô chơi), 假日人很多 (ngày nghỉ rất đông người), 國定假日 (ngày lễ quốc gia), 連續假日 / 連假 (kỳ nghỉ dài nhiều ngày).",
+   "co": [
+    "國定假日|ngày lễ quốc gia",
+    "連續假日|kỳ nghỉ lễ dài ngày",
+    "假日市集|chợ phiên cuối tuần",
+    "假日時間|thời gian ngày nghỉ"
+   ],
+   "sy": [
+    "假期|kỳ nghỉ",
+    "週末|cuối tuần"
+   ],
+   "an": [
+    "平日|ngày thường (thứ Hai đến thứ Sáu)",
+    "工作日|ngày làm việc"
+   ],
+   "cf": [
+    "假期|假日 nhấn mạnh các ngày nghỉ cuối tuần hoặc ngày lễ (đối lập với 平日 ngày thường); 假期 chỉ cả một đợt nghỉ dài ngày (như 暑假 kỳ nghỉ hè)"
+   ],
+   "lt": "Không dùng lượng từ 個 trực tiếp trước 假日 khi nói chung chung.",
+   "tw": "Tại Đài Loan, các nhà hàng buffet, khách sạn và khu vui chơi đều chia hai bảng giá rõ rệt là 平日 (thứ Hai–thứ Sáu) và 假日 (thứ Bảy–Chủ nhật và lễ) — ngày 假日 thường đắt hơn và phải đặt chỗ sớm.",
+   "mh": "Giả Nhật → jiàrì. ĐỌC: 'giả' → jià (âm Gi → j, vần ia, thanh 4 khi nghĩa là nghỉ phép; đọc jiǎ khi nghĩa là giả tạo); 'nhật' → rì (âm Nh → r, thanh 4). NGHĨA: 假 (ngày phép, nghỉ ngơi) + 日 (ngày) → ngày được nghỉ làm, nghỉ học = ngày nghỉ.",
+   "vd": [
+    {
+     "t": "Cuối tuần",
+     "zh": "這家有名的早午餐店假日人太多，要等很久才有位子。",
+     "vn": "Quán brunch nổi tiếng này ngày nghỉ đông người quá, phải đợi rất lâu mới có chỗ ngồi."
+    },
+    {
+     "t": "Giá cả",
+     "zh": "那間餐廳平日和假日的收費不一樣，我們週五去比較划算。",
+     "vn": "Nhà hàng đó ngày thường và ngày nghỉ tính giá khác nhau, chúng ta đi thứ Sáu sẽ hời hơn."
+    },
+    {
+     "t": "Nghỉ lễ",
+     "zh": "國定假日的時候，很多台灣人會帶全家去露營。",
+     "vn": "Vào các ngày lễ quốc gia, nhiều người Đài Loan hay đưa cả nhà đi cắm trại."
+    }
+   ]
+  },
+  "結束": {
+   "vn": "kết thúc; chấm dứt; khép lại",
+   "ng": [
+    "(động từ) kết thúc, chấm dứt, khép lại (một sự kiện, cuộc họp, khóa học, giai đoạn)"
+   ],
+   "us": "Dùng như nội động từ (會議結束了 - cuộc họp kết thúc rồi, 活動結束 - hoạt động kết thúc) hoặc ngoại động từ (結束這段關係 - kết thúc mối quan hệ này, 結束營業 - ngừng kinh doanh).",
+   "co": [
+    "會議結束|cuộc họp kết thúc",
+    "結束營業|ngừng kinh doanh",
+    "活動結束|hoạt động kết thúc",
+    "學期結束|kết thúc học kỳ"
+   ],
+   "sy": [
+    "完|xong, hết",
+    "完成|hoàn thành",
+    "終止|chấm dứt"
+   ],
+   "an": [
+    "開始|bắt đầu"
+   ],
+   "cf": [
+    "完|完 thường làm bổ ngữ kết quả ngay sau động từ khác (吃完 ăn hết, 做完 làm xong); còn 結束 là động từ chính chỉ sự kiện, công việc, thời gian khép lại (學期結束)"
+   ],
+   "lt": "Không đặt 結束 làm bổ ngữ kết quả sau động từ khác; không nói *吃結束 ❌.",
+   "mk": "Người Việt hay ghép 結束 sau động từ hành động (*我寫結束功課了 ❌); phải dùng 完 (寫完功課了).",
+   "tw": "Đi ngang các tiệm ăn Đài Loan sắp đóng cửa vĩnh viễn hay thấy treo biển 結束營業 (ngừng kinh doanh), hoặc báo giờ cửa hàng ghi 營業時間已結束 (đã hết giờ phục vụ).",
+   "mh": "Kết Thúc → jiéshù. ĐỌC: 'kết' → jié (âm K → j, vần ié, thanh 2); 'thúc' → shù (âm Th → sh, vần u, thanh 4). NGHĨA: 結 (thắt nút lại, bộ mịch 糹 + 吉) + 束 (bó gọn lại) → buộc chặt và bó gọn mọi việc lại = kết thúc.",
+   "vd": [
+    {
+     "t": "Học tập",
+     "zh": "這學期的中文課下週就要結束了，真捨不得大家。",
+     "vn": "Khóa tiếng Hoa học kỳ này tuần sau là kết thúc rồi, thật không nỡ xa mọi người."
+    },
+    {
+     "t": "Công việc",
+     "zh": "今天的工作全部結束了，我可以準時下班回家。",
+     "vn": "Công việc hôm nay đã kết thúc toàn bộ, tôi có thể tan làm về nhà đúng giờ rồi."
+    },
+    {
+     "t": "Cửa hàng",
+     "zh": "這間老麵包店因為老闆要退休，月底就要結束營業了。",
+     "vn": "Tiệm bánh mì lâu năm này vì ông chủ sắp nghỉ hưu nên cuối tháng sẽ ngừng kinh doanh."
+    }
+   ]
+  },
+  "完": {
+   "vn": "xong; hết; hoàn thành; trọn vẹn",
+   "ng": [
+    "(động từ) xong, hết, kết thúc (事情還沒完 - chuyện vẫn chưa xong đâu)",
+    "(bổ ngữ kết quả) làm xong, làm hết sạch (đặt ngay sau động từ: 吃完 ăn hết, 做完 làm xong)",
+    "(tính từ/tiền tố) hoàn chỉnh, trọn vẹn (完全 hoàn toàn, 完美 hoàn hảo)"
+   ],
+   "us": "Dùng phổ biến nhất làm bổ ngữ kết quả: Động từ + 完 (+ Tân ngữ) để diễn tả hành động đã hoàn tất hoặc hết sạch (寫完功課, 用完了). Dạng khả năng: V + 得完 / 不完 (làm hết nổi không: 吃不完 ăn không hết).",
+   "co": [
+    "做完|làm xong",
+    "吃完|ăn hết, ăn xong",
+    "用完|dùng hết",
+    "賣完了|bán hết rồi"
+   ],
+   "sy": [
+    "結束|kết thúc",
+    "完成|hoàn thành",
+    "光|hết sạch (吃光)"
+   ],
+   "an": [
+    "開始|bắt đầu",
+    "剩|còn thừa"
+   ],
+   "cf": [
+    "好|V + 完 nhấn mạnh đã làm xong hoặc hết sạch (吃完了 ăn hết rồi); V + 好 nhấn mạnh hoàn thành đạt trạng thái sẵn sàng (飯做好了 cơm nấu xong rồi)"
+   ],
+   "lt": "Khi là bổ ngữ kết quả, 完 luôn đứng NGAY SAU động từ và TRƯỚC tân ngữ (我看完了這本書).",
+   "mk": "Người Việt hay theo thói quen đặt 完 ở cuối câu sau tân ngữ (*我看這本書完了 ❌); câu đúng phải là 我看完這本書了.",
+   "tw": "Ở các tiệm ăn, tiệm trà sữa Đài Loan khi hết hàng nhân viên sẽ nói 賣完了 hoặc treo bảng 今日已售完 (hôm nay đã bán hết).",
+   "mh": "Hoàn → wán. ĐỌC: 'hoàn' → wán (vần uan đứng đầu đổi thành wán, thanh 2). NGHĨA: Bộ miên 宀 (mái nhà) + 元 (nguyên vẹn) → giữ mọi thứ nguyên vẹn dưới mái nhà = hoàn thành, xong xuôi.",
+   "vd": [
+    {
+     "t": "Học tập",
+     "zh": "我寫完作業以後，就可以看電視休息了。",
+     "vn": "Sau khi tôi làm xong bài tập về nhà thì có thể xem ti-vi nghỉ ngơi rồi."
+    },
+    {
+     "t": "Ăn uống",
+     "zh": "這份便當分量太大了，我一個人根本吃不完。",
+     "vn": "Phần cơm hộp này nhiều quá cỡ, một mình tôi ăn không tài nào hết nổi."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "抱歉，今天的珍珠奶茶已經賣完了，明天請早點來。",
+     "vn": "Xin lỗi, trà sữa trân châu hôm nay đã bán hết rồi, ngày mai xin mời đến sớm hơn nhé."
+    }
+   ]
+  },
+  "散步": {
+   "vn": "đi dạo; dạo bộ; tản bộ",
+   "ng": [
+    "(động từ ly hợp) đi dạo, tản bộ (đi chậm rãi thư giãn)"
+   ],
+   "us": "Là động từ ly hợp (V-sep), có thể lặp lại kiểu ABAB nhẹ nhàng 散散步 (đi dạo một chút) hoặc chèn thời lượng vào giữa: 散了一會兒步 (đi dạo một lát). Địa điểm đặt trước động từ với 在 hoặc 去: 在公園散步.",
+   "co": [
+    "去散步|đi dạo",
+    "飯後散步|đi dạo sau bữa ăn",
+    "散散步|đi dạo một chút",
+    "在公園散步|đi dạo trong công viên"
+   ],
+   "sy": [
+    "逛街|đi dạo phố mua sắm"
+   ],
+   "an": [
+    "跑步|chạy bộ",
+    "快走|đi bộ nhanh"
+   ],
+   "cf": [
+    "走路|走路 là 'đi bộ' để di chuyển tới nơi nào đó (走路去學校); còn 散步 là 'đi dạo' thong thả để thư giãn"
+   ],
+   "lt": "Động từ ly hợp (V-sep): không đặt tân ngữ địa điểm ở sau (*散步公園 ❌), mà phải nói 在公園散步.",
+   "mk": "Không đặt địa điểm sau 散步 (*散步河邊 ❌) và không nói *散步一下; muốn nói 'đi dạo một chút' hãy dùng 散散步.",
+   "tw": "Buổi chiều tối người Đài Loan rất hay đi 散步 tại các 河濱公園 (công viên ven sông) hoặc 步道 (lối đi bộ), nhiều gia đình còn dắt thú cưng đi 散步 cùng.",
+   "mh": "Tán Bộ → sànbù. ĐỌC: 'tán' → sàn (âm T → s, vần an, thanh 4); 'bộ' → bù (âm B → b, vần u, thanh 4). NGHĨA: 散 (tản ra, thư thả) + 步 (bước chân) → bước chân thong thả đi đây đó = đi dạo, tản bộ.",
+   "vd": [
+    {
+     "t": "Buổi tối",
+     "zh": "吃飽飯以後，我喜歡跟家人在附近的公園散步。",
+     "vn": "Sau khi ăn no, tôi thích cùng người nhà đi dạo ở công viên gần nhà."
+    },
+    {
+     "t": "Thư giãn",
+     "zh": "一直坐在電腦前面太累了，我們出去散散步吧！",
+     "vn": "Ngồi mãi trước máy tính mệt quá, chúng ta ra ngoài đi dạo một chút đi!"
+    },
+    {
+     "t": "Thú cưng",
+     "zh": "每天傍晚，哥哥都會牽著小狗去河邊散步。",
+     "vn": "Chiều tối nào anh trai cũng dắt chú cún nhỏ ra bờ sông đi dạo."
+    }
+   ]
+  }
+ }
+}

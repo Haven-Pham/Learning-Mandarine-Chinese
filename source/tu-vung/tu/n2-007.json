@@ -1,0 +1,12 @@
+{"tu": {
+"有點/有一點/有一點兒": {"vn": "hơi; có chút; một chút", "ng": ["(phó từ) hơi, có chút (đứng trước tính từ hoặc động từ tâm lý, thường mang sắc thái chưa vừa ý)", "(động từ + danh từ) có một chút (有(一)點 + danh từ: có chút thời gian, có chút vấn đề)"],
+ "us": "Đặt TRƯỚC tính từ/động từ tâm lý: 有(一)點 + 貴/累/擔心 (hơi đắt/mệt/lo). Phủ định đặt sau: 有點不舒服 (hơi khó chịu). Cũng dùng 有(一)點 + danh từ: 有一點時間 (có chút thời gian).", "co": ["有點累|hơi mệt", "有點貴|hơi đắt", "有點緊張|hơi hồi hộp", "有一點時間|có chút thời gian"],
+ "sy": ["稍微|hơi, một chút", "有些|hơi, có chút"], "cf": ["一點|「tính từ + 一點」 đặt SAU để so sánh hoặc đề nghị (貴一點 = đắt hơn chút, 慢一點 = chậm lại chút); còn 有點 đặt TRƯỚC tính từ (有點貴 = hơi đắt)", "有些|đồng nghĩa nhưng 有些 thiên về văn viết hơn, khẩu ngữ dùng 有點/有一點"],
+ "mh": "Hữu (Nhất) Điểm (Nhi) → yǒu diǎn / yǒu yī diǎn / yǒu yī diǎnr. ĐỌC: 'hữu' → yǒu (trong 有點 đọc nối thành thanh 2 yóudiǎn vì hai thanh 3 đi liền); 'nhất' → yī (đọc biến thanh yì trước 點); 'điểm' → diǎn (thanh 3); 'nhi' thêm âm uốn lưỡi -r. NGHĨA: 有 có + 一點 một chút (bộ 黑 đen + 占 = một chấm nhỏ) → 'có một chấm nhỏ' = hơi, một chút.",
+ "lt": "Không đặt 有點 sau tính từ và không dùng với phó từ 很 (*很有一點). Đừng nhầm với 「tính từ + 一點」 (貴一點 = đắt hơn chút).",
+ "mk": "Người Việt hay dịch 'một chút' rồi đặt 有點 ra sau tính từ (*貴有點 ❌, phải nói 有點貴 hoặc 貴一點), hoặc dùng để khen điều tích cực (*今天有點漂亮 ❌).",
+ "tw": "Người Đài chủ yếu nói 有點 hoặc 有一點, hầu như không uốn lưỡi thành 有一點兒 (chủ yếu gặp ở giọng đại lục). Khẩu ngữ hay thêm 喔/啦: 有點貴喔！",
+ "vd": [{"t": "Thời tiết", "zh": "今天天氣有點冷，出門記得穿外套。", "vn": "Hôm nay trời hơi lạnh, ra ngoài nhớ mặc áo khoác."},
+  {"t": "Mua sắm", "zh": "這雙鞋子有一點小，請問有大一號的嗎？", "vn": "Đôi giày này hơi nhỏ, xin hỏi có cỡ lớn hơn một số không?"},
+  {"t": "Thi cử", "zh": "明天要考試了，我現在有一點兒緊張。", "vn": "Mai phải thi rồi, bây giờ tôi hơi hồi hộp một chút."}]}
+}}

@@ -1,0 +1,1359 @@
+{
+ "tu": {
+  "男": {
+   "vn": "nam; đàn ông; con trai (giới tính)",
+   "ng": [
+    "(danh từ / định ngữ) giới tính nam, đàn ông, con trai (đứng trước danh từ: 男老師 thầy giáo nam, 男生 bạn nam)",
+    "(danh từ) con trai (trong cặp 男女 nam nữ)"
+   ],
+   "us": "Thường ghép với danh từ chỉ người để phân biệt giới tính: 男生 (bạn nam/nam sinh), 男人 (đàn ông), 男朋友 (bạn trai), 男同學 (bạn học nam), 男廁 (nhà vệ sinh nam). Khi tự giới thiệu hay nói 我是男的.",
+   "co": [
+    "男生|con trai / bạn nam",
+    "男朋友|bạn trai",
+    "男人|đàn ông",
+    "男女|nam nữ"
+   ],
+   "sy": [
+    "男人|đàn ông",
+    "男生|bạn nam"
+   ],
+   "an": [
+    "女|nữ, con gái"
+   ],
+   "cf": [
+    "男生 vs 男人|Ở Đài Loan nói 女生/男生 rất phổ biến cho cả người lớn dưới 40–50 tuổi (chỉ bạn nam/bạn nữ); 男人 mang sắc thái trưởng thành, chững chạc hơn"
+   ],
+   "lt": "Thường không đứng một mình làm chủ ngữ chỉ người, phải ghép thành 男生/男人/男的.",
+   "mk": "Người Việt hay gọi đàn ông trưởng thành bằng 男 không ghép (*這個男 ❌, phải nói 這個男生 hoặc 這個男人).",
+   "tw": "Trong biển hiệu công cộng Đài Loan ghi 男廁 (WC nam), 男賓 (khách nam); giao tiếp hằng ngày dùng 男生 nhiều hơn 男人.",
+   "mh": "Nam → nán. ĐỌC: âm Hán Việt 'nam' giữ nguyên phụ âm đầu n- và vần -án thanh 2 (nán, không có âm cuối -m trong Quan thoại nên -am → -an). NGHĨA: trên 田 (ruộng đồng) + dưới 力 (sức lực) → người dùng sức cày ruộng ngày xưa = đàn ông, nam giới.",
+   "vd": [
+    {
+     "t": "Lớp học",
+     "zh": "我們班有十個男生和十二個女生。",
+     "vn": "Lớp chúng tôi có mười bạn nam và mười hai bạn nữ."
+    },
+    {
+     "t": "Giới thiệu",
+     "zh": "他是我新交的男朋友，人很好。",
+     "vn": "Anh ấy là bạn trai tôi mới quen, tính tình rất tốt."
+    },
+    {
+     "t": "Trung tâm",
+     "zh": "請問男廁所在電梯旁邊嗎？",
+     "vn": "Xin hỏi nhà vệ sinh nam ở bên cạnh thang máy phải không?"
+    }
+   ]
+  },
+  "女": {
+   "vn": "nữ; phụ nữ; con gái (giới tính)",
+   "ng": [
+    "(danh từ / định ngữ) giới tính nữ, phụ nữ, con gái (女生 bạn nữ, 女醫生 bác sĩ nữ, 女兒 con gái)",
+    "(danh từ) con gái (trong cặp 男女 nam nữ, 獨生女 con gái một)"
+   ],
+   "us": "Ghép trước danh từ chỉ người hoặc vật để chỉ nữ giới: 女生 (bạn nữ), 女人 (phụ nữ), 女朋友 (bạn gái), 女生宿舍 (ký túc xá nữ). Nói về giới tính dùng 我是女的 hoặc 女性.",
+   "co": [
+    "女生|con gái / bạn nữ",
+    "女朋友|bạn gái",
+    "女人|phụ nữ",
+    "女性|nữ giới (trang trọng)"
+   ],
+   "sy": [
+    "女生|bạn nữ",
+    "女人|phụ nữ"
+   ],
+   "an": [
+    "男|nam, đàn ông"
+   ],
+   "cf": [
+    "女生 vs 女兒|女生 chỉ bạn nữ/phụ nữ nói chung; 女兒 mới là 'con gái' (quan hệ ruột thịt với cha mẹ)"
+   ],
+   "lt": "Chữ 妳 cũng phát âm nǚ nhưng là đại từ ngôi thứ hai 'bạn (nữ)', còn 女 là giới tính nữ.",
+   "mk": "Phát âm hay nhầm vần ü (nǚ) thành u (nǔ 努力 = nỗ lực); phải tròn môi khi đọc nǚ.",
+   "tw": "Ở Đài Loan gọi lịch sự từ thiếu nữ đến phụ nữ trẻ là 女生 hoặc 小姐, rất ít dùng cụm từ phân biệt tuổi tác; chữ đại từ 'bạn (nữ)' viết rõ là 妳.",
+   "mh": "Nữ → nǚ. ĐỌC: phụ âm đầu n- giữ nguyên; vần -ữ tiếng Việt tương ứng với âm tròn môi -ǚ (hai chấm trên u) thanh 3 trong pinyin (nǚ). NGHĨA: hình tượng người phụ nữ quỳ chắp tay dịu dàng; là bộ 女 (bộ Nữ) đứng trong hàng trăm chữ liên quan đến phụ nữ và họ tộc (媽, 姐, 妹, 姓, 好).",
+   "vd": [
+    {
+     "t": "Nhà hàng",
+     "zh": "那家餐廳的女服務生非常親切。",
+     "vn": "Nhân viên phục vụ nữ ở nhà hàng đó rất thân thiện."
+    },
+    {
+     "t": "Công việc",
+     "zh": "我們公司有很多女工程師。",
+     "vn": "Công ty chúng tôi có rất nhiều kỹ sư nữ."
+    },
+    {
+     "t": "Biển báo",
+     "zh": "這棟大樓一樓只有男廁，女廁在二樓。",
+     "vn": "Tầng một tòa nhà này chỉ có WC nam, WC nữ ở tầng hai."
+    }
+   ]
+  },
+  "孩子": {
+   "vn": "trẻ con; con cái; đứa trẻ",
+   "ng": [
+    "(danh từ) trẻ em, trẻ con (nói chung)",
+    "(danh từ) con cái (của cha mẹ: 我的孩子 con của tôi)"
+   ],
+   "us": "Dùng cho cả nghĩa 'trẻ em nói chung' và 'con cái trong nhà' (不 phân biệt con trai hay con gái). Lượng từ là 個/位. Khi nhấn mạnh tuổi nhỏ hay thêm 小 thành 小孩子 / 小孩.",
+   "co": [
+    "小孩子|trẻ con, em bé",
+    "兩個孩子|hai đứa con",
+    "帶孩子|trông con, dẫn con đi chơi",
+    "生孩子|sinh con"
+   ],
+   "sy": [
+    "小孩|trẻ con, con cái",
+    "小朋友|các bé, trẻ nhỏ"
+   ],
+   "an": [
+    "大人|người lớn"
+   ],
+   "cf": [
+    "孩子 vs 小朋友|孩子 dùng cả cho 'con cái mình' (dù đã lớn vẫn gọi 孩子); 小朋友 ở Đài Loan dùng để gọi trực tiếp các bé tiểu học/mầm non rất thân mật"
+   ],
+   "lt": "個、位 (hai người con: 兩個孩子).",
+   "mk": "Đừng gọi thầy/người lớn gọi con của bạn bè trưởng thành bằng 小朋友; với con cái nói chung dùng 孩子.",
+   "tw": "Ở Đài Loan giáo viên, MC, người bán hàng rất hay gọi trẻ nhỏ trực tiếp là 小朋友; khi nói về con cái mình với đồng nghiệp hay dùng 小孩 hoặc 孩子.",
+   "mh": "Hài Tử → háizi. ĐỌC: 'hài' đổi âm đầu thành h- + vần -ai thanh 2 → hái; 'tử' → zǐ, đứng sau làm hậu tố đọc thanh nhẹ zi. NGHĨA: 孩 (bộ 子 đứa trẻ + 亥) là hài nhi + 子 hậu tố danh từ → đứa trẻ, con cái.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "姊姊結婚以後生了兩個孩子，都很可愛。",
+     "vn": "Sau khi chị gái kết hôn đã sinh hai đứa con, đều rất đáng yêu."
+    },
+    {
+     "t": "Giáo dục",
+     "zh": "父母工作再忙，也要抽空陪孩子聊天。",
+     "vn": "Cha mẹ dù bận việc mấy cũng nên dành thời gian trò chuyện với con."
+    },
+    {
+     "t": "Công viên",
+     "zh": "週末公園裡有很多孩子在跑來跑去。",
+     "vn": "Cuối tuần trong công viên có rất nhiều trẻ em chạy nhảy khắp nơi."
+    }
+   ]
+  },
+  "小姐": {
+   "vn": "cô; tiểu thư; chị/em (xưng hô lịch sự)",
+   "ng": [
+    "(danh từ) cách gọi lịch sự phụ nữ trẻ hoặc phụ nữ chưa chồng (gắn sau họ: 陳小姐 cô Trần)",
+    "(danh từ) cách gọi lịch sự nữ nhân viên phục vụ, lễ tân, bán hàng (小姐，請問...)"
+   ],
+   "us": "Cấu trúc xưng hô chuẩn: Họ + 小姐 (林小姐 cô Lâm, 王小姐 cô Vương) hoặc gọi trực tiếp 小姐 để nhờ hỗ trợ ở cửa hàng, ngân hàng, nhà hàng.",
+   "co": [
+    "陳小姐|cô Trần",
+    "這位小姐|cô/chị này",
+    "櫃檯小姐|cô nhân viên quầy lễ tân",
+    "小姐，不好意思|chị/em ơi, xin lỗi nhờ chút ạ"
+   ],
+   "sy": [
+    "女士|bà, quý cô (trang trọng trên giấy tờ)"
+   ],
+   "an": [
+    "先生|ông, anh, ngài"
+   ],
+   "cf": [
+    "小姐 vs 女士|小姐 dùng tự nhiên trong giao tiếp, công sở, dịch vụ ở Đài Loan; 女士 mang tính văn bản, thư từ trang trọng"
+   ],
+   "lt": "位 (這位小姐 vị tiểu thư/cô này).",
+   "mk": "Nhiều người học sợ từ 小姐 mang nghĩa xấu; thực tế TẠI ĐÀI LOAN đây vẫn là cách gọi hoàn toàn lịch sự và chuẩn mực nhất!",
+   "tw": "Khác với một số vùng Đại Lục (nơi hay tránh gọi trực tiếp 小姐 và đổi sang 美女/服務員), ở Đài Loan gọi 小姐 ở quán ăn, quầy vé, công ty là hoàn toàn lịch sự, chuẩn mực!",
+   "mh": "Tiểu Tỷ → xiǎojiě. ĐỌC: 'tiểu' → xiǎo (t- biến âm thành x- + iao thanh 3); 'tỷ' → jiě (thanh 3, khi hai thanh 3 đi liền 小 đọc thành thanh 2 xiáojiě). NGHĨA: 小 nhỏ + 姐 chị gái (bộ 女 nữ + 且) → người chị/cô gái trẻ nhỏ tuổi hơn = cô, tiểu thư.",
+   "vd": [
+    {
+     "t": "Công sở",
+     "zh": "請問張小姐今天有來上班嗎？",
+     "vn": "Xin hỏi cô Trương hôm nay có đi làm không ạ?"
+    },
+    {
+     "t": "Nhà hàng",
+     "zh": "小姐，不好意思，可以幫我加一點水嗎？",
+     "vn": "Chị ơi xin lỗi, có thể châm thêm giúp tôi chút nước không ạ?"
+    },
+    {
+     "t": "Ngân hàng",
+     "zh": "櫃檯小姐很有耐心地教我怎麼填表格。",
+     "vn": "Cô nhân viên quầy giao dịch rất kiên nhẫn chỉ tôi cách điền mẫu đơn."
+    }
+   ]
+  },
+  "先生": {
+   "vn": "ông; anh; ngài; chồng",
+   "ng": [
+    "(danh từ) cách xưng hô lịch sự với nam giới (Họ + 先生: 李先生 ông Lý/anh Lý, hoặc gọi chung 先生)",
+    "(danh từ) chồng, ông xã (nói lịch sự: 我先生 chồng tôi, 你先生 chồng chị)"
+   ],
+   "us": "Đặt sau họ: 林先生 (ông/anh Lâm), hoặc đứng một mình gọi khách hàng nam: 先生，您的咖啡好了。Khi nói về chồng ở Đài Loan, 我先生 tự nhiên và phổ biến hơn 我老公 trong bối cảnh giao tiếp xã hội/công việc.",
+   "co": [
+    "林先生|ông/anh Lâm",
+    "我先生|chồng tôi",
+    "這位先生|vị quý ông/anh này",
+    "先生，請問|anh ơi, xin hỏi"
+   ],
+   "sy": [
+    "老公|chồng (thân mật)",
+    "丈夫|chồng (trang trọng/văn viết)"
+   ],
+   "an": [
+    "小姐|cô, chị",
+    "太太|bà, vợ"
+   ],
+   "cf": [
+    "先生 vs 老師|Ngày xưa 先生 cũng có nghĩa là 'thầy giáo/bác sĩ' (tiếng Nhật sensei, tiếng Đài sian-siⁿ), nhưng trong Quan thoại Đài Loan hiện đại thầy giáo nói 老師, còn 先生 chủ yếu nghĩa là 'ông/anh' hoặc 'chồng'"
+   ],
+   "lt": "位 (這位先生 vị tiên sinh này). Âm 生 khi ghép sau xưng hô đọc thanh nhẹ: xiānsheng.",
+   "mk": "Đừng gọi giáo viên bằng *王先生 (thầy Vương) ở trường học hiện đại tại Đài Loan; phải gọi 王老師 (nếu gọi 王先生 người nghe hiểu là ông Vương bên ngoài hoặc chồng!).",
+   "tw": "Người Đài Loan dùng 我先生 / 你先生 rất nhiều để nhắc đến người chồng một cách lịch sự ở công ty hay khi nói chuyện với người mới quen.",
+   "mh": "Tiên Sinh → xiānsheng. ĐỌC: 'tiên' → xiān (t- thành x- + ian thanh 1); 'sinh' → shēng (đọc thanh nhẹ sheng ở cuối từ xưng hô). NGHĨA: 先 trước + 生 sinh ra → người sinh ra trước/bậc tiền bối đáng kính → mở rộng thành ngài, ông, chồng.",
+   "vd": [
+    {
+     "t": "Khách sạn",
+     "zh": "陳先生，這是您的房卡，請收好。",
+     "vn": "Thưa ông Trần, đây là thẻ phòng của ông, xin giữ cẩn thận."
+    },
+    {
+     "t": "Trò chuyện",
+     "zh": "週末我常跟我先生一起去爬山。",
+     "vn": "Cuối tuần tôi thường cùng chồng đi leo núi."
+    },
+    {
+     "t": "Cửa hàng",
+     "zh": "先生，您需要袋子嗎？",
+     "vn": "Anh ơi, anh có cần túi đựng không ạ?"
+    }
+   ]
+  },
+  "太太": {
+   "vn": "bà; phu nhân; vợ",
+   "ng": [
+    "(danh từ) cách gọi lịch sự phụ nữ đã có gia đình (Họ chồng/Họ + 太太: 王太太 bà Vương)",
+    "(danh từ) vợ, bà xã (我太太 vợ tôi, 你太太 vợ anh)"
+   ],
+   "us": "Gọi trực tiếp phụ nữ trung niên/đã kết hôn bằng Họ + 太太 (陳太太), hoặc giới thiệu người bạn đời nữ: 這是我太太 (Đây là vợ tôi). Khi khen/gọi trang trọng có thể dùng 夫人.",
+   "co": [
+    "我太太|vợ tôi",
+    "王太太|bà Vương",
+    "家庭主婦/家庭太太|nội trợ",
+    "少奶奶/太太|bà chủ, phu nhân"
+   ],
+   "sy": [
+    "老婆|vợ (thân mật)",
+    "妻子|vợ (văn viết)"
+   ],
+   "an": [
+    "先生|chồng, ông"
+   ],
+   "cf": [
+    "太太 vs 老婆|Ở Đài Loan nói với sếp, đồng nghiệp hay người lạ dùng 我太太 rất lịch sự; nói thân mật với bạn bè hoặc gọi trực tiếp có thể dùng 老婆"
+   ],
+   "lt": "位 (那位太太 vị bà kia). Chữ 太 thứ hai đọc thanh nhẹ: tàitai.",
+   "mk": "Tránh gọi bừa phụ nữ trẻ chưa rõ đã kết hôn hay chưa là 太太 ở Đài Loan — nếu không chắc hãy gọi 小姐!",
+   "tw": "Ở Đài Loan cặp xưng hô lịch sự ngoài xã hội và trong gia đình là 先生 (chồng) — 太太 (vợ).",
+   "mh": "Thái Thái → tàitai. ĐỌC: 'thái' → tài (th- → t-, -ai giữ nguyên, thanh 4); lặp lại chữ sau đọc thanh nhẹ tai. NGHĨA: 太 là rất lớn/cực tôn (lấy từ chữ 大 đại thêm một chấm bên dưới, xưa tôn xưng mẹ/vợ bậc tôn trưởng) → bà, phu nhân, vợ.",
+   "vd": [
+    {
+     "t": "Hàng xóm",
+     "zh": "林太太每天早上都會帶狗去散步。",
+     "vn": "Bà Lâm sáng nào cũng dắt chó đi dạo."
+    },
+    {
+     "t": "Giới thiệu",
+     "zh": "讓我介紹一下，這位是我太太。",
+     "vn": "Để tôi giới thiệu một chút, vị này là vợ tôi."
+    },
+    {
+     "t": "Cửa hàng",
+     "zh": "太太，請問這件衣服是要買給您先生的嗎？",
+     "vn": "Chị/Bà ơi, xin hỏi chiếc áo này là mua cho ông xã nhà mình phải không ạ?"
+    }
+   ]
+  },
+  "女兒": {
+   "vn": "con gái (quan hệ cha mẹ - con)",
+   "ng": [
+    "(danh từ) con gái (con đẻ hoặc con nuôi của cha mẹ)"
+   ],
+   "us": "Dùng khi nói về mối quan hệ gia đình: 我女兒今年五歲 (Con gái tôi năm nay năm tuổi), 大女兒 (con gái lớn), 小女兒 (con gái út).",
+   "co": [
+    "我女兒|con gái tôi",
+    "大女兒|con gái lớn",
+    "小女兒|con gái út",
+    "生了個女兒|sinh được một cô con gái"
+   ],
+   "sy": [
+    "閨女|(khẩu ngữ miền Bắc Trung Quốc, ít dùng ở Đài Loan)"
+   ],
+   "an": [
+    "兒子|con trai"
+   ],
+   "cf": [
+    "女兒 vs 女孩 vs 女生|女兒 = con gái (của bố mẹ); 女孩 = cô bé/bé gái; 女生 = bạn nữ/nữ giới trẻ nói chung"
+   ],
+   "lt": "個、位 (我有兩個女兒 Tôi có hai cô con gái).",
+   "mk": "Người Việt hay dịch nhầm 'con gái thích màu hồng' thành *女兒喜歡粉紅色 ❌ (câu này thành 'con gái của tôi/ai đó'); nếu nói 'phái nữ/con gái nói chung' phải dùng 女生!",
+   "tw": "Ở Đài Loan rất rõ ràng: 女兒 chỉ con gái ruột, tuyệt đối không dùng để gọi cô gái nói chung.",
+   "mh": "Nữ Nhi → nǚ'ér. ĐỌC: 'nữ' → nǚ (tròn môi thanh 3); 'nhi' → ér (âm uốn lưỡi riêng một âm tiết, thanh 2, có dấu nháy ngăn cách âm nǚ'ér). NGHĨA: 女 phụ nữ/con gái + 兒 đứa con nhỏ → đứa con giới tính nữ = con gái.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "他們只有一個女兒，在台北念大學。",
+     "vn": "Họ chỉ có một cô con gái, đang học đại học ở Đài Bắc."
+    },
+    {
+     "t": "Tâm sự",
+     "zh": "我女兒很喜歡畫畫，房間裡貼滿了她的作品。",
+     "vn": "Con gái tôi rất thích vẽ tranh, trong phòng dán đầy tác phẩm của con bé."
+    },
+    {
+     "t": "Hỏi thăm",
+     "zh": "聽說你女兒今年高中畢業了，恭喜恭喜！",
+     "vn": "Nghe nói con gái anh năm nay tốt nghiệp cấp ba rồi, chúc mừng chúc mừng!"
+    }
+   ]
+  },
+  "兒子": {
+   "vn": "con trai (quan hệ cha mẹ - con)",
+   "ng": [
+    "(danh từ) con trai (con của cha mẹ)"
+   ],
+   "us": "Dùng chỉ quan hệ cha mẹ - con cái: 大兒子 (con trai cả), 小兒子 (con trai út), 獨生子 (con trai một). Lưu ý từ đối xứng không phải *男兒 mà là 兒子.",
+   "co": [
+    "我兒子|con trai tôi",
+    "大兒子|con trai lớn",
+    "小兒子|con trai út",
+    "獨生子|con trai một"
+   ],
+   "an": [
+    "女兒|con gái"
+   ],
+   "cf": [
+    "兒子 vs 男生|兒子 chỉ con trai của bố mẹ; 男生 chỉ bạn nam/con trai nói chung theo giới tính"
+   ],
+   "lt": "個、位 (他有一個兒子 Anh ấy có một cậu con trai).",
+   "mk": "Chữ 子 đọc thanh nhẹ (érzi), KHÔNG đọc thanh 3 zǐ; và không dịch 'đàn ông/con trai nói chung' thành 兒子.",
+   "tw": "Cách dùng phổ thông chuẩn tại Đài Loan, đối xứng với 女兒.",
+   "mh": "Nhi Tử → érzi. ĐỌC: 'nhi' → ér (thanh 2, phát âm âm uốn lưỡi er); 'tử' → zǐ, làm hậu tố đọc thanh nhẹ zi. NGHĨA: 兒 hình đứa trẻ mới sinh + 子 con cái → đứa con nối dõi = con trai.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "他兒子今年剛上小學一年級。",
+     "vn": "Con trai anh ấy năm nay vừa vào lớp một tiểu học."
+    },
+    {
+     "t": "Tự hào",
+     "zh": "我兒子每天晚上都會幫忙洗碗。",
+     "vn": "Con trai tôi tối nào cũng giúp rửa bát."
+    },
+    {
+     "t": "Hỏi thăm",
+     "zh": "李先生的大兒子現在在高雄工作嗎？",
+     "vn": "Con trai lớn của ông Lý hiện đang làm việc ở Cao Hùng phải không?"
+    }
+   ]
+  },
+  "大家": {
+   "vn": "mọi người; tất cả mọi người",
+   "ng": [
+    "(đại từ) mọi người, tất cả mọi người trong một nhóm/tập thể"
+   ],
+   "us": "Làm chủ ngữ hoặc tân ngữ thay cho nhiều người: 大家好 (Xin chào mọi người), 大家一起吃飯 (Mọi người cùng ăn cơm), 祝大家健康 (Chúc mọi người mạnh khỏe). KHÔNG bao giờ thêm 們 thành *大家們!",
+   "co": [
+    "大家好|Chào mọi người",
+    "大家一起|mọi người cùng nhau",
+    "謝謝大家|cảm ơn mọi người",
+    "請大家注意|xin mọi người chú ý"
+   ],
+   "sy": [
+    "各位|quý vị, các bạn (trang trọng hơn khi mở đầu bài nói)"
+   ],
+   "cf": [
+    "大家 vs 各位|大家 thân mật tự nhiên ('mọi người'); 各位 lịch sự trang trọng hơn ('quý vị / các bạn'). KHÔNG được thêm 們 vào sau 大家 (*大家們 ❌)"
+   ],
+   "lt": "Cấm dùng số từ + lượng từ trực tiếp trước 大家; cấm thêm 們.",
+   "mk": "Lỗi kinh điển: nói *大家們 ❌ (sai ngữ pháp vì 大家 đã bao hàm số nhiều), hoặc dịch 'nhà lớn' theo mặt chữ.",
+   "tw": "Mở đầu thuyết trình, livestream, họp lớp ở Đài Loan luôn nói 大家好! (hoặc kết hợp 各位朋友大家好).",
+   "mh": "Đại Gia → dàjiā. ĐỌC: 'đại' → dà (đ- → d-, -ai → -a, thanh 4); 'gia' → jiā (gi- → j-, -a → -ia, thanh 1). NGHĨA: 大 lớn + 家 gia đình → 'cả đại gia đình chung' = tất cả mọi người.",
+   "vd": [
+    {
+     "t": "Chào hỏi",
+     "zh": "各位同學大家好，今天我們要學新的一課。",
+     "vn": "Chào tất cả các bạn học sinh, hôm nay chúng ta sẽ học một bài mới."
+    },
+    {
+     "t": "Tụ họp",
+     "zh": "好久不見，大家今天想吃什麼？",
+     "vn": "Lâu quá không gặp, hôm nay mọi người muốn ăn gì?"
+    },
+    {
+     "t": "Cảm ơn",
+     "zh": "這件事幸好有大家幫忙才能順利完成。",
+     "vn": "Việc này may mà có mọi người giúp đỡ mới hoàn thành thuận lợi được."
+    }
+   ]
+  },
+  "路": {
+   "vn": "đường; con đường; tuyến (xe); cách thức",
+   "ng": [
+    "(danh từ) đường, con đường (lượng từ 條: 這條路 con đường này; tên đường ở Đài Loan: 忠孝東路)",
+    "(danh từ) hành trình, quãng đường (走路 đi bộ, 迷路 lạc đường, 半路 nửa đường)",
+    "(danh từ) tuyến xe buýt hoặc hướng đi (15路公車 xe buýt số 15 — hay dùng trong tên tuyến)"
+   ],
+   "us": "Dùng làm danh từ với lượng từ 條: 過馬路 (băng qua đường), 走路 (đi bộ), 問路 (hỏi đường), 帶路 (dẫn đường), 迷路 (lạc đường). Trên địa chỉ Đài Loan phân cấp từ lớn đến nhỏ: 路 (đường) → 段 (đoạn) → 巷 (hẻm) → 弄 (ngõ).",
+   "co": [
+    "走路|đi bộ",
+    "過馬路|sang đường, băng qua đường",
+    "迷路|lạc đường",
+    "問路|hỏi đường"
+   ],
+   "sy": [
+    "道路|đường sá (văn viết)",
+    "馬路|đường cái, đường lớn"
+   ],
+   "cf": [
+    "路 vs 街|Trong địa chỉ Đài Loan, 路 thường rộng và dài hơn 街 (phố); 走路 là 'đi bộ', còn đi xe dùng 坐車/騎車"
+   ],
+   "lt": "條 (一條路 một con đường).",
+   "mk": "Người Việt hay quên 路 trong cụm 走路 (chỉ nói *走 đi làm → nên nói 走路去上班 để rõ nghĩa là đi bộ!).",
+   "tw": "Địa chỉ Đài Loan dùng chuẩn 路 (đường) — 段 (đoạn) — 巷 (ngõ) — 弄 (ngách) — 號 (số nhà) — 樓 (tầng), ví dụ 中山北路二段.",
+   "mh": "Lộ → lù. ĐỌC: âm Hán Việt 'lộ' giữ phụ âm đầu l-, đổi vần -ô sang -u thanh 4 (lù). NGHĨA: bộ 足 (chân) bên trái + 各 (đi đến) bên phải → nơi chân người qua lại tạo thành = con đường (Hán Việt: xa lộ, quốc lộ).",
+   "vd": [
+    {
+     "t": "Chỉ đường",
+     "zh": "從這裡往前走，過馬路就到了。",
+     "vn": "Từ đây đi thẳng về phía trước, qua đường là tới rồi."
+    },
+    {
+     "t": "Đi lại",
+     "zh": "我每天早上都走路去捷運站搭車。",
+     "vn": "Sáng nào tôi cũng đi bộ ra ga tàu điện ngầm đón xe."
+    },
+    {
+     "t": "Hỏi thăm",
+     "zh": "這家餐廳就在和平東路上，很好找。",
+     "vn": "Nhà hàng này nằm ngay trên đường Hòa Bình Đông, rất dễ tìm."
+    }
+   ]
+  },
+  "手機": {
+   "vn": "điện thoại di động",
+   "ng": [
+    "(danh từ) điện thoại di động, smartphone"
+   ],
+   "us": "Dùng như danh từ bình thường: 看手機 / 滑手機 (xem/lướt điện thoại), 關手機 (tắt điện thoại), 忘記帶手機 (quên mang điện thoại). Lượng từ tại Đài Loan chuộng 支 (một chiếc điện thoại: 一支手機).",
+   "co": [
+    "滑手機|lướt điện thoại",
+    "帶手機|mang theo điện thoại",
+    "沒電了 / 手機充電|điện thoại hết pin / sạc điện thoại",
+    "打手機|gọi vào số di động"
+   ],
+   "sy": [
+    "行動電話|điện thoại di động (chính thức trên hóa đơn/hợp đồng)"
+   ],
+   "an": [
+    "市話|điện thoại bàn cố định (từ Đài Loan)"
+   ],
+   "cf": [
+    "手機 vs 電話|電話 chỉ điện thoại nói chung hoặc điện thoại bàn/số điện thoại (電話號碼); 手機 chỉ riêng máy điện thoại di động cầm tay"
+   ],
+   "lt": "支 (Đài Loan cực kỳ hay nói 一支手機; cũng có thể gặp 台 hoặc 部).",
+   "mk": "Người Việt hay dùng nhầm lượng từ 個 (*一個手機 ❌, phải nói 一支手機).",
+   "tw": "Ở Đài Loan lượng từ cho 手機 là 支 (一支新手機); hành động lướt màn hình nói là 滑手機 (trượt điện thoại), số di động gọi là 手機號碼.",
+   "mh": "Thủ Cơ → shǒujī. ĐỌC: 'thủ' → shǒu (th- → sh-, -u → -ou thanh 3); 'cơ' → jī (c- biến âm nhẹ thành j- + i thanh 1). NGHĨA: 手 cái tay + 機 máy móc → cái máy cầm gọn trong tay = điện thoại di động.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "現在很多人吃飯的時候都在滑手機。",
+     "vn": "Bây giờ nhiều người lúc ăn cơm cứ mải lướt điện thoại."
+    },
+    {
+     "t": "Đồ dùng",
+     "zh": "出門前要檢查錢包、鑰匙和手機帶了沒。",
+     "vn": "Trước khi ra ngoài phải kiểm tra xem ví tiền, chìa khóa và điện thoại đã mang chưa."
+    },
+    {
+     "t": "Sửa chữa",
+     "zh": "這支手機我已經用了三年，電池不太行了。",
+     "vn": "Chiếc điện thoại này tôi đã dùng ba năm rồi, pin không còn tốt nữa."
+    }
+   ]
+  },
+  "明年": {
+   "vn": "năm sau; sang năm",
+   "ng": [
+    "(danh từ thời gian) năm sau, năm tới"
+   ],
+   "us": "Làm trạng ngữ thời gian đặt TRƯỚC động từ hoặc ĐẦU câu: 我明年想去台灣 / 明年我要畢業了. Lưu ý: KHÔNG dùng lượng từ 個 trước 明年 (*明個年 ❌).",
+   "co": [
+    "明年見|hẹn gặp năm sau",
+    "明年春天|mùa xuân năm sau",
+    "明年這個時候|tầm này năm sau",
+    "明年才開始|sang năm mới bắt đầu"
+   ],
+   "an": [
+    "去年|năm ngoái"
+   ],
+   "cf": [
+    "今年 / 去年 / 明年|Chuỗi năm: 去年 (năm ngoái) → 今年 (năm nay) → 明年 (năm sau) → 後年 (năm kia); CẤM dùng *下年 ❌"
+   ],
+   "lt": "Danh từ thời gian năm/ngày (年, 天) KHÔNG thêm lượng từ 個 ở giữa.",
+   "mk": "Hay dịch từng chữ từ tiếng Việt 'năm sau' thành *下年 hoặc *後年 (後年 nghĩa là 2 năm nữa — năm kia, không phải năm sau!).",
+   "tw": "Ở Đài Loan vẫn hay kết hợp với niên hiệu Dân Quốc trong văn bản (ví dụ 明年是民國一百一十六年).",
+   "mh": "Minh Niên → míngnián. ĐỌC: 'minh' → míng (thanh 2, -inh → -ing); 'niên' → nián (thanh 2). NGHĨA: 明 sáng rõ/tiếp nối (từ chữ 日 mặt trời + 月 mặt trăng ghép thành 'sáng sủa') + 年 năm → năm sắp tới ngay trước mắt = năm sau (như 明天 ngày mai).",
+   "vd": [
+    {
+     "t": "Kế hoạch",
+     "zh": "我打算明年三月去台中念書。",
+     "vn": "Tôi dự định tháng Ba năm sau đi Đài Trung học tập."
+    },
+    {
+     "t": "Trò chuyện",
+     "zh": "聽說公司明年會幫大家加薪。",
+     "vn": "Nghe nói công ty sang năm sẽ tăng lương cho mọi người."
+    },
+    {
+     "t": "Chia tay",
+     "zh": "祝你們一路平安，我們明年再見！",
+     "vn": "Chúc các bạn thượng lộ bình an, năm sau chúng ta gặp lại nhé!"
+    }
+   ]
+  },
+  "去年": {
+   "vn": "năm ngoái; năm trước",
+   "ng": [
+    "(danh từ thời gian) năm vừa qua, năm ngoái"
+   ],
+   "us": "Đặt ở đầu câu hoặc ngay sau chủ ngữ để nói chuyện đã xảy ra năm trước, thường đi với 了 hoặc 過: 去年他去過日本 / 我是去年來台灣的.",
+   "co": [
+    "去年夏天|mùa hè năm ngoái",
+    "去年年底|cuối năm ngoái",
+    "去年八月|tháng Tám năm ngoái",
+    "去年跟今年|năm ngoái và năm nay"
+   ],
+   "an": [
+    "明年|năm sau"
+   ],
+   "cf": [
+    "去年 vs 前年|去年 = năm ngoái (1 năm trước); 前年 = năm kia (2 năm trước). Lưu ý KHÔNG nói *上年 ❌!"
+   ],
+   "lt": "Thứ tự chuẩn trong câu nhiều đơn vị thời gian: Năm → Tháng → Ngày (去年十月三號).",
+   "mk": "Lỗi hay gặp: nói *上年 ❌ (từ 上年 không tồn tại cho nghĩa 'năm ngoái' như 上個月 tháng trước; phải dùng 去年!).",
+   "tw": "Thường đi kèm các mẫu xác nhận thời điểm đã qua ở Đài Loan dùng cấu trúc 「是……的」: 我去年來的 / 我是去年搬來這裡的.",
+   "mh": "Khứ Niên → qùnián. ĐỌC: 'khứ' → qù (kh- thành âm bật hơi q- + vần ü viết là u sau q, thanh 4); 'niên' → nián (thanh 2). NGHĨA: 去 đi qua rồi + 年 năm → cái năm đã trôi qua = năm ngoái (Hán Việt: quá khứ).",
+   "vd": [
+    {
+     "t": "Kỷ niệm",
+     "zh": "我是去年冬天才開始學中文的。",
+     "vn": "Tôi mới bắt đầu học tiếng Hoa từ mùa đông năm ngoái."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "去年我們全家去花蓮玩了三天兩夜。",
+     "vn": "Năm ngoái cả nhà tôi đã đi Hoa Liên chơi ba ngày hai đêm."
+    },
+    {
+     "t": "Công việc",
+     "zh": "這家咖啡店去年年底才剛開張。",
+     "vn": "Quán cà phê này mới khai trương hồi cuối năm ngoái."
+    }
+   ]
+  },
+  "生日": {
+   "vn": "sinh nhật; ngày sinh",
+   "ng": [
+    "(danh từ) ngày sinh nhật"
+   ],
+   "us": "Chúc mừng dùng 生日快樂! Hỏi ngày sinh: 你的生日是幾月幾號？ Tặng quà sinh nhật: 送生日禮物. Tổ chức sinh nhật dùng động từ 過: 過生日.",
+   "co": [
+    "生日快樂|chúc mừng sinh nhật",
+    "過生日|tổ chức / đón sinh nhật",
+    "生日禮物|quà sinh nhật",
+    "生日蛋糕|bánh kem sinh nhật"
+   ],
+   "lt": "個 (一個難忘的生日 một sinh nhật đáng nhớ). Khi hỏi lịch sự ngày tháng năm sinh trên giấy tờ dùng 出生日期.",
+   "mk": "Đừng nói *做生日 để chỉ đón sinh nhật theo tiếng Việt ('làm sinh nhật') — người Đài nói 過生日 hoặc 慶祝生日 (chúc mừng sinh nhật) / 幫你慶生 (tổ chức sinh nhật cho bạn).",
+   "tw": "Người Đài hay nói tắt là 慶生 (đón sinh nhật) hoặc 壽星 (nhân vật chính của bữa tiệc sinh nhật hôm đó!). Nhiều bạn Đài Loan còn ăn trứng luộc hoặc mì trường thọ 豬腳麵線 khi mừng sinh nhật người lớn tuổi.",
+   "mh": "Sinh Nhật → shēngrì. ĐỌC: 'sinh' → shēng (s- → sh-, -inh → -eng thanh 1); 'nhật' → rì (nh- → r-, thanh 4). NGHĨA: 生 sinh ra đời + 日 ngày → ngày mình được sinh ra = ngày sinh nhật.",
+   "vd": [
+    {
+     "t": "Chúc mừng",
+     "zh": "祝你生日快樂，每天都開開心心的！",
+     "vn": "Chúc bạn sinh nhật vui vẻ, ngày nào cũng thật vui tươi nhé!"
+    },
+    {
+     "t": "Hỏi thăm",
+     "zh": "請問你的生日是幾月幾號？",
+     "vn": "Xin hỏi sinh nhật của bạn là ngày mấy tháng mấy vậy?"
+    },
+    {
+     "t": "Tiệc tùng",
+     "zh": "這週末我們要去唱歌幫小美過生日。",
+     "vn": "Cuối tuần này bọn mình sẽ đi hát karaoke mừng sinh nhật Tiểu Mỹ."
+    }
+   ]
+  },
+  "月": {
+   "vn": "tháng; mặt trăng",
+   "ng": [
+    "(danh từ) tháng trong năm (dùng trực tiếp sau số: 一月 tháng Giêng, 十二月 tháng Mười hai)",
+    "(danh từ thời lượng) tháng (khoảng thời gian — BẮT BUỘC có lượng từ 個: 一個月 1 tháng, 三個月 3 tháng)",
+    "(danh từ) mặt trăng, ánh trăng (月亮 mặt trăng, 滿月 trăng tròn)"
+   ],
+   "us": "Rất quan trọng phân biệt: 1) Tên tháng: Số + 月 (五月 = tháng 5); 2) Khoảng thời gian: Số + 個 + 月 (五個月 = 5 tháng). Khi nói mặt trăng một mình trong khẩu ngữ thường dùng 月亮.",
+   "co": [
+    "下個月|tháng sau",
+    "上個月|tháng trước",
+    "這個月|tháng này",
+    "兩個月|hai tháng"
+   ],
+   "sy": [
+    "月份|tháng (khi nói chung: 幾月份)",
+    "月亮|mặt trăng"
+   ],
+   "cf": [
+    "三月 vs 三個月|三月 = tháng Ba (tên tháng trong lịch); 三個月 = khoảng thời gian ba tháng. Thiếu 個 là đổi hoàn toàn nghĩa!"
+   ],
+   "lt": "個 (chỉ khoảng thời gian: 一個月; còn trên bầu trời nói một vầng trăng dùng 輪: 一輪明月).",
+   "mk": "Lỗi cực phổ biến: quên chữ 個 khi đếm số tháng (nói *我學中文三月 ❌ thay vì 三個月) hoặc thêm 個 nhầm vào tên tháng (*這個五月 ❌).",
+   "tw": "Ở Đài Loan ngày Tết Trung Thu 中秋節 có truyền thống nướng thịt BBQ ngoài trời và ngắm trăng 賞月 ăn bánh trung thu 月餅.",
+   "mh": "Nguyệt → yuè. ĐỌC: âm Hán Việt 'nguyệt' mất phụ âm ng-, chuyển thành nguyên âm tròn môi yuè thanh 4. NGHĨA: chữ tượng hình vầng trăng khuyết có hai nét mây ngang ở giữa → mặt trăng, từ chu kỳ trăng tròn khuyết (~30 ngày) mở rộng thành đơn vị 'tháng'.",
+   "vd": [
+    {
+     "t": "Thời gian",
+     "zh": "我已經在台灣住了六個月了。",
+     "vn": "Tôi đã sống ở Đài Loan được sáu tháng rồi."
+    },
+    {
+     "t": "Lịch hẹn",
+     "zh": "學校這個月二十號要放春假。",
+     "vn": "Ngày 20 tháng này trường học sẽ được nghỉ xuân."
+    },
+    {
+     "t": "Thiên nhiên",
+     "zh": "中秋節的晚上，大家常邊烤肉邊賞月。",
+     "vn": "Buổi tối Tết Trung Thu mọi người thường vừa nướng thịt vừa ngắm trăng."
+    }
+   ]
+  },
+  "日": {
+   "vn": "ngày; mặt trời; Nhật Bản (tắt)",
+   "ng": [
+    "(danh từ) ngày trong tháng (văn viết, giấy tờ, lịch: 三月五日 ngày 5 tháng 3)",
+    "(danh từ) ngày lễ, dịp đặc biệt (生日 sinh nhật, 假日 ngày nghỉ, 節日 ngày lễ)",
+    "(danh từ) mặt trời (日出 bình minh, 日落 hoàng hôn) hoặc viết tắt Nhật Bản (日本, 日語, 赴日)"
+   ],
+   "us": "Trong văn bản, hợp đồng, hóa đơn, báo chí ghi ngày bằng 日 (2026年5月1日); khi nói chuyện hằng ngày ở Đài Loan chuộng 號 hơn (五月一號). Trong tên ngày trong tuần viết 星期日 (Chủ nhật).",
+   "co": [
+    "星期日|Chủ nhật",
+    "假日|ngày nghỉ lễ",
+    "日出 / 日落|bình minh / hoàng hôn",
+    "今日 / 每日|hôm nay / mỗi ngày (văn viết)"
+   ],
+   "sy": [
+    "天|ngày (đếm ngày: 兩天, 每天)",
+    "號|ngày trong tháng (khẩu ngữ)"
+   ],
+   "cf": [
+    "日 vs 天 vs 號|Nói ngày trong tháng: khẩu ngữ dùng 號 (五月一號), văn viết dùng 日 (五月一日). Đếm số lượng ngày: dùng 天 (住三天 ở 3 ngày), không nói *住三日 trong khẩu ngữ!"
+   ],
+   "lt": "Không đứng một mình để đếm số lượng ngày trong khẩu ngữ (nói 一天, 兩天; văn viết mới dùng 一日, 兩日).",
+   "mk": "Người Việt hay dịch 'ba ngày' thành *三日 ❌ theo chữ Hán Việt; trong giao tiếp phải nói 三天.",
+   "tw": "Biển chỉ dẫn, vé tàu Đài Loan ghi ngày bằng 日 (ví dụ 有效日期 hạn sử dụng), nhưng khi đọc to lên miệng người Đài đọc thành 號 (hào) hoặc đọc nguyên chữ 日 trong văn trang trọng.",
+   "mh": "Nhật → rì. ĐỌC: phụ âm nh- tiếng Việt thường tương ứng r- trong pinyin (nhật → rì, nhân → rén, nhiệt → rè, nhập → rù), thanh 4. NGHĨA: hình tròn của vầng thái dương thu vuông lại với một chấm/nét ngang ở giữa → mặt trời, ánh sáng ban ngày, rồi chỉ đơn vị ngày.",
+   "vd": [
+    {
+     "t": "Lịch trình",
+     "zh": "我們公司的員工旅遊訂在十月十日。",
+     "vn": "Chuyến du lịch nhân viên của công ty chúng tôi được đặt vào ngày 10 tháng 10."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "很多遊客會早起去阿里山看日出。",
+     "vn": "Rất nhiều du khách hay dậy sớm lên núi A Lý Sơn ngắm bình minh."
+    },
+    {
+     "t": "Hẹn gặp",
+     "zh": "請問這個星期日你有空嗎？",
+     "vn": "Xin hỏi Chủ nhật tuần này bạn có rảnh không?"
+    }
+   ]
+  },
+  "星期": {
+   "vn": "tuần; thứ (trong tuần)",
+   "ng": [
+    "(danh từ) thứ trong tuần (星期一 đến 星期六: thứ Hai đến thứ Bảy; 星期日/星期天: Chủ nhật)",
+    "(danh từ) tuần lễ (đếm số tuần phải có 個: 一個星期 1 tuần, 上個星期 tuần trước)"
+   ],
+   "us": "Hai cách dùng chính: 1) Tên thứ: 星期 + số 1–6 (星期一 = thứ Hai, lưu ý tiếng Hoa bắt đầu từ 1, khác Việt Nam gọi thứ Hai là '2'!); hỏi thứ dùng 星期幾？. 2) Đếm tuần: 一個星期, 這個星期, 下個星期.",
+   "co": [
+    "星期幾|thứ mấy",
+    "上個星期|tuần trước",
+    "下個星期|tuần sau",
+    "兩個星期|hai tuần"
+   ],
+   "sy": [
+    "禮拜|tuần / thứ (khẩu ngữ Đài Loan)",
+    "週|tuần (văn viết / bảng biểu)"
+   ],
+   "cf": [
+    "星期 vs 禮拜 vs 週|Cả ba đều chỉ tuần/thứ: 禮拜 phổ biến nhất trong khẩu ngữ Đài Loan (禮拜一, 這個禮拜); 星期 lịch sự chuẩn mực; 週 hay dùng trên lịch, bản tin, công sở (週一, 本週)"
+   ],
+   "lt": "個 (一個星期 1 tuần; KHÔNG thêm 個 khi nói thứ: 今天星期三 hôm nay thứ Tư).",
+   "mk": "1) Người Việt hay cộng nhầm số thứ (ví dụ nói thứ Ba thành *星期三 ❌, thực ra thứ Ba phải là 星期二!). 2) Hay viết sai Chủ nhật thành *星期七 ❌ (phải là 星期天 hoặc 星期日).",
+   "tw": "Trong chuẩn Bộ Giáo dục Đài Loan, chữ 期 đọc thanh 2 là xīngqí (khác giọng đại lục thường đọc xīngqī). Trong đời sống hằng ngày người Đài chuộng nói 禮拜 hơn.",
+   "mh": "Tinh Kỳ → xīngqí. ĐỌC: 'tinh' → xīng (t- → x-, thanh 1); 'kỳ' → qí (k- bật hơi thành q- + i thanh 2 tại Đài Loan). NGHĨA: 星 ngôi sao (hình bộ 日 mặt trời + 生) + 期 chu kỳ tuần trăng → chu kỳ 7 ngày theo bảy hành tinh cổ = tuần lễ, thứ.",
+   "vd": [
+    {
+     "t": "Hỏi lịch",
+     "zh": "請問明天是星期幾？我們哪一天要開會？",
+     "vn": "Xin hỏi ngày mai là thứ mấy? Hôm nào chúng ta phải họp?"
+    },
+    {
+     "t": "Lịch học",
+     "zh": "我每個星期一、三、五晚上都要上中文課。",
+     "vn": "Tối thứ Hai, thứ Tư, thứ Sáu hằng tuần tôi đều phải đi học tiếng Hoa."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "我們打算在台灣待兩個星期再回家。",
+     "vn": "Chúng tôi dự định ở Đài Loan hai tuần rồi mới về nhà."
+    }
+   ]
+  },
+  "星期天/星期日": {
+   "vn": "Chủ nhật",
+   "ng": [
+    "(danh từ) ngày Chủ nhật (ngày cuối cùng trong tuần)"
+   ],
+   "us": "Dùng trực tiếp làm danh từ thời gian hoặc vị ngữ: 今天是星期天 / 我星期日休息 / 上個星期天. KHÔNG bao giờ nói *星期七!",
+   "co": [
+    "這個星期天|Chủ nhật tuần này",
+    "下個星期日|Chủ nhật tuần sau",
+    "每個星期天|mỗi Chủ nhật",
+    "星期天早上|sáng Chủ nhật"
+   ],
+   "sy": [
+    "禮拜天|Chủ nhật (khẩu ngữ Đài Loan)",
+    "週日|Chủ nhật (lịch, tin tức, văn viết)"
+   ],
+   "cf": [
+    "星期天 vs 星期日|星期天 dùng tự nhiên trong khẩu ngữ; 星期日 dùng nhiều hơn trong văn viết, lịch treo tường, thông báo giờ mở cửa (nhưng cả hai đều chuẩn và rất thông dụng tại Đài Loan)"
+   ],
+   "lt": "CẤM nói *星期七. Có thể thêm 個 nếu đứng sau 上/下/這: 上個星期天 (Chủ nhật tuần trước).",
+   "mk": "Rất nhiều bạn mới học suy luận từ 星期一 đến 星期六 rồi tự chế ra *星期七 ❌ — hoàn toàn không tồn tại!",
+   "tw": "Ở Đài Loan trong văn nói dùng 星期天 hoặc 禮拜天; trên biển giờ mở cửa cửa hàng, ngân hàng ghi tắt là 週日 (ví dụ 週一至週日 mở cả tuần).",
+   "mh": "Tinh Kỳ Thiên / Tinh Kỳ Nhật → Xīngqítiān / Xīngqírì. ĐỌC: 'tinh' → xīng; 'kỳ' → qí (thanh 2 chuẩn Đài); 'thiên' → tiān (th- bật hơi + ian thanh 1); 'nhật' → rì (nh- → r- thanh 4). NGHĨA: ngày 'trời' / ngày 'mặt trời' trong chu kỳ tuần lễ (tương ứng Sunday) = Chủ nhật.",
+   "vd": [
+    {
+     "t": "Nghỉ ngơi",
+     "zh": "星期天我通常會睡到十點才起床。",
+     "vn": "Chủ nhật tôi thường ngủ tới mười giờ mới dậy."
+    },
+    {
+     "t": "Siêu thị",
+     "zh": "這家超市星期日照常營業，從早上八點開到晚上十點。",
+     "vn": "Siêu thị này Chủ nhật vẫn mở cửa bình thường, từ 8 giờ sáng đến 10 giờ tối."
+    },
+    {
+     "t": "Hẹn hò",
+     "zh": "下個星期天我們一起去淡水看夕陽，好嗎？",
+     "vn": "Chủ nhật tuần sau chúng mình cùng đi Đạm Thủy ngắm hoàng hôn nhé?"
+    }
+   ]
+  },
+  "禮拜天": {
+   "vn": "Chủ nhật (khẩu ngữ)",
+   "ng": [
+    "(danh từ) ngày Chủ nhật (cách nói khẩu ngữ thân mật, rất phổ biến ở Đài Loan)"
+   ],
+   "us": "Dùng hệt như 星期天: 禮拜天見 (Chủ nhật gặp nhé), 每個禮拜天, 上個禮拜天. Lưu ý người Đài cũng dùng 禮拜一 ~ 禮拜六 cho thứ Hai đến thứ Bảy.",
+   "co": [
+    "這個禮拜天|Chủ nhật tuần này",
+    "下個禮拜天|Chủ nhật tuần sau",
+    "每個禮拜天|mỗi Chủ nhật",
+    "禮拜天有空嗎|Chủ nhật có rảnh không"
+   ],
+   "sy": [
+    "星期天|Chủ nhật",
+    "星期日|Chủ nhật",
+    "禮拜日|Chủ nhật (ít dùng hơn 禮拜天)"
+   ],
+   "cf": [
+    "禮拜天 vs 星期天|Nghĩa y hệt nhau; 禮拜天 nghe thân mật, tự nhiên đúng chất giao tiếp Đài Loan hằng ngày hơn"
+   ],
+   "lt": "Cũng nhớ CẤM nói *禮拜七 ❌.",
+   "mk": "Chữ 拜 (bài) thanh 4, nhưng khi gắn 天 dễ bị đọc nhầm thanh 1 thành *lǐbāitiān; nhớ đọc đúng lǐbàitiān.",
+   "tw": "Ở Đài Loan người dân nói 禮拜 / 禮拜一...禮拜天 áp đảo 星期 trong trò chuyện hằng ngày (ví dụ 上禮拜 tuần trước, 下禮拜 tuần sau).",
+   "mh": "Lễ Bái Thiên → Lǐbàitiān. ĐỌC: 'lễ' → lǐ (thanh 3); 'bái' → bài (âm cuối -ai thanh 4); 'thiên' → tiān (thanh 1). NGHĨA: 禮 lễ nghi + 拜 lạy thờ + 天 ngày → ngày đi lễ nhà thờ cầu nguyện vào ngày cuối tuần = Chủ nhật.",
+   "vd": [
+    {
+     "t": "Cuối tuần",
+     "zh": "禮拜天我喜歡在家泡一杯咖啡看書。",
+     "vn": "Chủ nhật tôi thích ở nhà pha một ly cà phê đọc sách."
+    },
+    {
+     "t": "Gặp bạn",
+     "zh": "這個禮拜天我們約好一起去吃火鍋。",
+     "vn": "Chủ nhật tuần này chúng tôi đã hẹn nhau cùng đi ăn lẩu."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "每個禮拜天晚上，我都會打電話回家陪媽媽聊天。",
+     "vn": "Tối Chủ nhật nào tôi cũng gọi điện về nhà trò chuyện với mẹ."
+    }
+   ]
+  },
+  "週末/周末": {
+   "vn": "cuối tuần",
+   "ng": [
+    "(danh từ) cuối tuần (thường từ tối thứ Sáu đến hết Chủ nhật)"
+   ],
+   "us": "Làm trạng ngữ thời gian hoặc danh từ: 週末你有什麼計畫？ (Cuối tuần bạn có kế hoạch gì?), 週末愉快！ (Chúc cuối tuần vui vẻ!), 這個週末 / 上個週末.",
+   "co": [
+    "週末愉快|chúc cuối tuần vui vẻ",
+    "這個週末|cuối tuần này",
+    "週末計畫|kế hoạch cuối tuần",
+    "過週末|tận hưởng cuối tuần"
+   ],
+   "sy": [
+    "假日|ngày nghỉ, cuối tuần (ở Đài Loan gọi chung cuối tuần & ngày lễ là 假日)"
+   ],
+   "an": [
+    "平日|ngày thường (thứ Hai đến thứ Sáu)"
+   ],
+   "cf": [
+    "週末 vs 假日|週末 chỉ riêng thứ Bảy & Chủ nhật; 假日 ở Đài Loan chỉ cả cuối tuần lẫn ngày nghỉ lễ (ví dụ bảng giá 平日 vs 假日 trong nhà hàng/khách sạn Đài Loan)"
+   ],
+   "lt": "Chuẩn Đài Loan viết 週末 (có bộ 辶 xước); 周末 là cách viết giản lược hay gặp trên mạng/Đại Lục.",
+   "mk": "Khi gõ Phồn thể Đài Loan nên chọn chữ 週末 (có bộ 辶), tránh viết 末 thành 未 (wèi).",
+   "tw": "Ở Đài Loan vé xe, khách sạn, buffet đều chia rõ giá 平日 (ngày thường) và 假日/週末 (cuối tuần/ngày lễ). Cuối thứ Sáu đồng nghiệp hay chào nhau 週末愉快！.",
+   "mh": "Chu Mạt → zhōumò. ĐỌC: 'chu' → zhōu (ch- → zh-, -u → -ou thanh 1); 'mạt' → mò (thanh 4). NGHĨA: 週 một tuần lễ + 末 phần cuối (nét trên dài hơn chữ 未) → phần kết thúc của một tuần = cuối tuần.",
+   "vd": [
+    {
+     "t": "Đồng nghiệp",
+     "zh": "祝大家週末愉快，星期一再見！",
+     "vn": "Chúc mọi người cuối tuần vui vẻ, thứ Hai gặp lại!"
+    },
+    {
+     "t": "Kế hoạch",
+     "zh": "這個週末我想回台南老家看看外婆。",
+     "vn": "Cuối tuần này tôi muốn về quê ở Đài Nam thăm bà ngoại."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "一到周末，夜市和老街總是擠滿了人。",
+     "vn": "Hễ đến cuối tuần là chợ đêm và phố cổ lúc nào cũng đông nghịt người."
+    }
+   ]
+  },
+  "號": {
+   "vn": "ngày (trong tháng); số (nhà, phòng, cỡ, thứ tự)",
+   "ng": [
+    "(lượng từ / danh từ) ngày trong tháng (khẩu ngữ: 三月五號 ngày 5 tháng 3, 今天幾號？ hôm nay ngày mấy?)",
+    "(hậu tố số) số hiệu, số nhà, số phòng, số thứ tự (十號 số 10, 302號房 phòng 302, 中山路50號 số 50 đường Trung Sơn)",
+    "(danh từ / hậu tố) cỡ, kích thước quần áo/đồ uống/pin (大號 cỡ lớn, 中號 cỡ vừa, 小號 cỡ nhỏ, 五號電池 pin AA)",
+    "(động từ — âm đọc khác háo) kêu gào, gầm rú (ví dụ 哀號 gào khóc; ít gặp ở trình độ sơ cấp)"
+   ],
+   "us": "Đứng ngay sau chữ số trong nói ngày tháng, địa chỉ, số thứ tự, cỡ size: 今天五月八號 (Hôm nay ngày 8/5), 請抽號碼牌 (Xin rút phiếu thứ tự), 您是幾號？ (Bạn số mấy?), 大號 / 中號 / 小號.",
+   "co": [
+    "幾號|ngày mấy / số mấy / cỡ mấy",
+    "大號 / 小號|cỡ lớn / cỡ nhỏ",
+    "號碼|mã số, số thứ tự, số điện thoại",
+    "抽號碼牌|rút số thứ tự"
+   ],
+   "sy": [
+    "日|ngày trong tháng (văn viết)",
+    "碼|mã số (號碼)"
+   ],
+   "cf": [
+    "號 vs 日|Đều chỉ ngày trong tháng sau số (五月五號 = 五月五日), nhưng 號 dùng trong văn nói hằng ngày, còn 日 dùng trong văn viết/giấy tờ"
+   ],
+   "lt": "Khi là động từ 'gào thét' đọc âm khác là háo (thanh 2), nhưng ở trình độ sơ-trung cấp 99% dùng âm hào (thanh 4).",
+   "mk": "Khi hỏi 'Hôm nay ngày mấy?' đừng hỏi *今天幾天 ❌ — đếm số lượng ngày dùng 天, còn hỏi ngày lịch trong tháng BẮT BUỘC dùng 今天幾號？!",
+   "tw": "Ở ngân hàng, bệnh viện, bưu điện, quán ăn nổi tiếng tại Đài Loan đều có máy lấy số gọi là 抽號碼牌; quán trà sữa gọi size là 大杯/中杯, còn quần áo/thùng hộp hay dùng 大號/中號/小號 hoặc S/M/L.",
+   "mh": "Hiệu (Hào) → hào (âm phụ: háo). ĐỌC: 'hiệu' đổi sang Hán Việt gần âm 'hào' → hào thanh 4; nghĩa 'gào thét' đọc háo thanh 2. NGHĨA: 口 cái miệng + 虎 tiếng hổ gầm (tách từ 號) → tiếng hô gọi to, rồi thành ký hiệu, tên hiệu, chữ số đánh dấu, ngày tháng.",
+   "vd": [
+    {
+     "t": "Hỏi ngày",
+     "zh": "請問今天是幾月幾號？我忘了帶日曆。",
+     "vn": "Xin hỏi hôm nay là ngày mấy tháng mấy vậy? Tôi quên nhìn lịch rồi."
+    },
+    {
+     "t": "Ngân hàng",
+     "zh": "請先到門口抽號碼牌，再等叫號。",
+     "vn": "Xin mời ra cửa rút phiếu số thứ tự trước rồi chờ gọi số nhé."
+    },
+    {
+     "t": "Địa chỉ",
+     "zh": "這家飯店的地址是信義路二段八十號。",
+     "vn": "Địa chỉ khách sạn này là số 80, đoạn 2, đường Tín Nghĩa."
+    }
+   ]
+  },
+  "天": {
+   "vn": "ngày; bầu trời; thời tiết; thượng đế",
+   "ng": [
+    "(lượng từ / danh từ) ngày (khoảng thời gian — đứng trực tiếp sau số: 一天 1 ngày, 兩天 2 ngày, 每天 mỗi ngày)",
+    "(danh từ) bầu trời, không gian (天空 bầu trời, 天上 trên trời)",
+    "(danh từ) thời tiết hoặc buổi trong ngày (晴天 ngày nắng, 雨天 ngày mưa, 白天 ban ngày, 今天 hôm nay)",
+    "(danh từ) trời cao, ông trời (老天爺 ông trời, 天哪/天啊 trời ơi)"
+   ],
+   "us": "Đếm ngày KHÔNG dùng 個 ở giữa: 三天 (3 ngày), 好幾天 (mấy ngày liền), 每天 (mỗi ngày), 一整天 (cả ngày). Ghép tạo thời tiết/thời gian: 春天 (mùa xuân), 晴天 (trời nắng), 今天/明天/昨天.",
+   "co": [
+    "每天|mỗi ngày",
+    "兩天|hai ngày",
+    "天空|bầu trời",
+    "晴天 / 雨天|ngày nắng / ngày mưa"
+   ],
+   "sy": [
+    "日|ngày (văn viết)",
+    "天空|bầu trời"
+   ],
+   "cf": [
+    "天 vs 號|三天 = khoảng thời gian 3 ngày; 三號 = ngày mồng 3 trong tháng. Ngoài ra 今天 mấy = 今天幾號？ (không dùng *幾天 để hỏi ngày trong tháng)"
+   ],
+   "lt": "Chính 天 đã là danh từ/lượng từ tự đếm (như 年 năm), tuyệt đối KHÔNG chèn 個 (*一個天 ❌).",
+   "mk": "Lỗi siêu phổ biến: thêm 個 vào trước 天 (*我要去三個天 ❌ -> phải nói 我要去三天).",
+   "tw": "Ở Đài Loan câu cảm thán 'Trời ơi!' hay nói 天啊！ (tiān a) hoặc 我的天啊！.",
+   "mh": "Thiên → tiān. ĐỌC: phụ âm th- giữ hơi nhẹ tiếng Việt sang Hán Việt tương ứng t- bật hơi mạnh trong pinyin (tiān thanh 1). NGHĨA: chữ 大 (người dang tay đứng) + một nét ngang trên đỉnh đầu → khoảng vòm cao nhất trên đầu con người = bầu trời, trời, chu kỳ một ngày.",
+   "vd": [
+    {
+     "t": "Thời gian",
+     "zh": "我在台南玩了三天，吃了好多小吃。",
+     "vn": "Tôi đã đi chơi ở Đài Nam ba ngày, ăn rất nhiều món ăn vặt."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "今天天空很藍，沒有雲，是個好天氣。",
+     "vn": "Hôm nay bầu trời rất xanh, không có mây, đúng là một ngày đẹp trời."
+    },
+    {
+     "t": "Thói quen",
+     "zh": "我每天早上七點半出門去上班。",
+     "vn": "Mỗi sáng bảy rưỡi tôi đều ra khỏi nhà đi làm."
+    }
+   ]
+  },
+  "從": {
+   "vn": "từ (thời gian/nơi chốn); đi theo lối; từ trước tới giờ",
+   "ng": [
+    "(giới từ) từ (chỉ điểm xuất phát không gian hoặc thời gian: 從家裡出發 từ nhà xuất phát, 從八點開始 từ 8 giờ bắt đầu)",
+    "(giới từ) đi qua lối, theo hướng (從這條路走 đi theo con đường này, 從後門進去 vào bằng cửa sau)",
+    "(phó từ ghép) từ trước tới nay, chưa từng (從來不/沒..., 從前 trước đây)"
+   ],
+   "us": "Mẫu khung rất chuẩn: 從 A 到 B (từ A đến B — dùng cho cả địa điểm, thời gian lẫn thứ tự). Lưu ý từ tiếng Việt dịch thẳng 'từ ... đến ...' đôi khi đặt trước động từ: 我從家裡走到學校 (Tôi đi bộ từ nhà đến trường).",
+   "co": [
+    "從……到……|từ ... đến ...",
+    "從這裡|từ đây / qua lối này",
+    "從以前|từ trước đây",
+    "從來沒|chưa từng bao giờ"
+   ],
+   "sy": [
+    "自從|kể từ khi (nhấn mạnh mốc sự kiện quá khứ)",
+    "打從|kể từ (khẩu ngữ)"
+   ],
+   "an": [
+    "到|đến, tới"
+   ],
+   "cf": [
+    "從 vs 自從|從 dùng được cho cả địa điểm, thời gian (hiện tại/tương lai/quá khứ); 自從 chỉ dùng cho mốc thời gian quá khứ dẫn đến hiện tại (自從來到台灣 kể từ khi đến Đài Loan)"
+   ],
+   "lt": "Khung cố định: 從 + điểm đầu + 到 + điểm cuối (從早上八點到下午五點). Phủ định tuyệt đối trong quá khứ: 從來沒(有) + V + 過.",
+   "mk": "Người Việt hay đặt giới từ ra sau động từ (*我走到學校從家裡 ❌); cụm 從... phải đặt TRƯỚC động từ chính (我從家裡走到學校).",
+   "tw": "Ở Đài Loan hay nói 從……開始 (bắt đầu từ...), 從這邊直走 (đi thẳng từ lối này); chữ phồn thể chuẩn là 從 (bên dưới là 疋), lưu ý âm cổ zòng chỉ gặp trong 隨從 (người hầu cận).",
+   "mh": "Tòng → cóng. ĐỌC: phụ âm t- thường sang âm bật hơi c- (đọc giống x/ch hơi gió) + vần -ong thanh 2 (cóng). NGHĨA: hình hai chữ 人 đi nối đuôi nhau bên trái (Từ/Tòng) + 彳 bước chân + 止 bàn chân → một người bước theo sau người kia = đi theo, bắt nguồn từ.",
+   "vd": [
+    {
+     "t": "Đi lại",
+     "zh": "從台北車站搭高鐵到高雄只要一個半小時。",
+     "vn": "Đi tàu cao tốc từ ga Đài Bắc đến Cao Hùng chỉ mất một tiếng rưỡi."
+    },
+    {
+     "t": "Công việc",
+     "zh": "這家郵局從早上八點半開門到下午五點。",
+     "vn": "Bưu điện này mở cửa từ 8 giờ rưỡi sáng đến 5 giờ chiều."
+    },
+    {
+     "t": "Kinh nghiệm",
+     "zh": "我以前從來沒喝過這麼好喝的珍珠奶茶。",
+     "vn": "Trước đây tôi chưa từng uống ly trà sữa trân châu nào ngon như thế này."
+    }
+   ]
+  },
+  "快樂": {
+   "vn": "vui vẻ; hạnh phúc; chúc mừng",
+   "ng": [
+    "(tính từ) vui vẻ, sung sướng, an vui (trạng thái tinh thần dài lâu hoặc trang trọng, dùng nhiều trong lời chúc)"
+   ],
+   "us": "Dùng cực nhiều trong các câu chúc lễ tết/sinh nhật: 生日快樂, 新年快樂, 母親節快樂, 聖誕快樂! Cũng dùng làm bổ ngữ hoặc danh từ: 祝你健康快樂, 快樂的童年 (tuổi thơ vui vẻ).",
+   "co": [
+    "生日快樂|chúc mừng sinh nhật",
+    "新年快樂|chúc mừng năm mới",
+    "健康快樂|mạnh khỏe vui vẻ",
+    "快樂成長|lớn lên hạnh phúc"
+   ],
+   "sy": [
+    "開心|vui vẻ (khẩu ngữ hằng ngày)",
+    "高興|vui mừng (khẩu ngữ)",
+    "愉快|vui vẻ (trang trọng/lời chúc)"
+   ],
+   "an": [
+    "難過|buồn bã",
+    "傷心|đau lòng",
+    "痛苦|đau khổ"
+   ],
+   "cf": [
+    "快樂 vs 開心 vs 高興|Khi nói cảm xúc nhất thời lúc này ('hôm nay mình rất vui'), người Đài nói 我今天很開心 / 很高興 (KHÔNG hay nói *我很開心 thành *我很快樂); 快樂 thiên về cảm giác hạnh phúc lâu bền hoặc dùng để CHÚC MỪNG (生日快樂)"
+   ],
+   "lt": "Chữ 樂 ở đây đọc lè (vui vẻ), phân biệt với 音樂 yīnyuè (âm nhạc).",
+   "mk": "Người Việt hay dịch 'Hôm nay tôi rất vui' thành *我今天很快樂 ❌ (nghe hơi gượng như văn dịch); trong giao tiếp phải nói 我今天很開心 hoặc 我今天很高興!",
+   "tw": "Trong bài hát, thiệp chúc và khẩu hiệu Đài Loan hay dùng 快樂 (生日快樂, 父親節快樂); giao tiếp bình thường chúc cuối tuần lại chuộng nói 週末愉快!",
+   "mh": "Khoái Lạc → kuàilè. ĐỌC: 'khoái' → kuài (kh- → k- bật hơi + uai thanh 4); 'lạc' → lè (thanh 4; chú ý chữ 樂 khi là 'âm nhạc' đọc yuè). NGHĨA: 快 (tâm 忄 + nhanh nhẹn) là sảng khoái + 樂 là hoan hỉ, an vui → lòng nhẹ nhõm tươi vui = vui vẻ, hạnh phúc.",
+   "vd": [
+    {
+     "t": "Chúc tết",
+     "zh": "新年快樂！祝你新的一年身體健康、萬事如意。",
+     "vn": "Chúc mừng năm mới! Chúc bạn năm mới sức khỏe dồi dào, vạn sự như ý."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "看到孩子每天健康快樂地長大，父母就放心了。",
+     "vn": "Thấy con cái ngày nào cũng lớn lên khỏe mạnh vui vẻ là cha mẹ yên tâm rồi."
+    },
+    {
+     "t": "Sinh nhật",
+     "zh": "大家一起唱生日快樂歌給小安聽吧！",
+     "vn": "Mọi người cùng hát bài Chúc mừng sinh nhật cho Tiểu An nghe đi!"
+    }
+   ]
+  },
+  "太": {
+   "vn": "quá; lắm; vô cùng",
+   "ng": [
+    "(phó từ) quá, cực kỳ (thường đi với 了 ở cuối câu: 太……了: 太貴了 đắt quá, 太好了 tuyệt quá)",
+    "(phó từ phủ định) không ... lắm (不太 + tính từ/động từ tâm lý, KHÔNG dùng 了 ở cuối: 不太好 không tốt lắm)"
+   ],
+   "us": "Khẳng định & cảm thán dùng cặp 太 + Adj/V tâm lý + 了 (太慢了 chậm quá, 太喜歡了 thích quá). Phủ định dùng 不太 + Adj/V (不太清楚 không rõ lắm, 不太會 không biết lắm) và BỎ 了!",
+   "co": [
+    "太好了|tuyệt quá / hay quá rồi",
+    "太貴了|đắt quá",
+    "不太一樣|không giống nhau lắm",
+    "太多了|nhiều quá rồi"
+   ],
+   "sy": [
+    "非常|vô cùng, rất",
+    "極了|(bổ ngữ đứng sau tính từ: 好極了 tuyệt cực kỳ)"
+   ],
+   "cf": [
+    "太……了 vs 很|很 đứng trước tính từ bình thường để cân bằng câu (很好 rất tốt); 太……了 mang sắc thái cảm thán 'quá mức / vượt kỳ vọng' (tích cực như 太好了 hoặc phàn nàn như 太貴了)"
+   ],
+   "lt": "CẤM gắn 了 trong câu phủ định 不太 (*不太貴了 ❌ -> nói 不太貴, trừ trường hợp biểu thị sự thay đổi tình huống mới là 不太一樣了).",
+   "mk": "1) Quên chữ 了 ở cuối câu cảm thán (*這個太貴 ❌, tự nhiên nhất phải là 這個太貴了!). 2) Nhầm nghĩa với 太(tai) trong 太太.",
+   "tw": "Ở Đài Loan người trẻ hay nói 太棒了！(Quá đỉnh!), 太扯了！(Vô lý/quá đáng thế!), 太誇張了！(Quá đáng/làm quá rồi!), và mở đầu câu lịch sự từ chối khéo rất hay dùng 不太方便 (không tiện lắm).",
+   "mh": "Thái → tài. ĐỌC: 'thái' → tài (th- → t-, vần -ai giữ nguyên, thanh 4). NGHĨA: chữ 大 (lớn) thêm một nét chấm bên dưới thành 'vô cùng lớn, tột bậc' → vượt quá mức bình thường = quá, lắm.",
+   "vd": [
+    {
+     "t": "Tin vui",
+     "zh": "明天放假不用上班，真是太好了！",
+     "vn": "Ngày mai được nghỉ không phải đi làm, đúng là tuyệt quá đi!"
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這件外套雖然很漂亮，但是價錢太貴了。",
+     "vn": "Chiếc áo khoác này tuy rất đẹp nhưng giá đắt quá."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "不好意思，我剛來台灣，中文還不太流利。",
+     "vn": "Xin lỗi, tôi mới đến Đài Loan nên tiếng Hoa vẫn chưa trôi chảy lắm."
+    }
+   ]
+  },
+  "公園": {
+   "vn": "công viên",
+   "ng": [
+    "(danh từ) công viên (khu vườn chung dành cho công chúng đi dạo, giải trí)"
+   ],
+   "us": "Dùng như danh từ địa điểm: 去公園散步 (ra công viên đi dạo), 公園裡面 (trong công viên), 家附近的公園 (công viên gần nhà). Lượng từ dùng 個 hoặc 座.",
+   "co": [
+    "去公園|đi công viên",
+    "國家公園|vườn quốc gia",
+    "公園散步|đi dạo trong công viên",
+    "鄰里公園|công viên khu phố"
+   ],
+   "sy": [
+    "花園|vườn hoa"
+   ],
+   "lt": "個、座 (一座很大的公園 một công viên rất lớn).",
+   "tw": "Đài Loan có rất nhiều công viên cộng đồng ngay trong khu dân cư (ví dụ 大安森林公園 công viên rừng Đại An ở Đài Bắc) và các Vườn quốc gia (國家公園) như 太魯閣 (Taroko), 陽明山 (Dương Minh Sơn), 玉山 (Ngọc Sơn).",
+   "mh": "Công Viên → gōngyuán. ĐỌC: 'công' → gōng (c- → g- không bật hơi, -ông → -ong thanh 1); 'viên' → yuán (v- mất sang âm tròn môi yu- + an thanh 2). NGHĨA: 公 chung của mọi người + 園 khu vườn có tường rào (bộ 囗 vi vây quanh + 袁) → khu vườn công cộng = công viên.",
+   "vd": [
+    {
+     "t": "Sáng sớm",
+     "zh": "爺爺每天早上都會去附近的公園運動。",
+     "vn": "Ông nội sáng nào cũng ra công viên gần nhà tập thể dục."
+    },
+    {
+     "t": "Thư giãn",
+     "zh": "我們帶狗去公園跑一跑吧，牠在家悶壞了。",
+     "vn": "Mình dắt chó ra công viên chạy một chút đi, nó ở nhà bí bách lắm rồi."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "大安森林公園就像是台北市的一座大花園。",
+     "vn": "Công viên rừng Đại An giống như một khu vườn hoa lớn của thành phố Đài Bắc vậy."
+    }
+   ]
+  },
+  "國家": {
+   "vn": "quốc gia; đất nước; nhà nước",
+   "ng": [
+    "(danh từ) quốc gia, đất nước, nước nhà"
+   ],
+   "us": "Hỏi quê hương/quốc tịch lịch sự: 你從哪個國家來？ / 你的國家有哪些美食？ Ghép tạo danh từ: 國家公園 (vườn quốc gia), 國家圖書館 (Thư viện Quốc gia), 國家考試 (kỳ thi công chức quốc gia).",
+   "co": [
+    "哪個國家|nước nào, quốc gia nào",
+    "每個國家|mỗi quốc gia",
+    "國家公園|vườn quốc gia",
+    "不同國家|các quốc gia khác nhau"
+   ],
+   "sy": [
+    "國|nước (dùng sau tên: 法國, 越南)",
+    "祖國|tổ quốc"
+   ],
+   "cf": [
+    "國家 vs 國|國家 đứng độc lập là danh từ đếm được (一個國家 1 quốc gia, 好幾個國家 nhiều nước); 國 thường gắn sau tên riêng một nước (日本國/法國/美國) chứ không đứng một mình nói *一個國"
+   ],
+   "lt": "個 (一個漂亮的國家 một đất nước xinh đẹp).",
+   "mk": "Đừng viết ghép sai thứ tự thành *家國 ❌ trong văn nói hiện đại, phải là 國家.",
+   "tw": "Ở Đài Loan dùng khá nhiều cụm hành chính như 國家圖書館 (Thư viện Quốc gia tại Đài Bắc), 國家音樂廳 (Nhà hát Âm nhạc Quốc gia), 國家公園 (Công viên Quốc gia).",
+   "mh": "Quốc Gia → guójiā. ĐỌC: 'quốc' → guó (qu- → gu-, mất âm cuối -c sang -o thanh 2); 'gia' → jiā (gi- → j-, -a → -ia thanh 1). NGHĨA: 國 bờ cõi lãnh thổ được bảo vệ (bộ 囗 vi + 或) + 家 nhà ở → 'ngôi nhà lớn chung có lãnh thổ' = quốc gia, đất nước.",
+   "vd": [
+    {
+     "t": "Làm quen",
+     "zh": "這門課的同學來自十幾個不同的國家。",
+     "vn": "Các bạn học trong lớp này đến từ hơn mười quốc gia khác nhau."
+    },
+    {
+     "t": "Văn hóa",
+     "zh": "每個國家的過年習俗都有自己的特色。",
+     "vn": "Phong tục đón Tết của mỗi quốc gia đều có nét đặc sắc riêng."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "陽明山國家公園春天有很多花可以看。",
+     "vn": "Vườn quốc gia Dương Minh Sơn mùa xuân có rất nhiều hoa để ngắm."
+    }
+   ]
+  },
+  "分鐘": {
+   "vn": "phút (khoảng thời gian)",
+   "ng": [
+    "(lượng từ / danh từ) phút (chỉ độ dài/khoảng thời gian: 五分鐘 5 phút, 等了二十分鐘 đã đợi 20 phút)"
+   ],
+   "us": "Cực kỳ quan trọng: dùng 分鐘 để ĐẾM KHOẢNG THỜI GIAN kéo dài bao lâu (走路只要五分鐘 đi bộ chỉ mất 5 phút; 再等十分鐘 đợi thêm 10 phút nữa). KHÔNG thêm 個 (*五個分鐘 ❌)!",
+   "co": [
+    "五分鐘|năm phút",
+    "幾分鐘|mấy phút",
+    "十幾分鐘|mười mấy phút",
+    "只要二十分鐘|chỉ mất hai mươi phút"
+   ],
+   "cf": [
+    "分鐘 vs 分|分鐘 đếm KHOẢNG thời gian ('mất 10 phút' = 十分鐘); 分 dùng để NÓI GIỜ trên đồng hồ ('3 giờ 10 phút' = 三點十分, KHÔNG nói *三點十分鐘 ❌!)"
+   ],
+   "lt": "Tuyệt đối KHÔNG thêm 個 trước 分鐘 (*三個分鐘 ❌).",
+   "mk": "1) Hay thêm chữ 鐘 vào giờ đồng hồ (*現在八點十五分鐘 ❌ -> phải nói 現在八點十五分). 2) Hay chèn 個 (*五個分鐘 ❌ -> 五分鐘).",
+   "tw": "Ở Đài Loan bảng chờ xe buýt, MRT hiển thị thời gian tàu sắp đến tính bằng 分鐘 (ví dụ: 還有 3 分鐘 = còn 3 phút nữa tàu tới; hoặc báo 將進站 sắp vào ga).",
+   "mh": "Phân Chung → fēnzhōng. ĐỌC: 'phân' → fēn (ph- → f-, -ân → -en thanh 1); 'chung' → zhōng (ch- → zh-, -ung → -ong thanh 1). NGHĨA: 分 chia nhỏ (1 giờ chia làm 60 phần) + 鐘 đồng hồ/cái chuông → một phần chia nhỏ trên mặt đồng hồ = phút.",
+   "vd": [
+    {
+     "t": "Hẹn gặp",
+     "zh": "我已經快到了，再給我五分鐘好嗎？",
+     "vn": "Tôi sắp tới rồi, cho tôi thêm năm phút nữa nhé?"
+    },
+    {
+     "t": "Giao thông",
+     "zh": "從我家走路去捷運站大概只要七分鐘。",
+     "vn": "Từ nhà tôi đi bộ ra ga tàu điện ngầm chắc chỉ mất khoảng bảy phút."
+    },
+    {
+     "t": "Học tập",
+     "zh": "這篇文章不長，你幾分鐘就可以看完了。",
+     "vn": "Bài viết này không dài, bạn đọc vài phút là xong ngay thôi."
+    }
+   ]
+  },
+  "家人": {
+   "vn": "người nhà; người thân trong gia đình",
+   "ng": [
+    "(danh từ) thành viên trong gia đình, người thân (chỉ chung bố mẹ, anh chị em, vợ chồng con cái)"
+   ],
+   "us": "Thường dùng ở dạng tập thể: 我的家人 (người nhà tôi), 跟家人一起住 (sống cùng gia đình), 照顧家人 (chăm sóc gia đình). Cũng có thể dùng cho 1 người cụ thể: 他也是我的家人 (Anh ấy cũng là người nhà của tôi).",
+   "co": [
+    "我的家人|người nhà của tôi",
+    "跟家人一起|cùng với gia đình",
+    "照顧家人|chăm sóc người thân",
+    "想念家人|nhớ gia đình"
+   ],
+   "sy": [
+    "家裡人|người trong nhà (khẩu ngữ)",
+    "親人|người thân"
+   ],
+   "cf": [
+    "家人 vs 家|家 là 'nhà/gia đình' nói chung (我家 nhà tôi, 回家 về nhà); 家人 là 'những người trong gia đình' (我有四個家人 ❌ -> tự nhiên nói 我家有四個人; còn 'chào người nhà' thì nói 問候你的家人)"
+   ],
+   "lt": "Không nói *我的家人在 nhà có 4 người kiểu liệt kê đếm như *我家有三個家人 ❌ (nói 我家有四口人 / 四個人).",
+   "mk": "Đừng đếm số thành viên bằng *我有五個家人 ❌ (người Đài nói 我家有五個人 hoặc 家裡有五口人).",
+   "tw": "Người Đài cũng hay nói 家裡的人 (người ở nhà) trong khẩu ngữ rất tự nhiên, ví dụ: 我問一下家裡的人.",
+   "mh": "Gia Nhân → jiārén. ĐỌC: 'gia' → jiā (gi- → j-, -a → -ia thanh 1); 'nhân' → rén (nh- → r-, -ân → -en thanh 2). NGHĨA: 家 mái nhà (bộ 宀 mái nhà + 豕 con lợn nuôi trong nhà thời xưa) + 人 con người → những người sống chung một mái nhà = người nhà, người thân.",
+   "vd": [
+    {
+     "t": "Ngày lễ",
+     "zh": "過年的時候，我最喜歡和家人一起吃年夜飯。",
+     "vn": "Vào dịp Tết, tôi thích nhất là ăn bữa cơm tất niên cùng người nhà."
+    },
+    {
+     "t": "Du học",
+     "zh": "一個人在外地工作，難免會想念遠方的家人。",
+     "vn": "Một mình đi làm ở nơi xa, khó tránh khỏi nhớ nhung người thân ở quê nhà."
+    },
+    {
+     "t": "An toàn",
+     "zh": "出門旅遊時別忘了傳訊息跟家人報平安。",
+     "vn": "Khi đi du lịch đừng quên nhắn tin báo bình an cho người nhà nhé."
+    }
+   ]
+  },
+  "胖": {
+   "vn": "béo; mập",
+   "ng": [
+    "(tính từ) béo, mập, thừa cân (của người hoặc động vật: 變胖了 béo lên rồi, 胖胖的 mũm mĩm)"
+   ],
+   "us": "Tính từ trạng thái: 他一點都不胖 (Anh ấy chẳng béo chút nào), 吃太多甜食會變胖 (Ăn nhiều đồ ngọt sẽ bị mập lên). Dạng láy đáng yêu: 胖胖的 (tròn trịa, mũm mĩm — dùng cho trẻ con/thú cưng rất dễ thương).",
+   "co": [
+    "變胖|béo lên, tăng cân",
+    "太胖|quá béo",
+    "胖胖的|mũm mĩm, tròn tròn",
+    "怕胖|sợ béo"
+   ],
+   "sy": [
+    "肥|mập (cho vật/thịt mỡ; nói người là thô lỗ!)"
+   ],
+   "an": [
+    "瘦|gầy, ốm"
+   ],
+   "cf": [
+    "胖 vs 肥|胖 dùng cho người (hạn chế nói thẳng để tránh bất lịch sự); 肥 chủ yếu chỉ thịt mỡ (肥肉) hoặc động vật béo (這隻豬好肥), gọi người là 肥 nghe rất khiếm nhã!"
+   ],
+   "lt": "Dạng dễ thương giảm nhẹ: 胖胖的 / 肉肉的 (mũm mĩm, có da có thịt).",
+   "mk": "Chớ dùng 肥 (féi) để khen/nói người mập trong xã giao — người nghe sẽ rất tự ái; kể cả 胖 cũng nên tránh nói trực tiếp trước mặt người lạ, nhất là phụ nữ.",
+   "tw": "Ở Đài Loan nói khéo một người hơi tròn người ta hay dùng 肉肉的 (ròuròu de — có chút thịt, dễ thương) hoặc nói người lớn tuổi là 福泰 (phúc hậu) hay 圓潤, chứ không nói thẳng 變胖了!",
+   "mh": "Bàn (Bàng) → pàng. ĐỌC: 'bàn/bàng' bật hơi sang p- + -ang thanh 4 (pàng; chú ý âm cổ còn là pán trong 心廣體胖 'tâm rộng thân an', đọc pàng trong nghĩa béo mập). NGHĨA: bộ 肉/月 (thịt thà, cơ thể) + 半 (một nửa đầy đặn) → cơ thể có nhiều thịt, đẫy đà = béo, mập.",
+   "vd": [
+    {
+     "t": "Chuyện phiếm",
+     "zh": "我覺得你根本不胖，不用刻意減肥啦！",
+     "vn": "Mình thấy bạn có béo chút nào đâu, không cần cố nhịn ăn giảm cân đâu!"
+    },
+    {
+     "t": "Thú cưng",
+     "zh": "鄰居養的那隻橘貓胖胖的，抱起來好軟。",
+     "vn": "Con mèo mướp nhà hàng xóm nuôi trông mũm mĩm lắm, ôm lên mềm thích ghê."
+    },
+    {
+     "t": "Ăn uống",
+     "zh": "每天晚上都吃消夜，難怪最近變胖這麼多。",
+     "vn": "Tối nào cũng ăn khuya, bảo sao dạo này tăng cân nhiều thế."
+    }
+   ]
+  },
+  "矮": {
+   "vn": "thấp; lùn",
+   "ng": [
+    "(tính từ) thấp, lùn (chiều cao của người, cây cối, bàn ghế, tường nhà: 個子矮 dáng người thấp, 矮樹 cây thấp)"
+   ],
+   "us": "Miêu tả chiều cao tính từ mặt đất: 比我矮 (thấp hơn tôi), 矮了一點 (hơi thấp một chút). Khi nói lịch sự chiều cao người không nên nói thẳng 很矮, có thể nói 不太高 (không cao lắm) hoặc 小巧 (nhỏ nhắn).",
+   "co": [
+    "個子矮|dáng người thấp",
+    "矮牆|tường thấp",
+    "比……矮|thấp hơn...",
+    "不太矮|không thấp lắm"
+   ],
+   "an": [
+    "高|cao"
+   ],
+   "cf": [
+    "矮 vs 低|矮 chỉ CHIỀU CAO từ chân đến đỉnh của người, cây, tường, ghế; 低 chỉ ĐỘ CAO/MỨC ĐỘ trừu tượng hoặc vị trí trên trục (giá thấp 價格低, điểm thấp 分數低, cúi đầu 低頭, giọng nhỏ 低聲)"
+   ],
+   "lt": "Chú ý thanh 3 ǎi (đừng nhầm thanh 4 ài 愛 yêu).",
+   "mk": "Lỗi cực hay gặp: nói 'giá thấp' thành *價錢很矮 ❌ hoặc 'nói người lùn' thành *他很低 ❌ (phải ngược lại: 價錢很低, 他很矮/不高!).",
+   "tw": "Ở Đài Loan người ta cũng hay tránh nói thẳng chữ 矮 với bạn bè, mà nói 個子比較小隻 (người nhỏ con đáng yêu!) hoặc 不太高.",
+   "mh": "Ải → ǎi. ĐỌC: âm Hán Việt 'ải' gần như trùng hoàn toàn với pinyin ǎi thanh 3 (chú ý kéo sâu xuống rồi lên nhẹ, khác thanh 4 ài 'yêu' 愛). NGHĨA: bộ 矢 (mũi tên — làm thước đo chiều cao người thời xưa, so sánh như trong chữ 短 ngắn) + 委 (thấp xuống) → vóc dáng thấp hơn mũi tên chuẩn = thấp, lùn.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "弟弟現在比以前長高很多，已經不比哥哥矮了。",
+     "vn": "Em trai giờ cao lên nhiều so với trước, đã không còn thấp hơn anh trai nữa rồi."
+    },
+    {
+     "t": "Nhà cửa",
+     "zh": "院子旁邊有一道矮牆，上面種滿了九重葛。",
+     "vn": "Bên cạnh sân có một bức tường thấp, bên trên trồng đầy hoa giấy."
+    },
+    {
+     "t": "Xếp hàng",
+     "zh": "拍照的時候，個子比較矮的人請站在前面。",
+     "vn": "Lúc chụp ảnh, những bạn thấp hơn một chút vui lòng đứng ra phía trước nhé."
+    }
+   ]
+  },
+  "瘦": {
+   "vn": "gầy; ốm; nạc (thịt); chật (quần áo)",
+   "ng": [
+    "(tính từ) gầy, ốm, mảnh khảnh (人很瘦 người rất gầy, 變瘦了 gầy đi/sụt cân rồi)",
+    "(tính từ) nạc, ít mỡ (chỉ thịt: 瘦肉 thịt nạc, 半肥瘦 nửa nạc nửa mỡ)",
+    "(tính từ) ôm sát, hơi chật (quần áo, giày: 這件褲子太瘦了 chiếc quần này hơi bó)"
+   ],
+   "us": "Dùng nhiều nhất với nghĩa gầy/giảm cân: 你好像瘦了 (Trông bạn hình như gầy đi rồi đấy), 太瘦了 (Gầy quá), 瘦下來 (gầy xuống/giảm cân thành công). Ngoài ra đi chợ/ăn tiệm ở Đài Loan gọi thịt nạc là 瘦肉.",
+   "co": [
+    "變瘦|gầy đi, giảm cân",
+    "太瘦|gầy quá",
+    "瘦肉|thịt nạc",
+    "瘦下來|giảm cân thành công"
+   ],
+   "sy": [
+    "苗條|thon thả (khen dáng đẹp)",
+    "骨感|mảnh mai"
+   ],
+   "an": [
+    "胖|béo, mập",
+    "肥|béo, mỡ (肥肉 thịt mỡ)"
+   ],
+   "cf": [
+    "瘦 vs 苗條|Ở Đài Loan khen phụ nữ/bạn nữ dáng chuẩn thon đẹp không nói *妳好瘦 nếu gầy trơ xương, mà dùng 身材很好 / 很苗條; 瘦 là gầy khách quan (đôi khi mang ý hơi gầy cần ăn thêm)"
+   ],
+   "lt": "Khi đi ăn cháo/bún Đài Loan nhớ cặp từ đối: 瘦肉 (thịt nạc) ↔ 肥肉 (thịt mỡ).",
+   "mk": "Nhiều bạn khen người khác *你很瘦 mà tưởng là khen đẹp; thực ra nói với bạn thân ở Đài Loan muốn khen khéo nên nói 你變瘦了 (dạo này thon thả ra đấy) hoặc 身材很勻稱.",
+   "tw": "Ở tiệm cơm hộp (便當店) hay quán mì Đài Loan, nhiều khách dặn chủ quán: 老闆，控肉幫我挑瘦一點的！(Ông chủ ơi, thịt kho gắp cho tôi miếng nạc một chút nhé!).",
+   "mh": "Sấu (Sưu) → shòu. ĐỌC: 'sấu' → shòu (s- uốn lưỡi thành sh- + vần -ou thanh 4). NGHĨA: bộ 疒 (bệnh tật, gầy yếu) + 叟 (ông già) → người có tuổi hoặc ốm lâu trông gầy rộc đi = gầy, ốm, ít mỡ (thịt nạc).",
+   "vd": [
+    {
+     "t": "Gặp lại",
+     "zh": "好久不見，你最近是不是變瘦了？",
+     "vn": "Lâu quá không gặp, dạo này bạn gầy đi phải không?"
+    },
+    {
+     "t": "Gọi món",
+     "zh": "這碗瘦肉粥味道很清爽，適合生病時吃。",
+     "vn": "Bát cháo thịt nạc này vị rất thanh, hợp ăn lúc bị ốm."
+    },
+    {
+     "t": "Chăm sóc",
+     "zh": "你工作這麼忙，人越來越瘦，要記得多吃一點喔！",
+     "vn": "Bạn làm việc bận thế, người ngày càng gầy đi rồi, nhớ ăn nhiều thêm chút nhé!"
+    }
+   ]
+  }
+ }
+}
