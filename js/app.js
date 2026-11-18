@@ -7070,6 +7070,18 @@ async function getDictationTopics() {
 async function getMockTests() {
   if (window._MOCK_TESTS && window._MOCK_TESTS.length) return window._MOCK_TESTS;
   try {
+    const res = await fetch("data/tocfl_band_b_5_de.json");
+    if (res.ok) {
+      const data = await res.json();
+      const tests = Array.isArray(data) ? data : (data && data.tests);
+      if (Array.isArray(tests) && tests.length) {
+        window._MOCK_TESTS = tests;
+        try { await Store.put("kv", "mockTests", tests); } catch (e) {}
+        return tests;
+      }
+    }
+  } catch (e) {}
+  try {
     const saved = await Store.get("kv", "mockTests");
     if (Array.isArray(saved) && saved.length) { window._MOCK_TESTS = saved; return saved; }
   } catch (e) {}
@@ -7088,11 +7100,10 @@ async function loadMockTestFile(file) {
 function mockTestLoaderHTML() {
   return `<div class="max-w-2xl mx-auto px-margin-mobile md:px-margin py-space-xl">
     <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-sm flex flex-col gap-space-md">
-      <h1 class="font-headline-lg text-2xl font-bold text-on-surface">Thi thử TOCFL</h1>
-      <p class="text-on-surface-variant">Đề thi thử chính thức của SC-TOP có bản quyền nên không đăng công khai trên trang này. Bạn nạp gói đề riêng một lần trên mỗi máy; đề chỉ lưu trong trình duyệt của máy đó, không đồng bộ lên mạng.</p>
-      <p class="text-sm text-outline">File gói đề nằm trong Google Drive: <b>10 Website học tiếng Hoa › bo-cau-rieng › de-thi-thu-TOCFL.json</b>. Trên điện thoại, mở bằng ứng dụng Files/Tệp của Drive.</p>
+      <h1 class="font-headline-lg text-2xl font-bold text-on-surface">Thi thử TOCFL Band B</h1>
+      <p class="text-on-surface-variant">Đang tải 5 bộ đề TOCFL Band B Phồn thể chính thức (Đề 1 – Đề 5)...</p>
       <label class="inline-flex items-center gap-2 self-start px-5 py-2.5 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-semibold cursor-pointer">
-        <span class="material-symbols-outlined text-[20px]">upload_file</span><span>Nạp gói đề thi</span>
+        <span class="material-symbols-outlined text-[20px]">upload_file</span><span>Nạp gói đề thi JSON</span>
         <input type="file" id="mockFile" accept=".json,application/json" class="hidden">
       </label>
       <div role="status" id="mockMsg" class="text-sm"></div>
@@ -7968,19 +7979,48 @@ VIEWS["chinh-ta"] = async () => {
 };
 
 // =========================================================================
-// 7. VIEW THI THỬ TOCFL (MOCK EXAMS & REVIEW - STITCH CAT-B DESIGN)
+// 7. VIEW THI THỬ TOCFL (5 ĐỀ CHÍNH THỨC BAND B PHỒN THỂ: NGHE & ĐỌC)
 // =========================================================================
+function stopExamAudio() {
+  if (window._examAudioEl) {
+    try {
+      window._examAudioEl.pause();
+      window._examAudioEl.onended = null;
+      window._examAudioEl.ontimeupdate = null;
+      window._examAudioEl.src = "";
+    } catch (e) {}
+  }
+  if ("speechSynthesis" in window) {
+    try { window.speechSynthesis.cancel(); } catch (e) {}
+  }
+  if (window._examAudioState) {
+    window._examAudioState.playing = false;
+  }
+}
+
+function fmtAudioSec(sec) {
+  if (!sec || !isFinite(sec) || sec < 0) return "00:00";
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60);
+  return `${m < 10 ? "0" : ""}${m}:${s < 10 ? "0" : ""}${s}`;
+}
+
 VIEWS["thi-thu"] = async () => {
   const exam = S.exam = Object.assign({
     subview: "review",
     testId: "mock_b1",
-    bandFilter: "all",
+    bandFilter: "Band B",
     curQuestionIdx: 0,
+    lastListenIdx: 0,
+    lastReadIdx: 50,
     answers: {},
     flagged: {},
+    revealedQs: {},
+    byTest: {},
     history: [],
-    timerLeft: 3600,
+    timerLeft: 7200,
     isExamMode: true,
+    lastResult: null,
     historyModalOpen: false,
     submitModalOpen: false,
     fontSizeClass: "text-headline-md",
@@ -7998,21 +8038,57 @@ VIEWS["thi-thu"] = async () => {
     };
     return;
   }
-  const curTest = allTests.find(t => t.id === exam.testId) || allTests[0];
+
+  const bandBTests = allTests.filter(t => String(t.band || "").includes("Band B") || String(t.id || "").startsWith("mock_b"));
+  const displayTests = bandBTests.length ? bandBTests : allTests;
+  const curTest = displayTests.find(t => t.id === exam.testId) || displayTests[0];
+  exam.testId = curTest.id;
   exam.curTest = curTest;
+
+  if (!exam.byTest) exam.byTest = {};
+  if (!exam.byTest[curTest.id]) {
+    exam.byTest[curTest.id] = {
+      answers: exam.answers || {},
+      flagged: exam.flagged || {},
+      revealedQs: exam.revealedQs || {},
+      lastListenIdx: 0,
+      lastReadIdx: curTest.questions.findIndex(q => q.section !== "listening")
+    };
+  }
+  const tState = exam.byTest[curTest.id];
+  exam.answers = tState.answers;
+  exam.flagged = tState.flagged;
+  exam.revealedQs = tState.revealedQs;
 
   try {
     const savedHist = await Store.get("kv", "tocfl_history");
     if (Array.isArray(savedHist)) exam.history = savedHist;
   } catch (e) {}
 
+  if (exam.curQuestionIdx < 0 || exam.curQuestionIdx >= curTest.questions.length) {
+    exam.curQuestionIdx = 0;
+  }
   const curQ = curTest.questions[exam.curQuestionIdx] || curTest.questions[0];
-  const totalQ = curTest.questions.length || 50;
+  const qNum = curQ.qNum || (curQ.section === "listening" ? curQ.id : (curQ.id > 50 ? curQ.id - 50 : curQ.id));
+  if (curQ.section === "listening") {
+    tState.lastListenIdx = exam.curQuestionIdx;
+  } else {
+    tState.lastReadIdx = exam.curQuestionIdx;
+  }
+
+  // Stop any playing audio ONLY if the user switched to a different question or exam
+  const curAudioKey = `${curTest.id}_${curQ.id}`;
+  if (window._examAudioState && window._examAudioState.key !== curAudioKey) {
+    stopExamAudio();
+  }
+
+  const totalQ = curTest.questions.length || 100;
   const listeningQs = curTest.questions.filter(q => q.section === "listening");
   const readingQs = curTest.questions.filter(q => q.section !== "listening");
+  const firstReadIdx = readingQs.length ? curTest.questions.indexOf(readingQs[0]) : 50;
   const doneListening = listeningQs.filter(q => exam.answers[q.id] !== undefined).length;
   const doneReading = readingQs.filter(q => exam.answers[q.id] !== undefined).length;
-  const totalDone = Object.keys(exam.answers).length;
+  const totalDone = doneListening + doneReading;
   const totalUnanswered = Math.max(0, totalQ - totalDone);
   const totalFlagged = Object.keys(exam.flagged || {}).filter(k => exam.flagged[k]).length;
 
@@ -8021,110 +8097,265 @@ VIEWS["thi-thu"] = async () => {
   const readDonePct = Math.round((doneReading / Math.max(1, totalQ)) * 100);
   const readLeftPct = Math.max(0, 100 - listenDonePct - listenLeftPct - readDonePct);
 
-  if (exam.timerLeft === undefined) exam.timerLeft = 3600;
+  if (exam.timerLeft === undefined) exam.timerLeft = 7200;
   const mins = Math.floor(exam.timerLeft / 60);
   const secs = exam.timerLeft % 60;
-  const timerStr = `${mins < 10 ? '0' : ''}${mins}:${secs < 10 ? '0' : ''}${secs}`;
+  const timerStr = `${mins < 10 ? "0" : ""}${mins}:${secs < 10 ? "0" : ""}${secs}`;
 
-  function playExamAudio() {
-    if (!curQ) return;
-    const segs = curQ.dialogueSegments && curQ.dialogueSegments.length ? curQ.dialogueSegments : curQ.dialogue || curQ.audio;
-    if (!segs) return;
-    playDialogueAudio(segs, 0.9);
+  const audioFiles = Array.isArray(curQ.audioFiles) ? curQ.audioFiles : [];
+  const hasTwoTracks = audioFiles.length >= 2;
+  const showAnswerBox = !exam.isExamMode || !!(exam.revealedQs && exam.revealedQs[curQ.id]);
+
+  function updateAudioPlayerDOM() {
+    const st = window._examAudioState || {};
+    const iconEl = $("#exam-audio-icon");
+    const statusEl = $("#exam-audio-status");
+    const timeEl = $("#exam-audio-time");
+    const barEl = $("#exam-audio-bar");
+    if (iconEl) iconEl.textContent = st.playing ? "pause" : "volume_up";
+    if (statusEl) {
+      if (st.playing) {
+        statusEl.textContent = hasTwoTracks
+          ? (st.trackIdx === 0 ? `Đang phát: Đoạn hội thoại/bài nói (File 1/${audioFiles.length})...` : `Đang phát: Câu hỏi số ${qNum} (File 2/${audioFiles.length})...`)
+          : `Đang phát âm thanh câu ${qNum}...`;
+      } else if (st.pausedAt > 0) {
+        statusEl.textContent = `Đã tạm dừng • Nhấn vào loa để nghe tiếp`;
+      } else {
+        statusEl.textContent = `Chưa phát • Nhấn vào biểu tượng cái loa để nghe câu ${qNum}`;
+      }
+    }
+    if (timeEl && st.el) {
+      timeEl.textContent = `${fmtAudioSec(st.el.currentTime)} / ${fmtAudioSec(st.el.duration)}`;
+    }
+    if (barEl && st.el && st.el.duration > 0) {
+      const pct = Math.min(100, Math.round((st.el.currentTime / st.el.duration) * 100));
+      barEl.style.width = `${pct}%`;
+    }
+  }
+
+  function playExamAudio(mode) {
+    if (!curQ || curQ.section !== "listening") return;
     const btn = $("#btn-play-exam-audio");
-    if (btn) {
+    if (btn && btn.classList) {
       btn.classList.add("ring-4", "ring-primary/40");
       setTimeout(() => btn.classList.remove("ring-4", "ring-primary/40"), 300);
     }
+
+    // Fallback for headless Node test environment without HTML5 Audio MP3 playback
+    if (typeof Audio === "undefined" || !audioFiles.length) {
+      const segs = curQ.dialogueSegments && curQ.dialogueSegments.length ? curQ.dialogueSegments : (curQ.dialogue || curQ.audio);
+      if (segs) playDialogueAudio(segs, 0.9);
+      return;
+    }
+
+    if (!window._examAudioEl) {
+      window._examAudioEl = new Audio();
+    }
+    const el = window._examAudioEl;
+    const st = window._examAudioState = window._examAudioState || {};
+
+    // If clicking the main speaker button on the same question while playing -> pause; if paused -> resume
+    if (mode === undefined && st.key === curAudioKey && st.el === el && el.src) {
+      if (st.playing && !el.paused) {
+        el.pause();
+        st.playing = false;
+        st.pausedAt = el.currentTime || 0.1;
+        updateAudioPlayerDOM();
+        return;
+      } else if (!st.playing && st.pausedAt > 0 && !el.ended) {
+        st.playing = true;
+        el.play().catch(() => {});
+        updateAudioPlayerDOM();
+        return;
+      }
+    }
+
+    stopExamAudio();
+
+    let queue = audioFiles.slice();
+    let startTrackIdx = 0;
+    if (mode === 0 && audioFiles[0]) {
+      queue = [audioFiles[0]];
+      startTrackIdx = 0;
+    } else if (mode === 1 && audioFiles[1]) {
+      queue = [audioFiles[1]];
+      startTrackIdx = 1;
+    }
+
+    let qIdx = 0;
+    st.key = curAudioKey;
+    st.el = el;
+    st.playing = true;
+    st.pausedAt = 0;
+    st.trackIdx = startTrackIdx;
+
+    const playCurrentInQueue = () => {
+      if (qIdx >= queue.length) {
+        st.playing = false;
+        st.pausedAt = 0;
+        updateAudioPlayerDOM();
+        return;
+      }
+      st.trackIdx = (mode === undefined) ? qIdx : startTrackIdx;
+      el.src = queue[qIdx];
+      el.currentTime = 0;
+      el.ontimeupdate = () => updateAudioPlayerDOM();
+      el.onloadedmetadata = () => updateAudioPlayerDOM();
+      el.onended = () => {
+        qIdx++;
+        if (qIdx < queue.length) {
+          playCurrentInQueue();
+        } else {
+          st.playing = false;
+          st.pausedAt = 0;
+          updateAudioPlayerDOM();
+        }
+      };
+      el.onerror = () => {
+        st.playing = false;
+        const segs = curQ.dialogueSegments && curQ.dialogueSegments.length ? curQ.dialogueSegments : (curQ.dialogue || curQ.audio);
+        if (segs) playDialogueAudio(segs, 0.9);
+      };
+      updateAudioPlayerDOM();
+      const playP = el.play();
+      if (playP && typeof playP.catch === "function") {
+        playP.catch(() => {
+          st.playing = false;
+          updateAudioPlayerDOM();
+        });
+      }
+    };
+
+    playCurrentInQueue();
+  }
+
+  function formatReadingContextHTML(q) {
+    if (!q.context) return "";
+    let html = esc(q.context);
+    if (q.section === "reading") {
+      // Highlight the current question blank 【qNum】 in cinnabar red and other blanks in subtle badge
+      html = html.replace(/【\s*(\d{1,2})\s*】/g, (_, numStr) => {
+        const n = Number(numStr);
+        if (n === qNum) {
+          return `<span class="inline-flex items-center px-2 py-0.5 mx-0.5 rounded-md bg-primary text-white font-code font-bold text-sm shadow-xs ring-2 ring-primary/30">【 ${n} 】</span>`;
+        }
+        const ansIdx = exam.answers[50 + n];
+        const filled = ansIdx !== undefined ? ` (${["A","B","C","D"][ansIdx]})` : "";
+        return `<span class="inline-flex items-center px-1.5 py-0.5 mx-0.5 rounded bg-surface-container-high text-primary font-code font-semibold text-xs border border-primary/20">【${n}${filled}】</span>`;
+      });
+    }
+    return html;
   }
 
   setView(`
     <div class="w-full bg-paper-base pb-8">
       <div class="flex flex-col w-full">
 
-        <!-- Top Ambient Banner: TOCFL Exam Context -->
+        <!-- Top Ambient Banner: TOCFL Band B Official Exam Context -->
         <div class="w-full bg-surface-container-high px-margin py-space-sm shadow-xs border-b border-border-subtle/60">
           <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-space-sm">
-            <div class="flex items-center gap-space-sm">
-              <span class="inline-flex items-center px-space-xs py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-label-sm font-semibold">
-                國家華語測驗推動工作委員會 SC-TOP
+            <div class="flex items-center gap-space-sm flex-wrap">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-primary text-on-primary font-label-sm text-xs font-bold tracking-wide">
+                TOCFL BAND B • 進階級 (B1) &amp; 高階級 (B2)
               </span>
               <span class="text-outline text-body-sm">•</span>
-              <span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Hệ thống Thi Mô phỏng Trực tuyến TOCFL CAT Computer-Adaptive Test</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant font-medium">5 Bộ đề chính thức SC-TOP Đài Loan (Phồn thể • 50 câu Nghe &amp; 50 câu Đọc mỗi đề)</span>
             </div>
             <div class="flex items-center gap-space-md">
               <div class="flex items-center gap-space-xs text-secondary font-label-sm text-label-sm">
                 <span class="material-symbols-outlined text-[16px]">verified_user</span>
-                <span>Phòng thi tiêu chuẩn SC-TOP (${allTests.length} Bộ đề chính thức)</span>
-              </div>
-              <div class="hidden sm:flex items-center gap-space-xs text-on-surface-variant font-code text-code">
-                <span class="w-2 h-2 rounded-full bg-secondary"></span>
-                <span>Giọng Đài Bắc • Shift nghe lại</span>
+                <span>Chỉ phát âm thanh khi bấm vào nút Loa</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Primary Exam App Control Bar (Test Header Bar) -->
+        <!-- Primary Exam App Control Bar (BAND B -> Đề 1..5 -> Phòng thi / Danh sách đề) -->
         <header class="w-full bg-paper-card shadow-md border-b border-border-subtle">
-          <div class="max-w-7xl mx-auto px-margin py-space-md flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md">
-            <!-- Title & Test Identifier -->
-            <div class="flex items-center gap-space-md">
-              <div class="w-12 h-12 rounded-xl bg-primary flex flex-col items-center justify-center text-on-primary shadow-md shrink-0">
-                <span class="font-headline-md text-headline-md leading-none font-bold">測</span>
-                <span class="font-label-sm text-[9px] uppercase tracking-wider">CAT-B</span>
-              </div>
-              <div>
-                <div class="flex items-center gap-space-xs flex-wrap">
-                  <h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">${esc(curTest.title)}</h1>
-                  <span class="px-space-xs py-0.5 rounded bg-amber-subtle text-tertiary-container font-code text-code font-semibold">${esc(curTest.id.toUpperCase())}-2024</span>
-                  <span class="px-space-xs py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-label-sm font-semibold flex items-center gap-0.5">
-                    <span class="material-symbols-outlined text-[13px]">timer</span>
-                    <span id="examTimerDisplay">${timerStr}</span>
-                  </span>
+          <div class="max-w-7xl mx-auto px-margin py-space-md flex flex-col gap-space-md">
+            <div class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-space-md">
+              <!-- Title & Band B Badge -->
+              <div class="flex items-center gap-space-md">
+                <div class="w-12 h-12 rounded-xl bg-primary flex flex-col items-center justify-center text-on-primary shadow-md shrink-0">
+                  <span class="font-headline-md text-headline-md leading-none font-bold">BAND</span>
+                  <span class="font-label-sm text-[11px] font-bold uppercase tracking-wider">B1·B2</span>
                 </div>
-                <div class="flex items-center gap-2 flex-wrap mt-1">
-                  <p class="font-body-sm text-body-sm text-on-surface-variant">Cấp 3 &amp; Cấp 4 (進階級 &amp; 高階級) • Thang điểm chuẩn 80 điểm SC-TOP</p>
-                  <div class="flex items-center gap-1 ml-1">
-                    ${allTests.slice(0, 6).map((t, i) => `
-                      <button class="px-2 py-0.5 rounded text-[11px] font-code font-bold transition-all ${t.id === curTest.id ? 'bg-primary text-white shadow-2xs' : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high'}" data-quick-test="${esc(t.id)}">
-                        Đề ${i + 1}
+                <div>
+                  <div class="flex items-center gap-space-xs flex-wrap">
+                    <span class="px-2 py-0.5 rounded bg-cinnabar-subtle text-primary font-code text-xs font-bold">BAND B</span>
+                    <h1 class="font-headline-md text-headline-md text-on-surface font-bold tracking-tight">${esc(curTest.title)}</h1>
+                    <span class="px-space-xs py-0.5 rounded-full bg-amber-subtle text-tertiary-container font-label-sm text-label-sm font-semibold flex items-center gap-0.5">
+                      <span class="material-symbols-outlined text-[13px]">timer</span>
+                      <span id="examTimerDisplay">${timerStr}</span>
+                    </span>
+                  </div>
+                  <!-- Band B -> Đề 1 đến Đề 5 Selector Bar -->
+                  <div class="flex items-center gap-1.5 flex-wrap mt-2">
+                    <span class="text-xs font-bold text-on-surface-variant mr-1">Chọn đề Band B:</span>
+                    ${displayTests.map((t, i) => `
+                      <button type="button" class="px-3 py-1 rounded-lg text-xs font-code font-bold transition-all cursor-pointer ${t.id === curTest.id ? 'bg-primary text-white shadow-sm ring-2 ring-primary/30' : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high'}" data-quick-test="${esc(t.id)}">
+                        Đề ${i + 1} (${t.questions.length} câu)
                       </button>
                     `).join("")}
                   </div>
                 </div>
               </div>
+
+              <!-- Real-time Exam Actions & Subview Switcher -->
+              <div class="flex flex-wrap items-center gap-space-sm w-full lg:w-auto justify-between lg:justify-end">
+                <div class="flex items-center gap-1 bg-surface-container p-1 rounded-lg">
+                  <button type="button" class="flex items-center gap-1.5 px-space-md py-1.5 rounded-lg ${exam.subview === 'review' ? 'bg-paper-card text-on-surface font-semibold shadow-sm' : 'text-on-surface-variant hover:text-on-surface'} font-label-md text-xs transition-all cursor-pointer" id="tabReviewBtn">
+                    <span class="material-symbols-outlined text-[16px]">assignment</span>
+                    <span>Làm đề (${esc(curTest.shortTitle || 'Đề ' + (curTest.num || 1))})</span>
+                  </button>
+                  <button type="button" class="flex items-center gap-1.5 px-space-md py-1.5 rounded-lg ${exam.subview === 'overview' ? 'bg-paper-card text-on-surface font-semibold shadow-sm' : 'text-on-surface-variant hover:text-on-surface'} font-label-md text-xs transition-all cursor-pointer" id="tabOverviewBtn">
+                    <span class="material-symbols-outlined text-[16px]">grid_view</span>
+                    <span>Danh sách ${displayTests.length} đề Band B</span>
+                  </button>
+                </div>
+
+                <button type="button" class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-xs transition-colors border border-border-subtle shadow-xs cursor-pointer" id="btnOpenHistory">
+                  <span class="material-symbols-outlined text-primary text-[18px]">history_edu</span>
+                  <span>Lịch sử (${exam.history.length})</span>
+                </button>
+
+                ${exam.isExamMode ? `
+                  <button type="button" class="px-space-md py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-xs font-bold transition-all shadow-sm flex items-center gap-1 cursor-pointer" id="btnSubmitExam">
+                    <span class="material-symbols-outlined text-[16px]">how_to_reg</span>
+                    <span>Nộp bài &amp; Chấm điểm</span>
+                  </button>
+                ` : `
+                  <button type="button" class="px-space-md py-1.5 rounded-lg bg-secondary text-white hover:opacity-95 font-label-md text-xs font-bold flex items-center gap-1 transition-colors shadow-sm cursor-pointer" id="btnRetakeExam">
+                    <span class="material-symbols-outlined text-[16px]">replay</span>
+                    <span>Làm lại đề này</span>
+                  </button>
+                `}
+              </div>
             </div>
 
-            <!-- Real-time Exam Actions & Subview Switcher -->
-            <div class="flex flex-wrap items-center gap-space-sm w-full lg:w-auto justify-between lg:justify-end">
-              <div class="flex items-center gap-1 bg-surface-container p-1 rounded-lg">
-                <button class="flex items-center gap-1.5 px-space-md py-1.5 rounded-lg ${exam.subview === 'review' ? 'bg-paper-card text-on-surface font-semibold shadow-sm' : 'text-on-surface-variant hover:text-on-surface'} font-label-md text-xs transition-all" id="tabReviewBtn">
-                  <span class="material-symbols-outlined text-[16px]">assignment</span>
-                  <span>Phòng thi CAT</span>
-                </button>
-                <button class="flex items-center gap-1.5 px-space-md py-1.5 rounded-lg ${exam.subview === 'overview' ? 'bg-paper-card text-on-surface font-semibold shadow-sm' : 'text-on-surface-variant hover:text-on-surface'} font-label-md text-xs transition-all" id="tabOverviewBtn">
-                  <span class="material-symbols-outlined text-[16px]">grid_view</span>
-                  <span>Danh sách ${allTests.length} đề</span>
-                </button>
-              </div>
-
-              <button class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-xs transition-colors border border-border-subtle shadow-xs" id="btnOpenHistory">
-                <span class="material-symbols-outlined text-primary text-[18px]">history_edu</span>
-                <span>Lịch sử (${exam.history.length})</span>
+            <!-- 2-SECTION SWITCHER BAR INSIDE EACH EXAM: PHẦN 1 NGHE (50 CÂU) & PHẦN 2 ĐỌC (50 CÂU) -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2 border-t border-border-subtle/70">
+              <button type="button" id="btnSwitchListening" class="flex items-center justify-between px-4 py-2.5 rounded-xl border transition-all cursor-pointer ${curQ.section === 'listening' ? 'bg-cinnabar-subtle border-primary text-primary font-bold shadow-xs ring-1 ring-primary/30' : 'bg-surface-container-low border-border-subtle text-on-surface hover:bg-surface-container'}">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[20px]">headphones</span>
+                  <div class="text-left">
+                    <div class="text-xs sm:text-sm font-bold">Phần 1: Nghe hiểu • 聽力測驗</div>
+                    <div class="text-[11px] opacity-80">Câu 1 – ${listeningQs.length} (Hội thoại &amp; Đoạn văn nói • Có MP3 từng câu)</div>
+                  </div>
+                </div>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-code font-bold ${curQ.section === 'listening' ? 'bg-primary text-white' : 'bg-surface-container-high text-on-surface-variant'}">${doneListening}/${listeningQs.length}</span>
               </button>
 
-              ${exam.isExamMode ? `
-                <button class="px-space-md py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container font-label-md text-xs font-bold transition-all shadow-sm flex items-center gap-1" id="btnSubmitExam">
-                  <span class="material-symbols-outlined text-[16px]">how_to_reg</span>
-                  <span>Nộp bài thi</span>
-                </button>
-              ` : `
-                <button class="px-space-md py-1.5 rounded-lg bg-secondary text-white hover:opacity-95 font-label-md text-xs font-bold flex items-center gap-1 transition-colors shadow-sm" id="btnRetakeExam">
-                  <span class="material-symbols-outlined text-[16px]">replay</span>
-                  <span>Thi lại đề này</span>
-                </button>
-              `}
+              <button type="button" id="btnSwitchReading" class="flex items-center justify-between px-4 py-2.5 rounded-xl border transition-all cursor-pointer ${curQ.section !== 'listening' ? 'bg-jade-subtle border-secondary text-secondary font-bold shadow-xs ring-1 ring-secondary/30' : 'bg-surface-container-low border-border-subtle text-on-surface hover:bg-surface-container'}">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-[20px]">menu_book</span>
+                  <div class="text-left">
+                    <div class="text-xs sm:text-sm font-bold">Phần 2: Đọc hiểu • 閱讀測驗</div>
+                    <div class="text-[11px] opacity-80">Câu 1 – ${readingQs.length} (Điền từ vào đoạn văn &amp; Đọc hiểu)</div>
+                  </div>
+                </div>
+                <span class="px-2.5 py-0.5 rounded-full text-xs font-code font-bold ${curQ.section !== 'listening' ? 'bg-secondary text-white' : 'bg-surface-container-high text-on-surface-variant'}">${doneReading}/${readingQs.length}</span>
+              </button>
             </div>
           </div>
 
@@ -8141,99 +8372,70 @@ VIEWS["thi-thu"] = async () => {
         <div class="max-w-7xl mx-auto px-margin py-space-lg w-full flex flex-col gap-space-lg">
 
           <!-- ======================================================== -->
-          <!-- SUBVIEW 1: OVERVIEW (Danh sách đề & Chẩn đoán điểm yếu)  -->
+          <!-- SUBVIEW 1: OVERVIEW (BAND B -> ĐỀ 1 ĐẾN ĐỀ 5)            -->
           <!-- ======================================================== -->
           <div class="${exam.subview === 'overview' ? 'flex' : 'hidden'} flex-col gap-space-lg" id="viewOverview">
-            <div class="w-full bg-paper-card rounded-2xl p-space-lg shadow-sm border border-border-subtle relative overflow-hidden">
-              <div class="absolute -right-8 -top-8 w-44 h-44 bg-cinnabar-subtle/50 rounded-full blur-2xl pointer-events-none"></div>
-              <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-space-lg relative z-10">
-                <div class="flex flex-col gap-space-xs max-w-xl">
-                  <div class="flex items-center gap-space-sm">
-                    <span class="w-6 h-6 rounded-full bg-cinnabar-subtle text-primary flex items-center justify-center">
-                      <span class="material-symbols-outlined text-[16px]">priority_high</span>
-                    </span>
-                    <span class="font-headline-md text-headline-md text-on-surface font-bold">Phần cần ôn tập trọng điểm</span>
-                    <span class="px-2 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-[11px] font-bold">Band B Tiến độ</span>
+            <div class="w-full bg-paper-card rounded-2xl p-space-lg shadow-sm border border-border-subtle">
+              <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 rounded-full bg-primary text-white text-xs font-bold">BAND B (B1 · B2)</span>
+                    <h2 class="font-headline-md text-lg font-bold text-on-surface">Ngân hàng 5 Bộ Đề Thi TOCFL Band B Chính Thức (繁體中文)</h2>
                   </div>
-                  <p class="font-body-md text-body-md text-on-surface-variant text-xs">
-                    Theo ngân hàng đề thi chính thức SC-TOP, hệ thống đã nạp đầy đủ các bộ đề từ Đề 1 đến Đề 5 kèm phân loại kỹ năng:
+                  <p class="text-xs text-on-surface-variant mt-1">
+                    Mỗi bộ đề gồm đầy đủ <strong>2 phần: Phần Nghe (50 câu, kèm file MP3 chuẩn từng câu)</strong> và <strong>Phần Đọc (50 câu, chữ Phồn thể kèm hình ảnh/bảng biểu gốc)</strong>.
                   </p>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-md flex-1">
-                  <div class="bg-surface-container-low p-3 rounded-xl flex flex-col justify-between border border-border-subtle shadow-2xs">
-                    <div>
-                      <span class="text-xs font-bold text-on-surface">Đoạn độc thoại tin tức</span>
-                      <p class="text-[11px] text-outline mt-0.5">TOCFL B2 • Nắm luận điểm</p>
-                    </div>
-                    <button class="mt-2 text-primary font-bold text-xs hover:underline text-left" onclick="examQuickStart('mock_b3')">Luyện đề 3 →</button>
-                  </div>
-
-                  <div class="bg-surface-container-low p-3 rounded-xl flex flex-col justify-between border border-border-subtle shadow-2xs">
-                    <div>
-                      <span class="text-xs font-bold text-on-surface">Chọn từ điền trống (選詞填空)</span>
-                      <p class="text-[11px] text-outline mt-0.5">TOCFL B1 • Ngữ pháp &amp; hư từ</p>
-                    </div>
-                    <button class="mt-2 text-primary font-bold text-xs hover:underline text-left" onclick="examQuickStart('mock_b1')">Luyện đề 1 →</button>
-                  </div>
-
-                  <div class="bg-surface-container-low p-3 rounded-xl flex flex-col justify-between border border-border-subtle shadow-2xs">
-                    <div>
-                      <span class="text-xs font-bold text-on-surface">Hội thoại 2 người Nam/Nữ</span>
-                      <p class="text-[11px] text-outline mt-0.5">TOCFL A2/B1 • Bắt ý ngầm</p>
-                    </div>
-                    <button class="mt-2 text-primary font-bold text-xs hover:underline text-left" onclick="examQuickStart('mock_b2')">Luyện đề 2 →</button>
-                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- Band Filter Tabs -->
-            <div class="flex items-center gap-2 overflow-x-auto pb-1">
-              <button class="px-space-md py-2 rounded-lg font-label-md text-xs font-semibold transition-all ${exam.bandFilter === 'all' ? 'bg-primary text-white shadow-sm' : 'bg-surface-container-low text-on-surface hover:bg-surface-container'}" data-band-filter="all">Tất cả cấp độ (${allTests.length} đề)</button>
-              <button class="px-space-md py-2 rounded-lg font-label-md text-xs font-semibold transition-all ${exam.bandFilter === 'Band B' ? 'bg-primary text-white shadow-sm' : 'bg-surface-container-low text-on-surface hover:bg-surface-container'}" data-band-filter="Band B">Band B (Chuẩn Đề 1 - Đề 5)</button>
-              <button class="px-space-md py-2 rounded-lg font-label-md text-xs font-semibold transition-all ${exam.bandFilter === 'Band A' ? 'bg-primary text-white shadow-sm' : 'bg-surface-container-low text-on-surface hover:bg-surface-container'}" data-band-filter="Band A">Band A (Căn bản A1/A2)</button>
-              <button class="px-space-md py-2 rounded-lg font-label-md text-xs font-semibold transition-all ${exam.bandFilter === 'Band C' ? 'bg-primary text-white shadow-sm' : 'bg-surface-container-low text-on-surface hover:bg-surface-container'}" data-band-filter="Band C">Band C (Cao cấp C1/C2)</button>
-            </div>
-
-            <!-- Test Cards Grid -->
+            <!-- Test Cards Grid (Đề 1 -> Đề 5) -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
-              ${allTests.filter(t => exam.bandFilter === 'all' || t.band.includes(exam.bandFilter)).map((t) => `
-                <div class="bg-paper-card p-space-lg rounded-2xl border border-border-subtle shadow-sm flex flex-col justify-between gap-4 hover:shadow-md transition-shadow">
+              ${displayTests.map((t, idx) => {
+                const ts = (exam.byTest && exam.byTest[t.id]) ? exam.byTest[t.id] : { answers: {} };
+                const tAns = ts.answers || {};
+                const lQs = t.questions.filter(q => q.section === "listening");
+                const rQs = t.questions.filter(q => q.section !== "listening");
+                const lDone = lQs.filter(q => tAns[q.id] !== undefined).length;
+                const rDone = rQs.filter(q => tAns[q.id] !== undefined).length;
+                return `
+                <div class="bg-paper-card p-space-lg rounded-2xl border ${t.id === curTest.id ? 'border-primary ring-2 ring-primary/20' : 'border-border-subtle'} shadow-sm flex flex-col justify-between gap-4 hover:shadow-md transition-shadow">
                   <div>
                     <div class="flex items-center justify-between gap-1 mb-2">
                       <span class="px-2.5 py-0.5 rounded-full bg-cinnabar-subtle text-primary font-bold text-[11px]">${esc(t.band)}</span>
-                      <span class="px-2 py-0.5 rounded bg-surface-container text-outline font-bold text-[10px]">${esc(t.badge)}</span>
+                      <span class="px-2 py-0.5 rounded bg-surface-container text-outline font-bold text-[10px]">ĐỀ SỐ ${idx + 1}</span>
                     </div>
                     <h3 class="font-headline-md text-base font-bold text-on-surface">${esc(t.title)}</h3>
-                    <p class="text-xs text-on-surface-variant mt-1 line-clamp-2 leading-relaxed">${esc(t.desc)}</p>
+                    <p class="text-xs text-on-surface-variant mt-1 leading-relaxed">${esc(t.desc)}</p>
 
-                    <div class="grid grid-cols-3 gap-2 mt-4 pt-3 border-t border-border-subtle text-center text-xs">
-                      <div>
-                        <span class="text-outline text-[11px] block">Số câu</span>
-                        <strong class="font-code text-on-surface font-bold">${t.totalQ} câu</strong>
+                    <div class="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-border-subtle text-xs">
+                      <div class="p-2 rounded-lg bg-surface-container-low border border-border-subtle/60">
+                        <span class="text-primary font-bold block">🎧 Phần 1: Nghe hiểu</span>
+                        <span class="font-code text-on-surface font-semibold">${lQs.length} câu (MP3) • Đã làm ${lDone}/${lQs.length}</span>
                       </div>
-                      <div>
-                        <span class="text-outline text-[11px] block">Thời gian</span>
-                        <strong class="font-code text-on-surface font-bold">${t.duration} phút</strong>
-                      </div>
-                      <div>
-                        <span class="text-outline text-[11px] block">Cấu trúc</span>
-                        <strong class="font-code text-secondary font-bold">Nghe &amp; Đọc</strong>
+                      <div class="p-2 rounded-lg bg-surface-container-low border border-border-subtle/60">
+                        <span class="text-secondary font-bold block">📖 Phần 2: Đọc hiểu</span>
+                        <span class="font-code text-on-surface font-semibold">${rQs.length} câu (Phồn thể) • Đã làm ${rDone}/${rQs.length}</span>
                       </div>
                     </div>
                   </div>
 
-                  <div class="flex items-center gap-2 pt-2">
-                    <button class="flex-1 py-2.5 px-3 rounded-xl bg-primary hover:bg-primary-container text-white text-xs font-bold transition-all shadow-sm active:scale-95 text-center" data-start-exam="${t.id}">
-                      Bắt đầu làm bài thi
-                    </button>
-                    <button class="py-2.5 px-3 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-semibold transition-colors border border-border-subtle" data-review-exam="${t.id}">
-                      Xem đáp án
+                  <div class="flex flex-col gap-2 pt-2">
+                    <div class="grid grid-cols-2 gap-2">
+                      <button type="button" class="py-2 px-3 rounded-xl bg-primary hover:bg-primary-container text-white text-xs font-bold transition-all shadow-xs cursor-pointer" data-start-exam="${esc(t.id)}" data-start-sec="listening">
+                        🎧 Làm Phần Nghe
+                      </button>
+                      <button type="button" class="py-2 px-3 rounded-xl bg-secondary hover:opacity-95 text-white text-xs font-bold transition-all shadow-xs cursor-pointer" data-start-exam="${esc(t.id)}" data-start-sec="reading">
+                        📖 Làm Phần Đọc
+                      </button>
+                    </div>
+                    <button type="button" class="w-full py-2 px-3 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-semibold transition-colors border border-border-subtle cursor-pointer" data-review-exam="${esc(t.id)}">
+                      📝 Mở chế độ Xem đáp án &amp; Lời thoại (${t.questions.length} câu)
                     </button>
                   </div>
                 </div>
-              `).join("")}
+              `;
+              }).join("")}
             </div>
           </div>
 
@@ -8241,6 +8443,24 @@ VIEWS["thi-thu"] = async () => {
           <!-- SUBVIEW 2: STITCH CAT-B 2-COLUMN EXAM WORKSTATION        -->
           <!-- ======================================================== -->
           <div class="${exam.subview === 'review' ? 'flex' : 'hidden'} flex-col gap-space-lg" id="viewReview">
+
+            ${exam.lastResult && exam.lastResult.testId === curTest.id && !exam.isExamMode ? `
+              <div class="bg-paper-card p-space-lg rounded-2xl border-2 border-secondary shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="px-2.5 py-0.5 rounded-full bg-secondary text-white text-xs font-bold">KẾT QUẢ CHẤM ĐIỂM CHUẨN SC-TOP</span>
+                    <span class="font-headline-md text-base font-bold text-on-surface">${esc(exam.lastResult.level)}</span>
+                  </div>
+                  <p class="text-xs text-on-surface-variant mt-1">
+                    Tổng số câu đúng: <strong>${exam.lastResult.score}/${exam.lastResult.total} câu (${exam.lastResult.pct}%)</strong> •
+                    Nghe hiểu: <strong>${exam.lastResult.listenCorrect}/50 câu (${exam.lastResult.listenScaled}/80 điểm — ${exam.lastResult.listenBand})</strong> •
+                    Đọc hiểu: <strong>${exam.lastResult.readCorrect}/50 câu (${exam.lastResult.readScaled}/80 điểm — ${exam.lastResult.readBand})</strong>
+                  </p>
+                </div>
+                <button type="button" class="px-4 py-2 rounded-xl bg-primary text-white text-xs font-bold cursor-pointer shrink-0" id="btnRetakeFromBanner">Làm lại đề này</button>
+              </div>
+            ` : ''}
+
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
 
               <!-- LEFT COLUMN: Exam Material, Audio Stimulus & Question Interface (8 cols) -->
@@ -8248,104 +8468,120 @@ VIEWS["thi-thu"] = async () => {
 
                 <!-- Stage & Category Indicator Breadcrumb -->
                 <div class="bg-paper-card p-space-md rounded-xl shadow-sm border border-border-subtle flex flex-wrap items-center justify-between gap-space-sm">
-                  <div class="flex items-center gap-space-sm">
-                    <span class="w-1.5 h-5 rounded-full bg-primary inline-block"></span>
-                    <span class="font-label-md text-label-md font-bold text-primary uppercase tracking-wider">
-                      ${curQ.section === 'listening' ? 'Đệ Nhất Phần: 聽力測驗 (Thi Nghe Hiểu)' : 'Đệ Nhị Phần: 閱讀測驗 (Thi Đọc Hiểu)'}
+                  <div class="flex items-center gap-space-sm flex-wrap">
+                    <span class="w-1.5 h-5 rounded-full ${curQ.section === 'listening' ? 'bg-primary' : 'bg-secondary'} inline-block"></span>
+                    <span class="font-label-md text-label-md font-bold ${curQ.section === 'listening' ? 'text-primary' : 'text-secondary'} uppercase tracking-wider">
+                      ${curQ.section === 'listening' ? 'Phần 1: 聽力測驗 (Thi Nghe Hiểu)' : 'Phần 2: 閱讀測驗 (Thi Đọc Hiểu)'}
                     </span>
                     <span class="px-space-xs py-0.5 bg-surface-container rounded font-code text-body-sm text-on-surface-variant font-medium">${esc(curQ.part)}</span>
                   </div>
                   <div class="flex items-center gap-space-xs">
-                    <button class="text-xs text-outline hover:text-primary underline mr-2" id="btnBackToOverview">Đổi bộ đề</button>
-                    <span class="font-label-sm text-label-sm text-outline">Mục đề:</span>
-                    <span class="px-space-sm py-0.5 rounded-full bg-cinnabar-subtle text-primary font-code text-body-sm font-semibold">CÂU ${curQ.id} / ${totalQ}</span>
+                    <button type="button" class="text-xs text-outline hover:text-primary underline mr-2 cursor-pointer" id="btnBackToOverview">Đổi đề thi</button>
+                    <span class="px-2.5 py-0.5 rounded-full ${curQ.section === 'listening' ? 'bg-cinnabar-subtle text-primary' : 'bg-jade-subtle text-secondary'} font-code text-body-sm font-bold">
+                      ${curQ.section === 'listening' ? 'NGHE' : 'ĐỌC'} CÂU ${qNum} / 50
+                    </span>
                   </div>
                 </div>
 
-                <!-- Stimulus Card: Audio Player, Context & Question -->
+                <!-- Stimulus Card: Audio Player, Context/Image & Question -->
                 <div class="bg-paper-card rounded-xl p-space-lg shadow-sm border border-border-subtle flex flex-col gap-space-md">
 
-                  <!-- SC-TOP Audio Emulation Box (for Listening questions) -->
+                  <!-- SC-TOP Official MP3 Audio Player Box (ONLY for Listening questions, click-to-play only!) -->
                   ${curQ.section === 'listening' ? `
                     <div class="bg-surface-container-low rounded-xl p-space-md flex flex-col gap-space-sm border border-border-subtle/70">
                       <div class="flex items-center justify-between flex-wrap gap-space-xs">
-                        <div class="flex items-center gap-space-sm">
-                          <span class="w-2.5 h-2.5 rounded-full bg-error animate-pulse"></span>
-                          <span class="font-headline-md text-body-lg font-semibold text-on-surface">Đoạn băng ghi âm khảo thí số ${curQ.id}</span>
-                          <span class="px-space-xs py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-medium">Giọng Đài Bắc (Nam &amp; Nữ đối đáp)</span>
+                        <div class="flex items-center gap-space-sm flex-wrap">
+                          <span class="material-symbols-outlined text-primary text-[20px]">volume_up</span>
+                          <span class="font-headline-md text-body-lg font-bold text-on-surface">Audio chính thức Câu ${qNum} (${esc(curTest.shortTitle || 'Đề')})</span>
+                          <span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-code text-[11px]">
+                            ${audioFiles.map(f => f.split('/').pop()).join(' + ')}
+                          </span>
                         </div>
                         <div class="flex items-center gap-1.5 text-primary font-label-sm text-label-sm font-semibold bg-cinnabar-subtle px-space-sm py-0.5 rounded-full">
-                          <span class="material-symbols-outlined text-[15px]">keyboard</span>
-                          <span>Nhấn phím <kbd class="font-code underline">Shift</kbd> để phát lại âm thanh</span>
+                          <span class="material-symbols-outlined text-[15px]">touch_app</span>
+                          <span>Ấn vào cái loa bên dưới để phát âm thanh (hoặc phím <kbd class="font-code underline">Shift</kbd>)</span>
                         </div>
                       </div>
 
-                      <!-- Waveform & Audio Scrubbing -->
+                      <!-- Speaker Button & Progress Bar -->
                       <div class="flex items-center gap-space-md pt-space-xs">
-                        <button class="w-11 h-11 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md hover:bg-primary-container transition-transform active:scale-95 flex-shrink-0" id="btn-play-exam-audio" title="Phát đoạn băng nghe (Shift)">
-                          <span class="material-symbols-outlined text-[24px]">volume_up</span>
+                        <button type="button" class="w-12 h-12 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-md hover:bg-primary-container transition-transform active:scale-95 flex-shrink-0 cursor-pointer" id="btn-play-exam-audio" title="Ấn vào cái loa để phát / tạm dừng đoạn băng nghe câu ${qNum}">
+                          <span class="material-symbols-outlined text-[26px]" id="exam-audio-icon">volume_up</span>
                         </button>
-                        <div class="flex-1 flex flex-col gap-1">
-                          <div class="h-10 w-full flex items-center gap-1 px-2 bg-paper-card rounded-lg overflow-hidden relative cursor-pointer border border-border-subtle/60" onclick="document.getElementById('btn-play-exam-audio').click()" title="Bấm để nghe lại đoạn hội thoại">
-                            <div class="absolute left-0 top-0 bottom-0 bg-cinnabar-subtle/60" style="width: 45%;"></div>
-                            <div class="w-1 h-3 rounded-full bg-primary z-10"></div>
-                            <div class="w-1 h-5 rounded-full bg-primary z-10"></div>
-                            <div class="w-1 h-7 rounded-full bg-primary z-10"></div>
-                            <div class="w-1 h-4 rounded-full bg-primary z-10"></div>
-                            <div class="w-1 h-8 rounded-full bg-primary z-10"></div>
-                            <div class="w-1 h-6 rounded-full bg-primary z-10"></div>
-                            <div class="w-1 h-9 rounded-full bg-primary z-10"></div>
-                            <div class="w-1 h-5 rounded-full bg-primary z-10"></div>
-                            <div class="w-1 h-7 rounded-full bg-primary z-10"></div>
-                            <div class="w-1 h-4 rounded-full bg-primary z-10"></div>
-                            <div class="w-1 h-8 rounded-full bg-primary z-10"></div>
-                            <div class="w-1 h-6 rounded-full bg-primary z-10"></div>
-                            <div class="w-1 h-7 rounded-full bg-outline-variant z-10"></div>
-                            <div class="w-1 h-4 rounded-full bg-outline-variant z-10"></div>
-                            <div class="w-1 h-8 rounded-full bg-outline-variant z-10"></div>
-                            <div class="w-1 h-9 rounded-full bg-outline-variant z-10"></div>
-                            <div class="w-1 h-5 rounded-full bg-outline-variant z-10"></div>
-                            <div class="w-1 h-7 rounded-full bg-outline-variant z-10"></div>
-                            <div class="w-1 h-3 rounded-full bg-outline-variant z-10"></div>
-                            <div class="w-1 h-6 rounded-full bg-outline-variant z-10"></div>
-                            <div class="w-1 h-8 rounded-full bg-outline-variant z-10"></div>
-                            <div class="w-1 h-4 rounded-full bg-outline-variant z-10"></div>
-                            <div class="w-1 h-6 rounded-full bg-outline-variant z-10"></div>
-                            <div class="w-1 h-3 rounded-full bg-outline-variant z-10"></div>
+                        <div class="flex-1 flex flex-col gap-1.5">
+                          <div class="h-9 w-full flex items-center gap-1 px-3 bg-paper-card rounded-lg overflow-hidden relative cursor-pointer border border-border-subtle/80" id="exam-audio-wave" title="Nhấn vào loa để phát đoạn băng nghe">
+                            <div class="absolute left-0 top-0 bottom-0 bg-cinnabar-subtle/80 transition-all duration-150" id="exam-audio-bar" style="width: 0%;"></div>
+                            <span class="relative z-10 text-xs font-medium text-on-surface" id="exam-audio-status">Chưa phát • Nhấn vào biểu tượng cái loa để nghe câu ${qNum}</span>
                           </div>
                           <div class="flex justify-between items-center text-outline font-code text-[11px] px-1">
-                            <span class="text-primary font-semibold">Giọng Nam &amp; Nữ tự nhiên</span>
-                            <span>TOCFL CAT Audio</span>
+                            <span class="text-primary font-semibold">${esc(curQ.context || 'File ghi âm gốc SC-TOP')}</span>
+                            <span id="exam-audio-time">00:00 / --:--</span>
                           </div>
                         </div>
+                      </div>
+
+                      <!-- Individual Track Controls for Multi-track Questions + Restart -->
+                      <div class="flex flex-wrap items-center gap-2 pt-1">
+                        ${hasTwoTracks ? `
+                          <button type="button" class="px-3 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface text-xs font-semibold border border-border-subtle flex items-center gap-1 cursor-pointer shadow-2xs" data-play-track="0">
+                            <span class="material-symbols-outlined text-primary text-[16px]">record_voice_over</span>
+                            <span>1. Nghe đoạn hội thoại / bài nói (${esc(audioFiles[0].split('/').pop())})</span>
+                          </button>
+                          <button type="button" class="px-3 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface text-xs font-semibold border border-border-subtle flex items-center gap-1 cursor-pointer shadow-2xs" data-play-track="1">
+                            <span class="material-symbols-outlined text-secondary text-[16px]">help</span>
+                            <span>2. Nghe câu hỏi số ${qNum} (${esc(audioFiles[1].split('/').pop())})</span>
+                          </button>
+                        ` : ''}
+                        <button type="button" class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant text-xs font-medium flex items-center gap-1 cursor-pointer" data-play-track="restart">
+                          <span class="material-symbols-outlined text-[15px]">replay</span>
+                          <span>Phát lại từ đầu</span>
+                        </button>
                       </div>
                     </div>
                   ` : ''}
 
-                  <!-- Context / Reading Passage Card -->
-                  ${curQ.context ? `
-                    <div class="bg-surface-container-lowest p-space-md rounded-xl border border-border-subtle">
-                      <div class="flex items-center gap-space-xs mb-1.5">
-                        <span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Bối cảnh ngữ liệu (${curQ.section === 'listening' ? '聽力情境' : '閱讀文章'})</span>
-                        <span class="text-outline text-body-sm">•</span>
-                        <span class="font-body-sm text-body-sm text-on-surface-variant">${esc(curQ.part)}</span>
+                  <!-- Reading Graphic / Passage Card -->
+                  ${curQ.section !== 'listening' && (curQ.image || curQ.context) ? `
+                    <div class="bg-surface-container-lowest p-space-md rounded-xl border border-border-subtle flex flex-col gap-space-md">
+                      <div class="flex items-center justify-between gap-space-xs flex-wrap">
+                        <div class="flex items-center gap-space-xs">
+                          <span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-wider">Ngữ liệu đọc hiểu (閱讀文章 • Phồn thể)</span>
+                          <span class="text-outline text-body-sm">•</span>
+                          <span class="font-body-sm text-body-sm text-on-surface-variant">${esc(curQ.part)}</span>
+                        </div>
+                        <span class="font-code text-xs text-outline">Câu ${qNum} / 50</span>
                       </div>
-                      <p class="font-serif text-base text-on-surface leading-relaxed whitespace-pre-wrap">${esc(curQ.context)}</p>
+                      ${curQ.image ? `
+                        <div class="w-full overflow-x-auto bg-white rounded-xl p-2 border border-border-subtle shadow-2xs">
+                          <img src="${esc(curQ.image)}" alt="Ngữ liệu đọc hiểu câu ${qNum}" class="max-w-full h-auto mx-auto rounded" loading="eager">
+                        </div>
+                      ` : ''}
+                      ${curQ.context && (!curQ.image || curQ.id === 86 || curQ.id === 87) ? `
+                        <div class="font-serif ${exam.fontSizeClass === 'text-headline-lg' ? 'text-xl leading-loose' : (exam.fontSizeClass === 'text-body-lg' ? 'text-sm leading-relaxed' : 'text-base leading-relaxed')} text-on-surface whitespace-pre-wrap">${formatReadingContextHTML(curQ)}</div>
+                      ` : (curQ.context ? `
+                        <details class="text-xs text-on-surface-variant">
+                          <summary class="cursor-pointer font-semibold text-secondary hover:underline">Xem văn bản trích xuất từ hình (文字版)</summary>
+                          <div class="mt-2 p-3 rounded-lg bg-paper-card font-serif text-sm text-on-surface whitespace-pre-wrap leading-relaxed">${formatReadingContextHTML(curQ)}</div>
+                        </details>
+                      ` : '')}
                     </div>
                   ` : ''}
 
                   <!-- The Formal Traditional Chinese Question Stimulus -->
                   <div class="pt-space-xs">
-                    <div class="flex items-start gap-space-sm">
-                      <span class="font-code text-headline-md text-primary font-bold">${curQ.id}.</span>
-                      <div class="flex-1">
-                        <h2 class="font-headline-md ${exam.fontSizeClass === "text-headline-lg" ? "text-2xl md:text-3xl" : (exam.fontSizeClass === "text-body-lg" ? "text-lg md:text-xl" : "text-xl md:text-2xl")} text-on-surface font-bold leading-snug tracking-tight font-serif" id="target-question-text">
-                          ${esc(curQ.q)}
-                        </h2>
-                        ${curQ.pinyin || exam.showZhuyin ? `
-                          <p class="font-code text-xs text-secondary mt-1">${esc(curQ.pinyin || '')}</p>
-                        ` : ''}
+                    <div class="flex items-start justify-between gap-space-sm">
+                      <div class="flex items-start gap-space-sm flex-1">
+                        <span class="font-code text-headline-md text-primary font-bold">${qNum}.</span>
+                        <div class="flex-1">
+                          <h2 class="font-headline-md ${exam.fontSizeClass === 'text-headline-lg' ? 'text-2xl md:text-3xl' : (exam.fontSizeClass === 'text-body-lg' ? 'text-lg md:text-xl' : 'text-xl md:text-2xl')} text-on-surface font-bold leading-snug tracking-tight font-serif" id="target-question-text" lang="zh-Hant">
+                            ${esc(curQ.q)}
+                          </h2>
+                        </div>
                       </div>
+                      <button type="button" id="btnToggleRevealQ" class="px-3 py-1.5 rounded-lg text-xs font-semibold border transition-colors shrink-0 cursor-pointer flex items-center gap-1 ${showAnswerBox ? 'bg-jade-subtle border-secondary text-secondary' : 'bg-surface-container-low border-border-subtle text-on-surface-variant hover:text-on-surface'}">
+                        <span class="material-symbols-outlined text-[16px]">${showAnswerBox ? 'visibility_off' : 'visibility'}</span>
+                        <span>${showAnswerBox ? 'Ẩn đáp án' : (curQ.section === 'listening' ? 'Đáp án &amp; Lời thoại' : 'Xem đáp án câu này')}</span>
+                      </button>
                     </div>
                   </div>
 
@@ -8359,7 +8595,7 @@ VIEWS["thi-thu"] = async () => {
                       const isCorrect = curQ.ans === optIdx;
 
                       let optClass = "bg-surface-container-low hover:bg-surface-container border-border-subtle/80 text-on-surface";
-                      if (exam.isExamMode) {
+                      if (!showAnswerBox) {
                         if (isSelected) optClass = "bg-cinnabar-subtle border-primary text-on-surface font-semibold shadow-sm ring-1 ring-primary/30";
                       } else {
                         if (isCorrect) optClass = "bg-jade-subtle border-secondary text-secondary font-bold ring-2 ring-secondary/30";
@@ -8372,29 +8608,29 @@ VIEWS["thi-thu"] = async () => {
                           <div class="flex items-baseline gap-space-sm flex-1">
                             <span class="font-headline-md text-body-lg font-bold ${isSelected ? 'text-primary' : 'text-outline group-hover:text-primary'} transition-colors">${letter}.</span>
                             <div class="flex flex-col">
-                              <span class="font-serif text-base text-on-surface font-medium">${esc(opt)}</span>
+                              <span class="font-serif text-base text-on-surface font-medium" lang="zh-Hant">${esc(opt)}</span>
                             </div>
                           </div>
-                          ${exam.isExamMode && isSelected ? `<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>` : ''}
-                          ${!exam.isExamMode && isCorrect ? `<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>` : ''}
-                          ${!exam.isExamMode && isSelected && !isCorrect ? `<span class="material-symbols-outlined text-primary text-[20px]">cancel</span>` : ''}
+                          ${!showAnswerBox && isSelected ? `<span class="material-symbols-outlined text-primary text-[20px]">check_circle</span>` : ''}
+                          ${showAnswerBox && isCorrect ? `<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>` : ''}
+                          ${showAnswerBox && isSelected && !isCorrect ? `<span class="material-symbols-outlined text-primary text-[20px]">cancel</span>` : ''}
                         </div>
                       `;
                     }).join("")}
                   </div>
 
-                  <!-- Explanation Box (in Review mode) -->
-                  ${!exam.isExamMode ? `
+                  <!-- Explanation & Traditional Chinese Transcript Box -->
+                  ${showAnswerBox ? `
                     <div class="mt-space-sm p-space-md rounded-xl bg-jade-subtle border border-secondary/30 flex flex-col gap-space-xs">
                       <div class="flex items-center gap-1.5 text-secondary font-bold text-xs">
                         <span class="material-symbols-outlined text-[18px]">verified</span>
-                        <span>Đáp án chính xác: (${curQ.ansChar || ["A","B","C","D"][curQ.ans]})</span>
+                        <span>Đáp án chính xác Câu ${qNum}: (${curQ.ansChar || ["A","B","C","D"][curQ.ans]}) ${esc(curQ.options[curQ.ans] || "")}</span>
                       </div>
                       <p class="text-xs text-on-surface font-medium leading-relaxed">${esc(curQ.explain)}</p>
                       ${curQ.dialogue ? `
                         <div class="mt-2 pt-2 border-t border-secondary/20 text-xs">
-                          <span class="font-bold text-secondary block mb-1">Lời thoại băng nghe (聽力原文):</span>
-                          <p class="font-serif text-on-surface whitespace-pre-wrap leading-relaxed">${esc(curQ.dialogue)}</p>
+                          <span class="font-bold text-secondary block mb-1">Lời thoại băng nghe Phồn thể (聽力文本):</span>
+                          <p class="font-serif text-sm text-on-surface whitespace-pre-wrap leading-relaxed" lang="zh-Hant">${esc(curQ.dialogue)}</p>
                         </div>
                       ` : ''}
                     </div>
@@ -8402,48 +8638,35 @@ VIEWS["thi-thu"] = async () => {
 
                   <!-- Bottom Navigation inside Question Frame -->
                   <div class="flex flex-wrap items-center justify-between gap-space-sm pt-space-md mt-space-xs border-t border-border-subtle">
-                    <button class="px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5 shadow-xs ${exam.curQuestionIdx === 0 ? 'opacity-40 cursor-not-allowed' : ''}" id="btnPrevQ" ${exam.curQuestionIdx === 0 ? 'disabled' : ''}>
+                    <button type="button" class="px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer ${exam.curQuestionIdx === 0 ? 'opacity-40 cursor-not-allowed' : ''}" id="btnPrevQ" ${exam.curQuestionIdx === 0 ? 'disabled' : ''}>
                       <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-                      <span>Câu trước (第 ${Math.max(1, curQ.id - 1)} 題)</span>
+                      <span>Câu trước</span>
                     </button>
 
-                    <button class="px-space-md py-space-sm rounded-lg ${exam.flagged && exam.flagged[curQ.id] ? 'bg-amber-subtle text-tertiary-container font-semibold' : 'bg-surface-container text-on-surface'} hover:opacity-90 font-label-md text-label-md transition-colors flex items-center gap-1.5 shadow-xs" id="flag-btn">
+                    <button type="button" class="px-space-md py-space-sm rounded-lg ${exam.flagged && exam.flagged[curQ.id] ? 'bg-amber-subtle text-tertiary-container font-semibold' : 'bg-surface-container text-on-surface'} hover:opacity-90 font-label-md text-label-md transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer" id="flag-btn">
                       <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' ${exam.flagged && exam.flagged[curQ.id] ? 1 : 0};">flag</span>
-                      <span id="flag-btn-text">${exam.flagged && exam.flagged[curQ.id] ? 'Đã đánh dấu xem lại (已標記)' : 'Đánh dấu câu này (標記此題)'}</span>
+                      <span id="flag-btn-text">${exam.flagged && exam.flagged[curQ.id] ? 'Đã đánh dấu (已標記)' : 'Đánh dấu câu này (標記此題)'}</span>
                     </button>
 
-                    <button class="px-space-lg py-space-sm rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-all shadow-md flex items-center gap-1.5" id="btnNextQ">
-                      <span>Câu tiếp theo (第 ${Math.min(totalQ, curQ.id + 1)} 題)</span>
+                    <button type="button" class="px-space-lg py-space-sm rounded-lg bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-all shadow-md flex items-center gap-1.5 cursor-pointer ${exam.curQuestionIdx >= totalQ - 1 ? 'opacity-40 cursor-not-allowed' : ''}" id="btnNextQ" ${exam.curQuestionIdx >= totalQ - 1 ? 'disabled' : ''}>
+                      <span>Câu tiếp theo</span>
                       <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
                     </button>
                   </div>
                 </div>
-
-                <!-- Academic Reference Stimulus (Cultural & Language Tip) -->
-                <div class="bg-paper-card p-space-md rounded-xl shadow-sm border border-border-subtle flex items-center gap-space-md">
-                  <div class="w-10 h-10 rounded-lg bg-jade-subtle text-secondary flex items-center justify-center flex-shrink-0">
-                    <span class="material-symbols-outlined text-[20px]">lightbulb</span>
-                  </div>
-                  <div class="flex-1">
-                    <h4 class="font-headline-md text-body-md font-semibold text-on-surface">Điểm ngữ pháp &amp; Từ vựng thực tế Đài Loan (考點提示)</h4>
-                    <p class="font-body-sm text-body-sm text-on-surface-variant">
-                      Trong tiếng Hoa Đài Loan, <strong>捷運 (Jiéyùn)</strong> là hệ thống MRT/Tàu điện ngầm; <strong>計程車 (Jìchéngchē)</strong> là taxi; <strong>尖峰時間 (Jiānfēng shíjiān)</strong> chỉ giờ cao điểm tan tầm. Nhấn phím <strong>Shift</strong> để nghe lại giọng đọc bất kỳ lúc nào.
-                    </p>
-                  </div>
-                </div>
               </section>
 
-              <!-- RIGHT COLUMN: Examinee Dossier, 50-Question CAT Matrix & Toolkit (4 cols) -->
+              <!-- RIGHT COLUMN: 100-Question Navigator (50 Nghe + 50 Đọc) & Utilities (4 cols) -->
               <aside class="lg:col-span-4 flex flex-col gap-space-md">
 
-                <!-- Question Grid Navigator (50 Items: Listening + Reading) -->
+                <!-- Question Grid Navigator (50 Listening + 50 Reading) -->
                 <div class="bg-paper-card p-space-md rounded-xl shadow-sm border border-border-subtle flex flex-col gap-space-md">
                   <div class="flex items-center justify-between">
                     <div class="flex items-center gap-space-xs">
                       <span class="material-symbols-outlined text-primary text-[20px]">grid_view</span>
                       <h3 class="font-headline-md text-body-lg font-bold text-on-surface">Phiếu trả lời ${totalQ} câu (答題卡)</h3>
                     </div>
-                    <span class="font-code text-body-sm text-on-surface-variant font-medium">${totalDone}/${totalQ} Hoàn thành</span>
+                    <span class="font-code text-body-sm text-on-surface-variant font-medium">${totalDone}/${totalQ} đã chọn</span>
                   </div>
 
                   <!-- Status Legend -->
@@ -8454,7 +8677,7 @@ VIEWS["thi-thu"] = async () => {
                     </div>
                     <div class="flex items-center gap-1">
                       <span class="w-3 h-3 rounded bg-primary inline-block"></span>
-                      <span class="text-on-surface font-bold">Đang làm</span>
+                      <span class="text-on-surface font-bold">Đang mở</span>
                     </div>
                     <div class="flex items-center gap-1">
                       <span class="w-3 h-3 rounded bg-amber-subtle border border-tertiary/40 inline-block"></span>
@@ -8466,16 +8689,16 @@ VIEWS["thi-thu"] = async () => {
                     </div>
                   </div>
 
-                  <!-- Section 1: Listening Comprehension -->
+                  <!-- Section 1: Listening Comprehension (Câu 1 - 50) -->
                   <div class="flex flex-col gap-space-xs">
                     <div class="flex items-center justify-between text-outline font-label-sm text-label-sm pt-space-xs">
                       <span class="font-bold text-primary flex items-center gap-1">
                         <span class="material-symbols-outlined text-[14px]">headphones</span>
-                        聽力部分 (Nghe: Câu 1 - ${listeningQs.length})
+                        Phần 1: 聽力測驗 (Nghe: Câu 1 – ${listeningQs.length})
                       </span>
-                      <span class="font-code text-[11px]">${doneListening} / ${listeningQs.length} xong</span>
+                      <span class="font-code text-[11px]">${doneListening}/${listeningQs.length}</span>
                     </div>
-                    <div class="grid grid-cols-5 gap-1.5 pt-1">
+                    <div class="grid grid-cols-10 sm:grid-cols-10 lg:grid-cols-5 gap-1.5 pt-1">
                       ${listeningQs.map((q) => {
                         const idx = curTest.questions.indexOf(q);
                         const isCurrent = idx === exam.curQuestionIdx;
@@ -8490,9 +8713,10 @@ VIEWS["thi-thu"] = async () => {
                             ? "bg-cinnabar-subtle text-primary font-semibold"
                             : (isCorrect ? "bg-jade-subtle text-secondary font-bold border border-secondary/30" : "bg-cinnabar-subtle text-primary font-bold border border-primary/30");
                         }
-                        const numStr = q.id < 10 ? "0" + q.id : String(q.id);
+                        const nLabel = q.qNum || q.id;
+                        const numStr = nLabel < 10 ? "0" + nLabel : String(nLabel);
                         return `
-                          <button class="h-8 rounded ${cls} font-code text-body-sm flex items-center justify-center relative transition-all cursor-pointer" data-jump-q="${idx}">
+                          <button type="button" class="h-8 rounded ${cls} font-code text-xs flex items-center justify-center relative transition-all cursor-pointer" data-jump-q="${idx}" title="Nghe hiểu Câu ${nLabel}">
                             ${numStr}
                             ${isFlagged ? '<span class="w-1.5 h-1.5 rounded-full bg-tertiary absolute top-1 right-1"></span>' : ''}
                           </button>
@@ -8501,17 +8725,17 @@ VIEWS["thi-thu"] = async () => {
                     </div>
                   </div>
 
-                  <!-- Section 2: Reading Comprehension -->
+                  <!-- Section 2: Reading Comprehension (Câu 1 - 50) -->
                   ${readingQs.length ? `
                     <div class="flex flex-col gap-space-xs pt-space-xs border-t border-border-subtle/60">
                       <div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
                         <span class="font-bold text-secondary flex items-center gap-1">
                           <span class="material-symbols-outlined text-[14px]">menu_book</span>
-                          閱讀部分 (Đọc: Câu ${listeningQs.length + 1} - ${totalQ})
+                          Phần 2: 閱讀測驗 (Đọc: Câu 1 – ${readingQs.length})
                         </span>
-                        <span class="font-code text-[11px]">${doneReading} / ${readingQs.length} xong</span>
+                        <span class="font-code text-[11px]">${doneReading}/${readingQs.length}</span>
                       </div>
-                      <div class="grid grid-cols-5 gap-1.5 pt-1">
+                      <div class="grid grid-cols-10 sm:grid-cols-10 lg:grid-cols-5 gap-1.5 pt-1">
                         ${readingQs.map((q) => {
                           const idx = curTest.questions.indexOf(q);
                           const isCurrent = idx === exam.curQuestionIdx;
@@ -8519,16 +8743,17 @@ VIEWS["thi-thu"] = async () => {
                           const isFlagged = exam.flagged && exam.flagged[q.id];
                           const isCorrect = exam.answers[q.id] === q.ans;
                           let cls = "bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest";
-                          if (isCurrent) cls = "bg-primary text-on-primary font-bold shadow-md scale-105";
+                          if (isCurrent) cls = "bg-secondary text-white font-bold shadow-md scale-105";
                           else if (isFlagged) cls = "bg-amber-subtle text-tertiary-container font-bold";
                           else if (hasAns) {
                             cls = exam.isExamMode
                               ? "bg-cinnabar-subtle text-primary font-semibold"
                               : (isCorrect ? "bg-jade-subtle text-secondary font-bold border border-secondary/30" : "bg-cinnabar-subtle text-primary font-bold border border-primary/30");
                           }
-                          const numStr = q.id < 10 ? "0" + q.id : String(q.id);
+                          const nLabel = q.qNum || (q.id > 50 ? q.id - 50 : q.id);
+                          const numStr = nLabel < 10 ? "0" + nLabel : String(nLabel);
                           return `
-                            <button class="h-8 rounded ${cls} font-code text-body-sm flex items-center justify-center relative transition-all cursor-pointer" data-jump-q="${idx}">
+                            <button type="button" class="h-8 rounded ${cls} font-code text-xs flex items-center justify-center relative transition-all cursor-pointer" data-jump-q="${idx}" title="Đọc hiểu Câu ${nLabel}">
                               ${numStr}
                               ${isFlagged ? '<span class="w-1.5 h-1.5 rounded-full bg-tertiary absolute top-1 right-1"></span>' : ''}
                             </button>
@@ -8539,7 +8764,7 @@ VIEWS["thi-thu"] = async () => {
                   ` : ''}
                 </div>
 
-                <!-- Testing Room Utilities Panel (Font size, Zhuyin, Scoring standard) -->
+                <!-- Testing Room Utilities Panel -->
                 <div class="bg-paper-card p-space-md rounded-xl shadow-sm border border-border-subtle flex flex-col gap-space-sm">
                   <div class="flex items-center justify-between pb-1">
                     <span class="font-headline-md text-body-md font-semibold text-on-surface">Tiện ích phòng thi (測驗輔助)</span>
@@ -8548,14 +8773,15 @@ VIEWS["thi-thu"] = async () => {
                   <div class="flex items-center justify-between bg-surface-container-low p-space-xs rounded-lg">
                     <span class="font-body-sm text-body-sm text-on-surface-variant font-medium">Cỡ chữ bài thi:</span>
                     <div class="flex items-center gap-1">
-                      <button class="w-7 h-7 rounded bg-paper-card hover:bg-surface-container text-on-surface font-code text-body-sm font-bold flex items-center justify-center shadow-xs" id="font-decrease">A-</button>
-                      <button class="px-2 h-7 rounded bg-primary text-on-primary font-code text-body-sm font-semibold flex items-center justify-center shadow-xs" id="font-reset">Tiêu chuẩn</button>
-                      <button class="w-7 h-7 rounded bg-paper-card hover:bg-surface-container text-on-surface font-code text-body-sm font-bold flex items-center justify-center shadow-xs" id="font-increase">A+</button>
+                      <button type="button" class="w-7 h-7 rounded bg-paper-card hover:bg-surface-container text-on-surface font-code text-body-sm font-bold flex items-center justify-center shadow-xs cursor-pointer" id="font-decrease">A-</button>
+                      <button type="button" class="px-2 h-7 rounded bg-primary text-on-primary font-code text-body-sm font-semibold flex items-center justify-center shadow-xs cursor-pointer" id="font-reset">Tiêu chuẩn</button>
+                      <button type="button" class="w-7 h-7 rounded bg-paper-card hover:bg-surface-container text-on-surface font-code text-body-sm font-bold flex items-center justify-center shadow-xs cursor-pointer" id="font-increase">A+</button>
                     </div>
                   </div>
-                  <div class="bg-surface-container-low p-space-xs rounded-lg flex flex-col gap-1">
-                    <div class="font-body-sm text-[12px] text-on-surface-variant">Ngưỡng điểm đạt từng cấp: xem trang chính thức
-                      <a class="text-primary underline" href="https://tocfl.edu.tw/index.php/exam/test/page/2" target="_blank" rel="noopener">tocfl.edu.tw</a>. Điểm ở đây chỉ là số câu đúng.</div>
+                  <div class="bg-surface-container-low p-space-xs rounded-lg flex flex-col gap-1 text-[12px] text-on-surface-variant">
+                    <div><strong>Chuẩn đạt Band B (SC-TOP):</strong></div>
+                    <div>• <strong>Cấp 3 (B1 進階級)</strong>: Nghe ≥ 46/80 · Đọc ≥ 48/80</div>
+                    <div>• <strong>Cấp 4 (B2 高階級)</strong>: Nghe ≥ 61/80 · Đọc ≥ 64/80</div>
                   </div>
                 </div>
               </aside>
@@ -8569,20 +8795,19 @@ VIEWS["thi-thu"] = async () => {
                   <span class="w-2.5 h-2.5 rounded-full bg-secondary animate-pulse"></span>
                   <div class="flex flex-col">
                     <div class="flex items-center gap-1 font-label-sm text-label-sm text-on-surface font-semibold">
-                      <span>Đã tự động lưu bài làm trên thiết bị</span>
-                      <span class="text-outline font-normal">(Auto-saved)</span>
+                      <span>${esc(curTest.shortTitle || 'Band B')} • Nghe ${doneListening}/50 • Đọc ${doneReading}/50</span>
                     </div>
-                    <span class="font-code text-[11px] text-outline">Tiến độ: ${totalDone}/${totalQ} câu trả lời đã ghi nhận • ${totalFlagged} câu đánh dấu</span>
+                    <span class="font-code text-[11px] text-outline">Tổng: ${totalDone}/${totalQ} câu đã chọn • ${totalFlagged} câu đánh dấu</span>
                   </div>
                 </div>
                 <div class="flex items-center gap-space-sm w-full sm:w-auto justify-end">
-                  <button class="px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5 shadow-xs" id="btn-unanswered-filter">
+                  <button type="button" class="px-space-md py-space-sm rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1.5 shadow-xs cursor-pointer" id="btn-unanswered-filter">
                     <span class="material-symbols-outlined text-[18px]">find_in_page</span>
                     <span>Tới câu chưa làm (${totalUnanswered})</span>
                   </button>
-                  <button class="px-space-xl py-space-sm rounded-lg bg-primary hover:bg-primary-container text-on-primary font-headline-md text-sm font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2" id="btn-final-submit">
+                  <button type="button" class="px-space-xl py-space-sm rounded-lg bg-primary hover:bg-primary-container text-on-primary font-headline-md text-sm font-semibold transition-all shadow-md hover:shadow-lg flex items-center gap-2 cursor-pointer" id="btn-final-submit">
                     <span class="material-symbols-outlined text-[20px]">how_to_reg</span>
-                    <span>NỘP BÀI THI CHÍNH THỨC (繳卷)</span>
+                    <span>NỘP BÀI THI (繳卷)</span>
                   </button>
                 </div>
               </div>
@@ -8593,17 +8818,16 @@ VIEWS["thi-thu"] = async () => {
 
       </div>
 
-      
       <!-- SUBMIT CONFIRMATION MODAL -->
       <div class="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-margin hidden" id="submit-modal">
-        <div class="bg-paper-card rounded-2xl max-w-lg w-full p-space-xl shadow-2xl flex flex-col gap-space-md border border-border-subtle animate-in fade-in zoom-in-95 duration-150">
+        <div class="bg-paper-card rounded-2xl max-w-lg w-full p-space-xl shadow-2xl flex flex-col gap-space-md border border-border-subtle">
           <div class="w-12 h-12 rounded-full bg-cinnabar-subtle text-primary flex items-center justify-center mx-auto">
             <span class="material-symbols-outlined text-[28px]">notification_important</span>
           </div>
           <div class="text-center">
-            <h3 class="font-headline-lg text-xl md:text-2xl text-on-surface font-bold">Xác nhận nộp bài thi TOCFL?</h3>
+            <h3 class="font-headline-lg text-xl md:text-2xl text-on-surface font-bold">Xác nhận nộp bài ${esc(curTest.shortTitle || 'TOCFL Band B')}?</h3>
             <p class="font-body-md text-sm text-on-surface-variant mt-1.5 leading-relaxed">
-              Sau khi nộp, hệ thống trung tâm SC-TOP sẽ khóa bài và chấm điểm tự động toàn bộ 2 phần Nghe &amp; Đọc.
+              Hệ thống sẽ chấm điểm toàn bộ 50 câu Nghe &amp; 50 câu Đọc theo bảng quy đổi điểm chuẩn SC-TOP và hiển thị đáp án + lời thoại chi tiết.
             </p>
           </div>
           <div class="bg-surface-container-low p-space-md rounded-xl flex justify-around text-center border border-border-subtle">
@@ -8621,40 +8845,39 @@ VIEWS["thi-thu"] = async () => {
             </div>
           </div>
           <div class="flex items-center justify-end gap-space-sm pt-space-xs">
-            <button class="px-space-md py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-xs transition-colors" id="modal-cancel-btn">
+            <button type="button" class="px-space-md py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-xs transition-colors cursor-pointer" id="modal-cancel-btn">
               Tiếp tục làm bài
             </button>
-            <button class="px-space-lg py-2 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-md text-xs font-bold transition-all shadow-sm" id="modal-confirm-btn">
+            <button type="button" class="px-space-lg py-2 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-md text-xs font-bold transition-all shadow-sm cursor-pointer" id="modal-confirm-btn">
               Đồng ý nộp bài ngay
             </button>
           </div>
         </div>
       </div>
 
-<!-- HISTORY MODAL -->
+      <!-- HISTORY MODAL -->
       <div class="${exam.historyModalOpen ? 'flex' : 'hidden'} fixed inset-0 z-[100] bg-black/40 backdrop-blur-xs items-center justify-center p-4" id="historyModal">
         <div class="bg-paper-card w-full max-w-lg rounded-2xl p-space-lg shadow-2xl flex flex-col gap-space-md border border-border-subtle">
           <div class="flex items-center justify-between border-b pb-space-sm border-border-subtle">
             <div class="flex items-center gap-space-xs">
               <span class="material-symbols-outlined text-primary text-[22px]">history_edu</span>
-              <h3 class="font-headline-md text-base text-on-surface font-bold">Lịch sử thi của bạn</h3>
+              <h3 class="font-headline-md text-base text-on-surface font-bold">Lịch sử giải đề TOCFL Band B</h3>
             </div>
-            <button class="w-8 h-8 rounded-lg hover:bg-surface-container flex items-center justify-center text-outline hover:text-on-surface transition-colors" id="btnCloseHistory">
+            <button type="button" class="w-8 h-8 rounded-lg hover:bg-surface-container flex items-center justify-center text-outline hover:text-on-surface transition-colors cursor-pointer" id="btnCloseHistory">
               <span class="material-symbols-outlined text-[20px]">close</span>
             </button>
           </div>
-          <p class="text-xs text-outline">Danh sách các lần nộp bài thi thử TOCFL gần nhất được lưu tự động trên thiết bị.</p>
           <div class="max-h-[300px] overflow-y-auto flex flex-col gap-2">
             ${exam.history.length === 0 ? `
-              <div class="p-6 text-center text-xs text-outline">Chưa có lượt thi nào. Hãy bắt đầu làm bài thi thử đầu tiên!</div>
+              <div class="p-6 text-center text-xs text-outline">Chưa có lượt nộp bài nào.</div>
             ` : exam.history.map((h) => `
               <div class="p-3 rounded-xl bg-surface-container-low border border-border-subtle flex items-center justify-between gap-3 text-xs">
                 <div>
                   <span class="font-bold text-on-surface">${esc(h.testTitle || "TOCFL Band B")}</span>
-                  <div class="text-[11px] text-outline mt-0.5">${esc(h.date)} • Đúng ${h.score}/${h.total} câu</div>
+                  <div class="text-[11px] text-outline mt-0.5">${esc(h.date)} • Đúng ${h.score}/${h.total} câu${h.detail ? ' • ' + esc(h.detail) : ''}</div>
                 </div>
-                <div class="flex items-center gap-2">
-                  <span class="px-2 py-0.5 rounded font-code font-bold ${h.pct >= 60 ? 'bg-jade-subtle text-secondary' : 'bg-cinnabar-subtle text-primary'}">${h.level || (h.pct >= 60 ? 'Đạt B2' : 'Cần cố gắng')}</span>
+                <div class="flex items-center gap-2 shrink-0">
+                  <span class="px-2 py-0.5 rounded font-code font-bold ${h.pct >= 55 ? 'bg-jade-subtle text-secondary' : 'bg-cinnabar-subtle text-primary'}">${esc(h.level || (h.pct >= 60 ? 'Đạt B2' : 'Cần cố gắng'))}</span>
                 </div>
               </div>
             `).join("")}
@@ -8665,21 +8888,60 @@ VIEWS["thi-thu"] = async () => {
     </div>
   `);
 
-  if (curQ.section === "listening") {
-    playExamAudio();
-  }
+  // IMPORTANT: Do NOT auto-play audio on render! Sync audio bar state only if this question is already playing.
+  updateAudioPlayerDOM();
+
   const btnPlayEx = $("#btn-play-exam-audio");
   if (btnPlayEx) {
     btnPlayEx.onclick = () => playExamAudio();
   }
+  const waveBox = $("#exam-audio-wave");
+  if (waveBox) {
+    waveBox.onclick = () => playExamAudio();
+  }
+  document.querySelectorAll("[data-play-track]").forEach((btn) => {
+    btn.onclick = () => {
+      const tr = btn.dataset.playTrack;
+      if (tr === "restart") playExamAudio("restart");
+      else playExamAudio(Number(tr));
+    };
+  });
+
+  const btnRevealQ = $("#btnToggleRevealQ");
+  if (btnRevealQ) {
+    btnRevealQ.onclick = () => {
+      if (!exam.revealedQs) exam.revealedQs = {};
+      exam.revealedQs[curQ.id] = !exam.revealedQs[curQ.id];
+      return VIEWS["thi-thu"]();
+    };
+  }
+
+  const btnSwitchListen = $("#btnSwitchListening");
+  if (btnSwitchListen) {
+    btnSwitchListen.onclick = () => {
+      stopExamAudio();
+      exam.subview = "review";
+      exam.curQuestionIdx = (tState.lastListenIdx >= 0 && tState.lastListenIdx < firstReadIdx) ? tState.lastListenIdx : 0;
+      return VIEWS["thi-thu"]();
+    };
+  }
+  const btnSwitchRead = $("#btnSwitchReading");
+  if (btnSwitchRead) {
+    btnSwitchRead.onclick = () => {
+      stopExamAudio();
+      exam.subview = "review";
+      exam.curQuestionIdx = (tState.lastReadIdx >= firstReadIdx && tState.lastReadIdx < totalQ) ? tState.lastReadIdx : firstReadIdx;
+      return VIEWS["thi-thu"]();
+    };
+  }
 
   document.querySelectorAll("[data-quick-test]").forEach((btn) => {
     btn.onclick = () => {
+      stopExamAudio();
       exam.testId = btn.dataset.quickTest;
       exam.subview = "review";
       exam.curQuestionIdx = 0;
-      exam.answers = {};
-      VIEWS["thi-thu"]();
+      return VIEWS["thi-thu"]();
     };
   });
 
@@ -8687,29 +8949,37 @@ VIEWS["thi-thu"] = async () => {
     card.onclick = () => {
       const optIdx = Number(card.dataset.selectOpt);
       exam.answers[curQ.id] = optIdx;
-      VIEWS["thi-thu"]();
+      return VIEWS["thi-thu"]();
     };
   });
 
-  $("#btnPrevQ").onclick = () => {
-    if (exam.curQuestionIdx > 0) {
-      exam.curQuestionIdx--;
-      VIEWS["thi-thu"]();
-    }
-  };
-  $("#btnNextQ").onclick = () => {
-    if (exam.curQuestionIdx < curTest.questions.length - 1) {
-      exam.curQuestionIdx++;
-      VIEWS["thi-thu"]();
-    }
-  };
+  const btnPrev = $("#btnPrevQ");
+  if (btnPrev) {
+    btnPrev.onclick = () => {
+      if (exam.curQuestionIdx > 0) {
+        stopExamAudio();
+        exam.curQuestionIdx--;
+        return VIEWS["thi-thu"]();
+      }
+    };
+  }
+  const btnNext = $("#btnNextQ");
+  if (btnNext) {
+    btnNext.onclick = () => {
+      if (exam.curQuestionIdx < curTest.questions.length - 1) {
+        stopExamAudio();
+        exam.curQuestionIdx++;
+        return VIEWS["thi-thu"]();
+      }
+    };
+  }
 
   const flagBtn = $("#flag-btn");
   if (flagBtn) {
     flagBtn.onclick = () => {
       if (!exam.flagged) exam.flagged = {};
       exam.flagged[curQ.id] = !exam.flagged[curQ.id];
-      VIEWS["thi-thu"]();
+      return VIEWS["thi-thu"]();
     };
   }
 
@@ -8718,8 +8988,9 @@ VIEWS["thi-thu"] = async () => {
     btnUnanswered.onclick = () => {
       const nextUnidx = curTest.questions.findIndex(q => exam.answers[q.id] === undefined);
       if (nextUnidx !== -1) {
+        stopExamAudio();
         exam.curQuestionIdx = nextUnidx;
-        VIEWS["thi-thu"]();
+        return VIEWS["thi-thu"]();
       }
     };
   }
@@ -8733,12 +9004,14 @@ VIEWS["thi-thu"] = async () => {
 
   document.querySelectorAll("[data-jump-q]").forEach((btn) => {
     btn.onclick = () => {
+      stopExamAudio();
       exam.curQuestionIdx = Number(btn.dataset.jumpQ);
       VIEWS["thi-thu"]();
     };
   });
 
   $("#tabOverviewBtn").onclick = () => {
+    stopExamAudio();
     exam.subview = "overview";
     VIEWS["thi-thu"]();
   };
@@ -8749,32 +9022,30 @@ VIEWS["thi-thu"] = async () => {
   const btnBackOverview = $("#btnBackToOverview");
   if (btnBackOverview) {
     btnBackOverview.onclick = () => {
+      stopExamAudio();
       exam.subview = "overview";
       VIEWS["thi-thu"]();
     };
   }
 
-  document.querySelectorAll("[data-band-filter]").forEach((btn) => {
-    btn.onclick = () => {
-      exam.bandFilter = btn.dataset.bandFilter;
-      VIEWS["thi-thu"]();
-    };
-  });
-
   document.querySelectorAll("[data-start-exam]").forEach((btn) => {
     btn.onclick = () => {
-      exam.testId = btn.dataset.startExam;
+      stopExamAudio();
+      const tid = btn.dataset.startExam;
+      const sec = btn.dataset.startSec || "listening";
+      exam.testId = tid;
       exam.subview = "review";
       exam.isExamMode = true;
-      exam.curQuestionIdx = 0;
-      exam.answers = {};
-      exam.timerLeft = 3600;
+      const targetTest = displayTests.find(t => t.id === tid) || curTest;
+      const rStart = targetTest.questions.findIndex(q => q.section !== "listening");
+      exam.curQuestionIdx = (sec === "reading" && rStart >= 0) ? rStart : 0;
       VIEWS["thi-thu"]();
       window.scrollTo({ top: 0, behavior: "smooth" });
     };
   });
   document.querySelectorAll("[data-review-exam]").forEach((btn) => {
     btn.onclick = () => {
+      stopExamAudio();
       exam.testId = btn.dataset.reviewExam;
       exam.subview = "review";
       exam.isExamMode = false;
@@ -8785,16 +9056,30 @@ VIEWS["thi-thu"] = async () => {
   });
 
   async function doSubmitExam() {
-    let correct = 0;
-    for (const q of curTest.questions) {
-      if (exam.answers[q.id] === q.ans) correct++;
+    stopExamAudio();
+    let listenCorrect = 0, readCorrect = 0;
+    for (const q of listeningQs) {
+      if (exam.answers[q.id] === q.ans) listenCorrect++;
     }
+    for (const q of readingQs) {
+      if (exam.answers[q.id] === q.ans) readCorrect++;
+    }
+    const correct = listenCorrect + readCorrect;
     const total = curTest.questions.length;
-    const pct = Math.round((correct / total) * 100);
-    let level = "Chưa đạt chuẩn";
-    if (pct >= 85) level = "Đạt TOCFL B2 (Ưu tú)";
-    else if (pct >= 60) level = "Đạt TOCFL B2";
-    else if (pct >= 45) level = "Đạt TOCFL B1";
+    const pct = Math.round((correct / Math.max(1, total)) * 100);
+    const listenScaled = (curTest.scoreTableListen && curTest.scoreTableListen[String(listenCorrect)] !== undefined)
+      ? curTest.scoreTableListen[String(listenCorrect)]
+      : Math.round((listenCorrect / Math.max(1, listeningQs.length)) * 80);
+    const readScaled = (curTest.scoreTableRead && curTest.scoreTableRead[String(readCorrect)] !== undefined)
+      ? curTest.scoreTableRead[String(readCorrect)]
+      : Math.round((readCorrect / Math.max(1, readingQs.length)) * 80);
+
+    const listenBand = listenScaled >= 61 ? "B2 (高階級)" : (listenScaled >= 46 ? "B1 (進階級)" : "Chưa đạt B1");
+    const readBand = readScaled >= 64 ? "B2 (高階級)" : (readScaled >= 48 ? "B1 (進階級)" : "Chưa đạt B1");
+    let level = "Chưa đạt Band B";
+    if (listenScaled >= 61 && readScaled >= 64) level = "Đạt TOCFL B2 (高階級 • Cấp 4)";
+    else if (listenScaled >= 46 && readScaled >= 48) level = "Đạt TOCFL B1 (進階級 • Cấp 3)";
+    else if (listenScaled >= 46 || readScaled >= 48) level = `Đạt 1 kỹ năng (Nghe: ${listenBand} • Đọc: ${readBand})`;
 
     const attempt = {
       testId: curTest.id,
@@ -8803,33 +9088,41 @@ VIEWS["thi-thu"] = async () => {
       score: correct,
       total: total,
       pct: pct,
+      listenCorrect,
+      readCorrect,
+      listenScaled,
+      readScaled,
+      listenBand,
+      readBand,
+      detail: `Nghe ${listenScaled}/80 (${listenCorrect}/50) • Đọc ${readScaled}/80 (${readCorrect}/50)`,
       level: level
     };
 
+    exam.lastResult = attempt;
     exam.history = exam.history || [];
     exam.history.unshift(attempt);
     exam.isExamMode = false;
-    await Store.put("kv", "tocfl_history", exam.history);
+    try { await Store.put("kv", "tocfl_history", exam.history); } catch (e) {}
 
-    alert(`Kết quả bài thi:\nĐúng: ${correct} / ${total} câu (${pct}%)\nĐánh giá: ${level}\n\nChuyển sang chế độ xem lại đáp án và giải thích chi tiết.`);
     VIEWS["thi-thu"]();
   }
 
-  const btnSubmit = $("#btnSubmitExam");
-  if (btnSubmit) btnSubmit.onclick = doSubmitExam;
-  const btnFinalSubmit = $("#btn-final-submit");
-  if (btnFinalSubmit) btnFinalSubmit.onclick = doSubmitExam;
+  const resetCurrentExam = () => {
+    stopExamAudio();
+    exam.isExamMode = true;
+    exam.curQuestionIdx = 0;
+    tState.answers = exam.answers = {};
+    tState.flagged = exam.flagged = {};
+    tState.revealedQs = exam.revealedQs = {};
+    exam.timerLeft = 7200;
+    exam.lastResult = null;
+    VIEWS["thi-thu"]();
+  };
 
   const btnRetake = $("#btnRetakeExam");
-  if (btnRetake) {
-    btnRetake.onclick = () => {
-      exam.isExamMode = true;
-      exam.curQuestionIdx = 0;
-      exam.answers = {};
-      exam.timerLeft = 3600;
-      VIEWS["thi-thu"]();
-    };
-  }
+  if (btnRetake) btnRetake.onclick = resetCurrentExam;
+  const btnRetakeBanner = $("#btnRetakeFromBanner");
+  if (btnRetakeBanner) btnRetakeBanner.onclick = resetCurrentExam;
 
   $("#btnOpenHistory").onclick = () => {
     exam.historyModalOpen = true;
@@ -8854,7 +9147,6 @@ VIEWS["thi-thu"] = async () => {
       exam.timerLeft--;
       if (exam.timerLeft <= 0) {
         clearInterval(window._tocflTimerInterval);
-        alert("Hết giờ làm bài thi TOCFL! Hệ thống sẽ tự động thu bài và chấm điểm.");
         doSubmitExam();
         return;
       }
@@ -8862,19 +9154,9 @@ VIEWS["thi-thu"] = async () => {
       const s = exam.timerLeft % 60;
       const display = document.getElementById("examTimerDisplay");
       if (display) {
-        display.textContent = `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+        display.textContent = `${m < 10 ? "0" : ""}${m}:${s < 10 ? "0" : ""}${s}`;
       }
     }, 1000);
-  }
-
-  // Zhuyin / Pinyin toggle
-  const zhuyinToggle = $("#toggle-zhuyin");
-  if (zhuyinToggle) {
-    zhuyinToggle.checked = !!exam.showZhuyin;
-    zhuyinToggle.onchange = () => {
-      exam.showZhuyin = zhuyinToggle.checked;
-      VIEWS["thi-thu"]();
-    };
   }
 
   // Submit Modal Elements
@@ -8884,7 +9166,7 @@ VIEWS["thi-thu"] = async () => {
   if (modalCancel) modalCancel.onclick = () => { if (submitModal) submitModal.classList.add("hidden"); };
   if (modalConfirm) modalConfirm.onclick = () => {
     if (submitModal) submitModal.classList.add("hidden");
-    doSubmitExam();
+    return doSubmitExam();
   };
 
   async function promptSubmitModal() {
@@ -8898,7 +9180,6 @@ VIEWS["thi-thu"] = async () => {
     if (submitModal && submitModal.classList) {
       submitModal.classList.remove("hidden");
     }
-    // In headless test environments or direct programmatic invocation
     if (typeof document !== "undefined" && !document.body) {
       await doSubmitExam();
     }
@@ -8917,13 +9198,13 @@ VIEWS["thi-thu"] = async () => {
   };
 };
 
-window.examQuickStart = (testId) => {
+window.examQuickStart = (testId, section) => {
+  stopExamAudio();
   if (S.exam) {
     S.exam.testId = testId;
     S.exam.subview = "review";
     S.exam.isExamMode = true;
-    S.exam.curQuestionIdx = 0;
-    S.exam.answers = {};
+    S.exam.curQuestionIdx = section === "reading" ? 50 : 0;
   }
   VIEWS["thi-thu"]();
 };
