@@ -1,0 +1,1194 @@
+{
+  "tu": {
+    "拳頭": {
+      "vn": "nắm đấm; sản phẩm chủ lực",
+      "ng": [
+        "(danh từ) nắm đấm, bàn tay nắm chặt",
+        "(danh từ) (nghĩa bóng) sức mạnh; sản phẩm/dự án chủ lực, mũi nhọn"
+      ],
+      "us": "Lượng từ: 個 (gè), 雙 (shuāng). Cụm thường gặp: 握緊拳頭 (nắm chặt nắm đấm), 拳頭產品 (sản phẩm chủ lực).",
+      "co": [
+        "握緊拳頭|nắm chặt nắm đấm",
+        "揮動拳頭|vung nắm đấm",
+        "拳頭產品|sản phẩm mũi nhọn"
+      ],
+      "sy": [
+        "雙拳|hai nắm đấm"
+      ],
+      "mh": "Quyền Đầu → quántou. ĐỌC: 'quyền' → quán (thanh 2); 'đầu' → tou (thanh nhẹ, làm hậu tố danh từ, gốc đọc tóu). NGHĨA: 拳 (bộ 手 thủ 'bàn tay' + 龹 gợi âm kiêm hình cuộn lại) là bàn tay nắm cuộn lại + 頭 (bộ 頁 hiệt 'đầu') → nắm đấm tròn cứng như cái đầu.",
+      "lt": "Lượng từ: 一雙拳頭 (một đôi nắm đấm), 一個拳頭 (một nắm đấm). Chú ý 頭 đọc thanh nhẹ (tou).",
+      "mk": "Người Việt hay đọc 頭 nguyên thanh 2 là quántóu; trong khẩu ngữ chuẩn phải đọc thanh nhẹ quántou.",
+      "tw": "Ở Đài Loan, 拳頭 thường dùng theo nghĩa đen (nắm đấm) hoặc 拳頭硬 (có thực lực/quyền lực mạnh); cách nói 拳頭產品 ít phổ biến hơn 主力產品 hoặc 招牌產品.",
+      "vd": [
+        {
+          "t": "Cảm xúc",
+          "zh": "他氣得握緊了拳頭，一句話也說不出來。",
+          "vn": "Anh ấy tức đến mức nắm chặt nắm đấm, không nói nên lời."
+        },
+        {
+          "t": "Ẩm thực",
+          "zh": "這家早餐店的飯糰超級大，差不多跟大人的拳頭一樣。",
+          "vn": "Cơm nắm của tiệm ăn sáng này siêu to, xấp xỉ bằng nắm đấm người lớn."
+        },
+        {
+          "t": "Giáo dục",
+          "zh": "父母應該教導孩子用溝通解決問題，而不是靠拳頭。",
+          "vn": "Cha mẹ nên dạy con cái dùng giao tiếp để giải quyết vấn đề, chứ không phải dựa vào nắm đấm."
+        }
+      ]
+    },
+    "區別": {
+      "vn": "khu biệt; sự khác biệt; phân biệt",
+      "ng": [
+        "(danh từ) sự khác biệt, điểm khác nhau",
+        "(động từ) phân biệt, tách biệt, đối xử khác nhau"
+      ],
+      "us": "Danh từ đi với 有/沒有區別 (có/không có sự khác biệt), lượng từ 個/點. Động từ: 區別 A 和/與 B, 區別對待 (đối xử phân biệt).",
+      "co": [
+        "有所區別|có sự khác biệt",
+        "區別對待|đối xử phân biệt",
+        "明顯的區別|sự khác biệt rõ rệt",
+        "區別真假|phân biệt thật giả"
+      ],
+      "sy": [
+        "差別|sự khác biệt",
+        "差異|khác biệt (trang trọng)",
+        "分辨|phân biệt"
+      ],
+      "an": [
+        "相同|giống nhau"
+      ],
+      "cf": [
+        "分別|vừa là danh từ/động từ như 區別, vừa là phó từ 'lần lượt'"
+      ],
+      "mh": "Khu Biệt → qūbié. ĐỌC: 'khu' → qū (thanh 1, bật hơi); 'biệt' → bié (thanh 2). NGHĨA: 區 (bộ 匸 hệ 'vùng che kín' + 品 'nhiều vật') là chia từng khu vực + 別 (bộ 刂 đao 'con dao' tách 另 ra) là dùng dao chia tách → phân chia ranh giới, điểm khác biệt.",
+      "lt": "Lượng từ cho danh từ: 一個區別, 一點區別. Không dùng 區別 làm phó từ (phải dùng 分別).",
+      "mk": "Tránh nói *我們區別去台北和高雄 (sai vì 區別 không phải phó từ 'lần lượt'); phải nói 我們分別去台北和高雄.",
+      "vd": [
+        {
+          "t": "Ngôn ngữ",
+          "zh": "你能告訴我這兩個詞在用法上有什麼區別嗎？",
+          "vn": "Bạn có thể cho tôi biết hai từ này có sự khác biệt gì về cách dùng không?"
+        },
+        {
+          "t": "Màu sắc",
+          "zh": "這兩種藍色的差異太小，肉眼很難區別出來。",
+          "vn": "Sự khác biệt giữa hai màu xanh lam này quá nhỏ, mắt thường rất khó phân biệt được."
+        },
+        {
+          "t": "Dịch vụ",
+          "zh": "好的服務人員對待每位顧客都一樣，不會因為穿著而區別對待。",
+          "vn": "Nhân viên phục vụ tốt đối xử với mọi khách hàng như nhau, sẽ không vì cách ăn mặc mà đối xử phân biệt."
+        }
+      ]
+    },
+    "取得": {
+      "vn": "đạt được; giành được; lấy được",
+      "ng": [
+        "(động từ) giành được, đạt được, lấy được, thu được (thành quả, tư cách, sự đồng ý, liên lạc)"
+      ],
+      "us": "Ngoại động từ mang sắc thái trang trọng, tân ngữ thường là danh từ trừu tượng hoặc giấy tờ/chứng chỉ: 取得資格 (đạt tư cách), 取得聯繫 (liên lạc được), 取得駕照 (lấy được bằng lái).",
+      "co": [
+        "取得資格|đạt được tư cách",
+        "取得共識|đạt được sự đồng thuận",
+        "取得聯繫|liên lạc được",
+        "取得駕照|lấy được bằng lái xe"
+      ],
+      "sy": [
+        "獲得|giành được, nhận được",
+        "得到|có được (thông dụng)"
+      ],
+      "an": [
+        "失去|mất đi",
+        "喪失|đánh mất"
+      ],
+      "cf": [
+        "獲得|thường nhấn mạnh nhận được từ bên ngoài trao tặng hoặc nỗ lực đạt được; 取得 nhấn mạnh chủ động lấy/đạt được"
+      ],
+      "mh": "Thủ Đắc → qǔdé. ĐỌC: 'thủ' → qǔ (thanh 3, bật hơi); 'đắc' → dé (thanh 2; lưu ý khi làm bổ ngữ mới đọc de nhẹ). NGHĨA: 取 (tay 又 nắm lấy tai 耳) là cầm lấy + 得 (bộ 彳 xích 'bước đi' + tay 寸 cầm bối 旦) là thu nhận được → lấy được, đạt được.",
+      "lt": "Bẫy Hán Việt: 'Thủ đắc' nghĩa là lấy được/đạt được (取 = lấy), không liên quan đến 'thủ' (頭 = đầu, hay 守 = giữ).",
+      "mk": "Không dùng 取得 với tân ngữ cụ thể vụn vặt đời thường như *取得一杯咖啡 (phải dùng 買/拿一杯咖啡).",
+      "vd": [
+        {
+          "t": "Học tập",
+          "zh": "他順利通過了中文能力測驗，成功取得流利級的證書。",
+          "vn": "Anh ấy đã vượt qua kỳ thi năng lực tiếng Trung một cách suôn sẻ và lấy được chứng chỉ cấp độ Lưu loát."
+        },
+        {
+          "t": "Công việc",
+          "zh": "在執行這項計畫之前，我們必須先取得主管的同意。",
+          "vn": "Trước khi thực hiện kế hoạch này, chúng ta bắt buộc phải đạt được sự đồng ý của cấp trên."
+        },
+        {
+          "t": "Liên lạc",
+          "zh": "客服人員已經和那位遺失悠遊卡的乘客取得聯繫了。",
+          "vn": "Nhân viên chăm sóc khách hàng đã liên lạc được với hành khách làm mất thẻ EasyCard đó rồi."
+        }
+      ]
+    },
+    "缺": {
+      "vn": "khuyết; thiếu; hụt; chỗ trống",
+      "ng": [
+        "(động từ) thiếu, hụt, không đủ",
+        "(danh từ) chỗ trống, vị trí khuyết (trong công việc)"
+      ],
+      "us": "Động từ đi trực tiếp với tân ngữ: 缺錢 (thiếu tiền), 缺人 (thiếu người), 缺貨 (hết hàng/thiếu hàng). Danh từ: 職缺 (vị trí tuyển dụng trống), 補缺 (bổ sung chỗ trống).",
+      "co": [
+        "缺貨|hết hàng, thiếu hàng",
+        "缺人|thiếu người",
+        "職缺|vị trí tuyển dụng trống",
+        "不可缺少|không thể thiếu"
+      ],
+      "sy": [
+        "缺少|thiếu hụt",
+        "缺乏|thiếu thốn"
+      ],
+      "an": [
+        "足夠|đầy đủ",
+        "齊全|đầy đủ, trọn vẹn"
+      ],
+      "mh": "Khuyết → quē. ĐỌC: 'khuyết' → quē (thanh 1). NGHĨA: Bộ 缶 (phẫu - vò sành) + 夬 (quải - vỡ, sứt, gợi âm) → chiếc bình sành bị sứt mẻ một góc → thiếu hụt, khuyết thiếu.",
+      "lt": "Khi đi một mình làm động từ, 缺 thiên về khẩu ngữ và dùng với danh từ ngắn (缺錢, 缺水, 缺人).",
+      "tw": "Trong tuyển dụng ở Đài Loan rất hay dùng từ 職缺 (vị trí trống đang tuyển) hoặc 開缺 (mở đợt tuyển dụng cho vị trí trống).",
+      "vd": [
+        {
+          "t": "Mua sắm",
+          "zh": "這款智慧型手機賣得太好了，目前全台灣的門市都缺貨。",
+          "vn": "Mẫu điện thoại thông minh này bán chạy quá, hiện tại các cửa hàng trên toàn Đài Loan đều hết hàng.",
+          "py": "Zhè kuǎn zhìhuìxíng shǒujī mài de tài hǎo le, mùqián quán Táiwān de ménshì dōu quēhuò."
+        },
+        {
+          "t": "Việc làm",
+          "zh": "那家連鎖超商最近很缺晚班的工讀生，你可以去應徵看看。",
+          "vn": "Chuỗi cửa hàng tiện lợi đó dạo này đang rất thiếu nhân viên làm thêm ca tối, bạn có thể đến ứng tuyển thử xem."
+        },
+        {
+          "t": "Tuyển dụng",
+          "zh": "只要公司一有適合的職缺，主管就會馬上通知你。",
+          "vn": "Chỉ cần công ty vừa có vị trí trống phù hợp, sếp sẽ lập tức thông báo cho bạn."
+        }
+      ]
+    },
+    "缺少": {
+      "vn": "khuyết thiểu; thiếu; thiếu hụt",
+      "ng": [
+        "(động từ) thiếu, thiếu hụt (người hoặc vật cụ thể lẫn trừu tượng)"
+      ],
+      "us": "Ngoại động từ: 缺少 + Danh từ (缺少資金, 缺少經驗, 缺少運動). Trang trọng hơn 缺 nhưng thông dụng hơn 缺乏.",
+      "co": [
+        "缺少經驗|thiếu kinh nghiệm",
+        "缺少運動|thiếu vận động",
+        "缺少資金|thiếu vốn",
+        "不可缺少|không thể thiếu"
+      ],
+      "sy": [
+        "缺乏|thiếu (thiên về trừu tượng)",
+        "欠缺|khiếm khuyết, thiếu"
+      ],
+      "an": [
+        "具備|có đủ",
+        "充足|đầy đủ, dồi dào"
+      ],
+      "cf": [
+        "缺乏|thường đi với danh từ trừu tượng (缺乏信心); 缺少 đi được cả cụ thể lẫn trừu tượng (缺少零件, 缺少耐心)"
+      ],
+      "mh": "Khuyết Thiểu → quēshǎo. ĐỌC: 'khuyết' → quē (thanh 1); 'thiểu' → shǎo (thanh 3, chú ý không đọc shào 'thiếu niên'). NGHĨA: 缺 (bình sành 缶 bị sứt 夬 → khuyết) + 少 (ít) → thiếu hụt, không đủ số lượng cần thiết.",
+      "mk": "Người học hay nhầm 缺少 không đi được với vật cụ thể; thực tế nói 這台機器缺少一個零件 (cỗ máy này thiếu một linh kiện) hoàn toàn tự nhiên.",
+      "vd": [
+        {
+          "t": "Sức khỏe",
+          "zh": "現代人因為工作忙碌，普遍缺少運動和足夠的睡眠。",
+          "vn": "Người hiện đại vì công việc bận rộn nên nhìn chung đều thiếu vận động và giấc ngủ đầy đủ."
+        },
+        {
+          "t": "Gia đình",
+          "zh": "這道菜吃起來總覺得缺少了一點家鄉的味道。",
+          "vn": "Món ăn này ăn vào cứ cảm thấy thiếu một chút hương vị quê nhà."
+        },
+        {
+          "t": "Đội nhóm",
+          "zh": "我們團隊目前最缺少的就是像你這樣有創意的人才。",
+          "vn": "Điều mà đội ngũ chúng tôi hiện tại thiếu nhất chính là nhân tài có óc sáng tạo như bạn."
+        }
+      ]
+    },
+    "確實": {
+      "vn": "xác thực; quả thật; thực sự; đích xác",
+      "ng": [
+        "(phó từ) quả thật, thực sự, đúng là",
+        "(tính từ) xác thực, chính xác, đáng tin cậy, nghiêm túc đầy đủ"
+      ],
+      "us": "Phó từ đứng trước động từ/tính từ để khẳng định: 確實很好 (quả thật rất tốt). Tính từ làm định ngữ/vị ngữ/trạng ngữ: 消息很確實 (tin tức rất xác thực), 確實執行 (thực hiện một cách nghiêm túc, đầy đủ).",
+      "co": [
+        "確實如此|quả thật như vậy",
+        "確實執行|thực hiện nghiêm túc, đầy đủ",
+        "確實的消息|tin tức xác thực",
+        "確實遵守|tuân thủ nghiêm chỉnh"
+      ],
+      "sy": [
+        "的確|đích thực, quả thật",
+        "實在|thực sự"
+      ],
+      "an": [
+        "不實|không đúng sự thật",
+        "敷衍|qua loa"
+      ],
+      "cf": [
+        "的確|chỉ làm phó từ khẳng định; 確實 vừa làm phó từ vừa làm tính từ ('xác thực, nghiêm chỉnh')"
+      ],
+      "mh": "Xác Thực → quèshí. ĐỌC: 'xác' → què (thanh 4); 'thực' → shí (thanh 2). NGHĨA: 確 (bộ 石 thạch 'đá' cứng chắc + 隺 gợi âm) là vững chắc, đúng đắn + 實 (dưới mái nhà 宀 có đầy tiền chuỗi 貫) là chân thực, đầy đặn → quả thật, xác thực.",
+      "tw": "Ở Đài Loan, 確實 rất hay dùng với nghĩa 'làm đến nơi đến chốn, nghiêm túc, đúng quy trình', ví dụ: 請確實戴好安全帽 (Xin hãy đội mũ bảo hiểm thật chắc chắn/đúng quy cách), 打掃要確實 (dọn dẹp phải kỹ càng).",
+      "vd": [
+        {
+          "t": "Công việc",
+          "zh": "這家餐廳的牛肉麵確實很好吃，難怪每天都大排長龍。",
+          "vn": "Mì bò của nhà hàng này quả thật rất ngon, thảo nào mỗi ngày đều xếp hàng dài dằng dặc."
+        },
+        {
+          "t": "An toàn",
+          "zh": "騎機車上路前，請確實扣好安全帽的扣環。",
+          "vn": "Trước khi chạy xe máy ra đường, xin hãy cài chặt khóa mũ bảo hiểm một cách chắc chắn."
+        },
+        {
+          "t": "Thông tin",
+          "zh": "在還沒拿到確實的證據之前，我們不應該隨便懷疑別人。",
+          "vn": "Trước khi có được bằng chứng xác thực, chúng ta không nên tùy tiện nghi ngờ người khác."
+        }
+      ]
+    },
+    "缺席": {
+      "vn": "khuyết tịch; vắng mặt",
+      "ng": [
+        "(động từ) vắng mặt (trong cuộc họp, buổi học, sự kiện)"
+      ],
+      "us": "Động từ nội động (hoặc mang tân ngữ trực tiếp chỉ cuộc họp/sự kiện trong văn viết hiện đại): 缺席會議 (vắng mặt cuộc họp), 無故缺席 (vắng mặt không lý do).",
+      "co": [
+        "無故缺席|vắng mặt không lý do",
+        "缺席會議|vắng mặt buổi họp",
+        "缺席率|tỷ lệ vắng mặt",
+        "從不缺席|chưa từng vắng mặt"
+      ],
+      "an": [
+        "出席|có mặt, tham dự",
+        "到場|đến hiện trường"
+      ],
+      "mh": "Khuyết Tịch → quēxí. ĐỌC: 'khuyết' → quē (thanh 1); 'tịch' → xí (thanh 2). NGHĨA: 缺 (thiếu, trống) + 席 (chiếu ngồi, chỗ ngồi trong buổi lễ/họp) → để trống chỗ ngồi → vắng mặt.",
+      "lt": "Từ trái nghĩa trực tiếp là 出席 (xuất tịch - có mặt tham dự).",
+      "mk": "Người Việt đôi khi nói *他缺席在會議里 (dịch từ 'absent in the meeting'); phải nói 他沒有出席會議 hoặc 他在會議中缺席了 / 他缺席了這次會議.",
+      "vd": [
+        {
+          "t": "Học đường",
+          "zh": "這門課的規定很嚴格，無故缺席超過三次就會被當掉。",
+          "vn": "Quy định của môn học này rất nghiêm ngặt, vắng mặt không lý do quá ba lần sẽ bị đánh trượt."
+        },
+        {
+          "t": "Công sở",
+          "zh": "今天早上的部門會議，除了請病假的小陳之外，沒有人缺席。",
+          "vn": "Cuộc họp bộ phận sáng nay, ngoài Tiểu Trần xin nghỉ ốm ra thì không ai vắng mặt.",
+          "py": "Jīntiān zǎoshàng de bùmén huìyì, chúle qǐng bìngjià de Xiǎo Chén zhīwài, méiyǒu rén quēxí."
+        },
+        {
+          "t": "Gia đình",
+          "zh": "不管工作多忙，孩子的重要成長時刻他從來不曾缺席。",
+          "vn": "Bất kể công việc bận rộn thế nào, những khoảnh khắc trưởng thành quan trọng của con cái anh ấy chưa từng vắng mặt."
+        }
+      ]
+    },
+    "群/羣": {
+      "vn": "quần; đàn, bầy, đám, nhóm",
+      "ng": [
+        "(lượng từ) đàn, bầy, đám, nhóm (dùng cho từ 3 người hoặc vật/con vật trở lên tụ tập lại)",
+        "(danh từ) nhóm, bầy, quần thể"
+      ],
+      "us": "Lượng từ: 一群人 (một đám người), 一群朋友 (một nhóm bạn), 一群羊 (một đàn cừu). Danh từ ghép: 族群 (nhóm dân tộc/nhóm người), 群組 (nhóm chat).",
+      "co": [
+        "一群人|một đám người",
+        "一群朋友|một nhóm bạn",
+        "族群|nhóm cộng đồng, sắc tộc",
+        "聊天群組|nhóm trò chuyện (group chat)"
+      ],
+      "sy": [
+        "夥|nhóm, bọn (khẩu ngữ)",
+        "批|đợt, tốp"
+      ],
+      "mh": "Quần → qún. ĐỌC: 'quần' → qún (thanh 2, bật hơi). NGHĨA: Bộ 羊 (dương - con cừu, loài vật sống theo bầy đàn) + 君 (quân - gợi âm qún) → bầy cừu → đàn, nhóm, đám đông (còn có thể dị thể xếp 君 ở trên, 羊 ở dưới).",
+      "lt": "Bẫy Hán Việt: 'Quần' (群) nghĩa là bầy đàn, đám đông (như quần chúng, quần đảo), KHÔNG phải cái quần mặc (cái quần là 褲子 kùzi).",
+      "tw": "Chữ chuẩn Bộ Giáo dục Đài Loan là 群 (君 trái 羊 phải). Trên ứng dụng nhắn tin ở Đài Loan, nhóm chat gọi là 群組 (qúnzǔ), khác với Đại lục hay gọi tắt là 群.",
+      "vd": [
+        {
+          "t": "Đời sống",
+          "zh": "週末的下午，公園裡有一群小朋友在草地上開心地奔跑。",
+          "vn": "Chiều cuối tuần, trong công viên có một nhóm các em nhỏ đang vui vẻ chạy nhảy trên bãi cỏ."
+        },
+        {
+          "t": "Thiên nhiên",
+          "zh": "每年冬天，都會有一大群候鳥飛到台南的濕地過冬。",
+          "vn": "Mỗi năm vào mùa đông, đều có cả một đàn lớn chim di cư bay đến vùng đầm lầy Đài Nam để tránh đông."
+        },
+        {
+          "t": "Công nghệ",
+          "zh": "我已經把這次旅遊的照片傳到手機的聊天群組裡了，大家快去下載吧！",
+          "vn": "Tôi đã gửi ảnh chuyến du lịch lần này vào nhóm trò chuyện trên điện thoại rồi, mọi người mau vào tải về nhé!"
+        }
+      ]
+    },
+    "群眾": {
+      "vn": "quần chúng; đám đông",
+      "ng": [
+        "(danh từ) quần chúng, công chúng, đám đông người dân"
+      ],
+      "us": "Danh từ tập hợp, thường dùng trong bối cảnh xã hội, sự kiện công cộng, truyền thông: 圍觀群眾 (đám đông vây xem), 群眾募資 (gọi vốn cộng đồng).",
+      "co": [
+        "圍觀群眾|đám đông vây xem",
+        "群眾募資|gọi vốn cộng đồng (crowdfunding)",
+        "群眾運動|phong trào quần chúng",
+        "廣大群眾|đông đảo quần chúng"
+      ],
+      "sy": [
+        "民眾|người dân (thông dụng ở Đài Loan)",
+        "大眾|đại chúng, công chúng"
+      ],
+      "mh": "Quần Chúng → qúnzhòng. ĐỌC: 'quần' → qún (thanh 2); 'chúng' → zhòng (thanh 4). NGHĨA: 群 (bầy đàn, nhóm đông) + 眾 (ba chữ Nhân 乑 dưới con mắt 目 → nhiều người) → đám đông quần chúng.",
+      "tw": "Trong tin tức và đời sống hàng ngày ở Đài Loan, khi chỉ 'người dân nói chung' người ta dùng 民眾 (mínzhòng) nhiều hơn hẳn 群眾. 群眾 ở Đài thường chỉ đám đông tụ tập tại hiện trường (抗議群眾 - đám đông biểu tình, 圍觀群眾) hoặc trong cụm 群眾募資 / 群募 (crowdfunding).",
+      "vd": [
+        {
+          "t": "Khởi nghiệp",
+          "zh": "這個環保杯的設計團隊透過群眾募資，成功募集了三百萬台幣。",
+          "vn": "Đội ngũ thiết kế chiếc cốc bảo vệ môi trường này thông qua gọi vốn cộng đồng đã huy động thành công 3 triệu Đài tệ.",
+          "py": "Zhège huánbǎo bēi de shèjì tuánduì tòuguò qúnzhòng mùzī, chénggōng mùjí le sānbǎiwàn Táibì."
+        },
+        {
+          "t": "Tin tức",
+          "zh": "警方在事故現場拉起了封鎖線，並請圍觀的群眾趕快離開。",
+          "vn": "Cảnh sát đã giăng dây phong tỏa tại hiện trường vụ tai nạn và yêu cầu đám đông vây xem mau chóng rời đi."
+        },
+        {
+          "t": "Xã hội",
+          "zh": "那位候選人的演講非常有感染力，獲得了現場群眾熱烈的掌聲。",
+          "vn": "Bài diễn thuyết của ứng cử viên đó có sức lan tỏa rất lớn, nhận được tràng pháo tay nồng nhiệt của đám đông tại hiện trường.",
+          "py": "Nà wèi hòuxuǎnrén de yǎnjiǎng fēicháng yǒu gǎnrǎnlì, huòdé le xiànchǎng qúnzhòng rèliè de zhǎngshēng."
+        }
+      ]
+    },
+    "取笑": {
+      "vn": "thủ tiếu; trêu chọc; chế nhạo",
+      "ng": [
+        "(động từ) trêu chọc, chế giễu, cười nhạo, lấy ai làm trò cười"
+      ],
+      "us": "Ngoại động từ: 取笑 + Tân ngữ chỉ người/khuyết điểm (取笑別人 - chế nhạo người khác, 被人取笑 - bị người ta cười chê).",
+      "co": [
+        "取笑別人|chế nhạo người khác",
+        "被人取笑|bị người ta cười chê",
+        "互相取笑|trêu chọc lẫn nhau",
+        "拿…來取笑|đem ... ra làm trò cười"
+      ],
+      "sy": [
+        "嘲笑|chế giễu, cười nhạo (nặng hơn)",
+        "譏笑|cười mỉa mai",
+        "開玩笑|nói đùa (nhẹ nhàng, không ác ý)"
+      ],
+      "an": [
+        "稱讚|khen ngợi",
+        "鼓勵|khích lệ"
+      ],
+      "mh": "Thủ Tiếu → qǔxiào. ĐỌC: 'thủ' → qǔ (thanh 3); 'tiếu' → xiào (thanh 4). NGHĨA: 取 (lấy) + 笑 (cười) → lấy ai đó ra làm trò cười → trêu chọc, chế nhạo.",
+      "mk": "Không tách 取笑 kiểu động-tân (*取了一個笑); đây là ngoại động từ song âm tiết, tân ngữ đặt trực tiếp phía sau.",
+      "vd": [
+        {
+          "t": "Học ngoại ngữ",
+          "zh": "學外語的時候不要害怕發音不準會被別人取笑，勇敢開口最重要。",
+          "vn": "Khi học ngoại ngữ đừng sợ phát âm không chuẩn sẽ bị người khác cười chê, dũng cảm mở miệng nói là quan trọng nhất."
+        },
+        {
+          "t": "Bạn bè",
+          "zh": "我們不應該拿別人的身材或外貌來取笑，這樣非常沒有禮貌。",
+          "vn": "Chúng ta không nên đem vóc dáng hay ngoại hình của người khác ra trêu chọc, như vậy rất bất lịch sự."
+        },
+        {
+          "t": "Gia đình",
+          "zh": "弟弟第一次自己剪瀏海結果剪歪了，全家人看到都忍不住取笑他。",
+          "vn": "Em trai lần đầu tự cắt tóc mái kết quả cắt bị lệch, cả nhà nhìn thấy đều không nhịn được mà trêu cậu ấy."
+        }
+      ]
+    },
+    "區域": {
+      "vn": "khu vực; vùng; miền",
+      "ng": [
+        "(danh từ) khu vực, vùng, địa bàn, phạm vi không gian được phân định"
+      ],
+      "us": "Danh từ chỉ không gian/địa lý hoặc dùng làm định ngữ: 區域網路 (mạng LAN/mạng cục bộ), 區域醫院 (bệnh viện khu vực), 吸菸區域 (khu vực hút thuốc). Lượng từ: 個 (gè), 片 (piàn).",
+      "co": [
+        "區域網路|mạng cục bộ (LAN)",
+        "公共區域|khu vực công cộng",
+        "危險區域|khu vực nguy hiểm",
+        "區域發展|phát triển vùng/khu vực"
+      ],
+      "sy": [
+        "地區|địa khu, vùng",
+        "地帶|vành đai, vùng"
+      ],
+      "cf": [
+        "地區|thường chỉ vùng địa lý rộng lớn (亞洲地區); 區域 có thể chỉ vùng lớn hoặc một khu vực nhỏ trong tòa nhà/bản đồ (辦公區域 - khu vực văn phòng)"
+      ],
+      "mh": "Khu Vực → qūyù. ĐỌC: 'khu' → qū (thanh 1); 'vực' → yù (thanh 4). NGHĨA: 區 (khu vực phân chia) + 域 (bộ 土 thổ 'đất' + 或 hoặc 'vùng đất có biên giới bảo vệ') → vùng đất, khu vực có ranh giới.",
+      "tw": "Trong hệ thống y tế Đài Loan, các bệnh viện được phân cấp thành 醫學中心 (trung tâm y học), 區域醫院 (bệnh viện khu vực) và 地區醫院 (bệnh viện địa phương).",
+      "vd": [
+        {
+          "t": "Đời sống",
+          "zh": "這棟大樓的公共區域全面禁菸，請吸菸者到戶外的指定區。",
+          "vn": "Khu vực công cộng của tòa nhà này cấm hút thuốc toàn diện, xin người hút thuốc ra khu vực chỉ định ngoài trời."
+        },
+        {
+          "t": "Giao thông",
+          "zh": "因為連日豪雨，山區部分區域有落石的危險，請用路人特別小心。",
+          "vn": "Do mưa lớn nhiều ngày liên tiếp, một số khu vực ở vùng núi có nguy cơ đá lở, xin người đi đường đặc biệt cẩn thận."
+        },
+        {
+          "t": "Kinh tế",
+          "zh": "捷運開通之後，帶動了整個周邊區域的商業發展。",
+          "vn": "Sau khi tàu điện ngầm khai thông, nó đã thúc đẩy sự phát triển thương mại của toàn bộ khu vực xung quanh."
+        }
+      ]
+    },
+    "曲折": {
+      "vn": "khúc chiết; quanh co; trắc trở, phức tạp",
+      "ng": [
+        "(tính từ) quanh co, uốn khúc, ngoằn ngoèo (đường sá, sông ngòi)",
+        "(tính từ) (nghĩa bóng) quanh co, trắc trở, nhiều biến cố phức tạp (câu chuyện, cuộc đời, quá trình)",
+        "(danh từ) những tình tiết éo le, phức tạp"
+      ],
+      "us": "Thường dùng miêu tả con đường (山路曲折) hoặc cốt truyện, quá trình (情節曲折, 過程曲折). Chú ý 曲 ở đây đọc thanh 1 (qū), không đọc thanh 3 (qǔ).",
+      "co": [
+        "情節曲折|tình tiết éo le, gay cấn",
+        "過程曲折|quá trình đầy trắc trở",
+        "蜿蜒曲折|uốn lượn quanh co",
+        "曲折離奇|ly kỳ phức tạp"
+      ],
+      "sy": [
+        "坎坷|gập ghềnh, trắc trở",
+        "彎曲|cong, uốn khúc"
+      ],
+      "an": [
+        "筆直|thẳng tắp",
+        "順利|thuận lợi, suôn sẻ"
+      ],
+      "mh": "Khúc Chiết → qūzhé. ĐỌC: 'khúc' → qū (thanh 1 = cong; chú ý đọc qǔ thanh 3 khi nghĩa là bài hát/ca khúc); 'chiết' → zhé (thanh 2). NGHĨA: 曲 (vật bị uốn cong) + 折 (tay 扌 cầm rìu 斤 bẻ gãy, gấp khúc) → uốn cong và gấp khúc nhiều lần → quanh co, trắc trở.",
+      "lt": "Bẫy Hán Việt & Đa âm: Trong tiếng Việt 'khúc chiết' thường hiểu là 'mạch lạc, rõ ràng từng đoạn', nhưng trong tiếng Trung 曲折 có nghĩa là 'quanh co, rắc rối, nhiều trắc trở'! Chữ 曲 đọc qū (thanh 1).",
+      "mk": "Tuyệt đối không dùng 曲折 để khen bài văn 'mạch lạc, khúc chiết' (khi đó phải dùng 條理分明 hoặc 清晰明確).",
+      "vd": [
+        {
+          "t": "Phim ảnh",
+          "zh": "這部推理電影的劇情非常曲折，不到最後一刻根本猜不到結局。",
+          "vn": "Cốt truyện của bộ phim trinh thám này vô cùng éo le phức tạp, chưa đến phút cuối cùng thì hoàn toàn không đoán được cái kết."
+        },
+        {
+          "t": "Du lịch",
+          "zh": "通往阿里山的山路十分曲折，容易暈車的人最好先吃暈車藥。",
+          "vn": "Đường núi dẫn lên A Lý Sơn vô cùng quanh co uốn khúc, người dễ say xe tốt nhất nên uống thuốc chống say trước."
+        },
+        {
+          "t": "Cuộc sống",
+          "zh": "雖然創業的過程經歷了許多曲折，但他始終沒有放棄自己的夢想。",
+          "vn": "Tuy quá trình khởi nghiệp trải qua biết bao trắc trở, nhưng anh ấy trước sau vẫn không từ bỏ ước mơ của mình."
+        }
+      ]
+    },
+    "染": {
+      "vn": "nhiễm; nhuộm; lây nhiễm, mắc phải",
+      "ng": [
+        "(động từ) nhuộm màu (tóc, vải, giấy)",
+        "(động từ) nhiễm, lây nhiễm, mắc phải (bệnh tật, thói hư tật xấu, bụi bẩn)"
+      ],
+      "us": "Nhuộm: 染頭髮/染髮 (nhuộm tóc), 染布 (nhuộm vải). Lây nhiễm/tiêm nhiễm (thường đi với 上): 染上惡習 (nhiễm thói xấu), 染病 (mắc bệnh), 一塵不染 (không vướng một hạt bụi).",
+      "co": [
+        "染頭髮|nhuộm tóc",
+        "染上惡習|nhiễm thói xấu",
+        "傳染|lây nhiễm, truyền nhiễm",
+        "一塵不染|sạch không một hạt bụi"
+      ],
+      "mh": "Nhiễm → rǎn. ĐỌC: 'nhiễm' → rǎn (thanh 3, phụ âm nh- sang r-). NGHĨA: Bộ 水/氵 (thủy - nước màu) + 木 (mộc - cây lấy thuốc nhuộm) + 九 (cửu - nhúng đi nhúng lại chín lần cho thấm màu) → nhuộm màu, thấm nhiễm.",
+      "lt": "Chú ý chữ 染 bên phải phía trên là chữ 九 (cửu - số 9), KHÔNG có dấu chấm (không phải chữ 丸 hoàn).",
+      "mk": "Người học viết tay rất hay chấm thêm một nét vào chữ 九 thành 丸 (sai chính tả phổ biến).",
+      "vd": [
+        {
+          "t": "Làm đẹp",
+          "zh": "為了迎接新的一年，她決定去美髮店把頭髮染成深棕色。",
+          "vn": "Để chào đón năm mới, cô ấy quyết định đến tiệm làm tóc nhuộm tóc thành màu nâu đậm."
+        },
+        {
+          "t": "Thiên nhiên",
+          "zh": "入秋之後，滿山的楓葉把整個山頭染成了一片火紅。",
+          "vn": "Sau khi vào thu, lá phong khắp núi đã nhuộm cả đỉnh núi thành một màu đỏ rực."
+        },
+        {
+          "t": "Đời sống",
+          "zh": "她是一個很愛乾淨的人，家裡的地板總是擦得一塵不染。",
+          "vn": "Cô ấy là một người rất ưa sạch sẽ, sàn nhà lúc nào cũng được lau sạch không một hạt bụi."
+        }
+      ]
+    },
+    "讓步": {
+      "vn": "nhượng bộ; nhường bước",
+      "ng": [
+        "(động từ ly hợp) nhượng bộ, nhường bước, chịu lùi một bước (trong tranh chấp, đàm phán)"
+      ],
+      "us": "Động từ ly hợp (讓 + 步): 做出讓步 (đưa ra sự nhượng bộ), 向…讓步 (nhượng bộ trước ai), 讓一步 (nhường một bước).",
+      "co": [
+        "做出讓步|đưa ra sự nhượng bộ",
+        "互相讓步|nhượng bộ lẫn nhau",
+        "拒絕讓步|từ chối nhượng bộ",
+        "讓一步|nhường một bước"
+      ],
+      "sy": [
+        "妥協|thỏa hiệp",
+        "退讓|nhường nhịn, lùi bước"
+      ],
+      "an": [
+        "堅持|kiên trì, giữ vững"
+      ],
+      "mh": "Nhượng Bộ → ràngbù. ĐỌC: 'nhượng' → ràng (thanh 4); 'bộ' → bù (thanh 4). NGHĨA: 讓 (bộ 言 ngôn 'lời nói' khiêm nhường) + 步 (bộ 止 chỉ 'bước chân') → lùi lại một bước chân để nhường người khác → nhượng bộ.",
+      "lt": "Là động từ ly hợp nên KHÔNG mang tân ngữ trực tiếp (*讓步他 là sai; phải nói 向他讓步 hoặc 對他做出讓步).",
+      "mk": "Tránh nói *他不肯讓步我; phải dùng giới từ 向/對: 他不肯向我讓步.",
+      "vd": [
+        {
+          "t": "Đàm phán",
+          "zh": "在這次的勞資協商中，雙方各退一步，終於做出了讓步。",
+          "vn": "Trong cuộc thương lượng lao động - chủ sử dụng lần này, hai bên mỗi bên lùi một bước, cuối cùng đã đưa ra sự nhượng bộ."
+        },
+        {
+          "t": "Gia đình",
+          "zh": "夫妻吵架的時候，如果有一方願意先讓步，事情就容易解決得多。",
+          "vn": "Khi vợ chồng cãi nhau, nếu có một bên sẵn sàng nhượng bộ trước thì mọi chuyện sẽ dễ giải quyết hơn nhiều."
+        },
+        {
+          "t": "Nguyên tắc",
+          "zh": "關於產品的安全品質，我們公司絕對不會做出任何讓步。",
+          "vn": "Về chất lượng an toàn của sản phẩm, công ty chúng tôi tuyệt đối sẽ không đưa ra bất kỳ sự nhượng bộ nào."
+        }
+      ]
+    },
+    "燃燒": {
+      "vn": "nhiên thiêu; đốt cháy; bùng cháy",
+      "ng": [
+        "(động từ) cháy, bốc cháy, đốt cháy (nhiên liệu, ngọn lửa)",
+        "(động từ) (nghĩa bóng) đốt cháy (nhiệt huyết, tuổi trẻ, calo)"
+      ],
+      "us": "Vừa là nội động từ (正在燃燒 - đang cháy) vừa là ngoại động từ (燃燒脂肪 - đốt cháy mỡ thừa, 燃燒熱情 - đốt cháy nhiệt huyết).",
+      "co": [
+        "燃燒脂肪|đốt cháy mỡ thừa",
+        "燃燒熱量|đốt cháy calo/nhiệt lượng",
+        "燃燒完全|cháy hoàn toàn",
+        "燃燒青春|đốt cháy tuổi xuân"
+      ],
+      "sy": [
+        "焚燒|thiêu đốt (thường dùng cho rác, giấy vàng mã)"
+      ],
+      "an": [
+        "熄滅|dập tắt, tắt ngấm"
+      ],
+      "mh": "Nhiên Thiêu → ránshāo. ĐỌC: 'nhiên' → rán (thanh 2); 'thiêu' → shāo (thanh 1). NGHĨA: Cả hai chữ 燃 và 燒 đều có bộ 火 (hỏa - lửa) kết hợp với phần âm 然 (rán) và 堯 (shāo) → ngọn lửa bùng cháy mạnh mẽ.",
+      "lt": "Trong đời sống hiện đại rất hay dùng với nghĩa bóng: 燃燒卡路里/熱量/脂肪 (đốt calo/mỡ khi tập thể dục).",
+      "vd": [
+        {
+          "t": "Thể thao",
+          "zh": "慢跑和游泳都是非常好的有氧運動，可以幫助身體快速燃燒熱量。",
+          "vn": "Chạy bộ chậm và bơi lội đều là những môn thể dục nhịp điệu rất tốt, có thể giúp cơ thể nhanh chóng đốt cháy calo."
+        },
+        {
+          "t": "An toàn",
+          "zh": "冬天使用瓦斯熱水器時要注意通風，避免因為燃燒不完全而產生一氧化碳。",
+          "vn": "Mùa đông khi sử dụng bình nước nóng chạy gas phải chú ý thông gió, tránh vì cháy không hoàn toàn mà sinh ra khí CO."
+        },
+        {
+          "t": "Tuổi trẻ",
+          "zh": "看到舞台上那些盡情表演的大學生，真的讓人感受到青春正在燃燒。",
+          "vn": "Nhìn thấy những sinh viên đại học biểu diễn hết mình trên sân khấu, thực sự khiến người ta cảm nhận được tuổi trẻ đang bùng cháy.",
+          "py": "Kàndào wǔtái shàng nàxiē jìnqíng biǎoyǎn de dàxuéshēng, zhēnde ràng rén gǎnshòudào qīngchūn zhèngzài ránshāo."
+        }
+      ]
+    },
+    "繞": {
+      "vn": "nhiễu; đi vòng, vòng quanh; quấn, cuộn",
+      "ng": [
+        "(động từ) quấn, cuộn tròn (dây, chỉ, khăn)",
+        "(động từ) xoay quanh, quay quanh (một tâm điểm)",
+        "(động từ) đi vòng, đi đường vòng (tránh chướng ngại vật)"
+      ],
+      "us": "Quấn: 把毛線繞成一團 (cuộn len thành một cuộn). Xoay quanh: 地球繞著太陽轉 (Trái Đất quay quanh Mặt Trời). Đi vòng: 繞路/繞道 (đi đường vòng), 繞了一圈 (đi vòng một vòng).",
+      "co": [
+        "繞路|đi đường vòng",
+        "繞道而行|đi vòng đường khác",
+        "繞一圈|đi dạo/vòng một vòng",
+        "圍繞|vây quanh, xoay quanh"
+      ],
+      "sy": [
+        "纏|quấn chặt",
+        "兜|đi vòng quanh (兜圈子)"
+      ],
+      "mh": "Nhiễu → rào. ĐỌC: 'nhiễu' → rào (thanh 4). NGHĨA: Bộ 糹/糸 (mịch - sợi tơ) + 堯 (nghiêu - cao, gợi âm) → quấn sợi tơ vòng quanh → cuộn, xoay quanh, đi đường vòng.",
+      "tw": "Khi đi taxi (計程車) ở Đài Loan, cụm 繞路 (đi đường vòng để tính thêm tiền cước) hoặc 繞一圈找車位 (chạy vòng một vòng tìm chỗ đậu xe) cực kỳ thông dụng.",
+      "vd": [
+        {
+          "t": "Giao thông",
+          "zh": "前面正在修路，公車司機只好繞道行駛，所以晚了十分鐘才到站。",
+          "vn": "Phía trước đang sửa đường, tài xế xe buýt đành phải chạy đường vòng, nên trễ mười phút mới tới trạm."
+        },
+        {
+          "t": "Đậu xe",
+          "zh": "週末百貨公司附近的車位一位難求，我們開車繞了三圈才找到地方停車。",
+          "vn": "Cuối tuần chỗ đậu xe gần trung tâm thương mại cực kỳ khó kiếm, chúng tôi lái xe vòng ba vòng mới tìm được chỗ đỗ xe."
+        },
+        {
+          "t": "Khoa học",
+          "zh": "眾所周知，地球繞著太陽公轉一圈需要一年的時間。",
+          "vn": "Như mọi người đều biết, Trái Đất quay quanh Mặt Trời một vòng cần thời gian một năm."
+        }
+      ]
+    },
+    "惹": {
+      "vn": "nhạ; chọc giận, trêu vào; chuốc lấy, gây ra",
+      "ng": [
+        "(động từ) gây ra, chuốc lấy (phiền phức, rắc rối, tai họa)",
+        "(động từ) chọc giận, trêu chọc, đụng vào (ai đó)",
+        "(động từ) thu hút, gợi lên (ánh nhìn, sự yêu mến, tiếng cười)"
+      ],
+      "us": "Gây chuyện: 惹麻煩/惹禍/惹事 (gây rắc rối/tai họa). Chọc ai: 惹他生氣 (chọc anh ấy giận), 不好惹 (không dễ đụng vào/dữ dằn). Gợi cảm xúc: 惹人喜愛 (khiến người ta yêu mến).",
+      "co": [
+        "惹麻煩|gây rắc rối, chuốc phiền phức",
+        "惹人生氣|chọc người ta tức giận",
+        "不好惹|không dễ bắt nạt/đụng vào",
+        "惹人喜愛|đáng yêu, khiến người ta yêu mến"
+      ],
+      "sy": [
+        "招惹|trêu chọc, chuốc lấy",
+        "引起|gây ra, dẫn đến"
+      ],
+      "mh": "Nhạ → rě. ĐỌC: 'nhạ' → rě (thanh 3). NGHĨA: Bộ 心 (tâm - trái tim, cảm xúc) ở dưới + 若 (nhược - gợi âm rě) ở trên → tác động vào tâm lý người khác, khuấy động cảm xúc → chọc giận, gây chuyện.",
+      "tw": "Khẩu ngữ rất hay dùng: 別惹我 (Đừng chọc vào tôi!), 他不是好惹的 (Anh ta không phải dạng dễ đụng vào đâu), 惹事生非 (gây chuyện thị phi).",
+      "vd": [
+        {
+          "t": "Gia đình",
+          "zh": "看到小狗那雙無辜的大眼睛，真是太惹人喜愛了！",
+          "vn": "Nhìn thấy đôi mắt to ngây thơ của chú chó con, thật sự khiến người ta yêu mến quá đỗi!"
+        },
+        {
+          "t": "Khuyên nhủ",
+          "zh": "主管今天心情不太好，你報告的時候說話小心一點，別惹他生氣。",
+          "vn": "Hôm nay tâm trạng của sếp không được tốt lắm, lúc bạn báo cáo ăn nói cẩn thận một chút, đừng chọc sếp giận."
+        },
+        {
+          "t": "Cảnh giác",
+          "zh": "在網路上發言要負責任，千萬不要因為一時衝動而替自己惹上麻煩。",
+          "vn": "Phát ngôn trên mạng phải có trách nhiệm, tuyệt đối đừng vì một phút bốc đồng mà tự chuốc lấy rắc rối cho mình."
+        }
+      ]
+    },
+    "熱愛": {
+      "vn": "nhiệt ái; yêu tha thiết; đam mê",
+      "ng": [
+        "(động từ) yêu tha thiết, yêu nồng nhiệt, đam mê sâu sắc (tổ quốc, cuộc sống, công việc, nghệ thuật)"
+      ],
+      "us": "Ngoại động từ mang sắc thái trang trọng và mức độ rất cao (đã hàm chứa nghĩa 'rất' nên thường không thêm 很 ở trước, hoặc chỉ thêm 非常/十分): 熱愛生命 (yêu cuộc sống tha thiết), 熱愛工作 (đam mê công việc).",
+      "co": [
+        "熱愛生命|yêu cuộc sống tha thiết",
+        "熱愛工作|đam mê công việc",
+        "熱愛大自然|yêu thiên nhiên nồng nhiệt",
+        "熱愛運動|đam mê thể thao"
+      ],
+      "sy": [
+        "酷愛|say mê, cực kỳ yêu thích (sở thích)",
+        "鍾愛|yêu chuộng"
+      ],
+      "an": [
+        "痛恨|căm ghét",
+        "厭惡|chán ghét"
+      ],
+      "mh": "Nhiệt Ái → rè'ài. ĐỌC: 'nhiệt' → rè (thanh 4); 'ái' → ài (thanh 4, có dấu cách âm ' vì bắt đầu bằng nguyên âm a). NGHĨA: 熱 (nóng bỏng, bộ hỏa 灬) + 愛 (yêu thương bằng cả trái tim 心) → tình yêu nồng cháy, đam mê.",
+      "mk": "Không dùng 熱愛 cho tình yêu nam nữ thông thường với một cá nhân cụ thể (không nói *我熱愛我男朋友; phải nói 我很愛我男朋友). 熱愛 dùng cho lý tưởng, cuộc sống, nghệ thuật, công việc, quê hương.",
+      "vd": [
+        {
+          "t": "Nghề nghiệp",
+          "zh": "她非常熱愛教學工作，就算下班了也常花時間幫學生解答問題。",
+          "vn": "Cô ấy vô cùng đam mê công việc giảng dạy, cho dù đã tan làm cũng thường dành thời gian giúp học sinh giải đáp thắc mắc."
+        },
+        {
+          "t": "Du lịch",
+          "zh": "身為一個熱愛大自然的人，他每個週末都會去爬山或露營。",
+          "vn": "Là một người yêu thiên nhiên tha thiết, mỗi cuối tuần anh ấy đều đi leo núi hoặc cắm trại."
+        },
+        {
+          "t": "Cuộc sống",
+          "zh": "儘管生了一場重病，他依然熱愛生命，每天都保持樂觀的態度。",
+          "vn": "Mặc dù mắc một trận bệnh nặng, anh ấy vẫn yêu cuộc sống tha thiết, mỗi ngày đều giữ thái độ lạc quan."
+        }
+      ]
+    },
+    "熱量": {
+      "vn": "nhiệt lượng; lượng calo",
+      "ng": [
+        "(danh từ) nhiệt lượng, lượng nhiệt (vật lý)",
+        "(danh từ) lượng calo, năng lượng trong thực phẩm (dinh dưỡng)"
+      ],
+      "us": "Trong đời sống hàng ngày chủ yếu chỉ lượng calo (Calories/大卡): 熱量很高 (calo rất cao), 控制熱量 (kiểm soát lượng calo), 消耗熱量 (tiêu hao năng lượng).",
+      "co": [
+        "控制熱量|kiểm soát lượng calo",
+        "消耗熱量|tiêu hao calo",
+        "高熱量食物|thực phẩm giàu calo",
+        "攝取熱量|hấp thụ calo"
+      ],
+      "sy": [
+        "卡路里|calo (từ mượn)"
+      ],
+      "mh": "Nhiệt Lượng → rèliàng. ĐỌC: 'nhiệt' → rè (thanh 4); 'lượng' → liàng (thanh 4, danh từ định lượng). NGHĨA: 熱 (sức nóng, năng lượng) + 量 (đo lường, khối lượng) → lượng nhiệt năng hoặc năng lượng sinh ra từ thức ăn.",
+      "tw": "Trên bao bì thực phẩm ở các siêu thị và cửa hàng tiện lợi (超商 như 7-Eleven, FamilyMart) tại Đài Loan đều có bảng 營養標示 (nhãn dinh dưỡng) ghi rõ 熱量 tính bằng đơn vị 大卡 (kcal).",
+      "vd": [
+        {
+          "t": "Ẩm thực",
+          "zh": "珍珠奶茶雖然好喝，但一杯的熱量高達五、六百大卡，減肥的人要少喝。",
+          "vn": "Trà sữa trân châu tuy ngon, nhưng lượng calo của một ly cao tới năm sáu trăm kcal, người đang giảm cân nên uống ít thôi."
+        },
+        {
+          "t": "Mua sắm",
+          "zh": "她買零食的時候都會先看包裝背面的營養標示，計算一下熱量。",
+          "vn": "Khi mua đồ ăn vặt cô ấy đều xem nhãn dinh dưỡng ở mặt sau bao bì trước để tính toán lượng calo."
+        },
+        {
+          "t": "Sức khỏe",
+          "zh": "想要健康減重，最有效的方法就是少吃高熱量的油炸食物並多運動。",
+          "vn": "Muốn giảm cân lành mạnh, phương pháp hiệu quả nhất chính là ăn ít đồ chiên rán nhiều calo và vận động nhiều hơn."
+        }
+      ]
+    },
+    "熱烈": {
+      "vn": "nhiệt liệt; nồng nhiệt, sôi nổi",
+      "ng": [
+        "(tính từ) nhiệt liệt, nồng nhiệt, sôi nổi, hào hứng (bầu không khí, tiếng vỗ tay, thảo luận, hưởng ứng)"
+      ],
+      "us": "Thường làm định ngữ hoặc trạng ngữ: 熱烈歡迎 (nhiệt liệt chào mừng), 熱烈的掌聲 (tràng pháo tay nồng nhiệt), 討論得很熱烈 (thảo luận rất sôi nổi).",
+      "co": [
+        "熱烈歡迎|nhiệt liệt chào mừng",
+        "熱烈的掌聲|tràng pháo tay nồng nhiệt",
+        "熱烈討論|thảo luận sôi nổi",
+        "反應熱烈|phản hồi/hưởng ứng nồng nhiệt"
+      ],
+      "sy": [
+        "熱絡|sôi nổi, thân mật (giao tiếp)",
+        "踴躍|hăng hái, sôi nổi (tham gia)"
+      ],
+      "an": [
+        "冷淡|lạnh nhạt, thờ ơ",
+        "冷清|vắng vẻ, ảm đạm"
+      ],
+      "cf": [
+        "熱情|dùng cho tính cách/thái độ của con người ('hiếu khách, nhiệt tình'); 熱烈 dùng cho bầu không khí, phản ứng, cuộc thảo luận, tiếng vỗ tay"
+      ],
+      "mh": "Nhiệt Liệt → rèliè. ĐỌC: 'nhiệt' → rè (thanh 4); 'liệt' → liè (thanh 4). NGHĨA: Cả 熱 và 烈 đều có bộ 灬 (hỏa - lửa cháy ở dưới) → ngọn lửa bùng cháy dữ dội → bầu không khí vô cùng sôi nổi, nồng nhiệt.",
+      "mk": "Người Việt rất hay nhầm 熱烈 và 熱情: không nói *他對客人很熱烈 (phải nói 他對客人很熱情); ngược lại 'thảo luận sôi nổi' nói 討論得很熱烈.",
+      "vd": [
+        {
+          "t": "Sự kiện",
+          "zh": "演講結束時，全場觀眾都站起來，給予演講者最熱烈的掌聲。",
+          "vn": "Khi bài diễn thuyết kết thúc, toàn bộ khán giả trong hội trường đều đứng dậy, dành cho diễn giả tràng pháo tay nồng nhiệt nhất."
+        },
+        {
+          "t": "Họp hành",
+          "zh": "在今天的會議上，大家針對新產品的行銷策略展開了熱烈的討論。",
+          "vn": "Trong cuộc họp hôm nay, mọi người đã triển khai cuộc thảo luận sôi nổi xoay quanh chiến lược tiếp thị sản phẩm mới."
+        },
+        {
+          "t": "Bán hàng",
+          "zh": "這場演唱會的門票反應非常熱烈，開賣不到五分鐘就被搶購一空。",
+          "vn": "Vé của buổi hòa nhạc này nhận được sự hưởng ứng vô cùng nồng nhiệt, mở bán chưa đầy năm phút đã được mua sạch."
+        }
+      ]
+    },
+    "熱門": {
+      "vn": "ăn khách; thịnh hành, hot, được ưa chuộng",
+      "ng": [
+        "(tính từ) ăn khách, thịnh hành, phổ biến, được nhiều người săn đón (ngành học, địa điểm, sản phẩm, chủ đề)"
+      ],
+      "us": "Thường làm định ngữ hoặc vị ngữ: 熱門景點 (địa điểm du lịch hot), 熱門話題 (chủ đề nóng), 很熱門 (rất hot/đắt khách).",
+      "co": [
+        "熱門景點|địa điểm du lịch nổi tiếng/hot",
+        "熱門話題|chủ đề nóng/thịnh hành",
+        "熱門科系|ngành học hot",
+        "熱門時段|khung giờ cao điểm/đắt khách"
+      ],
+      "sy": [
+        "流行|thịnh hành, phổ biến",
+        "搶手|đắt hàng, được săn đón"
+      ],
+      "an": [
+        "冷門|ít người biết đến, kén khách"
+      ],
+      "mh": "Nhiệt Môn → rèmén. ĐỌC: 'nhiệt' → rè (thanh 4); 'môn' → mén (thanh 2). NGHĨA: 熱 (nóng, nhộn nhịp) + 門 (cánh cổng) → cánh cổng nhà có đông người qua lại tấp nập → nơi/thứ đang cực kỳ thu hút, thịnh hành. Trái nghĩa là 冷門 (cổng lạnh vắng người).",
+      "lt": "Bẫy Hán Việt: Không dịch là 'nhiệt môn'; trong tiếng Việt tương đương với từ 'hot', 'ăn khách', 'thịnh hành'. Cặp từ đối lập kinh điển: 熱門 (hot) ↔ 冷門 (kén người học/ít người chú ý).",
+      "vd": [
+        {
+          "t": "Giáo dục",
+          "zh": "隨著人工智慧的發展，資訊工程成了現在大學最熱門的科系之一。",
+          "vn": "Cùng với sự phát triển của trí tuệ nhân tạo, kỹ thuật công nghệ thông tin đã trở thành một trong những ngành học hot nhất ở đại học hiện nay."
+        },
+        {
+          "t": "Du lịch",
+          "zh": "九份老街是台灣非常熱門的觀光景點，每到假日總是擠滿了遊客。",
+          "vn": "Phố cổ Cửu Phần là điểm du lịch vô cùng nổi tiếng ở Đài Loan, cứ đến ngày nghỉ là lại chật kín du khách.",
+          "py": "Jiǔfèn Lǎojiē shì Táiwān fēicháng rèmén de guānguāng jǐngdiǎn, měi dào jiàrì zǒngshì jǐmǎn le yóukè."
+        },
+        {
+          "t": "Đặt chỗ",
+          "zh": "這家火鍋店在晚餐的熱門時段很難訂位，建議你至少提前一個禮拜預約。",
+          "vn": "Quán lẩu này vào khung giờ cao điểm buổi tối rất khó đặt bàn, khuyên bạn nên đặt trước ít nhất một tuần."
+        }
+      ]
+    },
+    "任": {
+      "vn": "nhiệm; bổ nhiệm, đảm nhiệm; mặc cho; nhiệm kỳ",
+      "ng": [
+        "(động từ) đảm nhiệm, giữ chức vụ, bổ nhiệm",
+        "(động từ/giới từ) mặc cho, tùy ý, để mặc",
+        "(lượng từ) nhiệm kỳ (tổng thống, chức vụ) hoặc đời/người (vợ, chồng, người yêu cũ/hiện tại)",
+        "(đại từ) bất kỳ, bất luận (trong 任何, 任憑)"
+      ],
+      "us": "Đảm nhiệm: 擔任 (đảm nhiệm), 上任 (nhậm chức), 連任 (tái đắc cử). Mặc cho: 任由 (để mặc cho). Lượng từ: 第一任總統 (tổng thống nhiệm kỳ đầu), 前任男友 (bạn trai cũ).",
+      "co": [
+        "擔任|đảm nhiệm",
+        "上任|nhậm chức",
+        "連任|tái đắc cử, liên nhiệm",
+        "前任|người yêu cũ / người tiền nhiệm"
+      ],
+      "mh": "Nhiệm → rèn. ĐỌC: 'nhiệm' → rèn (thanh 4; chú ý đọc rén thanh 2 khi làm họ Nhậm hoặc tên địa danh 任丘). NGHĨA: Bộ 亻 (nhân - người) + 壬 (nhâm - gánh vác, gợi âm) → người gánh vác công việc được giao phó → trách nhiệm, chức vụ, nhiệm kỳ.",
+      "lt": "Lượng từ 任 (rèn) rất hay gặp: 前任 (người yêu cũ / người tiền nhiệm), 現任 (người yêu hiện tại / người đương nhiệm), 下一任 (nhiệm kỳ tiếp theo).",
+      "tw": "Trong đời sống giới trẻ Đài Loan, 前任 (qiánrèn) là cách nói lịch sự và cực kỳ phổ biến để chỉ 'người yêu cũ' (thay vì nói rõ 前男友/前女友).",
+      "vd": [
+        {
+          "t": "Công sở",
+          "zh": "我們部門新上任的主管非常年輕，而且做事很有魄力。",
+          "vn": "Người sếp mới nhậm chức của bộ phận chúng tôi rất trẻ, hơn nữa làm việc rất có khí phách quyết đoán."
+        },
+        {
+          "t": "Tình cảm",
+          "zh": "她跟前任分手已經兩年了，現在只想專心發展自己的事業。",
+          "vn": "Cô ấy chia tay với người yêu cũ đã hai năm rồi, bây giờ chỉ muốn chuyên tâm phát triển sự nghiệp của mình."
+        },
+        {
+          "t": "Giáo dục",
+          "zh": "父母不應該任由孩子整天玩手機，必須幫他們建立良好的生活習慣。",
+          "vn": "Cha mẹ không nên để mặc con cái chơi điện thoại cả ngày, phải giúp chúng xây dựng thói quen sinh hoạt tốt."
+        }
+      ]
+    },
+    "忍不住": {
+      "vn": "nhẫn bất trú; không nhịn được; không kìm được",
+      "ng": [
+        "(động từ/phó từ) không nhịn được, không kìm nén được (cảm xúc, hành động bật ra tự nhiên)"
+      ],
+      "us": "Cấu trúc bổ ngữ khả năng phủ định của 忍住, thường đứng trước động từ chỉ cảm xúc/phản ứng tự nhiên: 忍不住哭了 (không kìm được bật khóc), 忍不住笑出來 (không nhịn được bật cười), 忍不住買了 (không kìm lòng được mà mua).",
+      "co": [
+        "忍不住哭了|không kìm được mà bật khóc",
+        "忍不住笑出來|không nhịn được mà bật cười",
+        "忍不住嘆氣|không kìm được tiếng thở dài",
+        "忍不住想問|không nhịn được muốn hỏi"
+      ],
+      "sy": [
+        "禁不住|không kìm được",
+        "情不自禁|không kìm nổi lòng mình (thành ngữ)"
+      ],
+      "an": [
+        "忍住|nhịn được, kìm nén được"
+      ],
+      "mh": "Nhẫn Bất Trú → rěnbùzhù. ĐỌC: 'nhẫn' → rěn (thanh 3); 'bất' → bù (thanh 4, biến điệu thành bú trước thanh 4 hoặc đọc nhẹ bu); 'trú' → zhù (thanh 4). NGHĨA: 忍 (lưỡi đao 刃 đè lên trái tim 心 → nhẫn nhịn) + 不住 (không giữ/dừng lại được) → không thể kìm nén được.",
+      "lt": "Hình thức khẳng định là 忍得住 (nhịn được), nhưng trong thực tế 90% trường hợp đều dùng dạng phủ định 忍不住.",
+      "vd": [
+        {
+          "t": "Phim ảnh",
+          "zh": "這部電影的結局實在太感人了，連平常很少哭的爸爸都忍不住紅了眼眶。",
+          "vn": "Cái kết của bộ phim này thực sự cảm động quá, ngay cả bố bình thường rất ít khóc cũng không kìm được mà đỏ hoe khóe mắt."
+        },
+        {
+          "t": "Ẩm thực",
+          "zh": "經過夜市的時候，烤魷魚的香味太誘人，害我忍不住買了一串來吃。",
+          "vn": "Lúc đi ngang qua chợ đêm, mùi thơm của mực nướng hấp dẫn quá, làm tôi không kìm lòng được mà mua một xiên để ăn."
+        },
+        {
+          "t": "Giao tiếp",
+          "zh": "聽了他那些荒謬的藉口，大家都忍不住笑了出來。",
+          "vn": "Nghe những cái cớ hoang đường đó của anh ta, mọi người đều không nhịn được mà bật cười."
+        }
+      ]
+    },
+    "人才": {
+      "vn": "nhân tài; người tài giỏi",
+      "ng": [
+        "(danh từ) nhân tài, người có tài năng và năng lực chuyên môn xuất sắc"
+      ],
+      "us": "Danh từ chỉ người, lượng từ: 位 (wèi), 個 (gè), 批 (pī - một lớp/đợt). Thường đi với 培養人才 (đào tạo nhân tài), 吸引人才 (thu hút nhân tài), 專業人才 (nhân tài chuyên môn).",
+      "co": [
+        "專業人才|nhân tài chuyên môn",
+        "培養人才|đào tạo/bồi dưỡng nhân tài",
+        "吸引人才|thu hút nhân tài",
+        "人才濟濟|nhân tài đông đúc"
+      ],
+      "sy": [
+        "精英|tinh anh, người ưu tú",
+        "能人|người tài"
+      ],
+      "an": [
+        "庸才|kẻ bất tài, người tầm thường"
+      ],
+      "mh": "Nhân Tài → réncái. ĐỌC: 'nhân' → rén (thanh 2); 'tài' → cái (thanh 2). NGHĨA: 人 (con người) + 才 (mầm cây vươn lên khỏi mặt đất → tài năng thiên phú) → người có tài năng đóng góp cho xã hội.",
+      "lt": "Đôi khi cũng viết là 人材 (vật liệu quý), nhưng chữ chuẩn hiện đại là 人才.",
+      "tw": "Ở Đài Loan có chính sách và thẻ 台灣就業金卡 (Taiwan Employment Gold Card) nhằm 延攬外國專業人才 (chiêu mộ nhân tài chuyên môn nước ngoài).",
+      "vd": [
+        {
+          "t": "Doanh nghiệp",
+          "zh": "為了留住優秀的人才，公司決定今年全面調薪並增加員工福利。",
+          "vn": "Để giữ chân những nhân tài ưu tú, công ty quyết định năm nay tăng lương toàn diện và tăng thêm phúc lợi cho nhân viên."
+        },
+        {
+          "t": "Giáo dục",
+          "zh": "大學不僅要傳授知識，更重要的是替社會培養具有獨立思考能力的人才。",
+          "vn": "Đại học không chỉ truyền thụ kiến thức, mà quan trọng hơn là đào tạo cho xã hội những nhân tài có năng lực tư duy độc lập."
+        },
+        {
+          "t": "Chính sách",
+          "zh": "台灣政府近年來推出了許多優惠政策，希望吸引更多國際科技人才來台工作。",
+          "vn": "Chính phủ Đài Loan những năm gần đây đã đưa ra nhiều chính sách ưu đãi, hy vọng thu hút thêm nhiều nhân tài công nghệ quốc tế đến Đài Loan làm việc."
+        }
+      ]
+    },
+    "人格": {
+      "vn": "nhân cách; phẩm giá; tính cách",
+      "ng": [
+        "(danh từ) nhân cách, tư cách đạo đức, phẩm giá của con người",
+        "(danh từ) (tâm lý học) nhân cách, cá tính tổng thể; (pháp luật) tư cách pháp nhân"
+      ],
+      "us": "Đạo đức/phẩm giá: 尊重人格 (tôn trọng nhân cách), 高尚的人格 (nhân cách cao thượng), 以人格保證 (lấy nhân cách ra đảm bảo). Tâm lý: 人格特質 (đặc điểm nhân cách), 雙重人格 (đa nhân cách/nhân cách kép).",
+      "co": [
+        "人格特質|đặc điểm nhân cách",
+        "尊重人格|tôn trọng nhân cách",
+        "雙重人格|hai nhân cách (đa nhân cách)",
+        "人格魅力|sức hút nhân cách"
+      ],
+      "sy": [
+        "人品|nhân phẩm, tư cách đạo đức",
+        "品格|phẩm cách"
+      ],
+      "cf": [
+        "人品|chỉ nói về mặt đạo đức tốt/xấu (人品很好); 人格 vừa chỉ phẩm giá đạo đức vừa là thuật ngữ tâm lý học (人格測驗 - trắc nghiệm tính cách/nhân cách)"
+      ],
+      "mh": "Nhân Cách → réngé. ĐỌC: 'nhân' → rén (thanh 2); 'cách' → gé (thanh 2). NGHĨA: 人 (con người) + 格 (khuôn mẫu, phẩm chất, tiêu chuẩn) → phẩm chất đạo đức và cấu trúc tâm lý làm nên giá trị một con người.",
+      "vd": [
+        {
+          "t": "Tâm lý",
+          "zh": "許多大公司在招募新人的時候，會要求應徵者先做一份人格特質測驗。",
+          "vn": "Nhiều công ty lớn khi tuyển dụng người mới sẽ yêu cầu người ứng tuyển làm một bài trắc nghiệm đặc điểm nhân cách trước."
+        },
+        {
+          "t": "Giáo dục",
+          "zh": "家庭教育對孩子的人格發展有著極為深遠的影響。",
+          "vn": "Giáo dục gia đình có ảnh hưởng vô cùng sâu sắc đối với sự phát triển nhân cách của trẻ."
+        },
+        {
+          "t": "Ứng xử",
+          "zh": "就算意見不同，我們也應該理性溝通，絕對不能污辱對方的人格。",
+          "vn": "Cho dù ý kiến bất đồng, chúng ta cũng nên giao tiếp lý tính, tuyệt đối không được xúc phạm nhân cách của đối phương."
+        }
+      ]
+    },
+    "人工": {
+      "vn": "nhân công; nhân tạo; thủ công",
+      "ng": [
+        "(tính từ/danh từ) nhân tạo (do con người tạo ra, không phải tự nhiên)",
+        "(danh từ) thủ công, làm bằng sức người (trái với máy móc tự động)",
+        "(danh từ) tiền công lao động, nhân công"
+      ],
+      "us": "Nhân tạo: 人工智慧 (trí tuệ nhân tạo - AI), 人工添加物 (chất phụ gia nhân tạo). Thủ công/người thật: 人工審核 (duyệt bằng người thật), 人工收費 (thu phí thủ công). Chi phí: 人工很貴 (tiền nhân công rất đắt).",
+      "co": [
+        "人工智慧|trí tuệ nhân tạo (AI)",
+        "人工客服|nhân viên CSKH là người thật",
+        "人工添加物|chất phụ gia nhân tạo",
+        "人工呼吸|hô hấp nhân tạo"
+      ],
+      "sy": [
+        "人造|nhân tạo",
+        "手工|thủ công (làm bằng tay)"
+      ],
+      "an": [
+        "天然|tự nhiên, thiên nhiên",
+        "自動|tự động"
+      ],
+      "mh": "Nhân Công → réngōng. ĐỌC: 'nhân' → rén (thanh 2); 'công' → gōng (thanh 1). NGHĨA: 人 (con người) + 工 (công việc, sức thợ) → sức lao động của con người hoặc vật do bàn tay con người chế tạo ra.",
+      "lt": "Bẫy Hán Việt: Trong tiếng Việt 'nhân công' chỉ người lao động hoặc tiền công, nhưng trong tiếng Trung 人工 còn có nghĩa cực kỳ phổ biến là 'nhân tạo' (人工智慧, 人工淚液 - nước mắt nhân tạo) và 'xử lý bằng người thật thay vì máy tự động' (人工通道).",
+      "tw": "Chú ý từ vựng Đài Loan: 'Trí tuệ nhân tạo' ở Đài Loan gọi là 人工智慧 (réngōng zhìhuì), KHÔNG dùng 人工智能 như ở Đại lục.",
+      "vd": [
+        {
+          "t": "Công nghệ",
+          "zh": "近年來人工智慧的技術發展得非常快，已經廣泛應用在醫療和金融領域。",
+          "vn": "Những năm gần đây công nghệ trí tuệ nhân tạo phát triển rất nhanh, đã được ứng dụng rộng rãi trong lĩnh vực y tế và tài chính.",
+          "py": "Jìnniánlái réngōng zhìhuì de jìshù fāzhǎn de fēicháng kuài, yǐjīng guǎngfàn yìngyòng zài yīliáo hé jīnróng lǐngyù."
+        },
+        {
+          "t": "Thực phẩm",
+          "zh": "這家麵包店堅持使用天然食材，絕不加任何人工色素和防腐劑。",
+          "vn": "Tiệm bánh mì này kiên trì sử dụng nguyên liệu tự nhiên, tuyệt đối không thêm bất kỳ phẩm màu nhân tạo và chất bảo quản nào."
+        },
+        {
+          "t": "Dịch vụ",
+          "zh": "如果語音系統無法解決您的問題，請按九轉接人工客服。",
+          "vn": "Nếu hệ thống trả lời tự động không thể giải quyết vấn đề của quý khách, vui lòng nhấn phím 9 để chuyển sang nhân viên chăm sóc khách hàng."
+        }
+      ]
+    },
+    "人力": {
+      "vn": "nhân lực; sức người, sức lao động",
+      "ng": [
+        "(danh từ) nhân lực, nguồn lao động, sức người"
+      ],
+      "us": "Thường dùng trong quản trị, kinh tế, công việc: 人力資源 (nguồn nhân lực - HR), 人力不足 (thiếu nhân lực), 節省人力 (tiết kiệm sức người/nhân lực).",
+      "co": [
+        "人力資源|nguồn nhân lực (HR)",
+        "人力銀行|ngân hàng việc làm (trang web tuyển dụng)",
+        "人力不足|thiếu hụt nhân lực",
+        "節省人力|tiết kiệm nhân lực"
+      ],
+      "sy": [
+        "勞力|sức lao động",
+        "人手|nhân sự, người làm (khẩu ngữ)"
+      ],
+      "an": [
+        "物力|vật lực",
+        "財力|tài lực"
+      ],
+      "mh": "Nhân Lực → rénlì. ĐỌC: 'nhân' → rén (thanh 2); 'lực' → lì (thanh 4). NGHĨA: 人 (con người) + 力 (sức mạnh, cái cày) → sức lao động của con người, đội ngũ nhân sự.",
+      "tw": "Từ văn hóa Đài Loan cực kỳ quan trọng: ở Đài Loan các trang web tìm việc làm (như 104, 1111) được gọi là 人力銀行 (rénlì yínháng - ngân hàng nhân lực).",
+      "vd": [
+        {
+          "t": "Tìm việc",
+          "zh": "快畢業的時候，許多大學生都會上人力銀行網站投遞履歷。",
+          "vn": "Khi sắp tốt nghiệp, nhiều sinh viên đại học đều lên trang web ngân hàng nhân lực (web tìm việc) để nộp hồ sơ xin việc."
+        },
+        {
+          "t": "Công nghệ",
+          "zh": "自從工廠引進了自動化設備之後，大大節省了人力成本。",
+          "vn": "Từ sau khi nhà máy đưa thiết bị tự động hóa vào sử dụng, đã tiết kiệm đáng kể chi phí nhân lực."
+        },
+        {
+          "t": "Dịch vụ",
+          "zh": "因為最近餐飲業普遍人力不足，很多餐廳只好縮短營業時間。",
+          "vn": "Vì dạo này ngành ăn uống nhìn chung đều thiếu hụt nhân lực, nhiều nhà hàng đành phải rút ngắn thời gian mở cửa."
+        }
+      ]
+    },
+    "人情味/人情味兒": {
+      "vn": "tình người; sự ấm áp, thân thiện",
+      "ng": [
+        "(danh từ) tình người, sự ấm áp, lòng hiếu khách và gần gũi giữa người với người"
+      ],
+      "us": "Thường đi với 有人情味 (có tình người/ấm áp), 充滿人情味 (tràn đầy tình người), 濃厚的人情味 (tình người nồng hậu).",
+      "co": [
+        "充滿人情味|tràn đầy tình người",
+        "濃厚的人情味|tình người nồng hậu, ấm áp",
+        "很有台灣人情味|rất đậm tình người Đài Loan",
+        "缺乏人情味|thiếu tình người"
+      ],
+      "sy": [
+        "溫情|tình cảm ấm áp",
+        "親和力|sự thân thiện, gần gũi"
+      ],
+      "an": [
+        "冷漠|lạnh lùng, thờ ơ"
+      ],
+      "mh": "Nhân Tình Vị → rénqíngwèi / rénqíngwèir. ĐỌC: 'nhân' → rén (thanh 2); 'tình' → qíng (thanh 2); 'vị' → wèi (thanh 4; dạng uốn lưỡi đọc wèir). NGHĨA: 人情 (tình cảm con người) + 味 (mùi vị, hương vị) → hương vị ấm áp của tình người.",
+      "tw": "Ở Đài Loan luôn dùng dạng không uốn lưỡi 人情味 (rénqíngwèi). Đây là một từ khóa văn hóa: người Đài Loan rất tự hào về 台灣濃厚的人情味 (sự hiếu khách, nhiệt tình giúp đỡ người lạ của người Đài Loan).",
+      "vd": [
+        {
+          "t": "Văn hóa Đài Loan",
+          "zh": "許多外國遊客來台灣旅遊後，印象最深刻的就是台灣濃厚的人情味。",
+          "vn": "Nhiều du khách nước ngoài sau khi đến Đài Loan du lịch, điều ấn tượng sâu sắc nhất chính là tình người nồng hậu của Đài Loan."
+        },
+        {
+          "t": "Đời sống",
+          "zh": "我喜歡去傳統市場買菜，因為那裡的攤販都很熱情，充滿了人情味。",
+          "vn": "Tôi thích đi chợ truyền thống mua thức ăn, vì những người bán hàng ở đó đều rất nhiệt tình, tràn đầy tình người."
+        },
+        {
+          "t": "Đô thị",
+          "zh": "住在都市的大樓裡，鄰居之間很少打招呼，讓人覺得少了一點人情味。",
+          "vn": "Sống trong các tòa chung cư ở đô thị, hàng xóm với nhau rất ít khi chào hỏi, khiến người ta cảm thấy thiếu đi một chút tình người."
+        }
+      ]
+    },
+    "人權": {
+      "vn": "nhân quyền; quyền con người",
+      "ng": [
+        "(danh từ) nhân quyền, những quyền cơ bản của con người (quyền sống, tự do, bình đẳng)"
+      ],
+      "us": "Thường đi với 保障人權 (bảo đảm nhân quyền), 侵犯人權 (xâm phạm nhân quyền), 基本人權 (nhân quyền cơ bản), 人權團體 (tổ chức nhân quyền).",
+      "co": [
+        "保障人權|bảo đảm/bảo vệ nhân quyền",
+        "基本人權|quyền con người cơ bản",
+        "侵犯人權|xâm phạm nhân quyền",
+        "人權團體|tổ chức nhân quyền"
+      ],
+      "mh": "Nhân Quyền → rénquán. ĐỌC: 'nhân' → rén (thanh 2); 'quyền' → quán (thanh 2). NGHĨA: 人 (con người) + 權 (quyền lợi) → quyền lợi cơ bản mà bất kỳ con người nào sinh ra cũng đều được hưởng.",
+      "tw": "Đài Loan có 國家人權博物館 (Bảo tàng Nhân quyền Quốc gia) ở Tân Điếm (Tân Bắc) và đảo Lục Đảo (綠島), cũng như 國家人權委員會 (Ủy ban Nhân quyền Quốc gia).",
+      "vd": [
+        {
+          "t": "Pháp luật",
+          "zh": "尊重並保障每一位國民的基本人權，是現代民主國家的核心價值。",
+          "vn": "Tôn trọng và bảo vệ nhân quyền cơ bản của mỗi công dân là giá trị cốt lõi của quốc gia dân chủ hiện đại."
+        },
+        {
+          "t": "Lao động",
+          "zh": "許多人權團體都在積極替外籍移工爭取更合理的工作環境與待遇。",
+          "vn": "Nhiều tổ chức nhân quyền đều đang tích cực đấu tranh đòi môi trường làm việc và đãi ngộ hợp lý hơn cho lao động nhập cư nước ngoài."
+        },
+        {
+          "t": "Văn hóa",
+          "zh": "週末我們去參觀了國家人權博物館，對台灣的歷史有了更深入的認識。",
+          "vn": "Cuối tuần chúng tôi đã đi tham quan Bảo tàng Nhân quyền Quốc gia, hiểu biết sâu sắc hơn về lịch sử của Đài Loan."
+        }
+      ]
+    },
+    "人生": {
+      "vn": "nhân sinh; cuộc đời, đời người",
+      "ng": [
+        "(danh từ) nhân sinh, cuộc đời, quãng đời sống của con người"
+      ],
+      "us": "Thường dùng khi suy ngẫm về cuộc đời, mục tiêu, giai đoạn sống: 人生目標 (mục tiêu cuộc đời), 人生階段 (giai đoạn cuộc đời), 人生觀 (nhân sinh quan), 享受人生 (tận hưởng cuộc sống).",
+      "co": [
+        "人生目標|mục tiêu cuộc đời",
+        "人生觀|nhân sinh quan",
+        "人生階段|giai đoạn cuộc đời",
+        "享受人生|tận hưởng cuộc đời"
+      ],
+      "sy": [
+        "一輩子|cả cuộc đời (khẩu ngữ)",
+        "一生|một đời"
+      ],
+      "cf": [
+        "生活|đời sống sinh hoạt hàng ngày (日常生活); 人生|toàn bộ hành trình cuộc đời và ý nghĩa sống của con người"
+      ],
+      "mh": "Nhân Sinh → rénshēng. ĐỌC: 'nhân' → rén (thanh 2); 'sinh' → shēng (thanh 1). NGHĨA: 人 (con người) + 生 (sinh sống, mầm cây mọc trên đất 土) → toàn bộ quãng thời gian sống và trải nghiệm của con người trên thế gian.",
+      "mk": "Người học hay nhầm 人生 với 生活: không nói *台北的人生很方便 (phải nói 台北的生活很方便 - cuộc sống sinh hoạt ở Đài Bắc rất tiện lợi).",
+      "vd": [
+        {
+          "t": "Triết lý",
+          "zh": "人生就像一場長途旅行，重要的不只是終點，還有沿途的風景。",
+          "vn": "Cuộc đời giống như một chuyến du lịch đường dài, điều quan trọng không chỉ là đích đến mà còn là phong cảnh dọc đường."
+        },
+        {
+          "t": "Gia đình",
+          "zh": "結婚生子對許多人來說，是邁入下一個人生階段的重要轉折點。",
+          "vn": "Kết hôn sinh con đối với nhiều người mà nói là bước ngoặt quan trọng để bước vào giai đoạn tiếp theo của cuộc đời."
+        },
+        {
+          "t": "Trải nghiệm",
+          "zh": "來台灣留學的這四年，是我人生中最難忘也最珍貴的一段時光。",
+          "vn": "Bốn năm đến Đài Loan du học này là quãng thời gian đáng nhớ nhất và cũng trân quý nhất trong cuộc đời tôi."
+        }
+      ]
+    }
+  }
+}

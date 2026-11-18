@@ -1,0 +1,1145 @@
+{
+  "tu": {
+    "掃": {
+      "vn": "quét; quét dọn; quét mã",
+      "ng": [
+        "(động từ) quét (rác, bụi bằng chổi); quét sạch, xóa bỏ",
+        "(động từ) quét qua (ánh mắt); quét mã (QR code, mã vạch)"
+      ],
+      "us": "Ngoại động từ, kết hợp trực tiếp với tân ngữ (掃地, 掃墓, 掃描) hoặc bổ ngữ kết quả (掃乾淨, 掃光). Lưu ý khi chỉ cây chổi (掃把/掃帚) thì đọc thanh 4 (sào).",
+      "co": [
+        "掃地|quét nhà, quét đất",
+        "打掃|dọn dẹp, quét tước",
+        "掃墓|tảo mộ",
+        "掃碼|quét mã (QR)"
+      ],
+      "sy": [
+        "清理|dọn dẹp, làm sạch",
+        "清除|quét sạch, loại bỏ"
+      ],
+      "lt": "Đa âm: động từ 'quét' đọc sǎo (thanh 3); danh từ 'cây chổi' trong 掃把 (sàobǎ), 掃帚 (sàozhou) đọc sào (thanh 4).",
+      "mk": "Người học hay đọc 掃把 là sǎobǎ do quen thanh 3 của động từ 掃, cần chú ý chuyển sang thanh 4 khi chỉ dụng cụ.",
+      "tw": "Ở Đài Loan khi thanh toán điện tử (LINE Pay, 街口支付) hoặc kết bạn LINE, nhân viên và bạn bè rất hay nói 「我掃你還是你掃我？」 (Tôi quét mã bạn hay bạn quét mã tôi?).",
+      "mh": "Tảo → sǎo / sào. ĐỌC: 'tảo' (t → s, ao → ao) → sǎo (thanh 3, khi là động từ quét); đọc sào (thanh 4) trong 掃把/掃帚 (cây chổi). NGHĨA: Bộ thủ 扌 (tay) cầm cây chổi 帚 (trửu, cũng gợi âm) → dùng tay cầm chổi quét dọn.",
+      "vd": [
+        {
+          "t": "Việc nhà",
+          "zh": "我先把地板掃乾淨，你再幫忙拖地。",
+          "vn": "Tôi quét sạch sàn nhà trước, rồi bạn giúp lau nhà nhé."
+        },
+        {
+          "t": "Thanh toán",
+          "zh": "這家超商可以用手機掃條碼付款，非常方便。",
+          "vn": "Cửa hàng tiện lợi này có thể dùng điện thoại quét mã vạch để thanh toán, vô cùng tiện lợi."
+        },
+        {
+          "t": "Lễ Thanh Minh",
+          "zh": "清明節連假，我們全家都會回南部掃墓。",
+          "vn": "Kỳ nghỉ lễ Thanh Minh, cả nhà chúng tôi đều sẽ về miền Nam tảo mộ.",
+          "py": "Qīngmíngjié liánjià, wǒmen quánjiā dōu huì huí nánbù sǎomù."
+        }
+      ]
+    },
+    "艘": {
+      "vn": "chiếc (lượng từ cho tàu thuyền lớn)",
+      "ng": [
+        "(lượng từ) chiếc (dùng cho tàu thủy, thuyền lớn, tàu chiến)"
+      ],
+      "us": "Đứng sau số từ hoặc chỉ định từ (一艘船, 這艘軍艦, 幾艘漁船). Dùng cho tàu thuyền cỡ vừa và lớn.",
+      "co": [
+        "一艘郵輪|một chiếc du thuyền lớn",
+        "兩艘漁船|hai chiếc tàu cá",
+        "這艘軍艦|chiếc tàu chiến này"
+      ],
+      "cf": [
+        "條|lượng từ dùng cho thuyền nhỏ (一條小船), không dùng cho tàu lớn",
+        "架|lượng từ dùng cho máy bay (一架飛機)"
+      ],
+      "lt": "Phân biệt lượng từ tàu thuyền: 艘 dùng cho tàu lớn (郵輪, 貨輪, 軍艦, 漁船); 條 hoặc 隻 thường dùng cho xuồng, ghe, thuyền nhỏ (小船).",
+      "mk": "Người Việt hay dùng 個 hoặc 輛 cho mọi phương tiện giao thông (一輛船 - sai), phải dùng 一艘船.",
+      "tw": "Chuẩn âm Quốc ngữ Đài Loan (教育部國語辭典) đọc là sāo (thanh 1), nhưng trong giao tiếp thực tế nhiều người Đài vẫn đọc là sōu giống Đại lục.",
+      "mh": "Tao → sāo. ĐỌC: 'tao' → sāo (thanh 1 theo chuẩn Đài Loan; Đại lục đọc sōu). NGHĨA: Bộ chu 舟 (thuyền) chỉ ý tàu bè + chữ tẩu 叟 (sǒu, gợi âm) → lượng từ đếm tàu thuyền.",
+      "vd": [
+        {
+          "t": "Cảng Cao Hùng",
+          "zh": "高雄港今天停靠了一艘大型的國際郵輪。",
+          "vn": "Cảng Cao Hùng hôm nay có một chiếc du thuyền quốc tế cỡ lớn cập bến.",
+          "py": "Gāoxiónggǎng jīntiān tíngkào le yī sāo dàxíng de guójì yóulún."
+        },
+        {
+          "t": "Tin tức",
+          "zh": "海巡署派出兩艘巡防艦前往救援受困的漁民。",
+          "vn": "Cơ quan Tuần duyên đã điều hai chiếc tàu tuần tra tới cứu hộ các ngư dân bị mắc kẹt.",
+          "py": "Hǎixúnshǔ pàichū liǎng sāo xúnfángjiàn qiánwǎng jiùyuán shòukùn de yúmín."
+        },
+        {
+          "t": "Du lịch",
+          "zh": "這艘渡輪一次可以載兩百名乘客到小琉球。",
+          "vn": "Chiếc phà này mỗi chuyến có thể chở hai trăm hành khách ra đảo Tiểu Lưu Cầu."
+        }
+      ]
+    },
+    "色彩": {
+      "vn": "màu sắc; sắc thái",
+      "ng": [
+        "(danh từ) màu sắc, sắc màu (trong hội họa, thị giác)",
+        "(danh từ) sắc thái, màu sắc đặc trưng, khuynh hướng (nghĩa bóng)"
+      ],
+      "us": "Nghĩa đen dùng trong mỹ thuật, nhiếp ảnh (色彩鮮豔). Nghĩa bóng thường đứng sau danh từ/tính từ để chỉ tính chất, khuynh hướng (政治色彩, 地方色彩, 傳奇色彩).",
+      "co": [
+        "色彩鮮豔|màu sắc rực rỡ",
+        "地方色彩|sắc thái địa phương",
+        "政治色彩|màu sắc chính trị",
+        "浪漫色彩|sắc thái lãng mạn"
+      ],
+      "sy": [
+        "顏色|màu sắc (thông dụng, cụ thể như đỏ, xanh)",
+        "色調|tông màu, gam màu"
+      ],
+      "cf": [
+        "顏色|chỉ màu cụ thể (紅顏色); 色彩 thiên về tổng thể phối màu hoặc nghĩa bóng 'sắc thái'"
+      ],
+      "mk": "Không dùng 色彩 để hỏi màu sắc thông thường (không nói *你喜歡什麼色彩？ mà phải nói 你喜歡什麼顏色？).",
+      "mh": "Sắc Thải → sècǎi. ĐỌC: 'sắc' → sè (thanh 4); 'thải' (th → c, ai → ai) → cǎi (thanh 3). NGHĨA: 色 (màu sắc, vẻ mặt, gồm ⺈ người và 巴 mong cầu) + 彩 (vẻ rực rỡ, gồm 采 hái/màu và 彡 nét vẽ trang trí) → màu sắc và sắc thái.",
+      "vd": [
+        {
+          "t": "Nghệ thuật",
+          "zh": "這幅油畫的色彩非常鮮豔，給人充滿活力的感覺。",
+          "vn": "Màu sắc của bức tranh sơn dầu này vô cùng tươi tắn, mang lại cảm giác tràn đầy sức sống."
+        },
+        {
+          "t": "Văn hóa",
+          "zh": "大甲媽祖遶境是深具台灣本土色彩的宗教活動。",
+          "vn": "Lễ rước Mazu Đại Giáp là hoạt động tôn giáo mang đậm sắc thái bản địa Đài Loan.",
+          "py": "Dàjiǎ Māzǔ ràojìng shì shēnjù Táiwān běntǔ sècǎi de zōngjiào huódòng."
+        },
+        {
+          "t": "Truyền thông",
+          "zh": "這家媒體的政治色彩很明顯，報導不夠中立。",
+          "vn": "Màu sắc chính trị của hãng truyền thông này rất rõ rệt, đưa tin chưa đủ trung lập."
+        }
+      ]
+    },
+    "色情": {
+      "vn": "khiêu dâm; đồi trụy",
+      "ng": [
+        "(danh từ / tính từ) khiêu dâm, sắc dục, đồi trụy (nội dung, ngành nghề liên quan đến tình dục không lành mạnh)"
+      ],
+      "us": "Thường làm định ngữ đứng trước danh từ (色情網站, 色情片, 色情行業, 色情廣告). Mang sắc thái tiêu cực hoặc dùng trong văn cảnh pháp luật, quản lý nội dung.",
+      "co": [
+        "色情網站|trang web khiêu dâm",
+        "色情片|phim khiêu dâm",
+        "色情行業|ngành nghề mại dâm/khiêu dâm",
+        "色情內容|nội dung đồi trụy"
+      ],
+      "sy": [
+        "情色|nhuốm màu sắc dục (thường dùng nhẹ nhàng hơn trong nghệ thuật/điện ảnh)"
+      ],
+      "cf": [
+        "愛情|tình yêu男女 lành mạnh",
+        "情色|thường dùng cho nghệ thuật, văn học gợi cảm (情色電影); 色情 nặng nghĩa khiêu dâm, dung tục"
+      ],
+      "mh": "Sắc Tình → sèqíng. ĐỌC: 'sắc' → sè (thanh 4); 'tình' (t → q, inh → ing) → qíng (thanh 2). NGHĨA: 色 (sắc dục) + 情 (tình cảm, dục vọng từ bộ tâm 忄 và thanh 青) → những thứ kích thích dục vọng, khiêu dâm.",
+      "vd": [
+        {
+          "t": "An toàn mạng",
+          "zh": "家長可以在電腦上安裝軟體，防止小孩瀏覽色情網站。",
+          "vn": "Phụ huynh có thể cài đặt phần mềm trên máy tính để ngăn trẻ nhỏ truy cập các trang web khiêu dâm."
+        },
+        {
+          "t": "Pháp luật",
+          "zh": "在網路上散布色情圖片或影片是違法的行為。",
+          "vn": "Phát tán hình ảnh hoặc video khiêu dâm trên mạng là hành vi phạm pháp."
+        },
+        {
+          "t": "Quản lý",
+          "zh": "警方昨晚在市區查獲了一家偽裝成按摩店的色情場所。",
+          "vn": "Cảnh sát tối qua đã triệt phá một tụ điểm mại dâm trá hình tiệm mát-xa trong khu vực nội thành."
+        }
+      ]
+    },
+    "傻": {
+      "vn": "ngốc; khờ; ngây người",
+      "ng": [
+        "(tính từ) ngốc nghếch, khờ khạo, ngớ ngẩn",
+        "(tính từ / trạng thái) ngây người, sững sờ (không kịp phản ứng)"
+      ],
+      "us": "Làm vị ngữ (他很傻), định ngữ (傻事, 傻瓜) hoặc bổ ngữ chỉ trạng thái sững sờ (嚇傻了, 看傻了). Khi nói với người thân thường mang sắc thái trêu đùa âu yếm (khờ quá).",
+      "co": [
+        "傻瓜|đồ ngốc",
+        "傻笑|cười ngây ngô",
+        "做傻事|làm chuyện dại dột",
+        "嚇傻了|sợ đến ngây người"
+      ],
+      "sy": [
+        "笨|ngốc, vụng về",
+        "愚蠢|ngu xuẩn (nặng nề, trang trọng hơn)"
+      ],
+      "an": [
+        "聰明|thông minh",
+        "機靈|lanh lợi"
+      ],
+      "tw": "Giới trẻ Đài Loan rất hay dùng từ 「傻眼」 (shǎyǎn - trợn tròn mắt, cạn lời, bó tay vì bất ngờ hoặc vô lý). Ngoài ra cụm 「千萬別做傻事」 thường dùng để khuyên can người đang tuyệt vọng đừng tự tử (Đài Loan có đường dây nóng hỗ trợ tâm lý 1925).",
+      "mh": "Sỏa → shǎ. ĐỌC: 'sỏa' (s → sh, oa → a) → shǎ (thanh 3). NGHĨA: Bộ nhân 亻 (con người) + phần bên phải gồm 囟 (thóp đầu), 八 và 夂 (bước chân chậm chạp) → người đầu óc ngờ nghệch, phản ứng chậm chạp, khờ khạo.",
+      "vd": [
+        {
+          "t": "Đời sống",
+          "zh": "你別那麼傻，那種發財的簡訊一看就知道是詐騙！",
+          "vn": "Bạn đừng có khờ thế, loại tin nhắn làm giàu đó nhìn qua là biết lừa đảo rồi!"
+        },
+        {
+          "t": "Cảm xúc",
+          "zh": "聽到自己抽中大獎的消息，他當場愣在那裡傻笑。",
+          "vn": "Nghe tin mình bốc thăm trúng giải lớn, anh ấy sững người đứng đực ra đó cười ngây ngô."
+        },
+        {
+          "t": "Quan tâm",
+          "zh": "遇到困難可以打1925專線找人聊聊，千萬不要一個人想不開做傻事。",
+          "vn": "Gặp khó khăn có thể gọi đường dây 1925 tìm người trò chuyện, tuyệt đối đừng nghĩ quẩn một mình mà làm chuyện dại dột."
+        }
+      ]
+    },
+    "沙": {
+      "vn": "sa; cát; hạt nhỏ; khàn (giọng)",
+      "ng": [
+        "(danh từ) cát; vật dạng hạt nhỏ hoặc xay nhuyễn như cát (đậu xanh xay, đá bào)",
+        "(tính từ) khàn, rè (giọng nói)"
+      ],
+      "us": "Danh từ thường đi kèm 子 thành 沙子 (cát), hoặc ghép trong từ chỉ bãi cát, món ăn xay nhuyễn (沙灘, 綠豆沙, 冰沙). Tính từ ghép trong 沙啞 (khàn giọng).",
+      "co": [
+        "沙灘|bãi cát, bãi biển",
+        "沙子|hạt cát",
+        "綠豆沙|sinh tố/chè đậu xanh xay nhuyễn",
+        "聲音沙啞|giọng khàn đặc"
+      ],
+      "cf": [
+        "砂|cũng đọc shā, thường dùng trong thuật ngữ khoáng vật, công nghiệp (砂紙 giấy nhám, 砂糖 đường cát)"
+      ],
+      "lt": "Lượng từ cho hạt cát là 粒 (一粒沙) hoặc 把 (一把沙 - một nắm cát).",
+      "tw": "Ở các tiệm đồ uống Đài Loan, 「冰沙」 (bīngshā) là món đá xay nhuyễn, đặc biệt 「綠豆沙牛奶」 (đậu xanh đá xay sữa tươi) là thức uống cực kỳ phổ biến.",
+      "mh": "Sa → shā. ĐỌC: 'sa' (s → sh) → shā (thanh 1). NGHĨA: Bộ thủy 氵 (nước) + chữ thiểu 少 (ít, cũng gợi âm) → nơi nước rút đi còn ít thì lộ ra bãi cát.",
+      "vd": [
+        {
+          "t": "Du lịch",
+          "zh": "墾丁的沙灘很美，吸引很多遊客去那裡踏浪玩沙。",
+          "vn": "Bãi cát ở Khẩn Đinh rất đẹp, thu hút nhiều du khách đến đó dạo sóng nghịch cát."
+        },
+        {
+          "t": "Đồ uống",
+          "zh": "天氣這麼熱，我們去買兩杯綠豆沙牛奶來喝吧！",
+          "vn": "Trời nóng thế này, chúng mình đi mua hai ly sữa đậu xanh đá xay uống đi!"
+        },
+        {
+          "t": "Sức khỏe",
+          "zh": "老師今天講了一整天的課，現在聲音都有點沙啞了。",
+          "vn": "Thầy giáo hôm nay giảng bài suốt cả ngày, bây giờ giọng đã hơi khàn đi rồi."
+        }
+      ]
+    },
+    "殺價": {
+      "vn": "mặc cả; trả giá; ép giá",
+      "ng": [
+        "(động từ ly hợp) trả giá, mặc cả, ép giá xuống thấp (khi mua hàng)"
+      ],
+      "us": "Động từ ly hợp (殺了半天價, 殺不下來). Thường đi với giới từ 跟 hoặc 向 (跟老闆殺價).",
+      "co": [
+        "跟老闆殺價|mặc cả với chủ quán",
+        "殺價空間|biên độ có thể trả giá",
+        "大殺價|ép giá mạnh"
+      ],
+      "sy": [
+        "講價|thương lượng giá, trả giá",
+        "討價還價|mặc cả qua lại",
+        "議價|đàm phán giá (mua nhà, xe, hợp đồng)"
+      ],
+      "mk": "殺價 là động từ ly hợp nên không nói *殺價他 hay *殺價五百塊, mà phải nói 跟他殺價 hoặc 殺了五百塊.",
+      "tw": "Từ cực kỳ thông dụng ở chợ truyền thống và chợ đêm Đài Loan. Khi mua nhà hoặc xe ở Đài Loan, người ta hay hỏi 「還有殺價的空間嗎？」 (Còn bớt được nữa không?).",
+      "mh": "Sát Giá → shājià. ĐỌC: 'sát' (s → sh) → shā (thanh 1); 'giá' (gi → j, a → ia) → jià (thanh 4). NGHĨA: 殺 (chém, cắt giảm mạnh, bộ thù 殳 vũ khí) + 價 (giá cả, bộ nhân 亻 và chữ cổ 賈 buôn bán) → 'chém' bớt giá xuống, trả giá.",
+      "vd": [
+        {
+          "t": "Chợ truyền thống",
+          "zh": "媽媽很會買菜，每次去傳統市場都能跟老闆殺價。",
+          "vn": "Mẹ rất khéo đi chợ, mỗi lần ra chợ truyền thống đều có thể mặc cả với chủ sạp."
+        },
+        {
+          "t": "Mua sắm",
+          "zh": "這家店的衣服都是不二價，不管怎麼說店員都不讓我殺價。",
+          "vn": "Quần áo tiệm này đều bán đúng giá niêm yết, dù nói thế nào nhân viên cũng không cho tôi trả giá."
+        },
+        {
+          "t": "Mua nhà",
+          "zh": "這間中古屋開價太高了，應該還有不少殺價的空間。",
+          "vn": "Căn nhà cũ này hét giá cao quá, chắc hẳn vẫn còn kha khá biên độ để thương lượng giảm giá."
+        }
+      ]
+    },
+    "沙漠": {
+      "vn": "sa mạc",
+      "ng": [
+        "(danh từ) sa mạc (vùng đất khô hạn mênh mông toàn cát)",
+        "(danh từ) nơi thiếu thốn, cằn cỗi về một lĩnh vực nào đó (nghĩa bóng)"
+      ],
+      "us": "Lượng từ thường dùng là 片 (一片沙漠) hoặc 個/座 (khi chỉ một sa mạc cụ thể như 撒哈拉沙漠). Nghĩa bóng ở Đài Loan hay ghép kiểu 文化沙漠 (sa mạc văn hóa), 美食沙漠 (sa mạc ẩm thực).",
+      "co": [
+        "一片沙漠|một vùng sa mạc",
+        "穿越沙漠|vượt qua sa mạc",
+        "文化沙漠|sa mạc văn hóa",
+        "美食沙漠|sa mạc ẩm thực (nơi ít đồ ăn ngon)"
+      ],
+      "an": [
+        "綠洲|ốc đảo"
+      ],
+      "lt": "Hán Việt trùng hoàn toàn với tiếng Việt: 沙漠 = sa mạc.",
+      "tw": "Người Đài Loan rất thích dùng từ 「美食沙漠」 (sa mạc ẩm thực) để trêu đùa những khu vực hoặc trường đại học có ít quán ăn ngon.",
+      "mh": "Sa Mạc → shāmò. ĐỌC: 'sa' → shā (thanh 1); 'mạc' (m → m, ac → o) → mò (thanh 4). NGHĨA: 沙 (cát, bộ thủy 氵 và thiếu 少) + 漠 (mênh mông khô cằn, bộ thủy 氵 và chữ mạc 莫 không có) → vùng đất mênh mông toàn cát không có nước.",
+      "vd": [
+        {
+          "t": "Địa lý",
+          "zh": "沙漠地區白天的氣溫很高，入夜之後卻會變得非常寒冷。",
+          "vn": "Khu vực sa mạc ban ngày nhiệt độ rất cao, nhưng khi đêm xuống lại trở nên vô cùng lạnh giá."
+        },
+        {
+          "t": "Sinh thái",
+          "zh": "仙人掌這種植物非常耐旱，就算在沙漠裡也能生存。",
+          "vn": "Loài thực vật như xương rồng chịu hạn rất giỏi, dù ở trong sa mạc cũng có thể sinh tồn."
+        },
+        {
+          "t": "Đời sống Đài Loan",
+          "zh": "很多人開玩笑說那附近是美食沙漠，連一家好吃的餐廳都很難找。",
+          "vn": "Nhiều người nói đùa khu gần đó là 'sa mạc ẩm thực', ngay cả một nhà hàng ngon cũng khó mà tìm được.",
+          "py": "Hěn duō rén kāi wánxiào shuō nà fùjìn shì měishí shāmò, lián yī jiā hǎochī de cāntīng dōu hěn nán zhǎo."
+        }
+      ]
+    },
+    "閃": {
+      "vn": "né tránh; lóe sáng; trẹo (lưng); chuồn; khoe ân ái",
+      "ng": [
+        "(động từ) né, tránh nhanh sang một bên; chuồn đi, rút lui (khẩu ngữ)",
+        "(động từ) lóe sáng, chớp nháy (ánh sáng, ý nghĩ); làm trẹo, bong gân (lưng, eo)",
+        "(động từ / tính từ) khoe tình cảm, làm 'chói mắt' người độc thân (ngôn ngữ mạng Đài Loan)"
+      ],
+      "us": "Đa nghĩa: (1) Né tránh: 閃開, 閃避; (2) Ánh sáng nhấp nháy: 閃爍, 閃光燈; (3) Trẹo lưng: 閃到腰; (4) Khẩu ngữ 'chuồn trước': 我先閃了; (5) Khẩu ngữ Đài 'khoe ân ái': 放閃, 好閃.",
+      "co": [
+        "閃開|né ra, tránh ra",
+        "閃到腰|bị trẹo lưng/cụp xương sống",
+        "放閃|khoe tình cảm (trên mạng/trước mặt người khác)",
+        "閃光燈|đèn flash"
+      ],
+      "sy": [
+        "躲|trốn, né tránh"
+      ],
+      "tw": "Ở Đài Loan, 「閃到腰」 là cách nói tự nhiên nhất khi bị trẹo lưng/căng cơ lưng. Ngoài ra giới trẻ cực kỳ hay dùng 「先閃了」 (chuồn trước đây) và 「放閃」 / 「太閃了」 (cặp đôi tình tứ làm chói mắt người ngoài).",
+      "mh": "Thiểm → shǎn. ĐỌC: 'thiểm' (th → sh, iêm → an) → shǎn (thanh 3). NGHĨA: Bộ môn 門 (cánh cửa) + chữ nhân 人 (người ở giữa) → bóng người vụt lướt nhanh qua khung cửa, từ đó ra nghĩa né nhanh, vụt lóe sáng.",
+      "vd": [
+        {
+          "t": "Giao thông",
+          "zh": "前面有一隻小狗突然衝出來，幸好機車騎士及時閃開。",
+          "vn": "Phía trước có một chú chó nhỏ bất ngờ lao ra, may mà người đi xe máy kịp thời né được."
+        },
+        {
+          "t": "Sức khỏe",
+          "zh": "他昨天搬重物的時候姿勢不對，結果不小心閃到腰了。",
+          "vn": "Hôm qua lúc bê đồ nặng tư thế không đúng, kết quả là anh ấy vô tình bị trẹo lưng."
+        },
+        {
+          "t": "Khẩu ngữ Đài Loan",
+          "zh": "時間不早了，我先閃囉！你們情侶繼續放閃吧！",
+          "vn": "Không còn sớm nữa, tôi chuồn trước nhé! Hai bạn cứ tiếp tục khoe ân ái đi!"
+        }
+      ]
+    },
+    "山地": {
+      "vn": "vùng núi; miền núi",
+      "ng": [
+        "(danh từ) vùng núi, địa hình đồi núi, khu vực miền núi"
+      ],
+      "us": "Chỉ địa hình đồi núi hoặc vùng cư trú trên núi (山地部落, 山地鄉). Lưu ý không dùng từ 「山地人」 để gọi người dân tộc bản địa Đài Loan.",
+      "co": [
+        "山地地形|địa hình đồi núi",
+        "山地部落|bản làng vùng núi",
+        "山地鄉|xã miền núi"
+      ],
+      "sy": [
+        "山區|khu vực miền núi (thông dụng hơn trong dự báo thời tiết, giao thông)"
+      ],
+      "an": [
+        "平地|vùng đồng bằng"
+      ],
+      "tw": "Lưu ý văn hóa quan trọng ở Đài Loan: Trước đây người Đài từng gọi các dân tộc bản địa sống trên núi là 「山地人」, nhưng nay từ này bị coi là thiếu tôn trọng và đã được thay thế chính thức bằng 「原住民」 (nguyên trú dân).",
+      "mh": "Sơn Địa → shāndì. ĐỌC: 'sơn' (s → sh, ơn → an) → shān (thanh 1); 'địa' (đ → d, ia → i) → dì (thanh 4). NGHĨA: 山 (núi, tượng hình 3 đỉnh núi) + 地 (đất, vùng đất từ bộ thổ 土 và dã 也) → vùng đất đồi núi.",
+      "vd": [
+        {
+          "t": "Địa lý Đài Loan",
+          "zh": "台灣有三分之二以上的面積屬於山地和丘陵。",
+          "vn": "Đài Loan có hơn hai phần ba diện tích thuộc địa hình vùng núi và đồi gò."
+        },
+        {
+          "t": "Y tế",
+          "zh": "這支醫療團隊經常深入偏遠的山地部落，為居民做健康檢查。",
+          "vn": "Đội ngũ y tế này thường xuyên đi sâu vào các bản làng miền núi xa xôi để khám sức khỏe cho người dân."
+        },
+        {
+          "t": "Thể thao",
+          "zh": "騎著登山腳踏車挑戰崎嶇的山地路線，需要很好的體力。",
+          "vn": "Đạp xe địa hình chinh phục các tuyến đường núi gập ghềnh đòi hỏi thể lực rất tốt."
+        }
+      ]
+    },
+    "傷": {
+      "vn": "vết thương; làm tổn thương; hại",
+      "ng": [
+        "(danh từ) vết thương, thương tích (trên cơ thể hoặc tinh thần)",
+        "(động từ) làm bị thương, làm tổn hại, gây hại cho (sức khỏe, tình cảm, ví tiền)"
+      ],
+      "us": "Làm danh từ (受了重傷, 養傷) hoặc ngoại động từ (傷身體, 傷感情, 傷心, 傷荷包). Rất hay dùng trong cấu trúc 傷 + bộ phận cơ thể/tâm lý.",
+      "co": [
+        "受傷|bị thương",
+        "傷身體|hại sức khỏe",
+        "傷感情|sứt mẻ tình cảm",
+        "傷荷包|đau ví, tốn tiền (khẩu ngữ Đài)"
+      ],
+      "sy": [
+        "傷害|làm tổn thương, gây hại",
+        "傷口|miệng vết thương"
+      ],
+      "tw": "Người Đài Loan rất hay nói 「傷荷包」 (shāng hébāo - làm 'tổn thương' hầu bao = tốn kém, đau ví) hoặc 「傷眼睛」 (hại mắt).",
+      "mh": "Thương → shāng. ĐỌC: 'thương' (th → sh, ương → ang) → shāng (thanh 1). NGHĨA: Bộ nhân 亻 (con người) + phần âm bên phải có chữ dương 昜 (yáng) → con người chịu sự tổn thương, vết thương.",
+      "vd": [
+        {
+          "t": "Sức khỏe",
+          "zh": "經常熬夜和喝太多酒都很傷身體，你要多注意休息。",
+          "vn": "Thường xuyên thức khuya và uống quá nhiều rượu đều rất hại sức khỏe, bạn phải chú ý nghỉ ngơi nhiều hơn."
+        },
+        {
+          "t": "Quan hệ",
+          "zh": "朋友之間談錢容易傷感情，帳目還是算清楚比較好。",
+          "vn": "Giữa bạn bè với nhau chuyện tiền bạc dễ làm sứt mẻ tình cảm, sổ sách cứ tính rõ ràng vẫn hơn."
+        },
+        {
+          "t": "Thể thao",
+          "zh": "那位籃球選手因為腳傷還沒完全好，今天無法上場比賽。",
+          "vn": "Tuyển thủ bóng rổ đó vì chấn thương ở chân vẫn chưa khỏi hẳn nên hôm nay không thể ra sân thi đấu."
+        }
+      ]
+    },
+    "商標": {
+      "vn": "nhãn hiệu; thương hiệu đăng ký (trademark)",
+      "ng": [
+        "(danh từ) nhãn hiệu hàng hóa, logo thương hiệu đã đăng ký bảo hộ"
+      ],
+      "us": "Thường dùng trong ngữ cảnh kinh doanh, sở hữu trí tuệ, nhận diện sản phẩm (註冊商標, 商標權, 仿冒商標).",
+      "co": [
+        "註冊商標|nhãn hiệu đã đăng ký (®)",
+        "申請商標|đăng ký nhãn hiệu",
+        "商標權|quyền sở hữu nhãn hiệu",
+        "仿冒商標|làm giả nhãn hiệu"
+      ],
+      "cf": [
+        "品牌|thương hiệu nói chung (uy tín, tên tuổi hãng); 商標 là biểu tượng/nhãn hiệu cụ thể được bảo hộ pháp lý",
+        "標誌|biểu tượng, biển báo nói chung (logo, biển giao thông)"
+      ],
+      "lt": "Cẩn thận phân biệt: 品牌 (brand - thương hiệu lớn, vd: Apple là một 品牌 nổi tiếng) và 商標 (trademark/logo - hình quả táo cắn dở là 商標 của hãng).",
+      "mh": "Thương Tiêu → shāngbiāo. ĐỌC: 'thương' → shāng (thanh 1); 'tiêu' (t → b, iêu → iao) → biāo (thanh 1). NGHĨA: 商 (thương mại, buôn bán) + 標 (dấu hiệu, ký hiệu, gồm bộ mộc 木 và phiếu 票 gợi âm) → ký hiệu nhận diện trong thương mại (nhãn hiệu).",
+      "vd": [
+        {
+          "t": "Kinh doanh",
+          "zh": "創業開店之前，最好先去申請註冊商標，才不會被別人抄襲。",
+          "vn": "Trước khi khởi nghiệp mở quán, tốt nhất nên đi đăng ký bảo hộ nhãn hiệu trước để không bị người khác đạo nhái."
+        },
+        {
+          "t": "Mua sắm",
+          "zh": "買名牌包的時候要仔細看清楚商標，免得買到仿冒品。",
+          "vn": "Khi mua túi hàng hiệu phải nhìn kỹ nhãn hiệu để tránh mua phải hàng nhái."
+        },
+        {
+          "t": "Pháp luật",
+          "zh": "這家廠商未經同意使用別人的商標，已經侵害了商標權。",
+          "vn": "Nhà sản xuất này tự ý sử dụng nhãn hiệu của người khác khi chưa được phép, đã xâm phạm quyền nhãn hiệu."
+        }
+      ]
+    },
+    "商場": {
+      "vn": "trung tâm thương mại; thương trường",
+      "ng": [
+        "(danh từ) trung tâm thương mại, khu mua sắm lớn (shopping mall)",
+        "(danh từ) thương trường, giới kinh doanh"
+      ],
+      "us": "Nghĩa 1 chỉ địa điểm mua sắm (逛商場, 大型商場), lượng từ là 家 hoặc 座. Nghĩa 2 chỉ môi trường kinh doanh cạnh tranh (商場如戰場).",
+      "co": [
+        "大型商場|trung tâm thương mại lớn",
+        "逛商場|đi dạo trung tâm mua sắm",
+        "商場如戰場|thương trường như chiến trường",
+        "商場老手|người lão luyện trên thương trường"
+      ],
+      "sy": [
+        "購物中心|trung tâm mua sắm (shopping mall - rất thông dụng ở Đài)",
+        "百貨公司|trung tâm bách hóa (department store)"
+      ],
+      "lt": "Hán Việt là 'thương trường', nhưng trong đời sống hàng ngày 80% trường hợp từ này mang nghĩa là 'trung tâm thương mại / khu mua sắm'.",
+      "tw": "Khi đi mua sắm, người Đài Loan thường nói cụ thể là 「逛百貨公司」 (đi trung tâm bách hóa như SOGO, 新光三越) hoặc 「購物中心」 / 「商場」 (khu phức hợp mua sắm).",
+      "mh": "Thương Trường → shāngchǎng. ĐỌC: 'thương' → shāng (thanh 1); 'trường' (tr → ch, ương → ang) → chǎng (thanh 3). NGHĨA: 商 (thương mại) + 場 (khu đất rộng, bãi, trường, từ bộ thổ 土 và dương 昜) → nơi tập trung buôn bán lớn hoặc đấu trường kinh doanh.",
+      "vd": [
+        {
+          "t": "Đô thị",
+          "zh": "捷運站旁邊新開了一家大型商場，週末總是擠滿了人。",
+          "vn": "Cạnh ga tàu điện ngầm mới mở một trung tâm thương mại lớn, cuối tuần lúc nào cũng đông nghịt người."
+        },
+        {
+          "t": "Kinh doanh",
+          "zh": "俗話說「商場如戰場」，做生意一定要隨時注意市場的變化。",
+          "vn": "Tục ngữ có câu 'thương trường như chiến trường', làm ăn nhất định phải luôn chú ý sự biến đổi của thị trường."
+        },
+        {
+          "t": "Đời sống",
+          "zh": "這座複合式商場裡面有電影院、美食街和超商，非常方便。",
+          "vn": "Bên trong khu thương mại phức hợp này có rạp chiếu phim, khu ẩm thực và cửa hàng tiện lợi, vô cùng thuận tiện.",
+          "py": "Zhè zuò fùhéshì shāngchǎng lǐmiàn yǒu diànyǐngyuàn, měishíjiē hé chāoshāng, fēicháng fāngbiàn."
+        }
+      ]
+    },
+    "上級": {
+      "vn": "cấp trên; thượng cấp",
+      "ng": [
+        "(danh từ) cấp trên, cơ quan cấp cao hơn, lãnh đạo cấp trên (trong cơ quan nhà nước, quân đội, tổ chức)"
+      ],
+      "us": "Thường dùng trong văn cảnh hành chính, công vụ, quân đội hoặc tổ chức có phân cấp rõ ràng (上級機關, 請示上級, 上級主管).",
+      "co": [
+        "上級機關|cơ quan cấp trên",
+        "上級主管|quản lý cấp trên",
+        "向上級報告|báo cáo lên cấp trên",
+        "服從上級|phục tùng cấp trên"
+      ],
+      "sy": [
+        "上司|cấp trên, sếp trực tiếp",
+        "長官|thượng cấp, sếp (hay dùng trong quân đội/công sở Đài Loan)",
+        "主管|quản lý, sếp"
+      ],
+      "an": [
+        "下級|cấp dưới",
+        "部屬|thuộc cấp, nhân viên dưới quyền"
+      ],
+      "tw": "Trong công ty tư nhân ở Đài Loan, nhân viên thường gọi cấp trên là 「主管」 hoặc 「老闆」, còn trong cơ quan chính phủ/cảnh sát/quân đội thì dùng 「上級」 hoặc 「長官」.",
+      "mh": "Thượng Cấp → shàngjí. ĐỌC: 'thượng' (th → sh, ương → ang) → shàng (thanh 4); 'cấp' (c → j, âp → i) → jí (thanh 2). NGHĨA: 上 (ở trên, nét ngang trên đường chuẩn) + 級 (cấp bậc, thứ bậc, gồm bộ mịch 糹 sợi tơ và cập 及 gợi âm) → bậc quản lý ở phía trên.",
+      "vd": [
+        {
+          "t": "Công sở",
+          "zh": "這項計畫的預算很高，必須先向上級主管報告並取得同意。",
+          "vn": "Ngân sách của dự án này rất cao, phải báo cáo và xin sự đồng ý của quản lý cấp trên trước."
+        },
+        {
+          "t": "Hành chính",
+          "zh": "地方政府已經把災情資料呈報給上級機關，請求支援。",
+          "vn": "Chính quyền địa phương đã trình báo số liệu thiên tai lên cơ quan cấp trên để xin chi viện."
+        },
+        {
+          "t": "Tổ chức",
+          "zh": "他只是照著上級的指示辦事，並沒有決定權。",
+          "vn": "Anh ấy chỉ làm việc theo chỉ thị của cấp trên chứ không có quyền quyết định."
+        }
+      ]
+    },
+    "商量": {
+      "vn": "thương lượng; bàn bạc; trao đổi",
+      "ng": [
+        "(động từ) bàn bạc, trao đổi ý kiến, thương lượng với nhau để tìm cách giải quyết"
+      ],
+      "us": "Cấu trúc chuẩn: 跟 / 和 / 與 + Ai + 商量 (+ Vấn đề). Có thể lặp lại 商量商量 để giảm nhẹ ngữ khí. Âm thứ hai 量 thường đọc thanh nhẹ (shāngliang) trong khẩu ngữ hoặc thanh 2 (shāngliáng).",
+      "co": [
+        "跟家人商量|bàn bạc với gia đình",
+        "商量對策|bàn bạc đối sách",
+        "互相商量|bàn bạc với nhau",
+        "好商量|dễ thương lượng, dễ nói chuyện"
+      ],
+      "sy": [
+        "討論|thảo luận (trang trọng hoặc học thuật hơn)",
+        "協商|hiệp thương, đàm phán chính thức"
+      ],
+      "mk": "Lỗi ngữ pháp cực phổ biến của người Việt: dịch word-by-word 'thương lượng với anh ấy' thành *商量他 (SAI). Bắt buộc phải dùng giới từ: 跟他商量.",
+      "lt": "Khẩu ngữ rất hay dùng câu 「有事好商量」 (Có chuyện gì cứ từ từ bàn bạc) hoặc 「這件事還有商量的餘地」 (Chuyện này vẫn còn chỗ để thương lượng).",
+      "mh": "Thương Lượng → shāngliáng. ĐỌC: 'thương' → shāng (thanh 1); 'lượng' (l → l, ương → iang) → liáng (thanh 2, khẩu ngữ hay đọc thanh nhẹ liang). NGHĨA: 商 (trao đổi, bàn tính) + 量 (cân nhắc, đo lường, gồm chữ đán 旦 và lý 里) → cùng nhau trao đổi, cân nhắc ý kiến.",
+      "vd": [
+        {
+          "t": "Gia đình",
+          "zh": "買房子是大事，我得先回家跟太太商量一下再做決定。",
+          "vn": "Mua nhà là việc lớn, tôi phải về nhà bàn bạc với vợ một chút rồi mới quyết định.",
+          "py": "Mǎi fángzi shì dàshì, wǒ děi xiān huíjiā gēn tàitai shāngliáng yīxià zài zuò juédìng."
+        },
+        {
+          "t": "Công việc",
+          "zh": "如果排班的時間不方便，你可以私下跟同事商量換班。",
+          "vn": "Nếu thời gian xếp ca không thuận tiện, bạn có thể trao đổi riêng với đồng nghiệp để đổi ca."
+        },
+        {
+          "t": "Giao tiếp",
+          "zh": "大家都是老朋友了，價格方面有什麼問題都好商量。",
+          "vn": "Mọi người đều là bạn cũ cả rồi, về mặt giá cả có vấn đề gì đều dễ thương lượng thôi."
+        }
+      ]
+    },
+    "傷腦筋": {
+      "vn": "đau đầu; nhức óc; nan giải",
+      "ng": [
+        "(tính từ / động từ) đau đầu, nhức óc, làm cho ai phải vắt óc suy nghĩ vì rắc rối/khó giải quyết"
+      ],
+      "us": "Thường đi với 令人 / 讓人 (讓人很傷腦筋) hoặc làm vị ngữ (這件事真傷腦筋). Mang sắc thái khẩu ngữ tự nhiên, chỉ những rắc rối đời thường khiến người ta bối rối, khó xử.",
+      "co": [
+        "真傷腦筋|thật là đau đầu",
+        "讓人傷腦筋|khiến người ta nhức óc",
+        "傷腦筋的問題|vấn đề nan giải, đau đầu"
+      ],
+      "sy": [
+        "頭痛|đau đầu (nghĩa bóng: rắc rối, nan giải)",
+        "煩惱|phiền não, đau đầu suy nghĩ"
+      ],
+      "mk": "傷腦筋 chỉ dùng cho nghĩa bóng 'rối trí, khó nghĩ vì vấn đề rắc rối', KHÔNG dùng cho triệu chứng đau đầu bệnh lý (đau đầu bệnh lý phải nói 頭痛).",
+      "tw": "Từ này cực kỳ phổ biến trong khẩu ngữ Đài Loan khi than thở nhẹ nhàng về chuyện con cái, quà cáp, chi tiêu... (vd: 晚餐要吃什麼真傷腦筋).",
+      "mh": "Thương Não Cân → shāngnǎojīn. ĐỌC: 'thương' → shāng (thanh 1); 'não' → nǎo (thanh 3); 'cân' (c → j, ân → in) → jīn (thanh 1). NGHĨA: 傷 (làm tổn hao) + 腦 (bộ não, gồm bộ nhục ⺼ và thóp đầu 囟) + 筋 (gân, dây thần kinh, gồm bộ trúc ⺮ và lặc 肋) → làm hao tổn dây thần kinh não = đau đầu suy nghĩ.",
+      "vd": [
+        {
+          "t": "Đời sống",
+          "zh": "下禮拜是女朋友的生日，該送什麼禮物真讓我傷腦筋。",
+          "vn": "Tuần sau là sinh nhật bạn gái rồi, nên tặng quà gì thật khiến tôi đau cả đầu."
+        },
+        {
+          "t": "Gia đình",
+          "zh": "小孩子放暑假整天在家玩手機，讓很多家長感到很傷腦筋。",
+          "vn": "Trẻ con nghỉ hè suốt ngày ở nhà nghịch điện thoại khiến nhiều bậc phụ huynh cảm thấy rất đau đầu."
+        },
+        {
+          "t": "Quản lý",
+          "zh": "最近店裡一直請不到合適的員工，老闆為此傷透了腦筋。",
+          "vn": "Dạo này cửa hàng mãi không tuyển được nhân viên phù hợp, ông chủ vì chuyện này mà vắt óc đau đầu."
+        }
+      ]
+    },
+    "上升": {
+      "vn": "tăng lên; dâng lên; đi lên",
+      "ng": [
+        "(động từ) tăng lên, dâng cao (nhiệt độ, giá cả, tỷ lệ, mực nước)",
+        "(động từ) bay lên, đi lên cao (máy bay, khí cầu, vị thế)"
+      ],
+      "us": "Nội động từ, không mang tân ngữ trực tiếp. Chủ ngữ thường là con số, chỉ số, nhiệt độ, mực nước hoặc vật thể bay lên (氣溫上升, 物價上升, 水位上升).",
+      "co": [
+        "氣溫上升|nhiệt độ tăng lên",
+        "持續上升|tiếp tục tăng cao",
+        "水位上升|mực nước dâng lên",
+        "物價上升|giá cả leo thang"
+      ],
+      "sy": [
+        "上漲|tăng lên (chuyên dùng cho giá cả, thủy triều)",
+        "升高|tăng cao, nâng cao",
+        "增加|tăng thêm (số lượng)"
+      ],
+      "an": [
+        "下降|giảm xuống, hạ xuống",
+        "下跌|rớt giá, tụt giảm"
+      ],
+      "cf": [
+        "提高|ngoại động từ 'nâng cao cái gì' (提高品質); 上升 là nội động từ 'tự tăng lên' (品質上升)"
+      ],
+      "mh": "Thượng Thăng → shàngshēng. ĐỌC: 'thượng' → shàng (thanh 4); 'thăng' (th → sh, ăng → eng) → shēng (thanh 1). NGHĨA: 上 (hướng lên trên) + 升 (dâng lên, bay lên) → di chuyển hoặc tăng dần từ thấp lên cao.",
+      "vd": [
+        {
+          "t": "Thời tiết",
+          "zh": "週末天氣放晴，各地氣溫明顯上升，非常適合出門踏青。",
+          "vn": "Cuối tuần trời nắng ráo, nhiệt độ các nơi tăng lên rõ rệt, rất thích hợp để ra ngoài du xuân."
+        },
+        {
+          "t": "Kinh tế",
+          "zh": "由於原物料成本不斷上升，許多餐飲店都宣布調漲價格。",
+          "vn": "Do chi phí nguyên vật liệu không ngừng tăng lên, nhiều hàng quán ăn uống đều thông báo điều chỉnh tăng giá."
+        },
+        {
+          "t": "Môi trường",
+          "zh": "全球暖化導致海平面持續上升，威脅到沿海居民的安全。",
+          "vn": "Hiện tượng nóng lên toàn cầu khiến mực nước biển tiếp tục dâng cao, đe dọa sự an toàn của cư dân ven biển."
+        }
+      ]
+    },
+    "上市": {
+      "vn": "ra mắt thị trường; lên sàn (chứng khoán); vào mùa",
+      "ng": [
+        "(động từ) tung ra thị trường, mở bán chính thức (sản phẩm mới, nông sản vào mùa)",
+        "(động từ) niêm yết trên sàn chứng khoán (công ty cổ phần)"
+      ],
+      "us": "Nội động từ (新手機上市了) hoặc làm định ngữ trong kinh tế (上市公司 - công ty niêm yết trên sàn chứng khoán).",
+      "co": [
+        "新品上市|sản phẩm mới ra mắt",
+        "上市公司|công ty niêm yết (trên sàn chứng khoán)",
+        "即將上市|sắp ra mắt thị trường",
+        "新鮮上市|mới vào mùa được bày bán (trái cây)"
+      ],
+      "an": [
+        "下市|rút khỏi thị trường; hủy niêm yết",
+        "下架|gỡ khỏi kệ hàng/ứng dụng"
+      ],
+      "tw": "Ở Đài Loan, các công ty công nghệ lớn (như TSMC 台積電) được gọi là 「上市公司」 (niêm yết trên sàn TWSE) hoặc 「上櫃公司」 (niêm yết trên sàn OTC). Trong siêu thị và cửa hàng tiện lợi, biển 「新品上市」 xuất hiện khắp nơi.",
+      "mh": "Thượng Thị → shàngshì. ĐỌC: 'thượng' → shàng (thanh 4); 'thị' (th → sh, i → i) → shì (thanh 4). NGHĨA: 上 (đưa lên, bước lên) + 市 (chợ, thị trường, gồm bộ cân 巾 khăn vải treo ở chợ) → đưa hàng hóa hoặc cổ phiếu lên thị trường giao dịch.",
+      "vd": [
+        {
+          "t": "Tiêu dùng",
+          "zh": "那款最新型的智慧型手機一上市，就吸引大批民眾排隊搶購。",
+          "vn": "Mẫu điện thoại thông minh đời mới nhất đó vừa ra mắt thị trường đã thu hút đông đảo người dân xếp hàng tranh mua."
+        },
+        {
+          "t": "Nông sản Đài Loan",
+          "zh": "每年夏天愛文芒果新鮮上市的時候，冰店的生意都特別好。",
+          "vn": "Mỗi dịp mùa hè khi xoài Irwin tươi ngon vào mùa lên kệ, việc buôn bán của các tiệm đá bào đều đặc biệt đắt khách.",
+          "py": "Měinián xiàtiān Àiwén mángguǒ xīnxian shàngshì de shíhòu, bīngdiàn de shēngyì dōu tèbié hǎo."
+        },
+        {
+          "t": "Tài chính",
+          "zh": "他的目標是進一家福利好的上市公司工作，領穩定的年終獎金。",
+          "vn": "Mục tiêu của anh ấy là vào làm việc tại một công ty niêm yết có phúc lợi tốt, nhận thưởng cuối năm ổn định."
+        }
+      ]
+    },
+    "上述": {
+      "vn": "nêu trên; nói trên",
+      "ng": [
+        "(định từ) đã nêu ở trên, đã đề cập ở phần trước"
+      ],
+      "us": "Văn viết trang trọng (hợp đồng, báo cáo, tin tức, thông báo). Chỉ làm định ngữ đứng trực tiếp trước danh từ, thường không thêm 的 (上述規定, 上述原因, 上述內容).",
+      "co": [
+        "上述規定|quy định nêu trên",
+        "上述原因|nguyên nhân nói trên",
+        "上述內容|nội dung nêu trên",
+        "上述情況|tình hình kể trên"
+      ],
+      "sy": [
+        "以上|trên đây (có thể đứng độc lập hoặc làm định ngữ)",
+        "前述|đã thuật ở trước (rất trang trọng)"
+      ],
+      "an": [
+        "下述|nêu dưới đây",
+        "以下|dưới đây"
+      ],
+      "mk": "上述 chỉ làm định ngữ trước danh từ (上述問題), KHÔNG đứng một mình làm chủ ngữ như 以上 (không nói *上述是我的看法 mà phải nói 以上是我的看法 hoặc 上述內容是我的看法).",
+      "mh": "Thượng Thuật → shàngshù. ĐỌC: 'thượng' → shàng (thanh 4); 'thuật' (th → sh, uât → u) → shù (thanh 4). NGHĨA: 上 (phía trên, phần trước) + 述 (kể lại, trình bày, từ bộ sước 辶 bước đi và phần âm bên trong) → những điều đã được trình bày ở phần trên.",
+      "vd": [
+        {
+          "t": "Hợp đồng",
+          "zh": "請仔細閱讀上述條款，確認沒有問題後再簽名。",
+          "vn": "Xin vui lòng đọc kỹ các điều khoản nêu trên, sau khi xác nhận không có vấn đề gì rồi mới ký tên."
+        },
+        {
+          "t": "Báo cáo",
+          "zh": "綜合上述原因，我們決定把活動延到下個月舉行。",
+          "vn": "Tổng hợp các nguyên nhân nêu trên, chúng tôi quyết định dời hoạt động sang tháng sau mới tổ chức."
+        },
+        {
+          "t": "Y tế",
+          "zh": "如果您出現上述任何一種症狀，請立刻戴上口罩並就醫檢查。",
+          "vn": "Nếu quý vị xuất hiện bất kỳ triệu chứng nào nêu trên, xin hãy lập tức đeo khẩu trang và đi khám bác sĩ."
+        }
+      ]
+    },
+    "上台/上臺": {
+      "vn": "lên sân khấu; lên bục; lên nắm quyền",
+      "ng": [
+        "(động từ ly hợp) bước lên sân khấu, lên bục (biểu diễn, phát biểu, nhận giải)",
+        "(động từ ly hợp) lên nắm quyền, nhậm chức (chính phủ, lãnh đạo)"
+      ],
+      "us": "Động từ ly hợp, thường đứng trước động từ khác chỉ mục đích (上台表演, 上台報告, 上台領獎) hoặc chỉ chính trị gia nhậm chức (新政府上台).",
+      "co": [
+        "上台表演|lên sân khấu biểu diễn",
+        "上台報告|lên bục báo cáo/thuyết trình",
+        "上台領獎|lên sân khấu nhận giải",
+        "新政府上台|chính phủ mới lên nắm quyền"
+      ],
+      "an": [
+        "下台|xuống sân khấu; từ chức, rời ghế quyền lực"
+      ],
+      "tw": "Trong trường học và công sở Đài Loan, 「上台報告」 (lên bục thuyết trình trước lớp/cuộc họp) là cụm từ sinh viên và nhân viên dùng hàng ngày. Cả hai cách viết 上台 và 上臺 đều thông dụng ở Đài Loan.",
+      "mh": "Thượng Đài → shàngtái. ĐỌC: 'thượng' → shàng (thanh 4); 'đài' (đ → t, ai → ai) → tái (thanh 2). NGHĨA: 上 (bước lên) + 台/臺 (bục cao, sân khấu, vũ đài) → bước lên sân khấu hoặc bước lên vũ đài chính trị.",
+      "vd": [
+        {
+          "t": "Học đường",
+          "zh": "下禮拜輪到我們這一組上台報告，大家週末要好好準備。",
+          "vn": "Tuần sau đến lượt nhóm chúng ta lên bục thuyết trình, cuối tuần mọi người phải chuẩn bị thật kỹ nhé."
+        },
+        {
+          "t": "Biểu diễn",
+          "zh": "這是我第一次上台唱歌，緊張得連手都在發抖。",
+          "vn": "Đây là lần đầu tiên tôi lên sân khấu hát, hồi hộp đến mức cả tay cũng run lên."
+        },
+        {
+          "t": "Chính trị",
+          "zh": "新市長上台之後，立刻推動了好幾項改善交通的政策。",
+          "vn": "Sau khi thị trưởng mới lên nhậm chức, ông đã lập tức thúc đẩy mấy chính sách cải thiện giao thông."
+        }
+      ]
+    },
+    "上頭": {
+      "vn": "phía trên; cấp trên; bốc lên đầu",
+      "ng": [
+        "(danh từ) phía trên, mặt trên (của vật thể); cấp trên, lãnh đạo (đọc shàngtou)",
+        "(động từ) (rượu) bốc lên đầu, ngấm rượu; mê mẩn, cuốn hút (đọc shàngtóu)"
+      ],
+      "us": "Đa âm theo nghĩa: (1) Đọc thanh nhẹ shàngtou = phương vị từ 'ở trên' (khẩu ngữ của 上面) hoặc danh từ chỉ 'cấp trên, sếp trên'; (2) Đọc thanh 2 shàngtóu = rượu bốc lên đầu khiến choáng váng.",
+      "co": [
+        "上頭規定|cấp trên quy định",
+        "桌子上頭|phía trên mặt bàn",
+        "後勁很強容易上頭|hậu vị rất mạnh dễ bốc lên đầu (rượu)"
+      ],
+      "sy": [
+        "上面|phía trên; cấp trên (thông dụng hơn)"
+      ],
+      "an": [
+        "下頭|phía dưới; cấp dưới"
+      ],
+      "lt": "Phân biệt thanh điệu: shàngtou (thanh nhẹ) là danh từ chỉ vị trí 'phía trên / cấp trên'; shàngtóu (thanh 2) là động từ chỉ rượu ngấm 'bốc lên đầu'.",
+      "tw": "Ở Đài Loan, người đi làm rất hay dùng 「上頭」 (shàngtou) trong khẩu ngữ để chỉ ban giám đốc hoặc cấp trên: 「這是上頭的意思」 (Đây là ý của cấp trên).",
+      "mh": "Thượng Đầu → shàngtou / shàngtóu. ĐỌC: 'thượng' → shàng (thanh 4); 'đầu' (đ → t, âu → ou) → tou (thanh nhẹ khi chỉ phía trên/cấp trên) hoặc tóu (thanh 2 khi chỉ rượu bốc lên đầu). NGHĨA: 上 (trên / đi lên) + 頭 (hậu tố chỉ vị trí từ bộ hiệt 頁 cái đầu, hoặc cái đầu thật) → vị trí phía trên, cấp trên, hoặc cảm giác bốc lên đầu.",
+      "vd": [
+        {
+          "t": "Công sở",
+          "zh": "這項規定是上頭剛下達的命令，我們基層員工也只能照辦。",
+          "vn": "Quy định này là mệnh lệnh cấp trên vừa ban xuống, nhân viên cấp cơ sở chúng tôi cũng chỉ đành làm theo."
+        },
+        {
+          "t": "Vị trí",
+          "zh": "包裹上頭有寫收件人的姓名和電話，請你幫我確認一下。",
+          "vn": "Phía trên kiện hàng có ghi họ tên và số điện thoại người nhận, phiền bạn giúp tôi xác nhận một chút."
+        },
+        {
+          "t": "Ẩm thực",
+          "zh": "金門高粱酒的酒精濃度很高，喝太快很容易上頭。",
+          "py": "Jīnmén gāoliángjiǔ de jiǔjīng nóngdù hěn gāo, hē tài kuài hěn róngyì shàngtóu.",
+          "vn": "Rượu Cao Lương Kim Môn có nồng độ cồn rất cao, uống nhanh quá rất dễ bốc lên đầu gây say."
+        }
+      ]
+    },
+    "上下": {
+      "vn": "khoảng chừng; trên dưới; cao thấp",
+      "ng": [
+        "(trợ từ / danh từ) khoảng, xấp xỉ, trên dưới (đứng sau con số chỉ tuổi tác, số lượng)",
+        "(danh từ) cấp trên và cấp dưới; toàn thể từ trên xuống dưới (全國上下)",
+        "(danh từ) sự hơn kém, cao thấp (trong cụm 不相上下)"
+      ],
+      "us": "Cách dùng phổ biến nhất ở trình độ B2: (1) Số lượng/Tuổi tác + 上下 (四十歲上下 = khoảng 40 tuổi); (2) Toàn thể một tập thể: 全國上下, 全家上下; (3) Thành ngữ 不相上下 (ngang tài ngang sức).",
+      "co": [
+        "三十歲上下|khoảng trên dưới 30 tuổi",
+        "不相上下|ngang tài ngang sức, kẻ tám lạng người nửa cân",
+        "全國上下|toàn thể đất nước từ trên xuống dưới",
+        "上下文|ngữ cảnh, văn cảnh (đoạn văn trên và dưới)"
+      ],
+      "sy": [
+        "左右|khoảng chừng (dùng rộng rãi hơn 上下 cho cả thời gian, con số)",
+        "前後|khoảng trước sau (thường dùng cho mốc thời gian)"
+      ],
+      "mk": "Khi chỉ 'khoảng chừng', 上下 thường dùng cho tuổi tác, nhiệt độ, chiều cao, giá tiền (三十歲上下), nhưng KHÔNG dùng cho mốc giờ giấc (không nói *三點上下 mà phải nói 三點左右 hoặc 三點前後).",
+      "mh": "Thượng Hạ → shàngxià. ĐỌC: 'thượng' → shàng (thanh 4); 'hạ' (h → x, a → ia) → xià (thanh 4). NGHĨA: 上 (trên) + 下 (dưới) → từ trên xuống dưới, xê dịch lên xuống quanh một mức chuẩn (khoảng chừng), hoặc phân định cao thấp.",
+      "vd": [
+        {
+          "t": "Tuổi tác",
+          "zh": "那位新來的部門經理看起來很年輕，大概只有三十歲上下。",
+          "vn": "Vị trưởng phòng mới đến đó trông rất trẻ, chắc chỉ khoảng trên dưới ba mươi tuổi."
+        },
+        {
+          "t": "So sánh",
+          "zh": "這兩支球隊的實力不相上下，今天的冠軍賽一定非常精彩。",
+          "vn": "Thực lực của hai đội bóng này ngang tài ngang sức, trận chung kết hôm nay chắc chắn sẽ vô cùng hấp dẫn."
+        },
+        {
+          "t": "Tập thể",
+          "zh": "為了籌備這次的周年慶，全公司上下都忙得不可開交。",
+          "vn": "Để chuẩn bị cho dịp kỷ niệm thành lập lần này, toàn thể công ty từ trên xuống dưới đều bận tối mắt tối mũi."
+        }
+      ]
+    },
+    "上游": {
+      "vn": "thượng nguồn; khâu đầu chuỗi (cung ứng)",
+      "ng": [
+        "(danh từ) thượng nguồn, thượng lưu (của dòng sông, suối)",
+        "(danh từ) khâu đầu nguồn, nhà cung cấp nguyên liệu/linh kiện đầu chuỗi (trong ngành công nghiệp)",
+        "(danh từ) thứ hạng đầu, nhóm dẫn đầu (力爭上游)"
+      ],
+      "us": "Dùng cho địa lý sông ngòi (河川上游) và rất phổ biến trong kinh tế/công nghiệp Đài Loan để chỉ các hãng cung cấp nguyên liệu, thiết kế chip ở đầu chuỗi sản xuất (上游廠商, 產業上游).",
+      "co": [
+        "河川上游|thượng nguồn dòng sông",
+        "上游廠商|nhà cung cấp đầu nguồn (trong chuỗi cung ứng)",
+        "力爭上游|nỗ lực vươn lên dẫn đầu"
+      ],
+      "an": [
+        "下游|hạ nguồn; khâu cuối chuỗi sản xuất",
+        "中游|trung nguồn; khâu trung gian"
+      ],
+      "tw": "Trong bản tin kinh tế Đài Loan (đặc biệt là ngành bán dẫn 半導體產業), bộ ba 「上游、中游、下游」 được dùng liên tục để chỉ chuỗi cung ứng từ thiết kế IC (上游), chế tạo wafer (中游) đến đóng gói kiểm thử (下游).",
+      "mh": "Thượng Du → shàngyóu. ĐỌC: 'thượng' → shàng (thanh 4); 'du' (d → y, u → ou) → yóu (thanh 2). NGHĨA: 上 (phía trên, phần đầu) + 游 (dòng chảy, bơi lội, gồm bộ thủy 氵 nước và chữ lưu 斿 cờ bay tự do) → phần đầu của dòng nước hoặc đầu chuỗi sản xuất.",
+      "vd": [
+        {
+          "t": "Môi trường",
+          "zh": "為了保護水源地的清潔，政府嚴格禁止在河川上游設立工廠。",
+          "vn": "Để bảo vệ sự trong sạch của nguồn nước, chính phủ nghiêm cấm mở nhà máy ở thượng nguồn các dòng sông."
+        },
+        {
+          "t": "Kinh tế Đài Loan",
+          "zh": "由於上游廠商的晶片缺貨，導致下游的電腦組裝廠無法準時交貨。",
+          "vn": "Do các nhà cung cấp đầu nguồn bị thiếu hụt chip, dẫn đến các xưởng lắp ráp máy tính ở khâu hạ nguồn không thể giao hàng đúng hạn."
+        },
+        {
+          "t": "Phấn đấu",
+          "zh": "儘管家庭環境並不好，他依然保持樂觀，努力念書力爭上游。",
+          "vn": "Mặc dù hoàn cảnh gia đình không mấy khá giả, anh ấy vẫn giữ sự lạc quan, chăm chỉ học hành nỗ lực vươn lên."
+        }
+      ]
+    },
+    "善於": {
+      "vn": "giỏi về; khéo léo trong việc",
+      "ng": [
+        "(động từ trạng thái) giỏi về, khéo léo, có sở trường làm việc gì đó"
+      ],
+      "us": "Theo sau bắt buộc phải là ĐỘNG TỪ hoặc cụm động từ (善於溝通, 善於利用時間, 善於觀察), thường dùng trong văn viết hoặc nhận xét trang trọng.",
+      "co": [
+        "善於溝通|giỏi giao tiếp",
+        "善於觀察|giỏi quan sát",
+        "善於表達|khéo diễn đạt",
+        "善於利用時間|biết cách tận dụng thời gian"
+      ],
+      "sy": [
+        "擅長|sở trường, giỏi về (đi được với cả danh từ lẫn động từ)",
+        "拿手|sở trường (vd: 拿手菜 món tủ)"
+      ],
+      "mk": "Lỗi ngữ pháp thường gặp: dùng 善於 + Danh từ (như *他善於英文 - SAI). Sau 善於 phải là động từ (他善於說英文); nếu muốn cộng danh từ trực tiếp thì phải dùng 擅長 (他擅長英文).",
+      "mh": "Thiện Ư → shànyú. ĐỌC: 'thiện' (th → sh, iên → an) → shàn (thanh 4); 'ư' → yú (thanh 2). NGHĨA: 善 (tốt, giỏi, khéo léo, gồm chữ dương 羊 và khẩu 口 lời nói tốt đẹp) + 於 (giới từ 'ở, về việc') → khéo léo, giỏi giang ở một việc nào đó.",
+      "vd": [
+        {
+          "t": "Công sở",
+          "zh": "李小姐非常善於與客戶溝通，因此業績總是名列前茅。",
+          "vn": "Cô Lý rất giỏi giao tiếp với khách hàng, vì vậy doanh số luôn đứng hàng đầu."
+        },
+        {
+          "t": "Kỹ năng",
+          "zh": "一個優秀的主管應該善於傾聽部屬的意見，而不是一味地命令。",
+          "vn": "Một người quản lý xuất sắc nên biết lắng nghe ý kiến của cấp dưới, chứ không phải chỉ chăm chăm ra lệnh."
+        },
+        {
+          "t": "Học tập",
+          "zh": "他很善於利用通勤的零碎時間來背英文單字。",
+          "vn": "Anh ấy rất khéo tận dụng khoảng thời gian lẻ tẻ lúc đi tàu xe để học thuộc từ vựng tiếng Anh."
+        }
+      ]
+    },
+    "扇子": {
+      "vn": "cái quạt (quạt tay)",
+      "ng": [
+        "(danh từ) cái quạt cầm tay (quạt giấy, quạt xếp, quạt nan)"
+      ],
+      "us": "Lượng từ chuẩn là 把 (一把扇子). Lưu ý: 扇子 chỉ dùng cho quạt cầm tay quạt bằng sức người; quạt máy chạy điện phải gọi là 電風扇 hoặc 電扇.",
+      "co": [
+        "一把扇子|một cái quạt tay",
+        "搖扇子|phe phẩy quạt",
+        "摺扇|quạt xếp"
+      ],
+      "cf": [
+        "電風扇|quạt máy, quạt điện (khẩu ngữ gọi tắt là 電扇, không gọi là 扇子)"
+      ],
+      "lt": "Lượng từ của 扇子 là 把 (vật có tay cầm: 一把扇子). Khi 扇 làm lượng từ cho cửa (一扇門, 一扇窗) vẫn đọc shàn; khi làm động từ 'quạt' (扇風) thì đọc thanh 1 (shān).",
+      "mk": "Người học hay gọi nhầm quạt máy trong phòng là 扇子 (*開扇子 - sai), phải nói 開電風扇 hoặc 開電扇.",
+      "mh": "Phiến Tử → shànzi. ĐỌC: 'phiến' → shàn (thanh 4); 'tử' → zi (thanh nhẹ). NGHĨA: 扇 (cái quạt, gồm bộ hộ 戶 cánh cửa và bộ vũ 羽 lông vũ → vật mỏng như cánh cửa kết bằng lông vũ để quạt mát) + hậu tố danh từ 子 → cái quạt tay.",
+      "vd": [
+        {
+          "t": "Văn hóa",
+          "zh": "阿嬤夏天喜歡坐在院子裡，手裡拿著一把扇子邊搖邊乘涼。",
+          "vn": "Bà nội mùa hè thích ngồi ngoài sân, tay cầm chiếc quạt phe phẩy hóng mát."
+        },
+        {
+          "t": "Quà lưu niệm",
+          "zh": "我去故宮博物院參觀時，買了一把印有古畫的扇子當紀念品。",
+          "vn": "Lúc đi tham quan Bảo tàng Cố Cung, tôi đã mua một chiếc quạt có in tranh cổ làm quà lưu niệm."
+        },
+        {
+          "t": "Trình diễn",
+          "zh": "舞台上的舞者拿著紅色的扇子翩翩起舞，畫面非常優美。",
+          "vn": "Các vũ công trên sân khấu cầm những chiếc quạt màu đỏ múa uyển chuyển, khung cảnh vô cùng đẹp mắt."
+        }
+      ]
+    },
+    "稍": {
+      "vn": "hơi; một chút; tạm (đợi)",
+      "ng": [
+        "(phó từ) hơi, một chút, tạm thời trong chốc lát (dùng trong văn viết hoặc ngữ cảnh lịch sự)"
+      ],
+      "us": "Phó từ đơn âm tiết, thường ghép cố định trước các động từ/tính từ đơn âm tiết hoặc từ trang trọng: 稍等, 稍後, 稍微, 稍有不慎, 稍作休息. Trong khẩu ngữ thông thường người ta dùng 稍微 nhiều hơn.",
+      "co": [
+        "請稍等|xin đợi một lát",
+        "稍後|một lát nữa, sau đó một chút",
+        "稍作休息|tạm nghỉ ngơi một chút",
+        "稍有不慎|hơi sơ suất một chút"
+      ],
+      "sy": [
+        "稍微|hơi, một chút (dùng rộng rãi trong cả văn nói và viết)",
+        "略|hơi, sơ qua (văn viết: 略微, 略知一二)"
+      ],
+      "lt": "Đa âm: đọc shāo (thanh 1) khi nghĩa là 'hơi, một chút'; đọc shào (thanh 4) trong khẩu lệnh quân sự/thể dục 「稍息」 (shàoxī - đứng nghỉ!).",
+      "tw": "Khi gọi điện thoại hoặc đến quầy giao dịch ở Đài Loan, câu lịch sự nghe nhiều nhất là 「請稍等一下」 hoặc 「請稍候，馬上為您處理」 (Xin đợi một lát, sẽ xử lý ngay cho quý khách).",
+      "mh": "Sảo → shāo / shào. ĐỌC: 'sảo' (s → sh, ao → ao) → shāo (thanh 1, nghĩa là hơi, một chút); đọc shào (thanh 4) trong 稍息 (đứng nghỉ). NGHĨA: Bộ hòa 禾 (cây lúa) + chữ tiêu 肖 (xiào, nhỏ bé, gợi âm) → phần ngọn lúa nhỏ dần, từ đó chỉ mức độ ít ỏi, một chút.",
+      "vd": [
+        {
+          "t": "Dịch vụ",
+          "zh": "請在這裡稍等一下，我們的客服人員馬上就過來為您服務。",
+          "vn": "Xin vui lòng đợi ở đây một lát, nhân viên chăm sóc khách hàng của chúng tôi sẽ qua phục vụ quý khách ngay."
+        },
+        {
+          "t": "Họp hành",
+          "zh": "大家先稍作休息，十分鐘後我們再繼續開會討論。",
+          "vn": "Mọi người tạm nghỉ ngơi một chút trước đã, mười phút nữa chúng ta lại tiếp tục họp thảo luận."
+        },
+        {
+          "t": "An toàn",
+          "zh": "山路非常蜿蜒陡峭，開車時稍有不慎就可能發生危險。",
+          "vn": "Đường núi vô cùng quanh co dốc đứng, khi lái xe chỉ cần hơi sơ suất một chút là có thể xảy ra nguy hiểm."
+        }
+      ]
+    },
+    "少年": {
+      "vn": "thiếu niên; tuổi trẻ",
+      "ng": [
+        "(danh từ) thiếu niên (độ tuổi từ khoảng 10 đến 15-18 tuổi, thường chỉ nam thiếu niên)",
+        "(danh từ) thời niên thiếu, tuổi trẻ"
+      ],
+      "us": "Dùng trong pháp luật, xã hội, văn học (青少年, 少年法院, 少年時期). Trong khẩu ngữ hàng ngày, để chỉ chung thanh thiếu niên người ta thường ghép thành 青少年.",
+      "co": [
+        "青少年|thanh thiếu niên",
+        "少年時期|thời niên thiếu",
+        "少年得志|thành đạt từ thuở thiếu thời",
+        "不良少年|thiếu niên hư hỏng/cá biệt"
+      ],
+      "cf": [
+        "青年|thanh niên (khoảng 18–35 tuổi); 少年 nhỏ tuổi hơn (khoảng 12–18 tuổi)"
+      ],
+      "lt": "Chú ý chữ 少 đa âm: đọc shào (thanh 4 - 'thiếu') khi chỉ tuổi trẻ (少年, 少女, 老少); đọc shǎo (thanh 3 - 'thiểu') khi chỉ số lượng ít (少數, 多少).",
+      "tw": "Theo Luật Xử lý Sự kiện Thiếu niên của Đài Loan (少年事件處理法), 「少年」 được định nghĩa pháp lý là người từ đủ 12 tuổi đến dưới 18 tuổi. Ngoài ra trong tiếng Đài (台語), người trẻ tuổi hay được gọi là 「少年仔」 (siàu-liân-á).",
+      "mh": "Thiếu Niên → shàonián. ĐỌC: 'thiếu' (th → sh, iêu → ao) → shào (thanh 4, chỉ tuổi trẻ, không đọc shǎo); 'niên' (n → n, iên → ian) → nián (thanh 2). NGHĨA: 少 (ít tuổi, trẻ tuổi) + 年 (năm tháng, tuổi tác) → người ở độ tuổi mới lớn, thời niên thiếu.",
+      "vd": [
+        {
+          "t": "Xã hội",
+          "zh": "政府舉辦了各種暑期營隊，鼓勵青少年多參與正當的休閒活動。",
+          "vn": "Chính phủ đã tổ chức nhiều trại hè đa dạng, khuyến khích thanh thiếu niên tham gia nhiều hơn vào các hoạt động giải trí lành mạnh."
+        },
+        {
+          "t": "Văn học",
+          "zh": "這部小說描寫一位漁村少年勇敢追求音樂夢想的故事。",
+          "vn": "Cuốn tiểu thuyết này miêu tả câu chuyện về một thiếu niên làng chài dũng cảm theo đuổi ước mơ âm nhạc.",
+          "py": "Zhè bù xiǎoshuō miáoxiě yī wèi yúcūn shàonián yǒnggǎn zhuīqiú yīnyuè mèngxiǎng de gùshi."
+        },
+        {
+          "t": "Cuộc đời",
+          "zh": "他少年時期家境貧寒，完全靠著半工半讀才完成大學學業。",
+          "vn": "Thời niên thiếu gia cảnh anh ấy nghèo khó, hoàn toàn nhờ vào việc vừa học vừa làm mới hoàn thành chương trình đại học."
+        }
+      ]
+    },
+    "少女": {
+      "vn": "thiếu nữ; cô gái trẻ",
+      "ng": [
+        "(danh từ) thiếu nữ, cô gái trẻ chưa chồng (thường ở độ tuổi dậy thì đến đôi mươi)"
+      ],
+      "us": "Thường dùng trong văn học, truyền thông, thời trang hoặc cụm từ biểu đạt tâm hồn trẻ trung (美少女, 少女時代, 少女心).",
+      "co": [
+        "年輕少女|thiếu nữ trẻ trung",
+        "少女心|tâm hồn thiếu nữ (thích những thứ dễ thương, lãng mạn)",
+        "美少女|mỹ thiếu nữ, cô gái xinh đẹp"
+      ],
+      "sy": [
+        "女孩|cô bé, cô gái (thông dụng nhất trong khẩu ngữ)",
+        "姑娘|cô gái (ít dùng ở Đài Loan, phổ biến ở Đại lục)"
+      ],
+      "tw": "Ở Đài Loan, cụm từ 「少女心」 (shàonǚxīn - tâm hồn thiếu nữ) cực kỳ phổ biến để miêu tả sự yêu thích màu hồng, đồ ngọt, thú bông hoặc sự lãng mạn, bất kể người đó ở độ tuổi nào (vd: 充滿少女心的甜點).",
+      "mh": "Thiếu Nữ → shàonǚ. ĐỌC: 'thiếu' → shào (thanh 4, chỉ tuổi trẻ); 'nữ' → nǚ (thanh 3). NGHĨA: 少 (ít tuổi, trẻ) + 女 (người nữ, tượng hình người phụ nữ khép nép) → cô gái trẻ tuổi, thiếu nữ.",
+      "vd": [
+        {
+          "t": "Văn hóa đại chúng",
+          "zh": "這家咖啡廳裝潢得粉紅又夢幻，吸引了許多充滿少女心的顧客來拍照。",
+          "vn": "Quán cà phê này trang trí màu hồng đầy mộng mơ, thu hút rất nhiều thực khách mang tâm hồn thiếu nữ đến chụp ảnh."
+        },
+        {
+          "t": "Thời trang",
+          "zh": "這個服裝品牌的設計風格活潑可愛，很受年輕少女的歡迎。",
+          "vn": "Phong cách thiết kế của thương hiệu thời trang này năng động dễ thương, rất được các thiếu nữ trẻ yêu thích."
+        },
+        {
+          "t": "Tâm lý",
+          "zh": "情竇初開的少女總是對未來的愛情充滿浪漫的想像。",
+          "vn": "Những thiếu nữ mới biết rung động đầu đời luôn tràn ngập trí tưởng tượng lãng mạn về tình yêu tương lai."
+        }
+      ]
+    },
+    "少數": {
+      "vn": "thiểu số; số ít",
+      "ng": [
+        "(định từ / danh từ) số ít, thiểu số, một số lượng nhỏ"
+      ],
+      "us": "Làm định ngữ trước danh từ chỉ người/vật (少數人, 少數民族, 少數情況) hoặc làm danh từ độc lập trong câu đối lập với 多數 (少數服從多數).",
+      "co": [
+        "少數人|một số ít người",
+        "少數民族|dân tộc thiểu số",
+        "少數服從多數|thiểu số phục tùng đa số",
+        "極少數|cực kỳ ít, số lượng rất nhỏ"
+      ],
+      "an": [
+        "多數|đa số, phần lớn",
+        "大多數|đại đa số"
+      ],
+      "lt": "Chú ý cả hai chữ đều là chữ đa âm: 少 ở đây đọc shǎo (thanh 3, 'thiểu' = ít); 數 đọc shù (thanh 4, danh từ 'con số', không đọc shǔ).",
+      "mh": "Thiểu Số → shǎoshù. ĐỌC: 'thiểu' → shǎo (thanh 3, nghĩa là ít); 'số' (s → sh, ô → u) → shù (thanh 4, danh từ chỉ con số). NGHĨA: 少 (ít ỏi) + 數 (con số, số lượng, gồm chữ lâu 婁 và bộ phộc 攵) → số lượng nhỏ, thiểu số.",
+      "vd": [
+        {
+          "t": "Họp bàn",
+          "zh": "在民主社會裡，我們應該遵循「少數服從多數，多數尊重少數」的原則。",
+          "vn": "Trong xã hội dân chủ, chúng ta nên tuân theo nguyên tắc 'thiểu số phục tùng đa số, đa số tôn trọng thiểu số'."
+        },
+        {
+          "t": "Xã hội",
+          "zh": "大部分的旅客都很守規矩，只有極少數人會在車廂內大聲喧嘩。",
+          "vn": "Phần lớn hành khách đều rất tuân thủ quy định, chỉ có một số cực ít người làm ồn lớn tiếng trong toa tàu."
+        },
+        {
+          "t": "Nghiên cứu",
+          "zh": "這種罕見的植物目前只分布在少數高海拔的山區。",
+          "vn": "Loài thực vật quý hiếm này hiện chỉ phân bố ở một số ít khu vực miền núi có độ cao lớn."
+        }
+      ]
+    },
+    "稍微": {
+      "vn": "hơi; một chút; sơ qua",
+      "ng": [
+        "(phó từ) hơi, một chút (chỉ mức độ nhẹ hoặc thời gian ngắn)"
+      ],
+      "us": "Đứng trước động từ hoặc tính từ. Điểm ngữ pháp quan trọng: Khi 稍微 bổ nghĩa cho động từ/tính từ, phía sau động từ/tính từ đó BẮT BUỘC phải có thêm 一下, 一點, 一些 hoặc bổ ngữ (稍微等一下, 稍微貴一點, 稍微休息一下).",
+      "co": [
+        "稍微等一下|đợi một chút",
+        "稍微貴一點|hơi đắt một chút",
+        "稍微注意一下|chú ý một chút",
+        "稍微修改|chỉnh sửa sơ qua một chút"
+      ],
+      "sy": [
+        "稍|hơi (thường đi với từ đơn âm tiết trong văn viết: 稍等)",
+        "有點|hơi (thường đứng trước tính từ mang ý chê nhẹ: 有點貴)"
+      ],
+      "cf": [
+        "有一點|đứng trước tính từ không cần thêm 一點 ở sau (有一點貴); nhưng 稍微 đứng trước tính từ thì phía sau phải có 一點/一些 (稍微貴一點)"
+      ],
+      "mk": "Lỗi ngữ pháp điển hình: nói *這件衣服稍微貴 hoặc *請你稍微等 (SAI vì thiếu phần đuôi định lượng). Phải nói: 這件衣服稍微貴一點 / 請你稍微等一下.",
+      "mh": "Sảo Vi → shāowéi. ĐỌC: 'sảo' → shāo (thanh 1); 'vi' → wéi (thanh 2 theo chuẩn Đài Loan; Đại lục đọc thanh 1 wēi). NGHĨA: 稍 (một chút, ngọn lúa nhỏ) + 微 (nhỏ bé, vi tế, gồm bộ xích 彳 bước nhỏ) → ở mức độ rất nhỏ, hơi một chút.",
+      "vd": [
+        {
+          "t": "Nấu ăn",
+          "zh": "這道湯的味道稍微淡了一點，可以再加少許鹽巴調味。",
+          "vn": "Món canh này vị hơi nhạt một chút, có thể cho thêm chút muối nữa để nêm nếm."
+        },
+        {
+          "t": "Công việc",
+          "zh": "這份企劃書的內容已經很完整了，只要稍微修改一下格式就可以交了。",
+          "vn": "Nội dung bản kế hoạch này đã rất hoàn chỉnh rồi, chỉ cần chỉnh sửa định dạng một chút là có thể nộp được."
+        },
+        {
+          "t": "Giao tiếp",
+          "zh": "不好意思，請您在客廳稍微坐一下，我馬上叫他出來。",
+          "vn": "Xin lỗi nhé, mời anh ngồi ở phòng khách đợi một chút, tôi gọi anh ấy ra ngay đây."
+        }
+      ]
+    }
+  }
+}

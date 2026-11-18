@@ -1,0 +1,1133 @@
+{
+  "tu": {
+    "親口": {
+      "vn": "chính miệng; tự miệng nói",
+      "ng": [
+        "(phó từ) chính miệng, tự miệng (nói hoặc nếm)"
+      ],
+      "us": "Đứng trước động từ như 說, 告訴, 答應, 承認, 嚐 để nhấn mạnh người đó trực tiếp nói hoặc nếm.",
+      "co": [
+        "親口告訴|chính miệng nói với",
+        "親口答應|chính miệng hứa",
+        "親口承認|chính miệng thừa nhận",
+        "親口嚐嚐|tự miệng nếm thử"
+      ],
+      "sy": [
+        "親自|đích thân"
+      ],
+      "cf": [
+        "親眼|tận mắt",
+        "親耳|chính tai",
+        "親手|tự tay"
+      ],
+      "mh": "Thân Khẩu → qīn kǒu. ĐỌC: 'thân' → qīn (thanh 1); 'khẩu' → kǒu (thanh 3). NGHĨA: 親 (bộ 見 kiến 'nhìn' + phần âm Tân '立+木' → tự mình, gần gũi) + 口 (bộ 口 khẩu, hình cái miệng đang mở) → chính miệng mình nói ra.",
+      "mk": "親口 là phó từ bổ nghĩa cho hành động liên quan đến miệng (nói, hứa, nếm), không làm chủ ngữ (không nói 他的親口說 mà nói 他親口說).",
+      "vd": [
+        {
+          "t": "Xác nhận",
+          "zh": "這件事是他親口告訴我的，絕對不會錯。",
+          "vn": "Chuyện này là chính miệng anh ấy nói với tôi, tuyệt đối không sai được."
+        },
+        {
+          "t": "Lời hứa",
+          "zh": "既然你已經親口答應了，就要做到。",
+          "vn": "Đã chính miệng bạn hứa rồi thì phải làm cho được."
+        },
+        {
+          "t": "Thừa nhận",
+          "zh": "在主管面前，他終於親口承認了自己的錯誤。",
+          "vn": "Trước mặt sếp, cuối cùng anh ấy cũng chính miệng thừa nhận lỗi của mình."
+        }
+      ]
+    },
+    "勤勞": {
+      "vn": "cần cù; chăm chỉ; siêng năng",
+      "ng": [
+        "(tính từ) cần cù, chăm chỉ, chịu khó lao động"
+      ],
+      "us": "Thường dùng khen phẩm chất con người hoặc dân tộc, làm vị ngữ hoặc định ngữ (勤勞的人).",
+      "co": [
+        "勤勞工作|làm việc chăm chỉ",
+        "勤勞節儉|cần cù tiết kiệm",
+        "勤勞的農民|nông dân cần cù"
+      ],
+      "sy": [
+        "勤奮|cần mẫn, chăm chỉ (học tập/công việc)",
+        "努力|nỗ lực"
+      ],
+      "an": [
+        "懶惰|lười biếng",
+        "怠惰|biếng nhác"
+      ],
+      "cf": [
+        "勤奮|thiên về nỗ lực học tập, phấn đấu",
+        "勤勞|thiên về chịu khó lao động tay chân hoặc làm việc thường nhật"
+      ],
+      "mh": "Cần Lao → qín láo. ĐỌC: 'cần' → qín (thanh 2); 'lao' → láo (thanh 2). NGHĨA: 勤 (bộ 力 lực 'sức mạnh' + âm 堇 → bỏ sức không ngừng) + 勞 (bộ 力 lực + 炏 lửa đèn trên mái nhà 冖 → làm việc vất vả cả đêm) → cần cù chịu khó.",
+      "lt": "Hán Việt 'cần lao' trong tiếng Việt mang sắc thái văn chương/chính trị cũ, khi dịch sang tiếng Việt hiện đại nên dịch là 'cần cù, chăm chỉ'.",
+      "vd": [
+        {
+          "t": "Gia đình",
+          "zh": "阿嬤一輩子都非常勤勞，把家裡照顧得很好。",
+          "vn": "Bà nội cả đời đều vô cùng tần tảo chăm chỉ, chăm sóc gia đình rất chu đáo.",
+          "py": "Āmā yībèizi dōu fēicháng qínláo, bǎ jiālǐ zhàogù de hěn hǎo."
+        },
+        {
+          "t": "Nông nghiệp",
+          "zh": "臺灣的農民既勤勞又熱情。",
+          "vn": "Nông dân Đài Loan vừa cần cù vừa nhiệt tình."
+        },
+        {
+          "t": "Đức tính",
+          "zh": "他靠著勤勞與節儉，終於買下了自己的房子。",
+          "vn": "Nhờ cần cù và tiết kiệm, cuối cùng anh ấy đã mua được căn nhà của riêng mình."
+        }
+      ]
+    },
+    "親戚": {
+      "vn": "thân thích; họ hàng",
+      "ng": [
+        "(danh từ) họ hàng, người bà con thân thích"
+      ],
+      "us": "Chỉ người có quan hệ huyết thống hoặc hôn nhân ngoài gia đình hạt nhân (cô dì chú bác, anh em họ...).",
+      "co": [
+        "走親戚|đi thăm họ hàng",
+        "遠房親戚|họ hàng xa",
+        "親戚朋友|họ hàng bạn bè"
+      ],
+      "sy": [
+        "親屬|thân thuộc (trang trọng/pháp lý)"
+      ],
+      "cf": [
+        "親人|người thân ruột thịt (bố mẹ, vợ chồng, con cái)"
+      ],
+      "mh": "Thân Thích → qīn qī. ĐỌC: 'thân' → qīn (thanh 1); 'thích' → qī (Đài Loan đọc thanh 1 qī, Đại lục thường đọc thanh nhẹ qi). NGHĨA: 親 (bộ 見 kiến + phần âm Tân '立+木' → người gần gũi) + 戚 (bộ 戈 qua 'vũ khí' + 尗 'em trai' → người cùng huyết thống chia sẻ buồn vui) → bà con họ hàng.",
+      "tw": "Chuẩn âm Quốc ngữ Đài Loan đọc 親戚 là qīn qī (thanh 1 rõ), trong khi Đại lục đọc âm nhẹ qīn qi.",
+      "lt": "Lượng từ: 個 / 位 (chỉ từng người họ hàng) hoặc 門 (一門親戚 - một mối họ hàng).",
+      "mk": "Đừng nhầm 親戚 (họ hàng cô dì chú bác) với 親人 (người thân ruột thịt ngay trong nhà như bố mẹ, con cái).",
+      "vd": [
+        {
+          "t": "Tết Nguyên Đán",
+          "zh": "過年的時候，我們全家人會回南部拜訪親戚。",
+          "vn": "Dịp Tết, cả nhà chúng tôi sẽ về miền Nam thăm hỏi họ hàng."
+        },
+        {
+          "t": "Giới thiệu",
+          "zh": "他是我媽媽那邊的遠房親戚。",
+          "vn": "Anh ấy là họ hàng xa bên ngoại của tôi."
+        },
+        {
+          "t": "Đám cưới",
+          "zh": "婚禮那天來了許多好久不見的親戚。",
+          "vn": "Hôm đám cưới có rất nhiều họ hàng lâu ngày không gặp đến dự."
+        }
+      ]
+    },
+    "親人": {
+      "vn": "người thân; thân nhân",
+      "ng": [
+        "(danh từ) người thân ruột thịt trong gia đình (cha mẹ, vợ chồng, con cái, anh chị em)"
+      ],
+      "us": "Chỉ những người thân thiết nhất trong gia đình hoặc người mình coi như ruột thịt.",
+      "co": [
+        "思念親人|nhớ người thân",
+        "失去親人|mất đi người thân",
+        "親人團聚|người thân đoàn tụ"
+      ],
+      "sy": [
+        "家人|người nhà",
+        "家屬|gia thuộc, người nhà (y tế/hành chính)"
+      ],
+      "cf": [
+        "親戚|họ hàng bà con (cô dì chú bác, anh em họ)"
+      ],
+      "mh": "Thân Nhân → qīn rén. ĐỌC: 'thân' → qīn (thanh 1); 'nhân' → rén (thanh 2). NGHĨA: 親 (bộ 見 kiến + phần âm Tân '立+木' → ruột thịt, gần gũi) + 人 (bộ 人 nhân, hình dáng con người) → người thân ruột thịt.",
+      "vd": [
+        {
+          "t": "Trung thu",
+          "zh": "中秋節是親人團聚的重要日子。",
+          "vn": "Tết Trung thu là ngày quan trọng để người thân đoàn tụ."
+        },
+        {
+          "t": "Xa quê",
+          "zh": "在國外留學的時候，我特別思念家鄉的親人。",
+          "vn": "Khi du học ở nước ngoài, tôi đặc biệt nhớ người thân ở quê nhà."
+        },
+        {
+          "t": "Tình cảm",
+          "zh": "她對我非常照顧，就像我的親人一樣。",
+          "vn": "Cô ấy chăm sóc tôi vô cùng chu đáo, giống như người thân ruột thịt của tôi vậy."
+        }
+      ]
+    },
+    "侵入": {
+      "vn": "xâm nhập; đột nhập",
+      "ng": [
+        "(động từ) xâm nhập, tràn vào, đột nhập trái phép (quân sự, lãnh thổ, cơ thể, hệ thống máy tính)"
+      ],
+      "us": "Có thể mang tân ngữ chỉ địa điểm, cơ thể hoặc hệ thống mạng: 侵入 + N.",
+      "co": [
+        "侵入系統|xâm nhập hệ thống",
+        "病毒侵入|vi-rút xâm nhập",
+        "非法侵入|xâm nhập bất hợp pháp"
+      ],
+      "sy": [
+        "入侵|nhập xâm, xâm nhập",
+        "潛入|lẻn vào"
+      ],
+      "cf": [
+        "侵略|xâm lược (quy mô quốc gia/quân sự)",
+        "侵犯|xâm phạm (quyền lợi, chủ quyền)"
+      ],
+      "mh": "Xâm Nhập → qīn rù. ĐỌC: 'xâm' → qīn (thanh 1); 'nhập' → rù (thanh 4). NGHĨA: 侵 (bộ 亻 nhân + tay 又 cầm chổi 彐 quét dần vào → lấn chiếm) + 入 (bộ 入 nhập, mũi tên đi vào trong) → tràn vào, xâm nhập.",
+      "vd": [
+        {
+          "t": "An ninh mạng",
+          "zh": "駭客企圖侵入公司的電腦系統偷取資料。",
+          "vn": "Tin tặc tìm cách xâm nhập hệ thống máy tính của công ty để đánh cắp dữ liệu."
+        },
+        {
+          "t": "Sức khỏe",
+          "zh": "當病毒侵入人體時，免疫系統就會開始運作。",
+          "vn": "Khi vi-rút xâm nhập cơ thể người, hệ miễn dịch sẽ bắt đầu hoạt động."
+        },
+        {
+          "t": "Thời tiết",
+          "zh": "強烈的冷氣團侵入臺灣，氣溫一下子降了十度。",
+          "vn": "Khối không khí lạnh mạnh tràn vào Đài Loan, nhiệt độ lập tức giảm xuống mười độ."
+        }
+      ]
+    },
+    "寢室": {
+      "vn": "phòng ký túc xá; phòng ngủ",
+      "ng": [
+        "(danh từ) phòng ở trong ký túc xá sinh viên",
+        "(danh từ) phòng ngủ (cách gọi trang trọng)"
+      ],
+      "us": "Ở Đài Loan, 寢室 chủ yếu dùng trong trường đại học để chỉ từng phòng trong tòa ký túc xá (宿舍); người cùng phòng gọi là 室友 hoặc 寢友.",
+      "co": [
+        "學生寢室|phòng ký túc xá sinh viên",
+        "打掃寢室|dọn phòng ký túc xá",
+        "回到寢室|về phòng ký túc xá"
+      ],
+      "sy": [
+        "臥室|phòng ngủ (trong nhà ở)",
+        "房間|căn phòng"
+      ],
+      "cf": [
+        "宿舍|ký túc xá (cả tòa nhà hoặc khu ở tập thể)"
+      ],
+      "mh": "Tẩm Thất → qǐn shì. ĐỌC: 'tẩm' → qǐn (thanh 3); 'thất' → shì (thanh 4). NGHĨA: 寢 (bộ 宀 miên 'mái nhà' + giường 爿 + người nằm nghỉ → nằm ngủ) + 室 (bộ 宀 miên 'mái nhà' + âm 至 → căn phòng) → phòng ngủ, phòng ký túc xá.",
+      "tw": "Sinh viên đại học Đài Loan thường gọi tắt bạn cùng phòng ký túc xá là 室友, còn hoạt động giao lưu giữa các phòng khác giới gọi là 寢聚 (họp mặt phòng).",
+      "lt": "Lượng từ: 間 (一間寢室 - một phòng ký túc xá).",
+      "vd": [
+        {
+          "t": "Đời sống sinh viên",
+          "zh": "我們這間寢室一共住四個學生。",
+          "vn": "Phòng ký túc xá này của chúng tôi có tổng cộng bốn sinh viên ở."
+        },
+        {
+          "t": "Nội quy",
+          "zh": "學校規定晚上十二點以後，寢室要關大燈。",
+          "vn": "Nhà trường quy định sau mười hai giờ đêm, phòng ký túc xá phải tắt đèn lớn."
+        },
+        {
+          "t": "Dọn dẹp",
+          "zh": "週末我和室友一起把寢室打掃得乾乾淨淨。",
+          "vn": "Cuối tuần tôi và bạn cùng phòng cùng nhau dọn dẹp phòng ký túc xá sạch sẽ tinh tươm."
+        }
+      ]
+    },
+    "旗袍": {
+      "vn": "sườn xám (trang phục truyền thống nữ)",
+      "ng": [
+        "(danh từ) áo sườn xám (trang phục truyền thống ôm dáng, cổ cao, xẻ tà của phụ nữ Hoa)"
+      ],
+      "us": "Kết hợp với động từ 穿 (mặc), 訂做 (may đo), 租 (thuê); lượng từ là 件.",
+      "co": [
+        "穿旗袍|mặc sườn xám",
+        "訂做旗袍|may đo sườn xám",
+        "傳統旗袍|sườn xám truyền thống"
+      ],
+      "mh": "Kì Bào → qí páo. ĐỌC: 'kì' → qí (thanh 2); 'bào' → páo (thanh 2). NGHĨA: 旗 (bộ 方 phương 'cờ' + âm 其 → người Bát Kỳ Mãn Châu) + 袍 (bộ 衤 y 'áo' + âm 包 → áo dài) → áo dài bắt nguồn từ phụ nữ người Kỳ (Mãn Châu), tức áo sườn xám.",
+      "tw": "Ở Đài Loan (như khu Đại Đạo Trình 大稻埕 ở Đài Bắc hay An Bình 安平 ở Đài Nam), dịch vụ thuê 旗袍 chụp ảnh phố cổ rất phổ biến với du khách.",
+      "lt": "Lượng từ: 件 (一件旗袍 - một chiếc áo sườn xám).",
+      "vd": [
+        {
+          "t": "Trang phục cưới",
+          "zh": "新娘在敬酒時換上了一件紅色的旗袍。",
+          "vn": "Cô dâu khi đi mời rượu đã thay một chiếc sườn xám màu đỏ."
+        },
+        {
+          "t": "May đo",
+          "zh": "媽媽去裁縫店訂做了一件絲綢旗袍。",
+          "vn": "Mẹ đến tiệm may đặt may một chiếc sườn xám lụa tơ tằm."
+        },
+        {
+          "t": "Du lịch Đài Bắc",
+          "zh": "很多遊客喜歡到大稻埕租旗袍拍照。",
+          "vn": "Rất nhiều du khách thích đến khu Đại Đạo Trình thuê sườn xám chụp ảnh.",
+          "py": "Hěn duō yóukè xǐhuān dào Dàdàochéng zū qípáo pāizhào."
+        }
+      ]
+    },
+    "欺騙": {
+      "vn": "lừa dối; lừa gạt",
+      "ng": [
+        "(động từ) lừa dối, dối gạt, đánh lừa"
+      ],
+      "us": "Ngoại động từ: 欺騙 + người / tình cảm / lòng tin (欺騙消費者, 欺騙感情).",
+      "co": [
+        "欺騙感情|lừa dối tình cảm",
+        "欺騙消費者|lừa dối người tiêu dùng",
+        "欺騙自己|tự lừa dối bản thân"
+      ],
+      "sy": [
+        "哄騙|dỗ dành lừa gạt",
+        "蒙騙|che mắt lừa gạt"
+      ],
+      "an": [
+        "誠實|thành thật",
+        "坦白|thẳng thắn"
+      ],
+      "cf": [
+        "詐騙|lừa đảo chiếm đoạt tài sản (tội phạm, như 詐騙集團)"
+      ],
+      "mh": "Khi Phiến → qī piàn. ĐỌC: 'khi' → qī (thanh 1); 'phiến' → piàn (thanh 4). NGHĨA: 欺 (bộ 欠 khiếm 'thiếu/há miệng' + âm 其 → khi dễ, dối gạt) + 騙 (bộ 馬 mã 'ngựa' + âm 扁 → nhảy lên ngựa lừa người, đánh lừa) → lừa dối.",
+      "tw": "Ở Đài Loan,欺騙 thường dùng cho chuyện tình cảm, đạo đức hoặc quảng cáo sai sự thật; còn lừa đảo tiền bạc qua điện thoại/mạng thì gọi là 詐騙 (số đường dây nóng chống lừa đảo ở Đài Loan là 165).",
+      "vd": [
+        {
+          "t": "Tiêu dùng",
+          "zh": "這家廠商因為廣告不實、欺騙消費者而被罰款。",
+          "vn": "Hãng này bị phạt tiền vì quảng cáo sai sự thật, lừa dối người tiêu dùng."
+        },
+        {
+          "t": "Tình cảm",
+          "zh": "我最討厭別人欺騙我的感情。",
+          "vn": "Tôi ghét nhất là người khác lừa dối tình cảm của mình."
+        },
+        {
+          "t": "Lòng tin",
+          "zh": "一旦欺騙了朋友，就很難再找回彼此的信任。",
+          "vn": "Một khi đã lừa dối bạn bè thì rất khó tìm lại được lòng tin của nhau."
+        }
+      ]
+    },
+    "齊全": {
+      "vn": "đầy đủ; trọn vẹn",
+      "ng": [
+        "(tính từ) đầy đủ các loại, không thiếu thứ gì (hàng hóa, thiết bị, giấy tờ)"
+      ],
+      "us": "Thường làm vị ngữ sau danh từ chỉ thiết bị, hàng hóa, thủ tục: 設備齊全, 貨色齊全, 資料齊全.",
+      "co": [
+        "設備齊全|thiết bị đầy đủ",
+        "應有盡有，非常齊全|cần gì có nấy, vô cùng đầy đủ",
+        "證件齊全|giấy tờ đầy đủ"
+      ],
+      "sy": [
+        "完備|hoàn bị, đầy đủ",
+        "齊備|đầy đủ sẵn sàng"
+      ],
+      "an": [
+        "缺乏|thiếu thốn",
+        "不全|không đầy đủ"
+      ],
+      "cf": [
+        "完整|hoàn chỉnh, nguyên vẹn (một chỉnh thể không bị sứt mẻ)"
+      ],
+      "mh": "Tề Toàn → qí quán. ĐỌC: 'tề' → qí (thanh 2); 'toàn' → quán (thanh 2). NGHĨA: 齊 (bộ 齊 tề, hình những bông lúa mọc đều tăm tắp) + 全 (bộ 入 nhập + 玉 ngọc → viên ngọc nguyên vẹn không tì vết) → có đủ mọi mặt, không thiếu món nào.",
+      "mk": "齊全 chỉ sự 'đủ bộ, đủ chủng loại' (đồ đạc trong phòng, hàng trong tiệm); không dùng cho số lượng tiền hay thời gian (không nói 錢很齊全 mà nói 錢很足夠).",
+      "vd": [
+        {
+          "t": "Thuê nhà",
+          "zh": "這間套房雖然不大，但是家具和家電都很齊全。",
+          "vn": "Căn phòng khép kín này tuy không lớn nhưng nội thất và đồ điện gia dụng đều rất đầy đủ."
+        },
+        {
+          "t": "Mua sắm",
+          "zh": "這家超市的商品種類非常齊全，什麼都買得到。",
+          "vn": "Chủng loại hàng hóa của siêu thị này vô cùng đầy đủ, cái gì cũng mua được."
+        },
+        {
+          "t": "Thủ tục",
+          "zh": "請先確認申請資料是否齊全，再去櫃檯辦理。",
+          "vn": "Xin hãy xác nhận trước xem hồ sơ đăng ký đã đầy đủ chưa rồi mới ra quầy làm thủ tục."
+        }
+      ]
+    },
+    "歧視": {
+      "vn": "kỳ thị; phân biệt đối xử",
+      "ng": [
+        "(động từ) kỳ thị, coi thường và phân biệt đối xử",
+        "(danh từ) sự kỳ thị, sự phân biệt đối xử"
+      ],
+      "us": "Làm động từ (歧視 + đối tượng, 受人歧視) hoặc danh từ (種族歧視, 性別歧視).",
+      "co": [
+        "種族歧視|kỳ thị chủng tộc",
+        "性別歧視|phân biệt giới tính",
+        "受到歧視|bị kỳ thị",
+        "消除歧視|xóa bỏ sự kỳ thị"
+      ],
+      "sy": [
+        "排斥|bài xích",
+        "輕視|coi thường"
+      ],
+      "an": [
+        "尊重|tôn trọng",
+        "平等|bình đẳng"
+      ],
+      "mh": "Kì Thị → qí shì. ĐỌC: 'kì' → qí (thanh 2); 'thị' → shì (thanh 4). NGHĨA: 歧 (bộ 止 chỉ 'bàn chân' + âm 支 'nhánh rẽ' → đường rẽ nhánh, khác biệt) + 視 (bộ 見 kiến 'nhìn' + âm 礻 → nhìn nhận) → nhìn bằng con mắt phân biệt.",
+      "vd": [
+        {
+          "t": "Môi trường làm việc",
+          "zh": "法律規定企業在徵才時，不得有性別或年齡歧視。",
+          "vn": "Pháp luật quy định doanh nghiệp khi tuyển dụng không được có sự phân biệt giới tính hay tuổi tác."
+        },
+        {
+          "t": "Xã hội",
+          "zh": "我們應該尊重多元文化，不應該歧視任何族群。",
+          "vn": "Chúng ta nên tôn trọng văn hóa đa dạng, không nên kỳ thị bất kỳ nhóm người nào."
+        },
+        {
+          "t": "Quyền lợi",
+          "zh": "每個人都應該受到平等對待，不該因為外貌而遭受歧視。",
+          "vn": "Mỗi người đều nên được đối xử bình đẳng, không đáng bị kỳ thị vì ngoại hình."
+        }
+      ]
+    },
+    "企圖": {
+      "vn": "mưu đồ; toan tính; tìm cách",
+      "ng": [
+        "(danh từ) mưu đồ, ý đồ (thường mang sắc thái tiêu cực)",
+        "(động từ) toan tính, tìm cách làm việc gì (thường là việc xấu hoặc bất thành)"
+      ],
+      "us": "Thường dùng trong ngữ cảnh tiêu cực/pháp luật: 企圖 + VP (企圖逃跑, 企圖掩蓋) hoặc 有...的企圖.",
+      "co": [
+        "企圖逃跑|tìm cách bỏ trốn",
+        "企圖心|tham vọng, chí tiến thủ (Đài Loan)",
+        "不良企圖|mưu đồ xấu"
+      ],
+      "sy": [
+        "意圖|ý đồ",
+        "圖謀|mưu tính"
+      ],
+      "mh": "Xí Đồ → qì tú. ĐỌC: 'xí' → qì (Đài Loan đọc thanh 4 qì, Đại lục đọc thanh 3 qǐ); 'đồ' → tú (thanh 2). NGHĨA: 企 (bộ 人 nhân + 止 'bàn chân' → kiễng chân ngóng trông) + 圖 (bộ 囗 vi 'bờ cõi' + 啚 → vẽ bản đồ, tính toán) → kiễng chân toan tính, mưu đồ.",
+      "tw": "1) Chuẩn âm Đài Loan đọc 企 là qì (thanh 4: 企圖 qì tú, 企業 qì yè). 2) Ở Đài Loan, cụm 企圖心 (qìtúxīn) lại mang nghĩa tích cực là 'chí tiến thủ, khát vọng vươn lên trong công việc' (ví dụ: 展現強烈的企圖心).",
+      "vd": [
+        {
+          "t": "Pháp luật",
+          "zh": "小偷被警察發現後企圖逃跑，但立刻被抓住了。",
+          "vn": "Tên trộm sau khi bị cảnh sát phát hiện đã tìm cách bỏ trốn, nhưng lập tức bị bắt giữ."
+        },
+        {
+          "t": "Phỏng vấn",
+          "zh": "在面試時展現積極的企圖心，能給主管留下好印象。",
+          "vn": "Thể hiện chí tiến thủ tích cực khi phỏng vấn có thể để lại ấn tượng tốt cho sếp."
+        },
+        {
+          "t": "Cảnh giác",
+          "zh": "他突然對你這麼好，背後可能別有企圖。",
+          "vn": "Anh ta tự nhiên tốt với bạn như vậy, đằng sau có thể có mưu đồ khác."
+        }
+      ]
+    },
+    "球隊": {
+      "vn": "đội bóng",
+      "ng": [
+        "(danh từ) đội bóng (bóng chày, bóng rổ, bóng đá, cầu lông...)"
+      ],
+      "us": "Danh từ chung cho các đội thể thao dùng bóng; lượng từ là 支 hoặc 個.",
+      "co": [
+        "棒球隊|đội bóng chày",
+        "籃球隊|đội bóng rổ",
+        "加入球隊|tham gia đội bóng",
+        "職業球隊|đội bóng chuyên nghiệp"
+      ],
+      "mh": "Cầu Đội → qiú duì. ĐỌC: 'cầu' → qiú (thanh 2); 'đội' → duì (thanh 4). NGHĨA: 球 (bộ 王 ngọc + âm 求 → viên cầu tròn, quả bóng) + 隊 (bộ 阝 phụ + âm 㒸 → đội ngũ) → đội thi đấu các môn bóng.",
+      "tw": "Ở Đài Loan, hai môn có 球隊 được quan tâm nhất là bóng chày (中華職棒棒球隊) và bóng rổ (籃球隊).",
+      "lt": "Lượng từ: 支 (一支球隊 - một đội bóng) hoặc 個.",
+      "vd": [
+        {
+          "t": "Học đường",
+          "zh": "他上大學以後加入了學校的籃球隊。",
+          "vn": "Sau khi lên đại học, anh ấy đã tham gia đội bóng rổ của trường."
+        },
+        {
+          "t": "Thể thao",
+          "zh": "這支棒球隊今年贏得了總冠軍，球迷們都很興奮。",
+          "vn": "Đội bóng chày này năm nay đã giành chức tổng vô địch, người hâm mộ đều rất phấn khích."
+        },
+        {
+          "t": "Tập luyện",
+          "zh": "為了下個月的比賽，球隊每天下午都在操場練習。",
+          "vn": "Để chuẩn bị cho giải đấu tháng sau, đội bóng chiều nào cũng tập luyện ở sân vận động."
+        }
+      ]
+    },
+    "求婚": {
+      "vn": "cầu hôn",
+      "ng": [
+        "(động từ) cầu hôn (ngỏ lời xin kết hôn)"
+      ],
+      "us": "Động từ ly hợp; muốn nói cầu hôn ai phải dùng giới từ 向 hoặc 跟: 向/跟 + người + 求婚.",
+      "co": [
+        "向她求婚|cầu hôn cô ấy",
+        "求婚戒指|nhẫn cầu hôn",
+        "求婚成功|cầu hôn thành công"
+      ],
+      "cf": [
+        "結婚|kết hôn",
+        "訂婚|đính hôn"
+      ],
+      "mh": "Cầu Hôn → qiú hūn. ĐỌC: 'cầu' → qiú (thanh 2); 'hôn' → hūn (thanh 1). NGHĨA: 求 (bộ 氺/水, thỉnh cầu, xin) + 婚 (bộ 女 nữ 'phụ nữ' + âm 昏 'chiều tối' → lễ cưới xưa cử hành lúc chiều tối) → ngỏ lời xin kết hôn.",
+      "mk": "求婚 là từ ly hợp / nội động từ, tuyệt đối KHÔNG nói 求婚她 mà phải nói 向她求婚 hoặc 跟她求婚.",
+      "vd": [
+        {
+          "t": "Lãng mạn",
+          "zh": "交往五年後，他在跨年晚會上向女朋友求婚了。",
+          "vn": "Sau năm năm hẹn hò, anh ấy đã cầu hôn bạn gái tại đêm nhạc đón giao thừa."
+        },
+        {
+          "t": "Chuẩn bị",
+          "zh": "他偷偷買了鑽石戒指，準備在女友生日那天求婚。",
+          "vn": "Anh ấy lén mua nhẫn kim cương, chuẩn bị cầu hôn vào đúng ngày sinh nhật bạn gái."
+        },
+        {
+          "t": "Tin vui",
+          "zh": "聽說學長昨天求婚成功，大家都紛紛向他祝賀。",
+          "vn": "Nghe nói đàn anh hôm qua cầu hôn thành công, mọi người đều tới tấp chúc mừng anh ấy."
+        }
+      ]
+    },
+    "秋季": {
+      "vn": "mùa thu",
+      "ng": [
+        "(danh từ) mùa thu (thường dùng trong văn viết, thời trang, học kỳ, giải đấu)"
+      ],
+      "us": "Trang trọng hơn 秋天; hay dùng làm định ngữ: 秋季班 (khóa học mùa thu), 秋季新品 (hàng mới mùa thu), 秋季旅行 (du lịch mùa thu).",
+      "co": [
+        "秋季班|học kỳ/khóa học mùa thu",
+        "秋季服裝|trang phục mùa thu",
+        "秋季旅展|hội chợ du lịch mùa thu"
+      ],
+      "sy": [
+        "秋天|mùa thu (khẩu ngữ)"
+      ],
+      "cf": [
+        "春季|mùa xuân",
+        "夏季|mùa hè",
+        "冬季|mùa đông"
+      ],
+      "mh": "Thu Quý → qiū jì. ĐỌC: 'thu' → qiū (thanh 1); 'quý' → jì (thanh 4). NGHĨA: 秋 (bộ 禾 hòa 'cây lúa' + 火 'lửa' → mùa lúa chín vàng rực) + 季 (bộ 子 tử 'con/hạt giống' dưới 禾 'cây lúa' → mùa vụ, quý trong năm) → mùa thu.",
+      "vd": [
+        {
+          "t": "Du học Đài Loan",
+          "zh": "臺灣的大學通常在九月開始秋季班的課程。",
+          "vn": "Các trường đại học ở Đài Loan thường bắt đầu chương trình học kỳ mùa thu vào tháng Chín."
+        },
+        {
+          "t": "Thời trang",
+          "zh": "百貨公司已經開始販售今年的秋季服裝了。",
+          "vn": "Trung tâm thương mại đã bắt đầu bán trang phục mùa thu của năm nay rồi."
+        },
+        {
+          "t": "Khí hậu",
+          "zh": "秋季的天氣涼爽舒適，非常適合去山上賞楓。",
+          "vn": "Thời tiết mùa thu mát mẻ dễ chịu, vô cùng thích hợp đi lên núi ngắm lá phong."
+        }
+      ]
+    },
+    "球鞋": {
+      "vn": "giày thể thao; giày bata",
+      "ng": [
+        "(danh từ) giày thể thao, giày chơi bóng"
+      ],
+      "us": "Kết hợp với động từ 穿 (đi/mang), 買 (mua), 洗 (giặt); lượng từ là 雙 (đôi) hoặc 隻 (chiếc).",
+      "co": [
+        "穿球鞋|đi giày thể thao",
+        "一雙球鞋|một đôi giày thể thao",
+        "籃球鞋|giày bóng rổ"
+      ],
+      "sy": [
+        "運動鞋|giày thể thao (nói chung)"
+      ],
+      "cf": [
+        "皮鞋|giày da",
+        "高跟鞋|giày cao gót"
+      ],
+      "mh": "Cầu Hài → qiú xié. ĐỌC: 'cầu' → qiú (thanh 2); 'hài' → xié (thanh 2). NGHĨA: 球 (bộ 王 ngọc + âm 求 → quả bóng) + 鞋 (bộ 革 cách 'da thuộc' + âm 圭 → đôi giày) → giày đi để chơi bóng hoặc vận động.",
+      "lt": "Lượng từ: 雙 (一雙球鞋 - một đôi giày thể thao), 隻 (一隻球鞋 - một chiếc giày lẻ).",
+      "vd": [
+        {
+          "t": "Trang phục",
+          "zh": "明天要去爬山，記得穿好走一點的球鞋。",
+          "vn": "Ngày mai phải đi leo núi, nhớ đi đôi giày thể thao nào dễ đi một chút."
+        },
+        {
+          "t": "Mua sắm",
+          "zh": "他存了兩個月的零用錢，買了一雙限量版球鞋。",
+          "vn": "Cậu ấy tiết kiệm tiền tiêu vặt hai tháng, mua được một đôi giày thể thao bản giới hạn."
+        },
+        {
+          "t": "Trường học",
+          "zh": "上體育課的時候一定要穿球鞋，不能穿涼鞋。",
+          "vn": "Khi học tiết thể dục nhất định phải đi giày thể thao, không được đi dép xăng-đan."
+        }
+      ]
+    },
+    "期望": {
+      "vn": "kỳ vọng; mong đợi",
+      "ng": [
+        "(động từ) kỳ vọng, đặt hy vọng vào ai/điều gì",
+        "(danh từ) sự kỳ vọng, niềm mong mỏi"
+      ],
+      "us": "Thường dùng khi cấp trên, cha mẹ, xã hội đặt kỳ vọng vào ai: 對 + người + 有很高的期望 / 期望 + người + VP / 不負期望.",
+      "co": [
+        "符合期望|đáp ứng kỳ vọng",
+        "寄予期望|gửi gắm kỳ vọng",
+        "對他期望很高|kỳ vọng rất cao ở anh ấy",
+        "辜負期望|phụ lòng kỳ vọng"
+      ],
+      "sy": [
+        "期待|mong đợi, đón chờ",
+        "期盼|mong ngóng"
+      ],
+      "cf": [
+        "希望|hy vọng (phổ biến nhất, dùng cho mọi ngữ cảnh)",
+        "盼望|trông mong tha thiết"
+      ],
+      "mh": "Kỳ Vọng → qí wàng. ĐỌC: 'kỳ' → qí (Đài Loan đọc thanh 2 qí, Đại lục đọc thanh 1 qī); 'vọng' → wàng (thanh 4). NGHĨA: 期 (bộ 月 nguyệt 'mặt trăng' + âm 其 → hẹn định theo chu kỳ trăng) + 望 (bộ 月 nguyệt + người đứng trên đất 王 ngước nhìn trăng, âm 亡) → trông đợi điều tốt đẹp trong tương lai.",
+      "tw": "Chuẩn âm Bộ Giáo dục Đài Loan đọc 期 là qí (thanh 2: 期望 qí wàng, 期待 qí dài, 期限 qí xiàn, 星期 xīng qí), trong khi Đại lục đọc qī (thanh 1).",
+      "vd": [
+        {
+          "t": "Gia đình",
+          "zh": "父母對他的期望很高，希望他將來能當醫生。",
+          "vn": "Bố mẹ kỳ vọng ở anh ấy rất cao, mong tương lai anh ấy có thể làm bác sĩ."
+        },
+        {
+          "t": "Nỗ lực",
+          "zh": "我一定會好好努力，不辜負老師對我的期望。",
+          "vn": "Tôi nhất định sẽ cố gắng thật tốt, không phụ sự kỳ vọng của thầy cô dành cho mình."
+        },
+        {
+          "t": "Công việc",
+          "zh": "這次新產品的銷售成績完全符合公司的期望。",
+          "vn": "Thành tích bán hàng của sản phẩm mới lần này hoàn toàn đáp ứng được kỳ vọng của công ty."
+        }
+      ]
+    },
+    "氣味": {
+      "vn": "mùi; mùi vị (khứu giác)",
+      "ng": [
+        "(danh từ) mùi (hương thơm hoặc mùi hôi tỏa ra trong không khí)"
+      ],
+      "us": "Dùng trong văn viết hoặc mô tả khách quan các loại mùi (thơm, hôi, lạ) ngửi thấy bằng mũi; khẩu ngữ thường dùng 味道.",
+      "co": [
+        "難聞的氣味|mùi khó ngửi",
+        "散發氣味|tỏa ra mùi",
+        "刺鼻的氣味|mùi hắc/nồng xộc vào mũi"
+      ],
+      "sy": [
+        "味道|mùi / vị (khẩu ngữ dùng cho cả mũi ngửi và lưỡi nếm)"
+      ],
+      "cf": [
+        "香味|mùi thơm",
+        "臭味|mùi hôi"
+      ],
+      "mh": "Khí Vị → qì wèi. ĐỌC: 'khí' → qì (thanh 4); 'vị' → wèi (thanh 4). NGHĨA: 氣 (bộ Khí 'luồng hơi' + 米 'hạt gạo' → hơi bốc lên trong không khí) + 味 (bộ 口 khẩu + âm 未 → mùi vị cảm nhận được) → mùi trong không khí.",
+      "mk": "氣味 chỉ dùng cho mùi ngửi bằng mũi (khứu giác), KHÔNG dùng cho vị nếm bằng lưỡi (vị thức ăn mặn ngọt phải dùng 味道 hoặc 口味).",
+      "vd": [
+        {
+          "t": "Đồ ăn Đài Loan",
+          "zh": "臭豆腐雖然氣味很強烈，但吃起來非常香。",
+          "vn": "Đậu phụ thối tuy mùi rất nồng nhưng ăn vào lại vô cùng thơm ngon."
+        },
+        {
+          "t": "An toàn",
+          "zh": "如果在家裡聞到瓦斯的氣味，要立刻打開窗戶。",
+          "vn": "Nếu ở trong nhà ngửi thấy mùi khí ga thì phải lập tức mở cửa sổ ra."
+        },
+        {
+          "t": "Thiên nhiên",
+          "zh": "雨後的森林裡散發著泥土和青草的清新氣味。",
+          "vn": "Trong khu rừng sau cơn mưa tỏa ra mùi thanh mát của đất và cỏ xanh."
+        }
+      ]
+    },
+    "氣息": {
+      "vn": "hơi thở; hơi hướng; phong vị",
+      "ng": [
+        "(danh từ) hơi thở (nghĩa gốc)",
+        "(danh từ) hơi hướng, phong vị, bầu không khí đặc trưng (nghĩa bóng văn chương)"
+      ],
+      "us": "Nghĩa bóng rất hay gặp trong văn viết: 充滿/散發 + ...的氣息 (充滿春天的氣息, 青春的氣息, 藝術氣息).",
+      "co": [
+        "青春的氣息|hơi thở thanh xuân",
+        "春天的氣息|hơi thở mùa xuân",
+        "藝術氣息|phong vị nghệ thuật",
+        "氣息微弱|hơi thở yếu ớt"
+      ],
+      "sy": [
+        "氛圍|bầu không khí",
+        "氣味|mùi"
+      ],
+      "cf": [
+        "呼吸|hô hấp, thở (động từ/danh từ y học thông thường)"
+      ],
+      "mh": "Khí Tức → qì xí. ĐỌC: 'khí' → qì (thanh 4); 'tức' → xí (Đài Loan đọc thanh 2 xí, Đại lục đọc thanh 1 xī). NGHĨA: 氣 (bộ Khí + 米 → luồng hơi) + 息 (bộ 心 tâm 'trái tim' dưới 自 'cái mũi' → hơi thở từ tim qua mũi) → hơi thở, phong vị tỏa ra.",
+      "tw": "Chuẩn âm Đài Loan đọc 息 là xí (thanh 2: 氣息 qì xí, 休息 xiū xí, 消息 xiāo xí), trong khi Đại lục đọc xī (thanh 1) hoặc thanh nhẹ.",
+      "vd": [
+        {
+          "t": "Mùa xuân",
+          "zh": "校園裡開滿了杜鵑花，到處充滿了春天的氣息。",
+          "vn": "Trong khuôn viên trường nở đầy hoa đỗ quyên, khắp nơi tràn ngập hơi thở của mùa xuân."
+        },
+        {
+          "t": "Văn hóa",
+          "zh": "這條老街保留了許多歷史建築，很有懷舊的氣息。",
+          "vn": "Con phố cổ này giữ lại được nhiều kiến trúc lịch sử, rất có phong vị hoài cổ."
+        },
+        {
+          "t": "Cấp cứu",
+          "zh": "救護人員發現傷患還有微弱的氣息，立刻將他送醫。",
+          "vn": "Nhân viên cứu hộ phát hiện người bị thương vẫn còn hơi thở yếu ớt, lập tức đưa anh ấy đi cấp cứu."
+        }
+      ]
+    },
+    "期限": {
+      "vn": "kỳ hạn; thời hạn; hạn chót",
+      "ng": [
+        "(danh từ) thời hạn quy định, hạn chót"
+      ],
+      "us": "Thường đi với 超過 (vượt quá), 延長 (gia hạn), 有效 (có hiệu lực), 最後 (cuối cùng).",
+      "co": [
+        "有效期限|thời hạn sử dụng / hạn hiệu lực",
+        "最後期限|hạn chót (deadline)",
+        "超過期限|quá hạn",
+        "保存期限|hạn bảo quản"
+      ],
+      "sy": [
+        "限期|thời hạn ấn định",
+        "截止日期|ngày hết hạn"
+      ],
+      "mh": "Kỳ Hạn → qí xiàn. ĐỌC: 'kỳ' → qí (Đài Loan đọc thanh 2 qí, Đại lục đọc thanh 1 qī); 'hạn' → xiàn (thanh 4). NGHĨA: 期 (bộ 月 nguyệt + âm 其 → khoảng thời gian hẹn định) + 限 (bộ 阝 phụ 'gò đất' + âm 艮 → ranh giới ngăn lại) → giới hạn thời gian.",
+      "tw": "Trên bao bì thực phẩm ở Đài Loan luôn ghi 保存期限 (thời hạn bảo quản, ví dụ 1 năm) và 有效日期 / 有效期限 (hạn sử dụng cụ thể đến ngày nào).",
+      "vd": [
+        {
+          "t": "Mua sắm",
+          "zh": "買牛奶的時候，要注意看包裝上的有效期限。",
+          "vn": "Khi mua sữa bò, phải chú ý xem hạn sử dụng trên bao bì."
+        },
+        {
+          "t": "Thư viện",
+          "zh": "借書如果超過期限才歸還，每天都要交罰款。",
+          "vn": "Mượn sách nếu quá hạn mới trả thì mỗi ngày đều phải nộp tiền phạt."
+        },
+        {
+          "t": "Công việc",
+          "zh": "下週五是繳交報告的最後期限，請大家準時完成。",
+          "vn": "Thứ Sáu tuần sau là hạn chót nộp báo cáo, xin mọi người hoàn thành đúng giờ."
+        }
+      ]
+    },
+    "氣象": {
+      "vn": "khí tượng; diện mạo mới",
+      "ng": [
+        "(danh từ) khí tượng, thời tiết (dự báo thời tiết)",
+        "(danh từ) quang cảnh, diện mạo, khí thế (thường dùng cho sự đổi mới)"
+      ],
+      "us": "Nghĩa 1 rất phổ biến trong đời sống: 氣象報告 / 氣象預報 (dự báo thời tiết), 中央氣象署 (Cơ quan Khí tượng Trung ương Đài Loan). Nghĩa 2 dùng trong cụm 新氣象.",
+      "co": [
+        "氣象預報|dự báo thời tiết",
+        "氣象報告|bản tin thời tiết",
+        "中央氣象署|Cục Khí tượng Trung ương (Đài Loan)",
+        "新年新氣象|năm mới diện mạo mới"
+      ],
+      "cf": [
+        "天氣|thời tiết (hằng ngày)",
+        "氣候|khí hậu (lâu dài của một vùng)"
+      ],
+      "mh": "Khí Tượng → qì xiàng. ĐỌC: 'khí' → qì (thanh 4); 'tượng' → xiàng (thanh 4). NGHĨA: 氣 (bộ Khí → khí quyển, thời tiết) + 象 (bộ 豕 thỉ, hình con voi → hình tượng, hiện tượng biểu hiện ra ngoài) → hiện tượng thời tiết hoặc diện mạo chung.",
+      "tw": "Ở Đài Loan, người dân rất hay nói 看氣象 thay cho 看天氣預報 (xem dự báo thời tiết). Cơ quan khí tượng Đài Loan là 中央氣象署 (trước tháng 9/2023 gọi là 中央氣象局).",
+      "vd": [
+        {
+          "t": "Đời sống",
+          "zh": "出門前我習慣先看氣象預報，決定要不要帶傘。",
+          "vn": "Trước khi ra khỏi nhà tôi có thói quen xem dự báo thời tiết trước để quyết định có mang ô hay không."
+        },
+        {
+          "t": "Bão",
+          "zh": "氣象報告說這個週末會有颱風接近臺灣。",
+          "vn": "Bản tin khí tượng nói rằng cuối tuần này sẽ có bão tiến gần Đài Loan."
+        },
+        {
+          "t": "Năm mới",
+          "zh": "新年新氣象，辦公室換了全新的佈置。",
+          "vn": "Năm mới diện mạo mới, văn phòng đã thay cách bài trí hoàn toàn mới."
+        }
+      ]
+    },
+    "汽油": {
+      "vn": "xăng",
+      "ng": [
+        "(danh từ) xăng (nhiên liệu cho xe máy, ô tô)"
+      ],
+      "us": "Danh từ chỉ nhiên liệu; ở Đài Loan khi nói 'đổ xăng' thường nói tắt là 加油.",
+      "co": [
+        "加汽油|đổ xăng",
+        "無鉛汽油|xăng không chì",
+        "汽油價格|giá xăng"
+      ],
+      "cf": [
+        "柴油|dầu diesel",
+        "機油|dầu nhớt máy"
+      ],
+      "mh": "Khí Du → qì yóu. ĐỌC: 'khí' → qì (thanh 4); 'du' → yóu (thanh 2). NGHĨA: 汽 (bộ 氵 thủy 'chất lỏng' + âm Khí 'hơi' → chất lỏng dễ bay hơi) + 油 (bộ 氵 thủy + âm 由 → dầu) → dầu dễ bay hơi dùng chạy động cơ, tức là xăng.",
+      "tw": "Ở các trạm xăng Đài Loan (加油站), xăng không chì (無鉛汽油) được chia thành 3 loại theo chỉ số octan: 92, 95 và 98; khi vào trạm chỉ cần nói với nhân viên 「95加滿」 (đổ đầy xăng 95).",
+      "vd": [
+        {
+          "t": "Đi xe máy",
+          "zh": "機車的汽油快用完了，我們先去加油站加油吧。",
+          "vn": "Xăng xe máy sắp hết rồi, chúng mình ghé trạm xăng đổ xăng trước nhé."
+        },
+        {
+          "t": "Kinh tế",
+          "zh": "下週汽油價格每公升會調降零點二元。",
+          "vn": "Tuần sau giá xăng mỗi lít sẽ điều chỉnh giảm 0,2 Đài tệ."
+        },
+        {
+          "t": "An toàn",
+          "zh": "汽油是易燃物品，千萬不可以靠近火源。",
+          "vn": "Xăng là chất dễ cháy, tuyệt đối không được để gần nguồn lửa."
+        }
+      ]
+    },
+    "其餘": {
+      "vn": "phần còn lại; những người/cái còn lại",
+      "ng": [
+        "(đại từ / định từ) phần còn lại, số còn lại (ngoài phần đã nêu)"
+      ],
+      "us": "Thường dùng sau khi đã liệt kê một bộ phận: 其餘的 + (N) + 都... (trang trọng hơn 其他的).",
+      "co": [
+        "其餘的人|những người còn lại",
+        "其餘的部分|phần còn lại",
+        "其餘時間|thời gian còn lại"
+      ],
+      "sy": [
+        "其他|khác, những cái khác",
+        "剩下|còn lại (khẩu ngữ)"
+      ],
+      "mh": "Kỳ Dư → qí yú. ĐỌC: 'kỳ' → qí (thanh 2); 'dư' → yú (thanh 2). NGHĨA: 其 (bộ 八 bát, đại từ chỉ định 'ấy, đó') + 餘 (bộ 飠 thực 'thức ăn' + âm 余 → đồ ăn thừa ra, phần dư ra) → phần còn dư lại ngoài những gì đã kể.",
+      "vd": [
+        {
+          "t": "Lớp học",
+          "zh": "班上除了兩個同學請假以外，其餘的人都出席了。",
+          "vn": "Trong lớp ngoài hai bạn xin nghỉ phép ra, những người còn lại đều đã có mặt."
+        },
+        {
+          "t": "Chi tiêu",
+          "zh": "每個月的薪水扣掉房租和生活費後，其餘的我都存起來。",
+          "vn": "Tiền lương mỗi tháng sau khi trừ tiền thuê nhà và sinh hoạt phí, phần còn lại tôi đều gửi tiết kiệm."
+        },
+        {
+          "t": "Công việc",
+          "zh": "這份報告的前半部由我負責，其餘部分交給小陳處理。",
+          "vn": "Nửa đầu của bản báo cáo này do tôi phụ trách, phần còn lại giao cho Tiểu Trần xử lý.",
+          "py": "Zhè fèn bàogào de qiánbànbù yóu wǒ fùzé, qíyú bùfen jiāogěi Xiǎo Chén chǔlǐ."
+        }
+      ]
+    },
+    "取": {
+      "vn": "lấy; nhận; chọn lấy",
+      "ng": [
+        "(động từ) lấy ra, nhận lấy (hàng hóa, tiền, vé)",
+        "(động từ) chọn lấy, đặt (tên)"
+      ],
+      "us": "Động từ đơn âm tiết rất thông dụng trong các cụm cố định: 取貨 (lấy hàng), 取票 (lấy vé), 取名字 (đặt tên), 取代 (thay thế), 取消 (hủy bỏ).",
+      "co": [
+        "超商取貨|nhận hàng tại cửa hàng tiện lợi",
+        "取名字|đặt tên",
+        "取款|rút tiền (ngân hàng)",
+        "取得同意|nhận được sự đồng ý"
+      ],
+      "sy": [
+        "拿|cầm, lấy (khẩu ngữ)",
+        "領|lĩnh, nhận"
+      ],
+      "mh": "Thủ → qǔ. ĐỌC: 'thủ' (trong thủ đắc, tranh thủ) → qǔ (thanh 3). NGHĨA: 取 gồm bộ 耳 (nhĩ 'cái tai') + bộ 又 (hựu 'bàn tay') → thời xưa tướng sĩ cắt tai giặc bằng tay để tính công → cầm lấy, thu lấy.",
+      "tw": "Ở Đài Loan, khi mua hàng online người ta rất chuộng hình thức 超商取貨付款 (nhận hàng và thanh toán tại cửa hàng tiện lợi 7-ELEVEN, FamilyMart...); còn 'rút tiền ở cây ATM' người Đài hay nói 領錢 hơn là 取錢.",
+      "vd": [
+        {
+          "t": "Mua sắm online",
+          "zh": "我網購的包裹已經寄達了，下班後要去超商取貨。",
+          "vn": "Kiện hàng tôi mua trên mạng đã gửi tới nơi rồi, tan làm xong phải ghé cửa hàng tiện lợi lấy hàng."
+        },
+        {
+          "t": "Đặt tên",
+          "zh": "林老師幫我的中文名字取為「明華」。",
+          "vn": "Cô Lâm đã giúp đặt tên tiếng Trung của tôi là 'Minh Hoa'."
+        },
+        {
+          "t": "Giao thông",
+          "zh": "已經在網路上訂好高鐵票的人，可以到車站自動取票。",
+          "vn": "Những người đã đặt xong vé tàu cao tốc trên mạng có thể đến nhà ga tự động lấy vé."
+        }
+      ]
+    },
+    "娶": {
+      "vn": "cưới vợ; lấy vợ",
+      "ng": [
+        "(động từ) cưới làm vợ, lấy vợ (chủ ngữ truyền thống là nam giới)"
+      ],
+      "us": "Dùng khi nói người nam cưới người nữ: 娶妻 (lấy vợ), 娶她當老婆 (cưới cô ấy làm vợ). Đối lập với 嫁 (gả chồng).",
+      "co": [
+        "娶老婆|lấy vợ",
+        "娶妻生子|lấy vợ sinh con",
+        "迎娶新娘|đón dâu, rước dâu"
+      ],
+      "cf": [
+        "嫁|lấy chồng, gả cho (chủ ngữ là nữ)",
+        "結婚|kết hôn (dùng chung cho cả hai phía)"
+      ],
+      "mh": "Thú → qǔ. ĐỌC: 'thú' (trong giá thú) → qǔ (thanh 3, đồng âm với 取). NGHĨA: 娶 gồm chữ 取 (thủ 'đón lấy', kiêm chỉ âm qǔ) ở trên + bộ 女 (nữ 'người phụ nữ') ở dưới → đón người phụ nữ về làm vợ.",
+      "mk": "Phân biệt rõ: 娶 (qǔ) chỉ dùng cho nam cưới nữ (他娶了一個臺灣太太); còn nữ lấy nam phải dùng 嫁 (jià: 她嫁給了一個臺灣先生).",
+      "vd": [
+        {
+          "t": "Hôn nhân",
+          "zh": "表哥下個月要娶老婆了，全家都在忙著準備婚禮。",
+          "vn": "Anh họ tháng sau sắp lấy vợ rồi, cả nhà đều đang bận rộn chuẩn bị đám cưới."
+        },
+        {
+          "t": "Tình cảm",
+          "zh": "能娶到這麼體貼的太太，他覺得自己非常幸福。",
+          "vn": "Cưới được người vợ chu đáo như vậy, anh ấy cảm thấy mình vô cùng hạnh phúc."
+        },
+        {
+          "t": "Phong tục",
+          "zh": "按照傳統習俗，新郎會在早上坐禮車去迎娶新娘。",
+          "vn": "Theo phong tục truyền thống, chú rể sẽ đi xe hoa vào buổi sáng để đến rước cô dâu."
+        }
+      ]
+    },
+    "勸": {
+      "vn": "khuyên; khuyên nhủ; khuyên can",
+      "ng": [
+        "(động từ) khuyên bảo, thuyết phục ai nên hoặc không nên làm gì"
+      ],
+      "us": "Cấu trúc kiêm ngữ: 勸 + người + (不要/別) + VP.",
+      "co": [
+        "勸他戒菸|khuyên anh ấy bỏ thuốc lá",
+        "勸架|can ngăn đánh/cãi nhau",
+        "苦口婆心地勸|khuyên nhủ hết lời",
+        "不聽勸|không nghe lời khuyên"
+      ],
+      "sy": [
+        "勸告|khuyên bảo",
+        "勸說|thuyết phục"
+      ],
+      "mh": "Khuyến → quàn. ĐỌC: 'khuyến' → quàn (thanh 4). NGHĨA: 勸 gồm bộ 力 (lực 'sức lực') + âm 雚 (quán) → dùng hết tâm sức và lời lẽ để khuyên nhủ người khác.",
+      "vd": [
+        {
+          "t": "Sức khỏe",
+          "zh": "醫生勸他少喝一點酒，多注意身體健康。",
+          "vn": "Bác sĩ khuyên anh ấy uống ít rượu lại một chút, chú ý nhiều hơn đến sức khỏe."
+        },
+        {
+          "t": "Bạn bè",
+          "zh": "大家都勸她別再為那種人難過了。",
+          "vn": "Mọi người đều khuyên cô ấy đừng buồn vì hạng người đó nữa."
+        },
+        {
+          "t": "Can ngăn",
+          "zh": "看到那兩個人吵得越來越兇，老闆趕緊過去勸架。",
+          "vn": "Thấy hai người đó cãi nhau ngày càng gay gắt, ông chủ vội vàng qua can ngăn."
+        }
+      ]
+    },
+    "圈": {
+      "vn": "vòng; hình tròn; giới (ngành); khoanh tròn",
+      "ng": [
+        "(lượng từ) vòng (chạy một vòng, quấn một vòng)",
+        "(danh từ) hình tròn, vòng tròn; giới / ngành nghề (娛樂圈, 生活圈)",
+        "(động từ) khoanh tròn (khoanh đáp án)",
+        "(danh từ, đọc juàn) chuồng gia súc (豬圈)",
+        "(động từ, đọc juān) nhốt vào chuồng"
+      ],
+      "us": "Ở trình độ B2 phổ biến nhất với âm quān: 1) lượng từ: 跑一圈 (chạy 1 vòng); 2) danh từ: 圓圈 (vòng tròn), 演藝圈 (giới giải trí), 眼圈 (quầng mắt); 3) động từ: 圈起來 (khoanh tròn lại).",
+      "co": [
+        "跑三圈|chạy ba vòng",
+        "圈起來|khoanh tròn lại",
+        "演藝圈|giới giải trí",
+        "生活圈|phạm vi sinh hoạt"
+      ],
+      "mh": "Quyển / Khuyên → quān / juàn / juān. ĐỌC: đa âm — đọc quān (thanh 1) khi chỉ 'vòng tròn, giới, khoanh tròn'; đọc juàn (thanh 4) khi chỉ 'chuồng gia súc' (豬圈); đọc juān (thanh 1) khi chỉ 'nhốt lại'. NGHĨA: 圈 gồm bộ 囗 (vi 'vòng vây quanh') bao ngoài âm 卷 (quyển 'cuộn tròn') → vòng khép kín.",
+      "lt": "Đa âm: 操場跑兩圈 (quān - chạy 2 vòng sân); 把重點圈起來 (quān - khoanh tròn trọng điểm); 豬圈 (zhūjuàn - chuồng lợn).",
+      "vd": [
+        {
+          "t": "Thể dục",
+          "zh": "我每天下班後都會去學校操場跑五圈。",
+          "vn": "Mỗi ngày sau khi tan làm tôi đều đến sân vận động trường chạy năm vòng."
+        },
+        {
+          "t": "Học tập",
+          "zh": "請把文章裡不懂的生詞用紅筆圈起來。",
+          "vn": "Xin hãy dùng bút đỏ khoanh tròn những từ mới không hiểu trong bài văn lại."
+        },
+        {
+          "t": "Đô thị Đài Loan",
+          "zh": "高鐵通車以後，形成了非常方便的一日生活圈。",
+          "vn": "Sau khi tàu cao tốc thông xe đã hình thành nên phạm vi sinh hoạt đi về trong ngày vô cùng thuận tiện."
+        }
+      ]
+    },
+    "全家": {
+      "vn": "cả nhà; toàn gia đình; cửa hàng FamilyMart",
+      "ng": [
+        "(danh từ) cả nhà, toàn thể gia đình",
+        "(danh từ riêng) chuỗi cửa hàng tiện lợi FamilyMart (全家便利商店)"
+      ],
+      "us": "Khi chỉ gia đình: 全家(人)一起...; ở Đài Loan nói 去全家 thường hiểu ngay là 'đi cửa hàng tiện lợi FamilyMart'.",
+      "co": [
+        "全家大小|lớn nhỏ cả nhà",
+        "全家團圓|cả nhà đoàn viên",
+        "全家福|ảnh chụp cả gia đình",
+        "全家便利商店|cửa hàng tiện lợi FamilyMart"
+      ],
+      "sy": [
+        "全家人|cả nhà"
+      ],
+      "mh": "Toàn Gia → quán jiā. ĐỌC: 'toàn' → quán (thanh 2); 'gia' → jiā (thanh 1). NGHĨA: 全 (bộ 入 nhập + 玉 ngọc → trọn vẹn, tất cả) + 家 (bộ 宀 miên 'mái nhà' + 豕 'con lợn' → ngôi nhà, gia đình) → toàn bộ gia đình.",
+      "tw": "Ở Đài Loan, 全家 (FamilyMart) cùng với 7-ELEVEN (小七) là hai chuỗi cửa hàng tiện lợi (超商) lớn nhất, có mặt ở khắp mọi ngóc ngách để mua đồ ăn,繳費 (đóng hóa đơn) và 取貨 (nhận bưu kiện).",
+      "vd": [
+        {
+          "t": "Du lịch gia đình",
+          "zh": "這個暑假我們全家要去花蓮度假。",
+          "vn": "Kỳ nghỉ hè này cả nhà chúng tôi sẽ đi Hoa Liên nghỉ mát.",
+          "py": "Zhège shǔjià wǒmen quánjiā yào qù Huālián dùjià."
+        },
+        {
+          "t": "Đời sống Đài Loan",
+          "zh": "我家樓下就有一間全家，買東西或寄包裹都很方便。",
+          "vn": "Ngay dưới lầu nhà tôi có một cửa hàng FamilyMart, mua đồ hay gửi bưu kiện đều rất tiện."
+        },
+        {
+          "t": "Chụp ảnh",
+          "zh": "過年的時候，我們拍了一張溫馨的全家福照片。",
+          "vn": "Dịp Tết, chúng tôi đã chụp một bức ảnh đại gia đình thật ấm cúng."
+        }
+      ]
+    },
+    "權利": {
+      "vn": "quyền lợi; quyền (được hưởng)",
+      "ng": [
+        "(danh từ) quyền, quyền lợi hợp pháp mà công dân hoặc cá nhân được hưởng"
+      ],
+      "us": "Thường đi kèm với 義務 (nghĩa vụ), 享有 (được hưởng), 放棄 (từ bỏ), 保障 (bảo đảm).",
+      "co": [
+        "基本權利|quyền cơ bản",
+        "權利與義務|quyền lợi và nghĩa vụ",
+        "保障權利|bảo đảm quyền lợi",
+        "放棄權利|từ bỏ quyền lợi"
+      ],
+      "cf": [
+        "權力|quyền lực, quyền hành chính trị/quản lý (đồng âm quánlì, rất dễ viết nhầm)",
+        "權益|quyền và lợi ích (消費者權益)"
+      ],
+      "mh": "Quyền Lợi → quán lì. ĐỌC: 'quyền' → quán (thanh 2); 'lợi' → lì (thanh 4). NGHĨA: 權 (bộ 木 mộc + âm 雚 → quả cân, quyền hạn) + 利 (bộ 刂 đao 'lưỡi liềm' gặt lúa 禾 → lợi ích) → quyền và lợi ích chính đáng được hưởng.",
+      "mk": "Bẫy đồng âm chữ Hán: 權利 (quyền lợi chính đáng của công dân, đi đôi với 義務 nghĩa vụ) ≠ 權力 (quyền lực thống trị, quyền hạn của chức vụ).",
+      "vd": [
+        {
+          "t": "Pháp luật",
+          "zh": "受教育是每個國民應有的基本權利。",
+          "vn": "Được giáo dục là quyền cơ bản mà mỗi công dân đều đáng được hưởng."
+        },
+        {
+          "t": "Công dân",
+          "zh": "在民主社會裡，我們既享有權利，也要履行義務。",
+          "vn": "Trong xã hội dân chủ, chúng ta vừa được hưởng quyền lợi, vừa phải thực hiện nghĩa vụ."
+        },
+        {
+          "t": "Hợp đồng",
+          "zh": "簽約之前請仔細閱讀條款，以保障自己的權利。",
+          "vn": "Trước khi ký hợp đồng xin hãy đọc kỹ các điều khoản để bảo đảm quyền lợi của chính mình."
+        }
+      ]
+    },
+    "全面": {
+      "vn": "toàn diện; trên mọi mặt; đồng loạt",
+      "ng": [
+        "(tính từ) toàn diện, bao quát mọi mặt",
+        "(phó từ) đồng loạt, trên toàn bộ phạm vi"
+      ],
+      "us": "Làm tính từ (考慮得很全面, 全面發展) hoặc phó từ đứng trước động từ hai âm tiết (全面禁止, 全面升級, 全面檢查).",
+      "co": [
+        "全面禁止|cấm toàn diện / cấm đồng loạt",
+        "全面升級|nâng cấp toàn diện",
+        "全面檢查|kiểm tra toàn diện",
+        "考慮全面|suy xét toàn diện"
+      ],
+      "sy": [
+        "全方位|toàn phương vị, mọi mặt",
+        "普遍|phổ biến, rộng khắp"
+      ],
+      "an": [
+        "片面|phiến diện, một chiều",
+        "局部|cục bộ"
+      ],
+      "mh": "Toàn Diện → quán miàn. ĐỌC: 'toàn' → quán (thanh 2); 'diện' → miàn (thanh 4). NGHĨA: 全 (bộ 入 + 玉 → trọn vẹn, tất cả) + 面 (bộ 面 diện, hình khuôn mặt → bề mặt, phương diện) → tất cả các mặt, toàn diện.",
+      "vd": [
+        {
+          "t": "Quy định Đài Loan",
+          "zh": "臺灣的室內公共場所已經全面禁止吸菸。",
+          "vn": "Các địa điểm công cộng trong nhà ở Đài Loan đã cấm hút thuốc toàn diện."
+        },
+        {
+          "t": "Công việc",
+          "zh": "主管分析問題非常全面，不會只看單一角度。",
+          "vn": "Sếp phân tích vấn đề vô cùng toàn diện, không chỉ nhìn từ một góc độ đơn lẻ."
+        },
+        {
+          "t": "Công nghệ",
+          "zh": "為了提升資訊安全，公司決定全面更新電腦軟體。",
+          "vn": "Để nâng cao an toàn thông tin, công ty quyết định cập nhật đồng loạt phần mềm máy tính."
+        }
+      ]
+    },
+    "全體": {
+      "vn": "toàn thể; tất cả (mọi người trong tập thể)",
+      "ng": [
+        "(danh từ / định từ) toàn thể, tất cả các thành viên trong một tổ chức hoặc tập thể"
+      ],
+      "us": "Đứng trước danh từ chỉ tập thể người: 全體員工 (toàn thể nhân viên), 全體師生 (toàn thể thầy trò), hoặc đứng một mình trước động từ trong khẩu lệnh (全體起立).",
+      "co": [
+        "全體員工|toàn thể nhân viên",
+        "全體師生|toàn thể giáo viên và học sinh",
+        "全體同仁|toàn thể đồng nghiệp",
+        "全體起立|toàn thể đứng dậy"
+      ],
+      "sy": [
+        "全部|toàn bộ (dùng cho cả người và vật)",
+        "所有|tất cả"
+      ],
+      "mh": "Toàn Thể → quán tǐ. ĐỌC: 'toàn' → quán (thanh 2); 'thể' → tǐ (thanh 3). NGHĨA: 全 (bộ 入 + 玉 → trọn vẹn) + 體 (bộ 骨 cốt 'xương' + âm 豊 → cơ thể, chỉnh thể) → toàn bộ một tập thể.",
+      "mk": "全體 hầu như chỉ dùng cho tập thể CON NGƯỜI (全體員工, 全體會員) hoặc cơ quan tổ chức, không dùng cho đồ vật thông thường (không nói 全體書本 mà nói 全部的書).",
+      "vd": [
+        {
+          "t": "Công ty",
+          "zh": "董事長在尾牙晚會上感謝全體員工這一年的辛勞。",
+          "vn": "Chủ tịch hội đồng quản trị cảm ơn sự vất vả trong một năm qua của toàn thể nhân viên tại tiệc tất niên."
+        },
+        {
+          "t": "Trường học",
+          "zh": "校長請全體師生一起為得獎的同學鼓掌。",
+          "vn": "Thầy hiệu trưởng mời toàn thể giáo viên và học sinh cùng vỗ tay cho các bạn đoạt giải."
+        },
+        {
+          "t": "Hội nghị",
+          "zh": "這項提案獲得了全體委員的一致同意。",
+          "vn": "Đề án này đã nhận được sự đồng ý nhất trí của toàn thể ủy viên."
+        }
+      ]
+    }
+  }
+}
