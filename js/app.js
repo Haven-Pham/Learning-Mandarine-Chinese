@@ -3934,719 +3934,216 @@ VIEWS["thu-muc"] = (id) => {
   }
 
   // -------------------------------------------------------------
-  // TRƯỜNG HỢP 2: TRUNG TÂM TỪ VỰNG & FLASHCARD SRS (EXACT STITCH OVERVIEW)
+  // TRƯỜNG HỢP 2: TRANG TỔNG QUAN TỪ VỰNG (đơn giản: Tra nhanh | Thư mục + Tiến độ)
   // -------------------------------------------------------------
-  const topicDecks = S.decks.filter((d) => d.category === "topic" || d.id.startsWith("band-"));
-  const summary = studySummary(S.stats, Date.now());
   const lvAll = [0, 0, 0, 0, 0, 0];
   vocab.forEach((n) => lvAll[noteLevel(n)]++);
   const totalVocab = Math.max(1, vocab.length);
-  const activeVocabCount = vocab.filter((n) => inLearning(n)).length;
-  const totalFoldersCount = topicDecks.length + S.bands.length + 2;
 
-  // Build Flashcard pool for the integrated Stitch Flashcard Canvas
-  const flashPool = vocab.filter((n) => inLearning(n) && (meaningOf(n) || itemOf(n).py)).slice(0, 80);
-  if (!flashPool.length && vocab.length) flashPool.push(...vocab.slice(0, 30));
-  let fcIdx = 0;
-  // Find 謙虛 if available or start at 0
-  const qianXuIdx = flashPool.findIndex((n) => n.w === "謙虛");
-  if (qianXuIdx >= 0) fcIdx = qianXuIdx;
-
-  // Build unified Folder Items list for the Stitch 2-Col Folder Grid
-  const allFolderItems = [
-    // Topic decks first + TOCFL bands + Personal folders
-    ...S.bands.map((b) => {
-      const ns = vocab.filter((n) => inBand(n, b));
-      const l = ns.filter((n) => noteLevel(n) > 0).length;
-      const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
-      const isLearning = !!S.settings.bands[b];
-      const iconBg = b.startsWith("B") ? "bg-amber-subtle text-tertiary" : (b.startsWith("C") ? "bg-jade-subtle text-secondary" : "bg-cinnabar-subtle text-primary");
-      const barBg = b.startsWith("B") ? "bg-tertiary" : (b.startsWith("C") ? "bg-secondary" : "bg-primary-container");
-      return {
-        id: b,
-        cat: "bands",
-        tag: "TOCFL Chuẩn",
-        iconText: b.replace("Novice ", "N"),
-        iconBg,
-        barBg,
-        title: `TOCFL ${b} • ${BAND_INFO[b] || "Từ vựng chuẩn"}`,
-        sub: `${fmt(ns.length)} từ vựng chuẩn kỳ thi năng lực Hoa ngữ Đài Loan cấp ${b}.`,
-        learned: l,
-        total: ns.length,
-        pct,
-        isLearning,
-        isBand: true
-      };
-    }),
-    ...topicDecks.map((d) => {
-      const ns = folderNotes(d.id);
-      const l = ns.filter((n) => noteLevel(n) > 0).length;
-      const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
-      const isLearning = folderOn(d.id);
-      return {
-        id: d.id,
-        cat: "topics",
-        tag: d.badge || "Chủ đề",
-        iconText: d.emoji || "🌻",
-        iconBg: "bg-jade-subtle text-secondary",
-        barBg: "bg-secondary",
-        title: d.name,
-        sub: d.sub || "Bộ từ vựng theo chủ đề thực tế Đài Loan.",
-        learned: l,
-        total: ns.length,
-        pct,
-        isLearning,
-        isBand: false
-      };
-    }),
-    (() => {
-      const ns = folderNotes("cua-toi");
-      const l = ns.filter((n) => noteLevel(n) > 0).length;
-      const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
-      return {
-        id: "cua-toi",
-        cat: "personal",
-        tag: "Bộ của tôi",
-        iconText: "我",
-        iconBg: "bg-surface-container text-on-surface",
-        barBg: "bg-secondary",
-        title: "Thư mục của tôi • 個人詞庫",
-        sub: "Từ vựng ghi chép trên lớp, giáo trình Đương Đại và các đợt thi cá nhân.",
-        learned: l,
-        total: ns.length,
-        pct,
-        isLearning: folderOn("cua-toi"),
-        isBand: false
-      };
-    })(),
-    (() => {
-      const ns = folderNotes("bo-thu");
-      const l = ns.filter((n) => noteLevel(n) > 0).length;
-      const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
-      return {
-        id: "bo-thu",
-        cat: "radicals",
-        tag: "Chiết tự • Khang Hy",
-        iconText: "部",
-        iconBg: "bg-cinnabar-subtle text-primary",
-        barBg: "bg-primary-container",
-        title: "Bộ thủ chữ Hán trọng tâm • 部首寶典",
-        sub: "60 bộ thủ cốt lõi & biến thể (氵, 忄, 扌, 艹, 辶...) kèm tập viết nét và trắc nghiệm nhớ nhanh.",
-        learned: l,
-        total: ns.length,
-        pct,
-        isLearning: folderOn("bo-thu"),
-        isBand: false
-      };
-    })(),
-    (() => {
-      const ns = folderNotes("viet-tat");
-      const l = ns.filter((n) => noteLevel(n) > 0).length;
-      const pct = ns.length ? Math.round((l / ns.length) * 100) : 0;
-      return {
-        id: "viet-tat",
-        cat: "personal",
-        tag: "Bộ của tôi",
-        iconText: "臺",
-        iconBg: "bg-cinnabar-subtle text-primary",
-        barBg: "bg-primary-container",
-        title: "Khẩu ngữ & Từ viết tắt Đài Loan",
-        sub: "Các từ viết tắt chuẩn từ điển 萌典 như 北車, 健保, 高鐵, 公車...",
-        learned: l,
-        total: ns.length,
-        pct,
-        isLearning: folderOn("viet-tat"),
-        isBand: false
-      };
-    })()
-  ];
-
-  // Roadmap stats for A1, A2, B1
-  const getBandStat = (b) => {
-    const ns = vocab.filter((n) => inBand(n, b));
+  const folderStat = (ns) => {
     const l = ns.filter((n) => noteLevel(n) > 0).length;
-    const pct = ns.length ? Math.round((l / ns.length) * 1000) / 10 : 0;
-    return { l, total: ns.length, pct };
+    return { learned: l, total: ns.length, pct: ns.length ? Math.round((l / ns.length) * 100) : 0 };
   };
-  const stA1 = getBandStat("A1");
-  const stA2 = getBandStat("A2");
-  const stB1 = getBandStat("B1");
-  const buildFolderCardsHTML = (catFilter = "all", qStr = "") => {
-    const q = fold(qStr || "");
-    const filtered = allFolderItems.filter((f) => {
-      if (catFilter !== "all" && f.cat !== catFilter) return false;
-      if (!q) return true;
-      return fold(f.title).includes(q) || fold(f.sub).includes(q) || fold(f.tag).includes(q);
-    });
-    return filtered.map((f) => `
-      <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_8px_rgba(44,42,41,0.03)] hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
-        <div class="flex flex-col gap-space-xs">
-          <div class="flex items-start justify-between">
-            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="w-10 h-10 rounded-xl ${f.iconBg} flex items-center justify-center no-underline">
-              <span class="font-headline-md font-bold text-lg">${esc(f.iconText)}</span>
-            </a>
-            <div class="flex items-center gap-1.5">
-              <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-[11px] font-semibold">${esc(f.tag)}</span>
-              ${f.isBand ? `
-                <button type="button" class="px-2 py-0.5 rounded text-[11px] font-semibold border transition-colors ${f.isLearning ? "bg-jade-subtle text-secondary border-secondary/30" : "bg-paper-muted text-outline border-border-subtle"}" data-toggle-band="${esc(f.id)}">
-                  ${f.isLearning ? "Đang học" : "+ Bật"}
-                </button>
-              ` : ""}
-            </div>
-          </div>
-          <div class="mt-1">
-            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="no-underline">
-              <h3 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
-                ${esc(f.title)}
-              </h3>
-            </a>
-            <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
-              ${esc(f.sub)}
-            </p>
-          </div>
+  const mkFolder = (id, cat, iconText, title, sub, ns) => ({ id, cat, iconText, title, sub, ...folderStat(ns), isBand: S.bands.includes(id), isLearning: folderOn(id) });
+  const decks = S.decks || [];
+  const lopDecks = decks.filter((d) => d.id.startsWith("lop-"));
+  const ownDecks = decks.filter((d) => !d.id.startsWith("lop-") && d.category !== "topic" && !d.id.startsWith("band-") && d.id !== "tu-viet-tat");
+  const topicDecks = decks.filter((d) => d.category === "topic" || d.id.startsWith("band-"));
+  const allFolderItems = [
+    mkFolder("cua-toi", "personal", "我", "Thư mục của tôi", "Tất cả từ có giải thích đầy đủ, từ tự thêm và từ trong hộp nhận.", folderNotes("cua-toi")),
+    ...lopDecks.map((d) => mkFolder(d.id, "lop", d.kind === "grammar" ? "法" : "課", d.name, d.kind === "grammar" ? "Ngữ pháp chép trong vở lớp học." : "Từ chép trong vở lớp học.", folderNotes(d.id))),
+    ...ownDecks.map((d) => mkFolder(d.id, "personal", "冊", d.name, d.sub || "Bộ từ đã nhập.", folderNotes(d.id))),
+    mkFolder("viet-tat", "personal", "臺", "Khẩu ngữ & từ viết tắt Đài Loan", "北車, 健保, 高鐵… (nguồn 萌典)", folderNotes("viet-tat")),
+    ...topicDecks.map((d) => mkFolder(d.id, "topics", d.emoji || "題", d.name, d.sub || "Từ theo chủ đề.", folderNotes(d.id))),
+    ...S.bands.map((b) => mkFolder(b, "bands", b.replace("Novice ", "N"), `TOCFL ${b}`, BAND_INFO[b] || "", vocab.filter((n) => inBand(n, b)))),
+    mkFolder("bo-thu", "radicals", "部", "Bộ thủ chữ Hán", "Bộ thủ cốt lõi và biến thể (氵, 忄, 扌, 艹, 辶…), tập viết và trắc nghiệm.", folderNotes("bo-thu"))
+  ];
+  const CATS = [
+    ["all", "Tất cả"], ["personal", "Của tôi"], ["lop", "Lớp học"], ["topics", "Chủ đề"], ["bands", "TOCFL"], ["radicals", "Bộ thủ"]
+  ];
+  const catCount = (k) => k === "all" ? allFolderItems.length : allFolderItems.filter((f) => f.cat === k).length;
+  const pillCls = (on) => on
+    ? "px-3 py-1 rounded-full bg-primary-container text-on-primary text-label-sm font-label-sm font-semibold shadow-sm"
+    : "px-3 py-1 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted text-label-sm font-label-sm border border-border-subtle/70 transition-colors";
+
+  const bandRows = S.bands.map((b) => {
+    const s = folderStat(vocab.filter((n) => inBand(n, b)));
+    return `
+      <a href="#thu-muc/${encodeURIComponent(b)}" class="flex flex-col gap-1 no-underline group">
+        <div class="flex justify-between text-xs">
+          <span class="font-semibold text-on-surface group-hover:text-primary">${esc(b)}</span>
+          <span class="font-code text-outline">${fmt(s.learned)} / ${fmt(s.total)} · ${s.pct}%</span>
         </div>
-        <div class="mt-space-md pt-space-xs">
-          <div class="flex justify-between items-center text-label-sm font-label-sm mb-1.5">
-            <span class="text-outline">Tiến độ nắm vững</span>
-            <span class="font-code text-on-surface font-semibold">${fmt(f.learned)} / ${fmt(f.total)} từ (${f.pct}%)</span>
-          </div>
-          <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-            <div class="h-full rounded-full ${f.barBg}" style="width: ${f.pct}%"></div>
-          </div>
-          <div class="flex items-center justify-between mt-space-md pt-space-xs border-t border-border-subtle/50">
-            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="font-code text-xs text-primary hover:underline font-semibold flex items-center gap-1 no-underline">
-              <span>Xem ${fmt(f.total)} từ →</span>
-            </a>
-            <button type="button" class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary text-label-sm font-label-sm font-semibold hover:bg-primary transition-colors flex items-center gap-1 shadow-sm" onclick="startStudyFolder('${esc(f.id)}')">
-              <span class="material-symbols-outlined text-[16px]">play_arrow</span>
-              <span>Học ngay</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    `).join("") || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Không tìm thấy thư mục nào khớp.</div>`;
-  };
+        <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full bg-secondary rounded-full" style="width:${s.pct}%"></div></div>
+      </a>`;
+  }).join("");
+  const lvColors = ["bg-outline/40", "bg-tertiary-fixed-dim", "bg-tertiary", "bg-secondary-fixed-dim", "bg-secondary", "bg-primary-container"];
 
   setView(`
-    <div class="relative w-full overflow-hidden">
-      <div class="absolute -top-24 -left-20 w-96 h-96 rounded-full bg-cinnabar-subtle blur-3xl opacity-60 pointer-events-none"></div>
-      <div class="absolute top-80 -right-24 w-96 h-96 rounded-full bg-jade-subtle blur-3xl opacity-50 pointer-events-none"></div>
-      <div class="max-w-7xl mx-auto px-margin py-space-lg flex flex-col gap-space-xl relative">
-        <!-- ================= HEADER / CONTROL PANEL (Exact Stitch) ================= -->
-        <section class="flex flex-col lg:flex-row lg:items-end justify-between gap-space-md pb-space-md border-b border-border-subtle/70">
-          <div class="flex flex-col gap-space-xs max-w-2xl">
-            <div class="flex items-center gap-space-xs text-primary font-label-sm text-label-sm tracking-wider uppercase">
-              <span class="inline-block w-1.5 h-1.5 rounded-full bg-primary-container"></span>
-              <span>Thư phòng học tập</span>
-              <span class="text-outline/40">•</span>
-              <span class="font-headline-md font-semibold tracking-normal">詞庫與單字卡</span>
-            </div>
-            <h1 class="font-display text-display text-on-surface tracking-tight font-semibold">
-              Trung tâm Từ vựng &amp; Flashcard SRS
-            </h1>
-            <p class="font-body-md text-body-md text-on-surface-variant">
-              Hệ thống quản lý kho từ phồn thể, phân loại chu kỳ Spaced Repetition (SRS 6 cấp độ) và chế độ phản xạ phát âm chuẩn Đài Loan.
-            </p>
-          </div>
-          <!-- Action cluster -->
-          <div class="flex flex-wrap items-center gap-space-sm pt-space-xs lg:pt-0">
-            <a href="#thu-muc/cua-toi" class="px-space-md py-2.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface hover:bg-paper-muted text-label-md font-label-md shadow-sm transition-all duration-150 flex items-center gap-1.5 no-underline" id="quick-add-btn">
-              <span class="material-symbols-outlined text-[18px] text-outline">folder_open</span>
-              <span>+ Mở sổ từ của tôi</span>
-            </a>
-            <a href="#nhap" class="px-space-md py-2.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface hover:bg-paper-muted text-label-md font-label-md shadow-sm transition-all duration-150 flex items-center gap-1.5 no-underline">
-              <span class="material-symbols-outlined text-[18px] text-outline">file_upload</span>
-              <span>+ Nhập bộ từ</span>
-            </a>
-            <a href="#hoc" class="px-space-lg py-2.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary text-label-md font-label-md shadow-[0_2px_8px_rgba(168,38,31,0.25)] hover:shadow-md transition-all duration-150 flex items-center gap-2 no-underline">
-              <span class="material-symbols-outlined text-[18px]">play_circle</span>
-              <span class="font-semibold">Học ngay hôm nay</span>
-              <span class="px-1.5 py-0.5 rounded-full bg-on-primary/20 text-on-primary font-code text-code text-[11px]">${fmt(c.total)} thẻ</span>
-            </a>
-          </div>
-        </section>
-
-        <!-- ================= TAB NAVIGATION (Exact Stitch) ================= -->
-        <div class="flex items-center justify-between gap-space-md flex-wrap">
-          <div class="inline-flex p-1 rounded-xl bg-surface-container-high/80 shadow-inner flex-wrap">
-            <button type="button" class="view-tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md font-semibold transition-all duration-150 flex items-center gap-2 bg-paper-card text-primary shadow-sm" id="view-tab-integrated">
-              <span class="material-symbols-outlined text-[18px]">splitscreen</span>
-              <span>Chế độ tích hợp (Flashcard + Kho từ)</span>
-            </button>
-            <button type="button" class="view-tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface transition-all duration-150 flex items-center gap-2" id="view-tab-library">
-              <span class="material-symbols-outlined text-[18px]">folder_special</span>
-              <span>Thư mục &amp; Kho từ vựng (${totalFoldersCount})</span>
-            </button>
-            <button type="button" class="view-tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface transition-all duration-150 flex items-center gap-2" id="view-tab-focus">
-              <span class="material-symbols-outlined text-[18px]">style</span>
-              <span>Phiên học Flashcard hiện tại</span>
-              <span class="w-2 h-2 rounded-full bg-primary-container animate-pulse"></span>
-            </button>
-            <button type="button" class="view-tab-btn px-space-md py-2 rounded-lg font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface transition-all duration-150 flex items-center gap-2" id="view-tab-radicals">
-              <span class="material-symbols-outlined text-[18px] text-primary">extension</span>
-              <span>🧩 Học Bộ Thủ (${KANGXI_RADICALS.length})</span>
-            </button>
-          </div>
-          <div class="flex items-center gap-space-sm font-label-sm text-label-sm text-outline">
-            <span class="flex items-center gap-1">
-              <kbd class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-code text-code text-[11px] shadow-sm">Space</kbd>
-              <span>Đổi thẻ</span>
-            </span>
-            <span class="text-outline/40">•</span>
-            <span class="flex items-center gap-1">
-              <kbd class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-code text-code text-[11px] shadow-sm">Shift</kbd>
-              <span>Phát âm</span>
-            </span>
-            <span class="text-outline/40">•</span>
-            <span class="flex items-center gap-1">
-              <kbd class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-code text-code text-[11px] shadow-sm">Alt + D</kbd>
-              <span>Tra nhanh</span>
-            </span>
-          </div>
+    <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
+      <section class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md pb-space-md border-b border-border-subtle/70">
+        <div>
+          <h1 class="font-display text-display text-on-surface tracking-tight font-semibold">Từ vựng <span class="text-outline font-normal text-2xl">詞彙</span></h1>
+          <p class="font-body-md text-body-md text-on-surface-variant">Tra từ, chọn thư mục để học, xem tiến độ.</p>
         </div>
+        <div class="flex flex-wrap items-center gap-space-sm">
+          <a href="#nhap" class="px-space-md py-2.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface hover:bg-paper-muted text-label-md font-label-md shadow-sm flex items-center gap-1.5 no-underline">
+            <span class="material-symbols-outlined text-[18px] text-outline">file_upload</span><span>Nhập bộ từ</span>
+          </a>
+          <a href="#hoc" class="px-space-lg py-2.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary text-label-md font-label-md shadow-[0_2px_8px_rgba(168,38,31,0.25)] flex items-center gap-2 no-underline">
+            <span class="material-symbols-outlined text-[18px]">play_circle</span>
+            <span class="font-semibold">Học hôm nay</span>
+            <span class="px-1.5 py-0.5 rounded-full bg-on-primary/20 font-code text-[11px]">${fmt(c.total)} thẻ · ${fmt(c.due)} ôn · ${fmt(c.fresh)} mới</span>
+          </a>
+        </div>
+      </section>
 
-        <!-- ================= SECTION 1: FLASHCARD SRS & TRA CỨU NHANH (Exact Stitch 8+4) ================= -->
-        <section class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg" id="flashcard-section">
-          <!-- Left: Flashcard Interactive Canvas (8 Cols) -->
-          <div class="lg:col-span-8 flex flex-col gap-space-md" id="stitch-flashcard-box"></div>
-
-          <!-- Right: Real-time Quick Lookup Sidebar Panel (隨堂快查) (4 Cols) -->
-          <div class="lg:col-span-4 flex flex-col gap-space-md">
-            <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_12px_rgba(44,42,41,0.04)] flex flex-col gap-space-md h-full">
-              <div class="flex items-center justify-between pb-2 border-b border-border-subtle/50">
-                <div class="flex items-center gap-1.5">
-                  <span class="material-symbols-outlined text-[18px] text-tertiary">search_insights</span>
-                  <span class="font-headline-md text-headline-md text-on-surface font-semibold">Tra từ nhanh</span>
-                  <span class="font-headline-md text-xs text-outline font-normal">隨堂快查</span>
-                </div>
-                <kbd class="px-1.5 py-0.5 rounded bg-surface-container text-outline font-code text-code text-[10px]">Alt + D</kbd>
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+        <!-- Cột trái: Tra từ nhanh -->
+        <aside class="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-24">
+          <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_12px_rgba(44,42,41,0.04)] flex flex-col gap-space-sm">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[18px] text-tertiary">search</span>
+                <span class="font-headline-md text-on-surface font-semibold">Tra từ nhanh</span>
               </div>
-              <!-- Instant search box -->
-              <div class="relative">
-                <input class="w-full pl-9 pr-8 py-2 rounded-xl bg-paper-base border border-border-subtle focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 text-body-md text-on-surface outline-none transition-all font-body-md" id="quick-search-input" placeholder="Nhập chữ Hán, Pinyin hoặc nghĩa..." type="text" value="客氣"/>
-                <span class="material-symbols-outlined absolute left-2.5 top-2.5 text-outline text-[18px]">search</span>
-                <button type="button" class="absolute right-2.5 top-2.5 text-outline hover:text-on-surface" id="btn-clear-quick-search">
-                  <span class="material-symbols-outlined text-[16px]">cancel</span>
-                </button>
-              </div>
-              <!-- Instant Lookup Preview Card -->
-              <div class="flex flex-col gap-space-sm p-space-sm rounded-xl bg-surface-container-low/80 flex-1 overflow-y-auto" id="quick-search-preview"></div>
-              <!-- Mini Daily Streak Badge -->
-              <div class="flex items-center justify-between p-2.5 rounded-xl bg-jade-subtle/60 text-secondary">
-                <div class="flex items-center gap-2">
-                  <span class="material-symbols-outlined text-[20px] text-secondary">local_fire_department</span>
-                  <div class="flex flex-col">
-                    <span class="font-label-sm text-label-sm font-bold">Chuỗi học tập: ${summary.current} ngày</span>
-                    <span class="font-body-sm text-[11px] text-secondary/80">Mục tiêu: ${S.settings.newPerDay || 8} từ mới mỗi ngày</span>
-                  </div>
-                </div>
-                <a href="#hoc" class="font-code text-code font-bold text-secondary hover:underline">Ôn ngay →</a>
-              </div>
+              <kbd class="px-1.5 py-0.5 rounded bg-surface-container text-outline font-code text-[10px]">Alt + D</kbd>
             </div>
+            <div class="relative">
+              <input class="w-full pl-3 pr-8 py-2 rounded-xl bg-paper-base border border-border-subtle focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 text-body-md text-on-surface outline-none" id="quick-search-input" placeholder="Chữ Hán, pinyin hoặc nghĩa…" type="search" autocomplete="off"/>
+              <button type="button" class="absolute right-2.5 top-2.5 text-outline hover:text-on-surface hidden" id="btn-clear-quick-search" title="Xóa">
+                <span class="material-symbols-outlined text-[16px]">cancel</span>
+              </button>
+            </div>
+            <div class="flex flex-col gap-1 max-h-[65vh] overflow-y-auto" id="quick-search-preview"></div>
           </div>
-        </section>
+        </aside>
 
-        <!-- ================= SECTION 2: KHO TỪ VỰNG & THƯ MỤC CHỦ ĐỀ (Exact Stitch) ================= -->
-        <section class="flex flex-col gap-space-lg" id="library-section">
-          <!-- Filter bar, search and statistics summary -->
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-md pt-space-xs">
-            <!-- Category Filter Pills -->
-            <div class="flex items-center gap-space-xs flex-wrap" id="folderTabs">
-              <button type="button" class="px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-semibold shadow-sm" data-tab="all">
-                Tất cả (${allFolderItems.length})
-              </button>
-              <button type="button" class="px-3.5 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-md text-label-md transition-colors shadow-sm" data-tab="topics">
-                🌸 Chủ đề theo Band (${topicDecks.length})
-              </button>
-              <button type="button" class="px-3.5 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-md text-label-md transition-colors shadow-sm" data-tab="bands">
-                TOCFL Chuẩn (${S.bands.length})
-              </button>
-              <button type="button" class="px-3.5 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-md text-label-md transition-colors shadow-sm" data-tab="radicals">
-                🧩 Bộ thủ chữ Hán (${KANGXI_RADICALS.length} bộ)
-              </button>
-              <button type="button" class="px-3.5 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-md text-label-md transition-colors shadow-sm" data-tab="personal">
-                Bộ từ của tôi (2)
-              </button>
+        <!-- Cột phải: Thư mục + Tiến độ -->
+        <div class="lg:col-span-8 xl:col-span-9 flex flex-col gap-space-lg">
+          <section class="flex flex-col gap-space-md">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
+              <div class="flex items-center gap-1.5 flex-wrap" id="folderTabs">
+                ${CATS.filter(([k]) => catCount(k)).map(([k, t]) => `<button type="button" class="${pillCls(k === "all")}" data-tab="${k}">${t} (${catCount(k)})</button>`).join("")}
+              </div>
+              <input id="folderSearchInput" class="w-full md:w-60 px-3 py-1.5 rounded-xl bg-paper-card border border-border-subtle focus:border-primary-container text-body-sm text-on-surface outline-none" placeholder="Tìm thư mục…" type="search"/>
             </div>
-            <!-- Search Folder Input -->
-            <div class="relative w-full md:w-72">
-              <input id="folderSearchInput" class="w-full pl-9 pr-3 py-1.5 rounded-xl bg-paper-card border border-border-subtle focus:border-primary-container text-body-md text-on-surface outline-none transition-all shadow-sm" placeholder="Tìm kiếm bộ từ hoặc nhãn..." type="text"/>
-              <span class="material-symbols-outlined absolute left-2.5 top-2 text-outline text-[18px]">filter_list</span>
-            </div>
-          </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md" id="stitch-folders-grid"></div>
+          </section>
 
-          <!-- Bento Grid: Main Vocabulary Folders (8 Cols) & Sidebar Stats (4 Cols) -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
-            <!-- Main Folder Grid (8 Cols) -->
-            <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-space-md" id="stitch-folders-grid">${buildFolderCardsHTML("all", "")}</div>
-
-            <!-- Right: Sidebar Statistics & TOCFL Progress Chart (4 Cols) -->
-            <div class="lg:col-span-4 flex flex-col gap-space-md">
-              <!-- Thống kê Từ viện (Stats) -->
-              <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_12px_rgba(44,42,41,0.04)] flex flex-col gap-space-md">
-                <div class="flex items-center justify-between pb-2 border-b border-border-subtle/50">
-                  <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 rounded-full bg-primary-container"></span>
-                    <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Tổng quan Từ viện</h3>
-                  </div>
-                  <span class="font-label-sm text-label-sm text-outline">Thời gian thực</span>
+          <details class="bg-paper-card rounded-2xl border border-border-subtle/70 shadow-[0_2px_12px_rgba(44,42,41,0.04)]" id="tv-progress">
+            <summary class="cursor-pointer select-none p-space-md flex items-center justify-between font-headline-md text-on-surface font-semibold">
+              <span class="flex items-center gap-2"><span class="material-symbols-outlined text-[20px] text-primary">insights</span>Tiến độ</span>
+              <span class="font-code text-xs text-outline font-normal">${fmt(totalVocab - lvAll[0])} / ${fmt(vocab.length)} từ đã học</span>
+            </summary>
+            <div class="px-space-md pb-space-md grid grid-cols-1 md:grid-cols-2 gap-space-lg">
+              <div class="flex flex-col gap-space-sm">
+                <span class="text-label-sm font-label-sm text-outline">Theo cấp TOCFL</span>
+                ${bandRows}
+              </div>
+              <div class="flex flex-col gap-space-sm">
+                <span class="text-label-sm font-label-sm text-outline">Phân bổ 6 cấp nhớ</span>
+                <div class="w-full h-3 rounded-full bg-surface-container flex overflow-hidden">
+                  ${lvAll.map((v, i) => `<div class="h-full ${lvColors[i]}" style="width:${(v / totalVocab) * 100}%" title="${esc(LEVELS[i])}: ${fmt(v)}"></div>`).join("")}
                 </div>
-                <!-- Metric tiles -->
-                <div class="grid grid-cols-2 gap-space-sm">
-                  <div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col">
-                    <span class="font-label-sm text-label-sm text-outline">Tổng thư mục</span>
-                    <span class="font-code text-2xl font-bold text-on-surface mt-1">${totalFoldersCount}</span>
-                    <span class="font-body-sm text-[11px] text-secondary mt-0.5">${topicDecks.length} chủ đề · ${S.bands.length} band</span>
-                  </div>
-                  <div class="p-space-sm rounded-xl bg-surface-container-low flex flex-col">
-                    <span class="font-label-sm text-label-sm text-outline">Thẻ hoạt động</span>
-                    <span class="font-code text-2xl font-bold text-on-surface mt-1">${fmt(activeVocabCount)}</span>
-                    <span class="font-body-sm text-[11px] text-tertiary mt-0.5">SRS hoạt động</span>
-                  </div>
-                  <div class="p-space-sm rounded-xl bg-cinnabar-subtle flex flex-col col-span-2">
-                    <div class="flex items-center justify-between">
-                      <span class="font-label-sm text-label-sm text-primary font-semibold">Thẻ đến hạn hôm nay</span>
-                      <span class="material-symbols-outlined text-primary text-[18px]">alarm</span>
-                    </div>
-                    <div class="flex items-baseline gap-2 mt-1">
-                      <span class="font-code text-3xl font-bold text-primary">${fmt(c.total)}</span>
-                      <span class="font-body-sm text-body-sm text-on-surface-variant">từ cần lặp lại phản xạ (${fmt(c.due)} ôn · ${fmt(c.fresh)} mới)</span>
-                    </div>
-                  </div>
-                </div>
-                <!-- Spaced Repetition Distribution Chart -->
-                <div class="flex flex-col gap-1.5 pt-2 border-t border-border-subtle/40">
-                  <span class="font-label-sm text-label-sm text-outline">Phân bổ 6 cấp độ SRS:</span>
-                  <div class="w-full h-3 rounded-full bg-surface-container flex overflow-hidden">
-                    <div class="h-full bg-outline/40" style="width: ${Math.round((lvAll[0] / totalVocab) * 100)}%" title="Cấp 1: Chưa học (${lvAll[0]})"></div>
-                    <div class="h-full bg-tertiary-fixed-dim" style="width: ${Math.round((lvAll[1] / totalVocab) * 100)}%" title="Cấp 2: Mới học (${lvAll[1]})"></div>
-                    <div class="h-full bg-tertiary" style="width: ${Math.round((lvAll[2] / totalVocab) * 100)}%" title="Cấp 3: Nhớ tạm (${lvAll[2]})"></div>
-                    <div class="h-full bg-secondary-fixed-dim" style="width: ${Math.round((lvAll[3] / totalVocab) * 100)}%" title="Cấp 4: Nhớ lâu (${lvAll[3]})"></div>
-                    <div class="h-full bg-secondary" style="width: ${Math.round((lvAll[4] / totalVocab) * 100)}%" title="Cấp 5: Thuộc lòng (${lvAll[4]})"></div>
-                    <div class="h-full bg-primary-container" style="width: ${Math.round((lvAll[5] / totalVocab) * 100)}%" title="Cấp 6: Thông thạo (${lvAll[5]})"></div>
-                  </div>
-                  <div class="flex justify-between items-center text-[10px] font-code text-outline pt-1">
-                    <span>Chưa học (${fmt(lvAll[0])})</span>
-                    <span>Đã ghi nhớ (${fmt(totalVocab - lvAll[0])})</span>
-                  </div>
+                <div class="grid grid-cols-2 gap-x-3 gap-y-1 text-xs">
+                  ${lvAll.map((v, i) => `<span class="flex items-center gap-1.5"><span class="w-2.5 h-2.5 rounded-sm ${lvColors[i]}"></span><span class="text-on-surface-variant">${esc(LEVELS[i])}</span><span class="font-code text-outline ml-auto">${fmt(v)}</span></span>`).join("")}
                 </div>
               </div>
-
-              <!-- Lộ trình TOCFL Đài Loan (TOCFL Roadmap) -->
-              <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_12px_rgba(44,42,41,0.04)] flex flex-col gap-space-md">
-                <div class="flex items-center justify-between pb-2 border-b border-border-subtle/50">
-                  <div class="flex items-center gap-2">
-                    <span class="material-symbols-outlined text-[20px] text-primary">school</span>
-                    <h3 class="font-headline-md text-headline-md text-on-surface font-semibold">Lộ trình TOCFL</h3>
-                  </div>
-                  <span class="px-2 py-0.5 rounded-full bg-jade-subtle text-secondary font-code text-code text-[11px] font-semibold">Chuẩn 2024</span>
-                </div>
-                <div class="flex flex-col gap-space-sm">
-                  <a href="#thu-muc/A1" class="p-space-sm rounded-xl bg-surface-container-low/60 hover:bg-surface-container flex flex-col gap-1 no-underline transition-colors">
-                    <div class="flex justify-between items-center">
-                      <span class="font-headline-md text-sm font-semibold text-on-surface">Band A (A1) • Nhập môn</span>
-                      <span class="font-code text-code font-bold text-secondary">${stA1.pct}%</span>
-                    </div>
-                    <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
-                      <div class="h-full bg-secondary rounded-full" style="width: ${stA1.pct}%"></div>
-                    </div>
-                    <span class="font-code text-[11px] text-outline">${fmt(stA1.l)} / ${fmt(stA1.total)} từ chuẩn</span>
-                  </a>
-                  <a href="#thu-muc/A2" class="p-space-sm rounded-xl bg-surface-container-low/60 hover:bg-surface-container flex flex-col gap-1 no-underline transition-colors">
-                    <div class="flex justify-between items-center">
-                      <span class="font-headline-md text-sm font-semibold text-on-surface">Band A (A2) • Căn bản</span>
-                      <span class="font-code text-code font-bold text-secondary">${stA2.pct}%</span>
-                    </div>
-                    <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
-                      <div class="h-full bg-secondary rounded-full" style="width: ${stA2.pct}%"></div>
-                    </div>
-                    <span class="font-code text-[11px] text-outline">${fmt(stA2.l)} / ${fmt(stA2.total)} từ chuẩn</span>
-                  </a>
-                  <a href="#thu-muc/B1" class="p-space-sm rounded-xl bg-surface-container-low/60 hover:bg-surface-container flex flex-col gap-1 no-underline transition-colors">
-                    <div class="flex justify-between items-center">
-                      <span class="font-headline-md text-sm font-semibold text-on-surface">Band B (B1) • Tiến giai</span>
-                      <span class="font-code text-code font-bold text-tertiary">${stB1.pct}%</span>
-                    </div>
-                    <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
-                      <div class="h-full bg-tertiary rounded-full" style="width: ${stB1.pct}%"></div>
-                    </div>
-                    <span class="font-code text-[11px] text-outline">${fmt(stB1.l)} / ${fmt(stB1.total)} từ chuẩn</span>
-                  </a>
-                </div>
-                <div class="p-space-sm rounded-xl bg-cinnabar-subtle/80 flex items-start gap-2 text-primary">
-                  <span class="material-symbols-outlined text-[18px] mt-0.5">flag</span>
-                  <div class="text-body-sm text-xs">
-                    <span class="font-semibold">Mục tiêu trọng tâm:</span> Kết hợp học Chủ đề theo Band và làm đề thi thử CAT.
-                  </div>
-                </div>
-              </div>
-
-              <!-- Scholar Book/Resource Promo -->
-              <div class="relative rounded-2xl overflow-hidden shadow-sm bg-gradient-to-br from-paper-muted to-surface-container p-space-md border border-border-subtle/70">
-                <div class="flex items-center gap-space-sm mb-2">
-                  <span class="material-symbols-outlined text-secondary text-[20px]">auto_stories</span>
-                  <span class="font-headline-md text-sm font-semibold text-on-surface">Tài liệu học kèm</span>
-                </div>
-                <p class="font-body-sm text-body-sm text-on-surface-variant">
-                  Nghe hội thoại Đài Loan song ngữ và làm đề thi thử trực tuyến mô phỏng giao diện CAT.
-                </p>
-                <a href="#thi-thu" class="mt-3 text-primary hover:text-primary-container font-label-md text-label-md font-semibold flex items-center gap-1 no-underline">
-                  <span>Vào phòng thi thử CAT</span>
-                  <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                </a>
-              </div>
             </div>
-          </div>
-        </section>
-
-        <!-- ================= SECTION 3: HỌC BỘ THỦ CHỮ HÁN TRỌNG TÂM (部首寶典) ================= -->
-        <section class="flex flex-col gap-space-lg" id="radicals-section">
-          ${renderRadicalsSectionHTML(false)}
-        </section>
+          </details>
+        </div>
       </div>
     </div>
   `);
 
-  // Render Live Stitch Flashcard Canvas
-  const renderFlashcardCanvas = () => {
-    const box = $("#stitch-flashcard-box");
-    if (!box || !flashPool.length) return;
-    const n = flashPool[fcIdx % flashPool.length];
-    const it = itemOf(n);
-    const lvl = noteLevel(n);
-    const bandLabel = it.band ? `TOCFL ${it.band}` : "TOCFL B1";
-    const posLabel = it.pos || "TỪ VỰNG";
-    const hvLabel = it.hv ? it.hv.toUpperCase() : "PHỒN THỂ ĐÀI LOAN";
-    const exZh = it.ex ? it.ex.split("\n")[0] : `我們在日常生活中經常使用「${it.w}」這個詞。`;
-    const exVn = it.exVn || it.ex?.split("\n")[1] || `Từ "${it.w}" (${meaningOf(n)}) rất thông dụng trong giao tiếp tại Đài Loan.`;
-    const lvlDays = ["0 ngày", "1 ngày", "3 ngày", "7 ngày", "14 ngày", "30 ngày"];
-
-    box.innerHTML = `
-      <div class="relative bg-paper-card rounded-2xl p-space-lg border border-border-subtle/70 shadow-[0_2px_12px_rgba(44,42,41,0.04)] flex flex-col justify-between min-h-[440px] overflow-hidden group">
-        <!-- Traditional watermarked red seal accent -->
-        <div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full border border-primary/10 flex items-center justify-center pointer-events-none select-none">
-          <span class="font-headline-lg text-primary/10 text-4xl font-bold">${esc((it.w || "學")[0])}</span>
-        </div>
-        <!-- Top card info bar -->
-        <div class="flex items-center justify-between pb-space-sm border-b border-border-subtle/50 flex-wrap gap-2">
-          <div class="flex items-center gap-space-xs">
-            <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
-            <span class="font-headline-md text-headline-md text-on-surface font-semibold">${esc(bandLabel)} • 進階詞庫</span>
-            <span class="text-outline/40">•</span>
-            <span class="font-code text-code text-outline">Thẻ ${(fcIdx % flashPool.length) + 1} / ${flashPool.length}</span>
-          </div>
-          <div class="flex items-center gap-space-xs">
-            <span class="px-2 py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
-              <span class="material-symbols-outlined text-[14px]">psychology</span>
-              <span>SRS Cấp ${lvl + 1} • ${esc(LEVELS[lvl])}</span>
-            </span>
-            <button type="button" class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-on-surface transition-colors" id="btn-fc-prev" title="Thẻ trước">←</button>
-            <button type="button" class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-xs font-semibold text-on-surface transition-colors" id="btn-fc-next" title="Thẻ tiếp theo (Space)">Tiếp →</button>
-            <a href="#tu/${encodeURIComponent(it.w)}" class="p-1 rounded text-outline hover:text-primary transition-colors" title="Mở chi tiết từ điển">
-              <span class="material-symbols-outlined text-[20px]">open_in_new</span>
-            </a>
-          </div>
-        </div>
-        <!-- Center flashcard body with symmetrical layout -->
-        <div class="py-space-md flex flex-col items-center justify-center my-auto text-center relative z-10">
-          <!-- Symmetrical metadata banner -->
-          <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-space-md items-center mb-space-md px-space-sm">
-            <!-- Left: Part of Speech & Level -->
-            <div class="flex flex-col md:items-start text-left bg-surface-container-low/60 p-space-sm rounded-xl">
-              <span class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Từ tính &amp; Cấp bậc</span>
-              <div class="flex items-center gap-1.5 mt-0.5">
-                <span class="font-label-md text-label-md text-primary font-semibold">${esc(posLabel.toUpperCase())}</span>
-                <span class="px-1.5 py-0.5 rounded bg-cinnabar-subtle text-primary text-[10px] font-semibold">${esc(bandLabel)}</span>
-              </div>
-            </div>
-            <!-- Right: Sino-Vietnamese Han Viet -->
-            <div class="flex flex-col md:items-end text-right bg-surface-container-low/60 p-space-sm rounded-xl">
-              <span class="font-label-sm text-label-sm uppercase text-outline tracking-wider">Hán Việt giải nghĩa</span>
-              <div class="flex items-center gap-1.5 mt-0.5">
-                <span class="font-headline-md text-headline-md text-on-surface font-semibold tracking-wide">${esc(hvLabel)}</span>
-              </div>
-            </div>
-          </div>
-          <!-- Main Hanzi Phồn Thể Display -->
-          <div class="flex flex-col items-center gap-1 my-2">
-            <a href="#tu/${encodeURIComponent(it.w)}" class="font-headline-lg text-[76px] md:text-[90px] leading-[86px] md:leading-[100px] text-on-surface hover:text-primary font-semibold tracking-widest select-all no-underline transition-colors">
-              ${esc(it.w)}
-            </a>
-            <!-- Pinyin and Audio (Taiwan accent) -->
-            <div class="flex items-center gap-space-sm mt-2">
-              <span class="font-code text-xl md:text-2xl text-tertiary-container font-semibold tracking-wide">${esc(it.py || "")}</span>
-              <button type="button" class="flex items-center gap-1 px-space-sm py-1 rounded-full bg-paper-muted hover:bg-surface-container-high text-on-surface-variant transition-colors text-label-sm font-label-sm" id="tts-audio-btn" title="Nghe phát âm chuẩn Đài Bắc (Shift)">
-                <span class="material-symbols-outlined text-[16px] text-primary">volume_up</span>
-                <span>Đài Bắc</span>
-                <kbd class="text-[10px] text-outline font-code">Shift</kbd>
-              </button>
-            </div>
-          </div>
-          <!-- Definition & Sentence Example -->
-          <div class="max-w-xl mx-auto mt-space-md text-center w-full">
-            <p class="font-headline-md text-xl md:text-2xl text-on-surface font-semibold">
-              ${esc(meaningOf(n))}
-            </p>
-            <div class="mt-2 p-space-sm rounded-lg bg-paper-base border border-border-subtle/50 text-left flex items-start gap-space-xs">
-              <span class="material-symbols-outlined text-secondary text-[18px] mt-0.5">format_quote</span>
-              <div class="flex-1">
-                <p class="font-headline-md text-sm text-on-surface font-normal">
-                  ${esc(exZh)}
-                </p>
-                <p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">
-                  ${esc(exVn)}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Bottom: 6 SRS Mastery Levels Rating Bar -->
-        <div class="pt-space-md border-t border-border-subtle/50 flex flex-col gap-space-xs">
-          <div class="flex items-center justify-between text-outline font-label-sm text-label-sm">
-            <span>Cập nhật cấp độ Spaced Repetition (Phím 1 - 6):</span>
-            <span class="font-code text-secondary font-medium">Chu kỳ hiện tại: ${lvlDays[lvl]}</span>
-          </div>
-          <div class="grid grid-cols-3 sm:grid-cols-6 gap-2">
-            ${LEVELS.map((lName, idx) => {
-              const isCur = idx === lvl;
-              return `
-                <button type="button" data-fc-lvl="${idx}" class="p-2 rounded-xl transition-all flex flex-col items-center gap-0.5 ${isCur ? "bg-jade-subtle text-secondary shadow-[0_1px_4px_rgba(23,107,75,0.12)] ring-1 ring-secondary/30" : "bg-surface-container-low hover:bg-surface-container text-outline hover:text-on-surface"}">
-                  <span class="font-label-sm text-[11px] ${isCur ? "font-semibold text-secondary" : ""}">${idx + 1}. ${esc(lName)}</span>
-                  <span class="font-code text-[10px] ${isCur ? "text-secondary font-medium" : "text-outline/60"}">${lvlDays[idx]}</span>
-                </button>
-              `;
-            }).join("")}
-          </div>
-        </div>
-      </div>
-    `;
-
-    const btnPrev = $("#btn-fc-prev");
-    if (btnPrev) btnPrev.onclick = () => { fcIdx = (fcIdx - 1 + flashPool.length) % flashPool.length; renderFlashcardCanvas(); };
-    const btnNext = $("#btn-fc-next");
-    if (btnNext) btnNext.onclick = () => { fcIdx = (fcIdx + 1) % flashPool.length; renderFlashcardCanvas(); };
-    const btnTts = $("#tts-audio-btn");
-    if (btnTts) btnTts.onclick = () => { if (typeof speak === "function") speak(it.w); };
-
-    box.querySelectorAll("[data-fc-lvl]").forEach((btn) => {
-      btn.onclick = async () => {
-        const newLvl = Number(btn.dataset.fcLvl);
-        await applyWordLevel(n, newLvl);
-        fcIdx = (fcIdx + 1) % flashPool.length;
-        renderFlashcardCanvas();
-      };
-    });
-  };
-
-  // Render Live Quick Search Sidebar
+  // Tra từ nhanh: danh sách tối đa 10 kết quả
   const renderQuickLookup = () => {
     const inp = $("#quick-search-input");
     const box = $("#quick-search-preview");
     if (!inp || !box) return;
-    const q = fold(inp.value.trim() || "客氣");
-    const match = vocab.find((n) => fold(n.w) === q) || vocab.find((n) => fold(n.w).includes(q) || fold(itemOf(n).py || "").includes(q) || fold(meaningOf(n)).includes(q)) || vocab[0];
-    if (!match) {
-      box.innerHTML = `<div class="text-xs text-outline p-4 text-center">Không tìm thấy từ khớp.</div>`;
+    const raw = inp.value.trim();
+    const clr = $("#btn-clear-quick-search");
+    if (clr) clr.classList.toggle("hidden", !raw);
+    if (!raw) {
+      box.innerHTML = `<p class="text-xs text-outline p-2 leading-relaxed">Gõ chữ Hán (考試), pinyin không dấu (kaoshi) hoặc nghĩa tiếng Việt (thi). Bấm vào từ để xem giải thích đầy đủ.</p>`;
       return;
     }
-    const it = itemOf(match);
-    const lvl = noteLevel(match);
-    box.innerHTML = `
-      <div class="flex items-start justify-between">
-        <div>
-          <div class="flex items-baseline gap-2">
-            <a href="#tu/${encodeURIComponent(it.w)}" class="font-headline-lg text-2xl font-bold text-on-surface hover:text-primary no-underline">${esc(it.w)}</a>
-            <span class="font-code text-code text-tertiary-container font-medium">${esc(it.py || "")}</span>
-            <button type="button" class="text-primary hover:scale-110 transition-transform" onclick="if(typeof speak==='function') speak('${esc(it.w)}')" title="Phát âm">
-              <span class="material-symbols-outlined text-[16px]">volume_up</span>
-            </button>
+    const q = fold(raw);
+    const scored = [];
+    for (const n of vocab) {
+      const w = fold(n.w);
+      let s = -1;
+      if (w === q) s = 0;
+      else if (w.startsWith(q)) s = 1;
+      else if (w.includes(q)) s = 2;
+      else {
+        const py = fold(itemOf(n).py || "");
+        if (py === q) s = 1;
+        else if (py.startsWith(q)) s = 3;
+        else if (q.length >= 2 && fold(meaningOf(n)).includes(q)) s = 4;
+      }
+      if (s >= 0) { scored.push([s, n.w.length, n]); if (scored.length > 400) break; }
+    }
+    scored.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
+    const top = scored.slice(0, 10).map((x) => x[2]);
+    if (!top.length) {
+      box.innerHTML = `<div class="text-xs text-outline p-3 text-center">Không tìm thấy. <a href="#tu-dien" class="text-primary">Tra từ điển đầy đủ →</a></div>`;
+      return;
+    }
+    box.innerHTML = top.map((n) => {
+      const it = itemOf(n);
+      const lvl = noteLevel(n);
+      return `
+        <div class="p-2 rounded-xl hover:bg-surface-container-low flex items-start gap-2 border-b border-border-subtle/40 last:border-0">
+          <a href="#tu/${encodeURIComponent(n.w)}" class="flex-1 min-w-0 no-underline">
+            <div class="flex items-baseline gap-1.5 flex-wrap">
+              <span class="text-lg font-bold text-on-surface">${esc(n.w)}</span>
+              <span class="font-code text-xs text-tertiary-container">${esc(it.py || "")}</span>
+            </div>
+            <div class="text-xs text-on-surface-variant line-clamp-2">${esc(meaningOf(n))}</div>
+            <div class="text-[10px] text-outline mt-0.5">${esc(it.band && S.bands.includes(it.band) ? `TOCFL ${it.band}` : (n.deck ? n.deck.name : (it.band || "Từ vựng")))} · ${esc(LEVELS[lvl])}</div>
+          </a>
+          <div class="flex flex-col gap-1 shrink-0">
+            <button type="button" class="p-1 rounded text-primary hover:bg-surface-container" data-say="${esc(n.w)}" title="Phát âm"><span class="material-symbols-outlined text-[16px]">volume_up</span></button>
+            <button type="button" class="p-1 rounded text-secondary hover:bg-surface-container" data-study="${esc(n.w)}" title="Học từ này"><span class="material-symbols-outlined text-[16px]">play_arrow</span></button>
           </div>
-          <span class="font-label-sm text-label-sm text-outline">Hán Việt: <strong class="text-on-surface font-medium">${esc((it.hv || "Đang cập nhật").toUpperCase())}</strong></span>
-        </div>
-        <span class="px-2 py-0.5 rounded bg-cinnabar-subtle text-primary text-[11px] font-semibold">${esc(it.band ? `TOCFL ${it.band}` : "Từ vựng")}</span>
-      </div>
-      <div class="text-body-sm text-body-sm text-on-surface space-y-1 mt-1">
-        <p><span class="font-semibold text-primary">Nghĩa:</span> ${esc(meaningOf(match))}</p>
-        ${it.en ? `<p><span class="font-semibold text-outline">Tiếng Anh:</span> ${esc(it.en)}</p>` : ""}
-      </div>
-      <div class="p-2 rounded bg-amber-subtle/80 flex items-start gap-1.5 text-tertiary text-body-sm mt-1">
-        <span class="material-symbols-outlined text-[16px] mt-0.5 text-tertiary">tips_and_updates</span>
-        <span>Mức nhớ hiện tại: <strong>${esc(LEVELS[lvl])}</strong>. Bấm Chi tiết để xem nét viết và ví dụ.</span>
-      </div>
-      <div class="pt-2 mt-auto border-t border-border-subtle/40 flex items-center justify-between">
-        <a href="#tu/${encodeURIComponent(it.w)}" class="font-label-sm text-label-sm text-secondary flex items-center gap-1 font-semibold no-underline hover:underline">
-          <span class="material-symbols-outlined text-[14px]">open_in_new</span>
-          <span>Mở từ điển chi tiết</span>
-        </a>
-        <button type="button" class="px-2.5 py-1 rounded bg-paper-card border border-border-subtle text-on-surface hover:bg-surface-container text-label-sm font-label-sm shadow-sm transition-colors flex items-center gap-1" onclick="startStudyWord('${esc(it.w)}')">
-          <span class="material-symbols-outlined text-[14px]">play_arrow</span>
-          <span>Học ngay</span>
-        </button>
-      </div>
-    `;
+        </div>`;
+    }).join("");
+    box.querySelectorAll("[data-say]").forEach((b) => { b.onclick = () => { if (typeof speak === "function") speak(b.dataset.say); }; });
+    box.querySelectorAll("[data-study]").forEach((b) => { b.onclick = () => startStudyWord(b.dataset.study); });
   };
 
-  // Render Folder Cards Grid
+  // Lưới thư mục
   let curCat = "all";
   const renderFolderCards = () => {
     const q = fold($("#folderSearchInput")?.value || "");
     const grid = $("#stitch-folders-grid");
     if (!grid) return;
-    const filtered = allFolderItems.filter((f) => {
-      if (curCat !== "all" && f.cat !== curCat) return false;
-      if (!q) return true;
-      return fold(f.title).includes(q) || fold(f.sub).includes(q) || fold(f.tag).includes(q);
-    });
-
+    const filtered = allFolderItems.filter((f) => (curCat === "all" || f.cat === curCat) && (!q || fold(f.title).includes(q) || fold(f.sub).includes(q)));
     grid.innerHTML = filtered.map((f) => `
-      <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_8px_rgba(44,42,41,0.03)] hover:shadow-md transition-all duration-200 flex flex-col justify-between group">
-        <div class="flex flex-col gap-space-xs">
-          <div class="flex items-start justify-between">
-            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="w-10 h-10 rounded-xl ${f.iconBg} flex items-center justify-center no-underline">
-              <span class="font-headline-md font-bold text-lg">${esc(f.iconText)}</span>
-            </a>
-            <div class="flex items-center gap-1.5">
-              <span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-[11px] font-semibold">${esc(f.tag)}</span>
-              ${f.isBand ? `
-                <button type="button" class="px-2 py-0.5 rounded text-[11px] font-semibold border transition-colors ${f.isLearning ? "bg-jade-subtle text-secondary border-secondary/30" : "bg-paper-muted text-outline border-border-subtle"}" data-toggle-band="${esc(f.id)}">
-                  ${f.isLearning ? "Đang học" : "+ Bật"}
-                </button>
-              ` : ""}
-            </div>
+      <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_8px_rgba(44,42,41,0.03)] hover:shadow-md transition-shadow flex flex-col gap-space-sm group">
+        <div class="flex items-start gap-space-sm">
+          <a href="#thu-muc/${encodeURIComponent(f.id)}" class="w-10 h-10 shrink-0 rounded-xl bg-surface-container text-on-surface flex items-center justify-center no-underline font-headline-md font-bold">${esc(f.iconText)}</a>
+          <div class="min-w-0 flex-1">
+            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="no-underline"><h3 class="font-semibold text-on-surface group-hover:text-primary leading-snug">${esc(f.title)}</h3></a>
+            <p class="text-xs text-on-surface-variant line-clamp-2">${esc(f.sub)}</p>
           </div>
-          <div class="mt-1">
-            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="no-underline">
-              <h3 class="font-headline-md text-headline-md text-on-surface font-semibold group-hover:text-primary transition-colors">
-                ${esc(f.title)}
-              </h3>
-            </a>
-            <p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1 mt-0.5">
-              ${esc(f.sub)}
-            </p>
-          </div>
+          ${f.isBand ? `<button type="button" class="shrink-0 px-2 py-0.5 rounded text-[11px] font-semibold border ${f.isLearning ? "bg-jade-subtle text-secondary border-secondary/30" : "bg-paper-muted text-outline border-border-subtle"}" data-toggle-band="${esc(f.id)}">${f.isLearning ? "Đang học" : "+ Bật"}</button>` : ""}
         </div>
-        <!-- Progress bar -->
-        <div class="mt-space-md pt-space-xs">
-          <div class="flex justify-between items-center text-label-sm font-label-sm mb-1.5">
-            <span class="text-outline">Tiến độ nắm vững</span>
-            <span class="font-code text-on-surface font-semibold">${fmt(f.learned)} / ${fmt(f.total)} từ (${f.pct}%)</span>
-          </div>
-          <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
-            <div class="h-full rounded-full ${f.barBg}" style="width: ${f.pct}%"></div>
-          </div>
-          <div class="flex items-center justify-between mt-space-md pt-space-xs border-t border-border-subtle/50">
-            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="font-code text-xs text-primary hover:underline font-semibold flex items-center gap-1 no-underline">
-              <span>Xem ${fmt(f.total)} từ →</span>
-            </a>
-            <button type="button" class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary text-label-sm font-label-sm font-semibold hover:bg-primary transition-colors flex items-center gap-1 shadow-sm" onclick="startStudyFolder('${esc(f.id)}')">
-              <span class="material-symbols-outlined text-[16px]">play_arrow</span>
-              <span>Học ngay</span>
-            </button>
-          </div>
+        <div class="mt-auto">
+          <div class="flex justify-between text-xs mb-1"><span class="text-outline">Đã học</span><span class="font-code text-on-surface font-semibold">${fmt(f.learned)} / ${fmt(f.total)} (${f.pct}%)</span></div>
+          <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full rounded-full bg-secondary" style="width:${f.pct}%"></div></div>
+        </div>
+        <div class="flex items-center justify-between pt-space-xs border-t border-border-subtle/50">
+          <a href="#thu-muc/${encodeURIComponent(f.id)}" class="text-xs text-primary hover:underline font-semibold no-underline">Xem từ →</a>
+          <button type="button" class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary text-label-sm font-semibold hover:bg-primary flex items-center gap-1 shadow-sm" data-study-folder="${esc(f.id)}">
+            <span class="material-symbols-outlined text-[16px]">play_arrow</span><span>Học</span>
+          </button>
         </div>
       </div>
     `).join("") || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Không tìm thấy thư mục nào khớp.</div>`;
-
+    grid.querySelectorAll("[data-study-folder]").forEach((b) => { b.onclick = () => startStudyFolder(b.dataset.studyFolder); });
     grid.querySelectorAll("[data-toggle-band]").forEach((btn) => {
       btn.onclick = async (e) => {
         e.preventDefault();
@@ -4658,105 +4155,31 @@ VIEWS["thu-muc"] = (id) => {
     });
   };
 
-  renderFlashcardCanvas();
   renderQuickLookup();
   renderFolderCards();
-  bindRadicalsSectionEvents(document);
 
-  // Wire up Quick Search events
   const qInput = $("#quick-search-input");
-  if (qInput) qInput.oninput = renderQuickLookup;
+  let qTimer = 0;
+  if (qInput) qInput.oninput = () => { clearTimeout(qTimer); qTimer = setTimeout(renderQuickLookup, 120); };
   const qClear = $("#btn-clear-quick-search");
   if (qClear) qClear.onclick = () => { if (qInput) { qInput.value = ""; qInput.focus(); renderQuickLookup(); } };
-
-  // Wire up Folder Filter tabs & search
   const fSearch = $("#folderSearchInput");
   if (fSearch) fSearch.oninput = renderFolderCards;
-
   document.querySelectorAll("#folderTabs button").forEach((btn) => {
     btn.onclick = () => {
       curCat = btn.dataset.tab || "all";
-      document.querySelectorAll("#folderTabs button").forEach((b) => {
-        b.className = b.dataset.tab === curCat
-          ? "px-3.5 py-1.5 rounded-full bg-primary-container text-on-primary font-label-md text-label-md font-semibold shadow-sm"
-          : "px-3.5 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-md text-label-md transition-colors shadow-sm";
-      });
+      document.querySelectorAll("#folderTabs button").forEach((b) => { b.className = pillCls(b.dataset.tab === curCat); });
       renderFolderCards();
     };
   });
 
-  // Wire up Stitch 4-mode view switcher (including Học Bộ Thủ)
-  const setMainMode = (mode) => {
-    const flashSec = $("#flashcard-section");
-    const libSec = $("#library-section");
-    const radSec = $("#radicals-section");
-    const tInt = $("#view-tab-integrated");
-    const tLib = $("#view-tab-library");
-    const tFoc = $("#view-tab-focus");
-    const tRad = $("#view-tab-radicals");
-    [tInt, tLib, tFoc, tRad].forEach((t) => {
-      if (!t) return;
-      t.classList.remove("bg-paper-card", "text-primary", "shadow-sm", "font-semibold");
-      t.classList.add("text-on-surface-variant", "font-medium");
-    });
-    if (mode === "integrated") {
-      if (flashSec) flashSec.classList.remove("hidden");
-      if (libSec) libSec.classList.remove("hidden");
-      if (radSec) radSec.classList.remove("hidden");
-      if (tInt) { tInt.classList.add("bg-paper-card", "text-primary", "shadow-sm", "font-semibold"); tInt.classList.remove("text-on-surface-variant"); }
-    } else if (mode === "library") {
-      if (flashSec) flashSec.classList.add("hidden");
-      if (libSec) libSec.classList.remove("hidden");
-      if (radSec) radSec.classList.remove("hidden");
-      if (tLib) { tLib.classList.add("bg-paper-card", "text-primary", "shadow-sm", "font-semibold"); tLib.classList.remove("text-on-surface-variant"); }
-    } else if (mode === "focus") {
-      if (flashSec) flashSec.classList.remove("hidden");
-      if (libSec) libSec.classList.add("hidden");
-      if (radSec) radSec.classList.add("hidden");
-      if (tFoc) { tFoc.classList.add("bg-paper-card", "text-primary", "shadow-sm", "font-semibold"); tFoc.classList.remove("text-on-surface-variant"); }
-    } else if (mode === "radicals") {
-      if (flashSec) flashSec.classList.add("hidden");
-      if (libSec) libSec.classList.add("hidden");
-      if (radSec) radSec.classList.remove("hidden");
-      if (tRad) { tRad.classList.add("bg-paper-card", "text-primary", "shadow-sm", "font-semibold"); tRad.classList.remove("text-on-surface-variant"); }
-    }
-  };
-  const tInt = $("#view-tab-integrated");
-  const tLib = $("#view-tab-library");
-  const tFoc = $("#view-tab-focus");
-  const tRad = $("#view-tab-radicals");
-  if (tInt) tInt.onclick = () => setMainMode("integrated");
-  if (tLib) tLib.onclick = () => setMainMode("library");
-  if (tFoc) tFoc.onclick = () => setMainMode("focus");
-  if (tRad) tRad.onclick = () => setMainMode("radicals");
-
-  // Keyboard navigation for Vocabulary Flashcards (Space/Arrows/Shift/1-6)
-  window.onkeydown = async (e) => {
-    if (location.hash !== "#thu-muc" && !location.hash.startsWith("#thu-muc")) return;
-    if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
-
-    if (e.key === "Shift") {
+  // Alt + D: đưa con trỏ vào ô Tra từ nhanh
+  window.onkeydown = (e) => {
+    if (!location.hash.startsWith("#thu-muc") && location.hash !== "#tu-vung") return;
+    if (e.altKey && (e.key === "d" || e.key === "D")) {
       e.preventDefault();
-      const n = flashPool[fcIdx % flashPool.length];
-      if (n && typeof speak === "function") speak(n.w);
-    } else if (e.key === " " || e.key === "ArrowRight") {
-      e.preventDefault();
-      fcIdx = (fcIdx + 1) % flashPool.length;
-      renderFlashcardCanvas();
-    } else if (e.key === "ArrowLeft") {
-      e.preventDefault();
-      fcIdx = (fcIdx - 1 + flashPool.length) % flashPool.length;
-      renderFlashcardCanvas();
-    } else if (["1", "2", "3", "4", "5", "6"].includes(e.key)) {
-      e.preventDefault();
-      const targetLvl = Number(e.key) - 1;
-      const n = flashPool[fcIdx % flashPool.length];
-      if (n) {
-        if (typeof playChime === "function") playChime(targetLvl >= 2);
-        await applyWordLevel(n, targetLvl);
-        fcIdx = (fcIdx + 1) % flashPool.length;
-        renderFlashcardCanvas();
-      }
+      const inp = $("#quick-search-input");
+      if (inp) { inp.focus(); inp.select(); }
     }
   };
 };
