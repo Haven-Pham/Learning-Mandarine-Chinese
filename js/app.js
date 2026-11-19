@@ -1354,11 +1354,31 @@ function syncInboxWordToLearning(entry, scheduleNow = false) {
     S.notes.push(note);
     S.noteByKey.set(note.key, note);
     S.noteByWord.set(w, note);
-    if (S.vi && !S.vi.has(w)) {
-      S.vi.set(w, { vn, py, hv: "" });
+    if (S.vi) {
+      const prev = S.vi.get(w) || {};
+      const cleanNote = (entry.note && entry.note !== "Từ vựng bổ sung") ? entry.note : "";
+      S.vi.set(w, Object.assign({}, prev, {
+        vn: prev.vn || cleanNote || vn,
+        py: prev.py || py,
+        hv: prev.hv || entry.hv || "",
+        pos: prev.pos || entry.pos || "",
+        ng: (prev.ng && prev.ng.length) ? prev.ng : (Array.isArray(entry.ng) && entry.ng.length ? entry.ng : undefined)
+      }));
     }
   } else {
     if (entry.where && !note.theme) note.theme = entry.where;
+    if (S.vi) {
+      const prev = S.vi.get(w) || {};
+      const cleanNote = (entry.note && entry.note !== "Từ vựng bổ sung") ? entry.note : "";
+      if ((!prev.vn && cleanNote) || (!prev.hv && entry.hv) || (!(prev.ng && prev.ng.length) && Array.isArray(entry.ng) && entry.ng.length)) {
+        S.vi.set(w, Object.assign({}, prev, {
+          vn: prev.vn || cleanNote,
+          hv: prev.hv || entry.hv || "",
+          pos: prev.pos || entry.pos || "",
+          ng: (prev.ng && prev.ng.length) ? prev.ng : (Array.isArray(entry.ng) && entry.ng.length ? entry.ng : undefined)
+        }));
+      }
+    }
   }
 
   if (scheduleNow) {
@@ -8270,11 +8290,17 @@ VIEWS["nhap"] = () => {
         <!-- Imported Words List in Inbox (#ilist) -->
         <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-            <div class="flex items-center gap-2">
+            <div class="flex items-center gap-2 flex-wrap">
               <h2 class="font-headline-lg text-lg font-bold text-on-surface">Từ đã nhập trong Hộp thư (<span id="inbox-count">${S.inbox ? S.inbox.size : 0}</span>)</h2>
-              <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-jade-subtle text-secondary border border-secondary/20">Tự động đồng bộ với Chỗ học</span>
+              <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-jade-subtle text-secondary border border-secondary/20">Hiển thị đầy đủ các nghĩa &amp; đồng bộ SRS</span>
             </div>
-            <span class="text-xs text-outline">Lưu trữ trên thiết bị &amp; tự động đồng bộ qua đám mây</span>
+            <div class="flex items-center gap-2 flex-wrap">
+              <span id="inboxEnrichStatus" class="text-xs text-secondary font-medium"></span>
+              <button type="button" id="btn-enrich-all-inbox" class="px-3 py-1.5 rounded-lg bg-jade-subtle hover:bg-secondary-container text-secondary border border-secondary/30 text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer">
+                <span class="material-symbols-outlined text-[16px]">auto_fix_high</span>
+                <span>Cập nhật đầy đủ nghĩa tất cả</span>
+              </button>
+            </div>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md" id="ilist"></div>
         </div>
@@ -8318,13 +8344,118 @@ VIEWS["nhap"] = () => {
 
   $("#w").oninput = check;
 
+  function isPlaceholderNote(txt) {
+    const t = String(txt || "").trim();
+    return !t || t === "Từ vựng bổ sung" || t === "…";
+  }
+
+  function resolveFullInfoForWord(w, entry) {
+    const n = S.noteByWord.get(w) || noteOfWord(w);
+    const itN = n ? itemOf(n) : {};
+    const viRec = (S.vi && (S.vi.get(w) || formsOf(w).map((f) => S.vi.get(f)).find(Boolean))) || {};
+    const e = cedFirst(w);
+    const py = itN.py || viRec.py || (entry && entry.py) || (e ? e[0][0] : "") || (typeof pinyinProOf === "function" ? pinyinProOf(w) : "");
+    const hv = itN.hv || viRec.hv || (entry && entry.hv) || "";
+    const pos = itN.pos || viRec.pos || (entry && entry.pos) || "";
+    const ng = (Array.isArray(itN.ng) && itN.ng.length) ? itN.ng
+      : ((Array.isArray(viRec.ng) && viRec.ng.length) ? viRec.ng
+      : ((entry && Array.isArray(entry.ng) && entry.ng.length) ? entry.ng : []));
+    const dictVn = itN.vn || viRec.vn || "";
+    const userNote = entry && !isPlaceholderNote(entry.note) ? String(entry.note).trim() : "";
+    const en = itN.en || (e ? e[0][1].split("/").slice(0, 4).join("; ") : "");
+    const band = n ? (bandsOf(n).join(" · ") || (n.deck ? n.deck.name : "")) : "";
+    return { n, py, hv, pos, ng, dictVn, userNote, en, band };
+  }
+
+  async function enrichInboxKeys(keys, allowRemote = false) {
+    if (!S.inbox || !keys.length) return 0;
+    const words = keys.map((k) => (S.inbox.get(k) || {}).w).filter(Boolean);
+    try {
+      await Promise.all([ensureVi(words), ensureRich(words)]);
+    } catch (e) {}
+
+    let updatedCount = 0;
+    const statusEl = $("#inboxEnrichStatus");
+    for (let i = 0; i < keys.length; i++) {
+      const k = keys[i];
+      const entry = S.inbox.get(k);
+      if (!entry || !entry.w) continue;
+      const w = entry.w;
+      if (allowRemote && statusEl && keys.length > 1) {
+        statusEl.textContent = `Đang cập nhật ${i + 1}/${keys.length}: ${w}...`;
+      }
+      let info = resolveFullInfoForWord(w, entry);
+      let finalVn = info.dictVn || info.userNote;
+      let finalNg = info.ng.slice();
+
+      // If no Vietnamese meaning found locally (or only English), translate automatically when requested
+      const looksEnglishOnly = finalVn && !/[àáảãạăằắẳẵặâầấẩẫậđèéẻẽẹêềếểễệìíỉĩịòóỏõọôồốổỗộơờớởỡợùúủũụưừứửữựỳýỷỹỵ]/i.test(finalVn) && /^[a-zA-Z0-9\s;,.()/'-]+$/.test(finalVn);
+      if (allowRemote && (!finalVn || looksEnglishOnly)) {
+        try {
+          let trans = await autoTranslateZhToVi(w);
+          if ((!trans || trans.toLowerCase() === w.toLowerCase()) && info.en) {
+            const tEn = await autoTranslateEnToVi(info.en);
+            if (tEn) trans = tEn;
+          }
+          if (trans && trans.toLowerCase() !== w.toLowerCase()) {
+            finalVn = trans;
+          }
+        } catch (e) {}
+      }
+
+      if (!finalNg.length && finalVn && finalVn.includes(";")) {
+        finalNg = finalVn.split(/;+/).map((x) => x.trim()).filter(Boolean);
+      }
+
+      const nextEntry = Object.assign({}, entry, {
+        id: entry.id || k,
+        py: info.py || entry.py || "",
+        hv: info.hv || entry.hv || "",
+        pos: info.pos || entry.pos || "",
+        note: finalVn || entry.note || "",
+        ng: finalNg.length ? finalNg : (entry.ng || [])
+      });
+
+      const changed =
+        nextEntry.note !== (entry.note || "") ||
+        nextEntry.py !== (entry.py || "") ||
+        nextEntry.hv !== (entry.hv || "") ||
+        JSON.stringify(nextEntry.ng || []) !== JSON.stringify(entry.ng || []);
+
+      if (changed) {
+        updatedCount++;
+        S.inbox.set(k, nextEntry);
+        try { await Store.put("inbox", k, nextEntry); } catch (e) {}
+        if (S.vi) {
+          const prevVi = S.vi.get(w) || {};
+          const mergedVi = Object.assign({}, prevVi, {
+            vn: nextEntry.note || prevVi.vn || "",
+            py: nextEntry.py || prevVi.py || "",
+            hv: nextEntry.hv || prevVi.hv || "",
+            pos: nextEntry.pos || prevVi.pos || "",
+            ng: (prevVi.ng && prevVi.ng.length) ? prevVi.ng : (nextEntry.ng && nextEntry.ng.length ? nextEntry.ng : undefined)
+          });
+          S.vi.set(w, mergedVi);
+          try { await Store.put("kv", "vi_" + w, mergedVi); } catch (e) {}
+        }
+        if (typeof syncInboxWordToLearning === "function") syncInboxWordToLearning(nextEntry, false);
+      }
+    }
+    if (updatedCount > 0 && window.Sync && typeof Sync.onCardGraded === "function") {
+      Sync.onCardGraded();
+    }
+    return updatedCount;
+  }
+
+  let editingInboxKey = null;
+
   const drawInbox = () => {
     const list = $("#ilist");
     const countEl = $("#inbox-count");
     if (countEl) countEl.textContent = S.inbox ? S.inbox.size : 0;
     if (!list) return;
-    const items = S.inbox ? [...S.inbox.values()].sort((a, b) => b.at - a.at) : [];
-    if (!items.length) {
+    const entries = S.inbox ? [...S.inbox.entries()].sort((a, b) => (b[1].at || 0) - (a[1].at || 0)) : [];
+    if (!entries.length) {
       list.innerHTML = `<div class="col-span-full p-8 text-center text-xs text-outline bg-surface-container-low/50 rounded-2xl border border-dashed border-border-subtle">Chưa có từ nào trong Hộp thư. Nhập từ mới ở trên để vừa lưu, vừa học và đồng bộ ngay vào lịch ôn nhé.</div>`;
       return;
     }
@@ -8338,7 +8469,7 @@ VIEWS["nhap"] = () => {
       "bg-purple-50 text-purple-700 border-purple-200"
     ];
 
-    list.innerHTML = items.map((it) => {
+    list.innerHTML = entries.map(([key, it]) => {
       let n = S.noteByWord.get(it.w);
       if (!n && typeof syncInboxWordToLearning === "function") {
         n = syncInboxWordToLearning(it, false);
@@ -8349,26 +8480,65 @@ VIEWS["nhap"] = () => {
         return s && s.due <= Date.now();
       });
 
-      const displayMeaning = it.note || (n ? meaningOf(n) : "");
+      const info = resolveFullInfoForWord(it.w, it);
+      const summaryMeaning = info.dictVn || info.userNote || info.en || "";
+      const hasMultiSenses = info.ng && info.ng.length > 0;
+      const showUserNoteSeparately = info.userNote && info.dictVn && info.userNote.toLowerCase() !== info.dictVn.toLowerCase();
+      const isEditing = editingInboxKey === key;
 
       return `
         <div class="p-4 rounded-2xl bg-surface-container-low border border-border-subtle hover:border-primary/40 transition-all flex flex-col justify-between gap-3 shadow-xs">
           <div class="flex items-start justify-between gap-2">
-            <div class="flex flex-col min-w-0">
+            <div class="flex flex-col min-w-0 flex-1">
               <div class="flex items-center gap-2 flex-wrap">
                 <a href="#tu/${encodeURIComponent(it.w)}" class="font-serif font-bold text-xl text-on-surface hover:text-primary transition-colors no-underline">${esc(it.w)}</a>
-                ${it.py ? `<span class="font-code text-xs text-tertiary font-medium bg-amber-subtle/50 px-2 py-0.5 rounded-md border border-amber-subtle/40">${esc(it.py)}</span>` : ""}
-                <button type="button" class="text-secondary hover:text-primary transition-colors p-1 rounded-lg hover:bg-white" onclick="say('${esc(it.w)}')" title="Nghe phát âm">
+                ${info.py ? `<span class="font-code text-xs text-tertiary font-medium bg-amber-subtle/50 px-2 py-0.5 rounded-md border border-amber-subtle/40">${esc(info.py)}</span>` : ""}
+                ${info.band ? `<span class="px-1.5 py-0.5 rounded bg-surface-container text-[10px] font-code font-semibold text-outline">${esc(info.band)}</span>` : ""}
+                <button type="button" class="text-secondary hover:text-primary transition-colors p-1 rounded-lg hover:bg-paper-card" onclick="say('${esc(it.w)}')" title="Nghe phát âm">
                   <span class="material-symbols-outlined text-[18px]">volume_up</span>
                 </button>
               </div>
-              ${it.where ? `<div class="text-[11px] text-outline mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">location_on</span><span>Gặp ở: ${esc(it.where)}</span></div>` : ""}
-              ${displayMeaning ? `<div class="text-xs text-on-surface-variant font-medium mt-1 line-clamp-2">${esc(displayMeaning)}</div>` : ""}
+              ${info.hv || info.pos ? `
+                <div class="text-[11px] text-outline mt-1 flex items-center gap-2 flex-wrap">
+                  ${info.hv ? `<span>Hán Việt: <strong class="text-on-surface-variant">${esc(info.hv)}</strong></span>` : ""}
+                  ${info.pos ? `<span>· ${esc(info.pos)}</span>` : ""}
+                </div>
+              ` : ""}
+              ${hasMultiSenses ? `
+                <ul class="mt-1.5 space-y-1 text-xs text-on-surface leading-relaxed list-disc pl-4">
+                  ${info.ng.map((sense) => `<li>${esc(sense)}</li>`).join("")}
+                </ul>
+              ` : (summaryMeaning ? `<div class="text-xs text-on-surface font-medium mt-1.5 leading-relaxed">${esc(summaryMeaning)}</div>` : `<div class="text-xs text-outline italic mt-1.5">Chưa có nghĩa tiếng Việt — bấm 🔄 để cập nhật tự động.</div>`)}
+              ${showUserNoteSeparately ? `<div class="text-[11px] text-tertiary mt-1 bg-amber-subtle/50 px-2 py-1 rounded-lg">Ghi chú của bạn: ${esc(info.userNote)}</div>` : ""}
+              ${it.where ? `<div class="text-[11px] text-outline mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">location_on</span><span>${esc(it.where)}</span></div>` : ""}
             </div>
-            <button type="button" class="text-xs text-outline hover:text-primary transition-colors p-1 rounded-lg hover:bg-white shrink-0" data-del-inbox="${esc(it.id)}" title="Xóa khỏi Hộp thư">
-              <span class="material-symbols-outlined text-[16px]">delete</span>
-            </button>
+            <div class="flex items-center gap-0.5 shrink-0">
+              <button type="button" class="text-xs text-secondary hover:text-primary transition-colors p-1 rounded-lg hover:bg-paper-card" data-enrich-inbox="${esc(key)}" title="Cập nhật nghĩa đầy đủ tự động">
+                <span class="material-symbols-outlined text-[16px]">sync</span>
+              </button>
+              <button type="button" class="text-xs text-outline hover:text-primary transition-colors p-1 rounded-lg hover:bg-paper-card" data-edit-inbox="${esc(key)}" title="Sửa / thêm nghĩa cho từ này">
+                <span class="material-symbols-outlined text-[16px]">edit</span>
+              </button>
+              <button type="button" class="text-xs text-outline hover:text-primary transition-colors p-1 rounded-lg hover:bg-paper-card" data-del-inbox="${esc(key)}" title="Xóa khỏi Hộp thư">
+                <span class="material-symbols-outlined text-[16px]">delete</span>
+              </button>
+            </div>
           </div>
+
+          ${isEditing ? `
+            <div class="p-3 rounded-xl bg-paper-card border border-primary/30 flex flex-col gap-2">
+              <label class="text-[11px] font-semibold text-on-surface-variant">Các nghĩa tiếng Việt (mỗi dòng 1 nghĩa hoặc ngăn bằng dấu ;):</label>
+              <textarea class="w-full p-2 rounded-lg bg-paper-base border border-border-subtle text-xs text-on-surface resize-y" rows="3" data-edit-senses="${esc(key)}" placeholder="VD: (động từ) nghĩa 1&#10;(danh từ) nghĩa 2">${esc(hasMultiSenses ? info.ng.join("\n") : (info.userNote || info.dictVn || ""))}</textarea>
+              <div class="grid grid-cols-2 gap-2">
+                <input class="p-1.5 rounded-lg bg-paper-base border border-border-subtle text-xs text-on-surface" data-edit-py="${esc(key)}" value="${esc(info.py)}" placeholder="Pinyin">
+                <input class="p-1.5 rounded-lg bg-paper-base border border-border-subtle text-xs text-on-surface" data-edit-hv="${esc(key)}" value="${esc(info.hv)}" placeholder="Âm Hán Việt">
+              </div>
+              <div class="flex items-center justify-end gap-2">
+                <button type="button" class="px-2.5 py-1 rounded-lg bg-surface-container text-xs text-on-surface-variant" data-cancel-edit-inbox="${esc(key)}">Hủy</button>
+                <button type="button" class="px-3 py-1 rounded-lg bg-primary text-white text-xs font-semibold" data-save-edit-inbox="${esc(key)}">Lưu nghĩa</button>
+              </div>
+            </div>
+          ` : ""}
 
           <div class="pt-2.5 border-t border-border-subtle/60 flex items-center justify-between gap-2 flex-wrap">
             <div class="flex items-center gap-1.5 flex-wrap">
@@ -8379,7 +8549,7 @@ VIEWS["nhap"] = () => {
             </div>
 
             <div class="flex items-center gap-2">
-              <select class="text-[11px] font-medium bg-white border border-border-subtle rounded-lg px-2 py-1 text-on-surface focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer" data-change-lvl="${esc(it.w)}" title="Đổi mức nhớ cho từ này">
+              <select class="text-[11px] font-medium bg-paper-card border border-border-subtle rounded-lg px-2 py-1 text-on-surface focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer" data-change-lvl="${esc(it.w)}" title="Đổi mức nhớ cho từ này">
                 ${LEVELS.map((label, idx) => `<option value="${idx}"${lvl === idx ? " selected" : ""}>${esc(label)}</option>`).join("")}
               </select>
               <button type="button" class="px-3 py-1 rounded-lg bg-primary-container text-white font-semibold text-xs hover:bg-primary transition-colors shadow-xs flex items-center gap-1" data-study-word="${esc(it.w)}" title="Bắt đầu học ngay với Flashcard của từ này">
@@ -8394,14 +8564,79 @@ VIEWS["nhap"] = () => {
 
     list.querySelectorAll("[data-del-inbox]").forEach((btn) => {
       btn.onclick = async () => {
-        const id = btn.dataset.delInbox;
-        const it = S.inbox.get(id);
+        const key = btn.dataset.delInbox;
+        const it = S.inbox.get(key);
         const w = it ? it.w : "";
         if (!confirm(`Bạn có chắc muốn xóa từ "${w}" khỏi Hộp thư không?`)) return;
-        S.inbox.delete(id);
-        await Store.del("inbox", id);
+        S.inbox.delete(key);
+        await Store.del("inbox", key);
+        if (editingInboxKey === key) editingInboxKey = null;
         drawInbox();
         updateBadge();
+      };
+    });
+
+    list.querySelectorAll("[data-enrich-inbox]").forEach((btn) => {
+      btn.onclick = async () => {
+        const key = btn.dataset.enrichInbox;
+        btn.disabled = true;
+        try {
+          const cnt = await enrichInboxKeys([key], true);
+          drawInbox();
+          const it = S.inbox.get(key);
+          showToast(cnt ? `Đã cập nhật nghĩa đầy đủ cho "${it ? it.w : ""}"!` : `"${it ? it.w : ""}" đã có nghĩa đầy đủ mới nhất.`);
+        } finally {
+          btn.disabled = false;
+        }
+      };
+    });
+
+    list.querySelectorAll("[data-edit-inbox]").forEach((btn) => {
+      btn.onclick = () => {
+        const key = btn.dataset.editInbox;
+        editingInboxKey = (editingInboxKey === key) ? null : key;
+        drawInbox();
+      };
+    });
+
+    list.querySelectorAll("[data-cancel-edit-inbox]").forEach((btn) => {
+      btn.onclick = () => { editingInboxKey = null; drawInbox(); };
+    });
+
+    list.querySelectorAll("[data-save-edit-inbox]").forEach((btn) => {
+      btn.onclick = async () => {
+        const key = btn.dataset.saveEditInbox;
+        const entry = S.inbox.get(key);
+        if (!entry) return;
+        const rawSenses = (list.querySelector(`[data-edit-senses="${CSS.escape ? CSS.escape(key) : key}"]`)?.value || "").trim();
+        const pyVal = (list.querySelector(`[data-edit-py="${CSS.escape ? CSS.escape(key) : key}"]`)?.value || "").trim();
+        const hvVal = (list.querySelector(`[data-edit-hv="${CSS.escape ? CSS.escape(key) : key}"]`)?.value || "").trim();
+        const senseList = rawSenses.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
+        const summary = senseList.join("; ");
+        const updated = Object.assign({}, entry, {
+          id: entry.id || key,
+          note: summary,
+          ng: senseList,
+          py: pyVal || entry.py || "",
+          hv: hvVal || entry.hv || ""
+        });
+        S.inbox.set(key, updated);
+        try { await Store.put("inbox", key, updated); } catch (e) {}
+        if (S.vi) {
+          const mergedVi = Object.assign({}, S.vi.get(entry.w) || {}, {
+            vn: summary,
+            ng: senseList,
+            py: updated.py,
+            hv: updated.hv
+          });
+          S.vi.set(entry.w, mergedVi);
+          try { await Store.put("kv", "vi_" + entry.w, mergedVi); } catch (e) {}
+        }
+        if (typeof syncInboxWordToLearning === "function") syncInboxWordToLearning(updated, false);
+        if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
+        editingInboxKey = null;
+        drawInbox();
+        showToast(`Đã lưu các nghĩa mới cho "${entry.w}"!`);
       };
     });
 
@@ -8431,18 +8666,43 @@ VIEWS["nhap"] = () => {
     });
   };
 
+  const btnEnrichAll = $("#btn-enrich-all-inbox");
+  if (btnEnrichAll) {
+    btnEnrichAll.onclick = async () => {
+      const keys = S.inbox ? [...S.inbox.keys()] : [];
+      if (!keys.length) { showToast("Hộp thư hiện chưa có từ nào."); return; }
+      btnEnrichAll.disabled = true;
+      const statusEl = $("#inboxEnrichStatus");
+      if (statusEl) statusEl.textContent = "Đang tra cứu & cập nhật nghĩa...";
+      try {
+        const cnt = await enrichInboxKeys(keys, true);
+        if (statusEl) statusEl.textContent = cnt ? `✓ Đã cập nhật ${cnt} từ` : "✓ Tất cả từ đã có nghĩa đầy đủ";
+        drawInbox();
+        showToast(cnt ? `Đã cập nhật nghĩa đầy đủ cho ${cnt} từ trong Hộp thư!` : "Tất cả từ trong Hộp thư đã có nghĩa đầy đủ!");
+      } finally {
+        btnEnrichAll.disabled = false;
+      }
+    };
+  }
+
   $("#f").onsubmit = async (e) => {
     e.preventDefault();
     const c = check();
     if (!c) return;
     const id = "inbox~" + Date.now();
     const twWord = typeof toTraditionalTw === "function" ? toTraditionalTw(c.w) : c.w;
+    try { await Promise.all([ensureVi([twWord]), ensureRich([twWord])]); } catch (err) {}
+    const info = resolveFullInfoForWord(twWord, null);
+    const typedNote = clean($("#note").value);
     const entry = {
       id,
       w: twWord,
-      py: c.py || (c.n ? itemOf(c.n).py : "") || (typeof pyOf === "function" ? pyOf(twWord) : ""),
+      py: info.py || c.py || (c.n ? itemOf(c.n).py : "") || (typeof pyOf === "function" ? pyOf(twWord) : ""),
+      hv: info.hv || "",
+      pos: info.pos || "",
+      ng: info.ng.length ? info.ng : (typedNote ? typedNote.split(/;+/).map((x) => x.trim()).filter(Boolean) : []),
       where: clean($("#where").value),
-      note: clean($("#note").value),
+      note: typedNote || info.dictVn || info.en || "",
       at: Date.now()
     };
     await Store.put("inbox", id, entry);
@@ -8456,7 +8716,7 @@ VIEWS["nhap"] = () => {
     $("#w").value = "";
     $("#where").value = "";
     $("#note").value = "";
-    $("#msg").innerHTML = `<span class="inline-flex items-center gap-1.5 text-secondary font-semibold"><span class="material-symbols-outlined text-[16px]">check_circle</span> Đã lưu từ "${esc(c.w)}" vào Hộp thư &amp; đồng bộ ngay vào hàng đợi Học/Ôn tập!</span>`;
+    $("#msg").innerHTML = `<span class="inline-flex items-center gap-1.5 text-secondary font-semibold"><span class="material-symbols-outlined text-[16px]">check_circle</span> Đã lưu từ "${esc(twWord)}" vào Hộp thư &amp; đồng bộ ngay vào hàng đợi Học/Ôn tập!</span>`;
     setTimeout(() => {
       const m = $("#msg");
       if (m) m.innerHTML = "";
@@ -8476,19 +8736,18 @@ VIEWS["nhap"] = () => {
       if (!mHan) continue;
       const rawW = mHan[0];
       const w = typeof toTraditionalTw === "function" ? toTraditionalTw(rawW) : rawW;
-      const n = S.noteByWord.get(w);
-      const e = cedFirst(w);
+      const info = resolveFullInfoForWord(w, null);
       let rest = line.replace(/^\d+[\.\)\s-]*/, "").replace(rawW, "").replace(w, "").trim();
-      let py = n ? itemOf(n).py : (e ? e[0][0] : (typeof pyOf === "function" ? pyOf(w) : ""));
+      let py = info.py || (typeof pyOf === "function" ? pyOf(w) : "");
       const mPy = rest.match(/\(([^)]+)\)/);
       if (mPy) {
         if (!py) py = mPy[1].trim();
         rest = rest.replace(mPy[0], "").trim();
       }
       rest = rest.replace(/^[-–—:]+/, "").trim();
-      const vn = rest || (n ? meaningOf(n) : (e ? e[0][1].split("/").join("; ") : "Từ vựng bổ sung"));
-      const band = n ? (bandsOf(n)[0] || "B1") : "Cá nhân";
-      parsedBatch.push({ w, py, vn, band });
+      const vn = rest || info.dictVn || info.en || "";
+      const band = info.band || "Cá nhân";
+      parsedBatch.push({ w, py, vn, ng: info.ng, hv: info.hv, pos: info.pos, band });
     }
     const cntEl = $("#batch-detect-count");
     if (cntEl) cntEl.innerHTML = `Đã phát hiện: <strong>${parsedBatch.length} mục từ hợp lệ</strong>`;
@@ -8502,7 +8761,7 @@ VIEWS["nhap"] = () => {
         <tr class="hover:bg-paper-card transition-colors">
           <td class="p-space-sm pl-space-md font-display text-body-lg font-semibold text-primary">${esc(it.w)}</td>
           <td class="p-space-sm font-code text-xs text-tertiary">${esc(it.py || "—")}</td>
-          <td class="p-space-sm text-xs text-on-surface">${esc(it.vn)}</td>
+          <td class="p-space-sm text-xs text-on-surface">${esc(it.vn || "Tự động cập nhật khi nạp")}</td>
           <td class="p-space-sm pr-space-md text-right">
             <span class="px-1.5 py-0.5 rounded bg-amber-subtle text-tertiary font-label-sm text-[10px]">${esc(it.band)}</span>
           </td>
@@ -8515,12 +8774,23 @@ VIEWS["nhap"] = () => {
   const batchTa = $("#batch-textarea");
   if (batchTa) batchTa.oninput = parseBatchLines;
   const btnParse = $("#btn-batch-parse");
-  if (btnParse) btnParse.onclick = parseBatchLines;
+  if (btnParse) {
+    btnParse.onclick = async () => {
+      parseBatchLines();
+      const ws = parsedBatch.map((x) => x.w);
+      if (ws.length) {
+        try { await Promise.all([ensureVi(ws), ensureRich(ws)]); } catch (e) {}
+        parseBatchLines();
+      }
+    };
+  }
   const btnSample = $("#btn-batch-sample");
   if (btnSample) {
-    btnSample.onclick = () => {
+    btnSample.onclick = async () => {
       if (batchTa) {
         batchTa.value = "1. 璀璨 (cuǐcàn) - rực rỡ lấp lánh\n2. 靦腆 (miǎntiǎn) - bẽn lẽn, e ấp\n3. 奮鬥 (fèndòu) - phấn đấu kiên trì\n4. 絡繹不絕 (luòyìbùjué) - nườm nượp không ngớt";
+        parseBatchLines();
+        try { await Promise.all([ensureVi(parsedBatch.map((x) => x.w)), ensureRich(parsedBatch.map((x) => x.w))]); } catch (e) {}
         parseBatchLines();
       }
     };
@@ -8540,30 +8810,49 @@ VIEWS["nhap"] = () => {
     btnCommit.onclick = async () => {
       if (!parsedBatch.length) return;
       if (!S.inbox) S.inbox = new Map();
+      const addedKeys = [];
       for (const item of parsedBatch) {
         const id = "inbox~" + item.w;
         const entry = {
           id,
           w: item.w,
           py: item.py,
+          hv: item.hv || "",
+          pos: item.pos || "",
+          ng: item.ng || [],
           where: "Nhập hàng loạt",
-          note: item.vn,
+          note: item.vn || "",
           at: Date.now()
         };
         S.inbox.set(id, entry);
+        addedKeys.push(id);
         try { await Store.put("inbox", id, entry); } catch (err) {}
         if (typeof syncInboxWordToLearning === "function") {
           syncInboxWordToLearning(entry, true);
         }
       }
+      await enrichInboxKeys(addedKeys, true);
       drawInbox();
       if (typeof updateBadge === "function") updateBadge();
       const lbl = $("#btn-batch-commit-label");
-      if (lbl) lbl.textContent = `✓ Đã nạp thành công ${parsedBatch.length} từ vào Hộp thư & SRS!`;
+      if (lbl) lbl.textContent = `✓ Đã nạp & cập nhật nghĩa cho ${parsedBatch.length} từ vào Hộp thư & SRS!`;
     };
   }
 
   drawInbox();
+
+  // Auto-hydrate all saved inbox words with full senses from rich-tu & vi-dict on view open
+  if (S.inbox && S.inbox.size) {
+    const allKeys = [...S.inbox.keys()];
+    enrichInboxKeys(allKeys, false).then((updated) => {
+      if (location.hash === "#nhap") {
+        drawInbox();
+        if (updated > 0 && $("#inboxEnrichStatus")) {
+          $("#inboxEnrichStatus").textContent = `✓ Tự động nạp nghĩa cho ${updated} từ`;
+        }
+      }
+    }).catch(() => {});
+  }
 };
 
 // =========================================================================
@@ -9242,7 +9531,7 @@ function initSyncUI() {
     route();
     fillMissingVi(true);
     // background: explanations for the words in today's folders, so card types and the answer side are complete
-    setTimeout(() => ensureRich(S.notes.filter((n) => needsRich(n) && (inLearning(n) || noteLevel(n) > 0)).map((n) => n.w)).catch(() => {}), 1500);
+    setTimeout(() => ensureRich(S.notes.filter((n) => needsRich(n) && (n.inbox || inLearning(n) || noteLevel(n) > 0)).map((n) => n.w)).catch(() => {}), 1200);
     if (window.Sync && Sync.isConfigured() && Sync.getConfig().autoSync) {
       Sync.syncNow().then(() => {
         if (typeof syncAllInboxNotes === "function") syncAllInboxNotes();

@@ -1,18 +1,227 @@
-{"tu": {
-"海灣": {"vn": "vịnh (biển)", "ng": ["(danh từ) vịnh, vùng biển lõm sâu vào đất liền"],
- "us": "Dùng trong địa lý, du lịch: 美麗的海灣. Tên riêng: 波斯灣 (vịnh Ba Tư), 臺灣 cũng có chữ 灣.", "co": ["海灣|vịnh biển", "港灣|vũng cảng", "臺灣|Đài Loan (vịnh có đài)"],
- "sy": ["灣|vịnh, khúc cong"], "cf": ["海港|cảng biển (nơi tàu đậu); 海灣 là hình dạng địa lý"],
- "mh": "Hải Loan → hǎi wān. ĐỌC: 'hải' giữ gần như nguyên (h + ai, thanh 3 trầm xuống như dấu hỏi). 'Loan' bỏ chữ L, giữ vần -an → wān (thanh 1 ngang). NGHĨA: 灣 = 氵(nước) + 彎 (cong) → chỗ nước cong vào bờ. Nhớ: 臺灣 Táiwān cũng là chữ này → Đài Loan = 'vịnh Đài'.",
- "tw": "Ở Đài Loan có 淺水灣 (bãi Thiển Thủy Loan, Tân Bắc) và 西子灣 (Tây Tử Loan, Cao Hùng) là chỗ ngắm hoàng hôn nổi tiếng.",
- "vd": [{"t": "Du lịch", "zh": "我們坐在海灣旁邊看夕陽。", "vn": "Chúng tôi ngồi bên vịnh ngắm hoàng hôn."},
-  {"t": "Cảnh đẹp", "zh": "這個海灣的水很清，可以看到魚。", "vn": "Nước ở vịnh này rất trong, có thể thấy cá."},
-  {"t": "Ở Đài Loan", "zh": "高雄的西子灣是一個有名的海灣。", "vn": "Tây Tử Loan ở Cao Hùng là một vịnh nổi tiếng."}]},
-"番石榴": {"vn": "quả ổi", "ng": ["(danh từ) ổi (trái cây)"],
- "us": "Tên chuẩn trong từ điển. Người Đài nói hằng ngày là 芭樂 bālè. Lượng từ: 一顆番石榴.", "co": ["番石榴汁|nước ép ổi", "一顆番石榴|một quả ổi", "芭樂|ổi (cách nói ở Đài)"],
- "sy": ["芭樂|ổi (khẩu ngữ Đài Loan)"], "cf": ["石榴|quả lựu (không có 番)"],
- "mh": "Phiên Thạch Lựu → fān shí liu. ĐỌC: 'phiên' → fān (ph→f, -iên→-an, thanh 1 ngang); 'thạch' → shí (th→sh, dấu nặng → thanh 2 đi lên); 'lựu' → liu (giữ l + iu, đọc nhẹ). NGHĨA: 番 'phiên' = ngoại bang, 石榴 = quả lựu → 'quả lựu của người ngoại' = ổi (cây từ châu Mỹ đưa sang). Giống 番茄 fānqié 'cà ngoại' = cà chua.",
- "tw": "Ra chợ Đài Loan nói 芭樂 thay vì 番石榴. Người Đài hay ăn ổi chấm 梅子粉 (bột mơ chua ngọt). 芭樂 còn là tiếng lóng: 芭樂歌 = bài hát tình ca dễ nghe, đại trà.",
- "vd": [{"t": "Mua trái cây", "zh": "老闆，番石榴一斤多少錢？", "vn": "Ông chủ ơi, ổi bao nhiêu một cân?"},
-  {"t": "Sức khỏe", "zh": "番石榴有很多維他命C。", "vn": "Ổi có rất nhiều vitamin C."},
-  {"t": "Ở Đài Loan", "zh": "台灣人常常叫番石榴「芭樂」。", "vn": "Người Đài Loan thường gọi ổi là 'bālè'."}]}
-}}
+{
+  "tu": {
+    "海灣": {
+      "vn": "vịnh (biển)",
+      "ng": ["(danh từ) vịnh, vùng biển lõm sâu vào đất liền"],
+      "us": "Dùng trong địa lý, du lịch: 美麗的海灣. Tên riêng: 波斯灣 (vịnh Ba Tư), 臺灣 cũng có chữ 灣.",
+      "co": ["海灣|vịnh biển", "港灣|vũng cảng", "臺灣|Đài Loan (vịnh có đài)"],
+      "sy": ["灣|vịnh, khúc cong"],
+      "cf": ["海港|cảng biển (nơi tàu đậu); 海灣 là hình dạng địa lý"],
+      "mh": "Hải Loan → hǎi wān. ĐỌC: 'hải' giữ gần như nguyên (h + ai, thanh 3 trầm xuống như dấu hỏi). 'Loan' bỏ chữ L, giữ vần -an → wān (thanh 1 ngang). NGHĨA: 灣 = 氵(nước) + 彎 (cong) → chỗ nước cong vào bờ. Nhớ: 臺灣 Táiwān cũng là chữ này → Đài Loan = 'vịnh Đài'.",
+      "tw": "Ở Đài Loan có 淺水灣 (bãi Thiển Thủy Loan, Tân Bắc) và 西子灣 (Tây Tử Loan, Cao Hùng) là chỗ ngắm hoàng hôn nổi tiếng.",
+      "vd": [
+        {"t": "Du lịch", "zh": "我們坐在海灣旁邊看夕陽。", "vn": "Chúng tôi ngồi bên vịnh ngắm hoàng hôn."},
+        {"t": "Cảnh đẹp", "zh": "這個海灣的水很清，可以看到魚。", "vn": "Nước ở vịnh này rất trong, có thể thấy cá."},
+        {"t": "Ở Đài Loan", "zh": "高雄的西子灣是一個有名的海灣。", "vn": "Tây Tử Loan ở Cao Hùng là một vịnh nổi tiếng."}
+      ]
+    },
+    "番石榴": {
+      "vn": "quả ổi",
+      "ng": ["(danh từ) ổi (trái cây)"],
+      "us": "Tên chuẩn trong từ điển. Người Đài nói hằng ngày là 芭樂 bālè. Lượng từ: 一顆番石榴.",
+      "co": ["番石榴汁|nước ép ổi", "一顆番石榴|một quả ổi", "芭樂|ổi (cách nói ở Đài)"],
+      "sy": ["芭樂|ổi (khẩu ngữ Đài Loan)"],
+      "cf": ["石榴|quả lựu (không có 番)"],
+      "mh": "Phiên Thạch Lựu → fān shí liu. ĐỌC: 'phiên' → fān (ph→f, -iên→-an, thanh 1 ngang); 'thạch' → shí (th→sh, dấu nặng → thanh 2 đi lên); 'lựu' → liu (giữ l + iu, đọc nhẹ). NGHĨA: 番 'phiên' = ngoại bang, 石榴 = quả lựu → 'quả lựu của người ngoại' = ổi (cây từ châu Mỹ đưa sang). Giống 番茄 fānqié 'cà ngoại' = cà chua.",
+      "tw": "Ra chợ Đài Loan nói 芭樂 thay vì 番石榴. Người Đài hay ăn ổi chấm 梅子粉 (bột mơ chua ngọt). 芭樂 còn là tiếng lóng: 芭樂歌 = bài hát tình ca dễ nghe, đại trà.",
+      "vd": [
+        {"t": "Mua trái cây", "zh": "老闆，番石榴一斤多少錢？", "vn": "Ông chủ ơi, ổi bao nhiêu một cân?"},
+        {"t": "Sức khỏe", "zh": "番石榴有很多維他命C。", "vn": "Ổi có rất nhiều vitamin C."},
+        {"t": "Ở Đài Loan", "zh": "台灣人常常叫番石榴「芭樂」。", "vn": "Người Đài Loan thường gọi ổi là 'bālè'."}
+      ]
+    },
+    "璀璨": {
+      "vn": "rực rỡ, chói lọi, lấp lánh huy hoàng",
+      "ng": [
+        "(tính từ — văn viết) lấp lánh, sáng rực như châu ngọc, ánh đèn, bầu trời sao (星光璀璨 sao trời lấp lánh)",
+        "(tính từ — nghĩa bóng) rực rỡ, huy hoàng, tươi sáng (璀璨的人生 cuộc đời rực rỡ, 璀璨的文化 nền văn hóa huy hoàng)"
+      ],
+      "us": "Từ văn viết giàu hình ảnh, thường làm định ngữ (璀璨的星空, 璀璨的煙火) hoặc vị ngữ (燈火璀璨). Không dùng cho đồ vật tầm thường.",
+      "co": ["璀璨奪目|rực rỡ chói mắt", "星光璀璨|ánh sao lấp lánh", "璀璨的煙火|pháo hoa rực rỡ", "璀璨的未來|tương lai huy hoàng"],
+      "sy": ["燦爛|xán lạn, rực rỡ (dùng rộng hơn, cả khẩu ngữ lẫn văn viết)", "輝煌|huy hoàng (thiên về thành tựu, kiến trúc)"],
+      "cf": ["燦爛|cànlàn dùng được cả cho nụ cười (燦爛的笑容) và ánh nắng; 璀璨 thiên về ánh sáng lấp lánh như ngọc, sao, pháo hoa và mang sắc thái văn chương cao hơn."],
+      "mh": "Thôi Xán → cuǐ càn. ĐỌC: 'thôi' → cuǐ (th→c bật hơi, thanh 3); 'xán' → càn (x→c bật hơi, dấu sắc → thanh 4). NGHĨA: Cả hai chữ đều có bộ 王 (ngọc) → ánh sáng lấp lánh tỏa ra từ châu ngọc quý = rực rỡ, huy hoàng.",
+      "tw": "Ở Đài Loan rất hay gặp trong tin tức bắn pháo hoa giao thừa 台北101跨年煙火璀璨登場 (pháo hoa giao thừa Taipei 101 rực rỡ ra mắt).",
+      "vd": [
+        {"t": "Đêm giao thừa", "zh": "跨年夜的台北一零一施放了璀璨的煙火，吸引數十萬人觀賞。", "vn": "Đêm giao thừa, tòa nhà Taipei 101 bắn pháo hoa rực rỡ, thu hút hàng trăm nghìn người xem.", "py": "Kuàniányè de Táiběi yī líng yī shīfàng le cuǐcàn de yānhuǒ, xīyǐn shùshíwàn rén guānshǎng."},
+        {"t": "Ngắm sao", "zh": "合歡山的夜晚沒有光害，抬頭就能看見璀璨的星空。", "vn": "Đêm ở núi Hợp Hoan không bị ô nhiễm ánh sáng, ngẩng đầu là thấy ngay bầu trời sao rực rỡ."},
+        {"t": "Chúc phúc", "zh": "祝福所有畢業生都能勇敢追夢，開創屬於自己的璀璨未來。", "vn": "Chúc tất cả các sinh viên tốt nghiệp đều dũng cảm theo đuổi ước mơ, mở ra tương lai huy hoàng của riêng mình."}
+      ]
+    },
+    "影印機": {
+      "vn": "máy photocopy, máy photo",
+      "ng": [
+        "(danh từ) máy photocopy, máy sao chụp tài liệu (khẩu ngữ & văn viết chuẩn ở Đài Loan)"
+      ],
+      "us": "Lượng từ: 一臺影印機 / 一台影印機. Các thao tác thường đi kèm: 影印文件 (photo tài liệu), 影印機卡紙 (máy photo kẹt giấy), 影印機沒碳粉 (máy hết mực bột).",
+      "co": ["影印機卡紙|máy photo bị kẹt giấy", "影印機故障|máy photo bị hỏng", "彩色影印機|máy photo màu", "多功能影印機|máy photo đa năng"],
+      "sy": ["複印機|máy photocopy (cách gọi phổ biến ở Trung Quốc Đại Lục, ở Đài Loan ít nói)"],
+      "cf": ["印表機|máy in (kết nối máy tính để in file); 影印機 là máy photocopy (đặt bản giấy lên chụp nhân bản, dù máy văn phòng hiện đại thường gộp cả hai chức năng)."],
+      "mh": "Ảnh Ấn Cơ → yǐng yìn jī. ĐỌC: 'ảnh' → yǐng (thanh 3); 'ấn' → yìn (thanh 4); 'cơ' → jī (thanh 1). NGHĨA: 影 (hình ảnh) + 印 (in) + 機 (máy móc) → máy chụp in lại hình ảnh văn bản = máy photocopy.",
+      "tw": "Ở Đài Loan hầu như mọi cửa hàng tiện lợi 7-ELEVEN, FamilyMart (全家) đều có 事務機 / 影印機 (như ibon, FamiPort) cho khách tự photo, in tài liệu từ USB hoặc đám mây 24/7.",
+      "vd": [
+        {"t": "Công sở", "zh": "辦公室的影印機又卡紙了，請行政人員聯絡廠商來維修。", "vn": "Máy photocopy trong văn phòng lại kẹt giấy rồi, nhờ bộ phận hành chính liên hệ bên kỹ thuật tới sửa."},
+        {"t": "Cửa hàng tiện lợi", "zh": "家裡沒有印表機沒關係，樓下超商的影印機就能直接列印檔案。", "vn": "Nhà không có máy in cũng không sao, máy photo ở cửa hàng tiện lợi dưới lầu có thể in trực tiếp tập tin."},
+        {"t": "Họp hành", "zh": "開會前請幫忙用影印機把這份簡報多印十份。", "vn": "Trước cuộc họp phiền bạn dùng máy photo in thêm mười bản bài thuyết trình này giúp tôi."}
+      ]
+    },
+    "故障": {
+      "vn": "hỏng hóc, trục trặc, sự cố kỹ thuật",
+      "ng": [
+        "(danh từ) trục trặc, sự cố hỏng hóc của máy móc, phương tiện, hệ thống (系統故障 sự cố hệ thống, 機械故障 trục trặc máy móc)",
+        "(động từ) bị hỏng, gặp trục trặc không hoạt động được (電梯故障了 thang máy bị hỏng rồi)"
+      ],
+      "us": "Dùng chuyên cho máy móc, thiết bị điện tử, xe cộ, hệ thống điện/mạng/tàu điện. Thường đi với 發生故障 (xảy ra sự cố), 排除故障 (khắc phục sự cố).",
+      "co": ["發生故障|xảy ra trục trặc", "排除故障|khắc phục sự cố", "機械故障|trục trặc máy móc", "系統故障|lỗi hệ thống", "電梯故障|thang máy hỏng"],
+      "sy": ["壞掉|hỏng (khẩu ngữ chung, dùng cho mọi đồ vật kể cả thức ăn ôi thiu)", "出毛病|dở chứng, có trục trặc (khẩu ngữ)"],
+      "cf": ["故障 vs 壞掉|故障 trang trọng, chuyên dùng cho máy móc/thiết bị/hệ thống kỹ thuật và thường sửa được; 壞掉 là khẩu ngữ, dùng cho cả thức ăn bị hỏng (菜壞掉了) lẫn đồ đạc bị vỡ."],
+      "mh": "Cố Chướng → gù zhàng. ĐỌC: 'cố' → gù (c→g, thanh 4); 'chướng' → zhàng (ch→zh, thanh 4). NGHĨA: 故 (sự cố) + 障 (trở ngại, chắn đường) → sự cố gây cản trở hoạt động = hỏng hóc, trục trặc.",
+      "tw": "Ở Đài Loan hay thấy biển báo 設備故障，維修中 (Thiết bị hỏng, đang bảo trì) trên thang máy, máy bán vé MRT hoặc máy ATM.",
+      "vd": [
+        {"t": "Giao thông", "zh": "今天早上捷運因為號誌故障，導致全線延誤了十幾分鐘。", "vn": "Sáng nay tàu điện ngầm gặp sự cố tín hiệu, khiến cả tuyến bị trễ hơn mười phút."},
+        {"t": "Chung cư", "zh": "這棟大樓的電梯突然故障，管理員趕緊通知維修公司處理。", "vn": "Thang máy của tòa nhà này đột nhiên bị hỏng, bác bảo vệ vội gọi công ty bảo trì đến xử lý."},
+        {"t": "Lái xe", "zh": "車子開到一半如果發生故障，一定要先打開雙黃燈並移到路肩。", "vn": "Đang lái xe giữa đường nếu xe gặp trục trặc, nhất định phải bật đèn khẩn cấp trước rồi tấp vào lề."}
+      ]
+    },
+    "碳粉匣": {
+      "vn": "hộp mực bột (máy in laser / máy photocopy)",
+      "ng": [
+        "(danh từ) hộp mực bột (toner cartridge) lắp trong máy in laser hoặc máy photocopy"
+      ],
+      "us": "Lượng từ: 一個碳粉匣 / 一支碳粉匣. Thường đi với 更換碳粉匣 (thay hộp mực), 環保碳粉匣 (hộp mực tái chế/thân thiện môi trường), 原廠碳粉匣 (hộp mực chính hãng).",
+      "co": ["更換碳粉匣|thay hộp mực bột", "原廠碳粉匣|hộp mực chính hãng", "副廠碳粉匣|hộp mực ngoài / OEM", "碳粉匣回收|thu gom tái chế hộp mực"],
+      "sy": ["墨水匣|hộp mực nước (dùng cho máy in phun 噴墨印表機)"],
+      "cf": ["碳粉匣 vs 墨水匣|碳粉匣 (tànfěnxiá) là hộp mực BỘT dùng cho máy in laser và máy photocopy; 墨水匣 (mòshuǐxiá) là hộp mực NƯỚC dùng cho máy in phun."],
+      "mh": "Thán Phấn Hạp → tàn fěn xiá. ĐỌC: 'thán' → tàn (thanh 4); 'phấn' → fěn (ph→f, thanh 3); 'hạp' → xiá (thanh 2). NGHĨA: 碳粉 (bột than / mực bột) + 匣 (hộp đựng) → hộp chứa mực bột của máy in/photo.",
+      "tw": "Ở Đài Loan dùng chuẩn 碳粉匣 (còn Trung Quốc Đại Lục gọi là 硒鼓 xīgǔ). Hộp mực cũ có thể mang đi 資源回收 hoặc đổi điểm tại các cửa hàng văn phòng phẩm.",
+      "vd": [
+        {"t": "Văn phòng", "zh": "印出來的文件字跡越來越淡，應該是影印機的碳粉匣快用完了。", "vn": "Tài liệu in ra chữ ngày càng mờ, chắc là hộp mực bột của máy photocopy sắp hết rồi."},
+        {"t": "Mua sắm thiết bị", "zh": "老闆說為了保護機器，公司一律購買原廠的碳粉匣。", "vn": "Sếp bảo để bảo vệ máy, công ty thống nhất mua hộp mực chính hãng."},
+        {"t": "Bảo vệ môi trường", "zh": "換下來的空碳粉匣不要隨便丟棄，可以集中交給廠商回收再利用。", "vn": "Hộp mực rỗng tháo ra đừng vứt bừa bãi, có thể gom lại giao cho nhà cung cấp thu hồi tái chế."}
+      ]
+    },
+    "備案": {
+      "vn": "phương án dự phòng; trình báo lưu hồ sơ (công an/cơ quan)",
+      "ng": [
+        "(danh từ — công sở, đời sống Đài Loan) phương án dự phòng, kế hoạch B phòng khi phương án chính thất bại (準備備案 chuẩn bị phương án B)",
+        "(động từ — hành chính, pháp luật) trình báo ghi nhận lưu hồ sơ tại đồn cảnh sát hoặc cơ quan quản lý (向警方備案 trình báo lưu hồ sơ với cảnh sát)"
+      ],
+      "us": "Rất phổ biến ở Đài Loan với cả hai nghĩa: trong công việc là 'kế hoạch dự phòng' (B計畫), còn khi làm thủ tục/mất đồ/tranh chấp là 'trình báo lưu hồ sơ' (phân biệt với 報案 là báo án chính thức để điều tra).",
+      "co": ["準備備案|chuẩn bị phương án dự phòng", "雨天備案|phương án dự phòng khi trời mưa", "向警方備案|trình báo lưu hồ sơ với cảnh sát", "留個備案|chừa một phương án dự phòng"],
+      "sy": ["替代方案|phương án thay thế", "預備方案|phương án dự bị"],
+      "cf": ["備案 vs 報案|Trong pháp luật Đài Loan: 報案 (bào'àn) là báo án chính thức để cảnh sát lập hồ sơ điều tra (có biên bản 三聯單 / 報案證明單); 備案 (bèi'àn) chỉ là ghi nhận sự việc vào sổ trực để làm bằng chứng phòng sau này cần."],
+      "mh": "Bị Án → bèi àn. ĐỌC: 'bị' → bèi (thanh 4); 'án' → àn (thanh 4). NGHĨA: 備 (chuẩn bị, dự bị) + 案 (phương án, hồ sơ) → phương án chuẩn bị sẵn (dự phòng) hoặc lưu sẵn vào hồ sơ.",
+      "tw": "Cụm 雨天備案 (phương án dự phòng trời mưa) cực kỳ thông dụng ở Đài Loan mỗi khi tổ chức sự kiện ngoài trời, dã ngoại hay đám cưới vì thời tiết Đài Loan hay có mưa bất chợt và bão.",
+      "vd": [
+        {"t": "Tổ chức sự kiện", "zh": "週末的戶外音樂會可能會下雨，主辦單位已經規劃好雨天備案。", "vn": "Buổi hòa nhạc ngoài trời cuối tuần có thể mưa, ban tổ chức đã lên sẵn phương án dự phòng trời mưa."},
+        {"t": "Công việc", "zh": "談判之前我們最好多準備幾個備案，萬一對方拒絕才能馬上應變。", "vn": "Trước khi đàm phán chúng ta nên chuẩn bị thêm vài phương án dự phòng, lỡ đối phương từ chối còn xoay xở kịp."},
+        {"t": "Pháp luật", "zh": "發現個人資料疑似外洩時，可以先到附近的派出所備案留作紀錄。", "vn": "Khi phát hiện thông tin cá nhân nghi bị rò rỉ, có thể đến đồn cảnh sát gần đó trình báo lưu hồ sơ làm căn cứ."}
+      ]
+    },
+    "斟酌": {
+      "vn": "cân nhắc, suy xét kỹ lưỡng, đắn đo",
+      "ng": [
+        "(động từ) cân nhắc, suy xét thận trọng từng chi tiết trước khi quyết định (斟酌情況 cân nhắc tình hình, 仔細斟酌 suy xét kỹ lưỡng)",
+        "(động từ — viết lách, ngôn từ) cân nhắc, gọt giũa câu chữ cho thỏa đáng (斟酌字句 cân nhắc từng câu chữ)"
+      ],
+      "us": "Văn phong trang trọng hơn 考慮, nhấn mạnh sự cân đo đong đếm cẩn thận sao cho vừa vặn, hợp lý. Hay dùng: 請自行斟酌 (xin tự cân nhắc), 斟酌使用 (cân nhắc khi sử dụng).",
+      "co": ["仔細斟酌|cân nhắc kỹ lưỡng", "自行斟酌|tự mình cân nhắc", "斟酌字句|cân nhắc câu chữ", "斟酌情況|cân nhắc tùy tình hình", "多加斟酌|suy xét thêm"],
+      "sy": ["考慮|cân nhắc, suy nghĩ (phổ thông, khẩu ngữ)", "權衡|cân đo thiệt hơn (văn viết)", "衡量|đo lường, đánh giá"],
+      "cf": ["斟酌 vs 考慮|考慮 dùng hằng ngày cho mọi quyết định; 斟酌 nhấn mạnh việc cân đong liều lượng/mức độ/câu chữ thật khéo léo, thường dùng trong công việc, tài chính hoặc văn chương."],
+      "mh": "Châm Chước → zhēn zhuó. ĐỌC: 'châm' → zhēn (ch→zh, thanh 1); 'chước' → zhuó (ch→zh, thanh 2). NGHĨA: Cả hai chữ đều có bộ 酉 (bình rượu) → nghĩa gốc là rót rượu vừa chừng không tràn → nghĩa mở rộng là cân nhắc vừa vặn, châm chước hợp lý.",
+      "tw": "Trên mạng xã hội và tin tức Đài Loan rất hay gặp câu 預算有限的話可以自行斟酌 (nếu ngân sách có hạn thì có thể tự cân nhắc) hoặc 斟酌加點 (cân nhắc gọi thêm món).",
+      "vd": [
+        {"t": "Tài chính", "zh": "投資一定有風險，大家進場前應該根據自己的財務狀況仔細斟酌。", "vn": "Đầu tư luôn có rủi ro, mọi người trước khi tham gia nên căn cứ tình hình tài chính của mình mà cân nhắc kỹ."},
+        {"t": "Viết lách", "zh": "這封回覆重要客戶的電子郵件，每一個字句都需要反覆斟酌。", "vn": "Bức email hồi âm khách hàng quan trọng này, từng câu chữ đều cần cân nhắc đi cân nhắc lại."},
+        {"t": "Sức khỏe", "zh": "天氣變化很大，出門時請自行斟酌增減衣物，免得著涼。", "vn": "Thời tiết thay đổi nhiều, khi ra ngoài xin tự cân nhắc mặc thêm hoặc bớt áo kẻo bị cảm lạnh."}
+      ]
+    },
+    "繁體字": {
+      "vn": "chữ Phồn thể (chữ Hán truyền thống)",
+      "ng": [
+        "(danh từ) chữ Phồn thể, hệ thống chữ Hán truyền thống đầy đủ nét được sử dụng chính thức tại Đài Loan, Hồng Kông và Ma Cao"
+      ],
+      "us": "Trái nghĩa với 簡體字 (chữ Giản thể). Trong văn bản chính thức của chính phủ Đài Loan còn gọi là 正體字 (chữ Chính thể).",
+      "co": ["寫繁體字|viết chữ Phồn thể", "繁體中文|tiếng Trung Phồn thể", "正體字|chữ Chính thể (cách gọi chính thức ở Đài Loan)", "繁簡轉換|chuyển đổi Phồn – Giản"],
+      "sy": ["正體字|chữ Chính thể (tên gọi chính thức do Bộ Giáo dục Đài Loan khuyến nghị)"],
+      "an": ["簡體字|chữ Giản thể"],
+      "mh": "Phồn Thể Tự → fán tǐ zì. ĐỌC: 'phồn' → fán (ph→f, thanh 2); 'thể' → tǐ (th→t bật hơi, thanh 3); 'tự' → zì (thanh 4). NGHĨA: 繁 (nhiều nét, đầy đủ) + 體 (thể chữ) + 字 (chữ) → kiểu chữ Hán giữ nguyên nét truyền thống.",
+      "tw": "Ở Đài Loan người dân gọi giao tiếp là 繁體字 hoặc 繁體中文, còn trong giáo dục và báo chí trang trọng thường gọi là 正體字 để nhấn mạnh tính kế thừa chính thống của chữ Hán.",
+      "vd": [
+        {"t": "Học tiếng Hoa", "zh": "雖然繁體字的筆畫比較多，但字形結構很有邏輯，記起來反而更有意思。", "vn": "Tuy chữ Phồn thể nhiều nét hơn, nhưng cấu trúc chữ rất có logic, học nhớ lại thấy thú vị hơn."},
+        {"t": "Đời sống Đài Loan", "zh": "來到台灣生活後，不管是路標、菜單還是新聞字幕，全都是用繁體字。", "vn": "Sau khi sang Đài Loan sinh sống, bất kể biển báo, thực đơn hay phụ đề tin tức đều dùng chữ Phồn thể."},
+        {"t": "Kỳ thi TOCFL", "zh": "準備華語文能力測驗時，我選擇全程用繁體字版來練習閱讀和聽力。", "vn": "Khi ôn thi năng lực Hoa ngữ TOCFL, tôi chọn luyện đọc và nghe hoàn toàn bằng bản chữ Phồn thể."}
+      ]
+    },
+    "莫名其妙": {
+      "vn": "vô cớ, kỳ cục khó hiểu, chẳng ra làm sao",
+      "ng": [
+        "(thành ngữ — tính từ / trạng ngữ) kỳ lạ khó hiểu, không rõ nguyên do, không sao giải thích nổi (莫名其妙地消失 biến mất một cách khó hiểu)",
+        "(thành ngữ — khẩu ngữ, mang sắc thái bực bội) vô lý, dở hơi, tự dưng vô cớ (真是莫名其妙 thật vô lý hết sức!)"
+      ],
+      "us": "Thành ngữ cực kỳ thông dụng trong khẩu ngữ hằng ngày. Có thể đứng độc lập làm vị ngữ (他今天很莫名其妙), làm trạng ngữ (莫名其妙被罵了一頓 tự dưng bị mắng một trận) hoặc định ngữ (莫名其妙的要求 yêu cầu vô lý).",
+      "co": ["真是莫名其妙|thật kỳ cục / vô lý hết sức", "莫名其妙被罵|tự dưng vô cớ bị mắng", "莫名其妙消失|biến mất một cách khó hiểu", "感到莫名其妙|cảm thấy khó hiểu"],
+      "sy": ["不可思議|không thể tin nổi, kỳ lạ (thiên về ngạc nhiên, không mang nghĩa chê vô lý)", "無緣無故|vô duyên vô cớ (nhấn mạnh không có nguyên nhân)"],
+      "cf": ["莫名其妙 vs 無緣無故|無緣無故 chỉ đơn thuần là 'không có lý do gì cả'; 莫名其妙 ngoài nghĩa 'không rõ lý do' còn hay diễn tả thái độ bực bội, chê bai sự việc hoặc ai đó cư xử quá vô lý."],
+      "mh": "Mạc Danh Kỳ Diệu → mò míng qí miào. ĐỌC: 'mạc' → mò (thanh 4); 'danh' → míng (thanh 2); 'kỳ' → qí (thanh 2); 'diệu' → miào (thanh 4). NGHĨA: 莫 (không ai) + 名 (gọi tên / nói rõ được) + 其妙 (cái sự kỳ lạ đó) → không ai hiểu nổi chuyện gì đang xảy ra.",
+      "tw": "Người Đài Loan nói chuyện hằng ngày cực hay dùng 莫名其妙 để phàn nàn về chuyện vô lý (ví dụ: 電腦剛剛莫名其妙就當機了 máy tính vừa nãy tự dưng đơ luôn).",
+      "vd": [
+        {"t": "Công sở", "zh": "這件事明明不是我負責的，今天卻莫名其妙被主管念了一頓。", "vn": "Việc này rõ ràng không phải tôi phụ trách, hôm nay lại tự dưng bị sếp cằn nhằn một trận.", "py": "Zhè jiàn shì míngmíng bùshì wǒ fùzé de, jīntiān què mòmíngqímiào bèi zhǔguǎn niàn le yī dùn."},
+        {"t": "Công nghệ", "zh": "我的手機剛剛莫名其妙自動關機，重開之後才恢復正常。", "vn": "Điện thoại của tôi vừa nãy tự dưng sập nguồn, khởi động lại mới bình thường trở lại."},
+        {"t": "Giao tiếp", "zh": "他連原因都沒問就直接生氣走人，大家看了都覺得莫名其妙。", "vn": "Anh ta chẳng thèm hỏi nguyên nhân đã nổi giận bỏ đi, mọi người nhìn thấy đều thấy thật khó hiểu."}
+      ]
+    },
+    "絡繹不絕": {
+      "vn": "nườm nượp không ngớt, nối tiếp liên tục không dứt",
+      "ng": [
+        "(thành ngữ) dòng người, xe cộ, khách hàng hoặc tàu thuyền qua lại nườm nượp, nối đuôi nhau liên tục không dứt"
+      ],
+      "us": "Chỉ dùng miêu tả người, xe cộ, khách khứa, thư từ qua lại đông đúc liên tục (人潮絡繹不絕, 車輛絡繹不絕). KHÔNG dùng cho lời nói (nói không ngớt dùng 滔滔不絕).",
+      "co": ["人潮絡繹不絕|dòng người nườm nượp không ngớt", "遊客絡繹不絕|du khách kéo đến nườm nượp", "客人絡繹不絕|khách hàng ra vào tấp nập", "車水馬龍、絡繹不絕|xe cộ tấp nập nối đuôi nhau"],
+      "sy": ["川流不息|chảy mãi không ngừng (nhấn mạnh dòng người/xe chuyển động như nước sông)", "源源不絕|tuôn trào không dứt (thiên về tài nguyên, ý tưởng, nguồn cung)"],
+      "cf": ["絡繹不絕 vs 滔滔不絕|絡繹不絕 tả dòng người, xe cộ, khách khứa đi lại không ngớt; 滔滔不絕 (tāotāobùjué) tả nói chuyện thao thao bất tuyệt."],
+      "mh": "Lạc Dịch Bất Tuyệt → luò yì bù jué. ĐỌC: 'lạc' → luò (thanh 4); 'dịch' → yì (thanh 4); 'bất' → bù (thanh 4); 'tuyệt' → jué (thanh 2). NGHĨA: 絡繹 (nối liền qua lại không đứt đoạn, bộ 糸 sợi tơ) + 不絕 (không dứt) → người xe nối đuôi nhau đi lại nườm nượp.",
+      "tw": "Rất thường xuất hiện trong báo chí Đài Loan tả cảnh chợ đêm, quán ăn nổi tiếng hoặc dịp lễ Tết: 連假期間各大夜市人潮絡繹不絕.",
+      "vd": [
+        {"t": "Ẩm thực", "zh": "這家老字號牛肉麵店味道非常道地，每天還沒開門，排隊的客人就絡繹不絕。", "vn": "Quán mì bò lâu năm này hương vị rất chuẩn, mỗi ngày chưa mở cửa mà khách xếp hàng đã nườm nượp không ngớt."},
+        {"t": "Du lịch", "zh": "每年春天阿里山櫻花盛開時，上山賞花的遊客總是絡繹不絕。", "vn": "Mỗi dịp xuân về khi hoa anh đào ở A Lý Sơn nở rộ, du khách lên núi ngắm hoa lúc nào cũng đông nghịt nối đuôi nhau."},
+        {"t": "Hội chợ", "zh": "台北國際書展週末吸引大批書迷，各個攤位前參觀人潮絡繹不絕。", "vn": "Hội chợ sách quốc tế Đài Bắc dịp cuối tuần thu hút đông đảo độc giả, dòng người tham quan trước các gian hàng nườm nượp không dứt."}
+      ]
+    },
+    "靦腆": {
+      "vn": "bẽn lẽn, e thẹn, ngại ngùng",
+      "ng": [
+        "(tính từ) e thẹn, bẽn lẽn, ngượng ngùng (thường tả nét mặt, nụ cười hoặc tính cách dễ thương, chân thật khi gặp người lạ hay được khen)"
+      ],
+      "us": "Mang sắc thái nhẹ nhàng, dễ mến (khác với 尷尬 là ngượng ngùng khó xử). Thường làm định ngữ (靦腆的笑容 nụ cười bẽn lẽn) hoặc vị ngữ (他個性比較靦腆 tính anh ấy khá rụt rè/ngại ngùng).",
+      "co": ["靦腆的笑容|nụ cười bẽn lẽn", "個性靦腆|tính cách rụt rè, ngại ngùng", "露出一絲靦腆|để lộ chút e thẹn", "害羞靦腆|ngại ngùng e thẹn"],
+      "sy": ["害羞|xấu hổ, mắc cỡ (khẩu ngữ phổ biến nhất)", "內向|hướng nội (nói về tính cách ít nói, không nhất thiết đỏ mặt e thẹn)"],
+      "cf": ["靦腆 vs 害羞 vs 尷尬|害羞 là từ khẩu ngữ chung cho 'mắc cỡ'; 靦腆 thiên về nét bẽn lẽn dễ thương trong biểu cảm/cử chỉ; 尷尬 (gāngà) là bối rối, khó xử trong tình huống ngượng ngập."],
+      "mh": "Điển Thiển → miǎn tiǎn. ĐỌC: 'điển/miến' → miǎn (thanh 3); 'thiển' → tiǎn (th→t bật hơi, thanh 3 → biến điệu thành mián tiǎn). NGHĨA: 靦 có bộ 面 (khuôn mặt) → khuôn mặt ửng đỏ e thẹn, ngại ngùng.",
+      "tw": "Ở Đài Loan hay dùng để khen ai đó có vẻ ngại ngùng đáng yêu, ví dụ: 他笑起來很靦腆 (anh ấy cười trông rất hiền và bẽn lẽn).",
+      "vd": [
+        {"t": "Gặp gỡ", "zh": "小女孩看到陌生人有點靦腆，害羞地躲在媽媽身後。", "vn": "Cô bé thấy người lạ hơi bẽn lẽn, ngại ngùng nấp sau lưng mẹ."},
+        {"t": "Khen ngợi", "zh": "聽到老師在全班面前稱讚自己，他露出了一個靦腆的笑容。", "vn": "Nghe thầy khen mình trước cả lớp, cậu ấy nở một nụ cười bẽn lẽn."},
+        {"t": "Tính cách", "zh": "新來的實習生平常個性很靦腆，但上台簡報時卻表現得落落大方。", "vn": "Bạn thực tập sinh mới bình thường tính khá rụt rè, nhưng khi lên thuyết trình lại thể hiện rất chững chạc tự tin."}
+      ]
+    },
+    "奮鬥": {
+      "vn": "phấn đấu, nỗ lực vươn lên, chiến đấu vì mục tiêu",
+      "ng": [
+        "(động từ) phấn đấu, dốc sức nỗ lực vượt khó để đạt mục tiêu, ước mơ (為夢想奮鬥 phấn đấu vì ước mơ, 努力奮鬥 nỗ lực phấn đấu)",
+        "(danh từ — trong cụm) sự phấn đấu, quá trình nỗ lực (奮鬥的過程 quá trình phấn đấu, 奮鬥目標 mục tiêu phấn đấu)"
+      ],
+      "us": "Dùng nhiều trong học tập, sự nghiệp, khởi nghiệp, thể thao. Thường đi với giới từ 為 (為理想奮鬥), 一起 (一起奮鬥), 繼續 (繼續奮鬥).",
+      "co": ["努力奮鬥|nỗ lực phấn đấu", "為夢想奮鬥|phấn đấu vì ước mơ", "奮鬥目標|mục tiêu phấn đấu", "艱苦奮鬥|phấn đấu gian khổ", "獨自奮鬥|tự mình phấn đấu"],
+      "sy": ["努力|cố gắng, nỗ lực (mức độ nhẹ hơn, dùng hằng ngày)", "打拚|cố gắng làm lụng, bươn chải (khẩu ngữ cực phổ biến ở Đài Loan!)"],
+      "cf": ["奮鬥 vs 努力|努力 là cố gắng trong từng việc cụ thể (努力念書); 奮鬥 mang tầm vóc lâu dài hơn, nhấn mạnh ý chí vượt qua thử thách để đạt lý tưởng, sự nghiệp."],
+      "mh": "Phấn Đấu → fèn dòu. ĐỌC: 'phấn' → fèn (ph→f, thanh 4); 'đấu' → dòu (đ→d, thanh 4). NGHĨA: 奮 (vươn cánh bay lên, hăng hái) + 鬥 (đấu tranh, dốc sức) → hăng hái dốc sức vượt khó = phấn đấu.",
+      "tw": "Trong đời sống hằng ngày ở Đài Loan, ngoài 奮鬥 (trang trọng), người Đài cực thích dùng từ 打拚 (dǎpīn, gốc tiếng Đài 拍拚 phah-piàⁿ) mang nghĩa chăm chỉ bươn chải phấn đấu.",
+      "vd": [
+        {"t": "Sự nghiệp", "zh": "他大學畢業後獨自北上台北奮鬥了十年，終於創辦了自己的設計公司。", "vn": "Sau khi tốt nghiệp đại học, anh ấy một mình lên Đài Bắc phấn đấu suốt mười năm, cuối cùng cũng mở được công ty thiết kế của riêng mình."},
+        {"t": "Động lực", "zh": "只要心裡有明確的奮鬥目標，就算遇到挫折也能重新站起來。", "vn": "Chỉ cần trong lòng có mục tiêu phấn đấu rõ ràng, dù gặp trắc trở cũng có thể đứng dậy làm lại."},
+        {"t": "Đồng hành", "zh": "很感謝一路上陪我一起奮鬥的夥伴，沒有你們就沒有今天的成績。", "vn": "Rất cảm ơn những người đồng hành đã cùng tôi phấn đấu suốt chặng đường, không có mọi người thì không có thành quả hôm nay."}
+      ]
+    }
+  }
+}

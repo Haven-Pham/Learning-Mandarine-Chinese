@@ -2,7 +2,7 @@
 
 Tự tạo khi chạy `tools/build_rich_words.py`. Đừng sửa tay.
 
-Từ lẻ đã soạn (thư mục `tu/`): **4281**
+Từ lẻ đã soạn (thư mục `tu/`): **4292**
 
 ## B1 theo chủ đề
 
@@ -50,4 +50,4 @@ Từ lẻ đã soạn (thư mục `tu/`): **4281**
 
 ## Từ riêng (rieng-*.json)
 
-海灣 番石榴
+備案 奮鬥 影印機 故障 斟酌 海灣 璀璨 番石榴 碳粉匣 絡繹不絕 繁體字 莫名其妙 靦腆
