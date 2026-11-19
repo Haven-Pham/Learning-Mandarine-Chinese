@@ -4790,6 +4790,8 @@ window.checkPractice = function(choice) {
 
 window.selectGrammarSpotlight = function(id) {
   window.ACTIVE_GRAMMAR_ID = id;
+  const h = "#ngu-phap/" + encodeURIComponent(id);
+  if (location.hash !== h) { location.hash = h; return; }
   const el = document.getElementById("grammar-spotlight-container");
   if (el) {
     const item = GRAMMAR_MASTER_LIST.find(g => g.id === id) || GRAMMAR_MASTER_LIST[0];
@@ -5107,7 +5109,7 @@ function grammarStatsHTML() {
   `;
 }
 
-VIEWS["ngu-phap"] = () => {
+VIEWS["ngu-phap"] = (arg) => {
   loadCustomGrammarNotes();
   try {
     const saved = localStorage.getItem("bookmarked_grammar");
@@ -5117,7 +5119,29 @@ VIEWS["ngu-phap"] = () => {
     }
   } catch (e) {}
 
-  const spotlightItem = GRAMMAR_MASTER_LIST.find(g => g.id === window.ACTIVE_GRAMMAR_ID) || GRAMMAR_MASTER_LIST[0];
+  if (arg) {
+    const item = GRAMMAR_MASTER_LIST.find(g => g.id === arg);
+    if (item) {
+      window.ACTIVE_GRAMMAR_ID = item.id;
+      const idx = GRAMMAR_MASTER_LIST.indexOf(item);
+      const prev = GRAMMAR_MASTER_LIST[idx - 1], next = GRAMMAR_MASTER_LIST[idx + 1];
+      setView(`
+        <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-md w-full">
+          <div class="flex items-center justify-between gap-2 flex-wrap">
+            <a href="#ngu-phap" class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-sm font-semibold flex items-center gap-1 no-underline"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Danh sách ngữ pháp</a>
+            <div class="flex items-center gap-2 text-sm">
+              ${prev ? `<a href="#ngu-phap/${encodeURIComponent(prev.id)}" class="px-3 py-1.5 rounded-lg border border-border-subtle hover:bg-surface-container no-underline text-on-surface">← ${esc(prev.name)}</a>` : ""}
+              ${next ? `<a href="#ngu-phap/${encodeURIComponent(next.id)}" class="px-3 py-1.5 rounded-lg border border-border-subtle hover:bg-surface-container no-underline text-on-surface">${esc(next.name)} →</a>` : ""}
+            </div>
+          </div>
+          <article class="bg-paper-card rounded-2xl p-space-lg shadow-xs border border-border-subtle" id="grammar-spotlight-container">
+            ${renderSpotlightContent(item)}
+          </article>
+        </div>
+      `);
+      return;
+    }
+  }
   const curFilter = window.ACTIVE_GRAMMAR_FILTER || "all";
   const countBy = (k) => k === "all" ? GRAMMAR_MASTER_LIST.length : GRAMMAR_MASTER_LIST.filter(g => g.levelGroup === k).length;
   const tabCls = (on) => on
@@ -5163,10 +5187,6 @@ VIEWS["ngu-phap"] = () => {
           <!-- Band-grouped Grammar Directory -->
           <section class="flex flex-col gap-4" id="grammar-cards-grid"></section>
 
-          <!-- Selected Grammar Detail Card -->
-          <article class="bg-paper-card rounded-2xl p-space-lg shadow-xs border border-border-subtle" id="grammar-spotlight-container">
-            ${renderSpotlightContent(spotlightItem)}
-          </article>
         </div>
 
         <!-- Compact Sidebar -->
@@ -6689,6 +6709,9 @@ VIEWS["chinh-ta"] = async () => {
   if (!d.doneMap) d.doneMap = {};
 
   const allTopics = await getDictationTopics();
+  const selId = decodeURIComponent(location.hash).startsWith("#chinh-ta/") ? decodeURIComponent(location.hash).slice("#chinh-ta/".length) : "";
+  if (selId && selId !== d.passageId && allTopics.some(t => t.id === selId)) { d.passageId = selId; d.sentenceIdx = 0; d.checked = false; d._lastPlayedKey = ""; }
+  const inLesson = !!selId;
   const topicBandOf = (t) => {
     const b = String(t.band || "");
     if (b.includes("A1") || b.includes("A2") || b.includes("Band A")) return "A";
@@ -6769,7 +6792,9 @@ VIEWS["chinh-ta"] = async () => {
             Luyện nghe giọng Nam/Nữ Đài Loan xen kẽ theo chủ đề &amp; Band TOCFL. Nhấn <kbd class="px-1.5 py-0.5 rounded bg-surface-container font-code text-xs font-bold text-primary">Shift</kbd> để nghe lại.
           </p>
         </div>
-        <div class="flex items-center gap-1 bg-surface-container p-1 rounded-xl self-start sm:self-auto">
+        <div class="${inLesson ? 'flex' : 'hidden'} items-center gap-2 self-start sm:self-auto flex-wrap">
+        <a href="#chinh-ta" class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-sm font-semibold flex items-center gap-1 no-underline"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Danh sách bài</a>
+        <div class="flex items-center gap-1 bg-surface-container p-1 rounded-xl">
           <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 ${d.viewMode === 'dictation' ? 'bg-paper-card text-primary shadow-xs' : 'text-on-surface-variant hover:text-on-surface'}" id="tab-mode-dictation">
             <span class="material-symbols-outlined text-[16px]">draw</span> Luyện chép
           </button>
@@ -6777,16 +6802,15 @@ VIEWS["chinh-ta"] = async () => {
             <span class="material-symbols-outlined text-[16px]">segment</span> Transcript
           </button>
         </div>
+        </div>
       </section>
 
       <!-- Simplified Band & Topic Selector -->
-      <details ${d.explorerOpen ? 'open' : ''} id="section-topic-explorer" class="bg-paper-card rounded-2xl border border-border-subtle/80 shadow-xs">
+      <details open id="section-topic-explorer" class="${inLesson ? 'hidden' : ''} bg-paper-card rounded-2xl border border-border-subtle/80 shadow-xs">
         <summary class="cursor-pointer select-none px-4 py-3 flex flex-wrap items-center justify-between gap-2">
           <span class="font-headline-md text-sm font-semibold text-on-surface flex items-center gap-2">
             <span class="material-symbols-outlined text-primary text-[18px]">folder_open</span>
-            Chọn bài theo Band &amp; Chủ đề
-            <span class="px-2 py-0.5 rounded-full bg-cinnabar-subtle text-primary font-code text-[11px] font-bold">${esc(topicBandOf(curTopic))}</span>
-            <span class="text-xs text-on-surface-variant font-normal truncate max-w-[240px] sm:max-w-md">${esc(curTopic.title)}</span>
+            Chọn bài để luyện
           </span>
           <span class="text-xs text-outline font-code">${allTopics.length} bài</span>
         </summary>
@@ -6832,7 +6856,7 @@ VIEWS["chinh-ta"] = async () => {
       </details>
 
       <!-- Workspace (8 + 4) -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+      <div class="${inLesson ? 'grid' : 'hidden'} grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
         <div class="lg:col-span-8 flex flex-col gap-space-md">
           <!-- Main Dictation Card -->
           <div class="${d.viewMode === 'dictation' ? 'flex' : 'hidden'} bg-paper-card p-space-lg rounded-2xl shadow-xs border border-border-subtle flex-col gap-space-md" id="dictationCard">
@@ -7049,7 +7073,7 @@ VIEWS["chinh-ta"] = async () => {
 
   // Only auto-play when entering a new sentence/topic (not on filter/explorer toggle)
   const curPlayKey = `${curTopic.id}:${d.sentenceIdx}`;
-  if (d.viewMode === "dictation" && d._lastPlayedKey !== curPlayKey) {
+  if (inLesson && d.viewMode === "dictation" && d._lastPlayedKey !== curPlayKey) {
     d._lastPlayedKey = curPlayKey;
     playCurrentAudio();
   }
@@ -7207,12 +7231,9 @@ VIEWS["chinh-ta"] = async () => {
   });
   document.querySelectorAll("[data-select-topic]").forEach((card) => {
     card.onclick = () => {
+      if (card.dataset.selectTopic !== d.passageId) { d.sentenceIdx = 0; d.checked = false; d._lastPlayedKey = ""; }
       d.passageId = card.dataset.selectTopic;
-      d.sentenceIdx = 0;
-      d.checked = false;
-      d.explorerOpen = false;
-      d._lastPlayedKey = "";
-      VIEWS["chinh-ta"]();
+      location.hash = "#chinh-ta/" + encodeURIComponent(card.dataset.selectTopic);
     };
   });
 
@@ -7234,7 +7255,7 @@ VIEWS["chinh-ta"] = async () => {
   }
 
   window.onkeydown = (e) => {
-    if (location.hash !== "#chinh-ta") return;
+    if (!location.hash.startsWith("#chinh-ta/")) return;
     if (e.key === "Shift" && !e.ctrlKey && !e.altKey && !e.metaKey) {
       playCurrentAudio();
     }
@@ -7289,6 +7310,8 @@ VIEWS["thi-thu"] = async () => {
     fontSizeClass: "text-headline-md",
     sheetSection: "auto"
   }, S.exam || {});
+  exam.subview = location.hash.startsWith("#thi-thu/") ? "review" : "overview";
+  if (exam.subview === "overview" && typeof stopExamAudio === "function") stopExamAudio();
 
   const allTests = await getMockTests();
   if (!allTests.length) {
@@ -7497,22 +7520,19 @@ VIEWS["thi-thu"] = async () => {
           <div class="flex items-center gap-2.5 flex-wrap">
             <h1 class="font-display text-xl md:text-2xl font-bold text-on-surface font-serif">Thi thử TOCFL</h1>
             <span class="px-2.5 py-0.5 rounded-full bg-primary text-on-primary font-code text-xs font-bold">Band B · B1–B2</span>
-            <span class="px-2 py-0.5 rounded-full bg-amber-subtle text-tertiary-container font-code text-xs font-semibold flex items-center gap-1">
+            ${exam.subview === 'review' ? `<span class="px-2 py-0.5 rounded-full bg-amber-subtle text-tertiary-container font-code text-xs font-semibold flex items-center gap-1">
               <span class="material-symbols-outlined text-[14px]">timer</span>
               <span id="examTimerDisplay">${timerStr}</span>
-            </span>
+            </span>` : ""}
           </div>
 
           <div class="flex flex-wrap items-center gap-1.5">
-            <div class="flex items-center gap-1 bg-surface-container p-1 rounded-lg">
-              <button type="button" class="px-2.5 py-1 rounded text-xs font-semibold transition-all cursor-pointer ${exam.subview === 'review' ? 'bg-paper-card text-primary shadow-2xs' : 'text-on-surface-variant hover:text-on-surface'}" id="tabReviewBtn">Làm đề</button>
-              <button type="button" class="px-2.5 py-1 rounded text-xs font-semibold transition-all cursor-pointer ${exam.subview === 'overview' ? 'bg-paper-card text-primary shadow-2xs' : 'text-on-surface-variant hover:text-on-surface'}" id="tabOverviewBtn">Danh sách đề</button>
-            </div>
+            ${exam.subview === 'review' ? `<button type="button" class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-sm font-semibold flex items-center gap-1 cursor-pointer" id="tabOverviewBtn"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Danh sách đề</button>` : ""}
             <button type="button" class="px-2.5 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-medium border border-border-subtle flex items-center gap-1 cursor-pointer" id="btnOpenHistory">
               <span class="material-symbols-outlined text-primary text-[16px]">history_edu</span>
               <span>Lịch sử (${exam.history.length})</span>
             </button>
-            ${exam.isExamMode ? `
+            ${exam.subview !== 'review' ? "" : exam.isExamMode ? `
               <button type="button" class="px-3 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-xs font-bold shadow-xs cursor-pointer" id="btnSubmitExam">Nộp bài</button>
             ` : `
               <button type="button" class="px-3 py-1.5 rounded-lg bg-secondary text-white text-xs font-bold shadow-xs cursor-pointer" id="btnRetakeExam">Làm lại</button>
@@ -7521,7 +7541,7 @@ VIEWS["thi-thu"] = async () => {
         </div>
 
         <!-- Inline Band B -> Đề 1..5 Pills -->
-        <div class="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-border-subtle/60">
+        <div class="${exam.subview === 'review' ? 'flex' : 'hidden'} flex-wrap items-center justify-between gap-2 pt-2 border-t border-border-subtle/60">
           <div class="flex items-center gap-1.5 flex-wrap">
             <span class="text-xs font-semibold text-outline mr-1">Band B:</span>
             ${displayTests.map((t, i) => `
@@ -7844,7 +7864,7 @@ VIEWS["thi-thu"] = async () => {
   if ($("#btnSwitchListening")) {
     $("#btnSwitchListening").onclick = () => {
       stopExamAudio();
-      exam.subview = "review";
+      examGo(true);
       exam.sheetSection = "auto";
       exam.curQuestionIdx = (tState.lastListenIdx >= 0 && tState.lastListenIdx < firstReadIdx) ? tState.lastListenIdx : 0;
       return VIEWS["thi-thu"]();
@@ -7853,7 +7873,7 @@ VIEWS["thi-thu"] = async () => {
   if ($("#btnSwitchReading")) {
     $("#btnSwitchReading").onclick = () => {
       stopExamAudio();
-      exam.subview = "review";
+      examGo(true);
       exam.sheetSection = "auto";
       exam.curQuestionIdx = (tState.lastReadIdx >= firstReadIdx && tState.lastReadIdx < totalQ) ? tState.lastReadIdx : firstReadIdx;
       return VIEWS["thi-thu"]();
@@ -7868,7 +7888,7 @@ VIEWS["thi-thu"] = async () => {
     btn.onclick = () => {
       stopExamAudio();
       exam.testId = btn.dataset.quickTest;
-      exam.subview = "review";
+      examGo(true);
       exam.sheetSection = "auto";
       exam.curQuestionIdx = 0;
       return VIEWS["thi-thu"]();
@@ -7914,8 +7934,8 @@ VIEWS["thi-thu"] = async () => {
     btn.onclick = () => { stopExamAudio(); exam.curQuestionIdx = Number(btn.dataset.jumpQ); exam.sheetSection = "auto"; VIEWS["thi-thu"](); };
   });
 
-  if ($("#tabOverviewBtn")) $("#tabOverviewBtn").onclick = () => { stopExamAudio(); exam.subview = "overview"; VIEWS["thi-thu"](); };
-  if ($("#tabReviewBtn")) $("#tabReviewBtn").onclick = () => { exam.subview = "review"; VIEWS["thi-thu"](); };
+  if ($("#tabOverviewBtn")) $("#tabOverviewBtn").onclick = () => { stopExamAudio(); location.hash = "#thi-thu"; };
+  if ($("#tabReviewBtn")) $("#tabReviewBtn").onclick = () => { examGo(true); VIEWS["thi-thu"](); };
 
   document.querySelectorAll("[data-start-exam]").forEach((btn) => {
     btn.onclick = () => {
@@ -7923,7 +7943,7 @@ VIEWS["thi-thu"] = async () => {
       const tid = btn.dataset.startExam;
       const sec = btn.dataset.startSec || "listening";
       exam.testId = tid;
-      exam.subview = "review";
+      examGo(true);
       exam.sheetSection = "auto";
       exam.isExamMode = true;
       const targetTest = displayTests.find(t => t.id === tid) || curTest;
@@ -7937,7 +7957,7 @@ VIEWS["thi-thu"] = async () => {
     btn.onclick = () => {
       stopExamAudio();
       exam.testId = btn.dataset.reviewExam;
-      exam.subview = "review";
+      examGo(true);
       exam.sheetSection = "auto";
       exam.isExamMode = false;
       exam.curQuestionIdx = 0;
@@ -8020,7 +8040,7 @@ VIEWS["thi-thu"] = async () => {
   }
   if (exam.isExamMode && exam.timerLeft > 0) {
     window._tocflTimerInterval = setInterval(() => {
-      if (location.hash !== "#thi-thu" || !exam.isExamMode) {
+      if (!location.hash.startsWith("#thi-thu/") || !exam.isExamMode) {
         clearInterval(window._tocflTimerInterval);
         return;
       }
@@ -8054,18 +8074,23 @@ VIEWS["thi-thu"] = async () => {
   if ($("#btnSubmitExam")) $("#btnSubmitExam").onclick = promptSubmitModal;
 
   window.onkeydown = (e) => {
-    if (location.hash !== "#thi-thu" || exam.subview !== "review") return;
+    if (!location.hash.startsWith("#thi-thu/")) return;
     if (e.key === "Shift" && !e.ctrlKey && !e.altKey && !e.metaKey) {
       playExamAudio();
     }
   };
 };
 
+function examGo(inExam) {
+  const h = inExam ? "#thi-thu/lam" : "#thi-thu";
+  if (location.hash !== h) history.pushState(null, "", h);
+  if (S.exam) S.exam.subview = inExam ? "review" : "overview";
+}
 window.examQuickStart = (testId, section) => {
   stopExamAudio();
   if (S.exam) {
     S.exam.testId = testId;
-    S.exam.subview = "review";
+    examGo(true);
     S.exam.isExamMode = true;
     S.exam.curQuestionIdx = section === "reading" ? 50 : 0;
   }

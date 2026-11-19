@@ -134,7 +134,7 @@ body {
 .h2 { font-size: 20px; font-weight: 700; position: relative; padding-left: 14px; margin: 0; }
 .h2::before { content: ""; position: absolute; left: 0; top: .2em; bottom: .2em; width: 4px; border-radius: 2px; background: var(--primary); }
 .eyebrow { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-.sub { color: var(--muted); font-size: 14px; }
+.sub { color: var(--muted); font-size: 15.5px; }
 .center { text-align: center; justify-content: center; }
 .panel { background: var(--paper-card); border: 1px solid var(--border-subtle); border-radius: var(--r); padding: 20px; display: grid; gap: 14px; box-shadow: 0 1px 3px rgba(44,42,41,0.03); }
 .note { font-size: 15px; color: var(--muted); background: var(--paper-card); border: 1px dashed var(--border-subtle); border-radius: var(--r); padding: 14px; }
@@ -162,7 +162,7 @@ button.link:hover, a.link:hover { text-decoration: underline; }
 button.speak, .speak { border: 0; background: var(--jade-soft); color: var(--secondary); border-radius: 999px; padding: 6px 14px; font-size: 14.5px; font-weight: 700; vertical-align: middle; cursor: pointer; border: 1px solid rgba(23,107,75,0.2); }
 button.speak:hover, .speak:hover { background: #d7ede1; }
 .actions { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-.msg { font-size: 14px; color: var(--muted); min-height: 20px; }
+.msg { font-size: 15.5px; color: var(--muted); min-height: 20px; }
 .msg.err { color: var(--primary); font-weight: 600; }
 .check { border-radius: 10px; padding: 11px 13px; background: var(--paper-muted); border: 1px solid var(--border-subtle); }
 .check.new { background: var(--jade-soft); border-color: rgba(23,107,75,0.2); }
@@ -788,3 +788,17 @@ html.dark .sb-more .rich-ex, [data-theme="dark"] .sb-more .rich-ex { background:
 :root[data-theme="dark"] .rich-opt { background: #26211f; border-color: var(--border-subtle); color: var(--on-surface); }
 :root[data-theme="dark"] .rich-opt.right { background: #143527; border-color: #4ade80; }
 :root[data-theme="dark"] .rich-opt.wrong { background: #381a17; border-color: #e27d78; }
+
+/* ===== Chữ to hơn, dễ đọc (2026-11-19) =====
+   Dùng "body ..." để thắng cả tw.css lẫn Tailwind CDN mà không cần !important. */
+body .text-\[10px\] { font-size: 12.5px; line-height: 1.35; }
+body .text-\[11px\] { font-size: 13.5px; line-height: 1.4; }
+body .text-\[13px\] { font-size: 14.5px; }
+body .text-xs { font-size: 14px; line-height: 1.45; }
+body .text-sm { font-size: 15.5px; line-height: 1.5; }
+body .text-base { font-size: 17px; }
+body .text-label-sm { font-size: 14.5px; line-height: 20px; }
+body .text-body-sm, body .text-code { font-size: 15.5px; line-height: 24px; }
+body .text-label-md { font-size: 16px; line-height: 24px; }
+body .text-body-md { font-size: 17px; line-height: 28px; }
+body .text-headline-md { font-size: 22px; line-height: 30px; }

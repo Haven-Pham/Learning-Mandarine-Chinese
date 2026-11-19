@@ -122,7 +122,7 @@ tailwind.config = {
 </script>
 <!-- Prebuilt Tailwind (works offline). The CDN above still adds classes that are newer than this build. Rebuild: see tools/build-css.md -->
 <link rel="stylesheet" href="css/tw.css?v=40">
-<link rel="stylesheet" href="style.css?v=47">
+<link rel="stylesheet" href="style.css?v=48">
 <script>
   try {
     var _th = localStorage.getItem("shth-theme") || "light";
@@ -137,24 +137,10 @@ tailwind.config = {
 <header class="fixed top-0 left-0 right-0 z-50 bg-paper-base/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(44,42,41,0.04)] border-b border-border-subtle/50">
   <div class="h-20 max-w-7xl mx-auto px-margin flex items-center justify-between gap-space-md">
     <div class="flex items-center gap-space-lg">
-      <!-- Brand Mark -->
-      <a href="#trang-chu" class="flex items-center gap-space-md group">
-        <div class="w-10 h-10 rounded-lg bg-primary-container flex items-center justify-center shadow-[0_2px_8px_-2px_rgba(168,38,31,0.3)] group-hover:scale-105 transition-transform">
-          <span class="font-headline-md text-headline-md text-on-primary font-semibold">學</span>
-        </div>
-        <div class="flex flex-col">
-          <div class="flex items-center gap-space-xs">
-            <span class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">學習本</span>
-            <span class="font-body-sm text-body-sm text-outline font-medium hidden sm:inline">Sổ học tiếng Hoa</span>
-          </div>
-          <div class="flex items-center gap-space-xs">
-            <span class="inline-flex items-center px-space-xs py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-label-sm font-semibold">TOCFL</span>
-            <span class="text-outline text-[10px]">•</span>
-            <span class="font-label-sm text-label-sm text-on-surface-variant">Phồn thể</span>
-            <span class="text-outline text-[10px]">•</span>
-            <span class="font-label-sm text-label-sm text-secondary font-medium">Giọng Đài Loan</span>
-          </div>
-        </div>
+      <!-- Brand Mark (gọn) -->
+      <a href="#trang-chu" class="flex items-center gap-2 shrink-0 whitespace-nowrap no-underline group" title="Trang chủ">
+        <span class="w-9 h-9 rounded-lg bg-primary-container text-on-primary flex items-center justify-center text-lg font-bold shadow-sm group-hover:scale-105 transition-transform" lang="zh-Hant">學</span>
+        <span class="font-headline-md text-lg font-semibold text-on-surface">Học tiếng Hoa</span>
       </a>
 
       <!-- Desktop 7-Tab Navigation (Exact Stitch Design) -->
