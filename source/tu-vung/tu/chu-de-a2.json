@@ -1,0 +1,518 @@
+{
+  "tu": {
+    "便當": {
+      "vn": "cơm hộp; cơm phần",
+      "ng": [
+        "(danh từ) cơm hộp, cơm phần (suất ăn gồm cơm, một món mặn chính và 3–4 món rau phụ đóng hộp mang đi hoặc ăn tại quán)",
+        "(danh từ — tiếng lóng Đài Loan) tình huống nhân vật trong phim bị cho chết hoặc thí sinh bị loại sớm (領便當 nhận cơm hộp đi về)"
+      ],
+      "us": "Danh từ rất quen thuộc trong đời sống hằng ngày tại Đài Loan. Lượng từ: 一個便當 / 一份便當. Thường đi với 買便當 (mua cơm hộp), 吃便當 (ăn cơm hộp), 帶便當 (mang cơm hộp tự nấu đi làm/đi học), 訂便當 (đặt cơm hộp giao tận nơi).",
+      "co": [
+        "買便當|mua cơm hộp",
+        "帶便當|mang cơm hộp (tự nấu đi học/đi làm)",
+        "雞腿便當|cơm hộp đùi gà",
+        "臺鐵便當|cơm hộp đường sắt Đài Loan"
+      ],
+      "sy": [
+        "盒飯|cơm hộp (cách gọi phổ biến ở Trung Quốc đại lục)",
+        "餐盒|hộp cơm phần (trang trọng hơn, hay dùng trong hội nghị/sự kiện)"
+      ],
+      "lt": "Chú ý đa âm: 便 đọc biàn (thanh 4, nghĩa 'tiện lợi' như 方便, 便當), KHÔNG đọc pián (như trong 便宜 rẻ); 當 đọc dāng (thanh 1). Lượng từ chuẩn là 個 hoặc 份.",
+      "mk": "Người Việt hay đọc nhầm 便當 thành *piándāng hoặc *biàndàng ❌; cách đọc chuẩn Đài Loan là biàndāng (thanh 4 + thanh 1).",
+      "tw": "Văn hóa cơm hộp ở Đài Loan cực kỳ phát triển: từ tiệm cơm tự chọn (自助餐), cơm hộp sườn (排骨便當), cơm hộp đùi gà (雞腿便當) cho đến đặc sản 臺鐵便當 bán trên tàu hỏa và nhà ga. Ngoài ra cụm lóng 領便當 xuất phát từ đoàn làm phim (diễn viên hết vai thì nhận cơm hộp ra về), dùng để chỉ nhân vật phim 'bay màu'.",
+      "mh": "Tiện Đương → biàndāng. ĐỌC: 'tiện' (便) → biàn (thanh 4, phân biệt với 便宜 piányi); 'đương' (當) → dāng (thanh 1). NGHĨA: mượn cách dùng từ tiếng Nhật bentō (gốc Hán cổ 便當 nghĩa là 'tiện lợi, vừa vặn'); 便 (bộ 亻 người + 更: thuận tiện) + 當 (thích hợp) → suất cơm gọn gàng tiện mang theo.",
+      "vd": [
+        {"t": "Bữa trưa", "zh": "中午我打算去巷口買一個雞腿便當回辦公室吃。", "vn": "Buổi trưa tôi định ra đầu hẻm mua một hộp cơm đùi gà mang về văn phòng ăn."},
+        {"t": "Du lịch", "zh": "每次搭火車旅行，我都一定要買一份臺鐵便當來吃。", "vn": "Mỗi lần đi du lịch bằng tàu hỏa, tôi nhất định đều phải mua một suất cơm hộp đường sắt Đài Loan để ăn."},
+        {"t": "Tự nấu", "zh": "為了省錢又吃得健康，她最近每天自己做菜帶便當上班。", "vn": "Để tiết kiệm tiền mà vẫn ăn uống lành mạnh, dạo này ngày nào cô ấy cũng tự nấu đồ ăn mang cơm hộp đi làm."}
+      ]
+    },
+    "火鍋": {
+      "vn": "lẩu; nồi lẩu",
+      "ng": [
+        "(danh từ) món lẩu (món ăn nhúng thịt, hải sản, rau củ vào nồi nước dùng đang sôi ngay trên bàn)",
+        "(danh từ) nồi lẩu (loại nồi chuyên dùng để nấu và giữ nóng món lẩu)"
+      ],
+      "us": "Thường đi với động từ 吃 (吃火鍋 ăn lẩu), 煮 (煮火鍋 nấu lẩu). Lượng từ: 一鍋火鍋 (một nồi lẩu), 一份小火鍋 (một phần lẩu cá nhân). Khi nói 'đi ăn lẩu' dùng 去吃火鍋 hoặc 約吃火鍋 (hẹn đi ăn lẩu).",
+      "co": [
+        "吃火鍋|ăn lẩu",
+        "火鍋店|quán lẩu",
+        "火鍋料|đồ nhúng lẩu (viên thả lẩu, đậu phụ, chả cá...)",
+        "麻辣火鍋|lẩu cay tê"
+      ],
+      "sy": [
+        "涮涮鍋|lẩu nhúng cá nhân (kiểu shabu-shabu rất phổ biến ở Đài Loan)",
+        "小火鍋|lẩu mini một người ăn"
+      ],
+      "lt": "Lượng từ cho món lẩu là 鍋 (一鍋火鍋) hoặc 份 (一份小火鍋). Khi gọi phần nguyên liệu ăn kèm như thịt, rau, viên thả lẩu gọi chung là 火鍋料.",
+      "tw": "Người Đài Loan mê ăn lẩu quanh năm, ngay cả mùa hè cũng thích 吹冷氣吃火鍋 (bật máy lạnh ăn lẩu). Các loại lẩu quen thuộc gồm 個人小火鍋 (lẩu mini giá bình dân), 涮涮鍋 (lẩu nhúng), 麻辣鍋 (lẩu cay tê có huyết vịt và đậu phụ) và 吃到飽火鍋 (lẩu buffet); nước chấm đặc trưng không thể thiếu là 沙茶醬 (sốt sa tế Đài Loan).",
+      "mh": "Hỏa Oa → huǒguō. ĐỌC: 'hỏa' → huǒ (thanh 3); 'oa' (鍋) → guō (âm g + uo, thanh 1). NGHĨA: 火 (lửa) + 鍋 (bộ 金 kim loại + 咼: cái nồi) → chiếc nồi đun sôi liên tục trên lửa để nhúng đồ ăn = món lẩu.",
+      "vd": [
+        {"t": "Mùa đông", "zh": "今天天氣突然變冷，下班後我們一起去吃火鍋吧！", "vn": "Hôm nay trời đột ngột trở lạnh, tan làm chúng ta cùng đi ăn lẩu nhé!"},
+        {"t": "Tại nhà", "zh": "週末朋友要來家裡聚餐，我先去超市買一些肉片和火鍋料。", "vn": "Cuối tuần bạn bè sẽ tới nhà tụ tập ăn uống, tôi đi siêu thị mua trước ít thịt thái lát và đồ nhúng lẩu."},
+        {"t": "Thói quen", "zh": "這家火鍋店的湯頭很香，難怪天天晚上都要排隊。", "vn": "Nước dùng của quán lẩu này rất thơm, thảo nào tối nào cũng phải xếp hàng."}
+      ]
+    },
+    "點菜": {
+      "vn": "gọi món",
+      "ng": [
+        "(động từ ly hợp) gọi món ăn (chọn và đặt các món ăn trên thực đơn tại nhà hàng hoặc quán ăn)"
+      ],
+      "us": "Là động từ ly hợp (點 là động từ, 菜 là tân ngữ): có thể chèn thành phần vào giữa như 點了三道菜 (đã gọi ba món), 點完菜 (gọi món xong), 先點菜 (gọi món trước). KHÔNG đặt tên món ăn trực tiếp sau 點菜.",
+      "co": [
+        "先點菜|gọi món trước",
+        "幫忙點菜|giúp gọi món / phục vụ gọi món",
+        "點菜單|phiếu gọi món",
+        "點完菜|gọi xong món"
+      ],
+      "sy": [
+        "點餐|gọi đồ ăn/thức uống nói chung (nhà hàng Tây, quán cà phê, tiệm ăn nhanh)"
+      ],
+      "cf": [
+        "點餐|gọi đồ ăn, thức uống nói chung (dùng được ở quán cà phê, tiệm ăn nhanh, quán cơm); còn 點菜 thiên về gọi các món ăn theo thực đơn ở nhà hàng, quán ăn món Hoa",
+        "買菜|đi chợ hoặc siêu thị mua thực phẩm tươi sống về nấu"
+      ],
+      "mk": "Người Việt hay ghép tên món trực tiếp sau 點菜 như *我要點菜牛肉麵 ❌; đúng ngữ pháp phải bỏ chữ 菜 và nói 我要點牛肉麵 (tôi muốn gọi mì bò) hoặc 我們先點菜吧 (chúng ta gọi món trước đi).",
+      "tw": "Tại các quán ăn bình dân ở Đài Loan, khách thường tự lấy phiếu 點菜單 (giấy gọi món) đánh dấu rồi mang ra quầy, hoặc quét mã QR trên bàn để 掃碼點餐 (gọi món bằng mã QR).",
+      "mh": "Điểm Thái → diǎncài. ĐỌC: 'điểm' → diǎn (thanh 3); 'thái' → cài (âm c bật hơi mạnh, thanh 4). NGHĨA: 點 (bộ 黑 đen + phần thanh phù 占卜: chấm mực đánh dấu, chỉ chọn từng mục) + 菜 (bộ 艸 cỏ cây + 采: rau, món ăn) → chọn từng món ăn trên thực đơn = gọi món.",
+      "vd": [
+        {"t": "Nhà hàng", "zh": "不好意思，我們準備好點菜了，請問可以幫我們點一下嗎？", "vn": "Xin lỗi, chúng tôi sẵn sàng gọi món rồi, xin hỏi có thể giúp chúng tôi gọi món một chút không?"},
+        {"t": "Tiếp khách", "zh": "你是今天的壽星，菜單給你，想吃什麼盡量點菜！", "vn": "Hôm nay bạn là nhân vật chính sinh nhật, thực đơn đưa bạn này, muốn ăn gì cứ thoải mái gọi món nhé!"},
+        {"t": "Ly hợp", "zh": "我們總共四個人，已經點了五道菜和一鍋湯，應該很夠吃了。", "vn": "Chúng tôi tổng cộng bốn người, đã gọi năm món ăn và một nồi canh rồi, chắc là đủ ăn lắm rồi."}
+      ]
+    },
+    "買單": {
+      "vn": "thanh toán; trả tiền; chấp nhận; gánh hậu quả",
+      "ng": [
+        "(động từ ly hợp) thanh toán, trả tiền hóa đơn ăn uống tại nhà hàng hoặc quán ăn",
+        "(động từ) chấp nhận, đồng tình, chịu bỏ tiền ủng hộ một ý tưởng, lý do hay sản phẩm (rất hay dùng ở dạng phủ định 不買單)",
+        "(động từ) gánh chịu hậu quả, trả giá cho việc gì (為…買單)"
+      ],
+      "us": "Nghĩa gốc dùng khi gọi tính tiền ở quán ăn: 服務生，買單！ hoặc 我來買單 (để tôi trả tiền). Nghĩa bóng (chấp nhận / chịu trách nhiệm) dùng rất nhiều trong báo chí và giao tiếp hằng ngày: 民眾不買單 (người dân không chấp nhận), 為自己的選擇買單 (tự trả giá/chịu trách nhiệm cho lựa chọn của mình).",
+      "co": [
+        "我來買單|để tôi trả tiền",
+        "消費者不買單|người tiêu dùng không chấp nhận / không mặn mà",
+        "為錯誤買單|trả giá cho sai lầm",
+        "請幫我買單|xin giúp tôi tính tiền"
+      ],
+      "sy": [
+        "結帳|thanh toán, tính tiền (dùng rộng rãi nhất ở Đài Loan cho mọi cửa hàng)",
+        "付錢|trả tiền"
+      ],
+      "cf": [
+        "結帳|thanh toán ở mọi nơi (nhà hàng, siêu thị, cửa hàng tiện lợi, mua online) — phổ biến hơn khi đi mua sắm ở Đài Loan; 買單 chủ yếu dùng khi ăn uống ngoài tiệm hoặc dùng với nghĩa bóng 'chấp nhận / gánh hậu quả'"
+      ],
+      "tw": "Ở Đài Loan khi tính tiền ở quán ăn, người dân hay nói 結帳 nhiều hơn 買單 (ví dụ: 老闆，結帳！). Tuy nhiên, 買單 / 不買單 lại xuất hiện cực kỳ dày đặc trên truyền thông và mạng xã hội Đài Loan với nghĩa bóng 'công chúng có tin/đón nhận hay không'.",
+      "mh": "Mãi Đơn → mǎidān. ĐỌC: 'mãi' → mǎi (thanh 3); 'đơn' → dān (thanh 1). NGHĨA: gốc từ tiếng Quảng Đông 埋單 (khép sổ tính tiền), đọc trại thành 買 (bộ 貝 tiền: mua) + 單 (tờ hóa đơn) → trả tiền cho hóa đơn, mở rộng thành 'chịu chi / chấp nhận / gánh hậu quả'.",
+      "vd": [
+        {"t": "Mời bạn", "zh": "這頓飯我來買單，謝謝你這段時間這麼照顧我。", "vn": "Bữa cơm này để tôi trả tiền, cảm ơn bạn thời gian qua đã chăm sóc tôi nhiều như vậy."},
+        {"t": "Nghĩa bóng", "zh": "這家公司漲價卻縮水，難怪大部分消費者都不買單。", "vn": "Công ty này tăng giá mà lại giảm định lượng, thảo nào phần lớn người tiêu dùng đều không chấp nhận."},
+        {"t": "Trách nhiệm", "zh": "每個人都是成年人了，必須為自己的決定買單。", "vn": "Mỗi người đều đã trưởng thành rồi, bắt buộc phải tự chịu trách nhiệm cho quyết định của mình."}
+      ]
+    },
+    "悠遊卡": {
+      "vn": "thẻ EasyCard (thẻ giao thông và thanh toán điện tử Đài Loan)",
+      "ng": [
+        "(danh từ) thẻ EasyCard — loại thẻ thông minh không tiếp xúc phổ biến nhất tại Đài Loan, dùng cho giao thông công cộng và thanh toán nhỏ lẻ"
+      ],
+      "us": "Lượng từ: 一張悠遊卡 (một chiếc thẻ EasyCard). Động từ đi kèm: 刷悠遊卡 / 嗶悠遊卡 (quẹt thẻ), 買悠遊卡 (mua thẻ), 悠遊卡加值 (nạp tiền vào thẻ).",
+      "co": [
+        "刷悠遊卡|quẹt thẻ EasyCard",
+        "悠遊卡加值|nạp tiền vào thẻ EasyCard",
+        "悠遊卡餘額|số dư thẻ EasyCard",
+        "學生悠遊卡|thẻ EasyCard học sinh/sinh viên (giảm giá xe buýt)"
+      ],
+      "sy": [
+        "一卡通|thẻ iPASS (loại thẻ giao thông tương tự, phổ biến từ miền Nam Đài Loan)",
+        "交通卡|thẻ giao thông (gọi chung)"
+      ],
+      "lt": "Lượng từ cho các loại thẻ phẳng luôn là 張 (一張悠遊卡). Ở Đài Loan nạp tiền vào thẻ gọi là 加值 (jiāzhí) hoặc 儲值 (chúzhí), ít nói 充值 như ở Đại lục.",
+      "tw": "Thẻ 悠遊卡 là vật bất ly thân khi sống ở Đài Loan: quẹt đi 捷運 (MRT), 公車 (xe buýt), 臺鐵 (tàu hỏa thường), thuê xe đạp YouBike, mua đồ ở 超商 (7-ELEVEN, 全家), siêu thị và nhiều quán ăn. Khẩu ngữ Đài Loan rất hay nói 嗶一下 (quẹt một cái — mô phỏng tiếng 'bíp' của máy đọc thẻ). Ngoài thẻ chữ nhật truyền thống còn có đủ loại 造型悠遊卡 (thẻ hình móc khóa, nhân vật hoạt hình dễ thương).",
+      "mh": "Du Du Tạp → Yōuyóukǎ. ĐỌC: 'du' (悠) → yōu (thanh 1); 'du' (遊) → yóu (thanh 2); 'tạp' (卡 phiên âm từ 'card') → kǎ (âm k bật hơi, thanh 3). NGHĨA: 悠遊 (thong dong dạo chơi khắp nơi) + 卡 (thẻ) → chiếc thẻ giúp đi lại khắp nơi thật thong dong, tiện lợi.",
+      "vd": [
+        {"t": "Đi lại", "zh": "在臺北搭捷運和公車，只要刷悠遊卡就能輕鬆轉乘。", "vn": "Ở Đài Bắc đi tàu điện ngầm và xe buýt, chỉ cần quẹt thẻ EasyCard là có thể chuyển tuyến dễ dàng."},
+        {"t": "Nạp tiền", "zh": "我的悠遊卡餘額不夠了，先去超商櫃檯加值五百塊吧。", "vn": "Số dư thẻ EasyCard của tôi không đủ rồi, ra quầy cửa hàng tiện lợi nạp thêm 500 tệ trước đi."},
+        {"t": "Mua sắm", "zh": "現在去夜市和飲料店買東西，很多攤位也都可以用悠遊卡付款。", "vn": "Bây giờ đi chợ đêm và tiệm đồ uống mua đồ, rất nhiều gian hàng cũng đều có thể thanh toán bằng thẻ EasyCard."}
+      ]
+    },
+    "高鐵": {
+      "vn": "tàu cao tốc; đường sắt cao tốc",
+      "ng": [
+        "(danh từ) tàu cao tốc, đường sắt tốc độ cao (viết tắt của 高速鐵路)"
+      ],
+      "us": "Đi tàu cao tốc ở Đài Loan dùng động từ 搭 (搭高鐵) là tự nhiên nhất, cũng có thể dùng 坐 (坐高鐵). Lượng từ cho chuyến tàu: 一班高鐵; cho vé: 一張高鐵票.",
+      "co": [
+        "搭高鐵|đi tàu cao tốc",
+        "高鐵站|ga tàu cao tốc",
+        "高鐵票|vé tàu cao tốc",
+        "高鐵自由座|toa ghế tự do trên tàu cao tốc"
+      ],
+      "sy": [
+        "高速鐵路|đường sắt tốc độ cao (tên đầy đủ)"
+      ],
+      "cf": [
+        "臺鐵|tàu hỏa truyền thống chạy quanh đảo Đài Loan, nhiều ga và giá rẻ hơn nhưng chạy chậm hơn 高鐵",
+        "捷運|tàu điện đô thị (MRT) chạy trong nội thành và vùng phụ cận"
+      ],
+      "lt": "Khi đặt vé tàu cao tốc Đài Loan cần biết: 對號座 (ghế có số cố định), 自由座 (toa ghế tự do không cần đặt chỗ trước), 早鳥票 (vé đặt sớm giảm giá).",
+      "tw": "臺灣高鐵 (THSR) chạy dọc bờ Tây từ 南港 (Đài Bắc) đến 左營 (Cao Hùng), tuyến nhanh nhất từ Đài Bắc xuống Cao Hùng chỉ mất khoảng 1 tiếng 30 phút. Bạn có thể mua vé và lấy mã QR ngay trên app điện thoại hoặc mua trực tiếp tại máy tự động ở 超商.",
+      "mh": "Cao Thiết → gāotiě. ĐỌC: 'cao' → gāo (thanh 1); 'thiết' → tiě (âm t bật hơi, thanh 3). NGHĨA: 高 (cao — viết tắt từ 高速 tốc độ cao) + 鐵 (bộ 金 kim loại: sắt — viết tắt từ 鐵路 đường sắt) → đường sắt cao tốc.",
+      "vd": [
+        {"t": "Công tác", "zh": "明天一早我要搭高鐵去高雄開會，晚上就能趕回臺北。", "vn": "Sáng sớm mai tôi phải đi tàu cao tốc xuống Cao Hùng họp, tối là có thể về kịp Đài Bắc."},
+        {"t": "Đặt vé", "zh": "連假期間的高鐵票非常搶手，一定要提早上網預訂。", "vn": "Vé tàu cao tốc dịp nghỉ lễ dài rất dễ cháy vé, nhất định phải lên mạng đặt trước sớm."},
+        {"t": "Nhà ga", "zh": "從我家搭捷運到高鐵站大約需要二十分鐘。", "vn": "Từ nhà tôi đi tàu điện ngầm tới ga tàu cao tốc mất khoảng hai mươi phút."}
+      ]
+    },
+    "兄弟姊妹": {
+      "vn": "anh chị em (ruột)",
+      "ng": [
+        "(danh từ) anh chị em ruột (chỉ chung anh trai, em trai, chị gái, em gái trong cùng gia đình)",
+        "(danh từ — nghĩa mở rộng) anh chị em thân thiết, bạn bè gắn bó như người một nhà"
+      ],
+      "us": "Dùng trực tiếp sau số lượng hoặc lượng từ 個: 幾個兄弟姊妹 (mấy anh chị em), 我們兄弟姊妹四個人 (bốn anh chị em chúng tôi). Thứ tự 4 chữ luôn cố định: 兄 → 弟 → 姊 → 妹.",
+      "co": [
+        "幾個兄弟姊妹|mấy anh chị em",
+        "兄弟姊妹感情很好|tình cảm anh chị em rất tốt",
+        "親兄弟姊妹|anh chị em ruột thịt",
+        "沒有兄弟姊妹|không có anh chị em (con một)"
+      ],
+      "sy": [
+        "手足|anh chị em ruột (văn viết, nghĩa gốc là 'tay chân')",
+        "兄弟姐妹|anh chị em (cách viết thay 姊 bằng 姐)"
+      ],
+      "an": [
+        "獨生子女|con một"
+      ],
+      "lt": "Chữ 姊 chuẩn Bộ Giáo dục Đài Loan đọc là zǐ (thanh 3), nhưng trong khẩu ngữ hằng ngày người Đài Loan cũng rất hay đọc jiě (giống chữ 姐). Cả hai chữ 姊 và 姐 đều là chữ Phồn thể chuẩn.",
+      "mk": "Tiếng Việt nói 'anh chị em' (3 tiếng), nên người Việt hay bỏ sót hoặc đảo thứ tự thành *兄姊弟妹 ❌; tiếng Hoa bắt buộc giữ đúng thứ tự nam trước nữ sau: 兄弟姊妹.",
+      "tw": "Trong văn bản hành chính, sách giáo khoa và báo chí chính thống ở Đài Loan ưu tiên viết 兄弟姊妹 (với chữ 姊). Trên thẻ học sinh hay lời hỏi thăm gia đình mới quen, câu 你有幾個兄弟姊妹？ (Bạn có mấy anh chị em?) rất thông dụng.",
+      "mh": "Huynh Đệ Tỷ Muội → xiōngdì zǐmèi (khẩu ngữ cũng đọc xiōngdì jiěmèi). ĐỌC: 'huynh' → xiōng (thanh 1); 'đệ' → dì (thanh 4); 'tỷ' (姊) chuẩn Đài Loan đọc zǐ (thanh 3), khẩu ngữ hay đọc jiě (thanh 3); 'muội' → mèi (thanh 4). NGHĨA: 兄 (anh trai) + 弟 (em trai) + 姊 (chị gái, bộ 女 nữ) + 妹 (em gái, bộ 女 nữ) → toàn bộ anh chị em trong nhà.",
+      "vd": [
+        {"t": "Làm quen", "zh": "請問你家有幾個兄弟姊妹？你是老大嗎？", "vn": "Xin hỏi nhà bạn có mấy anh chị em? Bạn là con cả à?"},
+        {"t": "Gia đình", "zh": "我們兄弟姊妹五個人雖然住在不同城市，但過年一定會回家團聚。", "vn": "Năm anh chị em chúng tôi tuy sống ở các thành phố khác nhau, nhưng Tết nhất định sẽ về nhà đoàn tụ."},
+        {"t": "Tình cảm", "zh": "從小沒有兄弟姊妹陪伴，所以她把好朋友都當成親人一樣看待。", "vn": "Từ nhỏ không có anh chị em bầu bạn, nên cô ấy đều coi bạn thân như người thân ruột thịt."}
+      ]
+    },
+    "打掃": {
+      "vn": "quét dọn; dọn dẹp vệ sinh",
+      "ng": [
+        "(động từ) quét dọn, lau chùi làm sạch vệ sinh (nhà cửa, phòng ốc, trường lớp, khu vực công cộng)"
+      ],
+      "us": "Có thể mang tân ngữ chỉ không gian/địa điểm ngay phía sau: 打掃房間 (dọn phòng), 打掃家裡 (dọn nhà), 打掃教室 (quét dọn lớp học); hoặc kèm bổ ngữ kết quả: 打掃乾淨 (dọn sạch sẽ). Cũng dùng độc lập: 幫忙打掃 (phụ dọn dẹp).",
+      "co": [
+        "打掃房間|dọn dẹp phòng",
+        "打掃家裡|quét dọn nhà cửa",
+        "打掃乾淨|dọn dẹp sạch sẽ",
+        "打掃時間|giờ trực nhật / giờ vệ sinh (ở trường học)"
+      ],
+      "sy": [
+        "清理|dọn sạch, thanh lý rác/bụi bẩn",
+        "大掃除|tổng vệ sinh (dịp cuối năm)"
+      ],
+      "cf": [
+        "整理|sắp xếp, thu xếp đồ đạc/tài liệu cho gọn gàng (整理桌子, 整理行李); còn 打掃 nhấn mạnh việc quét bụi, lau sàn, làm sạch vệ sinh"
+      ],
+      "mk": "Khi nói 'tổng vệ sinh' tiếng Hoa dùng 大掃除, không ghép chữ 大 trực tiếp thành *大打掃 ❌. Ngoài ra muốn nói 'dọn hành lý' hay 'xếp bàn cho gọn' phải dùng 整理 chứ không dùng 打掃.",
+      "tw": "Ở trường tiểu học và trung học Đài Loan, mỗi ngày học sinh đều có 打掃時間 (giờ vệ sinh trường lớp), chia nhóm quét lớp và khu ngoài trời (外掃區). Dịp giáp Tết Âm lịch, các gia đình đều cùng nhau làm 年終大掃除 (tổng vệ sinh cuối năm).",
+      "mh": "Đả Tảo → dǎsǎo. ĐỌC: 'đả' → dǎ (thanh 3); 'tảo' → sǎo (thanh 3); hai thanh 3 đi liền nhau đọc biến điệu thành dásǎo. NGHĨA: 打 (bộ 手 tay: hành động dùng tay làm) + 掃 (bộ 手 tay + 帚 cái chổi: quét) → cầm chổi quét dọn, làm vệ sinh.",
+      "vd": [
+        {"t": "Cuối tuần", "zh": "每個星期天早上，我都會把房間和陽臺徹底打掃乾淨。", "vn": "Mỗi sáng Chủ nhật, tôi đều quét dọn phòng ngủ và ban công sạch sẽ tinh tươm."},
+        {"t": "Trường học", "zh": "下午三點是學校的打掃時間，同學們分工合作整理環境。", "vn": "Ba giờ chiều là giờ vệ sinh của trường, các bạn học sinh phân công nhau cùng dọn dẹp môi trường."},
+        {"t": "Dịp Tết", "zh": "過年前全家人一起打掃家裡，希望能用乾淨的環境迎接新的一年。", "vn": "Trước Tết cả gia đình cùng nhau quét dọn nhà cửa, hy vọng đón năm mới trong không gian sạch sẽ."}
+      ]
+    },
+    "超商": {
+      "vn": "cửa hàng tiện lợi",
+      "ng": [
+        "(danh từ) cửa hàng tiện lợi mở cửa 24/7 (cách gọi rút gọn đặc trưng của Đài Loan từ 便利商店)"
+      ],
+      "us": "Danh từ dùng cực kỳ phổ biến trong cả khẩu ngữ lẫn báo chí Đài Loan. Lượng từ: 一家超商 / 一間超商. Ghép được nhiều cụm tiện ích đời sống: 超商取貨 (nhận hàng online tại cửa hàng tiện lợi), 超商繳費 (đóng hóa đơn tại cửa hàng tiện lợi).",
+      "co": [
+        "超商取貨|nhận hàng mua online tại cửa hàng tiện lợi",
+        "超商繳費|đóng hóa đơn/tiền phí tại cửa hàng tiện lợi",
+        "超商咖啡|cà phê cửa hàng tiện lợi",
+        "四大超商|bốn chuỗi cửa hàng tiện lợi lớn ở Đài Loan"
+      ],
+      "sy": [
+        "便利商店|cửa hàng tiện lợi (tên đầy đủ ở Đài Loan)",
+        "便利店|cửa hàng tiện lợi (cách gọi ở Đại lục/Hồng Kông)"
+      ],
+      "cf": [
+        "超市|siêu thị (viết tắt của 超級市場, quy mô lớn, bán rau thịt tươi sống và đồ gia dụng như 全聯, 家樂福); còn 超商 là cửa hàng tiện lợi 24h quy mô nhỏ gọn (7-ELEVEN, 全家)"
+      ],
+      "mk": "Người Việt rất dễ nhầm 超商 (cửa hàng tiện lợi) với 超市 (siêu thị) vì cả hai đều có chữ 超. Hãy nhớ: 商 = 便利商店 (tiệm tiện lợi 24/7), 市 = 超級市場 (siêu thị).",
+      "tw": "Đài Loan nổi tiếng có mật độ 超商 dày đặc hàng đầu thế giới với 四大超商 (7-ELEVEN hay gọi thân mật là 小七, 全家 FamilyMart, 萊爾富 Hi-Life, OK超商). Vào 超商 có thể làm đủ mọi việc: mua đồ ăn nóng, cà phê, in tài liệu (ibon/FamiPort), gửi/nhận bưu kiện (店到店), đóng tiền điện nước, mua vé tàu 高鐵 và nạp tiền 悠遊卡.",
+      "mh": "Siêu Thương → chāoshāng. ĐỌC: 'siêu' → chāo (âm ch uốn lưỡi bật hơi, thanh 1); 'thương' → shāng (âm sh uốn lưỡi, thanh 1). NGHĨA: rút gọn đặc trưng Đài Loan từ 超級商店 / 便利商店 (siêu + cửa hàng) → cửa hàng tiện lợi 24/7.",
+      "vd": [
+        {"t": "Mua online", "zh": "我在網路上買的書已經到了，下班順路去樓下超商取貨。", "vn": "Sách tôi đặt mua trên mạng đã tới rồi, tan làm tiện đường ghé cửa hàng tiện lợi dưới nhà lấy hàng."},
+        {"t": "Đóng hóa đơn", "zh": "水電費和手機帳單都可以直接拿去超商繳費，非常方便。", "vn": "Tiền điện nước và hóa đơn điện thoại đều có thể mang thẳng ra cửa hàng tiện lợi đóng, vô cùng tiện lợi."},
+        {"t": "Đời sống", "zh": "臺灣的街道上幾乎走幾步就有一家超商，半夜肚子餓也不怕沒東西吃。", "vn": "Trên đường phố Đài Loan hầu như đi vài bước là có một cửa hàng tiện lợi, nửa đêm đói bụng cũng không sợ không có gì ăn."}
+      ]
+    },
+    "發票": {
+      "vn": "hóa đơn (đặc biệt là hóa đơn thống nhất có xổ số ở Đài Loan)",
+      "ng": [
+        "(danh từ) hóa đơn bán hàng hợp lệ có quản lý thuế (tại Đài Loan gọi đầy đủ là 統一發票 — hóa đơn thống nhất, in dãy 8 chữ số để quay thưởng xổ số)",
+        "(danh từ) hóa đơn điện tử lưu trên mã vạch điện thoại hoặc đám mây (電子發票 / 雲端發票)"
+      ],
+      "us": "Lượng từ: 一張發票 (một tờ hóa đơn). Thường đi với các động từ: 開發票 (xuất hóa đơn), 對發票 (dò số trúng thưởng trên hóa đơn), 捐發票 (quyên góp hóa đơn làm từ thiện), 存載具 (lưu hóa đơn điện tử vào mã vạch).",
+      "co": [
+        "統一發票|hóa đơn thống nhất (hóa đơn kiêm vé số của Đài Loan)",
+        "對發票|dò số trúng thưởng hóa đơn",
+        "發票中獎|hóa đơn trúng thưởng",
+        "雲端發票|hóa đơn điện tử lưu trên đám mây"
+      ],
+      "cf": [
+        "收據|biên lai, phiếu thu (do quán nhỏ miễn xuất hóa đơn thuế, phòng khám hoặc cơ quan cấp, KHÔNG có mã số dò thưởng); còn 發票 là hóa đơn thuế chính thức có dãy số quay thưởng ở Đài Loan"
+      ],
+      "tw": "統一發票 là nét văn hóa cực kỳ độc đáo ở Đài Loan nhằm khuyến khích người dân lấy hóa đơn chống trốn thuế: cứ ngày 25 các tháng lẻ (1, 3, 5, 7, 9, 11) lại mở thưởng cho hóa đơn 2 tháng trước, giải đặc biệt lên tới 10 triệu Đài tệ! Khi tính tiền, thu ngân hay hỏi 發票存載具嗎？ (Lưu hóa đơn vào mã vạch điện thoại không?) hoặc 需要統編嗎？ (Có cần ghi mã số thuế công ty không?).",
+      "mh": "Phát Phiếu → fāpiào. ĐỌC: 'phát' → fā (thanh 1); 'phiếu' → piào (âm p bật hơi, thanh 4). NGHĨA: 發 (phát ra, xuất ra) + 票 (tờ phiếu, chứng từ) → chứng từ thanh toán có giá trị thuế do bên bán xuất ra = hóa đơn.",
+      "vd": [
+        {"t": "Dò thưởng", "zh": "今天是二十五號，我剛對完兩個月的發票，竟然中了兩百塊！", "vn": "Hôm nay là ngày 25, tôi vừa dò xong hóa đơn hai tháng, không ngờ trúng được 200 tệ!"},
+        {"t": "Hóa đơn điện tử", "zh": "現在買東西我都會請店員把發票存進手機載具，既環保又不會弄丟。", "vn": "Bây giờ mua đồ tôi đều nhờ nhân viên lưu hóa đơn vào mã vạch trên điện thoại, vừa bảo vệ môi trường vừa không sợ làm mất."},
+        {"t": "Đổi trả", "zh": "如果要辦理退換貨，記得一定要帶著原本的發票和商品。", "vn": "Nếu muốn làm thủ tục đổi trả hàng, nhớ nhất định phải mang theo hóa đơn gốc và sản phẩm."}
+      ]
+    },
+    "划算": {
+      "vn": "hời; đáng tiền; có lợi; phải chăng",
+      "ng": [
+        "(tính từ) hời, đáng tiền, có lợi (xét tương quan giữa chi phí/công sức bỏ ra với giá trị nhận về)"
+      ],
+      "us": "Thường làm vị ngữ kèm phó từ mức độ: 很划算 (rất hời), 超划算 (siêu hời), 不划算 (không đáng/lỗ), 這樣買比較划算 (mua cách này có lợi hơn).",
+      "co": [
+        "很划算|rất hời, rất đáng tiền",
+        "不划算|không đáng, không có lợi",
+        "買一送一很划算|mua một tặng một rất hời",
+        "算下來很划算|tính ra rất có lợi"
+      ],
+      "sy": [
+        "合算|đáng tiền, có lợi",
+        "值得|đáng giá",
+        "實惠|rẻ mà tốt, thiết thực"
+      ],
+      "an": [
+        "吃虧|thiệt thòi, bị lỗ"
+      ],
+      "cf": [
+        "便宜|chỉ đơn thuần là giá tiền thấp (rẻ); còn 划算 nhấn mạnh sự cân đối giữa giá bỏ ra và chất lượng/số lượng nhận được (món đắt tiền nhưng quá tốt hoặc giảm sâu vẫn có thể nói 很划算)"
+      ],
+      "lt": "Âm tiết đầu trong 划算 và 划船 (chèo thuyền) dùng chữ Phồn thể 6 nét đọc thanh 2 (huá), KHÔNG nhầm với chữ 劃 đọc thanh 4 (huà trong 規劃/計劃). Chú ý đừng đọc nhầm thành *huàsuàn.",
+      "tw": "Trong khẩu ngữ trẻ trung ở Đài Loan, khi muốn khen thứ gì 'ngon-bổ-rẻ, quá hời' ngoài 很划算 người ta còn hay dùng cụm CP值很高 (chỉ số chất lượng/giá rất cao).",
+      "mh": "Hoa Toán → huásuàn. ĐỌC: 'hoa' (chữ đầu của 划算) → huá (thanh 2, không đọc huà); 'toán' (算) → suàn (thanh 4). NGHĨA: chữ đầu mang bộ 刂 (dao: phân chia, cân nhắc) + 算 (bộ 竹 thẻ tre: đếm, tính) → tính toán cân đối lại thấy có lợi = hời, đáng tiền.",
+      "vd": [
+        {"t": "Khuyến mãi", "zh": "這家店的咖啡今天買一送一，兩個人合買非常划算。", "vn": "Cà phê quán này hôm nay mua một tặng một, hai người mua chung vô cùng hời."},
+        {"t": "Giao thông", "zh": "每天都要搭捷運和公車上班，買通勤月票比單次刷卡划算多了。", "vn": "Ngày nào cũng phải đi tàu điện ngầm và xe buýt đi làm, mua vé tháng đi lại hời hơn quẹt từng lượt nhiều."},
+        {"t": "So sánh", "zh": "只買一個單點要兩百塊，加三十塊升級套餐還有飲料和湯，感覺比較划算。", "vn": "Chỉ gọi lẻ một món đã 200 tệ, thêm 30 tệ nâng cấp lên suất combo có cả đồ uống và canh, cảm thấy đáng tiền hơn."}
+      ]
+    },
+    "多少錢": {
+      "vn": "bao nhiêu tiền",
+      "ng": [
+        "(cụm từ nghi vấn) bao nhiêu tiền (dùng để hỏi giá cả hàng hóa, chi phí dịch vụ hoặc số tiền cụ thể)"
+      ],
+      "us": "Đặt ở vị trí vị ngữ hoặc tân ngữ để hỏi giá: 這個多少錢？ (Cái này bao nhiêu tiền?), 一共多少錢？ (Tổng cộng bao nhiêu tiền?), 你花了多少錢？ (Bạn đã tiêu bao nhiêu tiền?). Không cần thêm từ 是 ở trước.",
+      "co": [
+        "一共多少錢|tổng cộng bao nhiêu tiền",
+        "這樣多少錢|như vậy hết bao nhiêu tiền",
+        "要多少錢|cần bao nhiêu tiền",
+        "花多少錢|tốn bao nhiêu tiền"
+      ],
+      "sy": [
+        "怎麼賣|bán thế nào / giá bao nhiêu (rất hay dùng ở chợ truyền thống, chợ đêm)"
+      ],
+      "lt": "Ở Đài Loan chữ 少 trong 多少 thường đọc rõ thanh 3 (duōshǎo qián), cũng có thể đọc nhẹ thành duōshao qián.",
+      "mk": "Đừng chen lượng từ vào giữa 多少 và 錢 (*多少個錢 ❌), và tránh dịch từng chữ 'cái này là bao nhiêu tiền' thành *這個是多少錢？ (nói 這個多少錢？ mới tự nhiên).",
+      "tw": "Khi đi mua đồ ở Đài Loan, câu hỏi lịch sự chuẩn nhất là 請問這個多少錢？ hoặc gom đồ đặt lên quầy hỏi 老闆，請問這樣多少錢？. Khi mua trái cây, đồ ăn ở chợ đêm (夜市) hay chợ truyền thống, người Đài cũng hay hỏi 老闆，這個怎麼賣？ (Ông chủ ơi, cái này bán sao ạ?).",
+      "mh": "Đa Thiểu Tiền → duōshǎo qián. ĐỌC: 'đa' → duō (thanh 1); 'thiểu' → shǎo (thanh 3, khẩu ngữ có thể nhẹ thành shao); 'tiền' → qián (âm q bật hơi, thanh 2). NGHĨA: 多 (nhiều) + 少 (ít) ghép lại thành từ hỏi số lượng 'bao nhiêu' + 錢 (bộ 金 kim loại: tiền bạc) → bao nhiêu tiền.",
+      "vd": [
+        {"t": "Mua đồ uống", "zh": "不好意思，請問這杯大杯珍珠奶茶多少錢？", "vn": "Xin lỗi, cho hỏi ly trà sữa trân châu cỡ lớn này bao nhiêu tiền ạ?"},
+        {"t": "Tính tiền", "zh": "老闆，我要一份牛肉麵和一盤小菜，請問一共多少錢？", "vn": "Ông chủ ơi, tôi lấy một phần mì bò và một đĩa đồ ăn kèm, xin hỏi tổng cộng bao nhiêu tiền?"},
+        {"t": "Hỏi chi phí", "zh": "從臺北搭高鐵到臺南，單程票大概要花多少錢？", "vn": "Đi tàu cao tốc từ Đài Bắc xuống Đài Nam, vé một chiều tốn khoảng bao nhiêu tiền?"}
+      ]
+    },
+    "收據": {
+      "vn": "biên lai; phiếu thu",
+      "ng": [
+        "(danh từ) biên lai, phiếu thu (giấy chứng nhận bên bán hoặc cơ quan đã nhận đủ tiền hàng, tiền phí, viện phí hay tiền quyên góp)"
+      ],
+      "us": "Lượng từ: 一張收據 (một tờ biên lai). Động từ thường đi kèm: 開收據 (viết/xuất biên lai), 拿收據 (lấy biên lai), 留收據 / 保留收據 (giữ lại biên lai để đối chiếu hoặc thanh toán công tác phí).",
+      "co": [
+        "開收據|viết/xuất biên lai",
+        "醫療收據|biên lai viện phí/khám bệnh",
+        "捐款收據|biên lai quyên góp",
+        "免用統一發票收據|biên lai của cơ sở miễn xuất hóa đơn thuế"
+      ],
+      "sy": [
+        "憑證|chứng từ thanh toán"
+      ],
+      "cf": [
+        "發票|hóa đơn thuế chính thức (統一發票 ở Đài Loan có mã số dò xổ số); còn 收據 là biên lai thu tiền của quán nhỏ miễn thuế, phòng khám, trường học hoặc hội từ thiện, KHÔNG dò số trúng thưởng được"
+      ],
+      "tw": "Nhiều quán ăn gia đình nhỏ ở Đài Loan dán biển 免用統一發票 (miễn xuất hóa đơn thống nhất). Nếu bạn đi ăn tiếp khách cần chứng từ về công ty hoàn ứng (報帳), hãy nói với chủ quán: 可以幫我開收據嗎？. Ngoài ra, 醫療收據 (biên lai khám bệnh) và 捐款收據 (biên lai từ thiện) ở Đài Loan rất quan trọng vì dùng để làm hồ sơ bảo hiểm hoặc khấu trừ thuế thu nhập hằng năm (報稅).",
+      "mh": "Thu Cứ → shōujù. ĐỌC: 'thu' → shōu (âm sh uốn lưỡi, thanh 1); 'cứ' → jù (âm j + ü viết u, thanh 4). NGHĨA: 收 (thu nhận tiền bạc) + 據 (bộ 手 tay: căn cứ, bằng chứng) → giấy làm bằng chứng đã thu tiền = biên lai, phiếu thu.",
+      "vd": [
+        {"t": "Công tác phí", "zh": "這家小吃店免開發票，所以我請老闆幫我開一張收據回公司報帳。", "vn": "Quán ăn nhỏ này miễn xuất hóa đơn thuế, nên tôi nhờ chủ quán viết cho một tờ biên lai mang về công ty quyết toán."},
+        {"t": "Khám bệnh", "zh": "看完醫生後記得保留醫療收據，之後申請保險理賠會用到。", "vn": "Sau khi khám bác sĩ xong nhớ giữ lại biên lai viện phí, sau này làm hồ sơ bồi thường bảo hiểm sẽ dùng tới."},
+        {"t": "Từ thiện", "zh": "這筆捐款的收據可以先收好，明年五月報稅時可以抵稅。", "vn": "Biên lai của khoản quyên góp này có thể cất kỹ trước, tháng 5 năm sau lúc kê khai thuế có thể dùng để khấu trừ thuế."}
+      ]
+    },
+    "溫度": {
+      "vn": "nhiệt độ; sự ấm áp (nghĩa bóng)",
+      "ng": [
+        "(danh từ) nhiệt độ (mức độ nóng hay lạnh của không khí, nước, phòng ốc, vật thể, thiết bị hay cơ thể)",
+        "(danh từ — nghĩa bóng) sự ấm áp, tình người, cảm xúc chân thành (rất hay dùng trong văn phong Đài Loan: 有溫度的故事 / 有溫度的服務)"
+      ],
+      "us": "Thường đi với 高/低 (cao/thấp), 上升/下降 (tăng lên/giảm xuống), 調高/調低 (chỉnh tăng/giảm nhiệt độ máy lạnh, lò nướng). Nghĩa bóng dùng với cấu trúc 很有溫度 (rất ấm áp, giàu tình người).",
+      "co": [
+        "冷氣溫度|nhiệt độ máy lạnh",
+        "室內溫度|nhiệt độ trong phòng (gọi tắt 室溫)",
+        "溫度下降|nhiệt độ giảm xuống",
+        "很有溫度|rất ấm áp, đậm tình người (nghĩa bóng)"
+      ],
+      "sy": [
+        "氣溫|nhiệt độ không khí/thời tiết ngoài trời",
+        "體溫|thân nhiệt (nhiệt độ cơ thể)"
+      ],
+      "cf": [
+        "氣溫|chuyên dùng cho nhiệt độ khí hậu ngoài trời trong dự báo thời tiết (今日氣溫); 溫度 dùng rộng hơn cho mọi đối tượng (nước, máy lạnh, lò nướng, phòng và cả nghĩa bóng)",
+        "體溫|chuyên chỉ nhiệt độ cơ thể người (量體溫 đo thân nhiệt)"
+      ],
+      "tw": "Đài Loan dùng đơn vị độ C (攝氏, nói tắt là 度). Trong văn hóa và truyền thông Đài Loan, cụm từ 有溫度 (có hơi ấm, giàu tình cảm chân thành — khen một quán nhỏ, lá thư viết tay, dịch vụ hay bộ phim) được sử dụng cực kỳ phổ biến.",
+      "mh": "Ôn Độ → wēndù. ĐỌC: 'ôn' → wēn (thanh 1); 'độ' → dù (thanh 4). NGHĨA: 溫 (bộ 氵 nước: độ ấm của nước) + 度 (đơn vị đo lường, mức độ) → mức độ nóng lạnh = nhiệt độ.",
+      "vd": [
+        {"t": "Máy lạnh", "zh": "辦公室的冷氣溫度設得太低了，我們調高到二十六度好不好？", "vn": "Nhiệt độ máy lạnh văn phòng để thấp quá rồi, chúng ta chỉnh lên 26 độ được không?"},
+        {"t": "Pha trà", "zh": "泡高山烏龍茶時，熱水的溫度會直接影響茶的香氣。", "vn": "Khi pha trà Ô long núi cao, nhiệt độ của nước nóng sẽ ảnh hưởng trực tiếp tới hương thơm của trà."},
+        {"t": "Nghĩa bóng", "zh": "這家老書店老闆非常親切，整間店讓人覺得很有溫度。", "vn": "Ông chủ tiệm sách cũ này vô cùng thân thiện, cả cửa tiệm khiến người ta cảm thấy rất ấm áp tình người."}
+      ]
+    },
+    "雨傘": {
+      "vn": "cái ô; cây dù (che mưa)",
+      "ng": [
+        "(danh từ) cái ô, cây dù che mưa (nhiều loại ở Đài Loan thiết kế hai công dụng che mưa lẫn chống nắng 晴雨兩用傘)"
+      ],
+      "us": "Lượng từ chuẩn là 把 (vật có tay cầm): 一把雨傘. Các động từ đi kèm: 帶雨傘 (mang theo ô), 撐雨傘 / 撐傘 (che ô, bung ô đi), 打開雨傘 (mở ô), 收傘 (gấp ô lại).",
+      "co": [
+        "帶雨傘|mang theo ô/dù",
+        "撐雨傘|che ô, bung ô",
+        "摺疊雨傘|ô gấp gọn (gọi tắt 摺疊傘)",
+        "忘記帶雨傘|quên mang ô"
+      ],
+      "sy": [
+        "傘|ô, dù (gọi tắt)",
+        "陽傘|ô che nắng"
+      ],
+      "lt": "Lượng từ của 雨傘 là 把 (一把雨傘). Động từ 'che ô' ở Đài Loan nói 撐雨傘 / 撐傘 (chēng sǎn), còn nói 打傘 phổ biến hơn ở miền Bắc Trung Quốc.",
+      "mk": "Người Việt hay dịch 'cầm ô đi dưới mưa' thành *拿雨傘 (chỉ là cầm trên tay chứ chưa bung ra che); muốn diễn tả đang bung ô che mưa phải dùng 撐雨傘 hoặc 撐傘.",
+      "tw": "Miền Bắc Đài Loan (đặc biệt là Cơ Long 基隆 và Đài Bắc 臺北) mưa rất nhiều, nên để sẵn một chiếc 摺疊傘 trong túi là thói quen hằng ngày. Ngoài cửa siêu thị, 超商 luôn đặt 傘架 (giá để ô) và máy bọc túi ô (傘套). Lưu ý kiêng kỵ văn hóa Đài Loan: tránh tặng ô (送傘) cho bạn bè/người yêu vì 傘 (sǎn) gần âm với 散 (sàn — tan rã, chia ly).",
+      "mh": "Vũ Tản → yǔsǎn. ĐỌC: 'vũ' → yǔ (âm ü, thanh 3); 'tản' → sǎn (thanh 3); hai thanh 3 đi liền đọc biến điệu thành yúsǎn. NGHĨA: 雨 (hình hạt mưa rơi dưới mái trời) + 傘 (chữ tượng hình chiếc ô có tán, nan và cán cầm ở giữa) → vật cầm tay che mưa = cái ô, cây dù.",
+      "vd": [
+        {"t": "Thời tiết", "zh": "氣象預報說下午可能會下雷陣雨，出門前記得帶雨傘。", "vn": "Dự báo thời tiết nói chiều nay có thể có mưa rào kèm sấm chớp, trước khi ra ngoài nhớ mang theo ô."},
+        {"t": "Đi mưa", "zh": "外面雨下得很大，我們一起撐這把雨傘走到捷運站吧。", "vn": "Ngoài trời mưa to lắm, chúng ta che chung cây dù này đi bộ ra ga tàu điện ngầm nhé."},
+        {"t": "Đãng trí", "zh": "我又把雨傘忘在超商門口的傘架上了，真健忘！", "vn": "Tôi lại bỏ quên cây dù ở giá để ô trước cửa tiệm tiện lợi rồi, thật là hay quên quá đi!"}
+      ]
+    },
+    "四季": {
+      "vn": "bốn mùa (xuân, hạ, thu, đông)",
+      "ng": [
+        "(danh từ) bốn mùa trong năm gồm xuân, hạ, thu, đông (春、夏、秋、冬)",
+        "(phó từ — trong cụm cố định) quanh năm suốt bốn mùa (一年四季, 四季如春)"
+      ],
+      "us": "Thường đi trong các cụm miêu tả khí hậu và thời gian: 四季分明 (bốn mùa rõ rệt), 四季如春 (bốn mùa mát mẻ như xuân), 一年四季 (quanh năm bốn mùa).",
+      "co": [
+        "一年四季|quanh năm bốn mùa",
+        "四季分明|bốn mùa phân chia rõ rệt",
+        "四季如春|quanh năm mát mẻ như mùa xuân",
+        "四季春|trà Ô long Tứ Quý Xuân (đặc sản trà Đài Loan)"
+      ],
+      "sy": [
+        "春夏秋冬|xuân hạ thu đông"
+      ],
+      "cf": [
+        "季節|mùa nói chung hoặc một mùa cụ thể nào đó (雨季 mùa mưa, 換季 giao mùa); còn 四季 luôn chỉ trọn bộ 4 mùa trong năm"
+      ],
+      "tw": "Ở các tiệm trà lắc (手搖飲店) khắp Đài Loan có món trà cực nổi tiếng tên là 四季春 (trà Tứ Quý Xuân — giống trà Ô long thu hoạch được cả 4 mùa, hương thơm dịu mát), khách thường gọi tắt là 四季 hoặc 四季青.",
+      "mh": "Tứ Quý → sìjì. ĐỌC: 'tứ' → sì (thanh 4); 'quý' → jì (thanh 4). NGHĨA: 四 (số bốn) + 季 (bộ 禾 lúa + 子 con non: thời vụ canh tác trong năm = mùa) → bốn mùa xuân hạ thu đông.",
+      "vd": [
+        {"t": "Khí hậu", "zh": "臺灣的氣候比較溫暖，一年四季都買得到新鮮的水果。", "vn": "Khí hậu Đài Loan tương đối ấm áp, quanh năm bốn mùa đều mua được trái cây tươi."},
+        {"t": "Du lịch", "zh": "日本四季分明，春天可以賞櫻，秋天則能看滿山楓葉。", "vn": "Nhật Bản bốn mùa rõ rệt, mùa xuân có thể ngắm hoa anh đào, còn mùa thu thì ngắm lá phong ngập núi."},
+        {"t": "Trà Đài Loan", "zh": "我去手搖飲店最常點一杯無糖去冰的四季春青茶。", "vn": "Tôi ra tiệm trà lắc thường gọi nhất là một ly trà xanh Tứ Quý Xuân không đường không đá."}
+      ]
+    },
+    "健保卡": {
+      "vn": "thẻ bảo hiểm y tế (thẻ BHYT toàn dân Đài Loan)",
+      "ng": [
+        "(danh từ) thẻ bảo hiểm y tế toàn dân tại Đài Loan (viết tắt của 全民健康保險卡, dùng khi khám chữa bệnh và làm giấy tờ tùy thân phụ)"
+      ],
+      "us": "Lượng từ: 一張健保卡. Động từ đi kèm: 帶健保卡 (mang theo thẻ BHYT), 刷健保卡 (đưa thẻ đọc chip tại quầy khám/nhà thuốc), 補辦健保卡 (làm lại thẻ BHYT khi bị mất hoặc hỏng).",
+      "co": [
+        "帶健保卡|mang theo thẻ BHYT",
+        "刷健保卡|quẹt/đọc thẻ BHYT",
+        "補辦健保卡|cấp lại thẻ BHYT",
+        "健保卡掛號|đăng ký khám bệnh bằng thẻ BHYT"
+      ],
+      "sy": [
+        "全民健保卡|thẻ bảo hiểm y tế toàn dân (tên đầy đủ)"
+      ],
+      "lt": "Khi đọc 健保卡 chú ý hai thanh 3 liên tiếp 保卡 (bǎokǎ) biến điệu thành báokǎ → jiànbáokǎ.",
+      "tw": "Hệ thống 全民健保 (NHI) là niềm tự hào của Đài Loan; du học sinh và người lao động nước ngoài có 居留證 (thẻ cư trú) đủ điều kiện đều được cấp 健保卡 để khám chữa bệnh với chi phí rất thấp (thường chỉ đóng phí đăng ký 掛號費 khoảng 150–250 Đài tệ ở phòng khám). Ngoài đi khám bệnh, 健保卡 còn rất hay được dùng làm 第二證件 (giấy tờ tùy thân thứ hai) khi mở tài khoản ngân hàng, làm sim điện thoại hay thủ tục hành chính.",
+      "mh": "Kiện Bảo Tạp → jiànbǎokǎ. ĐỌC: 'kiện' → jiàn (thanh 4); 'bảo' → bǎo (thanh 3); 'tạp' (卡) → kǎ (thanh 3); hai thanh 3 cuối đọc biến điệu thành jiànbáokǎ. NGHĨA: 健 (健康 sức khỏe) + 保 (保險 bảo hiểm) + 卡 (thẻ) → thẻ bảo hiểm y tế.",
+      "vd": [
+        {"t": "Khám bệnh", "zh": "去診所看病時一定要記得帶健保卡，不然就得先自費押金。", "vn": "Khi đi phòng khám khám bệnh nhất định phải nhớ mang thẻ BHYT, nếu không sẽ phải tạm ứng tự trả phí trước."},
+        {"t": "Thủ tục", "zh": "到銀行開戶除了要帶居留證，通常還需要提供健保卡作為第二證件。", "vn": "Ra ngân hàng mở tài khoản ngoài mang thẻ cư trú, thường còn cần xuất trình thẻ BHYT làm giấy tờ tùy thân thứ hai."},
+        {"t": "Mất thẻ", "zh": "我的健保卡不小心弄丟了，明天得去郵局或健保署申請補辦。", "vn": "Thẻ BHYT của tôi lỡ làm mất rồi, ngày mai phải ra bưu điện hoặc Sở BHYT làm thủ tục cấp lại."}
+      ]
+    },
+    "吃藥": {
+      "vn": "uống thuốc",
+      "ng": [
+        "(động từ ly hợp) uống thuốc (dùng các loại thuốc chữa bệnh qua đường miệng như thuốc viên, thuốc bột, siro)"
+      ],
+      "us": "Động từ ly hợp: có thể chèn trợ từ động thái, số lần hoặc tên loại thuốc vào giữa: 吃了藥 (đã uống thuốc), 吃三次藥 (uống thuốc 3 lần), 吃感冒藥 (uống thuốc cảm), 吃止痛藥 (uống thuốc giảm đau). Thường đi với 按時吃藥 (uống thuốc đúng giờ), 飯後吃藥 (uống thuốc sau ăn).",
+      "co": [
+        "按時吃藥|uống thuốc đúng giờ",
+        "飯後吃藥|uống thuốc sau bữa ăn",
+        "吃感冒藥|uống thuốc cảm",
+        "配溫開水吃藥|uống thuốc cùng nước ấm"
+      ],
+      "sy": [
+        "服藥|dùng thuốc (trang trọng, văn viết trên bao bì và hướng dẫn y tế)"
+      ],
+      "lt": "Trong tiếng Hoa, mọi hành động uống thuốc Tây nói chung (thuốc viên, viên nang, thuốc bột, thậm chí siro) đều dùng động từ 吃 (吃藥), không dùng 喝.",
+      "mk": "Lỗi siêu kinh điển của người Việt: dịch sát từ 'uống thuốc' thành *喝藥 ❌! Hãy nhớ luôn nói 吃藥 (chỉ riêng thuốc Đông y sắc dạng bát nước mới đôi khi nói 喝中藥).",
+      "tw": "Trên túi thuốc (藥袋) tại phòng khám và bệnh viện Đài Loan luôn in rõ giờ uống: 三餐飯後 (sau ba bữa ăn), 睡前 (trước khi ngủ), 必要時服用 (dùng khi cần). Bác sĩ và dược sĩ Đài Loan luôn dặn bệnh nhân 記得按時吃藥，多喝溫開水 (nhớ uống thuốc đúng giờ và uống nhiều nước ấm).",
+      "mh": "Cật Dược → chīyào. ĐỌC: 'cật' → chī (âm ch uốn lưỡi bật hơi, thanh 1); 'dược' → yào (thanh 4). NGHĨA: 吃 (bộ 口 miệng: đưa vào miệng nuốt) + 藥 (bộ 艸 thảo mộc + 樂: thuốc thang) → uống thuốc chữa bệnh.",
+      "vd": [
+        {"t": "Lời dặn bác sĩ", "zh": "醫生說這個感冒要按時吃藥、多休息，大概三天就會好轉。", "vn": "Bác sĩ nói đợt cảm này cần uống thuốc đúng giờ và nghỉ ngơi nhiều, khoảng ba ngày sẽ đỡ hơn."},
+        {"t": "Dùng thuốc", "zh": "吃藥的時候最好配溫開水，不要配茶或咖啡，以免影響藥效。", "vn": "Lúc uống thuốc tốt nhất nên uống với nước ấm, đừng uống cùng trà hay cà phê kẻo ảnh hưởng tác dụng thuốc."},
+        {"t": "Ly hợp", "zh": "他剛吃了止痛藥就去睡午覺了，現在頭痛舒服多了。", "vn": "Anh ấy vừa uống thuốc giảm đau xong là đi ngủ trưa luôn, giờ đầu đã đỡ đau hơn nhiều rồi."}
+      ]
+    },
+    "藥局": {
+      "vn": "nhà thuốc; hiệu thuốc; tiệm thuốc Tây",
+      "ng": [
+        "(danh từ) nhà thuốc, tiệm thuốc Tây (nơi bán thuốc không kê đơn, sản phẩm chăm sóc sức khỏe và cấp phát thuốc theo đơn bác sĩ)"
+      ],
+      "us": "Lượng từ: 一家藥局 / 一間藥局. Thường đi với 去藥局買藥 (ra nhà thuốc mua thuốc), 藥局領藥 (lấy thuốc theo đơn tại nhà thuốc), 健保特約藥局 (nhà thuốc liên kết BHYT).",
+      "co": [
+        "健保特約藥局|nhà thuốc liên kết BHYT (ở Đài Loan)",
+        "藥局領藥|lấy thuốc theo đơn tại nhà thuốc",
+        "連鎖藥局|chuỗi nhà thuốc",
+        "去藥局買藥|ra nhà thuốc mua thuốc"
+      ],
+      "sy": [
+        "藥房|hiệu thuốc (cách gọi cũ hơn hoặc dùng cho tiệm thuốc Đông y 中藥房)"
+      ],
+      "cf": [
+        "藥妝店|cửa hàng dược mỹ phẩm (như 屈臣氏 Watsons, 康是美 Cosmed — bán mỹ phẩm, đồ cá nhân và một số thuốc thông thường không kê đơn); còn 藥局 có dược sĩ chuyên môn trực tiếp tư vấn và nhận đơn thuốc 處方箋 của bác sĩ",
+        "診所|phòng khám có bác sĩ trực tiếp thăm khám bệnh"
+      ],
+      "tw": "Đài Loan áp dụng chế độ 醫藥分業 (tách biệt khám bệnh và phát thuốc): sau khi khám ở nhiều phòng khám (診所), bạn cầm đơn thuốc (處方箋) sang 健保特約藥局 gần đó để dược sĩ (藥師) cấp phát thuốc miễn phí hoặc chỉ trả phần phụ thu nhỏ. Một số chuỗi nhà thuốc lớn quen thuộc tại Đài Loan như 大樹藥局, 丁丁藥局, 佑全保健藥妝.",
+      "mh": "Dược Cục → yàojú. ĐỌC: 'dược' → yào (thanh 4); 'cục' → jú (âm j + ü viết u, thanh 2). NGHĨA: 藥 (bộ 艸 thảo mộc: thuốc chữa bệnh) + 局 (cơ sở, cửa hiệu chuyên trách) → nơi bán và cấp phát thuốc = nhà thuốc.",
+      "vd": [
+        {"t": "Lấy thuốc", "zh": "診所開完處方箋後，直接拿到隔壁的健保特約藥局領藥就可以了。", "vn": "Sau khi phòng khám kê đơn thuốc xong, cầm thẳng sang nhà thuốc liên kết BHYT kế bên lấy thuốc là được."},
+        {"t": "Hỏi dược sĩ", "zh": "我只是輕微喉嚨痛，打算先去附近藥局問問藥師要買哪種藥。", "vn": "Tôi chỉ hơi đau họng nhẹ thôi, định ra nhà thuốc gần đây hỏi dược sĩ xem nên mua loại thuốc nào trước."},
+        {"t": "Sơ cứu", "zh": "家裡的OK繃和退燒藥都用完了，待會兒順路去藥局補貨。", "vn": "Băng cá nhân và thuốc hạ sốt trong nhà đều dùng hết rồi, lát nữa tiện đường ghé nhà thuốc mua bổ sung."}
+      ]
+    }
+  }
+}

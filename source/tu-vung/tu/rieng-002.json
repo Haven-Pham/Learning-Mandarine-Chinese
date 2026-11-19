@@ -1,0 +1,420 @@
+{
+  "tu": {
+    "退貨": {
+      "vn": "trả hàng, hoàn trả hàng đã mua",
+      "ng": [
+        "(động từ ly hợp) trả lại hàng hóa cho cửa hàng hoặc người bán để lấy lại tiền (申請退貨 yêu cầu trả hàng, 辦理退貨 làm thủ tục trả hàng)",
+        "(danh từ — trong cụm) việc hoàn trả hàng (退貨政策 chính sách trả hàng, 退貨率 tỷ lệ hoàn hàng)"
+      ],
+      "us": "Động từ ly hợp: có thể tách khi thêm bổ ngữ (退過貨 đã từng trả hàng, 退了兩件貨 trả lại hai món hàng). Khi mua sắm thường đi cặp 退換貨 (đổi trả hàng).",
+      "co": ["辦理退貨|làm thủ tục trả hàng", "申請退貨|gửi yêu cầu trả hàng", "退換貨|đổi trả hàng", "七天鑑賞期退貨|trả hàng trong 7 ngày dùng thử (mua online ở Đài Loan)", "無條件退貨|trả hàng không điều kiện"],
+      "sy": ["退換|đổi trả"],
+      "cf": ["退貨 vs 換貨|退貨 (tuìhuò) là trả lại hàng để hoàn tiền (退款 tuìkuǎn); 換貨 (huànhuò) là đổi sang món khác (đổi size, đổi màu hoặc đổi hàng mới không lỗi)."],
+      "mh": "Thoái Hóa → tuì huò. ĐỌC: 'thoái' → tuì (th→t bật hơi, thanh 4); 'hóa' → huò (h + uo, thanh 4). NGHĨA: 退 (lùi lại, trả lại) + 貨 (hàng hóa) → trả lại hàng hóa cho người bán.",
+      "tw": "Ở Đài Loan, mua hàng online được luật bảo vệ người tiêu dùng (消保法) cho phép 7 ngày 鑑賞期 để trả hàng miễn phí, nhưng mua trực tiếp tại cửa hàng vật lý thường cần giữ nguyên hóa đơn 統一發票 và tem mác, tùy chính sách từng tiệm.",
+      "vd": [
+        {"t": "Mua sắm online", "zh": "這件外套寄來時拉鍊就壞了，我已經在網路上申請退貨。", "vn": "Chiếc áo khoác này lúc giao tới đã hỏng khóa kéo, tôi đã gửi yêu cầu trả hàng trên mạng rồi."},
+        {"t": "Cửa hàng", "zh": "結帳後請保留發票和收據，如果七天內要辦理退貨會需要用到。", "vn": "Sau khi thanh toán xin giữ lại hóa đơn và biên lai, nếu trong bảy ngày cần trả hàng sẽ phải dùng tới."},
+        {"t": "Kinh doanh", "zh": "商品頁面把尺寸標示清楚，可以大幅降低網購的退貨率。", "vn": "Ghi rõ kích cỡ trên trang sản phẩm có thể giúp giảm đáng kể tỷ lệ hoàn hàng khi bán online."}
+      ]
+    },
+    "購物": {
+      "vn": "mua sắm",
+      "ng": [
+        "(động từ) đi mua sắm, mua đồ đạc/hàng hóa (網路購物 mua sắm trực tuyến, 逛街購物 dạo phố mua sắm)",
+        "(danh từ — làm định ngữ) việc mua sắm (購物中心 trung tâm thương mại, 購物車 giỏ hàng, 購物袋 túi đựng đồ)"
+      ],
+      "us": "Trang trọng và gọn hơn 買東西, dùng rất nhiều để ghép thành danh từ ghép: 購物車 (giỏ hàng siêu thị / giỏ hàng online), 購物中心 (mall), 購物袋 (túi mua hàng), 網購 (mua sắm online).",
+      "co": ["購物中心|trung tâm mua sắm (mall)", "購物車|giỏ hàng, xe đẩy hàng", "購物袋|túi đựng đồ đi chợ/siêu thị", "網路購物|mua sắm trực tuyến (gọi tắt 網購)", "理性購物|mua sắm có lý trí"],
+      "sy": ["買東西|mua đồ (khẩu ngữ đời thường nhất)", "採購|thu mua, mua sắm số lượng lớn", "血拚|càn quét mua sắm, shopping thả ga (từ lóng Đài Loan mượn từ 'shopping')"],
+      "cf": ["購物 vs 購買|購物 là 'mua sắm' nói chung (KHÔNG mang tân ngữ trực tiếp: không nói *購物手機 ❌); 購買 là 'mua' một món cụ thể (có tân ngữ trực tiếp: 購買手機, 購買機票)."],
+      "mh": "Cấu Vật → gòu wù. ĐỌC: 'cấu' → gòu (c→g, thanh 4); 'vật' → wù (v→w, thanh 4). NGHĨA: 購 có bộ 貝 (vỏ sò — tiền tệ cổ) nghĩa là mua + 物 (đồ vật) → mua đồ đạc = mua sắm.",
+      "tw": "Ở Đài Loan đi siêu thị/tiện lợi nhớ tự mang 環保購物袋 (túi vải tái sử dụng) vì túi nilon phải mua riêng 1–2 Đài tệ theo quy định bảo vệ môi trường.",
+      "vd": [
+        {"t": "Cuối tuần", "zh": "週末百貨公司正在舉辦週年慶，很多民眾趁機去購物。", "vn": "Cuối tuần trung tâm bách hóa đang tổ chức lễ kỷ niệm giảm giá, rất nhiều người tranh thủ đi mua sắm."},
+        {"t": "Mua online", "zh": "我先把想買的生活用品放進購物車，等免運活動時再一起結帳。", "vn": "Tôi bỏ trước đồ dùng sinh hoạt muốn mua vào giỏ hàng, đợi đợt miễn phí vận chuyển rồi thanh toán luôn."},
+        {"t": "Bảo vệ môi trường", "zh": "去超市買菜時我習慣自己帶購物袋，既環保又省錢。", "vn": "Khi đi siêu thị mua thức ăn tôi quen tự mang túi đựng đồ, vừa bảo vệ môi trường vừa tiết kiệm tiền."}
+      ]
+    },
+    "紀念品": {
+      "vn": "quà lưu niệm, đồ kỷ niệm",
+      "ng": [
+        "(danh từ) quà lưu niệm, vật phẩm mua khi đi du lịch hoặc tham dự sự kiện để giữ làm kỷ niệm hay tặng bạn bè"
+      ],
+      "us": "Lượng từ: 一件紀念品 / 一個紀念品 / 一份紀念品. Thường đi với 買紀念品 (mua quà lưu niệm), 紀念品店 (cửa hàng lưu niệm), 送紀念品 (tặng quà kỷ niệm).",
+      "co": ["買紀念品|mua quà lưu niệm", "紀念品店|tiệm bán đồ lưu niệm", "旅遊紀念品|quà lưu niệm du lịch", "當地特色紀念品|đồ lưu niệm đặc trưng địa phương"],
+      "sy": ["伴手禮|quà biếu đặc sản mang về tặng (cực phổ biến ở Đài Loan, nhất là đồ ăn như bánh dứa 鳳梨酥)"],
+      "cf": ["紀念品 vs 伴手禮|紀念品 (jìniànpǐn) là đồ lưu niệm mang tính trưng bày/lưu giữ (móc khóa, bưu thiếp, nam châm tủ lạnh); 伴手禮 (bànshǒulǐ) là quà đặc sản (thường là đồ ăn, trà) mua về biếu người thân, đồng nghiệp."],
+      "mh": "Kỷ Niệm Phẩm → jì niàn pǐn. ĐỌC: 'kỷ' → jì (thanh 4); 'niệm' → niàn (thanh 4); 'phẩm' → pǐn (ph→p bật hơi, thanh 3). NGHĨA: 紀念 (ghi nhớ, tưởng niệm) + 品 (vật phẩm) → món đồ để lưu giữ kỷ niệm.",
+      "tw": "Du lịch Đài Loan ở các điểm như 故宮博物院 (Bảo tàng Cố Cung), 九份 (Cửu Phần), 十分 (Thập Phần) có rất nhiều tiệm 紀念品 bán móc khóa đèn trời 天燈 hay bưu thiếp gỗ.",
+      "vd": [
+        {"t": "Du lịch", "zh": "每次出國旅遊，我都會在當地買幾個磁鐵當作紀念品。", "vn": "Mỗi lần đi du lịch nước ngoài, tôi đều mua vài chiếc nam châm ở đó làm quà lưu niệm."},
+        {"t": "Bảo tàng", "zh": "參觀完故宮博物院後，我們在出口處的紀念品店逛了好久。", "vn": "Sau khi tham quan xong Bảo tàng Cố Cung, chúng tôi dạo rất lâu ở cửa hàng lưu niệm ngay lối ra."},
+        {"t": "Sự kiện", "zh": "參加這場路跑活動的選手，完賽後都能領到一份精美的紀念品。", "vn": "Các vận động viên tham gia giải chạy này sau khi hoàn thành đều được nhận một phần quà kỷ niệm tinh xảo."}
+      ]
+    },
+    "收銀員": {
+      "vn": "nhân viên thu ngân",
+      "ng": [
+        "(danh từ) nhân viên thu ngân đứng quầy tính tiền tại siêu thị, cửa hàng, nhà hàng hoặc trung tâm thương mại"
+      ],
+      "us": "Lượng từ: 一位收銀員 / 一名收銀員. Nghề nghiệp/chức danh tại khu vực tính tiền (收銀檯).",
+      "co": ["超市收銀員|nhân viên thu ngân siêu thị", "收銀員結帳|thu ngân tính tiền", "收銀檯|quầy thu ngân"],
+      "sy": ["店員|nhân viên cửa hàng (ở Đài Loan gọi chung nhân viên quầy tính tiền là 店員 hoặc 櫃檯人員 rất nhiều)"],
+      "cf": ["收銀員 vs 會計|收銀員 (shōuyínyuán) chỉ phụ trách quét mã, thu tiền, xuất hóa đơn tại quầy bán lẻ; 會計 (kuàijì) là kế toán quản lý sổ sách tài chính của doanh nghiệp."],
+      "mh": "Thu Ngân Viên → shōu yín yuán. ĐỌC: 'thu' → shōu (th→sh, thanh 1); 'ngân' → yín (ng→y, thanh 2); 'viên' → yuán (thanh 2). NGHĨA: 收 (thu nhận) + 銀 (bạc, tiền bạc) + 員 (nhân viên) → nhân viên thu tiền.",
+      "tw": "Ở siêu thị Đài Loan (全聯, 家樂福) hay nghe câu 支援收銀 (hỗ trợ quầy thu ngân) phát trên loa mỗi khi hàng đợi tính tiền quá đông!",
+      "vd": [
+        {"t": "Siêu thị", "zh": "結帳的時候，收銀員親切地問我有沒有會員卡和載具。", "vn": "Lúc tính tiền, nhân viên thu ngân niềm nở hỏi tôi có thẻ thành viên và mã lưu hóa đơn điện tử không."},
+        {"t": "Giờ cao điểm", "zh": "下班尖峰時段排隊的人太多了，收銀員忙得連喝水的時間都沒有。", "vn": "Giờ cao điểm tan tầm người xếp hàng đông quá, nhân viên thu ngân bận đến mức không có cả thời gian uống nước."},
+        {"t": "Tìm việc", "zh": "這家大賣場正在徵求週末兼職的收銀員，時薪比基本工資還高。", "vn": "Đại siêu thị này đang tuyển thu ngân bán thời gian cuối tuần, lương theo giờ còn cao hơn mức lương cơ bản."}
+      ]
+    },
+    "收銀": {
+      "vn": "thu ngân, thu tiền tại quầy",
+      "ng": [
+        "(động từ) thu tiền, tính tiền tại quầy bán hàng (支援收銀 hỗ trợ quầy thu ngân)",
+        "(danh từ — làm định ngữ) bộ phận/thiết bị thu ngân (收銀檯 quầy thu ngân, 收銀機 máy tính tiền POS)"
+      ],
+      "us": "Thường dùng nhất trong các cụm ghép: 收銀檯 (quầy thu ngân), 收銀機 (máy tính tiền), 收銀員 (nhân viên thu ngân), và khẩu lệnh nổi tiếng ở siêu thị Đài Loan 請支援收銀 (xin hỗ trợ thu ngân).",
+      "co": ["收銀檯|quầy thu ngân", "收銀機|máy tính tiền", "支援收銀|hỗ trợ quầy thu ngân", "自助收銀|tự thanh toán (self-checkout)"],
+      "sy": ["結帳|tính tiền, thanh toán (dùng cho cả khách hàng và nhân viên)"],
+      "cf": ["收銀 vs 結帳|收銀 là góc nhìn của cửa hàng/nhân viên (thu tiền, đứng quầy tính tiền); 結帳 dùng cho cả khách lẫn tiệm (我要結帳 tôi muốn tính tiền)."],
+      "mh": "Thu Ngân → shōu yín. ĐỌC: 'thu' → shōu (th→sh, thanh 1); 'ngân' → yín (thanh 2). NGHĨA: 收 (thu vào) + 銀 (bạc/tiền) → thu tiền tại quầy.",
+      "tw": "Câu thông báo 請支援收銀 (Mời nhân viên ra hỗ trợ quầy thu ngân) ở hệ thống siêu thị 全聯 (PX Mart) nổi tiếng khắp Đài Loan đến mức trở thành câu đùa văn hóa đại chúng.",
+      "vd": [
+        {"t": "Siêu thị", "zh": "賣場廣播一響起「請支援收銀」，另一位店員立刻跑過來開新櫃檯。", "vn": "Loa siêu thị vừa vang lên 'xin hỗ trợ thu ngân', một nhân viên khác lập tức chạy tới mở thêm quầy mới."},
+        {"t": "Cửa hàng", "zh": "請把選好的商品拿到前方的收銀檯結帳，可以使用行動支付。", "vn": "Xin mang sản phẩm đã chọn đến quầy thu ngân phía trước để thanh toán, có thể dùng thanh toán di động."},
+        {"t": "Kinh doanh", "zh": "這家新開的咖啡店採用平板電腦當作收銀機，操作起來非常方便。", "vn": "Quán cà phê mới mở này dùng máy tính bảng làm máy thu ngân, thao tác vô cùng tiện lợi."}
+      ]
+    },
+    "不逾": {
+      "vn": "không quá, không vượt quá (mức/hạn định)",
+      "ng": [
+        "(động từ — văn viết, hành chính, pháp luật) không vượt quá một giới hạn, số lượng hoặc thời hạn nhất định (不逾三日 không quá 3 ngày, 罰鍰不逾新台幣五萬元 phạt tiền không quá 50.000 Đài tệ)"
+      ],
+      "us": "Từ văn ngôn/văn viết rất trang trọng, thường gặp trong hợp đồng, quy định thi cử, điều lệ công ty, văn bản luật pháp hoặc thông báo chính thức ở Đài Loan (tương đương 不超過 trong khẩu ngữ).",
+      "co": ["不逾期限|không quá thời hạn", "不逾三日|không quá ba ngày", "不逾矩|không vượt quá khuôn phép (trích Luận Ngữ: 從心所欲，不逾矩)", "以不逾…為原則|lấy nguyên tắc không vượt quá..."],
+      "sy": ["不超過|không vượt quá (dùng phổ biến trong cả khẩu ngữ lẫn văn viết hiện đại)", "不得超過|không được phép vượt quá (văn bản quy định)"],
+      "cf": ["不逾 vs 不超過|不逾 (bù yú) là dạng súc tích trang trọng trong văn bản pháp lý, hợp đồng, thông báo chính thức; giao tiếp hằng ngày luôn nói 不超過."],
+      "mh": "Bất Du → bù yú. ĐỌC: 'bất' → bù (thanh 4); 'du' → yú (thanh 2). NGHĨA: 不 (không) + 逾 (vượt qua — bộ 辶 bước đi + 俞) → không vượt quá giới hạn/mốc thời gian.",
+      "tw": "Rất hay xuất hiện trong điều khoản hợp đồng thuê nhà, quy định học bổng và công văn chính phủ Đài Loan (ví dụ: 申請期限不逾月底 hạn nộp hồ sơ không quá cuối tháng).",
+      "vd": [
+        {"t": "Quy định", "zh": "合約明文規定，乙方應於收到通知後不逾七日內完成付款。", "vn": "Hợp đồng quy định rõ ràng, bên B phải hoàn tất thanh toán trong vòng không quá bảy ngày sau khi nhận thông báo."},
+        {"t": "Hành chính", "zh": "本次補助計畫每案申請金額以不逾新台幣十萬元為原則。", "vn": "Chương trình trợ cấp lần này quy định mức xin hỗ trợ cho mỗi hồ sơ theo nguyên tắc không vượt quá một trăm nghìn Đài tệ."},
+        {"t": "Văn hóa", "zh": "孔子說「七十而從心所欲，不逾矩」，形容修養達到圓融自在的境界。", "vn": "Khổng Tử nói 'bảy mươi tuổi làm theo ý lòng mà không vượt quá khuôn phép', ví cảnh giới tu dưỡng viên mãn tự tại."}
+      ]
+    },
+    "枕套": {
+      "vn": "vỏ gối, áo gối",
+      "ng": [
+        "(danh từ) vỏ bọc bên ngoài chiếc gối, có thể tháo ra giặt giũ (tên đầy đủ là 枕頭套)"
+      ],
+      "us": "Lượng từ: 一個枕套 / 一組枕套 (một cặp/bộ vỏ gối). Trong sinh hoạt hằng ngày người Đài hay nói 枕頭套 (zhěntóutào) hoặc 枕套 (zhěntào), đi cùng 床包 (ga bọc nệm) và 被套 (vỏ chăn).",
+      "co": ["換枕套|thay vỏ gối", "洗枕套|giặt vỏ gối", "純棉枕套|vỏ gối cotton 100%", "枕頭套|vỏ gối (cách nói đầy đủ, rất thông dụng ở Đài Loan)"],
+      "sy": ["枕頭套|vỏ gối (khẩu ngữ phổ biến hơn 枕套 ở Đài Loan)"],
+      "cf": ["枕套 vs 枕頭|枕頭 (zhěntou) là cả chiếc gối (gồm ruột gối 枕芯); 枕套 là lớp vỏ bọc vải bên ngoài tháo ra giặt được."],
+      "mh": "Chẩm Sáo → zhěn tào. ĐỌC: 'chẩm' → zhěn (ch→zh, thanh 3); 'sáo' → tào (thanh 4). NGHĨA: 枕 (cái gối, bộ 木 gỗ) + 套 (cái vỏ bọc, bao bọc bên ngoài) → vỏ bọc gối = vỏ gối.",
+      "tw": "Khi mua bộ chăn ga ở Đài Loan (IKEA, 宜得利 Nitori, Shopee), bộ 4 món tiêu chuẩn gọi là 床包四件組 gồm: 1 ga bọc 床包, 1 vỏ chăn 被套 và 2 vỏ gối 枕套.",
+      "vd": [
+        {"t": "Vệ sinh nhà cửa", "zh": "為了避免臉上長痘痘，皮膚科醫生建議每個禮拜都要換洗枕套。", "vn": "Để tránh nổi mụn trên mặt, bác sĩ da liễu khuyên mỗi tuần đều nên thay và giặt vỏ gối."},
+        {"t": "Mua sắm", "zh": "這組天絲材質的床單和枕套摸起來非常滑順透氣，夏天睡起來很涼爽。", "vn": "Bộ ga giường và vỏ gối chất liệu Tencel này sờ vào rất mịn mát thoáng khí, mùa hè ngủ cực kỳ dễ chịu."},
+        {"t": "Ở khách sạn", "zh": "我發現房間裡有一個枕套有污漬，馬上打電話請房務人員幫忙更換。", "vn": "Tôi phát hiện trong phòng có một chiếc vỏ gối bị dính vết bẩn, lập tức gọi nhân viên buồng phòng lên thay giúp."}
+      ]
+    },
+    "茶壺": {
+      "vn": "ấm trà, bình pha trà",
+      "ng": [
+        "(danh từ) ấm pha trà (bằng gốm tử sa, sứ, thủy tinh hoặc inox)"
+      ],
+      "us": "Lượng từ: 一把茶壺 (một chiếc ấm trà — chú ý lượng từ 把 dùng cho vật có quai cầm!) hoặc 一個茶壺.",
+      "co": ["一把茶壺|một ấm trà", "紫砂茶壺|ấm trà tử sa", "陶土茶壺|ấm trà gốm đất nung", "用茶壺泡茶|dùng ấm pha trà"],
+      "sy": ["茶具|bộ trà cụ (gồm ấm, chén, khay trà)"],
+      "cf": ["茶壺 vs 水壺|茶壺 (cháhú) là ấm chuyên dùng để pha trà (có vòi rót và nắp); 水壺 (shuǐhú) là bình đựng nước uống mang theo người hoặc ấm đun nước."],
+      "mh": "Trà Hồ → chá hú. ĐỌC: 'trà' → chá (tr→ch bật hơi, thanh 2); 'hồ' → hú (h + u thanh 2). NGHĨA: 茶 (trà) + 壺 (bình, ấm có nắp và vòi) → ấm pha trà.",
+      "tw": "Văn hóa uống trà ở Đài Loan (烏龍茶 trà Ô Long, 高山茶 trà núi cao) rất chuộng ấm gốm thủ công từ 鶯歌 (Anh Ca — làng gốm nổi tiếng ở Tân Bắc).",
+      "vd": [
+        {"t": "Pha trà", "zh": "爺爺每天下午都會拿出他珍藏的紫砂茶壺，慢慢泡一壺高山烏龍茶。", "vn": "Ông nội mỗi buổi chiều đều lấy chiếc ấm tử sa quý giá của mình ra, thong thả pha một ấm trà Ô Long núi cao."},
+        {"t": "Du lịch Đài Loan", "zh": "我們去新北鶯歌老街逛街時，買了一把造型典雅的手工陶瓷茶壺。", "vn": "Lúc đi dạo phố cổ Anh Ca ở Tân Bắc, chúng tôi đã mua một chiếc ấm trà gốm thủ công dáng rất thanh nhã."},
+        {"t": "Tiếp khách", "zh": "茶壺裡的水快沒了，我再去廚房燒一點熱水來回沖。", "vn": "Nước trong ấm trà sắp hết rồi, để tôi vào bếp đun thêm ít nước sôi châm lại."}
+      ]
+    },
+    "藥草": {
+      "vn": "thảo dược, cây thuốc nam/bắc",
+      "ng": [
+        "(danh từ) cây thuốc, thảo dược tự nhiên dùng làm thuốc chữa bệnh, nấu nước uống giải nhiệt hoặc làm trà dưỡng sinh"
+      ],
+      "us": "Lượng từ: 一種藥草 (một loại thảo dược), 一把藥草 (một nắm cây thuốc). Ở Đài Loan còn hay gọi là 青草 (cỏ thuốc tươi, dùng trong 青草茶 trà thảo mộc giải nhiệt) hoặc 中藥草.",
+      "co": ["採藥草|hái cây thuốc", "天然藥草|thảo dược thiên nhiên", "青草茶|trà thảo mộc giải nhiệt (đặc sản Đài Loan)", "藥草茶|trà thảo dược", "藥草園|vườn thảo dược"],
+      "sy": ["草藥|thảo dược, cây thuốc dân gian (cách đảo chữ, nghĩa rất gần; 中草藥 = Đông dược thảo mộc)", "中藥|thuốc Đông y (bao gồm cả rễ, vỏ cây, khoáng vật đã bào chế)"],
+      "cf": ["藥草 vs 香草|藥草 (yàocǎo) là cây cỏ có công dụng làm thuốc, dưỡng sinh; 香草 (xiāngcǎo) là rau thơm/thảo mộc tạo hương vị (bạc hà, hương thảo, vani) dùng trong ẩm thực và làm bánh."],
+      "mh": "Dược Thảo → yào cǎo. ĐỌC: 'dược' → yào (thanh 4); 'thảo' → cǎo (th→c bật hơi, thanh 3). NGHĨA: 藥 (thuốc — có bộ 艹 cỏ) + 草 (cỏ, thực vật thân thảo) → cây cỏ dùng làm thuốc = thảo dược.",
+      "tw": "Ở Đài Bắc ngay cạnh chùa Long Sơn (龍山寺) có con phố nổi tiếng 青草巷 (Hẻm Thảo Dược), bày bán đủ loại 藥草 tươi và khô để nấu trà giải nhiệt cực kỳ đặc trưng Đài Loan.",
+      "vd": [
+        {"t": "Đời sống Đài Loan", "zh": "萬華龍山寺旁邊的青草巷裡，擺滿了各式各樣具有清熱功效的台灣原生藥草。", "vn": "Trong Hẻm Thảo Dược cạnh chùa Long Sơn ở Vạn Hoa bày đầy đủ các loại thảo dược bản địa Đài Loan có công dụng thanh nhiệt."},
+        {"t": "Dưỡng sinh", "zh": "這款泡腳包裡面放了艾草和老薑等天然藥草，冬天泡完全身都暖呼呼的。", "vn": "Gói ngâm chân này có ngải cứu và gừng già cùng các loại thảo dược tự nhiên, mùa đông ngâm xong cả người ấm áp hẳn lên."},
+        {"t": "Kiến thức", "zh": "上山踏青時看到不認識的野生藥草千萬別亂採來吃，以免誤食中毒。", "vn": "Khi lên núi dạo chơi thấy cây thuốc dại không quen tuyệt đối đừng hái bừa về ăn kẻo ăn nhầm bị ngộ độc."}
+      ]
+    },
+    "電影票": {
+      "vn": "vé xem phim",
+      "ng": [
+        "(danh từ) vé vào rạp chiếu phim (vé giấy hoặc vé điện tử QR)"
+      ],
+      "us": "Lượng từ: 一張電影票 (một tấm vé xem phim). Các động từ hay đi cùng: 訂電影票 (đặt vé), 買電影票 (mua vé), 取電影票 (lấy vé), 電影票打折 (giảm giá vé xem phim).",
+      "co": ["一張電影票|một vé xem phim", "買電影票|mua vé xem phim", "線上訂電影票|đặt vé xem phim online", "早場電影票|vé xem phim suất chiếu sáng (giá rẻ hơn)", "電影票優惠|ưu đãi vé xem phim"],
+      "sy": ["戲票|vé xem kịch/phim (cách nói hơi cũ hoặc dùng cho kịch sân khấu)"],
+      "cf": ["電影票 vs 電影院|電影票 là vé xem phim; 電影院 (diànyǐngyuàn) là rạp chiếu phim (ở Đài Loan còn gọi là 影城 như 威秀影城 Vieshow)."],
+      "mh": "Điện Ảnh Phiếu → diàn yǐng piào. ĐỌC: 'điện' → diàn (đ→d, thanh 4); 'ảnh' → yǐng (thanh 3); 'phiếu' → piào (ph→p bật hơi, thanh 4). NGHĨA: 電影 (phim ảnh) + 票 (tấm vé) → vé xem phim.",
+      "tw": "Ở Đài Loan dùng thẻ tín dụng một số ngân hàng đi xem phim tại 威秀影城 (Vieshow) hoặc 秀泰影城 vào ngày thường hay có ưu đãi 電影票買一送一 (mua 1 tặng 1) hoặc giảm 40%!",
+      "vd": [
+        {"t": "Hẹn hò", "zh": "我已經在手機上訂好今晚七點的電影票了，待會兒直接去影城取票就好。", "vn": "Tôi đã đặt sẵn vé xem phim 7 giờ tối nay trên điện thoại rồi, lát nữa ra thẳng rạp lấy vé là được."},
+        {"t": "Ưu đãi", "zh": "用這張信用卡平日刷卡買電影票，可以享有六折優惠，非常划算。", "vn": "Dùng thẻ tín dụng này quẹt mua vé xem phim vào ngày thường được giảm 40%, rất hời."},
+        {"t": "Suất hot", "zh": "這部動畫電影太受歡迎了，週末的電影票早在三天前就被搶購一空。", "vn": "Bộ phim hoạt hình này quá ăn khách, vé xem phim cuối tuần đã bị mua sạch từ ba ngày trước."}
+      ]
+    },
+    "雙人床": {
+      "vn": "giường đôi",
+      "ng": [
+        "(danh từ) giường đôi kích thước lớn dành cho hai người nằm (trong gia đình, phòng trọ hoặc khách sạn)"
+      ],
+      "us": "Lượng từ: 一張雙人床 (một chiếc giường đôi). Trái nghĩa: 單人床 (giường đơn). Khi đặt phòng khách sạn ở Đài Loan thường chọn 雙人房一大床 (phòng đôi 1 giường lớn) hoặc 兩小床 (2 giường đơn).",
+      "co": ["一張雙人床|một chiếc giường đôi", "標準雙人床|giường đôi tiêu chuẩn (ở Đài Loan rộng 150×188cm)", "加大雙人床|giường đôi cỡ lớn (Queen size 180×188cm)", "特大雙人床|giường đôi siêu lớn (King size)"],
+      "an": ["單人床|giường đơn"],
+      "cf": ["雙人床 vs 雙人房|雙人床 (shuāngrénchuáng) là chiếc GIƯỜNG đôi; 雙人房 (shuāngrénfáng) là PHÒNG dành cho 2 người ở khách sạn (có thể kê 1 giường đôi 大床 hoặc 2 giường đơn 兩小床)."],
+      "mh": "Song Nhân Sàng → shuāng rén chuáng. ĐỌC: 'song' → shuāng (thanh 1); 'nhân' → rén (thanh 2); 'sàng' → chuáng (thanh 2). NGHĨA: 雙 (đôi, hai) + 人 (người) + 床 (giường) → giường cho hai người nằm.",
+      "tw": "Khi mua ga trải giường ở Đài Loan nhớ kiểm tra kích cỡ vì 標準雙人床 Đài Loan là 5×6.2 thước Đài (152×188cm), hơi khác kích cỡ IKEA châu Âu (150×200cm).",
+      "vd": [
+        {"t": "Thuê nhà", "zh": "這間套房空間滿寬敞的，放進一張標準雙人床和書桌之後還有走道。", "vn": "Phòng trọ khép kín này khá rộng rãi, kê một chiếc giường đôi tiêu chuẩn và bàn học xong vẫn còn lối đi."},
+        {"t": "Đặt khách sạn", "zh": "訂民宿的時候請幫我備註要一大張雙人床，不要兩張單人床併起來的。", "vn": "Lúc đặt homestay nhớ ghi chú giúp tôi lấy một giường đôi lớn nhé, đừng lấy kiểu ghép hai giường đơn lại."},
+        {"t": "Mua nội thất", "zh": "他們搬進新家後，特地去家具店挑選了一張睡起來很舒服的加大雙人床。", "vn": "Sau khi dọn vào nhà mới, họ đặc biệt ra cửa hàng nội thất chọn mua một chiếc giường đôi cỡ lớn nằm rất êm."}
+      ]
+    },
+    "香草": {
+      "vn": "hương vani; rau thơm / thảo mộc có mùi hương",
+      "ng": [
+        "(danh từ — ẩm thực, làm bánh, kem) vani (vanilla), hương liệu thơm ngọt rất phổ biến trong kem, bánh ngọt, cà phê (香草冰淇淋 kem vani, 香草拿鐵 latte vani)",
+        "(danh từ — thực vật, nấu ăn) các loại rau thơm / thảo mộc có hương thơm như hương thảo 迷迭香, bạc hà 薄荷, húng quế 羅勒 (香草植物 cây thảo mộc thơm)"
+      ],
+      "us": "Rất hay gặp trên thực đơn quán cà phê, tiệm kem và nhà hàng Âu ở Đài Loan. Khi nói vị kem/bánh là 'vani' (vanilla); khi nói trồng cây/nấu đồ Âu (香草烤雞 gà nướng thảo mộc) là 'thảo mộc thơm'.",
+      "co": ["香草冰淇淋|kem vani", "香草拿鐵|cà phê latte vị vani", "香草植物|cây thảo mộc thơm (bạc hà, hương thảo...)", "香草烤雞|gà nướng thảo mộc", "天然香草莢|quả vani tự nhiên"],
+      "sy": ["香料|gia vị tạo mùi thơm (bao gồm cả hạt tiêu, quế, hồi, bột gia vị khô)"],
+      "cf": ["香草 vs 藥草|香草 (xiāngcǎo) dùng để tạo hương thơm ngọt/dễ chịu trong bánh, kem, đồ uống và món Âu; 藥草 (yàocǎo) dùng để chữa bệnh và bồi bổ sức khỏe."],
+      "mh": "Hương Thảo → xiāng cǎo. ĐỌC: 'hương' → xiāng (thanh 1); 'thảo' → cǎo (th→c bật hơi, thanh 3). NGHĨA: 香 (thơm) + 草 (cỏ, cây thân thảo) → cỏ thơm (thảo mộc thơm & vani).",
+      "tw": "Ở Đài Loan rất phổ biến mô hình 薰衣草森林 / 香草庭園餐廳 (nhà hàng sân vườn thảo mộc) ở Đài Trung, Miêu Lật, Tân Trúc — vừa ngắm vườn cây thơm vừa uống trà thảo mộc.",
+      "vd": [
+        {"t": "Đồ tráng miệng", "zh": "這家甜點店的布丁加入了天然香草莢，吃起來香氣濃郁又不會太甜。", "vn": "Bánh pudding của tiệm tráng miệng này cho quả vani tự nhiên, ăn thơm đậm đà mà không quá ngọt."},
+        {"t": "Quán cà phê", "zh": "不好意思，我要一杯冰香草拿鐵，半糖少冰，謝謝。", "vn": "Xin lỗi, cho tôi một ly latte vani đá, nửa đường ít đá, cảm ơn."},
+        {"t": "Làm vườn", "zh": "媽媽在陽台種了好幾盆迷迭香和薄荷等香草植物，做料理時隨時可以摘來用。", "vn": "Mẹ trồng mấy chậu thảo mộc như hương thảo và bạc hà ngoài ban công, lúc nấu ăn lúc nào cũng hái dùng được ngay."}
+      ]
+    },
+    "套房": {
+      "vn": "phòng trọ khép kín (có toilet riêng); phòng suite (khách sạn)",
+      "ng": [
+        "(danh từ — thuê nhà ở Đài Loan) phòng trọ khép kín có nhà vệ sinh riêng bên trong (獨立套房 phòng khép kín hoàn toàn, 分租套房 phòng khép kín chia trong căn hộ)",
+        "(danh từ — khách sạn) phòng hạng sang (suite) có phòng ngủ và phòng khách tách biệt (總統套房 phòng Tổng thống, 行政套房 phòng Executive suite)"
+      ],
+      "us": "Từ khóa sống còn khi tìm nhà thuê trên trang 591 租屋網 ở Đài Loan! Đối lập với 雅房 (yǎfáng — phòng trọ không có WC riêng, phải dùng chung nhà vệ sinh với phòng khác).",
+      "co": ["獨立套房|phòng trọ khép kín có cửa riêng/đồng hồ riêng", "分租套房|phòng khép kín ngăn trong cùng một căn hộ", "租套房|thuê phòng trọ khép kín", "總統套房|phòng tổng thống (khách sạn)"],
+      "an": ["雅房|phòng trọ dùng chung nhà vệ sinh (giá rẻ hơn 套房)"],
+      "cf": ["套房 vs 雅房|Khi thuê trọ ở Đài Loan: 套房 (tàofáng) có nhà vệ sinh riêng trong phòng (có thể có ban công/máy giặt riêng); 雅房 (yǎfáng) chỉ có phòng ngủ, phải ra ngoài dùng chung nhà vệ sinh."],
+      "mh": "Sáo Phòng → tào fáng. ĐỌC: 'sáo' → tào (thanh 4); 'phòng' → fáng (ph→f, thanh 2). NGHĨA: 套 (đồng bộ, trọn bộ) + 房 (phòng) → căn phòng trọn bộ tiện nghi khép kín.",
+      "tw": "Sinh viên và người đi làm ở Đài Bắc thuê 獨立套房 gần trạm MRT thường rơi vào khoảng 12.000–20.000 Đài tệ/tháng; cần hỏi kỹ giá điện (台電計費 tính theo giá điện nhà nước hay 一度五塊 5 tệ/số).",
+      "vd": [
+        {"t": "Thuê nhà Đài Bắc", "zh": "我在捷運站附近找到一間獨立套房，雖然空間不大但衛浴設備很乾淨。", "vn": "Tôi tìm được một phòng trọ khép kín gần trạm MRT, tuy diện tích không lớn nhưng thiết bị nhà vệ sinh rất sạch sẽ."},
+        {"t": "So sánh giá", "zh": "台北的套房租金比雅房貴了不少，可是住起來比較有隱私也更方便。", "vn": "Tiền thuê phòng khép kín ở Đài Bắc đắt hơn phòng chung toilet khá nhiều, nhưng ở riêng tư và tiện lợi hơn."},
+        {"t": "Khách sạn", "zh": "這對新婚夫妻特別預訂了飯店最高樓層的海景套房來度蜜月。", "vn": "Cặp vợ chồng mới cưới này đặc biệt đặt phòng suite hướng biển ở tầng cao nhất khách sạn để hưởng tuần trăng mật."}
+      ]
+    },
+    "採光": {
+      "vn": "độ lấy sáng tự nhiên, ánh sáng tự nhiên (của căn phòng/nhà)",
+      "ng": [
+        "(danh từ) ánh sáng tự nhiên chiếu vào trong nhà qua cửa sổ, ban công (採光很好 lấy sáng rất tốt, 採光不足 thiếu ánh sáng tự nhiên)",
+        "(động từ) lấy ánh sáng tự nhiên (kỹ thuật kiến trúc)"
+      ],
+      "us": "Từ cực kỳ quan trọng khi xem nhà thuê hoặc mua nhà ở Đài Loan. Hay đi cùng 通風 (thông gió): 採光通風都很好 (ánh sáng và thông gió đều rất tốt).",
+      "co": ["採光很好|lấy sáng tự nhiên rất tốt", "採光充足|đầy đủ ánh sáng tự nhiên", "採光不足|thiếu sáng, phòng tối", "採光與通風|ánh sáng và độ thông thoáng"],
+      "sy": ["光線|ánh sáng (nói chung, bao gồm cả đèn điện)"],
+      "cf": ["採光 vs 光線|光線 là ánh sáng nói chung (cả đèn lẫn nắng); 採光 chuyên chỉ khả năng đón ánh nắng/ánh sáng tự nhiên của thiết kế căn phòng."],
+      "mh": "Thái Quang → cǎi guāng. ĐỌC: 'thái' → cǎi (th→c bật hơi, thanh 3); 'quang' → guāng (qu→gu, thanh 1). NGHĨA: 採 (thu nhận, đón lấy) + 光 (ánh sáng) → khả năng đón ánh sáng tự nhiên vào nhà.",
+      "tw": "Khi xem phòng trên 591 租屋網, các phòng có ban công lớn hoặc cửa sổ hướng nam thường quảng cáo 邊間雙面採光 (căn góc hai mặt đón sáng) để tránh ẩm mốc mùa mưa Đài Bắc.",
+      "vd": [
+        {"t": "Xem nhà", "zh": "這間公寓因為是邊間又有大片落地窗，所以客廳的採光非常好。", "vn": "Căn hộ này vì là căn góc lại có cửa kính chạm sàn lớn nên phòng khách lấy sáng tự nhiên rất tốt."},
+        {"t": "Thuê phòng", "zh": "選租屋處時我最在意採光和通風，房間太暗容易覺得潮濕壓抑。", "vn": "Lúc chọn phòng trọ tôi để ý nhất là ánh sáng tự nhiên và độ thông thoáng, phòng tối quá dễ bị ẩm thấp bí bách."},
+        {"t": "Thiết kế", "zh": "設計師把原本封閉的牆面改成玻璃拉門，成功改善了室內採光不足的問題。", "vn": "Kiến trúc sư đổi bức tường kín ban đầu thành cửa trượt kính, khắc phục thành công vấn đề thiếu sáng trong nhà."}
+      ]
+    },
+    "粉刷": {
+      "vn": "sơn tường, quét vôi/sơn lại nhà",
+      "ng": [
+        "(động từ) sơn lại, quét sơn mới lên tường hoặc trần nhà (重新粉刷 sơn sửa lại tường, 粉刷牆壁 sơn tường)"
+      ],
+      "us": "Dùng cho công việc sơn tường, sơn nhà (tường nội thất/ngoại thất). Thường kết hợp với 油漆 (sơn tường): 重新粉刷油漆 (sơn lại toàn bộ tường).",
+      "co": ["重新粉刷|sơn lại mới", "粉刷牆壁|sơn tường", "粉刷一新|sơn sửa lại mới tinh", "粉刷油漆|quét sơn nước"],
+      "sy": ["油漆|sơn (vừa là danh từ 'nước sơn', vừa là động từ 'sơn tường/gỗ')"],
+      "cf": ["粉刷 vs 油漆|油漆 (yóuqī) dùng cho cả sơn gỗ, sơn sắt lẫn sơn tường; 粉刷 (fěnshuā) chuyên dùng cho việc lăn/quét sơn lên tường, trần nhà (để làm mới không gian)."],
+      "mh": "Phấn Soát → fěn shuā. ĐỌC: 'phấn' → fěn (ph→f, thanh 3); 'soát' → shuā (thanh 1). NGHĨA: 粉 (bột vôi, bột màu trắng) + 刷 (quét, chải) → quét vôi/sơn tường.",
+      "tw": "Ở Đài Loan trước khi trả nhà thuê (退租) nếu tường bị bẩn nhiều hoặc khi chủ nhà chuẩn bị đón khách mới thường nói 房東剛把牆壁重新粉刷過 (chủ nhà vừa sơn lại tường mới).",
+      "vd": [
+        {"t": "Thuê nhà", "zh": "房東答應在我搬進來之前，會先把牆壁重新粉刷乾淨。", "vn": "Chủ nhà hứa trước khi tôi dọn vào sẽ sơn lại tường cho sạch đẹp trước."},
+        {"t": "Sửa nhà", "zh": "我們利用連假自己買了無毒乳膠漆，把臥室的牆面粉刷成溫暖的米白色。", "vn": "Chúng tôi tranh thủ kỳ nghỉ lễ tự mua sơn nước không độc hại, sơn lại tường phòng ngủ thành màu trắng kem ấm áp."},
+        {"t": "Trường học", "zh": "暑假期間學校請工人把老舊的教室牆壁粉刷一新，迎接新學期。", "vn": "Dịp nghỉ hè nhà trường thuê thợ sơn mới lại những bức tường lớp học cũ kỹ để đón học kỳ mới."}
+      ]
+    },
+    "廚餘": {
+      "vn": "rác thải thực phẩm, thức ăn thừa (để phân loại rác)",
+      "ng": [
+        "(danh từ) rác hữu cơ nhà bếp, thức ăn thừa, vỏ rau củ quả được tách riêng khỏi rác thường để tái chế làm phân bón hoặc thức ăn chăn nuôi"
+      ],
+      "us": "Từ vựng sinh hoạt bắt buộc phải biết khi sống ở Đài Loan! Chia thành 生廚餘 (rác thực phẩm sống: vỏ trái cây, cọng rau, bã cà phê → làm phân 堆肥) và 熟廚餘 (thức ăn chín thừa → 養豬 nuôi heo).",
+      "co": ["廚餘回收|thu gom tái chế rác thực phẩm", "廚餘桶|thùng đựng rác thực phẩm", "生廚餘|rác thực phẩm sống (vỏ rau củ)", "熟廚餘|thức ăn thừa đã nấu chín", "減少廚餘|giảm lãng phí thức ăn"],
+      "sy": ["剩菜剩飯|cơm thừa canh cặn (chỉ thức ăn thừa trên bàn ăn)"],
+      "cf": ["廚餘 vs 一般垃圾|Ở Đài Loan, 廚餘 (chúyú) phải đổ riêng vào thùng phía sau xe rác (hoặc phòng rác chung cư), KHÔNG được bỏ chung vào túi rác thường 一般垃圾 kẻo bị phạt tiền."],
+      "mh": "Trù Dư → chú yú. ĐỌC: 'trù' → chú (tr→ch bật hơi, thanh 2); 'dư' → yú (thanh 2). NGHĨA: 廚 (nhà bếp — 廚房) + 餘 (phần dư thừa) → phần thức ăn dư thừa từ nhà bếp.",
+      "tw": "Khi đi đổ rác theo tiếng nhạc xe rác ở Đài Loan (追垃圾車), phía sau xe rác vàng luôn có hai thùng xanh/đỏ riêng cho 熟廚餘 và 生廚餘; nhớ đổ hết nước súp trước khi đổ rác thực phẩm!",
+      "vd": [
+        {"t": "Phân loại rác", "zh": "在台灣倒垃圾時，吃不完的飯菜要瀝乾水分，放進專用的廚餘桶裡。", "vn": "Ở Đài Loan khi đổ rác, cơm canh ăn không hết phải chắt ráo nước rồi bỏ vào thùng rác thực phẩm chuyên dụng."},
+        {"t": "Bảo vệ môi trường", "zh": "果皮、茶葉渣和咖啡渣都屬於生廚餘，回收後可以製成有機堆肥。", "vn": "Vỏ trái cây, bã trà và bã cà phê đều thuộc rác thực phẩm sống, sau khi thu gom có thể làm phân hữu cơ."},
+        {"t": "Ăn uống", "zh": "去吃到飽餐廳時應該吃多少拿多少，才不會製造太多廚餘浪費食物。", "vn": "Đi ăn nhà hàng buffet nên ăn bao nhiêu lấy bấy nhiêu để không tạo ra quá nhiều thức ăn thừa gây lãng phí."}
+      ]
+    },
+    "寶特瓶": {
+      "vn": "chai nhựa PET (chai nước suối, nước ngọt)",
+      "ng": [
+        "(danh từ — đặc trưng Đài Loan) chai nhựa PET đựng nước khoáng, trà đóng chai, nước ngọt có ga (có thể tái chế 資源回收)"
+      ],
+      "us": "Lượng từ: 一個寶特瓶 / 一支寶特瓶. Khi tái chế ở Đài Loan thường làm 3 bước: 沖洗 (tráng sạch), 壓扁 (bóp dẹt), 丟回收 (bỏ vào thùng tái chế).",
+      "co": ["回收寶特瓶|tái chế chai nhựa PET", "壓扁寶特瓶|bóp dẹt chai nhựa", "寶特瓶飲料|đồ uống đóng chai nhựa", "廢棄寶特瓶|chai nhựa đã qua sử dụng"],
+      "sy": ["塑膠瓶|chai nhựa nói chung (ở Trung Quốc Đại Lục hay gọi là 塑料瓶)"],
+      "cf": ["寶特瓶 vs 塑膠瓶|寶特瓶 (bǎotèpíng) là tên gọi phổ biến nhất ở Đài Loan (phiên âm từ 'PET bottle') chuyên chỉ chai nhựa trong số 1 đựng đồ uống; 塑膠瓶 là chai nhựa nói chung (gồm cả chai dầu gội, nước giặt)."],
+      "mh": "Bảo Đặc Bình → bǎo tè píng. ĐỌC: 'bảo' → bǎo (thanh 3); 'đặc' → tè (thanh 4); 'bình' → píng (thanh 2). NGHĨA: 寶特 phiên âm tiếng Anh 'PET' + 瓶 (chai lọ) → chai nhựa PET.",
+      "tw": "Từ đặc trưng của Đài Loan! Các cửa hàng tiện lợi và siêu thị ở Đài Loan còn có máy tái chế tự động 智慧回收機 — bỏ 寶特瓶 rỗng vào sẽ được cộng điểm hoặc hoàn tiền vào thẻ EasyCard (悠遊卡).",
+      "vd": [
+        {"t": "Tái chế rác", "zh": "喝完飲料的寶特瓶記得先稍微沖洗再壓扁，這樣回收時比較不佔空間。", "vn": "Chai nhựa uống hết nước nhớ tráng sơ rồi bóp dẹt lại, như vậy lúc đem tái chế đỡ tốn diện tích hơn."},
+        {"t": "Bảo vệ môi trường", "zh": "現在越來越多人隨身攜帶環保杯，希望減少購買一次性寶特瓶飲料。", "vn": "Bây giờ ngày càng nhiều người mang theo bình nước cá nhân, mong giảm bớt việc mua đồ uống chai nhựa dùng một lần."},
+        {"t": "Công nghệ xanh", "zh": "台灣許多紡織廠利用回收的寶特瓶抽絲，製成透氣又耐穿的機能運動衣。", "vn": "Nhiều nhà máy dệt ở Đài Loan tận dụng chai nhựa PET tái chế kéo sợi để sản xuất áo thể thao thoáng khí và bền đẹp."}
+      ]
+    },
+    "專用垃圾袋": {
+      "vn": "túi đựng rác chuyên dụng (có tem phí môi trường của thành phố)",
+      "ng": [
+        "(danh từ — đời sống Đài Bắc / Tân Bắc) túi đựng rác chuyên dụng bán tại cửa hàng tiện lợi và siêu thị, bắt buộc phải dùng để vứt rác thường (一般垃圾) tại Đài Bắc và Tân Bắc"
+      ],
+      "us": "Chỉ dùng ở các địa phương áp dụng chính sách 垃圾費隨袋徵收 (thu phí rác theo túi) như 台北市 (Đài Bắc — túi màu xanh dương) và 新北市 (Tân Bắc — túi màu hồng). Ở các thành phố khác không bắt buộc loại túi này.",
+      "co": ["買專用垃圾袋|mua túi rác chuyên dụng", "台北市專用垃圾袋|túi rác chuyên dụng TP Đài Bắc", "新北市專用垃圾袋|túi rác chuyên dụng TP Tân Bắc", "環保兩用袋|túi kiêm dụng (vừa đựng hàng mua ở siêu thị vừa dùng vứt rác được)"],
+      "sy": ["垃圾袋|túi đựng rác thông thường"],
+      "cf": ["專用垃圾袋 vs 一般塑膠袋|Ở Đài Bắc và Tân Bắc, rác thường BẮT BUỘC cho vào 專用垃圾袋 (có tem chống giả) xe rác mới chịu nhận; còn đồ tái chế 資源回收 thì KHÔNG cần dùng túi chuyên dụng này."],
+      "mh": "Chuyên Dụng Lạp Sáp Đại → zhuān yòng lè sè dài. ĐỌC: 'chuyên' → zhuān (thanh 1); 'dụng' → yòng (thanh 4); 'lạp sáp' → Đài Loan đọc 垃圾 là lèsè (khác Đại Lục lājī!); 'đại' → dài (thanh 4). NGHĨA: Túi đựng rác quy định dùng riêng theo chính sách thành phố.",
+      "tw": "Lưu ý cực kỳ quan trọng ở Đài Loan: 垃圾 đọc chuẩn Đài Loan là lèsè! Túi 專用垃圾袋 có thể mua ở quầy thu ngân mọi tiệm 7-11, FamilyMart, 全聯 — chỉ cần nói 我要買一包小號/中號的專用垃圾袋.",
+      "vd": [
+        {"t": "Sống ở Đài Bắc", "zh": "剛搬到台北住的朋友要記得，丟一般垃圾一定要裝在台北市專用垃圾袋裡。", "vn": "Bạn bè mới dọn lên Đài Bắc sống nhớ nhé, vứt rác thường nhất định phải bỏ trong túi rác chuyên dụng của thành phố Đài Bắc.", "py": "Gāng bān dào Táiběi zhù de péngyǒu yào jìde, diū yībān lèsè yīdìng yào zhuāng zài Táiběishì zhuānyòng lèsèdài lǐ."},
+        {"t": "Mua sắm", "zh": "家裡的專用垃圾袋快用完了，我待會兒去樓下超商買一包中型的。", "vn": "Túi rác chuyên dụng ở nhà sắp hết rồi, lát nữa tôi xuống cửa hàng tiện lợi dưới lầu mua một bịch cỡ vừa.", "py": "Jiālǐ de zhuānyòng lèsèdài kuài yòngwán le, wǒ dāihuǐr qù lóuxià chāoshāng mǎi yī bāo zhōngxíng de."},
+        {"t": "Tái chế", "zh": "紙箱和寶特瓶屬於資源回收，可以直接交給資源回收車，不需要用專用垃圾袋。", "vn": "Thùng giấy và chai nhựa thuộc đồ tái chế, có thể đưa thẳng cho xe thu gom tái chế, không cần bỏ vào túi rác chuyên dụng.", "py": "Zhǐxiāng hé bǎotèpíng shǔyú zīyuán huíshōu, kěyǐ zhíjiē jiāogěi zīyuán huíshōuchē, bù xūyào yòng zhuānyòng lèsèdài."}
+      ]
+    },
+    "考核": {
+      "vn": "đánh giá năng lực / thành tích, sát hạch, kiểm duyệt",
+      "ng": [
+        "(động từ) kiểm tra, đánh giá hiệu suất công việc hoặc năng lực của nhân viên/học viên (考核員工 đánh giá nhân viên, 考核績效 đánh giá hiệu suất)",
+        "(danh từ) kỳ đánh giá, bài sát hạch (績效考核 đánh giá KPI, 試用期考核 đánh giá hết thử việc)"
+      ],
+      "us": "Từ chuyên ngành công sở và hành chính rất hay gặp trong đề thi TOCFL Band B. Thường dùng với 通過考核 (vượt qua kỳ đánh giá), 考核標準 (tiêu chuẩn đánh giá), 年度考核 (đánh giá cuối năm).",
+      "co": ["績效考核|đánh giá hiệu suất làm việc (KPI)", "試用期考核|đánh giá cuối thời gian thử việc", "年度考核|đánh giá cuối năm", "通過考核|vượt qua kỳ đánh giá", "考核標準|tiêu chuẩn đánh giá"],
+      "sy": ["考評|đánh giá xếp loại (cũng rất hay dùng trong công ty Đài Loan)", "評估|đánh giá tổng thể"],
+      "cf": ["考核 vs 考試|考試 (kǎoshì) là kỳ thi viết/nói ở trường hoặc thi chứng chỉ; 考核 (kǎohé) là quá trình đánh giá năng lực, kết quả làm việc thực tế tại công ty/cơ quan để xét thưởng hoặc thăng chức."],
+      "mh": "Khảo Hạch → kǎo hé. ĐỌC: 'khảo' → kǎo (thanh 3); 'hạch' → hé (thanh 2). NGHĨA: 考 (kiểm tra, khảo sát) + 核 (đối chiếu, thẩm định) → kiểm tra đối chiếu thành tích thực tế = đánh giá/sát hạch.",
+      "tw": "Ở các công ty Đài Loan, kết quả 年終績效考核 (đánh giá hiệu suất cuối năm) quyết định trực tiếp đến mức tiền thưởng cuối năm 年終獎金 và tỷ lệ tăng lương 調薪 năm sau.",
+      "vd": [
+        {"t": "Thử việc", "zh": "新人進公司滿三個月後要接受試用期考核，通過了才會正式調薪。", "vn": "Nhân viên mới vào công ty đủ ba tháng phải trải qua đánh giá thử việc, vượt qua rồi mới chính thức tăng lương."},
+        {"t": "Công sở", "zh": "我們部門每半年會做一次績效考核，作為年終獎金與升遷的重要依據。", "vn": "Bộ phận chúng tôi cứ nửa năm lại làm đánh giá hiệu suất một lần, làm căn cứ quan trọng cho thưởng cuối năm và thăng chức."},
+        {"t": "Quản lý", "zh": "主管應該建立透明公平的考核標準，員工工作起來才更有動力。", "vn": "Cấp trên nên xây dựng tiêu chuẩn đánh giá minh bạch và công bằng thì nhân viên làm việc mới có thêm động lực."}
+      ]
+    },
+    "調薪": {
+      "vn": "điều chỉnh lương, tăng lương",
+      "ng": [
+        "(động từ ly hợp / danh từ) điều chỉnh mức lương (trên thực tế 99% ngữ cảnh công sở mang nghĩa tăng lương: 年度調薪 đợt tăng lương hằng năm, 調薪幅度 mức độ tăng lương)"
+      ],
+      "us": "Văn phong trang trọng, chuẩn công sở và báo chí hơn 加薪. Chú ý phát âm: chữ 調 trong 調薪 đọc thanh 2 tiáo (điều chỉnh), KHÔNG đọc diào!",
+      "co": ["年度調薪|đợt điều chỉnh lương hằng năm", "全面調薪|tăng lương đồng loạt toàn công ty", "調薪幅度|tỷ lệ / biên độ tăng lương", "爭取調薪|đề xuất / đấu tranh xin tăng lương", "基本工資調薪|tăng mức lương cơ bản"],
+      "sy": ["加薪|tăng lương (khẩu ngữ thân mật, dễ dùng nhất)", "漲薪|tăng lương (phổ biến hơn ở Đại Lục)"],
+      "cf": ["調薪 vs 加薪|加薪 (jiāxīn) chắc chắn là tăng lương và mang sắc thái khẩu ngữ; 調薪 (tiáoxīn) trang trọng hơn, dùng nhiều trong thông báo nhân sự HR, chính sách công ty và bản tin kinh tế."],
+      "mh": "Điều Tân → tiáo xīn. ĐỌC: 'điều' → tiáo (thanh 2 — điều chỉnh); 'tân' → xīn (thanh 1 — lương bổng, 薪水). NGHĨA: 調 (điều chỉnh) + 薪 (tiền lương) → điều chỉnh mức lương.",
+      "tw": "Báo chí kinh tế Đài Loan đầu năm nào cũng đưa tin về đợt 軍公教調薪 (tăng lương công chức) và tỷ lệ 企業調薪幅度 (mức tăng lương của doanh nghiệp) thường từ 3%–5%.",
+      "vd": [
+        {"t": "Công ty", "zh": "因為去年公司營收創新高，董事長宣布今年全體員工平均調薪百分之五。", "vn": "Vì doanh thu năm ngoái của công ty lập kỷ lục mới, chủ tịch tuyên bố năm nay toàn thể nhân viên được tăng lương bình quân 5%."},
+        {"t": "Phỏng vấn", "zh": "面試官向我說明，公司每年都會依據個人表現和市場行情進行調薪。", "vn": "Người phỏng vấn giải thích với tôi rằng mỗi năm công ty đều điều chỉnh lương dựa trên năng lực cá nhân và mặt bằng thị trường."},
+        {"t": "Tin tức", "zh": "面對物價上漲的壓力，許多上班族都期待公司能提高今年的調薪幅度。", "vn": "Trước áp lực vật giá leo thang, nhiều nhân viên văn phòng đều kỳ vọng công ty nâng mức tăng lương năm nay."}
+      ]
+    },
+    "碳排放": {
+      "vn": "lượng khí thải carbon, sự phát thải carbon",
+      "ng": [
+        "(danh từ) lượng khí nhà kính (chủ yếu là CO2) thải ra môi trường từ giao thông, sản xuất công nghiệp và sinh hoạt (gọi đầy đủ là 二氧化碳排放)"
+      ],
+      "us": "Từ vựng trọng tâm cực hay ra trong bài đọc hiểu và nghe hiểu TOCFL Band B2 về chủ đề môi trường, năng lượng xanh, biến đổi khí hậu. Hay đi kèm 減少碳排放 (giảm phát thải carbon), 淨零碳排 (Net Zero — phát thải ròng bằng 0).",
+      "co": ["減少碳排放|giảm lượng khí thải carbon", "降低碳排放|hạ thấp mức phát thải carbon", "碳排放量|lượng khí thải carbon", "淨零碳排|phát thải ròng bằng 0 (Net Zero)", "碳足跡|dấu chân carbon"],
+      "sy": ["排碳|thải carbon (cách nói ngắn gọn trong báo chí Đài Loan)"],
+      "cf": ["碳排放 vs 空氣污染|空氣污染 (ô nhiễm không khí) bao gồm cả bụi mịn PM2.5, khói độc; 碳排放 (tàn páifàng) tập trung vào khí thải carbon gây hiệu ứng nhà kính và nóng lên toàn cầu (全球暖化)."],
+      "mh": "Thán Bài Phóng → tàn pái fàng. ĐỌC: 'thán' → tàn (thanh 4); 'bài' → pái (thanh 2); 'phóng' → fàng (ph→f, thanh 4). NGHĨA: 碳 (nguyên tố carbon) + 排放 (thải ra, xả ra) → sự phát thải khí carbon.",
+      "tw": "Đài Loan đặt mục tiêu 2050淨零排放 (phát thải ròng bằng 0 vào năm 2050) và áp dụng thu phí carbon 碳費 với doanh nghiệp lớn nên cụm 碳排放 xuất hiện dày đặc trên tin tức PTS.",
+      "vd": [
+        {"t": "Giao thông xanh", "zh": "多搭乘捷運、公車或騎腳踏車通勤，能有效減少個人的碳排放量。", "vn": "Chịu khó đi làm bằng MRT, xe buýt hoặc xe đạp có thể giúp giảm hiệu quả lượng khí thải carbon cá nhân."},
+        {"t": "Doanh nghiệp", "zh": "為了符合國際環保法規，這家科技大廠開始改用再生能源以降低碳排放。", "vn": "Để đáp ứng quy định môi trường quốc tế, tập đoàn công nghệ lớn này bắt đầu chuyển sang dùng năng lượng tái tạo nhằm giảm phát thải carbon."},
+        {"t": "Chính sách", "zh": "政府積極推廣電動公車，希望在未來十年內大幅削減都會區的碳排放。", "vn": "Chính phủ tích cực đẩy mạnh xe buýt điện, hy vọng trong mười năm tới cắt giảm mạnh lượng khí thải carbon tại các khu đô thị."}
+      ]
+    },
+    "紓解": {
+      "vn": "xoa dịu, giảm nhẹ, giải tỏa (áp lực, ùn tắc, khó khăn)",
+      "ng": [
+        "(động từ) làm giảm bớt, giải tỏa tình trạng căng thẳng, áp lực tinh thần (紓解壓力 giải tỏa áp lực)",
+        "(động từ) tháo gỡ, làm thông thoáng tình trạng ùn tắc giao thông hoặc khó khăn kinh tế (紓解交通 giải tỏa ùn tắc giao thông, 紓解困境 tháo gỡ khó khăn)"
+      ],
+      "us": "Từ vựng B2–C1 cực kỳ phổ biến trên báo chí Đài Loan! Hay đi cùng 壓力 (áp lực), 交通 / 車潮 (giao thông / dòng xe), 情緒 (cảm xúc), 困境 (tình cảnh khó khăn). Chú ý viết chuẩn Đài Loan là 紓解 (bộ 糸), tránh nhầm với 舒.",
+      "co": ["紓解壓力|giải tỏa áp lực (viết tắt 紓壓)", "紓解交通|giải tỏa ùn tắc giao thông", "紓解車潮|giải tỏa dòng xe đông đúc", "紓解情緒|xoa dịu cảm xúc", "紓解困境|tháo gỡ khó khăn"],
+      "sy": ["緩解|làm dịu bớt, giảm nhẹ (dùng được cả cho triệu chứng đau bệnh 緩解疼痛)", "舒緩|thư giãn, làm dịu (thiên về cơ thể, đau nhức, cảm xúc)"],
+      "cf": ["紓解 vs 舒緩|紓解 (shūjiě) nhấn mạnh 'giải tỏa, tháo gỡ' áp lực, tắc nghẽn giao thông, khủng hoảng; 舒緩 (shūhuǎn) nhấn mạnh 'làm dịu nhẹ' cơn đau, mệt mỏi cơ thể."],
+      "mh": "Thư Giải → shū jiě. ĐỌC: 'thư' → shū (th→sh, thanh 1); 'giải' → jiě (thanh 3). NGHĨA: 紓 (nới lỏng sợi dây buộc, bộ 糸) + 解 (cởi mở, tháo gỡ) → nới lỏng tháo gỡ bớt căng thẳng = giải tỏa, giảm nhẹ.",
+      "tw": "Ở Đài Loan người ta cực thích viết tắt 紓解壓力 thành 紓壓 (ví dụ: 紓壓小物 đồ chơi giảm stress, 聽音樂紓壓 nghe nhạc xả stress).",
+      "vd": [
+        {"t": "Đời sống", "zh": "下班後去河濱公園慢跑半小時，是我紓解工作壓力的最好方法。", "vn": "Sau giờ tan làm ra công viên ven sông chạy bộ nửa tiếng là cách tốt nhất giúp tôi giải tỏa áp lực công việc."},
+        {"t": "Giao thông", "zh": "連假期間高速公路容易塞車，交通部採取高乘載管制來紓解車潮。", "vn": "Dịp nghỉ lễ đường cao tốc dễ kẹt xe, Bộ Giao thông áp dụng quy định xe chở nhiều người để giải tỏa dòng xe."},
+        {"t": "Tâm lý", "zh": "遇到挫折時找好朋友聊聊天，往往能有效紓解內心的焦慮情緒。", "vn": "Khi gặp trắc trở tìm bạn thân trò chuyện thường có thể giải tỏa hiệu quả nỗi lo âu trong lòng."}
+      ]
+    },
+    "通勤族": {
+      "vn": "người đi làm/đi học hằng ngày bằng phương tiện công cộng hoặc đi lại xa",
+      "ng": [
+        "(danh từ — đời sống Đài Loan) nhóm người hằng ngày phải di chuyển giữa nơi ở và nơi làm việc/trường học (đặc biệt là đi tàu MRT, xe buýt, tàu hỏa liên tỉnh như từ Đào Viên/Tân Bắc vào Đài Bắc làm việc)"
+      ],
+      "us": "Cấu tạo từ 通勤 (đi lại làm việc hằng ngày) + 族 (nhóm người có chung đặc điểm, giống 上班族 dân văn phòng, 學生族 giới học sinh, 低頭族 người hay cúi mặt xem điện thoại).",
+      "co": ["廣大通勤族|đông đảo người đi làm hằng ngày", "雙北通勤族|người đi làm qua lại Đài Bắc – Tân Bắc", "跨縣市通勤族|người đi làm liên tỉnh/thành phố", "通勤族必備|vật dụng không thể thiếu của dân đi làm"],
+      "sy": ["上班族|dân văn phòng (nhấn mạnh nghề nghiệp công sở; 通勤族 nhấn mạnh việc đi lại hằng ngày)"],
+      "cf": ["通勤族 vs 上班族|上班族 là nhân viên văn phòng nói chung; 通勤族 bao gồm cả sinh viên lẫn người đi làm phải di chuyển quãng đường cố định mỗi sáng và tối."],
+      "mh": "Thông Cần Tộc → tōng qín zú. ĐỌC: 'thông' → tōng (thanh 1); 'cần' → qín (thanh 2); 'tộc' → zú (thanh 2). NGHĨA: 通勤 (đi lại giữa nhà và nơi làm việc hằng ngày) + 族 (nhóm người) → giới người đi làm/đi học di chuyển hằng ngày.",
+      "tw": "Tại Đài Loan, chính sách vé tháng TPASS 1200元 (基北北桃都會通) ra đời chính là để hỗ trợ giảm gánh nặng chi phí đi lại cho hàng trăm nghìn 通勤族.",
+      "vd": [
+        {"t": "Giao thông Đài Loan", "zh": "政府推出一千兩百元月票之後，幫許多跨縣市的通勤族省下不少交通費。", "vn": "Sau khi chính phủ tung ra vé tháng 1.200 Đài tệ, đã giúp rất nhiều người đi làm liên tỉnh tiết kiệm được kha khá tiền đi lại."},
+        {"t": "Giờ cao điểm", "zh": "每天早上八點的捷運車廂裡，總是擠滿了趕著打卡的通勤族。", "vn": "Toa tàu điện ngầm 8 giờ sáng mỗi ngày lúc nào cũng chật kín người đi làm vội vã cho kịp chấm công."},
+        {"t": "Thói quen", "zh": "很多通勤族喜歡在搭車的路上聽有聲書或背單字，善用零碎時間學習。", "vn": "Rất nhiều người đi làm bằng phương tiện công cộng thích nghe sách nói hoặc học từ vựng trên đường đi để tận dụng thời gian rảnh."}
+      ]
+    },
+    "定期票": {
+      "vn": "vé tháng, vé đi lại định kỳ (tàu điện, xe buýt, tàu hỏa)",
+      "ng": [
+        "(danh từ) vé định kỳ (vé tháng 30 ngày, vé quý...) cho phép đi không giới hạn lượt các phương tiện giao thông công cộng trong thời hạn quy định"
+      ],
+      "us": "Lượng từ: 一張定期票. Gắn trực tiếp vào thẻ 悠遊卡 (EasyCard) hoặc 一卡通 (iPASS) ở Đài Loan. Thường nói 買定期票 / 續購定期票 (gia hạn vé tháng) / 綁定定期票 (liên kết vé tháng vào thẻ).",
+      "co": ["通勤定期票|vé định kỳ cho người đi làm", "三十天定期票|vé định kỳ 30 ngày", "購買定期票|mua vé định kỳ", "續購定期票|gia hạn vé định kỳ", "大眾運輸定期票|vé tháng giao thông công cộng"],
+      "sy": ["月票|vé tháng (khẩu ngữ ngắn gọn, người Đài dùng rất nhiều song song với 定期票)"],
+      "cf": ["定期票 vs 單程票|單程票 (dānchéngpiào) là vé một chiều dùng một lần; 定期票 (dìngqīpiào) là vé dùng không giới hạn trong khoảng thời gian cố định (30 ngày, 90 ngày...)."],
+      "mh": "Định Kỳ Phiếu → dìng qī piào. ĐỌC: 'định' → dìng (đ→d, thanh 4); 'kỳ' → qī (thanh 1 — lưu ý Đài Loan đọc 期 là qí trong nhiều từ, riêng 定期票 hay đọc dìngqípiào / dìngqīpiào); 'phiếu' → piào (thanh 4). NGHĨA: 定期 (thời hạn cố định) + 票 (vé) → vé đi lại theo kỳ hạn cố định.",
+      "tw": "Ở Đài Loan nổi tiếng nhất là vé tháng TPASS 行政院通勤月票 (基北北桃 1200元定期票) — đi trọn gói MRT, xe buýt, tàu hỏa 台鐵, đường sắt nhẹ và miễn phí 30 phút đầu xe đạp YouBike!",
+      "vd": [
+        {"t": "Đi lại Đài Bắc", "zh": "如果你每天都要搭捷運轉公車上班，辦一張通勤定期票一定比單次刷卡划算。", "vn": "Nếu ngày nào bạn cũng phải đi MRT chuyển xe buýt đi làm, làm một chiếc vé tháng định kỳ chắc chắn lời hơn quẹt từng lượt."},
+        {"t": "Thủ tục", "zh": "這張定期票快到期了，下班經過捷運站詢問處時我得順便去續購。", "vn": "Chiếc vé định kỳ này sắp hết hạn rồi, lát tan làm đi ngang quầy thông tin ga MRT tôi phải ghé gia hạn luôn.", "py": "Zhè zhāng dìngqípiào kuài dàoqī le, xiàbān jīngguò jiéyùn zhàn xúnwènchù shí wǒ děi shùnbiàn qù xùgòu."},
+        {"t": "Giao thông", "zh": "持悠遊卡設定定期票之後，進站直接感應卡片就能無限次搭乘大眾運輸。", "vn": "Sau khi cài đặt vé định kỳ vào thẻ EasyCard, vào ga cứ chạm thẳng thẻ là đi phương tiện công cộng không giới hạn lượt."}
+      ]
+    }
+  }
+}
