@@ -103,7 +103,11 @@ const Store = (() => {
           keep.push([k, Object.assign({}, c, v)]);
         }
         else if (s === "kv" && k === "settings") {
-          keep.push([k, Object.assign({}, c, v)]);
+          const merged = Object.assign({}, c, v);
+          if (c.bands || v.bands) merged.bands = Object.assign({}, c.bands, v.bands);
+          if (c.decks || v.decks) merged.decks = Object.assign({}, c.decks, v.decks);
+          if (c.extra || v.extra) merged.extra = Object.assign({}, c.extra, v.extra);
+          keep.push([k, merged]);
         }
       }
       await b.putMany(s, keep);

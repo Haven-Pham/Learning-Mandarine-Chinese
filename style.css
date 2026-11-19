@@ -753,3 +753,38 @@ html.dark .sb-more .rich-ex, [data-theme="dark"] .sb-more .rich-ex { background:
 .sb-main .font-body-md.text-sm { font-size: 17px; }
 .sb-main .font-code.text-xs { font-size: 14px; }
 .sb-more .rich ruby rt { font-size: 11px; }
+
+/* ---- Full Dark Theme Utility Overrides (Tailwind paper/surface/text/border classes) ---- */
+:root[data-theme="dark"] body,
+:root[data-theme="dark"] .bg-paper-base,
+:root[data-theme="dark"] .bg-background,
+:root[data-theme="dark"] .bg-surface { background-color: var(--paper-base) !important; color: var(--on-surface); }
+:root[data-theme="dark"] .bg-paper-card,
+:root[data-theme="dark"] .bg-surface-container-lowest,
+:root[data-theme="dark"] .bg-white { background-color: var(--paper-card) !important; }
+:root[data-theme="dark"] .bg-paper-muted,
+:root[data-theme="dark"] .bg-surface-container-low { background-color: #241f1e !important; }
+:root[data-theme="dark"] .bg-surface-container { background-color: #2d2725 !important; }
+:root[data-theme="dark"] .bg-surface-container-high,
+:root[data-theme="dark"] .bg-surface-container-highest { background-color: #362f2d !important; }
+:root[data-theme="dark"] .bg-cinnabar-subtle { background-color: var(--cinnabar-subtle) !important; }
+:root[data-theme="dark"] .bg-jade-subtle { background-color: var(--jade-soft) !important; }
+:root[data-theme="dark"] .bg-amber-subtle { background-color: var(--amber-soft) !important; }
+:root[data-theme="dark"] .text-on-surface { color: var(--on-surface) !important; }
+:root[data-theme="dark"] .text-on-surface-variant { color: var(--on-surface-variant) !important; }
+:root[data-theme="dark"] .text-outline { color: var(--outline) !important; }
+:root[data-theme="dark"] .text-primary { color: var(--primary) !important; }
+:root[data-theme="dark"] .text-secondary { color: var(--secondary) !important; }
+:root[data-theme="dark"] .text-tertiary,
+:root[data-theme="dark"] .text-tertiary-container { color: var(--amber) !important; }
+:root[data-theme="dark"] .border-border-subtle,
+:root[data-theme="dark"] .border-outline-variant { border-color: var(--border-subtle) !important; }
+:root[data-theme="dark"] header,
+:root[data-theme="dark"] #mobileBottomNav { background-color: rgba(20, 18, 17, 0.94) !important; border-color: var(--border-subtle) !important; }
+:root[data-theme="dark"] footer { background-color: #191615 !important; border-color: var(--border-subtle) !important; }
+:root[data-theme="dark"] input,
+:root[data-theme="dark"] textarea,
+:root[data-theme="dark"] select { color: var(--on-surface) !important; border-color: var(--border-subtle) !important; }
+:root[data-theme="dark"] .rich-opt { background: #26211f; border-color: var(--border-subtle); color: var(--on-surface); }
+:root[data-theme="dark"] .rich-opt.right { background: #143527; border-color: #4ade80; }
+:root[data-theme="dark"] .rich-opt.wrong { background: #381a17; border-color: #e27d78; }
