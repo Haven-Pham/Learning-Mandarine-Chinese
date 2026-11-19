@@ -5109,7 +5109,25 @@ function grammarStatsHTML() {
   `;
 }
 
+// Mẫu ngữ pháp soạn thêm (nguồn: du-lieu-tu-vung/ngu-phap/*.json → tools/build_ngu_phap.py → data/ngu-phap.json)
+async function ensureGrammarData() {
+  if (window._grammarDataLoaded) return false;
+  window._grammarDataLoaded = true;
+  try {
+    const res = await fetch("data/ngu-phap.json", { cache: "no-cache" });
+    if (!res.ok) return false;
+    const arr = await res.json();
+    const ids = new Set(GRAMMAR_MASTER_LIST.map(g => g.id));
+    let added = 0;
+    for (const it of arr) if (it && it.id && !ids.has(it.id)) { GRAMMAR_MASTER_LIST.push(it); ids.add(it.id); added++; }
+    return added > 0;
+  } catch (e) { return false; }
+}
+
 VIEWS["ngu-phap"] = (arg) => {
+  if (!window._grammarDataLoaded) {
+    ensureGrammarData().then((changed) => { if (changed && location.hash.startsWith("#ngu-phap")) VIEWS["ngu-phap"](arg); });
+  }
   loadCustomGrammarNotes();
   try {
     const saved = localStorage.getItem("bookmarked_grammar");

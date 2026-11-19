@@ -62,6 +62,14 @@ Trang học dạy từ mới **theo thứ tự bài**: thứ tự chủ đề tr
 - Bỏ qua từ đã có trong bộ lớp học khác hoặc đã có giải thích đầy đủ (trùng). Từ gần nhau gộp làm một (月老 → 月下老人, 全馬 → 半馬, 口說無憑 → 憑, 敷衍了事 → 敷衍, I人 → E人, 力竭 → 竭力).
 - Đợt 1 (59 từ, vở 03/11/2026) có sẵn trong `data/decks.json`. Đợt 2 (112 từ, vở 10/11, 13/11, 17/11/2026 và một trang không ghi ngày) soạn ngày 2026-11-17.
 
+## Ngữ pháp (`ngu-phap/`)
+
+- Mỗi file `ngu-phap/<nhóm>-NN.json` = `{"mau": [...]}`; nhóm: `a` (A1/A2), `b1`, `b2`, `c`, `kn` (khẩu ngữ Đài Loan). Các trường (`id`, `nhom`, `band`, `ten`, `zh`, `cong_thuc`, `tom_tat`, `dk1`, `dk2`, `sai`, `dung`, `vd`, `bai_tap`, `nguon`) mô tả ở đầu `tools/build_ngu_phap.py`.
+- Build: `python tools/build_ngu_phap.py "<thư mục này>"` → `data/ngu-phap.json`. Trang Ngữ pháp nạp file này, thêm vào sau 8 mẫu có sẵn trong `js/app.js` (id trùng thì bỏ qua).
+- Khung cấp độ: **TBCL (臺灣華語文能力基準)** của 國家教育研究院, gồm 496 điểm ngữ pháp, cấp 1–5. Quy ước: cấp 1–2 → Band A, cấp 3 → B1, cấp 4 → B2, cấp 5 → C. Cấp ghi ở `nguon` là ước lượng theo thứ tự giáo trình Đài Loan; tra lại chính xác bằng mục 語法點分級標準 trên https://coct.naer.edu.tw.
+- Câu ví dụ tự soạn (không chép giáo trình hay đề thi). Mẫu có trong vở lớp học thì ghi ngày vở vào `nguon`.
+- Đợt 1 (2026-11-20): 69 mẫu, gồm A1/A2: 28, B1: 21, B2: 15, khẩu ngữ: 5. Chưa có nhóm C.
+
 ## Mẹo nhớ `mh`: nối Hán Việt với cách đọc
 
 Từ 2026-11-17, mỗi `mh` viết theo mẫu:
