@@ -2,7 +2,7 @@
 
 Tự tạo khi chạy `tools/build_rich_words.py`. Đừng sửa tay.
 
-Từ lẻ đã soạn (thư mục `tu/`): **5226**
+Từ lẻ đã soạn (thư mục `tu/`): **5276**
 
 ## B1 theo chủ đề
 
@@ -46,7 +46,7 @@ Từ lẻ đã soạn (thư mục `tu/`): **5226**
 | A2 | 485 | 485 | — |
 | B1 | 1173 | 1173 | — |
 | B2 | 2342 | 2342 | — |
-| C | 990 | 2776 | 豁達 積 基層 基地 基督 基因 機動 機警 |
+| C | 1040 | 2776 | 加快 加重 枷鎖 夾雜 假若 假使 假象 架構 |
 
 ## Từ riêng (rieng-*.json)
 
