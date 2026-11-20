@@ -1,400 +1,1906 @@
 [
-  {
-    "id": "dia_copier_repair",
-    "category": "dialogue",
-    "categoryName": "Đoạn hội thoại thực tế",
-    "title": "辦公室影印機故障 Office Copier Breakdown",
-    "band": "TOCFL B1 · Đời sống công sở",
-    "duration": "Thời lượng ~3 phút",
-    "desc": "Tình huống máy in và máy photo văn phòng gặp trục trặc trước giờ họp ban giám đốc, nhân viên phối hợp xử lý khẩn cấp.",
-    "sentences": [
-      {
-        "speaker": "林經理",
-        "zh": "早安，傑克。今天早上的業務報告準備得怎麼樣了？",
-        "py": "Zǎo'ān, Jiékè. Jīntiān zǎoshang de yèwù bàogào zhǔnbèi de zěnmeyàng le?",
-        "vn": "Chào buổi sáng Jack. Báo cáo kinh doanh sáng nay chuẩn bị thế nào rồi?"
-      },
-      {
-        "speaker": "傑克",
-        "zh": "資料都已經整理好了，但我剛才正打算影印的時候，影印機突然卡紙了。",
-        "py": "Zīliào dōu yǐjīng zhěnglǐ hǎo le, dàn wǒ gāngcái zhèng dǎsuàn yǐngyìn de shíhou, yǐngyìnjī tūrán kǎzhǐ le.",
-        "vn": "Tài liệu đều đã soạn xong rồi, nhưng lúc nãy khi em vừa định in thì máy photo đột nhiên kẹt giấy."
-      },
-      {
-        "speaker": "林經理",
-        "zh": "你打開側蓋檢查過了嗎？通常把卡住的紙輕輕拉出來就行了。",
-        "py": "Nǐ dǎkāi cègài jiǎnchá guò le ma? Tōngcháng bǎ kǎzhù de zhǐ qīngqīng lā chūlái jiù xíng le.",
-        "vn": "Cậu đã mở nắp hông ra kiểm tra chưa? Thường thì kéo nhẹ tờ giấy bị kẹt ra là được."
-      },
-      {
-        "speaker": "傑克",
-        "zh": "我已經試過了，但螢幕上還是一直顯示錯誤代碼『E-04』。",
-        "py": "Wǒ yǐjīng shì guò le, dàn yíngmù shàng háishì yīzhí xiǎnshì cuòwù dàimǎ 『E-04』.",
-        "vn": "Em đã thử rồi, nhưng trên màn hình vẫn liên tục báo mã lỗi 'E-04'."
-      },
-      {
-        "speaker": "林經理",
-        "zh": "那是碳粉匣感應器異常，可能是剛才換碳粉時沒有裝好。",
-        "py": "Nà shì tànfěnxiá gǎnyìngqì yìcháng, kěnéng shì gāngcái huàn tànfěn shí méiyǒu zhuāng hǎo.",
-        "vn": "Đó là cảm biến hộp mực gặp bất thường, có thể lúc nãy thay mực chưa khớp vào đúng vị trí."
-      },
-      {
-        "speaker": "傑克",
-        "zh": "難怪！剛才是小陳幫忙換的新碳粉，我馬上請他過來看看。",
-        "py": "Nánguài! Gāngcái shì Xiǎochén bāngmáng huàn de xīn tànfěn, wǒ mǎshàng qǐng tā guòlái kànkàn.",
-        "vn": "Thảo nào! Vừa nãy là Tiểu Trần thay hộp mực mới, em sang nhờ cậu ấy kiểm tra lại ngay."
-      },
-      {
-        "speaker": "林經理",
-        "zh": "十點半的會議有八位主管參加，每份報告需要十二頁，雙面彩色列印。",
-        "py": "Shí diǎn bàn de huìyì yǒu bā wèi zhǔguǎn cānjiā, měi fèn bàogào xūyào shí'èr yè, shuāngmiàn cǎisè lièyìn.",
-        "vn": "Cuộc họp mười rưỡi có tám vị trưởng phòng tham gia, mỗi bản cần 12 trang, in màu hai mặt."
-      },
-      {
-        "speaker": "傑克",
-        "zh": "如果修不好，我先借用三樓行銷部的彩色雷射印表機，絕對不會耽誤開會。",
-        "py": "Rúguǒ xiū bù hǎo, wǒ xiān jièyòng sān lóu xíngxiāobù de cǎisè léishè yìnbiǎojī, juéduì bù huì dānwù kāihuì.",
-        "vn": "Nếu không sửa kịp, em sẽ mượn máy in laser màu phòng marketing tầng 3, đảm bảo không trễ giờ họp."
-      },
-      {
-        "speaker": "林經理",
-        "zh": "很好，做事有備案非常重要。另外，記得幫每份報告裝訂整齊。",
-        "py": "Hěn hǎo, zuòshì yǒu bèi'àn fēicháng zhòngyào. Lìngwài, jìde bāng měi fèn bàogào zhuāngdìng zhěngqí.",
-        "vn": "Rất tốt, làm việc có phương án dự phòng là vô cùng quan trọng. Nhớ bấm ghim đóng tập gọn gàng từng bản nhé."
-      },
-      {
-        "speaker": "傑克",
-        "zh": "好的，經理！我等一下還會順便打電話給設備維護廠商來保養機器。",
-        "py": "Hǎo de, jīnglǐ! Wǒ děng yíxià hái huì shùnbiàn dǎ diànhuà gěi shèbèi wéihù chǎngshāng lái bǎoyǎng jīqì.",
-        "vn": "Vâng thưa giám đốc! Lát nữa em sẽ tiện gọi điện luôn cho hãng bảo trì thiết bị đến bảo dưỡng máy."
-      }
-    ],
-    "vocab": [
-      {
-        "w": "影印機",
-        "py": "yǐngyìnjī",
-        "vn": "máy photocopy",
-        "pos": "N",
-        "band": "B1"
-      },
-      {
-        "w": "故障",
-        "py": "gùzhàng",
-        "vn": "trục trặc, hỏng hóc",
-        "pos": "V/N",
-        "band": "B1"
-      },
-      {
-        "w": "碳粉匣",
-        "py": "tànfěnxiá",
-        "vn": "hộp mực in",
-        "pos": "N",
-        "band": "B2"
-      },
-      {
-        "w": "備案",
-        "py": "bèi'àn",
-        "vn": "phương án dự phòng",
-        "pos": "N",
-        "band": "B2"
-      },
-      {
-        "w": "耽誤",
-        "py": "dānwù",
-        "vn": "làm lỡ, làm trễ nải",
-        "pos": "V",
-        "band": "B1"
-      }
-    ]
-  },
-  {
-    "id": "dia_rent_taipei",
-    "category": "dialogue",
-    "categoryName": "Đoạn hội thoại thực tế",
-    "title": "在台北租獨立套房 Renting Studio in Taipei",
-    "band": "TOCFL B1 · Thuê nhà & Đời sống",
-    "duration": "Thời lượng ~2.5 phút",
-    "desc": "Cuộc gọi giữa bạn sinh viên quốc tế và chủ nhà tại Đài Bắc hỏi về tiền cọc, máy giặt riêng và tiền điện nước theo công tơ riêng.",
-    "sentences": [
-      {
-        "speaker": "房客",
-        "zh": "您好，我在租屋網看到大安區那間採光良好的獨立套房，請問目前還能看房嗎？",
-        "py": "Nín hǎo, wǒ zài zūwūwǎng kàndào Dà'ān qū nà jiān cǎiguāng liánghǎo de dúlì tàofáng, qǐngwèn mùqián hái néng kànfáng ma?",
-        "vn": "Chào bác ạ, cháu thấy trên mạng căn phòng trọ khép kín đón nắng tốt ở quận Đại An, không biết hiện tại còn xem phòng được không ạ?"
-      },
-      {
-        "speaker": "房東",
-        "zh": "可以啊，這間套房剛剛粉刷完畢，有獨立陽台和自己的洗衣機。",
-        "py": "Kěyǐ a, zhè jiān tàofáng gānggāng fěnshuā wánbì, yǒu dúlì yángtái hé zìjǐ de xǐyījī.",
-        "vn": "Được chứ, phòng này vừa mới sơn sửa xong, có ban công riêng và máy giặt riêng nữa."
-      },
-      {
-        "speaker": "房客",
-        "zh": "請問每個月的房租多少？水電費和網路管理費是怎麼計算的呢？",
-        "py": "Qǐngwèn měi gè yuè de fángzū duōshǎo? Shuǐdiànfèi hé wǎnglù guǎnlǐfèi shì zěnme jìsuàn de ne?",
-        "vn": "Dạ cho cháu hỏi tiền thuê mỗi tháng bao nhiêu ạ? Tiền điện nước và phí quản lý internet tính thế nào ạ?"
-      },
-      {
-        "speaker": "房東",
-        "zh": "房租一個月一萬四千元，水費與光纖網路免費，電費獨立電表一度五點五元。",
-        "py": "Fángzū yí gè yuè yí wàn sì qiān yuán, shuǐfèi yǔ guāngxiān wǎnglù miǎnfèi, diànfèi dúlì diànbiǎo yí dù wǔ diǎn wǔ yuán.",
-        "vn": "Tiền nhà mỗi tháng 14,000 đài tệ, miễn phí tiền nước và internet cáp quang, tiền điện công tơ riêng 5.5 tệ một số."
-      },
-      {
-        "speaker": "房客",
-        "zh": "押金是兩個月對嗎？如果雙方滿意，租約最短需要簽多久？",
-        "py": "Yājīn shì liǎng gè yuè duì ma? Rúguǒ shuāngfāng mǎnyì, zūyuē zuì duǎn xūyào qiān duōjiǔ?",
-        "vn": "Tiền cọc là 2 tháng đúng không ạ? Nếu hai bên ưng ý thì hợp đồng thuê tối thiểu là bao lâu ạ?"
-      },
-      {
-        "speaker": "房東",
-        "zh": "對，押金兩個月，租約一年起跳。如果你明天下午有空，兩點可以過來現場看屋。",
-        "py": "Duì, yājīn liǎng gè yuè, zūyuē yì nián qǐtiào. Rúguǒ nǐ míngtiān xiàwǔ yǒukòng, liǎng diǎn kěyǐ guòlái xiànchǎng kànwū.",
-        "vn": "Đúng rồi, cọc 2 tháng, hợp đồng từ 1 năm trở lên. Nếu chiều mai cháu rảnh thì 2 giờ qua xem phòng thực tế nhé."
-      }
-    ],
-    "vocab": [
-      {
-        "w": "套房",
-        "py": "tàofáng",
-        "vn": "phòng khép kín có toilet riêng",
-        "pos": "N",
-        "band": "A2"
-      },
-      {
-        "w": "押金",
-        "py": "yājīn",
-        "vn": "tiền đặt cọc",
-        "pos": "N",
-        "band": "B1"
-      },
-      {
-        "w": "採光",
-        "py": "cǎiguāng",
-        "vn": "đón ánh sáng tự nhiên",
-        "pos": "N",
-        "band": "B2"
-      },
-      {
-        "w": "粉刷",
-        "py": "fěnshuā",
-        "vn": "sơn sửa tường nhà",
-        "pos": "V",
-        "band": "B1"
-      }
-    ]
-  },
-  {
-    "id": "story_garbage_truck",
-    "category": "story",
-    "categoryName": "Câu chuyện ngắn",
-    "title": "追垃圾車與台灣資源回收 Chasing Garbage Truck in Taiwan",
-    "band": "TOCFL B1 · Văn hóa sinh hoạt",
-    "duration": "Thời lượng ~2.5 phút",
-    "desc": "Trải nghiệm đặc trưng và thú vị của mọi người dân sống tại Đài Loan: lắng nghe tiếng nhạc Beethoven đón xe rác và phân loại tài nguyên.",
-    "sentences": [
-      {
-        "speaker": "旁白",
-        "zh": "在台灣生活，只要每到傍晚聽到熟悉的《給愛麗絲》音樂，大家就知道垃圾車來了。",
-        "py": "Zài Táiwān shēnghuó, zhǐyào měi dào bàngwǎn tīngdào shúxī de 《Gěi Àilìsī》 yīnyuè, dàjiā jiù zhīdào lèsèchē lái le.",
-        "vn": "Sống ở Đài Loan, cứ mỗi buổi chiều tà khi nghe thấy giai điệu quen thuộc 'Gửi Elise', mọi người đều biết xe rác đã tới."
-      },
-      {
-        "speaker": "旁白",
-        "zh": "男女老少提著藍色專用垃圾袋走出家門，在巷口排隊等候黃色垃圾車停妥。",
-        "py": "Nánnǚ lǎoshào tízhe lánsè zhuānyòng lèsèdài zǒuchū jiāmén, zài xiàngkǒu páiduì děnghòu huángsè lèsèchē tíngtuǒ.",
-        "vn": "Già trẻ gái trai xách theo túi rác màu xanh chuyên dụng bước ra khỏi nhà, xếp hàng ở đầu ngõ đợi xe rác màu vàng dừng hẳn."
-      },
-      {
-        "speaker": "旁白",
-        "zh": "緊跟在垃圾車後面的，是專門負責資源回收與廚餘回收的卡車。",
-        "py": "Jǐngēn zài lèsèchē hòumiàn de, shì zhuānmén fùzé zīyuán huíshōu yǔ chúyú huíshōu de kǎchē.",
-        "vn": "Bám sát ngay sau xe rác là chiếc xe tải chuyên thu gom đồ tái chế và thức ăn thừa."
-      },
-      {
-        "speaker": "旁白",
-        "zh": "民眾必須把紙箱壓平、寶特瓶清洗壓扁，並且將生熟廚餘分開倒入桶中。",
-        "py": "Mínzhòng bìxū bǎ zhǐxiāng yāpíng, bǎotèpíng qīngxǐ yābiǎn, bìngqiě jiāng shēngshú chúyú fēnkāi dàorù tǒng zhōng.",
-        "vn": "Người dân phải đè phẳng thùng carton, súc rửa và bóp dẹp chai nhựa, đồng thời phân chia rác thực phẩm sống chín đổ vào thùng tương ứng."
-      },
-      {
-        "speaker": "旁白",
-        "zh": "這套行之有年的垃圾不落地政策，讓台灣街頭維持了高度整潔，也凝聚了社區鄰里情感。",
-        "py": "Zhè tào xíngzhīyǒunián de lèsè bù luòdì zhèngcè, ràng Táiwān jiētóu wéichí le gāodù zhěngjié, yě níngjù le shèqū línlǐ qínggǎn.",
-        "vn": "Chính sách 'rác không chạm đất' áp dụng nhiều năm nay đã giúp đường phố Đài Loan duy trì độ sạch sẽ đáng nể, đồng thời gắn kết tình làng nghĩa xóm."
-      }
-    ],
-    "vocab": [
-      {
-        "w": "廚餘",
-        "py": "chúyú",
-        "vn": "thức ăn thừa, rác nhà bếp",
-        "pos": "N",
-        "band": "B1"
-      },
-      {
-        "w": "寶特瓶",
-        "py": "bǎotèpíng",
-        "vn": "chai nhựa PET",
-        "pos": "N",
-        "band": "A2"
-      },
-      {
-        "w": "專用垃圾袋",
-        "py": "zhuānyòng lèsèdài",
-        "vn": "túi rác chuyên dụng có tính phí",
-        "pos": "N",
-        "band": "B1"
-      },
-      {
-        "w": "整潔",
-        "py": "zhěngjié",
-        "vn": "ngăn nắp, sạch sẽ",
-        "pos": "Vs",
-        "band": "B1"
-      }
-    ]
-  },
-  {
-    "id": "tocfl_interview_prep",
-    "category": "tocfl",
-    "categoryName": "TOCFL Listening",
-    "title": "面試與薪資福利討論 Job Interview Dialogue",
-    "band": "TOCFL B2 · Luyện thính lực chính thức",
-    "duration": "Thời lượng ~3 phút",
-    "desc": "Bài đối thoại chính thức kiểm tra khả năng nắm bắt ý ngầm của ứng viên và nhà tuyển dụng về chế độ bảo hiểm lao động và thời gian thử việc.",
-    "sentences": [
-      {
-        "speaker": "主考官",
-        "zh": "王先生，我看過你的履歷，你在上一家科技公司的專案管理經驗非常豐富。",
-        "py": "Wáng xiānsheng, wǒ kànguò nǐ de lǚlì, nǐ zài shàng yì jiā kējì gōngsī de zhuān'àn guǎnlǐ jīngyàn fēicháng fēngfù.",
-        "vn": "Anh Vương, tôi đã xem qua sơ yếu lý lịch của anh, kinh nghiệm quản lý dự án ở công ty công nghệ trước đây của anh rất phong phú."
-      },
-      {
-        "speaker": "王先生",
-        "zh": "謝謝總監。我過去三年帶領團隊完成了五個大型軟體開發案，都如期上線。",
-        "py": "Xièxie zǒngjiān. Wǒ guòqù sān nián dàilǐng tuánduì wánchéng le wǔ gè dàxíng ruǎntǐ kāifā'àn, dōu rúqī shàngxiàn.",
-        "vn": "Cảm ơn giám đốc. Ba năm qua tôi đã dẫn dắt đội ngũ hoàn thành 5 dự án phần mềm lớn, tất cả đều ra mắt đúng hạn."
-      },
-      {
-        "speaker": "主考官",
-        "zh": "我們公司非常重視團隊協作與跨部門溝通，想請問你期望的待遇是多少？",
-        "py": "Wǒmen gōngsī fēicháng zhòngshì tuánduì xiézuò yǔ kuà bùmén gōutōng, xiǎng qǐngwèn nǐ qīwàng de dàiyù shì duōshǎo?",
-        "vn": "Công ty chúng tôi rất chú trọng tinh thần làm việc nhóm và giao tiếp liên phòng ban, xin hỏi mức đãi ngộ kỳ vọng của anh là bao nhiêu?"
-      },
-      {
-        "speaker": "王先生",
-        "zh": "依據我目前的專業技能與市場行情，我希望能爭取月薪六萬五千元以上的待遇。",
-        "py": "Yījù wǒ mùqián de zhuānyè jìnéng yǔ shìchǎng hángqíng, wǒ xīwàng néng zhēngqǔ yuèxīn liù wàn wǔ qiān yuán yǐshàng de dàiyù.",
-        "vn": "Căn cứ vào kỹ năng chuyên môn hiện tại và mặt bằng thị trường, tôi mong muốn mức lương từ 65.000 đài tệ mỗi tháng trở lên."
-      },
-      {
-        "speaker": "主考官",
-        "zh": "我們提供完整的勞健保、年終獎金與員工培訓補助，試用期三個月考核通過後還會再調薪。",
-        "py": "Wǒmen tígōng wánzhěng de láojiànbǎo, niánzhōng jiǎngjīn yǔ yuángōng péixùn bǔzhù, shìyòngqī sān gè yuè kǎohé tōngguò hòu hái huì zài tiáoxīn.",
-        "vn": "Chúng tôi cung cấp đầy đủ bảo hiểm lao động, bảo hiểm y tế, thưởng cuối năm và trợ cấp đào tạo nhân viên, sau khi thử việc 3 tháng đánh giá đạt sẽ được tăng lương tiếp."
-      }
-    ],
-    "vocab": [
-      {
-        "w": "履歷",
-        "py": "lǚlì",
-        "vn": "sơ yếu lý lịch, CV",
-        "pos": "N",
-        "band": "B1"
-      },
-      {
-        "w": "待遇",
-        "py": "dàiyù",
-        "vn": "mức lương và chế độ đãi ngộ",
-        "pos": "N",
-        "band": "B1"
-      },
-      {
-        "w": "考核",
-        "py": "kǎohé",
-        "vn": "kiểm tra, đánh giá định kỳ",
-        "pos": "V",
-        "band": "B2"
-      },
-      {
-        "w": "調薪",
-        "py": "tiáoxīn",
-        "vn": "điều chỉnh tăng lương",
-        "pos": "V-sep",
-        "band": "B2"
-      }
-    ]
-  },
-  {
-    "id": "news_pts_smart_transport",
-    "category": "news",
-    "categoryName": "Tin tức PTS Đài Loan",
-    "title": "公視新聞：都會區智慧綠能交通新政策 PTS News: Green Smart Transit",
-    "band": "TOCFL B2 · Thời sự truyền hình",
-    "duration": "Thời lượng ~3 phút",
-    "desc": "Bản tin thời sự truyền hình PTS Đài Loan về dự án mở rộng mạng lưới xe bus điện và trợ giá vé tháng giao thông liên vùng TPASS.",
-    "sentences": [
-      {
-        "speaker": "主播",
-        "zh": "各位觀眾晚安，歡迎收看公視晚間新聞。交通部今天宣布將擴大推動都會區公共運輸定期票。",
-        "py": "Gèwèi guānzhòng wǎn'ān, huānyíng shōukàn Gōngshì Wǎnjiān Xīnwén. Jiāotōngbù jīntiān xuānbù jiāng kuòdà tuīdòng dūhuìqū gōnggòng yùnshū dìngqípiào.",
-        "vn": "Kính chào quý vị khán giả, hoan nghênh đón xem bản tin thời sự tối của PTS. Bộ Giao thông hôm nay tuyên bố sẽ mở rộng xúc tiến vé định kỳ vận tải công cộng đô thị."
-      },
-      {
-        "speaker": "記者",
-        "zh": "為了降低碳排放並紓解交通壅塞，政府整合了捷運、台鐵、市區公車與公共自行車。",
-        "py": "Wèile jiàngdī tànpáifàng bìng shūjiě jiāotōng yōngsè, zhèngfǔ zhěnghé le jiéyùn, Táitiě, shìqū gōngchē yǔ gōnggòng zìxíngchē.",
-        "vn": "Nhằm giảm lượng phát thải carbon và giải tỏa ùn tắc giao thông, chính phủ đã tích hợp tàu điện MRT, tàu hỏa Đài Thiết, xe buýt đô thị và xe đạp công cộng YouBike."
-      },
-      {
-        "speaker": "記者",
-        "zh": "通勤族只要花費固定月費，即可在三十天內不限次數搭乘跨縣市交通工具。",
-        "py": "Tōngqínzú zhǐyào huāfèi gùdìng yuèfèi, jíkě zài sānshí tiān nèi bú xiàn cìshù dāchéng kuà xiànshì jiāotōng gōngjù.",
-        "vn": "Người đi làm chỉ cần chi trả khoản phí cố định hàng tháng là có thể đi lại không giới hạn số chuyến liên quận huyện trong vòng 30 ngày."
-      },
-      {
-        "speaker": "民眾",
-        "zh": "有了這張定期票以後，我每個月省下將近一千五百元的油錢，上班路上也比較輕鬆省時。",
-        "py": "Yǒu le zhè zhāng dìngqípiào yǐhòu, wǒ měi gè yuè shěngxià jiāngjìn yì qiān wǔ bǎi yuán de yóuqián, shàngbān lùshàng yě bǐjiào qīngsōng shěngshí.",
-        "vn": "Có chiếc vé tháng này, mỗi tháng tôi tiết kiệm được gần 1.500 đài tệ tiền xăng, trên đường đi làm cũng thoải mái và tiết kiệm thời gian hơn."
-      },
-      {
-        "speaker": "主播",
-        "zh": "專家指出，綠能公共運輸的使用率若持續上升，預計在五年內可減少兩成以上的空氣污染。",
-        "py": "Zhuānjiā zhǐchū, lǜnéng gōnggòng yùnshū de shǐyònglǜ ruò chíxù shàngshēng, yùjì zài wǔ nián nèi kě jiǎnshǎo liǎng chéng yǐshàng de kōngqì wūrǎn.",
-        "vn": "Các chuyên gia chỉ ra rằng, nếu tỷ lệ sử dụng giao thông xanh công cộng tiếp tục tăng trưởng, dự kiến trong 5 năm tới có thể cắt giảm hơn 20% ô nhiễm không khí."
-      }
-    ],
-    "vocab": [
-      {
-        "w": "碳排放",
-        "py": "tànpáifàng",
-        "vn": "lượng khí thải carbon",
-        "pos": "N",
-        "band": "B2"
-      },
-      {
-        "w": "紓解",
-        "py": "shūjiě",
-        "vn": "giải tỏa, xoa dịu áp lực",
-        "pos": "V",
-        "band": "B2"
-      },
-      {
-        "w": "通勤族",
-        "py": "tōngqínzú",
-        "vn": "người đi làm / đi học hàng ngày bằng phương tiện",
-        "pos": "N",
-        "band": "B1"
-      },
-      {
-        "w": "定期票",
-        "py": "dìngqípiào",
-        "vn": "vé định kỳ / vé tháng",
-        "pos": "N",
-        "band": "B1"
-      }
-    ]
-  }
+ {
+  "id": "dia_copier_repair",
+  "category": "dialogue",
+  "categoryName": "Đoạn hội thoại thực tế",
+  "title": "辦公室影印機故障 Office Copier Breakdown",
+  "band": "TOCFL B1 · Đời sống công sở",
+  "duration": "Thời lượng ~3 phút",
+  "desc": "Tình huống máy in và máy photo văn phòng gặp trục trặc trước giờ họp ban giám đốc, nhân viên phối hợp xử lý khẩn cấp.",
+  "sentences": [
+   {
+    "speaker": "林經理",
+    "zh": "早安，傑克。今天早上的業務報告準備得怎麼樣了？",
+    "py": "Zǎo'ān, Jiékè. Jīntiān zǎoshang de yèwù bàogào zhǔnbèi de zěnmeyàng le?",
+    "vn": "Chào buổi sáng Jack. Báo cáo kinh doanh sáng nay chuẩn bị thế nào rồi?"
+   },
+   {
+    "speaker": "傑克",
+    "zh": "資料都已經整理好了，但我剛才正打算影印的時候，影印機突然卡紙了。",
+    "py": "Zīliào dōu yǐjīng zhěnglǐ hǎo le, dàn wǒ gāngcái zhèng dǎsuàn yǐngyìn de shíhou, yǐngyìnjī tūrán kǎzhǐ le.",
+    "vn": "Tài liệu đều đã soạn xong rồi, nhưng lúc nãy khi em vừa định in thì máy photo đột nhiên kẹt giấy."
+   },
+   {
+    "speaker": "林經理",
+    "zh": "你打開側蓋檢查過了嗎？通常把卡住的紙輕輕拉出來就行了。",
+    "py": "Nǐ dǎkāi cègài jiǎnchá guò le ma? Tōngcháng bǎ kǎzhù de zhǐ qīngqīng lā chūlái jiù xíng le.",
+    "vn": "Cậu đã mở nắp hông ra kiểm tra chưa? Thường thì kéo nhẹ tờ giấy bị kẹt ra là được."
+   },
+   {
+    "speaker": "傑克",
+    "zh": "我已經試過了，但螢幕上還是一直顯示錯誤代碼『E-04』。",
+    "py": "Wǒ yǐjīng shì guò le, dàn yíngmù shàng háishì yīzhí xiǎnshì cuòwù dàimǎ 『E-04』.",
+    "vn": "Em đã thử rồi, nhưng trên màn hình vẫn liên tục báo mã lỗi 'E-04'."
+   },
+   {
+    "speaker": "林經理",
+    "zh": "那是碳粉匣感應器異常，可能是剛才換碳粉時沒有裝好。",
+    "py": "Nà shì tànfěnxiá gǎnyìngqì yìcháng, kěnéng shì gāngcái huàn tànfěn shí méiyǒu zhuāng hǎo.",
+    "vn": "Đó là cảm biến hộp mực gặp bất thường, có thể lúc nãy thay mực chưa khớp vào đúng vị trí."
+   },
+   {
+    "speaker": "傑克",
+    "zh": "難怪！剛才是小陳幫忙換的新碳粉，我馬上請他過來看看。",
+    "py": "Nánguài! Gāngcái shì Xiǎochén bāngmáng huàn de xīn tànfěn, wǒ mǎshàng qǐng tā guòlái kànkàn.",
+    "vn": "Thảo nào! Vừa nãy là Tiểu Trần thay hộp mực mới, em sang nhờ cậu ấy kiểm tra lại ngay."
+   },
+   {
+    "speaker": "林經理",
+    "zh": "十點半的會議有八位主管參加，每份報告需要十二頁，雙面彩色列印。",
+    "py": "Shí diǎn bàn de huìyì yǒu bā wèi zhǔguǎn cānjiā, měi fèn bàogào xūyào shí'èr yè, shuāngmiàn cǎisè lièyìn.",
+    "vn": "Cuộc họp mười rưỡi có tám vị trưởng phòng tham gia, mỗi bản cần 12 trang, in màu hai mặt."
+   },
+   {
+    "speaker": "傑克",
+    "zh": "如果修不好，我先借用三樓行銷部的彩色雷射印表機，絕對不會耽誤開會。",
+    "py": "Rúguǒ xiū bù hǎo, wǒ xiān jièyòng sān lóu xíngxiāobù de cǎisè léishè yìnbiǎojī, juéduì bù huì dānwù kāihuì.",
+    "vn": "Nếu không sửa kịp, em sẽ mượn máy in laser màu phòng marketing tầng 3, đảm bảo không trễ giờ họp."
+   },
+   {
+    "speaker": "林經理",
+    "zh": "很好，做事有備案非常重要。另外，記得幫每份報告裝訂整齊。",
+    "py": "Hěn hǎo, zuòshì yǒu bèi'àn fēicháng zhòngyào. Lìngwài, jìde bāng měi fèn bàogào zhuāngdìng zhěngqí.",
+    "vn": "Rất tốt, làm việc có phương án dự phòng là vô cùng quan trọng. Nhớ bấm ghim đóng tập gọn gàng từng bản nhé."
+   },
+   {
+    "speaker": "傑克",
+    "zh": "好的，經理！我等一下還會順便打電話給設備維護廠商來保養機器。",
+    "py": "Hǎo de, jīnglǐ! Wǒ děng yíxià hái huì shùnbiàn dǎ diànhuà gěi shèbèi wéihù chǎngshāng lái bǎoyǎng jīqì.",
+    "vn": "Vâng thưa giám đốc! Lát nữa em sẽ tiện gọi điện luôn cho hãng bảo trì thiết bị đến bảo dưỡng máy."
+   }
+  ],
+  "vocab": [
+   {
+    "w": "影印機",
+    "py": "yǐngyìnjī",
+    "vn": "máy photocopy",
+    "pos": "N",
+    "band": "B1"
+   },
+   {
+    "w": "故障",
+    "py": "gùzhàng",
+    "vn": "trục trặc, hỏng hóc",
+    "pos": "V/N",
+    "band": "B1"
+   },
+   {
+    "w": "碳粉匣",
+    "py": "tànfěnxiá",
+    "vn": "hộp mực in",
+    "pos": "N",
+    "band": "B2"
+   },
+   {
+    "w": "備案",
+    "py": "bèi'àn",
+    "vn": "phương án dự phòng",
+    "pos": "N",
+    "band": "B2"
+   },
+   {
+    "w": "耽誤",
+    "py": "dānwù",
+    "vn": "làm lỡ, làm trễ nải",
+    "pos": "V",
+    "band": "B1"
+   }
+  ]
+ },
+ {
+  "id": "dia_rent_taipei",
+  "category": "dialogue",
+  "categoryName": "Đoạn hội thoại thực tế",
+  "title": "在台北租獨立套房 Renting Studio in Taipei",
+  "band": "TOCFL B1 · Thuê nhà & Đời sống",
+  "duration": "Thời lượng ~2.5 phút",
+  "desc": "Cuộc gọi giữa bạn sinh viên quốc tế và chủ nhà tại Đài Bắc hỏi về tiền cọc, máy giặt riêng và tiền điện nước theo công tơ riêng.",
+  "sentences": [
+   {
+    "speaker": "房客",
+    "zh": "您好，我在租屋網看到大安區那間採光良好的獨立套房，請問目前還能看房嗎？",
+    "py": "Nín hǎo, wǒ zài zūwūwǎng kàndào Dà'ān qū nà jiān cǎiguāng liánghǎo de dúlì tàofáng, qǐngwèn mùqián hái néng kànfáng ma?",
+    "vn": "Chào bác ạ, cháu thấy trên mạng căn phòng trọ khép kín đón nắng tốt ở quận Đại An, không biết hiện tại còn xem phòng được không ạ?"
+   },
+   {
+    "speaker": "房東",
+    "zh": "可以啊，這間套房剛剛粉刷完畢，有獨立陽台和自己的洗衣機。",
+    "py": "Kěyǐ a, zhè jiān tàofáng gānggāng fěnshuā wánbì, yǒu dúlì yángtái hé zìjǐ de xǐyījī.",
+    "vn": "Được chứ, phòng này vừa mới sơn sửa xong, có ban công riêng và máy giặt riêng nữa."
+   },
+   {
+    "speaker": "房客",
+    "zh": "請問每個月的房租多少？水電費和網路管理費是怎麼計算的呢？",
+    "py": "Qǐngwèn měi gè yuè de fángzū duōshǎo? Shuǐdiànfèi hé wǎnglù guǎnlǐfèi shì zěnme jìsuàn de ne?",
+    "vn": "Dạ cho cháu hỏi tiền thuê mỗi tháng bao nhiêu ạ? Tiền điện nước và phí quản lý internet tính thế nào ạ?"
+   },
+   {
+    "speaker": "房東",
+    "zh": "房租一個月一萬四千元，水費與光纖網路免費，電費獨立電表一度五點五元。",
+    "py": "Fángzū yí gè yuè yí wàn sì qiān yuán, shuǐfèi yǔ guāngxiān wǎnglù miǎnfèi, diànfèi dúlì diànbiǎo yí dù wǔ diǎn wǔ yuán.",
+    "vn": "Tiền nhà mỗi tháng 14,000 đài tệ, miễn phí tiền nước và internet cáp quang, tiền điện công tơ riêng 5.5 tệ một số."
+   },
+   {
+    "speaker": "房客",
+    "zh": "押金是兩個月對嗎？如果雙方滿意，租約最短需要簽多久？",
+    "py": "Yājīn shì liǎng gè yuè duì ma? Rúguǒ shuāngfāng mǎnyì, zūyuē zuì duǎn xūyào qiān duōjiǔ?",
+    "vn": "Tiền cọc là 2 tháng đúng không ạ? Nếu hai bên ưng ý thì hợp đồng thuê tối thiểu là bao lâu ạ?"
+   },
+   {
+    "speaker": "房東",
+    "zh": "對，押金兩個月，租約一年起跳。如果你明天下午有空，兩點可以過來現場看屋。",
+    "py": "Duì, yājīn liǎng gè yuè, zūyuē yì nián qǐtiào. Rúguǒ nǐ míngtiān xiàwǔ yǒukòng, liǎng diǎn kěyǐ guòlái xiànchǎng kànwū.",
+    "vn": "Đúng rồi, cọc 2 tháng, hợp đồng từ 1 năm trở lên. Nếu chiều mai cháu rảnh thì 2 giờ qua xem phòng thực tế nhé."
+   }
+  ],
+  "vocab": [
+   {
+    "w": "套房",
+    "py": "tàofáng",
+    "vn": "phòng khép kín có toilet riêng",
+    "pos": "N",
+    "band": "A2"
+   },
+   {
+    "w": "押金",
+    "py": "yājīn",
+    "vn": "tiền đặt cọc",
+    "pos": "N",
+    "band": "B1"
+   },
+   {
+    "w": "採光",
+    "py": "cǎiguāng",
+    "vn": "đón ánh sáng tự nhiên",
+    "pos": "N",
+    "band": "B2"
+   },
+   {
+    "w": "粉刷",
+    "py": "fěnshuā",
+    "vn": "sơn sửa tường nhà",
+    "pos": "V",
+    "band": "B1"
+   }
+  ]
+ },
+ {
+  "id": "story_garbage_truck",
+  "category": "story",
+  "categoryName": "Câu chuyện ngắn",
+  "title": "追垃圾車與台灣資源回收 Chasing Garbage Truck in Taiwan",
+  "band": "TOCFL B1 · Văn hóa sinh hoạt",
+  "duration": "Thời lượng ~2.5 phút",
+  "desc": "Trải nghiệm đặc trưng và thú vị của mọi người dân sống tại Đài Loan: lắng nghe tiếng nhạc Beethoven đón xe rác và phân loại tài nguyên.",
+  "sentences": [
+   {
+    "speaker": "旁白",
+    "zh": "在台灣生活，只要每到傍晚聽到熟悉的《給愛麗絲》音樂，大家就知道垃圾車來了。",
+    "py": "Zài Táiwān shēnghuó, zhǐyào měi dào bàngwǎn tīngdào shúxī de 《Gěi Àilìsī》 yīnyuè, dàjiā jiù zhīdào lèsèchē lái le.",
+    "vn": "Sống ở Đài Loan, cứ mỗi buổi chiều tà khi nghe thấy giai điệu quen thuộc 'Gửi Elise', mọi người đều biết xe rác đã tới."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "男女老少提著藍色專用垃圾袋走出家門，在巷口排隊等候黃色垃圾車停妥。",
+    "py": "Nánnǚ lǎoshào tízhe lánsè zhuānyòng lèsèdài zǒuchū jiāmén, zài xiàngkǒu páiduì děnghòu huángsè lèsèchē tíngtuǒ.",
+    "vn": "Già trẻ gái trai xách theo túi rác màu xanh chuyên dụng bước ra khỏi nhà, xếp hàng ở đầu ngõ đợi xe rác màu vàng dừng hẳn."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "緊跟在垃圾車後面的，是專門負責資源回收與廚餘回收的卡車。",
+    "py": "Jǐngēn zài lèsèchē hòumiàn de, shì zhuānmén fùzé zīyuán huíshōu yǔ chúyú huíshōu de kǎchē.",
+    "vn": "Bám sát ngay sau xe rác là chiếc xe tải chuyên thu gom đồ tái chế và thức ăn thừa."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "民眾必須把紙箱壓平、寶特瓶清洗壓扁，並且將生熟廚餘分開倒入桶中。",
+    "py": "Mínzhòng bìxū bǎ zhǐxiāng yāpíng, bǎotèpíng qīngxǐ yābiǎn, bìngqiě jiāng shēngshú chúyú fēnkāi dàorù tǒng zhōng.",
+    "vn": "Người dân phải đè phẳng thùng carton, súc rửa và bóp dẹp chai nhựa, đồng thời phân chia rác thực phẩm sống chín đổ vào thùng tương ứng."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "這套行之有年的垃圾不落地政策，讓台灣街頭維持了高度整潔，也凝聚了社區鄰里情感。",
+    "py": "Zhè tào xíngzhīyǒunián de lèsè bù luòdì zhèngcè, ràng Táiwān jiētóu wéichí le gāodù zhěngjié, yě níngjù le shèqū línlǐ qínggǎn.",
+    "vn": "Chính sách 'rác không chạm đất' áp dụng nhiều năm nay đã giúp đường phố Đài Loan duy trì độ sạch sẽ đáng nể, đồng thời gắn kết tình làng nghĩa xóm."
+   }
+  ],
+  "vocab": [
+   {
+    "w": "廚餘",
+    "py": "chúyú",
+    "vn": "thức ăn thừa, rác nhà bếp",
+    "pos": "N",
+    "band": "B1"
+   },
+   {
+    "w": "寶特瓶",
+    "py": "bǎotèpíng",
+    "vn": "chai nhựa PET",
+    "pos": "N",
+    "band": "A2"
+   },
+   {
+    "w": "專用垃圾袋",
+    "py": "zhuānyòng lèsèdài",
+    "vn": "túi rác chuyên dụng có tính phí",
+    "pos": "N",
+    "band": "B1"
+   },
+   {
+    "w": "整潔",
+    "py": "zhěngjié",
+    "vn": "ngăn nắp, sạch sẽ",
+    "pos": "Vs",
+    "band": "B1"
+   }
+  ]
+ },
+ {
+  "id": "tocfl_interview_prep",
+  "category": "tocfl",
+  "categoryName": "TOCFL Listening",
+  "title": "面試與薪資福利討論 Job Interview Dialogue",
+  "band": "TOCFL B2 · Luyện thính lực chính thức",
+  "duration": "Thời lượng ~3 phút",
+  "desc": "Bài đối thoại chính thức kiểm tra khả năng nắm bắt ý ngầm của ứng viên và nhà tuyển dụng về chế độ bảo hiểm lao động và thời gian thử việc.",
+  "sentences": [
+   {
+    "speaker": "主考官",
+    "zh": "王先生，我看過你的履歷，你在上一家科技公司的專案管理經驗非常豐富。",
+    "py": "Wáng xiānsheng, wǒ kànguò nǐ de lǚlì, nǐ zài shàng yì jiā kējì gōngsī de zhuān'àn guǎnlǐ jīngyàn fēicháng fēngfù.",
+    "vn": "Anh Vương, tôi đã xem qua sơ yếu lý lịch của anh, kinh nghiệm quản lý dự án ở công ty công nghệ trước đây của anh rất phong phú."
+   },
+   {
+    "speaker": "王先生",
+    "zh": "謝謝總監。我過去三年帶領團隊完成了五個大型軟體開發案，都如期上線。",
+    "py": "Xièxie zǒngjiān. Wǒ guòqù sān nián dàilǐng tuánduì wánchéng le wǔ gè dàxíng ruǎntǐ kāifā'àn, dōu rúqī shàngxiàn.",
+    "vn": "Cảm ơn giám đốc. Ba năm qua tôi đã dẫn dắt đội ngũ hoàn thành 5 dự án phần mềm lớn, tất cả đều ra mắt đúng hạn."
+   },
+   {
+    "speaker": "主考官",
+    "zh": "我們公司非常重視團隊協作與跨部門溝通，想請問你期望的待遇是多少？",
+    "py": "Wǒmen gōngsī fēicháng zhòngshì tuánduì xiézuò yǔ kuà bùmén gōutōng, xiǎng qǐngwèn nǐ qīwàng de dàiyù shì duōshǎo?",
+    "vn": "Công ty chúng tôi rất chú trọng tinh thần làm việc nhóm và giao tiếp liên phòng ban, xin hỏi mức đãi ngộ kỳ vọng của anh là bao nhiêu?"
+   },
+   {
+    "speaker": "王先生",
+    "zh": "依據我目前的專業技能與市場行情，我希望能爭取月薪六萬五千元以上的待遇。",
+    "py": "Yījù wǒ mùqián de zhuānyè jìnéng yǔ shìchǎng hángqíng, wǒ xīwàng néng zhēngqǔ yuèxīn liù wàn wǔ qiān yuán yǐshàng de dàiyù.",
+    "vn": "Căn cứ vào kỹ năng chuyên môn hiện tại và mặt bằng thị trường, tôi mong muốn mức lương từ 65.000 đài tệ mỗi tháng trở lên."
+   },
+   {
+    "speaker": "主考官",
+    "zh": "我們提供完整的勞健保、年終獎金與員工培訓補助，試用期三個月考核通過後還會再調薪。",
+    "py": "Wǒmen tígōng wánzhěng de láojiànbǎo, niánzhōng jiǎngjīn yǔ yuángōng péixùn bǔzhù, shìyòngqī sān gè yuè kǎohé tōngguò hòu hái huì zài tiáoxīn.",
+    "vn": "Chúng tôi cung cấp đầy đủ bảo hiểm lao động, bảo hiểm y tế, thưởng cuối năm và trợ cấp đào tạo nhân viên, sau khi thử việc 3 tháng đánh giá đạt sẽ được tăng lương tiếp."
+   }
+  ],
+  "vocab": [
+   {
+    "w": "履歷",
+    "py": "lǚlì",
+    "vn": "sơ yếu lý lịch, CV",
+    "pos": "N",
+    "band": "B1"
+   },
+   {
+    "w": "待遇",
+    "py": "dàiyù",
+    "vn": "mức lương và chế độ đãi ngộ",
+    "pos": "N",
+    "band": "B1"
+   },
+   {
+    "w": "考核",
+    "py": "kǎohé",
+    "vn": "kiểm tra, đánh giá định kỳ",
+    "pos": "V",
+    "band": "B2"
+   },
+   {
+    "w": "調薪",
+    "py": "tiáoxīn",
+    "vn": "điều chỉnh tăng lương",
+    "pos": "V-sep",
+    "band": "B2"
+   }
+  ]
+ },
+ {
+  "id": "news_pts_smart_transport",
+  "category": "news",
+  "categoryName": "Tin tức PTS Đài Loan",
+  "title": "公視新聞：都會區智慧綠能交通新政策 PTS News: Green Smart Transit",
+  "band": "TOCFL B2 · Thời sự truyền hình",
+  "duration": "Thời lượng ~3 phút",
+  "desc": "Bản tin thời sự truyền hình PTS Đài Loan về dự án mở rộng mạng lưới xe bus điện và trợ giá vé tháng giao thông liên vùng TPASS.",
+  "sentences": [
+   {
+    "speaker": "主播",
+    "zh": "各位觀眾晚安，歡迎收看公視晚間新聞。交通部今天宣布將擴大推動都會區公共運輸定期票。",
+    "py": "Gèwèi guānzhòng wǎn'ān, huānyíng shōukàn Gōngshì Wǎnjiān Xīnwén. Jiāotōngbù jīntiān xuānbù jiāng kuòdà tuīdòng dūhuìqū gōnggòng yùnshū dìngqípiào.",
+    "vn": "Kính chào quý vị khán giả, hoan nghênh đón xem bản tin thời sự tối của PTS. Bộ Giao thông hôm nay tuyên bố sẽ mở rộng xúc tiến vé định kỳ vận tải công cộng đô thị."
+   },
+   {
+    "speaker": "記者",
+    "zh": "為了降低碳排放並紓解交通壅塞，政府整合了捷運、台鐵、市區公車與公共自行車。",
+    "py": "Wèile jiàngdī tànpáifàng bìng shūjiě jiāotōng yōngsè, zhèngfǔ zhěnghé le jiéyùn, Táitiě, shìqū gōngchē yǔ gōnggòng zìxíngchē.",
+    "vn": "Nhằm giảm lượng phát thải carbon và giải tỏa ùn tắc giao thông, chính phủ đã tích hợp tàu điện MRT, tàu hỏa Đài Thiết, xe buýt đô thị và xe đạp công cộng YouBike."
+   },
+   {
+    "speaker": "記者",
+    "zh": "通勤族只要花費固定月費，即可在三十天內不限次數搭乘跨縣市交通工具。",
+    "py": "Tōngqínzú zhǐyào huāfèi gùdìng yuèfèi, jíkě zài sānshí tiān nèi bú xiàn cìshù dāchéng kuà xiànshì jiāotōng gōngjù.",
+    "vn": "Người đi làm chỉ cần chi trả khoản phí cố định hàng tháng là có thể đi lại không giới hạn số chuyến liên quận huyện trong vòng 30 ngày."
+   },
+   {
+    "speaker": "民眾",
+    "zh": "有了這張定期票以後，我每個月省下將近一千五百元的油錢，上班路上也比較輕鬆省時。",
+    "py": "Yǒu le zhè zhāng dìngqípiào yǐhòu, wǒ měi gè yuè shěngxià jiāngjìn yì qiān wǔ bǎi yuán de yóuqián, shàngbān lùshàng yě bǐjiào qīngsōng shěngshí.",
+    "vn": "Có chiếc vé tháng này, mỗi tháng tôi tiết kiệm được gần 1.500 đài tệ tiền xăng, trên đường đi làm cũng thoải mái và tiết kiệm thời gian hơn."
+   },
+   {
+    "speaker": "主播",
+    "zh": "專家指出，綠能公共運輸的使用率若持續上升，預計在五年內可減少兩成以上的空氣污染。",
+    "py": "Zhuānjiā zhǐchū, lǜnéng gōnggòng yùnshū de shǐyònglǜ ruò chíxù shàngshēng, yùjì zài wǔ nián nèi kě jiǎnshǎo liǎng chéng yǐshàng de kōngqì wūrǎn.",
+    "vn": "Các chuyên gia chỉ ra rằng, nếu tỷ lệ sử dụng giao thông xanh công cộng tiếp tục tăng trưởng, dự kiến trong 5 năm tới có thể cắt giảm hơn 20% ô nhiễm không khí."
+   }
+  ],
+  "vocab": [
+   {
+    "w": "碳排放",
+    "py": "tànpáifàng",
+    "vn": "lượng khí thải carbon",
+    "pos": "N",
+    "band": "B2"
+   },
+   {
+    "w": "紓解",
+    "py": "shūjiě",
+    "vn": "giải tỏa, xoa dịu áp lực",
+    "pos": "V",
+    "band": "B2"
+   },
+   {
+    "w": "通勤族",
+    "py": "tōngqínzú",
+    "vn": "người đi làm / đi học hàng ngày bằng phương tiện",
+    "pos": "N",
+    "band": "B1"
+   },
+   {
+    "w": "定期票",
+    "py": "dìngqípiào",
+    "vn": "vé định kỳ / vé tháng",
+    "pos": "N",
+    "band": "B1"
+   }
+  ]
+ },
+ {
+  "id": "a_tu_gioi_thieu",
+  "category": "dialogue",
+  "categoryName": "Đoạn hội thoại thực tế",
+  "title": "第一天上課 Ngày đầu đi học",
+  "band": "TOCFL A1 · Làm quen",
+  "duration": "8 câu",
+  "desc": "Hai bạn học gặp nhau ở lớp tiếng Hoa, hỏi tên, quê quán và lý do học.",
+  "vocab": [
+   {
+    "w": "名字",
+    "py": "míngzi",
+    "vn": "tên",
+    "band": "Novice 1"
+   },
+   {
+    "w": "越南",
+    "py": "Yuènán",
+    "vn": "Việt Nam",
+    "band": ""
+   },
+   {
+    "w": "工作",
+    "py": "gōngzuò",
+    "vn": "công việc",
+    "band": "B1"
+   },
+   {
+    "w": "認識",
+    "py": "rènshì",
+    "vn": "quen biết",
+    "band": "A1"
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "小姐",
+    "zh": "你好，我叫林美華。",
+    "py": "Nǐhǎo, wǒ jiào lín měi huā.",
+    "vn": "Chào bạn, mình tên Lâm Mỹ Hoa."
+   },
+   {
+    "speaker": "先生",
+    "zh": "你好，我是阮文明。",
+    "py": "Nǐhǎo, wǒ shì ruǎn wénmíng.",
+    "vn": "Chào bạn, mình là Nguyễn Văn Minh."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "你是哪國人？",
+    "py": "Nǐ shì nǎ guórén?",
+    "vn": "Bạn là người nước nào?"
+   },
+   {
+    "speaker": "先生",
+    "zh": "我是越南人。",
+    "py": "Wǒ shì yuè nán rén.",
+    "vn": "Mình là người Việt Nam."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "你為什麼學中文？",
+    "py": "Nǐ wèishénme xué Zhōngwén?",
+    "vn": "Sao bạn học tiếng Hoa?"
+   },
+   {
+    "speaker": "先生",
+    "zh": "我想在臺灣工作。",
+    "py": "Wǒ xiǎng zài Táiwān gōngzuò.",
+    "vn": "Mình muốn làm việc ở Đài Loan."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "你的中文說得很好。",
+    "py": "Nǐ de Zhōngwén shuō dehěn hǎo.",
+    "vn": "Bạn nói tiếng Hoa giỏi lắm."
+   },
+   {
+    "speaker": "先生",
+    "zh": "謝謝，很高興認識你。",
+    "py": "Xièxie, hěn gāoxìng rènshì nǐ.",
+    "vn": "Cảm ơn, rất vui được quen bạn."
+   }
+  ]
+ },
+ {
+  "id": "a_mua_tra_sua",
+  "category": "dialogue",
+  "categoryName": "Đoạn hội thoại thực tế",
+  "title": "買珍珠奶茶 Mua trà sữa trân châu",
+  "band": "TOCFL A1 · Ăn uống",
+  "duration": "8 câu",
+  "desc": "Gọi một ly trà sữa ở tiệm đồ uống: chọn cỡ, độ ngọt, đá và trả tiền.",
+  "vocab": [
+   {
+    "w": "大杯",
+    "py": "dàbēi",
+    "vn": "ly lớn",
+    "band": ""
+   },
+   {
+    "w": "甜度",
+    "py": "tiándù",
+    "vn": "độ ngọt",
+    "band": ""
+   },
+   {
+    "w": "冰塊",
+    "py": "bīngkuài",
+    "vn": "đá viên",
+    "band": ""
+   },
+   {
+    "w": "塑膠袋",
+    "py": "sùjiāodài",
+    "vn": "túi nilon",
+    "band": ""
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "小姐",
+    "zh": "歡迎光臨，要喝什麼？",
+    "py": "Huānyíngguānglín, yào hē shénme?",
+    "vn": "Xin chào, quý khách uống gì ạ?"
+   },
+   {
+    "speaker": "先生",
+    "zh": "我要一杯珍珠奶茶。",
+    "py": "Wǒ yào yī bēi zhēnzhūnǎichá.",
+    "vn": "Cho tôi một ly trà sữa trân châu."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "大杯還是中杯？",
+    "py": "Dà bēi háishì zhōng bēi?",
+    "vn": "Ly lớn hay ly vừa ạ?"
+   },
+   {
+    "speaker": "先生",
+    "zh": "大杯，半糖少冰。",
+    "py": "Dà bēi, bàn táng shǎo bīng.",
+    "vn": "Ly lớn, nửa đường, ít đá."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "要不要塑膠袋？",
+    "py": "Yào bù yào sùjiāodài?",
+    "vn": "Có cần túi nilon không ạ?"
+   },
+   {
+    "speaker": "先生",
+    "zh": "不用，謝謝。",
+    "py": "Bùyòng, xièxie.",
+    "vn": "Không cần, cảm ơn."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "一共六十五塊。",
+    "py": "Yīgòng liù shíwǔ kuài.",
+    "vn": "Tổng cộng 65 đồng."
+   },
+   {
+    "speaker": "先生",
+    "zh": "我用悠遊卡付。",
+    "py": "Wǒ yòng yōu yóu kǎ fù.",
+    "vn": "Tôi trả bằng thẻ EasyCard."
+   }
+  ]
+ },
+ {
+  "id": "a_hoi_duong",
+  "category": "dialogue",
+  "categoryName": "Đoạn hội thoại thực tế",
+  "title": "問路去捷運站 Hỏi đường ra ga MRT",
+  "band": "TOCFL A1 · Đi lại",
+  "duration": "8 câu",
+  "desc": "Hỏi người qua đường cách đi đến ga MRT gần nhất.",
+  "vocab": [
+   {
+    "w": "捷運站",
+    "py": "jiéyùnzhàn",
+    "vn": "ga MRT",
+    "band": ""
+   },
+   {
+    "w": "往前走",
+    "py": "wǎngqiánzǒu",
+    "vn": "đi thẳng",
+    "band": ""
+   },
+   {
+    "w": "右轉",
+    "py": "yòuzhuǎn",
+    "vn": "rẽ phải",
+    "band": ""
+   },
+   {
+    "w": "路口",
+    "py": "lùkǒu",
+    "vn": "ngã tư",
+    "band": "A1"
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "男",
+    "zh": "不好意思，請問一下。",
+    "py": "Bùhǎoyìsi, qǐngwèn yīxià.",
+    "vn": "Xin lỗi, cho tôi hỏi một chút."
+   },
+   {
+    "speaker": "男",
+    "zh": "捷運站在哪裡？",
+    "py": "Jiéyùn zhàn zài nǎlǐ?",
+    "vn": "Ga MRT ở đâu ạ?"
+   },
+   {
+    "speaker": "女",
+    "zh": "往前走，到路口右轉。",
+    "py": "Wǎngqián zǒu, dào lùkǒu yòuzhuǎn.",
+    "vn": "Đi thẳng, đến ngã tư rẽ phải."
+   },
+   {
+    "speaker": "男",
+    "zh": "走路要多久？",
+    "py": "Zǒulù yào duōjiǔ?",
+    "vn": "Đi bộ mất bao lâu?"
+   },
+   {
+    "speaker": "女",
+    "zh": "大概五分鐘就到了。",
+    "py": "Dàgài wǔ fēnzhōng jiù dàoliǎo.",
+    "vn": "Khoảng năm phút là tới."
+   },
+   {
+    "speaker": "女",
+    "zh": "車站在銀行旁邊。",
+    "py": "Chēzhàn zài yínháng pángbiān.",
+    "vn": "Ga ở cạnh ngân hàng."
+   },
+   {
+    "speaker": "男",
+    "zh": "好的，謝謝你！",
+    "py": "Hǎo de, xièxie nǐ!",
+    "vn": "Vâng, cảm ơn chị!"
+   },
+   {
+    "speaker": "女",
+    "zh": "不客氣。",
+    "py": "Bùkèqì.",
+    "vn": "Không có gì."
+   }
+  ]
+ },
+ {
+  "id": "a_thoi_tiet",
+  "category": "story",
+  "categoryName": "Câu chuyện ngắn",
+  "title": "臺北的天氣 Thời tiết Đài Bắc",
+  "band": "TOCFL A2 · Thời tiết",
+  "duration": "8 câu",
+  "desc": "Một đoạn kể ngắn về thời tiết bốn mùa ở Đài Bắc.",
+  "vocab": [
+   {
+    "w": "下雨",
+    "py": "xiàyǔ",
+    "vn": "mưa",
+    "band": "Novice 2"
+   },
+   {
+    "w": "潮濕",
+    "py": "cháoshī",
+    "vn": "ẩm ướt",
+    "band": ""
+   },
+   {
+    "w": "颱風",
+    "py": "táifēng",
+    "vn": "bão",
+    "band": "A2"
+   },
+   {
+    "w": "雨傘",
+    "py": "yǔsǎn",
+    "vn": "ô, dù",
+    "band": ""
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "旁白",
+    "zh": "臺北常常下雨。",
+    "py": "Tái běi chángcháng xiàyǔ.",
+    "vn": "Đài Bắc hay mưa."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "春天的天氣很舒服。",
+    "py": "Chūntiān de tiānqì hěn shūfu.",
+    "vn": "Thời tiết mùa xuân rất dễ chịu."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "夏天又熱又潮濕。",
+    "py": "Xiàtiān yòu rè yòu cháoshī.",
+    "vn": "Mùa hè vừa nóng vừa ẩm."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "七月常常有颱風。",
+    "py": "Qī yuè chángcháng yǒu táifēng.",
+    "vn": "Tháng bảy hay có bão."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "秋天是最好的季節。",
+    "py": "Qiūtiān shì zuìhǎo de jìjié.",
+    "vn": "Mùa thu là mùa đẹp nhất."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "冬天不太冷，可是很濕。",
+    "py": "Dōngtiān bù tài lěng, kěshì hěn shī.",
+    "vn": "Mùa đông không lạnh lắm nhưng rất ẩm."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "出門最好帶一把傘。",
+    "py": "Chūmén zuìhǎo dài yī bǎ sǎn.",
+    "vn": "Ra ngoài tốt nhất mang theo một cái ô."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "我最喜歡十月的臺北。",
+    "py": "Wǒ zuì xǐhuān shí yuè de tái běi.",
+    "vn": "Tôi thích Đài Bắc tháng mười nhất."
+   }
+  ]
+ },
+ {
+  "id": "a_cho_dem",
+  "category": "dialogue",
+  "categoryName": "Đoạn hội thoại thực tế",
+  "title": "逛夜市 Dạo chợ đêm",
+  "band": "TOCFL A2 · Mua sắm",
+  "duration": "8 câu",
+  "desc": "Hai người bạn đi chợ đêm, mua đồ ăn và mặc cả quần áo.",
+  "vocab": [
+   {
+    "w": "夜市",
+    "py": "yèshì",
+    "vn": "chợ đêm",
+    "band": "A2"
+   },
+   {
+    "w": "雞排",
+    "py": "jīpái",
+    "vn": "gà rán miếng",
+    "band": ""
+   },
+   {
+    "w": "便宜",
+    "py": "piányí",
+    "vn": "rẻ",
+    "band": "C"
+   },
+   {
+    "w": "試穿",
+    "py": "shìchuān",
+    "vn": "mặc thử",
+    "band": ""
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "女",
+    "zh": "今天晚上去逛夜市吧！",
+    "py": "Jīntiān wǎnshàng qù guàng yèshì ba!",
+    "vn": "Tối nay đi dạo chợ đêm đi!"
+   },
+   {
+    "speaker": "男",
+    "zh": "好啊，我想吃雞排。",
+    "py": "Hǎo a, wǒ xiǎng chī jīpái.",
+    "vn": "Được đó, tôi muốn ăn gà rán."
+   },
+   {
+    "speaker": "女",
+    "zh": "那家店要排隊。",
+    "py": "Nà jiā diàn yào páiduì.",
+    "vn": "Tiệm đó phải xếp hàng."
+   },
+   {
+    "speaker": "男",
+    "zh": "排隊的一定很好吃。",
+    "py": "Páiduì de yīdìng hěn hǎochī.",
+    "vn": "Chỗ phải xếp hàng chắc chắn ngon."
+   },
+   {
+    "speaker": "女",
+    "zh": "這件衣服可以試穿嗎？",
+    "py": "Zhè jiàn yīfú kěyǐ shìchuān ma?",
+    "vn": "Cái áo này mặc thử được không?"
+   },
+   {
+    "speaker": "女",
+    "zh": "老闆，可以便宜一點嗎？",
+    "py": "Lǎobǎn, kěyǐ piányí yīdiǎn ma?",
+    "vn": "Ông chủ, bớt chút được không?"
+   },
+   {
+    "speaker": "老闆",
+    "zh": "兩件算你五百。",
+    "py": "Liǎng jiàn suàn nǐ wǔ bǎi.",
+    "vn": "Hai cái tôi tính cô 500."
+   },
+   {
+    "speaker": "女",
+    "zh": "好，我買兩件。",
+    "py": "Hǎo, wǒ mǎi liǎng jiàn.",
+    "vn": "Được, tôi lấy hai cái."
+   }
+  ]
+ },
+ {
+  "id": "a_nha_thuoc",
+  "category": "dialogue",
+  "categoryName": "Đoạn hội thoại thực tế",
+  "title": "去藥局買藥 Ra hiệu thuốc",
+  "band": "TOCFL A2 · Sức khỏe",
+  "duration": "8 câu",
+  "desc": "Bị cảm, ra hiệu thuốc mua thuốc và hỏi cách uống.",
+  "vocab": [
+   {
+    "w": "感冒",
+    "py": "gǎnmào",
+    "vn": "cảm",
+    "band": "Novice 2"
+   },
+   {
+    "w": "發燒",
+    "py": "fāshāo",
+    "vn": "sốt",
+    "band": "A2"
+   },
+   {
+    "w": "藥局",
+    "py": "yàojú",
+    "vn": "hiệu thuốc",
+    "band": ""
+   },
+   {
+    "w": "飯後",
+    "py": "fànhòu",
+    "vn": "sau bữa ăn",
+    "band": ""
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "先生",
+    "zh": "你好，我好像感冒了。",
+    "py": "Nǐhǎo, wǒ hǎoxiàng gǎnmào le.",
+    "vn": "Chào chị, hình như tôi bị cảm."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "有沒有發燒？",
+    "py": "Yǒu méi yǒu fāshāo?",
+    "vn": "Có sốt không?"
+   },
+   {
+    "speaker": "先生",
+    "zh": "沒有，只是喉嚨痛。",
+    "py": "Méiyǒu, zhǐshì hóulóng tòng.",
+    "vn": "Không, chỉ đau họng."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "這個藥一天吃三次。",
+    "py": "Zhège yào yī tiān chī sāncì.",
+    "vn": "Thuốc này ngày uống ba lần."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "飯後吃，多喝水。",
+    "py": "Fàn hòu chī, duō hē shuǐ.",
+    "vn": "Uống sau bữa ăn, uống nhiều nước."
+   },
+   {
+    "speaker": "先生",
+    "zh": "吃了會想睡覺嗎？",
+    "py": "Chī le huì xiǎng shuìjiào ma?",
+    "vn": "Uống vào có buồn ngủ không?"
+   },
+   {
+    "speaker": "小姐",
+    "zh": "會，所以不要開車。",
+    "py": "Huì, suǒyǐ bùyào kāichē.",
+    "vn": "Có, nên đừng lái xe."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "如果三天沒好，要看醫生。",
+    "py": "Rúguǒ sān tiān méi hǎo, yàokàn yīshēng.",
+    "vn": "Nếu ba ngày chưa khỏi thì phải đi khám."
+   }
+  ]
+ },
+ {
+  "id": "a_cuoi_tuan",
+  "category": "story",
+  "categoryName": "Câu chuyện ngắn",
+  "title": "我的週末 Cuối tuần của tôi",
+  "band": "TOCFL A2 · Sinh hoạt",
+  "duration": "8 câu",
+  "desc": "Kể về một ngày cuối tuần: dậy muộn, đi chợ, nấu ăn, gọi điện về nhà.",
+  "vocab": [
+   {
+    "w": "週末",
+    "py": "zhōumò",
+    "vn": "cuối tuần",
+    "band": ""
+   },
+   {
+    "w": "市場",
+    "py": "shìchǎng",
+    "vn": "chợ",
+    "band": "A1"
+   },
+   {
+    "w": "打掃",
+    "py": "dǎsǎo",
+    "vn": "dọn dẹp",
+    "band": "B1"
+   },
+   {
+    "w": "視訊",
+    "py": "shìxùn",
+    "vn": "gọi video",
+    "band": ""
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "旁白",
+    "zh": "週末我常常很晚起床。",
+    "py": "Zhōumò wǒ chángcháng hěn wǎn qǐchuáng.",
+    "vn": "Cuối tuần tôi hay dậy muộn."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "早上我先打掃房間。",
+    "py": "Zǎoshàng wǒ xiān dǎsǎo fángjiān.",
+    "vn": "Buổi sáng tôi dọn phòng trước."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "然後去市場買菜。",
+    "py": "Ránhòu qù shìchǎng mǎicài.",
+    "vn": "Sau đó đi chợ mua đồ ăn."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "市場的水果又新鮮又便宜。",
+    "py": "Shìchǎng de shuǐguǒ yòu xīnxian yòu piányí.",
+    "vn": "Hoa quả ở chợ vừa tươi vừa rẻ."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "中午我自己做越南菜。",
+    "py": "Zhōngwǔ wǒ zìjǐ zuò yuè nán cài.",
+    "vn": "Buổi trưa tôi tự nấu món Việt."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "下午跟朋友去咖啡店。",
+    "py": "Xiàwǔ gēn péngyǒu qù kāfēidiàn.",
+    "vn": "Buổi chiều đi quán cà phê với bạn."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "晚上我跟媽媽視訊。",
+    "py": "Wǎnshàng wǒ gēn māma shìxùn.",
+    "vn": "Buổi tối tôi gọi video với mẹ."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "這樣的週末很輕鬆。",
+    "py": "Zhèyàng de zhōumò hěn qīngsōng.",
+    "vn": "Cuối tuần như vậy rất thoải mái."
+   }
+  ]
+ },
+ {
+  "id": "b1_mo_tai_khoan",
+  "category": "dialogue",
+  "categoryName": "Đoạn hội thoại thực tế",
+  "title": "去銀行開戶 Mở tài khoản ngân hàng",
+  "band": "TOCFL B1 · Ngân hàng",
+  "duration": "8 câu",
+  "desc": "Sinh viên nước ngoài mở tài khoản: giấy tờ cần mang, thẻ ATM và ứng dụng ngân hàng.",
+  "vocab": [
+   {
+    "w": "開戶",
+    "py": "kāihù",
+    "vn": "mở tài khoản",
+    "band": "B2"
+   },
+   {
+    "w": "居留證",
+    "py": "jūliúzhèng",
+    "vn": "thẻ cư trú ARC",
+    "band": ""
+   },
+   {
+    "w": "提款卡",
+    "py": "tíkuǎnkǎ",
+    "vn": "thẻ ATM",
+    "band": ""
+   },
+   {
+    "w": "密碼",
+    "py": "mìmǎ",
+    "vn": "mật khẩu",
+    "band": ""
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "先生",
+    "zh": "你好，我想開一個帳戶。",
+    "py": "Nǐhǎo, wǒ xiǎngkāi yī ge zhànghù.",
+    "vn": "Chào chị, tôi muốn mở một tài khoản."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "請問您帶了居留證和護照嗎？",
+    "py": "Qǐngwèn nín dài le jūliúzhèng hé hùzhào ma?",
+    "vn": "Anh có mang thẻ cư trú và hộ chiếu không ạ?"
+   },
+   {
+    "speaker": "先生",
+    "zh": "帶了，還需要什麼嗎？",
+    "py": "Dài le, hái xūyào shénme ma?",
+    "vn": "Có mang, còn cần gì nữa không?"
+   },
+   {
+    "speaker": "小姐",
+    "zh": "還要一個臺灣的手機號碼。",
+    "py": "Háiyào yī ge Táiwān de shǒujī hàomǎ.",
+    "vn": "Cần thêm một số điện thoại Đài Loan."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "請先填這張申請表。",
+    "py": "Qǐng xiān tián zhè zhāng shēnqǐngbiǎo.",
+    "vn": "Mời anh điền tờ đơn này trước."
+   },
+   {
+    "speaker": "先生",
+    "zh": "提款卡今天就能拿到嗎？",
+    "py": "Tíkuǎnkǎ jīntiān jiù néng nádào ma?",
+    "vn": "Hôm nay lấy được thẻ ATM luôn không?"
+   },
+   {
+    "speaker": "小姐",
+    "zh": "可以，但是要先設定密碼。",
+    "py": "Kěyǐ, dànshì yào xiān shèdìng mìmǎ.",
+    "vn": "Được, nhưng phải đặt mật khẩu trước."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "您也可以下載我們的手機銀行。",
+    "py": "Nín yě kěyǐ xiàzǎi wǒmen de shǒujī yínháng.",
+    "vn": "Anh cũng có thể tải ứng dụng ngân hàng của chúng tôi."
+   }
+  ]
+ },
+ {
+  "id": "b1_lay_hang",
+  "category": "dialogue",
+  "categoryName": "Đoạn hội thoại thực tế",
+  "title": "超商取貨 Nhận hàng ở cửa hàng tiện lợi",
+  "band": "TOCFL B1 · Mua sắm",
+  "duration": "8 câu",
+  "desc": "Nhận gói hàng mua online tại 7-ELEVEN và gửi trả một món bị lỗi.",
+  "vocab": [
+   {
+    "w": "取貨",
+    "py": "qǔhuò",
+    "vn": "nhận hàng",
+    "band": ""
+   },
+   {
+    "w": "包裹",
+    "py": "bāoguǒ",
+    "vn": "bưu kiện",
+    "band": "B2"
+   },
+   {
+    "w": "退貨",
+    "py": "tuìhuò",
+    "vn": "trả hàng",
+    "band": ""
+   },
+   {
+    "w": "簡訊",
+    "py": "jiǎnxùn",
+    "vn": "tin nhắn SMS",
+    "band": ""
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "女",
+    "zh": "你好，我要取貨。",
+    "py": "Nǐhǎo, wǒ yào qǔ huò.",
+    "vn": "Chào anh, tôi muốn nhận hàng."
+   },
+   {
+    "speaker": "店員",
+    "zh": "請給我您手機號碼的後三碼。",
+    "py": "Qǐng gěi wǒ nín shǒujī hàomǎ de hòu sān mǎ.",
+    "vn": "Cho tôi ba số cuối điện thoại của chị."
+   },
+   {
+    "speaker": "女",
+    "zh": "三八六，我收到簡訊了。",
+    "py": "Sānbā liù, wǒ shōudào jiǎnxùn le.",
+    "vn": "386, tôi đã nhận được tin nhắn rồi."
+   },
+   {
+    "speaker": "店員",
+    "zh": "麻煩出示一下證件。",
+    "py": "Máfan chūshì yīxià zhèngjiàn.",
+    "vn": "Phiền chị cho xem giấy tờ tùy thân."
+   },
+   {
+    "speaker": "女",
+    "zh": "另外，我想退這個包裹。",
+    "py": "Lìngwài, wǒ xiǎng tuì zhège bāoguǒ.",
+    "vn": "Ngoài ra, tôi muốn trả bưu kiện này."
+   },
+   {
+    "speaker": "女",
+    "zh": "衣服的拉鍊是壞的。",
+    "py": "Yīfú de lāliàn shì huài de.",
+    "vn": "Khóa kéo của cái áo bị hỏng."
+   },
+   {
+    "speaker": "店員",
+    "zh": "退貨要先在網站上申請。",
+    "py": "Tuìhuò yào xiān zài wǎngzhàn shàng shēnqǐng.",
+    "vn": "Trả hàng phải đăng ký trên trang web trước."
+   },
+   {
+    "speaker": "店員",
+    "zh": "申請好以後，再拿來這裡寄。",
+    "py": "Shēnqǐng hǎo yǐhòu, zài nálái zhèlǐ jì.",
+    "vn": "Đăng ký xong thì mang đến đây gửi."
+   }
+  ]
+ },
+ {
+  "id": "b1_xin_nghi",
+  "category": "dialogue",
+  "categoryName": "Đoạn hội thoại thực tế",
+  "title": "跟老師請假 Xin nghỉ học",
+  "band": "TOCFL B1 · Trường học",
+  "duration": "8 câu",
+  "desc": "Học viên gọi điện xin nghỉ vì ốm và hỏi bài tập bù.",
+  "vocab": [
+   {
+    "w": "請假",
+    "py": "qǐngjià",
+    "vn": "xin nghỉ",
+    "band": "B1"
+   },
+   {
+    "w": "病假",
+    "py": "bìngjià",
+    "vn": "nghỉ ốm",
+    "band": ""
+   },
+   {
+    "w": "證明",
+    "py": "zhèngmíng",
+    "vn": "giấy chứng nhận",
+    "band": "B2"
+   },
+   {
+    "w": "補交",
+    "py": "bǔjiāo",
+    "vn": "nộp bù",
+    "band": ""
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "男",
+    "zh": "老師，我今天不舒服，想請假。",
+    "py": "Lǎoshī, wǒ jīntiān bùshūfu, xiǎng qǐngjià.",
+    "vn": "Thưa cô, hôm nay em không khỏe, muốn xin nghỉ."
+   },
+   {
+    "speaker": "女",
+    "zh": "怎麼了？嚴重嗎？",
+    "py": "Zěnmele? Yánzhòng ma?",
+    "vn": "Sao vậy? Có nặng không?"
+   },
+   {
+    "speaker": "男",
+    "zh": "昨天晚上開始發燒。",
+    "py": "Zuótiān wǎnshàng kāishǐ fāshāo.",
+    "vn": "Từ tối qua em bắt đầu sốt."
+   },
+   {
+    "speaker": "女",
+    "zh": "那你好好休息，記得去看醫生。",
+    "py": "Nà nǐ hǎohǎo xiūxí, jìde qù kànyīshēng.",
+    "vn": "Vậy em nghỉ ngơi cho tốt, nhớ đi khám."
+   },
+   {
+    "speaker": "女",
+    "zh": "請病假要交醫生的證明。",
+    "py": "Qǐng bìngjià yào jiāo yīshēng de zhèngmíng.",
+    "vn": "Xin nghỉ ốm phải nộp giấy của bác sĩ."
+   },
+   {
+    "speaker": "男",
+    "zh": "今天的功課怎麼辦？",
+    "py": "Jīntiān de gōngkè zěnmebàn?",
+    "vn": "Bài tập hôm nay thì sao ạ?"
+   },
+   {
+    "speaker": "女",
+    "zh": "我會把作業傳給你。",
+    "py": "Wǒ huì bǎ zuòyè chuángěi nǐ.",
+    "vn": "Cô sẽ gửi bài tập cho em."
+   },
+   {
+    "speaker": "女",
+    "zh": "下個星期一補交就可以了。",
+    "py": "Xiàgèxīngqī yī bǔjiāo jiù kěyǐ le.",
+    "vn": "Thứ Hai tuần sau nộp bù là được."
+   }
+  ]
+ },
+ {
+  "id": "b1_nghi_bao",
+  "category": "news",
+  "categoryName": "Tin tức",
+  "title": "颱風停班停課 Nghỉ làm nghỉ học vì bão",
+  "band": "TOCFL B1 · Thông báo",
+  "duration": "8 câu",
+  "desc": "Bản tin ngắn về thông báo nghỉ làm, nghỉ học khi bão đến.",
+  "vocab": [
+   {
+    "w": "停班停課",
+    "py": "tíngbāntíngkè",
+    "vn": "nghỉ làm nghỉ học",
+    "band": ""
+   },
+   {
+    "w": "氣象局",
+    "py": "qìxiàngjú",
+    "vn": "Cục Khí tượng",
+    "band": ""
+   },
+   {
+    "w": "豪雨",
+    "py": "háoyǔ",
+    "vn": "mưa lớn",
+    "band": ""
+   },
+   {
+    "w": "停電",
+    "py": "tíngdiàn",
+    "vn": "mất điện",
+    "band": ""
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "記者",
+    "zh": "強烈颱風明天會登陸臺灣。",
+    "py": "Qiángliè táifēng míngtiān huì dēnglù Táiwān.",
+    "vn": "Bão mạnh ngày mai sẽ đổ bộ vào Đài Loan."
+   },
+   {
+    "speaker": "記者",
+    "zh": "臺北市宣布明天停班停課。",
+    "py": "Tái běi shì xuānbù míngtiān tíng bān tíngkè.",
+    "vn": "Thành phố Đài Bắc thông báo ngày mai nghỉ làm nghỉ học."
+   },
+   {
+    "speaker": "記者",
+    "zh": "氣象局提醒民眾不要外出。",
+    "py": "Qìxiàngjú tíxǐng mínzhòng bùyào wàichū.",
+    "vn": "Cục Khí tượng nhắc người dân không ra ngoài."
+   },
+   {
+    "speaker": "記者",
+    "zh": "山區可能會有豪雨。",
+    "py": "Shānqū kěnéng huì yǒu háoyǔ.",
+    "vn": "Vùng núi có thể có mưa lớn."
+   },
+   {
+    "speaker": "記者",
+    "zh": "請大家先準備好水和食物。",
+    "py": "Qǐng dàjiā xiān zhǔnbèi hǎo shuǐ hé shíwù.",
+    "vn": "Mọi người hãy chuẩn bị sẵn nước và thức ăn."
+   },
+   {
+    "speaker": "記者",
+    "zh": "部分地區可能會停電。",
+    "py": "Bùfen dìqū kěnéng huì tíngdiàn.",
+    "vn": "Một số khu vực có thể mất điện."
+   },
+   {
+    "speaker": "記者",
+    "zh": "捷運會照常行駛到晚上。",
+    "py": "Jiéyùn huì zhàocháng xíngshǐ dào wǎnshàng.",
+    "vn": "MRT vẫn chạy bình thường đến tối."
+   },
+   {
+    "speaker": "記者",
+    "zh": "最新消息請注意新聞。",
+    "py": "Zuìxīn xiāoxí qǐng zhùyì xīnwén.",
+    "vn": "Tin mới nhất xin theo dõi bản tin."
+   }
+  ]
+ },
+ {
+  "id": "b1_youbike",
+  "category": "story",
+  "categoryName": "Câu chuyện ngắn",
+  "title": "騎YouBike上班 Đạp YouBike đi làm",
+  "band": "TOCFL B1 · Giao thông",
+  "duration": "8 câu",
+  "desc": "Một nhân viên văn phòng kể vì sao chọn đạp xe công cộng đi làm.",
+  "vocab": [
+   {
+    "w": "租借",
+    "py": "zūjiè",
+    "vn": "thuê mượn",
+    "band": ""
+   },
+   {
+    "w": "自行車道",
+    "py": "zìxíngchēdào",
+    "vn": "làn xe đạp",
+    "band": ""
+   },
+   {
+    "w": "運動",
+    "py": "yùndòng",
+    "vn": "vận động",
+    "band": "Novice 2"
+   },
+   {
+    "w": "省錢",
+    "py": "shěngqián",
+    "vn": "tiết kiệm tiền",
+    "band": "B1"
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "旁白",
+    "zh": "我住的地方離公司不太遠。",
+    "py": "Wǒ zhù de dìfāng lí gōngsī bù tài yuǎn.",
+    "vn": "Chỗ tôi ở cách công ty không xa lắm."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "以前我都坐公車上班。",
+    "py": "Yǐqián wǒ dōu zuò gōngchē shàngbān.",
+    "vn": "Trước đây tôi toàn đi xe buýt đi làm."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "可是早上常常塞車。",
+    "py": "Kěshì zǎoshàng chángcháng sāichē.",
+    "vn": "Nhưng buổi sáng hay kẹt xe."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "後來我開始騎YouBike。",
+    "py": "Hòulái wǒ kāishǐ qí Y o u B i k e.",
+    "vn": "Sau đó tôi bắt đầu đạp YouBike."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "用悠遊卡就可以租借。",
+    "py": "Yòng yōu yóu kǎ jiù kěyǐ zūjiè.",
+    "vn": "Dùng thẻ EasyCard là thuê được."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "這條路有自行車道，很安全。",
+    "py": "Zhè tiáo lù yǒu zìxíngchēdào, hěn ānquán.",
+    "vn": "Đường này có làn xe đạp, rất an toàn."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "騎車不但省錢，還可以運動。",
+    "py": "Qíchē bùdàn shěngqián, hái kěyǐ yùndòng.",
+    "vn": "Đạp xe không chỉ tiết kiệm mà còn được vận động."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "下雨天我才會坐捷運。",
+    "py": "Xiàyǔ tiān wǒ cái huì zuò jiéyùn.",
+    "vn": "Ngày mưa tôi mới đi MRT."
+   }
+  ]
+ },
+ {
+  "id": "b1_hen_bac_si",
+  "category": "dialogue",
+  "categoryName": "Đoạn hội thoại thực tế",
+  "title": "打電話掛號 Gọi điện đặt lịch khám",
+  "band": "TOCFL B1 · Sức khỏe",
+  "duration": "8 câu",
+  "desc": "Gọi phòng khám để đặt lịch, hỏi giờ khám và thẻ bảo hiểm y tế.",
+  "vocab": [
+   {
+    "w": "掛號",
+    "py": "guàhào",
+    "vn": "đăng ký khám",
+    "band": "A2"
+   },
+   {
+    "w": "健保卡",
+    "py": "jiànbǎokǎ",
+    "vn": "thẻ bảo hiểm y tế",
+    "band": ""
+   },
+   {
+    "w": "門診",
+    "py": "ménzhěn",
+    "vn": "khám ngoại trú",
+    "band": "B2"
+   },
+   {
+    "w": "初診",
+    "py": "chūzhěn",
+    "vn": "khám lần đầu",
+    "band": ""
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "小姐",
+    "zh": "您好，這裡是仁愛診所。",
+    "py": "Nín hǎo, zhèlǐ shì rén'ài zhěnsuǒ.",
+    "vn": "Xin chào, đây là phòng khám Nhân Ái."
+   },
+   {
+    "speaker": "先生",
+    "zh": "我想掛明天上午的門診。",
+    "py": "Wǒ xiǎng guà míngtiān shàngwǔ de ménzhěn.",
+    "vn": "Tôi muốn đăng ký khám sáng mai."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "請問您是初診嗎？",
+    "py": "Qǐngwèn nín shì chū zhěn ma?",
+    "vn": "Anh khám lần đầu phải không ạ?"
+   },
+   {
+    "speaker": "先生",
+    "zh": "對，我第一次來看病。",
+    "py": "Duì, wǒ dìyīcì lái kànbìng.",
+    "vn": "Đúng, tôi đến khám lần đầu."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "明天上午十點還有位子。",
+    "py": "Míngtiān shàngwǔ shí diǎn háiyǒu wèizi.",
+    "vn": "Sáng mai 10 giờ vẫn còn chỗ."
+   },
+   {
+    "speaker": "小姐",
+    "zh": "請記得帶健保卡來。",
+    "py": "Qǐng jìde dài jiàn bǎo kǎ lái.",
+    "vn": "Nhớ mang theo thẻ bảo hiểm y tế."
+   },
+   {
+    "speaker": "先生",
+    "zh": "如果沒有健保卡呢？",
+    "py": "Rúguǒ méiyǒu jiàn bǎo kǎ ne?",
+    "vn": "Nếu không có thẻ bảo hiểm thì sao?"
+   },
+   {
+    "speaker": "小姐",
+    "zh": "那就要自己付全部的費用。",
+    "py": "Nà jiùyào zìjǐ fù quánbù de fèiyòng.",
+    "vn": "Thì phải tự trả toàn bộ chi phí."
+   }
+  ]
+ },
+ {
+  "id": "b1_phong_van_lam_them",
+  "category": "dialogue",
+  "categoryName": "Đoạn hội thoại thực tế",
+  "title": "打工面試 Phỏng vấn việc làm thêm",
+  "band": "TOCFL B1 · Công việc",
+  "duration": "8 câu",
+  "desc": "Phỏng vấn làm thêm ở quán cà phê: thời gian làm, lương theo giờ, kinh nghiệm.",
+  "vocab": [
+   {
+    "w": "打工",
+    "py": "dǎgōng",
+    "vn": "làm thêm",
+    "band": "A2"
+   },
+   {
+    "w": "時薪",
+    "py": "shíxīn",
+    "vn": "lương theo giờ",
+    "band": ""
+   },
+   {
+    "w": "排班",
+    "py": "páibān",
+    "vn": "xếp ca",
+    "band": ""
+   },
+   {
+    "w": "經驗",
+    "py": "jīngyàn",
+    "vn": "kinh nghiệm",
+    "band": "B1"
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "經理",
+    "zh": "你以前有打工的經驗嗎？",
+    "py": "Nǐ yǐqián yǒu dǎgōng de jīngyàn ma?",
+    "vn": "Trước đây bạn có kinh nghiệm làm thêm không?"
+   },
+   {
+    "speaker": "女",
+    "zh": "我在飲料店工作過半年。",
+    "py": "Wǒ zài yǐnliào diàn gōngzuò guò bànnián.",
+    "vn": "Em từng làm ở tiệm đồ uống nửa năm."
+   },
+   {
+    "speaker": "經理",
+    "zh": "你一個星期能來幾天？",
+    "py": "Nǐ yī ge xīngqí néng lái jǐtiān?",
+    "vn": "Một tuần bạn đến được mấy ngày?"
+   },
+   {
+    "speaker": "女",
+    "zh": "週末都可以，平日只有晚上。",
+    "py": "Zhōumò dōu kěyǐ, píngrì zhǐyǒu wǎnshàng.",
+    "vn": "Cuối tuần thì được, ngày thường chỉ buổi tối."
+   },
+   {
+    "speaker": "經理",
+    "zh": "我們的時薪是兩百塊。",
+    "py": "Wǒmen de shíxīn shì liǎng bǎi kuài.",
+    "vn": "Lương theo giờ của chúng tôi là 200 đồng."
+   },
+   {
+    "speaker": "經理",
+    "zh": "排班表每個月初會公布。",
+    "py": "Páibān biǎo měige yuèchū huì gōngbù.",
+    "vn": "Lịch xếp ca công bố đầu mỗi tháng."
+   },
+   {
+    "speaker": "女",
+    "zh": "請問什麼時候可以開始上班？",
+    "py": "Qǐngwèn shénmeshíhou kěyǐ kāishǐ shàngbān?",
+    "vn": "Xin hỏi khi nào em có thể bắt đầu làm?"
+   },
+   {
+    "speaker": "經理",
+    "zh": "如果沒問題，下週一就來吧。",
+    "py": "Rúguǒ méiwèntí, xiàzhōu yī jiù lái ba.",
+    "vn": "Nếu không vấn đề gì thì thứ Hai tuần sau đến nhé."
+   }
+  ]
+ },
+ {
+  "id": "b2_dien_tap_dong_dat",
+  "category": "news",
+  "categoryName": "Tin tức",
+  "title": "全國地震演練 Diễn tập động đất toàn quốc",
+  "band": "TOCFL B2 · Tin tức",
+  "duration": "7 câu",
+  "desc": "Bản tin về buổi diễn tập phòng chống động đất ở trường học và công sở.",
+  "vocab": [
+   {
+    "w": "演練",
+    "py": "yǎnliàn",
+    "vn": "diễn tập",
+    "band": ""
+   },
+   {
+    "w": "避難",
+    "py": "bìnàn",
+    "vn": "lánh nạn",
+    "band": "C"
+   },
+   {
+    "w": "掩護",
+    "py": "yǎnhù",
+    "vn": "che chắn",
+    "band": ""
+   },
+   {
+    "w": "疏散",
+    "py": "shūsàn",
+    "vn": "sơ tán",
+    "band": "C"
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "記者",
+    "zh": "今天上午九點，全國舉行地震避難演練。",
+    "py": "Jīntiān shàngwǔ jiǔ diǎn, quánguó jǔxíng dìzhèn bìnàn yǎnliàn.",
+    "vn": "9 giờ sáng nay cả nước tổ chức diễn tập lánh nạn động đất."
+   },
+   {
+    "speaker": "記者",
+    "zh": "警報一響，學生立刻躲到桌子下面。",
+    "py": "Jǐngbào yī xiǎng, xuéshēng lìkè duǒ dào zhuōzi xiàmiàn.",
+    "vn": "Còi báo vừa vang, học sinh lập tức trốn xuống gầm bàn."
+   },
+   {
+    "speaker": "記者",
+    "zh": "專家提醒，地震時要先趴下、掩護、穩住。",
+    "py": "Zhuānjiā tíxǐng, dìzhèn shí yào xiān pā xià, yǎnhù, wěn zhù.",
+    "vn": "Chuyên gia nhắc: khi động đất phải nằm xuống, che chắn, giữ chắc."
+   },
+   {
+    "speaker": "記者",
+    "zh": "搖晃停止以後，再按照路線疏散。",
+    "py": "Yáohuàng tíngzhǐ yǐhòu, zài ànzhào lùxiàn shūsàn.",
+    "vn": "Sau khi hết rung lắc mới sơ tán theo lộ trình."
+   },
+   {
+    "speaker": "記者",
+    "zh": "千萬不要搭電梯，也不要急著跑出去。",
+    "py": "Qiānwàn bùyào dā diàntī, yě bùyào jízhe pǎo chūqù.",
+    "vn": "Tuyệt đối không đi thang máy, cũng đừng vội chạy ra ngoài."
+   },
+   {
+    "speaker": "記者",
+    "zh": "許多公司也利用這個機會檢查逃生設備。",
+    "py": "Xǔduō gōngsī yě lìyòng zhège jīhuì jiǎnchá táoshēng shèbèi.",
+    "vn": "Nhiều công ty cũng nhân dịp này kiểm tra thiết bị thoát hiểm."
+   },
+   {
+    "speaker": "記者",
+    "zh": "政府希望民眾平時就準備好緊急避難包。",
+    "py": "Zhèngfǔ xīwàng mínzhòng píngshí jiù zhǔnbèi hǎo jǐnjí bìnàn bāo.",
+    "vn": "Chính phủ mong người dân chuẩn bị sẵn túi khẩn cấp từ ngày thường."
+   }
+  ]
+ },
+ {
+  "id": "b2_hop_du_an",
+  "category": "dialogue",
+  "categoryName": "Đoạn hội thoại thực tế",
+  "title": "專案進度會議 Họp tiến độ dự án",
+  "band": "TOCFL B2 · Công sở",
+  "duration": "7 câu",
+  "desc": "Trưởng nhóm và nhân viên bàn việc dự án chậm tiến độ và cách xử lý với khách hàng.",
+  "vocab": [
+   {
+    "w": "進度",
+    "py": "jìndù",
+    "vn": "tiến độ",
+    "band": "C"
+   },
+   {
+    "w": "延誤",
+    "py": "yánwù",
+    "vn": "chậm trễ",
+    "band": "C"
+   },
+   {
+    "w": "客戶",
+    "py": "kèhù",
+    "vn": "khách hàng",
+    "band": "B2"
+   },
+   {
+    "w": "人力",
+    "py": "rénlì",
+    "vn": "nhân lực",
+    "band": "B2"
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "林經理",
+    "zh": "這個專案的進度好像比預期慢了一點。",
+    "py": "Zhège zhuān'àn de jìndù hǎoxiàng bǐ yùqī màn le yīdiǎn.",
+    "vn": "Tiến độ dự án này có vẻ chậm hơn dự kiến một chút."
+   },
+   {
+    "speaker": "先生",
+    "zh": "主要是因為廠商的零件晚了兩個星期。",
+    "py": "Zhǔ yàoshì yīnwèi chǎngshāng de língjiàn wǎn le liǎng ge xīngqí.",
+    "vn": "Chủ yếu là vì linh kiện của nhà cung cấp trễ hai tuần."
+   },
+   {
+    "speaker": "林經理",
+    "zh": "客戶那邊知道這個情況了嗎？",
+    "py": "Kèhù nàbian zhīdào zhège qíngkuàng le ma?",
+    "vn": "Phía khách hàng đã biết tình hình chưa?"
+   },
+   {
+    "speaker": "先生",
+    "zh": "我昨天已經寫信跟他們說明了。",
+    "py": "Wǒ zuótiān yǐjīng xiěxìn gēn tāmen shuōmíng le.",
+    "vn": "Hôm qua tôi đã viết thư giải thích với họ rồi."
+   },
+   {
+    "speaker": "林經理",
+    "zh": "除非增加人力，否則月底一定做不完。",
+    "py": "Chúfēi zēngjiā rénlì, fǒuzé yuèdǐ yīdìng zuò bù wán.",
+    "vn": "Trừ khi tăng nhân lực, nếu không cuối tháng chắc chắn không xong."
+   },
+   {
+    "speaker": "先生",
+    "zh": "我建議先把測試的部分交給外包。",
+    "py": "Wǒ jiànyì xiān bǎ cèshì de bùfen jiāogěi wàibāo.",
+    "vn": "Tôi đề nghị giao phần kiểm thử cho bên ngoài trước."
+   },
+   {
+    "speaker": "林經理",
+    "zh": "好，你今天下班前把預算算出來給我。",
+    "py": "Hǎo, nǐ jīntiān xiàbān qián bǎ yùsuàn suàn chūlái gěi wǒ.",
+    "vn": "Được, trước giờ tan làm hôm nay anh tính ngân sách gửi tôi."
+   }
+  ]
+ },
+ {
+  "id": "b2_bao_hiem_y_te",
+  "category": "story",
+  "categoryName": "Câu chuyện ngắn",
+  "title": "臺灣的健保制度 Chế độ bảo hiểm y tế Đài Loan",
+  "band": "TOCFL B2 · Xã hội",
+  "duration": "7 câu",
+  "desc": "Đoạn giới thiệu về bảo hiểm y tế toàn dân của Đài Loan và người nước ngoài tham gia ra sao.",
+  "vocab": [
+   {
+    "w": "健保",
+    "py": "Jiànbǎo",
+    "vn": "bảo hiểm y tế toàn dân",
+    "band": ""
+   },
+   {
+    "w": "保費",
+    "py": "bǎofèi",
+    "vn": "phí bảo hiểm",
+    "band": ""
+   },
+   {
+    "w": "負擔",
+    "py": "fùdān",
+    "vn": "gánh nặng, chi trả",
+    "band": "B1"
+   },
+   {
+    "w": "外籍",
+    "py": "wàijí",
+    "vn": "quốc tịch nước ngoài",
+    "band": ""
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "旁白",
+    "zh": "臺灣的全民健保從一九九五年開始實施。",
+    "py": "Táiwān de quánmín jiàn bǎo cóng yī jiǔ jiǔ wǔ nián kāishǐ shíshī.",
+    "vn": "Bảo hiểm y tế toàn dân Đài Loan bắt đầu thực hiện từ năm 1995."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "大部分的民眾每個月只要付一點保費。",
+    "py": "Dàbùfen de mínzhòng měige yuè zhǐyào fù yīdiǎn bǎofèi.",
+    "vn": "Phần lớn người dân mỗi tháng chỉ cần đóng một ít phí."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "看病的時候，自己負擔的費用並不高。",
+    "py": "Kànbìng de shíhòu, zìjǐ fùdān de fèiyòng bìngbù gāo.",
+    "vn": "Khi đi khám, phần tự chi trả không hề cao."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "外籍人士在臺灣住滿六個月就可以加保。",
+    "py": "Wàijí rénshì zài Táiwān zhù mǎn liù ge yuè jiù kěyǐ jiā bǎo.",
+    "vn": "Người nước ngoài ở Đài Loan đủ sáu tháng là được tham gia."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "有工作的人通常由公司幫忙辦理。",
+    "py": "Yǒu gōngzuò de rén tōngcháng yóu gōngsī bāngmáng bànlǐ.",
+    "vn": "Người có việc làm thường được công ty làm thủ tục giúp."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "不過，健保的財務壓力也越來越大。",
+    "py": "Bùguò, jiàn bǎo de cáiwù yālì yě yuèláiyuè dà.",
+    "vn": "Tuy nhiên, áp lực tài chính của bảo hiểm cũng ngày càng lớn."
+   },
+   {
+    "speaker": "旁白",
+    "zh": "因此政府一直在討論調整保費的方法。",
+    "py": "Yīncǐ zhèngfǔ yīzhí zài tǎolùn tiáozhěng bǎofèi de fāngfǎ.",
+    "vn": "Vì vậy chính phủ vẫn luôn bàn cách điều chỉnh phí."
+   }
+  ]
+ },
+ {
+  "id": "b2_rac_thai_nhua",
+  "category": "news",
+  "categoryName": "Tin tức",
+  "title": "減塑政策 Chính sách giảm nhựa",
+  "band": "TOCFL B2 · Môi trường",
+  "duration": "7 câu",
+  "desc": "Tin về việc hạn chế ống hút, ly nhựa dùng một lần và phản ứng của người dân.",
+  "vocab": [
+   {
+    "w": "一次性",
+    "py": "yīcìxìng",
+    "vn": "dùng một lần",
+    "band": ""
+   },
+   {
+    "w": "吸管",
+    "py": "xīguǎn",
+    "vn": "ống hút",
+    "band": ""
+   },
+   {
+    "w": "環保杯",
+    "py": "huánbǎobēi",
+    "vn": "ly cá nhân",
+    "band": ""
+   },
+   {
+    "w": "減塑",
+    "py": "jiǎnsù",
+    "vn": "giảm nhựa",
+    "band": ""
+   }
+  ],
+  "sentences": [
+   {
+    "speaker": "記者",
+    "zh": "為了減少垃圾，政府持續推動減塑政策。",
+    "py": "Wèile jiǎnshǎo lèsè, zhèngfǔ chíxù tuīdòng jiǎn sù zhèngcè.",
+    "vn": "Để giảm rác, chính phủ tiếp tục thúc đẩy chính sách giảm nhựa."
+   },
+   {
+    "speaker": "記者",
+    "zh": "許多餐廳已經不主動提供塑膠吸管。",
+    "py": "Xǔduō cāntīng yǐjīng bù zhǔdòng tígōng sùjiāo xīguǎn.",
+    "vn": "Nhiều nhà hàng đã không chủ động đưa ống hút nhựa."
+   },
+   {
+    "speaker": "記者",
+    "zh": "自己帶環保杯買飲料，還可以打折。",
+    "py": "Zìjǐ dài huánbǎo bēi mǎi yǐnliào, hái kěyǐ dǎzhé.",
+    "vn": "Tự mang ly cá nhân mua đồ uống còn được giảm giá."
+   },
+   {
+    "speaker": "女",
+    "zh": "一開始有點不習慣，現在已經習慣了。",
+    "py": "Yī kāishǐ yǒudiǎn bù xíguàn, xiànzài yǐjīng xíguàn le.",
+    "vn": "Lúc đầu hơi chưa quen, giờ đã quen rồi."
+   },
+   {
+    "speaker": "男",
+    "zh": "不過外送的包裝還是太多了。",
+    "py": "Bùguò wàisòng de bāozhuāng háishì tài duō le.",
+    "vn": "Có điều bao bì đồ giao tận nơi vẫn còn nhiều quá."
+   },
+   {
+    "speaker": "記者",
+    "zh": "專家認為，減塑不能只靠政府。",
+    "py": "Zhuānjiā rènwéi, jiǎn sù bùnéng zhǐ kào zhèngfǔ.",
+    "vn": "Chuyên gia cho rằng giảm nhựa không thể chỉ trông vào chính phủ."
+   },
+   {
+    "speaker": "記者",
+    "zh": "每個人改變一點習慣，效果就會很明顯。",
+    "py": "Měigerén gǎibiàn yīdiǎn xíguàn, xiàoguǒ jiù huì hěn míngxiǎn.",
+    "vn": "Mỗi người đổi một chút thói quen, hiệu quả sẽ rất rõ."
+   }
+  ]
+ }
 ]

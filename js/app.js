@@ -6762,7 +6762,7 @@ VIEWS["chinh-ta"] = async () => {
   ].map(g => ({ ...g, items: filteredTopics.filter(t => topicBandOf(t) === g.key) }))
    .filter(g => g.items.length > 0);
 
-  const availBands = ["B1", "B2", "A", "C"].filter(k => allTopics.some(t => topicBandOf(t) === k));
+  const availBands = ["A", "B1", "B2", "C"].filter(k => allTopics.some(t => topicBandOf(t) === k));
   const pillCls = (on) => on
     ? "px-2.5 py-1 rounded-full bg-primary-container text-on-primary text-xs font-semibold shadow-xs transition-colors"
     : "px-2.5 py-1 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted text-xs font-medium border border-border-subtle/70 transition-colors";

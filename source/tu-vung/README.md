@@ -70,6 +70,15 @@ Trang học dạy từ mới **theo thứ tự bài**: thứ tự chủ đề tr
 - Câu ví dụ tự soạn (không chép giáo trình hay đề thi). Mẫu có trong vở lớp học thì ghi ngày vở vào `nguon`.
 - Đợt 1 (2026-11-20): 69 mẫu, gồm A1/A2: 28, B1: 21, B2: 15, khẩu ngữ: 5. Chưa có nhóm C.
 
+## Chép chính tả (`chinh-ta/`)
+
+- `chinh-ta/00-goc.json`: 5 bài gốc, giữ nguyên. Câu dài 23–41 chữ, hợp nghe cả đoạn hơn.
+- `chinh-ta/<band>-NN.json` = `{"bai": [...]}`. Mỗi bài có `id`, `loai` (dialogue/story/tocfl/news), `ten`, `band` (vd. "TOCFL A2 · Ăn uống"), `mo_ta`, `tu` [[từ, nghĩa]], `cau` [[người nói, câu, nghĩa]]. Mỗi bài 7–8 câu.
+- **Độ dài câu** (đếm chữ Hán): Band A 5–12, B1 8–18, B2 12–24, C 14–30. Build sẽ báo câu ngoài khoảng này. Câu đáp ngắn trong hội thoại (不客氣) được giữ.
+- **Người nói** quyết định giọng đọc: 小姐/女/林經理/房東/顧客/同學 → giọng nữ; 先生/男/記者/經理 → giọng nam; tên khác (旁白, 店員, 老闆) → giọng kể.
+- Build: `python tools/build_chinh_ta.py "<thư mục này>"` → `data/dictation_topics.json`. Pinyin được tạo tự động.
+- Đợt 1 (2026-11-20): thêm 18 bài, gồm A: 7, B1: 7, B2: 4. Tổng 23 bài, 171 câu.
+
 ## Mẹo nhớ `mh`: nối Hán Việt với cách đọc
 
 Từ 2026-11-17, mỗi `mh` viết theo mẫu:
