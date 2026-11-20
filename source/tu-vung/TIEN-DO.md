@@ -2,7 +2,7 @@
 
 Tự tạo khi chạy `tools/build_rich_words.py`. Đừng sửa tay.
 
-Từ lẻ đã soạn (thư mục `tu/`): **5026**
+Từ lẻ đã soạn (thư mục `tu/`): **5076**
 
 ## B1 theo chủ đề
 
@@ -46,7 +46,7 @@ Từ lẻ đã soạn (thư mục `tu/`): **5026**
 | A2 | 485 | 485 | — |
 | B1 | 1173 | 1173 | — |
 | B2 | 2342 | 2342 | — |
-| C | 793 | 2776 | 公文 公務 公務員 公益 公債 功勞 功利 攻 |
+| C | 843 | 2776 | 觀測 觀感 觀看 觀摩 觀望 關切 關懷 關頭 |
 
 ## Từ riêng (rieng-*.json)
 
