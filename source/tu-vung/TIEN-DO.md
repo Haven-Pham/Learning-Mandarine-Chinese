@@ -2,7 +2,7 @@
 
 Tự tạo khi chạy `tools/build_rich_words.py`. Đừng sửa tay.
 
-Từ lẻ đã soạn (thư mục `tu/`): **4776**
+Từ lẻ đã soạn (thư mục `tu/`): **4826**
 
 ## B1 theo chủ đề
 
@@ -46,7 +46,7 @@ Từ lẻ đã soạn (thư mục `tu/`): **4776**
 | A2 | 485 | 485 | — |
 | B1 | 1173 | 1173 | — |
 | B2 | 2342 | 2342 | — |
-| C | 545 | 2776 | 點子 奠定 惦記 電工 電力 電流 電壓 凋零 |
+| C | 595 | 2776 | 對峙 頓時 多寡 多虧 多媒體 多元 奪魁 躲避 |
 
 ## Từ riêng (rieng-*.json)
 
