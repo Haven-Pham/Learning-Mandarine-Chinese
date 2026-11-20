@@ -2,7 +2,7 @@
 
 Tự tạo khi chạy `tools/build_rich_words.py`. Đừng sửa tay.
 
-Từ lẻ đã soạn (thư mục `tu/`): **5176**
+Từ lẻ đã soạn (thư mục `tu/`): **5226**
 
 ## B1 theo chủ đề
 
@@ -46,7 +46,7 @@ Từ lẻ đã soạn (thư mục `tu/`): **5176**
 | A2 | 485 | 485 | — |
 | B1 | 1173 | 1173 | — |
 | B2 | 2342 | 2342 | — |
-| C | 941 | 2776 | 花紋 花樣 划不來 划得來 華裔 化工 化石 話劇 |
+| C | 990 | 2776 | 豁達 積 基層 基地 基督 基因 機動 機警 |
 
 ## Từ riêng (rieng-*.json)
 
