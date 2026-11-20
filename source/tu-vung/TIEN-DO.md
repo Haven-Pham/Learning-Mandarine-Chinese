@@ -2,7 +2,7 @@
 
 Tự tạo khi chạy `tools/build_rich_words.py`. Đừng sửa tay.
 
-Từ lẻ đã soạn (thư mục `tu/`): **4728**
+Từ lẻ đã soạn (thư mục `tu/`): **4776**
 
 ## B1 theo chủ đề
 
@@ -46,7 +46,7 @@ Từ lẻ đã soạn (thư mục `tu/`): **4728**
 | A2 | 485 | 485 | — |
 | B1 | 1173 | 1173 | — |
 | B2 | 2342 | 2342 | — |
-| C | 497 | 2776 | 單價 單據 單親 單行道 膽 膽固醇 淡季 淡水 |
+| C | 545 | 2776 | 點子 奠定 惦記 電工 電力 電流 電壓 凋零 |
 
 ## Từ riêng (rieng-*.json)
 
