@@ -2,7 +2,7 @@
 
 Tự tạo khi chạy `tools/build_rich_words.py`. Đừng sửa tay.
 
-Từ lẻ đã soạn (thư mục `tu/`): **4428**
+Từ lẻ đã soạn (thư mục `tu/`): **4478**
 
 ## B1 theo chủ đề
 
@@ -46,7 +46,7 @@ Từ lẻ đã soạn (thư mục `tu/`): **4428**
 | A2 | 485 | 485 | — |
 | B1 | 1173 | 1173 | — |
 | B2 | 2342 | 2342 | — |
-| C | 200 | 2776 | 悲哀 悲觀 貝殼 倍數 背誦 奔騰 本事 本位 |
+| C | 249 | 2776 | 避難 避孕 畢生 幣值 憋 別墅 兵 賓館 |
 
 ## Từ riêng (rieng-*.json)
 
