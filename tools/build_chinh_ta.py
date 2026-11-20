@@ -34,22 +34,23 @@ def level(band):
     return "C"
 
 base = json.load(open(os.path.join(SRC, "chinh-ta", "00-goc.json"), encoding="utf-8"))["bai_goc"]
-out, ids, warn = list(base), {t["id"] for t in base}, []
+new, warn = {}, []
 for f in sorted(glob.glob(os.path.join(SRC, "chinh-ta", "*.json"))):
     if os.path.basename(f) == "00-goc.json": continue
     for t in json.load(open(f, encoding="utf-8"))["bai"]:
-        if t["id"] in ids: sys.exit(f"Trùng id {t['id']} ({os.path.basename(f)})")
-        ids.add(t["id"])
+        if t["id"] in new: sys.exit(f"Trùng id {t['id']} ({os.path.basename(f)})")
         lo, hi = LIMIT[level(t["band"])]
         for _, zh, _ in t["cau"]:
             n = len(HAN.findall(zh))
             if not lo <= n <= hi: warn.append(f"{t['id']}: {n} chữ — {zh}")
-        out.append({
+        new[t["id"]] = {
             "id": t["id"], "category": t["loai"], "categoryName": CAT[t["loai"]], "title": t["ten"], "band": t["band"],
             "duration": f"{len(t['cau'])} câu", "desc": t["mo_ta"],
             "vocab": [{"w": w, "py": wpy(w), "vn": vn, "band": toc.get(w, (0, ""))[1]} for w, vn in t["tu"]],
             "sentences": [{"speaker": sp, "zh": zh, "py": B.pinyin(zh), "vn": vn} for sp, zh, vn in t["cau"]],
-        })
+        }
+# a lesson in a new-format file with the same id as an original one replaces it (01-goc-tach-cau.json: the originals split into short sentences)
+out = [new.pop(t["id"], t) for t in base] + list(new.values())
 
 json.dump(out, open(os.path.join(B.DATA, "dictation_topics.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
 cnt = {}

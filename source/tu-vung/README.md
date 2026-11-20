@@ -68,7 +68,8 @@ Trang học dạy từ mới **theo thứ tự bài**: thứ tự chủ đề tr
 - Build: `python tools/build_ngu_phap.py "<thư mục này>"` → `data/ngu-phap.json`. Trang Ngữ pháp nạp file này, thêm vào sau 8 mẫu có sẵn trong `js/app.js` (id trùng thì bỏ qua).
 - Khung cấp độ: **TBCL (臺灣華語文能力基準)** của 國家教育研究院, gồm 496 điểm ngữ pháp, cấp 1–5. Quy ước: cấp 1–2 → Band A, cấp 3 → B1, cấp 4 → B2, cấp 5 → C. Cấp ghi ở `nguon` là ước lượng theo thứ tự giáo trình Đài Loan; tra lại chính xác bằng mục 語法點分級標準 trên https://coct.naer.edu.tw.
 - Câu ví dụ tự soạn (không chép giáo trình hay đề thi). Mẫu có trong vở lớp học thì ghi ngày vở vào `nguon`.
-- Đợt 1 (2026-11-20): 69 mẫu, gồm A1/A2: 28, B1: 21, B2: 15, khẩu ngữ: 5. Chưa có nhóm C.
+- Đợt 1 (2026-11-20): 69 mẫu, gồm A1/A2: 28, B1: 21, B2: 15, khẩu ngữ: 5.
+- Đợt 2 (2026-11-20): thêm 39 mẫu (A 8, B1 9, B2 10, C 12). Tổng cộng 108 mẫu, cộng 8 mẫu có sẵn trong app.
 
 ## Chép chính tả (`chinh-ta/`)
 
@@ -77,7 +78,8 @@ Trang học dạy từ mới **theo thứ tự bài**: thứ tự chủ đề tr
 - **Độ dài câu** (đếm chữ Hán): Band A 5–12, B1 8–18, B2 12–24, C 14–30. Build sẽ báo câu ngoài khoảng này. Câu đáp ngắn trong hội thoại (不客氣) được giữ.
 - **Người nói** quyết định giọng đọc: 小姐/女/林經理/房東/顧客/同學 → giọng nữ; 先生/男/記者/經理 → giọng nam; tên khác (旁白, 店員, 老闆) → giọng kể.
 - Build: `python tools/build_chinh_ta.py "<thư mục này>"` → `data/dictation_topics.json`. Pinyin được tạo tự động.
-- Đợt 1 (2026-11-20): thêm 18 bài, gồm A: 7, B1: 7, B2: 4. Tổng 23 bài, 171 câu.
+- Đợt 1 (2026-11-20): thêm 18 bài, gồm A: 7, B1: 7, B2: 4.
+- `01-goc-tach-cau.json`: 5 bài gốc đã tách thành câu ngắn, giữ id cũ và thay bản trong `00-goc.json` khi build (bản dài vẫn lưu ở `00-goc.json`). Tổng 23 bài, 198 câu.
 
 ## Mẹo nhớ `mh`: nối Hán Việt với cách đọc
 

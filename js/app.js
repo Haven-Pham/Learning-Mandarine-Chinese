@@ -5014,6 +5014,7 @@ function updateGrammarGrid() {
     { key: "A1/A2", label: "Band A · Sơ cấp (A1–A2)", badge: "bg-jade-subtle text-secondary" },
     { key: "B1", label: "Band B · Trung cấp (B1)", badge: "bg-cinnabar-subtle text-primary" },
     { key: "B2", label: "Band B · Cao cấp (B2)", badge: "bg-amber-subtle text-tertiary" },
+    { key: "C", label: "Band C · Lưu loát (C1–C2)", badge: "bg-primary-container text-on-primary" },
     { key: "Khẩu ngữ", label: "Khẩu ngữ Đài Loan & Ghi chú", badge: "bg-surface-container text-on-surface" }
   ];
 
@@ -5170,6 +5171,7 @@ VIEWS["ngu-phap"] = (arg) => {
     ["A1/A2", "Band A · A1/A2"],
     ["B1", "Band B · B1"],
     ["B2", "Band B · B2"],
+    ["C", "Band C"],
     ["Khẩu ngữ", "Khẩu ngữ Đài Loan"]
   ];
 
