@@ -2,7 +2,7 @@
 
 Tự tạo khi chạy `tools/build_rich_words.py`. Đừng sửa tay.
 
-Từ lẻ đã soạn (thư mục `tu/`): **5076**
+Từ lẻ đã soạn (thư mục `tu/`): **5126**
 
 ## B1 theo chủ đề
 
@@ -46,7 +46,7 @@ Từ lẻ đã soạn (thư mục `tu/`): **5076**
 | A2 | 485 | 485 | — |
 | B1 | 1173 | 1173 | — |
 | B2 | 2342 | 2342 | — |
-| C | 843 | 2776 | 觀測 觀感 觀看 觀摩 觀望 關切 關懷 關頭 |
+| C | 892 | 2776 | 海運 害蟲 行號 航空信 航行 毫不 好比 好手 |
 
 ## Từ riêng (rieng-*.json)
 
