@@ -81,6 +81,15 @@ Trang học dạy từ mới **theo thứ tự bài**: thứ tự chủ đề tr
 - Đợt 1 (2026-11-20): thêm 18 bài, gồm A: 7, B1: 7, B2: 4.
 - `01-goc-tach-cau.json`: 5 bài gốc đã tách thành câu ngắn, giữ id cũ và thay bản trong `00-goc.json` khi build (bản dài vẫn lưu ở `00-goc.json`). Tổng 23 bài, 198 câu.
 
+## Chủ đề từ vựng xuyên cấp (`chu-de/`)
+
+- `chu-de/chu-de.json`: 20 chủ đề (Môi trường & năng lượng, Pháp luật, Thiên tai, Kinh tế, Công việc, Giáo dục, Y tế, Khoa học, Chính trị – xã hội, Văn hóa – lễ hội, Du lịch – giao thông, Ăn uống, Nhà ở, Thiên nhiên, Truyền thông – giải trí, Thể thao, Gia đình, Cảm xúc, Mua sắm, Thủ tục).
+- Mỗi chủ đề có: `kw` (từ khóa so với **hai nghĩa đầu** của từ, khớp nguyên từ), `zh` (hình vị chữ Hán), `them` (luôn thêm), `bo` (luôn bỏ). Lấy từ toàn bộ TOCFL (Novice → C), các bộ Lớp học và `tu/rieng-*`.
+- Build: `python tools/build_chu_de.py "<thư mục này>"` → `data/chu-de.json`. Xem từ của một chủ đề để rà: thêm `--xem moi-truong`.
+- Phân loại là tự động. Đã rà tay Môi trường, Pháp luật, Thiên tai. Các chủ đề khác đúng khoảng 85–90%: thấy từ lạc thì thêm vào `bo`, thấy thiếu thì thêm vào `them`.
+- **Tránh từ khóa ngắn có nhiều nghĩa**: "đơn" khớp cô đơn, "vị" khớp đơn vị, "tết" khớp bít tết, "bão" khớp hoài bão, "kiện" khớp điều kiện. Dùng cụm hai chữ trở lên.
+- Thư mục chủ đề trỏ tới từ đã có (không tạo bản sao), nên tiến độ học dùng chung với band và bộ khác.
+
 ## Mẹo nhớ `mh`: nối Hán Việt với cách đọc
 
 Từ 2026-11-17, mỗi `mh` viết theo mẫu:

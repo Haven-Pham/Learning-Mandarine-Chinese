@@ -749,7 +749,7 @@ function meaningOf(n) { const it = itemOf(n); return it.vn || it.en || ""; }
 // ---------------- study queue ----------------
 const deckOn = (id) => S.settings.decks[id] !== false;
 const bandOn = (n) => bandsOf(n).some((b) => S.settings.bands[b]);
-const inLearning = (n) => n.rich ? (deckOn(n.deck.id) || bandOn(n)) : (bandOn(n) || !!S.settings.extra[n.w]);
+const inLearning = (n) => n.rich ? (deckOn(n.deck.id) || bandOn(n) || !!S.settings.extra[n.w]) : (bandOn(n) || !!S.settings.extra[n.w]);
 function activeNotes() { return S.notes.filter(inLearning); }
 function todayStats() { return S.stats.get(dayKey(Date.now())) || { reviews: 0, newCards: 0, again: 0 }; }
 function buildQueue(now) {
@@ -1254,6 +1254,12 @@ function folderNotes(id) {
   if (S.bands.includes(id)) return S.notes.filter((n) => n.kind === "vocab" && inBand(n, id));
   if (id === "cua-toi") return S.notes.filter((n) => (n.rich && (!n.deck || n.deck.id !== "bo-thu")) || (S.settings && S.settings.extra && S.settings.extra[n.w]) || (S.inbox && [...S.inbox.values()].some(x => x.w === n.w)));
   if (id === "viet-tat") { const set = new Set(); for (const w of (S.abbrS ? S.abbrS.keys() : [])) { const n = S.noteByWord.get(w); if (n) set.add(n); } return [...set]; }
+  if (String(id).startsWith("cd-")) {
+    const tp = (S.topics || []).find((x) => x.id === id); if (!tp) return [];
+    const set = new Set();
+    for (const w of tp.words) { const n = S.noteByWord.get(w) || S.noteByWord.get(w.split("/")[0]); if (n && n.kind === "vocab") set.add(n); }
+    return [...set];
+  }
   return S.notes.filter((n) => n.rich && n.deck && n.deck.id === id);
 }
 function folderOn(id) {
@@ -1262,7 +1268,7 @@ function folderOn(id) {
   if (!S.settings.decks) S.settings.decks = {};
   if (S.bands.includes(id)) return !!S.settings.bands[id];
   if (id === "cua-toi") return (S.decks || []).every((d) => deckOn(d.id));
-  if (id === "viet-tat") return folderNotes(id).every(inLearning);
+  if (id === "viet-tat" || String(id).startsWith("cd-")) { const ns = folderNotes(id); return ns.length > 0 && ns.every(inLearning); }
   return deckOn(id);
 }
 function setFolderOn(id, v) {
@@ -1272,6 +1278,7 @@ function setFolderOn(id, v) {
   if (!S.settings.extra) S.settings.extra = {};
   if (S.bands.includes(id)) S.settings.bands[id] = v;
   else if (id === "cua-toi") for (const d of (S.decks || [])) S.settings.decks[d.id] = v;
+  else if (String(id).startsWith("cd-")) { for (const n of folderNotes(id)) { if (v) S.settings.extra[n.w] = true; else delete S.settings.extra[n.w]; } }
   else if (id === "viet-tat") { for (const n of folderNotes(id)) { if (n.rich) S.settings.decks[n.deck.id] = v || deckOn(n.deck.id); else if (v) S.settings.extra[n.w] = true; else delete S.settings.extra[n.w]; } }
   else S.settings.decks[id] = v;
 }
@@ -3815,7 +3822,8 @@ VIEWS["thu-muc"] = (id) => {
     const deck = S.decks.find((d) => d.id === id);
     const isTopic = deck && (deck.category === "topic" || deck.id.startsWith("band-"));
     const ns = folderNotes(id);
-    const title = isBand ? `TOCFL ${id} (${BAND_INFO[id] || ""})` : (id === "cua-toi" ? "Thư mục của tôi" : (id === "viet-tat" ? "Từ viết tắt" : (deck ? deck.name : id)));
+    const topicDef = String(id).startsWith("cd-") ? (S.topics || []).find((x) => x.id === id) : null;
+    const title = isBand ? `TOCFL ${id} (${BAND_INFO[id] || ""})` : (id === "cua-toi" ? "Thư mục của tôi" : (id === "viet-tat" ? "Từ viết tắt" : (deck ? deck.name : (topicDef ? `Chủ đề · ${topicDef.vn} ${topicDef.zh}` : id))));
     const on = folderOn(id);
     const lv = [0, 0, 0, 0, 0, 0];
     ns.forEach((n) => lv[noteLevel(n)]++);
@@ -4133,6 +4141,7 @@ VIEWS["thu-muc"] = (id) => {
     ...lopDecks.map((d) => mkFolder(d.id, "lop", d.kind === "grammar" ? "法" : "課", d.name, d.kind === "grammar" ? "Ngữ pháp chép trong vở lớp học." : "Từ chép trong vở lớp học.", folderNotes(d.id))),
     ...ownDecks.map((d) => mkFolder(d.id, "personal", "冊", d.name, d.sub || "Bộ từ đã nhập.", folderNotes(d.id))),
     mkFolder("viet-tat", "personal", "臺", "Khẩu ngữ & từ viết tắt Đài Loan", "北車, 健保, 高鐵… (nguồn 萌典)", folderNotes("viet-tat")),
+    ...(S.topics || []).map((tp) => mkFolder(tp.id, "topics", tp.icon || "題", tp.vn, `${tp.zh} · ${fmt(tp.words.length)} từ, từ Novice đến C`, folderNotes(tp.id))),
     ...topicDecks.map((d) => mkFolder(d.id, "topics", d.emoji || "題", d.name, d.sub || "Từ theo chủ đề.", folderNotes(d.id))),
     ...S.bands.map((b) => mkFolder(b, "bands", b.replace("Novice ", "N"), `TOCFL ${b}`, BAND_INFO[b] || "", vocab.filter((n) => inBand(n, b)))),
     mkFolder("bo-thu", "radicals", "部", "Bộ thủ chữ Hán", "Bộ thủ cốt lõi và biến thể (氵, 忄, 扌, 艹, 辶…), tập viết và trắc nghiệm.", folderNotes("bo-thu"))
@@ -4376,7 +4385,7 @@ function renderTri() {
   const T = S.tri;
   if (!T) return;
   const n = T.list[T.i];
-  const name = S.bands.includes(T.id) ? `TOCFL ${T.id}` : (T.id === "cua-toi" ? "Thư mục của tôi" : (T.id === "viet-tat" ? "Từ viết tắt" : T.id));
+  const name = S.bands.includes(T.id) ? `TOCFL ${T.id}` : (T.id === "cua-toi" ? "Thư mục của tôi" : (T.id === "viet-tat" ? "Từ viết tắt" : (((S.topics || []).find((x) => x.id === T.id) || {}).vn || ((S.decks || []).find((d) => d.id === T.id) || {}).name || T.id)));
   const tally = `Đã thuộc ${T.counts.known} · Hơi nhớ ${T.counts.some} · Chưa biết ${T.counts.unknown}`;
 
   if (!n) {
@@ -9705,6 +9714,7 @@ function initSyncUI() {
     $("#view").innerHTML = `<div class="note">Đang tải bảng từ…</div>`;
     const [t, decks] = await Promise.all([getJSON("data/tocfl.json"), getJSON("data/decks.json")]);
     S.bands = t.bands; S.tocfl = t.words; S.decks = decks;
+    try { S.topics = await getJSON("data/chu-de.json"); } catch (e) { S.topics = []; }
     try {
       const vi = await getJSON("data/vi/index.json");
       const parts = await Promise.all((vi.files || []).map((f) => getJSON("data/vi/" + f)));
