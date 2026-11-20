@@ -2,7 +2,7 @@
 
 Tự tạo khi chạy `tools/build_rich_words.py`. Đừng sửa tay.
 
-Từ lẻ đã soạn (thư mục `tu/`): **4876**
+Từ lẻ đã soạn (thư mục `tu/`): **4926**
 
 ## B1 theo chủ đề
 
@@ -46,7 +46,7 @@ Từ lẻ đã soạn (thư mục `tu/`): **4876**
 | A2 | 485 | 485 | — |
 | B1 | 1173 | 1173 | — |
 | B2 | 2342 | 2342 | — |
-| C | 644 | 2776 | 方位 方向盤 方針 方正 妨礙 防備 防範 防水 |
+| C | 694 | 2776 | 糞 封閉 封鎖 封條 風暴 風潮 風光 風化 |
 
 ## Từ riêng (rieng-*.json)
 
