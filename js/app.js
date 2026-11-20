@@ -1398,6 +1398,62 @@ function nextCard(now) {
   return null;
 }
 
+// ---------------- set a whole folder to one level ----------------
+// For words already known before using the app (e.g. "Novice 2 is all Thông thạo"). One write for the whole folder;
+// it does not count as new words learned today, so the daily new-word quota is untouched.
+function bulkLevelHTML(id, dark) {
+  const opts = LEVELS.map((l, i) => `<option value="${i}"${i === 5 ? " selected" : ""}>${esc(l)}</option>`).join("");
+  return `<span class="inline-flex items-center gap-1.5 flex-wrap ${dark ? "text-white" : "text-on-surface"}">
+    <span class="text-xs font-semibold">Đặt cả thư mục:</span>
+    <select id="bulkLevelSel" class="px-2 py-1.5 rounded-lg text-xs border ${dark ? "bg-black/30 border-white/25 text-white" : "bg-paper-card border-border-subtle text-on-surface"}">${opts}</select>
+    <button type="button" id="bulkLevelBtn" data-folder="${esc(id)}" class="px-3 py-1.5 rounded-lg text-xs font-semibold border ${dark ? "border-white/25 hover:bg-white/10" : "border-border-subtle bg-paper-card hover:bg-surface-container"}">Áp dụng</button>
+    <span id="bulkLevelMsg" class="text-xs"></span>
+  </span>`;
+}
+async function setFolderLevel(id, level) {
+  const notes = folderNotes(id).filter((n) => n.kind === "vocab" || n.kind === "grammar");
+  const now = Date.now(), ivl = [0, 0, 1, 7, 21, 90][level];
+  const entries = [];
+  for (const n of notes) {
+    const types = [...new Set([...typesOf(n).map(([t]) => t), ...allSkillsOf(n)])];
+    const local = [];
+    for (const t of types) {
+      const cid = cardId(n, t);
+      let st;
+      if (level === 0) st = Object.assign(freshState(), { w: n.w, last: now, reset: true });
+      else st = Object.assign(freshState(), S.srs.get(cid) || {}, {
+        state: level === 1 ? "learn" : "review", ivl, step: 0,
+        due: level === 1 ? now + STEPS[0] : dayStart(now) + ivl * DAY,
+        firstSeen: ((S.srs.get(cid) || {}).firstSeen) || now, last: now, w: n.w
+      });
+      delete st.fsrs;
+      S.srs.set(cid, st); if (S.cards) S.cards.set(cid, st);
+      local.push([cid, st]);
+    }
+    entries.push(...local, ...shareWithKin(n, local));
+  }
+  await Store.putMany("srs", entries);
+  updateBadge();
+  return notes.length;
+}
+function bindBulkLevel(id, redraw) {
+  const btn = $("#bulkLevelBtn"), sel = $("#bulkLevelSel"), msg = $("#bulkLevelMsg");
+  if (!btn || !sel) return;
+  btn.onclick = async () => {
+    const lvl = Number(sel.value), cnt = folderNotes(id).length;
+    if (!confirm(`Đặt toàn bộ ${fmt(cnt)} từ trong thư mục này về mức "${LEVELS[lvl]}"?\nTiến độ hiện tại của các từ này sẽ được thay bằng mức mới.`)) return;
+    btn.disabled = true; if (msg) msg.textContent = "Đang lưu…";
+    try {
+      const n = await setFolderLevel(id, lvl);
+      if (msg) msg.textContent = `Đã đặt ${fmt(n)} từ về ${LEVELS[lvl]}.`;
+      if (typeof Sync !== "undefined" && Sync.onCardGraded) { try { Sync.onCardGraded(); } catch (e) {} }
+      if (typeof redraw === "function") setTimeout(redraw, 700);
+    } catch (e) {
+      console.warn(e); if (msg) msg.textContent = "Chưa lưu được, bạn bấm lại nhé.";
+    } finally { btn.disabled = false; }
+  };
+}
+
 function startStudyFolder(folderId) {
   const notes = folderNotes(folderId);
   const now = Date.now();
@@ -3837,6 +3893,7 @@ VIEWS["thu-muc"] = (id) => {
                 <span class="material-symbols-outlined text-[17px]">${on ? "pause" : "add"}</span>
                 <span>${on ? "Đang bật SRS" : "+ Thêm vào SRS"}</span>
               </button>
+              ${bulkLevelHTML(id, true)}
             </div>
           </div>
 
@@ -3932,6 +3989,7 @@ VIEWS["thu-muc"] = (id) => {
         else location.hash = "#hoc";
       };
 
+      bindBulkLevel(id, () => VIEWS["thu-muc"](id));
       $("#toggleLearnTopic").onclick = async () => {
         setFolderOn(id, !on);
         await saveSettings();
@@ -3976,6 +4034,7 @@ VIEWS["thu-muc"] = (id) => {
                 <span>Lọc nhanh: ${fmt(unseen)} từ chưa học</span>
               </a>
             ` : ""}
+            ${bulkLevelHTML(id, false)}
           </div>
         </div>
 
@@ -4032,6 +4091,7 @@ VIEWS["thu-muc"] = (id) => {
     };
 
     $("#fq").oninput = draw;
+    bindBulkLevel(id, () => VIEWS["thu-muc"](id));
     $("#toggleLearn").onclick = async () => {
       setFolderOn(id, !on);
       await saveSettings();
