@@ -149,6 +149,7 @@ if __name__ == "__main__":
     for band in sorted(os.listdir(SRC)):
         d = os.path.join(SRC, band)
         if not os.path.isdir(d) or not os.path.exists(os.path.join(d, "chu-de.json")): continue
+        if "topics" not in json.load(open(os.path.join(d, "chu-de.json"), encoding="utf-8")): continue   # chu-de/ = cross-band topics, not a band
         out = build_band(d, band.upper())
         if not out["lessons"]: continue
         json.dump(out, open(os.path.join(DATA, "rich", band + ".json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
