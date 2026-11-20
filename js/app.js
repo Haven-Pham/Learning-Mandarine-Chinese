@@ -357,6 +357,86 @@ async function bumpReviewStats(now, grade, wasNew) {
 }
 
 // 1. Grade single card via SM-2: grade 1 (Quên), 2 (Khó), 3 (Nhớ tốt), 4 (Dễ)
+// ---------------- one word = one progress ----------------
+// The same word can live in several places (a class deck, a topic deck, the TOCFL list), each with its own card ids,
+// and old progress can sit under an id the word no longer uses (t~word~type after the word joined a deck).
+// Progress belongs to the word: what is set on one copy is copied to the others, and the queue shows a word+skill once.
+function kinNotes(n) {
+  if (!n || n.kind !== "vocab" || (n.deck && n.deck.id === "bo-thu")) return [];
+  if (!S._kin || S._kinSize !== S.notes.length) {
+    S._kin = new Map(); S._kinSize = S.notes.length;
+    for (const x of S.notes) {
+      if (x.kind !== "vocab" || (x.deck && x.deck.id === "bo-thu")) continue;
+      const a = S._kin.get(x.w); if (a) a.push(x); else S._kin.set(x.w, [x]);
+    }
+  }
+  return (S._kin.get(n.w) || []).filter((x) => x !== n);
+}
+// Every skill a word may get. Điền từ (and Nói và viết) can appear only after the full explanation is loaded,
+// so a level set "for the whole word" must also cover them, or they come back later as new cards.
+function allSkillsOf(n) {
+  if (!n || n.kind !== "vocab") return [];
+  const out = ["rec", "lis", "wri", "clo"];
+  if (S.abbrS && S.abbrS.has(n.w)) out.push("abr");
+  return out;
+}
+function shareWithKin(n, entries) {
+  const out = [];
+  for (const [cid, st] of entries) {
+    const t = cid.split("~").pop();
+    for (const k of kinNotes(n)) {
+      if (!typesOf(k).some(([x]) => x === t)) continue;
+      const kid = cardId(k, t); if (kid === cid) continue;
+      const c = Object.assign({}, st);
+      S.srs.set(kid, c); if (S.cards) S.cards.set(kid, c); out.push([kid, c]);
+    }
+  }
+  return out;
+}
+async function saveKin(n, entries) {
+  const kin = shareWithKin(n, entries);
+  if (kin.length) { try { await Store.putMany("srs", kin); } catch (e) {} }
+}
+// On load: give every copy of a word the newest progress found under any id of that word.
+async function reconcileWordProgress() {
+  if (!S.notes || !S.srs) return 0;
+  const best = new Map();
+  for (const [id, st] of S.srs) {
+    if (!st || typeof st.state !== "string") continue;
+    if (st.state === "new" && !st.reset) continue;
+    const t = id.split("~").pop();
+    let w = st.w; if (!w) { const n = noteFromCard(id); if (!n) continue; w = n.w; }
+    const key = w + "~" + t, b = best.get(key);
+    if (!b || (st.last || 0) > (b.last || 0)) best.set(key, st);
+  }
+  const fix = [];
+  for (const n of S.notes) {
+    if (n.kind !== "vocab" || (n.deck && n.deck.id === "bo-thu")) continue;
+    for (const [t] of typesOf(n)) {
+      const id = cardId(n, t), b = best.get(n.w + "~" + t); if (!b) continue;
+      const cur = S.srs.get(id);
+      if (cur === b) continue;
+      if (!cur || (cur.state === "new" && !cur.reset) || (cur.last || 0) < (b.last || 0)) {
+        const c = Object.assign({}, b); S.srs.set(id, c); fix.push([id, c]);
+      }
+    }
+  }
+  // A skill that appeared after the word was already well known (level 3+ on every started skill) takes the word's newest state.
+  for (const n of S.notes) {
+    if (n.kind !== "vocab" || (n.deck && n.deck.id === "bo-thu")) continue;
+    const st = [...new Set([...typesOf(n).map(([t]) => t), ...allSkillsOf(n)])].map((t) => [t, S.srs.get(cardId(n, t))]);
+    const started = st.filter(([, x]) => x && x.state !== "new");
+    if (!started.length || started.length === st.length || started.some(([, x]) => cardLevel(x) < 3)) continue;
+    const src = started.reduce((a, b) => ((b[1].last || 0) > (a[1].last || 0) ? b : a))[1];
+    for (const [t, x] of st) {
+      if (x && (x.state !== "new" || x.reset)) continue;
+      const c = Object.assign({}, src); const id = cardId(n, t); S.srs.set(id, c); fix.push([id, c]);
+    }
+  }
+  if (fix.length) { try { await Store.putMany("srs", fix); } catch (e) {} }
+  return fix.length;
+}
+
 async function applyCardGrade(n, type, grade, afterSave) {
   if (!grade || grade < 1 || grade > 4) return;
   const now = Date.now();
@@ -394,6 +474,7 @@ async function applyCardGrade(n, type, grade, afterSave) {
   S.cards.set(cid, s);
   markWordSeen(n.key, cid);
   await Store.put("srs", cid, s);
+  await saveKin(n, [[cid, s]]);
 
   await bumpReviewStats(now, grade, wasNew);
   updateBadge();
@@ -501,7 +582,7 @@ async function applyCardLevel(n, type, targetLvl, applyToAllOrCb, maybeCb) {
   if (!S.srs) S.srs = new Map();
   if (!S.cards) S.cards = new Map();
   const validTypes = typesOf(n).map(([t]) => t);
-  const targets = applyToAll ? [...new Set([...validTypes, type].filter(Boolean))] : [type];
+  const targets = applyToAll ? [...new Set([...validTypes, ...allSkillsOf(n), type].filter(Boolean))] : [type];
   const wasNewWord = noteLevel(n) === 0;
   let anyWasNew = false;
   const entries = targets.map((t) => {
@@ -510,7 +591,7 @@ async function applyCardLevel(n, type, targetLvl, applyToAllOrCb, maybeCb) {
     if (!prev || prev.state === "new") anyWasNew = true;
     if (targetLvl === 0) {
       const s = typeof freshState === "function" ? freshState() : { state: "new", ivl: 0, due: now };
-      s.w = n.w;
+      s.w = n.w; s.last = now; s.reset = true;
       return [cid, s];
     }
     const s = Object.assign(scheduleLevel(prev, targetLvl, now), {
@@ -524,12 +605,12 @@ async function applyCardLevel(n, type, targetLvl, applyToAllOrCb, maybeCb) {
   if (applyToAll || targetLvl >= 2) {
     for (const [k, st] of [...S.srs.entries()]) {
       if (entryMap.has(k)) continue;
-      if (noteFromCard(k) === n || (st && st.w === n.w)) {
+      if (noteFromCard(k) === n) {
         const kt = k.split("~").pop();
         if (validTypes.includes(kt) && k === cardId(n, kt)) {
           if (applyToAll || ((st.state === "learn" || st.state === "relearn") && (st.lapses || 0) === 0 && (st.reps || 0) <= 1)) {
             const s = targetLvl === 0
-              ? Object.assign(freshState(), { w: n.w })
+              ? Object.assign(freshState(), { w: n.w, last: now, reset: true })
               : Object.assign(scheduleLevel(st, targetLvl, now), { firstSeen: st.firstSeen || st.last || now, w: n.w });
             entries.push([k, s]);
             entryMap.set(k, s);
@@ -552,6 +633,7 @@ async function applyCardLevel(n, type, targetLvl, applyToAllOrCb, maybeCb) {
   } else if (entries.length > 1) {
     await Store.putMany("srs", entries);
   }
+  await saveKin(n, entries);
   if (anyWasNew && targetLvl > 0 && S.session) {
     if (!S.session.newKeys) S.session.newKeys = new Set();
     S.session.newKeys.add(n.key);
@@ -572,11 +654,11 @@ async function applyWordLevel(n, level, afterSave) {
   const ivl = [0, 0, 1, 7, 21, 90][level];
   const wasNew = noteLevel(n) === 0;
 
-  const entries = typesOf(n).map(([type]) => {
+  const entries = [...new Set([...typesOf(n).map(([t]) => t), ...allSkillsOf(n)])].map((type) => {
     const id = cardId(n, type);
     if (level === 0) {
       const state = freshState();
-      state.w = n.w;
+      state.w = n.w; state.last = now; state.reset = true;
       return [id, state];
     }
     const state = Object.assign(freshState(), S.srs ? S.srs.get(id) : null);
@@ -595,6 +677,7 @@ async function applyWordLevel(n, level, afterSave) {
   if (S.srs) for (const [id, s] of entries) S.srs.set(id, s);
   if (S.cards) for (const [id, s] of entries) S.cards.set(id, s);
   await Store.putMany("srs", entries);
+  await saveKin(n, entries);
 
   if (level > 0 && wasNew) {
     const key = dayKey(now);
@@ -671,21 +754,27 @@ function activeNotes() { return S.notes.filter(inLearning); }
 function todayStats() { return S.stats.get(dayKey(Date.now())) || { reviews: 0, newCards: 0, again: 0 }; }
 function buildQueue(now) {
   const learn = [], review = [], fresh = []; const end = dayStart(now) + DAY, today0 = dayStart(now);
-  const seen = new Set();
+  const seen = new Set(), wordSkill = new Set();   // wordSkill: "word~skill" already started (in any deck)
+  const wsKey = (n, t) => (n.deck && n.deck.id === "bo-thu" ? "bo-thu:" : "") + n.w + "~" + t;
   // reviews: every card with a state, whatever deck or band is switched on
   for (const [id, s] of S.srs) {
     if (!s || s.state === "new" || typeof s.state !== "string") continue;
     const n = noteFromCard(id); if (!n) continue;
     const t = id.split("~").pop();
     if (!typesOf(n).some(([k]) => k === t) || id !== cardId(n, t)) continue;
+    seen.add(id);
+    const wk = wsKey(n, t);
+    if (wordSkill.has(wk)) continue;   // the same word+skill from another deck: show it once
+    wordSkill.add(wk);
     const ref = { id, n, t, s };
     if (s.state === "learn" || s.state === "relearn") learn.push(ref); else if (s.due < end) review.push(ref);
-    seen.add(id);
   }
   for (const n of activeNotes()) {
     const types = typesOf(n); const first = S.srs.get(cardId(n, types[0][0]));
     types.forEach(([t], k) => {
       const id = cardId(n, t); if (seen.has(id)) return;
+      const wk = wsKey(n, t); if (wordSkill.has(wk)) return;   // already started or queued under another deck
+      wordSkill.add(wk);
       if (k === 0 || (first && first.state !== "new" && (first.firstSeen || first.last) > 0 && dayStart(first.firstSeen || first.last) < today0)) fresh.push({ id, n, t, s: null });
     });
   }
@@ -1214,12 +1303,14 @@ function nextCard(now) {
     const usedWords = new Set();
     for (const [id, s] of S.srs) {
       if (!s || s.state === "new" || typeof s.state !== "string") continue;
+      // only weak cards (Mới học / Nhớ tạm) may be pulled early; Nhớ lâu, Thuộc lòng, Thông thạo wait for their date
+      if (cardLevel(s) > 2 && s.due > dayStart(now) + DAY) continue;
       const n = noteFromCard(id);
-      if (!n || seenWords.has(n.key) || n.key === last || usedWords.has(n.key)) continue;
+      if (!n || seenWords.has(n.key) || n.key === last || usedWords.has(n.w)) continue;
       if (filterSet && !filterSet.has(n.key)) continue;
       const t = id.split("~").pop();
       if (!typesOf(n).some(([k]) => k === t) || id !== cardId(n, t)) continue;
-      usedWords.add(n.key);
+      usedWords.add(n.w);
       out.push({ id, n, t, s });
     }
     out.sort((a, b) => (a.s.due - b.s.due) || ((a.s.last || 0) - (b.s.last || 0)));
@@ -9471,6 +9562,7 @@ VIEWS["cai-dat"] = () => {
 async function saveSettings() { await Store.put("kv", "settings", JSON.parse(JSON.stringify(S.settings))); updateBadge(); }
 async function loadProgress() {
   S.srs = await Store.all("srs"); S.stats = await Store.all("stats"); S.inbox = await Store.all("inbox");
+  if (S.notes && S.notes.length) { try { await reconcileWordProgress(); } catch (e) { console.warn(e); } }
   const kv = await Store.all("kv"); S.packs = kv.get("packs") || []; if (kv.get("settings")) S.settings = Object.assign({ newPerDay: 8, reviewPerDay: 30, decks: {}, bands: {}, extra: {}, ruby: true, syncToken: "", syncGistId: "", autoSync: true, lastSyncTime: "" }, kv.get("settings"));
   if (S.vi && kv && typeof kv.entries === "function") {
     for (const [k, v] of kv.entries()) {
