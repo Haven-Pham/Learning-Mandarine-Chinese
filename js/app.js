@@ -752,6 +752,29 @@ const bandOn = (n) => bandsOf(n).some((b) => S.settings.bands[b]);
 const inLearning = (n) => n.rich ? (deckOn(n.deck.id) || bandOn(n) || !!S.settings.extra[n.w]) : (bandOn(n) || !!S.settings.extra[n.w]);
 function activeNotes() { return S.notes.filter(inLearning); }
 function todayStats() { return S.stats.get(dayKey(Date.now())) || { reviews: 0, newCards: 0, again: 0 }; }
+// The word's own progress, over every copy of it (all decks) and every skill.
+function wordStates(n) {
+  const out = [];
+  for (const x of [n, ...kinNotes(n)]) for (const t of new Set([...typesOf(x).map(([k]) => k), ...allSkillsOf(x)])) {
+    const st = S.srs.get(cardId(x, t)); if (st && st.state !== "new") out.push(st);
+  }
+  return out;
+}
+// A skill card that never started, of a word the user already knows well (Thuộc lòng / Thông thạo on every started
+// card): it takes the word's newest state instead of being taught again as a new card. Returns true if adopted.
+const _adoptWrites = [];
+function adoptKnownWord(n, t) {
+  if (!n || n.kind !== "vocab" || (n.deck && n.deck.id === "bo-thu")) return false;
+  const sts = wordStates(n); if (!sts.length || sts.some((x) => cardLevel(x) < 4)) return false;
+  const src = sts.reduce((a, b) => ((b.last || 0) > (a.last || 0) ? b : a));
+  const id = cardId(n, t), cur = S.srs.get(id); if (cur && cur.reset) return false;
+  const c = Object.assign({}, src, { w: n.w }); S.srs.set(id, c); if (S.cards) S.cards.set(id, c); _adoptWrites.push([id, c]);
+  return true;
+}
+function flushAdopted() {
+  if (!_adoptWrites.length) return;
+  const w = _adoptWrites.splice(0); Store.putMany("srs", w).catch(() => {});
+}
 function buildQueue(now) {
   const learn = [], review = [], fresh = []; const end = dayStart(now) + DAY, today0 = dayStart(now);
   const seen = new Set(), wordSkill = new Set();   // wordSkill: "word~skill" already started (in any deck)
@@ -775,9 +798,11 @@ function buildQueue(now) {
       const id = cardId(n, t); if (seen.has(id)) return;
       const wk = wsKey(n, t); if (wordSkill.has(wk)) return;   // already started or queued under another deck
       wordSkill.add(wk);
+      if (adoptKnownWord(n, t)) return;   // already known word: never re-taught as new
       if (k === 0 || (first && first.state !== "new" && (first.firstSeen || first.last) > 0 && dayStart(first.firstSeen || first.last) < today0)) fresh.push({ id, n, t, s: null });
     });
   }
+  flushAdopted();
   learn.sort((a, b) => ((a.s.last || 0) - (b.s.last || 0)) || (a.s.due - b.s.due));
   review.sort((a, b) => a.s.due - b.s.due);
   // The daily limit counts new WORDS. Other skill cards of a word already started (Nghe, Viết, Điền từ)
@@ -1331,8 +1356,10 @@ function nextCard(now) {
       const t0 = typesOf(n)[0][0];
       const id = cardId(n, t0);
       if (S.srs.has(id) && S.srs.get(id).state !== "new") continue;
+      if (adoptKnownWord(n, t0) || wordStates(n).length) continue;
       out.push({ id, n, t: t0, s: null });
     }
+    flushAdopted();
     return out;
   };
 
@@ -1350,10 +1377,11 @@ function nextCard(now) {
       const types = typesOf(n);
       const firstId = cardId(n, types[0][0]);
       const firstS = S.srs && S.srs.get(firstId);
-      if (!firstS || firstS.state === "new") {
+      if ((!firstS || firstS.state === "new") && !adoptKnownWord(n, types[0][0]) && !wordStates(n).length) {
         fFresh.push({ id: firstId, n, t: types[0][0], s: null });
       }
     }
+    flushAdopted();
     if (fFresh.length) return pick(fFresh);
     const fAhead = pickAhead(q.learn.filter((r) => fKeys.has(r.n.key) && r.s.due <= now + 20 * MIN));
     if (fAhead) return fAhead;
