@@ -678,6 +678,7 @@ async function applyWordLevel(n, level, afterSave) {
   if (S.cards) for (const [id, s] of entries) S.cards.set(id, s);
   await Store.putMany("srs", entries);
   await saveKin(n, entries);
+  if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
 
   if (level > 0 && wasNew) {
     const key = dayKey(now);
@@ -774,6 +775,7 @@ function adoptKnownWord(n, t) {
 function flushAdopted() {
   if (!_adoptWrites.length) return;
   const w = _adoptWrites.splice(0); Store.putMany("srs", w).catch(() => {});
+  if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
 }
 function buildQueue(now) {
   const learn = [], review = [], fresh = []; const end = dayStart(now) + DAY, today0 = dayStart(now);
