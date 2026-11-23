@@ -9195,7 +9195,7 @@ VIEWS["cai-dat"] = () => {
             <div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm pt-0.5 flex-wrap">
               <span class="text-tertiary">👉</span>
               <span>Bạn đã có tài khoản GitHub?</span>
-              <a class="text-primary font-medium hover:underline inline-flex items-center gap-0.5" href="https://github.com/settings/tokens" rel="noopener noreferrer" target="_blank">
+              <a class="text-primary font-medium hover:underline inline-flex items-center gap-0.5" href="https://github.com/settings/tokens/new?scopes=gist&description=Hoc%20tieng%20Hoa%20dong%20bo" rel="noopener noreferrer" target="_blank">
                 Bấm vào đây để tạo Token nhanh trên GitHub
                 <span class="material-symbols-outlined text-[13px]">open_in_new</span>
               </a>
