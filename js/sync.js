@@ -262,3 +262,6 @@ const Sync = (() => {
     getStatus: () => lastStatus,
   };
 })();
+
+// app.js checks window.Sync: a top-level const is not a window property, so expose it explicitly.
+window.Sync = Sync;

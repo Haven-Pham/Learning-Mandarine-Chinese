@@ -1003,10 +1003,10 @@ async function handleSyncSetup(rawHash) {
   const gistId = params.get("g");
   if (token && gistId) {
     history.replaceState(null, "", location.pathname + "#cai-dat");
-    setView(`<section class="view"><div class="panel center"><h2 class="h2">Đang kết nối đồng bộ...</h2><p class="lead">Đang thiết lập đồng bộ tiến độ từ máy tính sang điện thoại của bạn...</p><div class="sync-spin" style="font-size: 32px; margin: 16px 0;">🔄</div></div></section>`);
+    setView(`<section class="view"><div class="panel center"><h2 class="h2">Đang kết nối đồng bộ...</h2><p class="lead">Đang nối máy này vào cùng tiến độ học với các máy khác...</p><div class="sync-spin" style="font-size: 32px; margin: 16px 0;">🔄</div></div></section>`);
     try {
       await Sync.connectWithToken(token, gistId);
-      alert("🎉 Kết nối đồng bộ thành công!\n\nĐiện thoại và máy tính của bạn đã được kết nối cùng tiến độ học. Từ bây giờ mỗi khi bạn học, dữ liệu sẽ tự động đồng bộ 2 chiều.");
+      alert("🎉 Kết nối đồng bộ thành công!\n\nMáy này đã vào chung tiến độ học với các máy khác. Từ bây giờ mỗi khi bạn học, dữ liệu sẽ tự động đồng bộ 2 chiều.");
       route();
     } catch (err) {
       alert("Lỗi khi kết nối đồng bộ: " + err.message);
@@ -9226,6 +9226,24 @@ VIEWS["cai-dat"] = () => {
           </div>
         </div>
 
+        ${isConnected ? `
+        <div class="bg-jade-subtle/60 rounded-xl p-space-md md:p-space-lg border border-secondary/20 flex flex-col gap-space-sm" id="linkDevicePanel">
+          <div class="flex items-center gap-space-sm">
+            <span class="material-symbols-outlined text-secondary text-[22px]">devices</span>
+            <span class="font-headline-md text-headline-md text-on-surface font-semibold">Kết nối điện thoại / tablet</span>
+          </div>
+          <p class="font-body-sm text-body-sm text-on-surface-variant">Bấm nút dưới, rồi dùng <b>camera</b> của điện thoại hoặc tablet quét mã QR. Máy đó mở trang web và tự kết nối vào cùng tiến độ, không cần gõ token. Làm lần lượt cho từng máy.</p>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" id="btnShowLinkQR" class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-lg bg-secondary text-white font-label-md text-label-md font-semibold shadow-sm"><span class="material-symbols-outlined text-[18px]">qr_code_2</span><span>Hiện mã QR kết nối</span></button>
+            <button type="button" id="btnCopyLink" class="px-space-md py-2.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface font-label-md text-label-md font-semibold">Sao chép link (gửi qua Zalo cho chính mình)</button>
+          </div>
+          <div id="linkQRBox" class="hidden flex flex-col items-center gap-2 pt-2">
+            <div id="linkQR" class="bg-white p-3 rounded-xl"></div>
+            <span class="text-xs text-tertiary font-semibold text-center">⚠️ Mã này chứa chìa khóa đồng bộ của bạn: đừng chụp gửi cho người khác. Tự ẩn sau 2 phút.</span>
+          </div>
+          <span class="text-xs text-secondary font-semibold" id="linkMsg"></span>
+        </div>` : ""}
+
         <!-- Sync Method 2: Quick Code Sync -->
         <div class="bg-surface-container-low rounded-xl p-space-md md:p-space-lg border border-border-subtle/50 flex flex-col gap-space-md">
           <div class="flex flex-wrap items-center justify-between gap-space-xs">
@@ -9585,6 +9603,28 @@ VIEWS["cai-dat"] = () => {
       }
     };
   }
+
+  // Link another device: QR / link with the sync key (read only on this device, shown on demand)
+  const linkUrl = () => { const c = Sync.getConfig(); return `${location.origin}${location.pathname}#sync-setup?t=${encodeURIComponent(c.token)}&g=${encodeURIComponent(c.gistId)}`; };
+  const loadQR = () => window.qrcode ? Promise.resolve() : new Promise((ok, no) => { const sc = document.createElement("script"); sc.src = "vendor/qrcode.js"; sc.onload = ok; sc.onerror = no; document.head.appendChild(sc); });
+  const btnQR = $("#btnShowLinkQR");
+  if (btnQR) btnQR.onclick = async () => {
+    const box = $("#linkQRBox"), el = $("#linkQR");
+    if (!box.classList.contains("hidden")) { box.classList.add("hidden"); el.innerHTML = ""; return; }
+    try {
+      await loadQR();
+      const qr = qrcode(0, "M"); qr.addData(linkUrl()); qr.make();
+      el.innerHTML = qr.createSvgTag({ cellSize: 5, margin: 2, scalable: true });
+      const svg = el.querySelector("svg"); if (svg) { svg.style.width = "240px"; svg.style.height = "240px"; }
+      box.classList.remove("hidden");
+      clearTimeout(S._qrHide); S._qrHide = setTimeout(() => { box.classList.add("hidden"); el.innerHTML = ""; }, 120000);
+    } catch (e) { $("#linkMsg").textContent = "Không tạo được mã QR, bạn dùng nút Sao chép link nhé."; }
+  };
+  const btnLink = $("#btnCopyLink");
+  if (btnLink) btnLink.onclick = async () => {
+    try { await navigator.clipboard.writeText(linkUrl()); $("#linkMsg").textContent = "✓ Đã sao chép. Gửi cho chính bạn (Zalo Cloud, tin nhắn tự gửi), rồi mở link trên điện thoại/tablet."; }
+    catch (e) { $("#linkMsg").textContent = "Trình duyệt không cho sao chép, bạn dùng mã QR nhé."; }
+  };
 
   // Fast Code Sync
   $("#btnCopyFastCode").onclick = async () => {
