@@ -152,7 +152,7 @@ const Sync = (() => {
       let content = file.content;
       if (file.truncated) {
         if (!file.raw_url) throw new Error("Tệp tiến độ trên Gist bị cắt, không có đường dẫn tải đầy đủ.");
-        const raw = await fetch(file.raw_url, { headers });
+        const raw = await fetch(file.raw_url, { cache: "no-store" }); // no Authorization: gist.githubusercontent.com rejects that CORS preflight (403)
         if (!raw.ok) throw new Error(`Không tải được tệp tiến độ đầy đủ (${raw.status}).`);
         content = await raw.text();
       }
