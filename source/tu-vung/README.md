@@ -62,6 +62,16 @@ Trang học dạy từ mới **theo thứ tự bài**: thứ tự chủ đề tr
 - Bỏ qua từ đã có trong bộ lớp học khác hoặc đã có giải thích đầy đủ (trùng). Từ gần nhau gộp làm một (月老 → 月下老人, 全馬 → 半馬, 口說無憑 → 憑, 敷衍了事 → 敷衍, I人 → E人, 力竭 → 竭力).
 - Đợt 1 (59 từ, vở 03/11/2026) có sẵn trong `data/decks.json`. Đợt 2 (112 từ, vở 10/11, 13/11, 17/11/2026 và một trang không ghi ngày) soạn ngày 2026-11-17.
 
+## Bộ từ cá nhân (`ca-nhan/`)
+
+- Cùng định dạng với `lop/`, build cùng lệnh `build_lop.py`. Deck id bắt đầu bằng `ca-nhan-`, hiện ở **Thư mục của tôi → Của tôi**; `sub` là dòng mô tả.
+- Từ **đã có giải thích** (trong `data/rich-tu`, `lop/` hoặc bộ cũ trong `data/decks.json`) chỉ cần ghi `"từ": {}`; build tự lấy giải thích sẵn có. Từ chưa có thì soạn đủ trường như `tu/*.json`. Build báo `chưa có giải thích` nếu thiếu.
+- Thứ tự từ trong file = thứ tự học, nên xếp theo mạch nội dung (ví dụ theo thứ tự câu hỏi phỏng vấn).
+- Tiến độ dùng chung với band và bộ khác (một từ = một tiến độ); từ đã Thông thạo không bị dạy lại.
+- **Repo công khai**: câu ví dụ không ghi tên, số tiền, điểm số, tên bệnh viện, tên người phỏng vấn. Chuyện sức khỏe và tài chính viết ở ngôi thứ ba (他/anh ấy).
+- `pv-1..3.json` (2026-11-23): **Phỏng vấn xin việc · Từ vựng**, 239 từ (soạn mới 86), xếp theo 22 câu trong bộ câu hỏi phỏng vấn bách hóa, cộng từ trong mẫu trả lời A2–B1 và file Anki phỏng vấn.
+- `tt-1.json` (2026-11-23): **Tự truyện · Từ vựng**, 72 từ (soạn mới 35): du học, trợ giảng, học bổng, làm thêm, tài chính, sức khỏe, phẫu thuật, thể thao. Khi tự truyện có thêm phần mới (gia đình, thử thách, khoảnh khắc đáng nhớ) thì thêm `tt-2.json`.
+
 ## Ngữ pháp (`ngu-phap/`)
 
 - Mỗi file `ngu-phap/<nhóm>-NN.json` = `{"mau": [...]}`; nhóm: `a` (A1/A2), `b1`, `b2`, `c`, `kn` (khẩu ngữ Đài Loan). Các trường (`id`, `nhom`, `band`, `ten`, `zh`, `cong_thuc`, `tom_tat`, `dk1`, `dk2`, `sai`, `dung`, `vd`, `bai_tap`, `nguon`) mô tả ở đầu `tools/build_ngu_phap.py`.
