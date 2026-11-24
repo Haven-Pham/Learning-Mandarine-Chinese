@@ -25,9 +25,9 @@ Web học tiếng Hoa (Phồn thể, chuẩn Đài Loan) của một người h�
 
 ### Codex: việc code nhỏ, rõ phạm vi
 
-- [ ] **Giao diện (chỉ bắt đầu sau 27/11/2026, khi người dùng cho phép)**: tài liệu tham khảo đã tải ở `C:\Users\haven\Projects\thiet-ke-tham-khao\` (impeccable, awesome-design-md, design.md). Bước 1: viết `DESIGN.md` mô tả giao diện hiện tại (màu, font, cỡ chữ, nút, thẻ). Bước 2: rà từng màn hình theo quy tắc Impeccable, sửa từng đợt nhỏ, chụp ảnh trước và sau ở 390px và 1280px. Không thêm React, GSAP, 3D.
-- [ ] Viết test nhỏ (node) cho phần gộp tiến độ khi đồng bộ trong `js/store.js` (`importAll`): srs, stats, settings.dictation.
-- [ ] Rà `tools/build_*.py`: báo lỗi rõ ràng khi file JSON nguồn hỏng (in tên file và dòng).
+- [x] **Giao diện** (xong đợt 1 ngày 2026-11-24 – Antigravity, được người dùng cho phép bắt đầu sớm): đã viết `DESIGN.md` theo chuẩn spec (`design.md` + Impeccable), rà toàn bộ 8 màn hình ở 390px và 1280px, sửa nút CTA bị ép chiều cao trên mobile (`trang-chu`, `hoc`), tab ngắt chữ lẻ & eyebrow thừa (`tu-dien`, `nhap`, `cai-dat`), icon/chiều cao nút (`thi-thu`, `thu-muc`, `cai-dat`), thêm bề mặt trình duyệt (`:focus-visible`, `::selection`, `caret-color`, `prefers-reduced-motion`) và build lại `css/tw.css`. Không thêm React, GSAP, 3D.
+- [x] Viết test nhỏ (node) cho phần gộp tiến độ khi đồng bộ trong `js/store.js` (`importAll`): srs, stats, settings.dictation — `tests/store.test.mjs`, chạy `node --test tests/store.test.mjs` (5/5 pass, 2026-11-24 – Antigravity).
+- [x] Rà `tools/build_*.py`: báo lỗi rõ ràng khi file JSON nguồn hỏng (in tên file và dòng) — gom qua `tools/_json_io.py` cho cả 7 script `build_*.py`, in tên file, đường dẫn, dòng, cột và trích đoạn dòng lỗi ra `stderr` (2026-11-24 – Antigravity).
 
 ### Claude: kiểm tra và việc nhạy cảm
 

@@ -14,12 +14,13 @@ Pinyin of every sentence and word is generated here. Sentence length (Han charac
 import json, os, re, sys, glob, shutil
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_rich as B
+from _json_io import load_json
 
 SRC = sys.argv[1]
 CAT = {"dialogue": "Đoạn hội thoại thực tế", "story": "Câu chuyện ngắn", "tocfl": "TOCFL Listening", "news": "Tin tức"}
 LIMIT = {"A": (5, 12), "B1": (8, 18), "B2": (12, 24), "C": (14, 30)}
 HAN = re.compile(r"[㐀-鿿]")
-toc = {w: (py, band) for w, py, band, *_ in json.load(open(os.path.join(B.DATA, "tocfl.json"), encoding="utf-8"))["words"]}
+toc = {w: (py, band) for w, py, band, *_ in load_json(os.path.join(B.DATA, "tocfl.json"))["words"]}
 
 def wpy(w):
     if w in toc: return toc[w][0]
@@ -33,11 +34,11 @@ def level(band):
     if "B1" in band: return "B1"
     return "C"
 
-base = json.load(open(os.path.join(SRC, "chinh-ta", "00-goc.json"), encoding="utf-8"))["bai_goc"]
+base = load_json(os.path.join(SRC, "chinh-ta", "00-goc.json"))["bai_goc"]
 new, warn = {}, []
 for f in sorted(glob.glob(os.path.join(SRC, "chinh-ta", "*.json"))):
     if os.path.basename(f) == "00-goc.json": continue
-    for t in json.load(open(f, encoding="utf-8"))["bai"]:
+    for t in load_json(f)["bai"]:
         if t["id"] in new: sys.exit(f"Trùng id {t['id']} ({os.path.basename(f)})")
         lo, hi = LIMIT[level(t["band"])]
         for _, zh, _ in t["cau"]:

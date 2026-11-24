@@ -16,22 +16,23 @@ so a word that is already explained only needs to be listed.
 import json, os, sys, glob
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_rich as B
+from _json_io import load_json
 
 SRC = sys.argv[1]
 path = os.path.join(B.DATA, "decks.json")
-decks = json.load(open(path, encoding="utf-8"))
+decks = load_json(path)
 toc = {}
-for x in json.load(open(os.path.join(B.DATA, "tocfl.json"), encoding="utf-8"))["words"]:
+for x in load_json(os.path.join(B.DATA, "tocfl.json"))["words"]:
     for f in x[0].replace("(", "/").replace(")", "").split("/"):
         if f: toc.setdefault(f, (x[1], x[2]))
 rich = {}
 for f in glob.glob(os.path.join(B.DATA, "rich-tu", "*.json")):
     if os.path.basename(f) == "index.json": continue
-    for w, e in json.load(open(f, encoding="utf-8")).items():
+    for w, e in load_json(f).items():
         for k in [w] + w.replace("(", "/").replace(")", "").split("/"):
             if k: rich.setdefault(k, e)
 for f in glob.glob(os.path.join(SRC, "lop", "*.json")):   # words explained in a class deck count too
-    for w, e in json.load(open(f, encoding="utf-8"))["tu"].items():
+    for w, e in load_json(f)["tu"].items():
         if e.get("vd"): rich.setdefault(w, e)
 for dk in decks:   # older decks kept only in data/decks.json (e.g. class notes batch 1)
     if dk.get("kind") != "vocab" or str(dk.get("id", "")).startswith("ca-nhan"): continue
@@ -41,7 +42,7 @@ for dk in decks:   # older decks kept only in data/decks.json (e.g. class notes 
 J = lambda v: v if isinstance(v, str) else B.joined(v)
 problems, built = [], {}   # several files may share one deck id (one file per notebook page); items are appended in file order
 for f in sorted(glob.glob(os.path.join(SRC, "lop", "*.json"))) + sorted(glob.glob(os.path.join(SRC, "ca-nhan", "*.json"))):
-    d = json.load(open(f, encoding="utf-8"))
+    d = load_json(f)
     meta = d["deck"]
     items = built.setdefault(meta["id"], (meta, []))[1]
     meta = built[meta["id"]][0] if "name" not in meta else meta

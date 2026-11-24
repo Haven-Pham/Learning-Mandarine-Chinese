@@ -9,6 +9,8 @@ Pinyin is generated here: TOCFL readings (Taiwan) first, then CC-CEDICT. A sente
 The source is also copied to source/tu-vung/ so it is kept in the repo.
 """
 import json, os, re, shutil, sys
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from _json_io import load_json
 
 SRC = sys.argv[1]
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,7 +23,7 @@ def forms(word):
         out += [re.sub(r"[()]", "", f), re.sub(r"\([^)]*\)", "", f)]
     return [f for f in dict.fromkeys(out) if f]
 
-tocfl = json.load(open(os.path.join(DATA, "tocfl.json"), encoding="utf-8"))["words"]
+tocfl = load_json(os.path.join(DATA, "tocfl.json"))["words"]
 PY, KEY = {}, {}          # form -> pinyin (syllables of a word joined), form -> TOCFL key
 for w, py, band, *_ in tocfl:
     pys = py.split("/")
@@ -110,13 +112,13 @@ def joined(items):
 
 problems = []
 def build_band(band_dir, band):
-    topics = json.load(open(os.path.join(band_dir, "chu-de.json"), encoding="utf-8"))["topics"]
+    topics = load_json(os.path.join(band_dir, "chu-de.json"))["topics"]
     order = {t["id"]: i for i, t in enumerate(topics)}
     files = sorted((f for f in os.listdir(band_dir) if re.match(r"^[a-z]+-\d+\.json$", f)),
                    key=lambda f: (order.get(f.split("-")[0], 99), f))
     lessons, words = [], {}
     for f in files:
-        L = json.load(open(os.path.join(band_dir, f), encoding="utf-8"))
+        L = load_json(os.path.join(band_dir, f))
         keys = []
         for w, e in L["tu"].items():
             key = KEY.get(w, w)
@@ -149,7 +151,7 @@ if __name__ == "__main__":
     for band in sorted(os.listdir(SRC)):
         d = os.path.join(SRC, band)
         if not os.path.isdir(d) or not os.path.exists(os.path.join(d, "chu-de.json")): continue
-        if "topics" not in json.load(open(os.path.join(d, "chu-de.json"), encoding="utf-8")): continue   # chu-de/ = cross-band topics, not a band
+        if "topics" not in load_json(os.path.join(d, "chu-de.json")): continue   # chu-de/ = cross-band topics, not a band
         out = build_band(d, band.upper())
         if not out["lessons"]: continue
         json.dump(out, open(os.path.join(DATA, "rich", band + ".json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))

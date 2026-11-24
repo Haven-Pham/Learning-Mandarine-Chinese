@@ -4,6 +4,8 @@ each {word: [vn, hv]}. The page loads a shard only when it needs a word from it.
 Run from the repo root: python tools/build_vi_dict.py <CVDICT.u8>
 CVDICT: CC BY-SA 4.0 (see licenses/)."""
 import json, re, sys, os, glob, unicodedata, collections
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from _json_io import load_json
 
 CVD = sys.argv[1]
 def numless(s): return re.sub(r"[0-9]", "", s.lower()).replace("u:", "u")
@@ -11,7 +13,7 @@ def numless(s): return re.sub(r"[0-9]", "", s.lower()).replace("u:", "u")
 vi = {}
 for f in glob.glob("data/vi/*.json"):
     if f.endswith(("index.json",)): continue
-    vi.update(json.load(open(f, encoding="utf-8")))
+    vi.update(load_json(f))
 
 # Hán Việt reading per character: majority reading in data/vi, then readings that depend on pinyin
 use = collections.defaultdict(collections.Counter)

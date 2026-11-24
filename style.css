@@ -798,6 +798,40 @@ body .text-xs { font-size: 14px; line-height: 1.45; }
 body .text-sm { font-size: 15.5px; line-height: 1.5; }
 body .text-base { font-size: 17px; }
 body .text-label-sm { font-size: 14.5px; line-height: 20px; }
+
+/* ===== Impeccable Craft Floor: Browser surfaces, keyboard focus, motion restraint ===== */
+::selection {
+  background: rgba(168, 38, 31, 0.16);
+  color: var(--on-surface);
+}
+:root[data-theme="dark"] ::selection {
+  background: rgba(226, 125, 120, 0.32);
+  color: var(--on-surface);
+}
+input, textarea, [contenteditable] {
+  caret-color: var(--primary-container);
+}
+a {
+  text-underline-offset: 0.18em;
+}
+:is(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--primary-container);
+  outline-offset: 2px;
+}
+:root[data-theme="dark"] :is(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+  outline-color: var(--primary);
+}
+.chip, button.filter-chip {
+  min-height: 34px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 body .text-body-sm, body .text-code { font-size: 15.5px; line-height: 24px; }
 body .text-label-md { font-size: 16px; line-height: 24px; }
 body .text-body-md { font-size: 17px; line-height: 28px; }

@@ -11,13 +11,14 @@ Pinyin is generated the same way as in build_rich.py.
 import json, os, sys, glob, shutil
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_rich as B   # reads sys.argv[1] too; only its helpers are used here
+from _json_io import load_json
 
 SRC = sys.argv[1]
 OUT = os.path.join(B.DATA, "rich-tu")
 problems, shards, seen = [], {}, {}
 for f in sorted(glob.glob(os.path.join(SRC, "tu", "*.json"))):
     name = os.path.basename(f)
-    for w, e in json.load(open(f, encoding="utf-8"))["tu"].items():
+    for w, e in load_json(f)["tu"].items():
         key = B.KEY.get(w, w)
         if key in seen: problems.append(f"{name}: {w} đã có trong {seen[key]}"); continue
         seen[key] = name
@@ -42,11 +43,11 @@ json.dump({"shards": sorted(shards), "words": len(seen)}, open(os.path.join(OUT,
 # Progress file in the source folder (copied to the repo below): which topic words already have a full explanation.
 lesson = set()
 for f in glob.glob(os.path.join(B.DATA, "rich", "*.json")):
-    d = json.load(open(f, encoding="utf-8"))
+    d = load_json(f)
     if isinstance(d, dict) and isinstance(d.get("words"), dict): lesson |= set(d["words"])
 decks = set()   # the 291 rich items of the built-in decks (explained there already)
 try:
-    for deck in json.load(open(os.path.join(B.DATA, "decks.json"), encoding="utf-8")):
+    for deck in load_json(os.path.join(B.DATA, "decks.json")):
         decks |= {it["w"] for it in deck.get("items", []) if it.get("w")}
 except Exception: pass
 have = set(seen) | lesson | decks
@@ -54,7 +55,7 @@ lines = ["# Tiến độ soạn giải thích đầy đủ", "", "Tự tạo khi
          f"Từ lẻ đã soạn (thư mục `tu/`): **{len(seen)}**", ""]
 cdf = os.path.join(SRC, "b1", "chu-de.json")
 if os.path.exists(cdf):
-    cd = json.load(open(cdf, encoding="utf-8"))
+    cd = load_json(cdf)
     lines += ["## B1 theo chủ đề", "", "| Chủ đề | Đã có | Tổng | Còn thiếu |", "| --- | --- | --- | --- |"]
     tot = got = 0
     for t in cd["topics"]:
@@ -63,7 +64,7 @@ if os.path.exists(cdf):
         lines.append(f"| {t['id']} {t['vn']} | {len(t['words']) - len(miss)} | {len(t['words'])} | {' '.join(miss) if miss else '—'} |")
     lines += ["", f"**B1: {got}/{tot}**", ""]
 try:   # whole TOCFL list by band (order = data/tocfl.json, B2/C are in pinyin order)
-    toc = json.load(open(os.path.join(B.DATA, "tocfl.json"), encoding="utf-8"))
+    toc = load_json(os.path.join(B.DATA, "tocfl.json"))
     lines += ["## Toàn bộ TOCFL theo cấp", "", "| Cấp | Đã có | Tổng | Từ đầu tiên còn thiếu |", "| --- | --- | --- | --- |"]
     for band in toc["bands"]:
         ws = [x[0] for x in toc["words"] if x[2] == band]

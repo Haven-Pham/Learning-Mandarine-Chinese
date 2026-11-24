@@ -1771,14 +1771,14 @@ VIEWS["trang-chu"] = () => {
                 "Học tập rồi thường xuyên ôn luyện lại, chẳng cũng vui thích lắm sao?"
               </p>
             </div>
-            <div class="flex flex-wrap items-center gap-space-md pt-space-xs">
-              <div class="flex items-center gap-space-xs bg-paper-card px-space-md py-space-xs rounded-full shadow-sm border border-border-subtle/50">
+            <div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+              <div class="inline-flex items-center gap-1.5 bg-paper-card px-3.5 py-1.5 rounded-full shadow-sm border border-border-subtle/50 whitespace-nowrap">
                 <span class="material-symbols-outlined text-[18px] text-tertiary">local_fire_department</span>
-                <span class="font-label-md text-label-md text-on-surface">Đạt chuỗi <strong class="text-primary font-semibold">${summary.current} ngày</strong> chuyên cần</span>
+                <span class="font-label-md text-sm text-on-surface">Chuỗi <strong class="text-primary font-semibold num">${summary.current} ngày</strong> chuyên cần</span>
               </div>
-              <div class="flex items-center gap-space-xs bg-paper-card px-space-md py-space-xs rounded-full shadow-sm border border-border-subtle/50">
+              <div class="inline-flex items-center gap-1.5 bg-paper-card px-3.5 py-1.5 rounded-full shadow-sm border border-border-subtle/50 whitespace-nowrap">
                 <span class="material-symbols-outlined text-[18px] text-secondary">verified</span>
-                <span class="font-label-md text-label-md text-on-surface">Mục tiêu: <strong class="text-secondary font-semibold">TOCFL B1 (Band 3)</strong></span>
+                <span class="font-label-md text-sm text-on-surface">Mục tiêu: <strong class="text-secondary font-semibold">TOCFL B1 (Band 3)</strong></span>
               </div>
             </div>
           </div>
@@ -1918,12 +1918,12 @@ VIEWS["trang-chu"] = () => {
             </div>
           </div>
 
-          <div class="pt-space-sm flex flex-col sm:flex-row items-center gap-space-md">
-            <button type="button" class="w-full sm:w-auto flex-1 h-12 px-space-xl rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold hover:bg-primary transition-all duration-200 shadow-sm flex items-center justify-center gap-space-sm" id="btn-start-study">
+          <div class="pt-space-sm flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md">
+            <button type="button" class="w-full sm:w-auto sm:flex-1 min-h-[48px] px-space-xl py-3 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold hover:bg-primary transition-all duration-200 shadow-sm flex items-center justify-center gap-space-sm" id="btn-start-study">
               <span class="material-symbols-outlined text-[20px]">play_circle</span>
               <span>Bắt đầu ôn tập (${fmt(c.total)} thẻ)</span>
             </button>
-            <button type="button" class="w-full sm:w-auto h-12 px-space-lg rounded-lg bg-paper-muted text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-high transition-colors flex items-center justify-center gap-space-xs" id="btnToggleGoalEdit">
+            <button type="button" class="w-full sm:w-auto min-h-[48px] px-space-lg py-3 rounded-lg bg-paper-muted text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-high transition-colors flex items-center justify-center gap-space-xs" id="btnToggleGoalEdit">
               <span class="material-symbols-outlined text-[18px] text-outline">tune</span>
               <span>Tùy chỉnh số lượng</span>
             </button>
@@ -2447,24 +2447,24 @@ VIEWS["hoc"] = () => {
 
           <div class="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-space-sm">
             ${c.fresh > 0 ? `
-              <button class="w-full sm:w-auto flex-1 h-12 px-5 rounded-xl bg-secondary text-white font-semibold hover:opacity-95 transition-all shadow-sm flex items-center justify-center gap-2 text-sm" id="startNew">
+              <button class="w-full sm:w-auto sm:flex-1 min-h-[48px] py-3 px-5 rounded-xl bg-secondary text-white font-semibold hover:opacity-95 transition-all shadow-sm flex items-center justify-center gap-2 text-sm" id="startNew">
                 <span class="material-symbols-outlined text-[20px]">auto_awesome</span>
                 <span>Học từ mới (${fmt(c.fresh)} thẻ)</span>
               </button>
             ` : (c.q.freshTotal > 0 ? `
-              <button class="w-full sm:w-auto h-12 px-5 rounded-xl bg-jade-subtle text-secondary border border-secondary/30 font-semibold hover:bg-secondary hover:text-white transition-all flex items-center justify-center gap-2 text-sm" id="btnAddMoreNew">
+              <button class="w-full sm:w-auto min-h-[48px] py-3 px-5 rounded-xl bg-jade-subtle text-secondary border border-secondary/30 font-semibold hover:bg-secondary hover:text-white transition-all flex items-center justify-center gap-2 text-sm" id="btnAddMoreNew">
                 <span class="material-symbols-outlined text-[20px]">add_circle</span>
                 <span>+10 thẻ mới hôm nay (còn ${fmt(c.q.freshTotal)})</span>
               </button>
             ` : '')}
             ${c.due > 0 ? `
-              <button class="w-full sm:w-auto flex-1 h-12 px-5 rounded-xl bg-amber-subtle text-tertiary border border-tertiary/30 font-semibold hover:bg-tertiary hover:text-white transition-all shadow-xs flex items-center justify-center gap-2 text-sm" id="startReview">
+              <button class="w-full sm:w-auto sm:flex-1 min-h-[48px] py-3 px-5 rounded-xl bg-amber-subtle text-tertiary border border-tertiary/30 font-semibold hover:bg-tertiary hover:text-white transition-all shadow-xs flex items-center justify-center gap-2 text-sm" id="startReview">
                 <span class="material-symbols-outlined text-[20px]">history_edu</span>
                 <span>Ôn thẻ đến hạn (${fmt(c.due)} thẻ)</span>
               </button>
             ` : ''}
             ${c.total > 0 ? `
-              <button class="w-full sm:w-auto flex-1 h-12 px-6 rounded-xl bg-primary-container text-on-primary font-semibold hover:bg-primary transition-all shadow-sm flex items-center justify-center gap-2 text-sm" id="start">
+              <button class="w-full sm:w-auto sm:flex-1 min-h-[48px] py-3 px-6 rounded-xl bg-primary-container text-on-primary font-semibold hover:bg-primary transition-all shadow-sm flex items-center justify-center gap-2 text-sm" id="start">
                 <span class="material-symbols-outlined text-[20px]">play_circle</span>
                 <span>Bắt đầu phiên học (${fmt(c.total)} thẻ)</span>
               </button>
@@ -2474,7 +2474,7 @@ VIEWS["hoc"] = () => {
                 <span>${c.q.freshTotal ? `Đã đạt chỉ tiêu ${fmt(targetNew)} thẻ mới hôm nay (còn ${fmt(c.q.freshTotal)} thẻ chờ). Bấm "+10 thẻ mới" hoặc tăng trong Cài đặt để học thêm.` : `Đã hoàn thành toàn bộ thẻ hôm nay! Vào Thư mục để đưa thêm band vào lịch học.`}</span>
               </div>
             `}
-            <a href="#cai-dat" class="w-full sm:w-auto h-12 px-5 rounded-xl bg-paper-muted text-on-surface font-semibold hover:bg-surface-container transition-colors flex items-center justify-center gap-2 text-sm">
+            <a href="#cai-dat" class="w-full sm:w-auto min-h-[48px] py-3 px-5 rounded-xl bg-paper-muted text-on-surface font-semibold hover:bg-surface-container transition-colors flex items-center justify-center gap-2 text-sm no-underline">
               <span class="material-symbols-outlined text-[18px]">tune</span>
               <span>Đổi mục tiêu</span>
             </a>
@@ -4208,10 +4208,12 @@ VIEWS["thu-muc"] = (id) => {
           <a href="#nhap" class="px-space-md py-2.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface hover:bg-paper-muted text-label-md font-label-md shadow-sm flex items-center gap-1.5 no-underline">
             <span class="material-symbols-outlined text-[18px] text-outline">file_upload</span><span>Nhập bộ từ</span>
           </a>
-          <a href="#hoc" class="px-space-lg py-2.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary text-label-md font-label-md shadow-[0_2px_8px_rgba(168,38,31,0.25)] flex items-center gap-2 no-underline">
-            <span class="material-symbols-outlined text-[18px]">play_circle</span>
-            <span class="font-semibold">Học hôm nay</span>
-            <span class="px-1.5 py-0.5 rounded-full bg-on-primary/20 font-code text-[11px]">${fmt(c.total)} thẻ · ${fmt(c.due)} ôn · ${fmt(c.fresh)} mới</span>
+          <a href="#hoc" class="px-4 sm:px-space-lg py-2.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary text-label-md font-label-md shadow-[0_2px_8px_rgba(168,38,31,0.25)] flex flex-wrap items-center justify-center gap-2 no-underline">
+            <span class="inline-flex items-center gap-1.5 whitespace-nowrap">
+              <span class="material-symbols-outlined text-[18px]">play_circle</span>
+              <span class="font-semibold">Học hôm nay</span>
+            </span>
+            <span class="px-2 py-0.5 rounded-full bg-on-primary/20 font-code text-xs whitespace-nowrap num">${fmt(c.total)} thẻ · ${fmt(c.due)} ôn · ${fmt(c.fresh)} mới</span>
           </a>
         </div>
       </section>
@@ -6020,16 +6022,8 @@ VIEWS["tu-dien"] = (arg) => {
       <!-- Top Workspace Header & Mode Switcher (Exact Stitch) -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
         <div class="flex flex-col gap-space-xs max-w-2xl">
-          <div class="flex items-center gap-space-sm flex-wrap">
-            <span class="w-1.5 h-4 rounded-full bg-primary"></span>
-            <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Từ điển &amp; Quản trị Từ vựng</span>
-            <span class="inline-flex items-center px-space-xs py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-label-sm">
-              <span class="w-1.5 h-1.5 rounded-full bg-secondary mr-1 animate-pulse"></span>
-              TOCFL Đài Loan chuẩn
-            </span>
-          </div>
-          <h1 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">
-            Tra cứu &amp; Nhập từ vựng <span class="text-on-surface-variant font-normal">| 字詞檢索與錄入</span>
+          <h1 class="font-display text-display text-on-surface font-semibold tracking-tight">
+            Tra cứu &amp; Nhập từ vựng <span class="text-outline font-normal text-2xl">詞典</span>
           </h1>
           <p class="font-body-md text-body-md text-on-surface-variant">
             Tra cứu chiết tự Khang Hy, chú âm Đài Loan hoặc phân giải nạp văn bản hàng loạt vào sổ học SRS.
@@ -6055,20 +6049,19 @@ VIEWS["tu-dien"] = (arg) => {
       </div>
 
       <!-- Mode Navigation Tabs -->
-      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md p-1.5 bg-surface-container-low rounded-xl border border-border-subtle/60">
-        <div class="flex items-center gap-space-xs p-1 bg-surface-container rounded-lg">
-          <a href="#tu-dien" class="flex items-center gap-space-sm px-space-lg py-2 rounded-lg font-label-md text-label-md transition-all duration-200 bg-paper-card text-primary shadow-sm font-semibold no-underline" id="tab-btn-lookup">
-            <span class="material-symbols-outlined text-[18px]">menu_book</span>
-            <span>Tra cứu từ điển (辭典檢索)</span>
+      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-sm p-1.5 bg-surface-container-low rounded-xl border border-border-subtle/60">
+        <div class="grid grid-cols-2 sm:inline-flex items-center gap-space-xs p-1 bg-surface-container rounded-lg">
+          <a href="#tu-dien" class="flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-lg font-label-md text-sm sm:text-label-md transition-all duration-200 bg-paper-card text-primary shadow-sm font-semibold no-underline whitespace-nowrap" id="tab-btn-lookup">
+            <span class="material-symbols-outlined text-[18px] shrink-0">menu_book</span>
+            <span>Tra cứu từ điển</span>
           </a>
-          <a href="#nhap" class="flex items-center gap-space-sm px-space-lg py-2 rounded-lg font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high no-underline" id="tab-btn-import">
-            <span class="material-symbols-outlined text-[18px]">post_add</span>
-            <span>Nhập từ hàng loạt (批量錄入)</span>
-            <span class="px-1.5 py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-[10px]">Mới</span>
+          <a href="#nhap" class="flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-lg font-label-md text-sm sm:text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high no-underline whitespace-nowrap" id="tab-btn-import">
+            <span class="material-symbols-outlined text-[18px] shrink-0">post_add</span>
+            <span>Nhập hàng loạt</span>
           </a>
         </div>
-        <div class="flex items-center gap-space-sm px-space-md text-on-surface-variant font-label-sm text-label-sm">
-          <span class="material-symbols-outlined text-[16px]">info</span>
+        <div class="flex items-center gap-space-sm px-3 py-1 text-on-surface-variant font-label-sm text-label-sm">
+          <span class="material-symbols-outlined text-[16px] shrink-0">info</span>
           <span>Hệ thống ký âm: <strong>Phiên âm Pinyin chuẩn &amp; Hán Việt</strong></span>
         </div>
       </div>
@@ -7759,8 +7752,8 @@ VIEWS["thi-thu"] = async () => {
 
           <div class="flex flex-wrap items-center gap-1.5">
             ${exam.subview === 'review' ? `<button type="button" class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-sm font-semibold flex items-center gap-1 cursor-pointer" id="tabOverviewBtn"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Danh sách đề</button>` : ""}
-            <button type="button" class="px-2.5 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-medium border border-border-subtle flex items-center gap-1 cursor-pointer" id="btnOpenHistory">
-              <span class="material-symbols-outlined text-primary text-[16px]">history_edu</span>
+            <button type="button" class="px-3 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-semibold border border-border-subtle flex items-center gap-1.5 cursor-pointer" id="btnOpenHistory">
+              <span class="material-symbols-outlined text-primary text-[18px]">history</span>
               <span>Lịch sử (${exam.history.length})</span>
             </button>
             ${exam.subview !== 'review' ? "" : exam.isExamMode ? `
@@ -7820,12 +7813,12 @@ VIEWS["thi-thu"] = async () => {
                     </div>
                   </div>
                 </div>
-                <div class="flex flex-col gap-1.5">
-                  <div class="grid grid-cols-2 gap-1.5">
-                    <button type="button" class="py-1.5 px-2.5 rounded-lg bg-primary text-white text-xs font-semibold cursor-pointer" data-start-exam="${esc(t.id)}" data-start-sec="listening">Phần Nghe</button>
-                    <button type="button" class="py-1.5 px-2.5 rounded-lg bg-secondary text-white text-xs font-semibold cursor-pointer" data-start-exam="${esc(t.id)}" data-start-sec="reading">Phần Đọc</button>
+                <div class="flex flex-col gap-2">
+                  <div class="grid grid-cols-2 gap-2">
+                    <button type="button" class="py-2.5 px-3 rounded-lg bg-primary-container hover:bg-primary text-white text-xs font-semibold cursor-pointer transition-colors" data-start-exam="${esc(t.id)}" data-start-sec="listening">Phần Nghe</button>
+                    <button type="button" class="py-2.5 px-3 rounded-lg bg-secondary hover:opacity-95 text-white text-xs font-semibold cursor-pointer transition-opacity" data-start-exam="${esc(t.id)}" data-start-sec="reading">Phần Đọc</button>
                   </div>
-                  <button type="button" class="w-full py-1.5 px-2.5 rounded-lg bg-paper-base hover:bg-surface-container text-on-surface-variant text-xs font-medium border border-border-subtle cursor-pointer" data-review-exam="${esc(t.id)}">Xem đáp án &amp; lời thoại</button>
+                  <button type="button" class="w-full py-2.5 px-3 rounded-lg bg-paper-base hover:bg-surface-container text-on-surface-variant text-xs font-medium border border-border-subtle cursor-pointer transition-colors" data-review-exam="${esc(t.id)}">Xem đáp án &amp; lời thoại</button>
                 </div>
               </div>
             `;
@@ -8339,16 +8332,8 @@ VIEWS["nhap"] = () => {
       <!-- Top Workspace Header & Mode Switcher (Exact Stitch) -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
         <div class="flex flex-col gap-space-xs max-w-2xl">
-          <div class="flex items-center gap-space-sm flex-wrap">
-            <span class="w-1.5 h-4 rounded-full bg-primary"></span>
-            <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest">Từ điển &amp; Quản trị Từ vựng</span>
-            <span class="inline-flex items-center px-space-xs py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-label-sm">
-              <span class="w-1.5 h-1.5 rounded-full bg-secondary mr-1 animate-pulse"></span>
-              TOCFL Đài Loan chuẩn
-            </span>
-          </div>
-          <h1 class="font-headline-lg text-headline-lg text-on-surface font-semibold tracking-tight">
-            Tra cứu &amp; Nhập từ vựng <span class="text-on-surface-variant font-normal">| 字詞檢索與錄入</span>
+          <h1 class="font-display text-display text-on-surface font-semibold tracking-tight">
+            Tra cứu &amp; Nhập từ vựng <span class="text-outline font-normal text-2xl">詞典</span>
           </h1>
           <p class="font-body-md text-body-md text-on-surface-variant">
             Tra cứu chiết tự Khang Hy, chú âm Đài Loan hoặc phân giải nạp văn bản hàng loạt vào sổ học SRS.
@@ -8374,20 +8359,19 @@ VIEWS["nhap"] = () => {
       </div>
 
       <!-- Mode Navigation Tabs -->
-      <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-space-md p-1.5 bg-surface-container-low rounded-xl border border-border-subtle/60">
-        <div class="flex items-center gap-space-xs p-1 bg-surface-container rounded-lg">
-          <a href="#tu-dien" class="flex items-center gap-space-sm px-space-lg py-2 rounded-lg font-label-md text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high no-underline" id="tab-btn-lookup">
-            <span class="material-symbols-outlined text-[18px]">menu_book</span>
-            <span>Tra cứu từ điển (辭典檢索)</span>
+      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-sm p-1.5 bg-surface-container-low rounded-xl border border-border-subtle/60">
+        <div class="grid grid-cols-2 sm:inline-flex items-center gap-space-xs p-1 bg-surface-container rounded-lg">
+          <a href="#tu-dien" class="flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-lg font-label-md text-sm sm:text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high no-underline whitespace-nowrap" id="tab-btn-lookup">
+            <span class="material-symbols-outlined text-[18px] shrink-0">menu_book</span>
+            <span>Tra cứu từ điển</span>
           </a>
-          <a href="#nhap" class="flex items-center gap-space-sm px-space-lg py-2 rounded-lg font-label-md text-label-md transition-all duration-200 bg-paper-card text-primary shadow-sm font-semibold no-underline" id="tab-btn-import">
-            <span class="material-symbols-outlined text-[18px]">post_add</span>
-            <span>Nhập từ hàng loạt &amp; Hộp thư (批量錄入)</span>
-            <span class="px-1.5 py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-[10px]">Mới</span>
+          <a href="#nhap" class="flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-lg font-label-md text-sm sm:text-label-md transition-all duration-200 bg-paper-card text-primary shadow-sm font-semibold no-underline whitespace-nowrap" id="tab-btn-import">
+            <span class="material-symbols-outlined text-[18px] shrink-0">post_add</span>
+            <span>Nhập hàng loạt</span>
           </a>
         </div>
-        <div class="flex items-center gap-space-sm px-space-md text-on-surface-variant font-label-sm text-label-sm">
-          <span class="material-symbols-outlined text-[16px]">sync_alt</span>
+        <div class="flex items-center gap-space-sm px-3 py-1 text-on-surface-variant font-label-sm text-label-sm">
+          <span class="material-symbols-outlined text-[16px] shrink-0">sync_alt</span>
           <span>Vừa nhập vừa học: <strong>Đồng bộ thẳng vào Flashcard SRS</strong></span>
         </div>
       </div>
@@ -9143,12 +9127,7 @@ VIEWS["cai-dat"] = () => {
       <!-- Page Header & Overview Banner (Exact Stitch) -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-xs">
         <div class="flex flex-col gap-space-xs">
-          <div class="flex items-center gap-space-sm">
-            <span class="inline-flex items-center px-space-xs py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-label-sm font-semibold tracking-wide">
-              CẤU HÌNH HỆ THỐNG
-            </span>
-          </div>
-          <h1 class="font-headline-lg text-headline-lg md:text-display text-on-surface font-semibold tracking-tight">
+          <h1 class="font-display text-display text-on-surface font-semibold tracking-tight">
             Cài đặt hệ thống &amp; Học tập
           </h1>
           <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
@@ -9168,7 +9147,7 @@ VIEWS["cai-dat"] = () => {
       </div>
 
       <!-- SECTION 1: Đồng bộ giữa các máy (Exact Stitch) -->
-      <section id="sync-panel" class="bg-paper-card rounded-xl p-space-lg border border-border-subtle/70 shadow-sm flex flex-col gap-space-lg">
+      <section id="sync-panel" class="bg-paper-card rounded-xl p-4 sm:p-space-lg border border-border-subtle/70 shadow-sm flex flex-col gap-space-lg">
         <div class="flex items-start justify-between gap-space-md">
           <div class="flex items-center gap-space-sm flex-wrap">
             <span class="w-1 h-5 rounded-full bg-primary inline-block"></span>
@@ -9208,13 +9187,13 @@ VIEWS["cai-dat"] = () => {
               </span>
             </div>
             <div class="relative flex items-center">
-              <input class="w-full bg-paper-card border border-border-subtle text-on-surface px-space-md py-2.5 rounded-lg font-code text-code placeholder:text-outline/60 focus:outline-none focus:bg-surface-bright transition-all" id="ghToken" placeholder="ghp_xxxxxxxxxxxx hoặc github_pat_xxxxxxxxxxxx" type="password" value="${esc(syncCfg.token || "")}">
-              <button class="absolute right-3 text-outline hover:text-on-surface transition-colors" id="btnToggleTokenVis" title="Hiển thị token" type="button">
+              <input class="w-full bg-paper-card border border-border-subtle text-on-surface pl-space-md pr-11 py-2.5 rounded-lg font-code text-code placeholder:text-outline/60 focus:outline-none focus:bg-surface-bright transition-all" id="ghToken" placeholder="ghp_xxxxxxxxxxxx hoặc github_pat_xxxxxxxxxxxx" type="password" value="${esc(syncCfg.token || "")}">
+              <button class="absolute right-1.5 w-9 h-9 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" id="btnToggleTokenVis" title="Hiển thị token" aria-label="Hiển thị hoặc ẩn token" type="button">
                 <span class="material-symbols-outlined text-[18px]">visibility_off</span>
               </button>
             </div>
             <div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm pt-0.5 flex-wrap">
-              <span class="text-tertiary">👉</span>
+              <span class="material-symbols-outlined text-[16px] text-tertiary">key</span>
               <span>Bạn đã có tài khoản GitHub?</span>
               <a class="text-primary font-medium hover:underline inline-flex items-center gap-0.5" href="https://github.com/settings/tokens/new?scopes=gist&description=Hoc%20tieng%20Hoa%20dong%20bo" rel="noopener noreferrer" target="_blank">
                 Bấm vào đây để tạo Token nhanh trên GitHub

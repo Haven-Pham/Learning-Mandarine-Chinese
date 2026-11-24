@@ -11,6 +11,8 @@ the full explanations (data/rich-tu) and the decks. Words are ordered by band (N
 --xem <id> prints the words of one topic to review them.
 """
 import json, os, re, sys, glob
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from _json_io import load_json
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
@@ -18,20 +20,20 @@ SRC = sys.argv[1]
 XEM = sys.argv[sys.argv.index("--xem") + 1] if "--xem" in sys.argv else None
 BANDS = ["Novice 1", "Novice 2", "A1", "A2", "B1", "B2", "C", "Lớp học"]
 
-tocfl = json.load(open(os.path.join(DATA, "tocfl.json"), encoding="utf-8"))["words"]
+tocfl = load_json(os.path.join(DATA, "tocfl.json"))["words"]
 cands, meaning, band = [], {}, {}
 for i, (w, py, b, *_) in enumerate(tocfl):
     if w not in band: cands.append(w); band[w] = (BANDS.index(b) if b in BANDS else 6, i)
 vi = {}
 for f in glob.glob(os.path.join(DATA, "vi", "*.json")):
-    d = json.load(open(f, encoding="utf-8"))
+    d = load_json(f)
     if isinstance(d, dict): vi.update(d)
 for f in glob.glob(os.path.join(DATA, "rich-tu", "*.json")):
-    d = json.load(open(f, encoding="utf-8"))
+    d = load_json(f)
     if isinstance(d, dict):
         for w, e in d.items():
             if isinstance(e, dict): meaning[w] = e.get("vn", "")   # short main meaning only (long explanations add noise)
-for deck in json.load(open(os.path.join(DATA, "decks.json"), encoding="utf-8")):
+for deck in load_json(os.path.join(DATA, "decks.json")):
     if not deck["id"].startswith("lop-") or deck.get("kind") != "vocab": continue
     for it in deck.get("items", []):
         w = it.get("w")
@@ -39,7 +41,7 @@ for deck in json.load(open(os.path.join(DATA, "decks.json"), encoding="utf-8")):
         if w not in band: cands.append(w); band[w] = (BANDS.index("Lớp học"), 10**6 + len(band))
         meaning.setdefault(w, it.get("vn", ""))
 for f in glob.glob(os.path.join(SRC, "tu", "rieng-*.json")):
-    for w, e in json.load(open(f, encoding="utf-8")).get("tu", {}).items():
+    for w, e in load_json(f).get("tu", {}).items():
         if w not in band: cands.append(w); band[w] = (6, 2 * 10**6 + len(band))
         meaning.setdefault(w, e.get("vn", ""))
 
@@ -54,7 +56,7 @@ def mean(w):
 def forms(w):
     return {re.sub(r"[()]", "", f) for f in w.split("/")} | {re.sub(r"\([^)]*\)", "", f) for f in w.split("/")}
 
-topics = json.load(open(os.path.join(SRC, "chu-de", "chu-de.json"), encoding="utf-8"))["chu_de"]
+topics = load_json(os.path.join(SRC, "chu-de", "chu-de.json"))["chu_de"]
 out = []
 for t in topics:
     kw = [re.compile(r"(?<!\w)" + re.escape(k.lower()) + r"(?!\w)") for k in t["kw"]]

@@ -17,6 +17,7 @@ The app merges these points after the built-in ones (an id already built in is s
 import json, os, sys, glob, shutil
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import build_rich as B
+from _json_io import load_json
 
 SRC = sys.argv[1]
 TAGS = [("cinnabar-subtle", "text-primary"), ("jade-subtle", "text-secondary"), ("amber-subtle", "text-tertiary")]
@@ -24,7 +25,7 @@ ORDER = {"A1/A2": 0, "B1": 1, "B2": 2, "C": 3, "Khẩu ngữ": 4}
 
 out, seen = [], set()
 for f in sorted(glob.glob(os.path.join(SRC, "ngu-phap", "*.json"))):
-    for m in json.load(open(f, encoding="utf-8"))["mau"]:
+    for m in load_json(f)["mau"]:
         if m["id"] in seen: sys.exit(f"Trùng id {m['id']} ({os.path.basename(f)})")
         seen.add(m["id"])
         assert m["nhom"] in ORDER, (m["id"], m["nhom"])
