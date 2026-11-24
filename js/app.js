@@ -6917,10 +6917,28 @@ VIEWS["chinh-ta"] = async () => {
     _lastPlayedKey: ""
   }, S.dict || {});
   if (!d.doneMap) d.doneMap = {};
+  // Saved progress (S.settings.dictation, synced with other devices): which sentences are done and where each lesson stopped.
+  if (!S.settings.dictation) S.settings.dictation = { doneMap: {}, pos: {} };
+  const saved = S.settings.dictation;
+  if (!saved.doneMap) saved.doneMap = {};
+  if (!saved.pos) saved.pos = {};
+  if (!d._loaded) { d.doneMap = saved.doneMap; if (saved.last) d.passageId = saved.last; d._loaded = true; }
+  else if (d.doneMap !== saved.doneMap) { for (const [k, v] of Object.entries(d.doneMap)) saved.doneMap[k] = Object.assign({}, saved.doneMap[k], v); d.doneMap = saved.doneMap; }
+  const resumeIdx = (t) => {   // the saved position, or the first sentence not yet done
+    const done = saved.doneMap[t.id] || {}, n = (t.sentences || []).length;
+    if (Number.isInteger(saved.pos[t.id]) && saved.pos[t.id] < n) return saved.pos[t.id];
+    for (let i = 0; i < n; i++) if (!done[i]) return i;
+    return 0;
+  };
+  const saveDict = () => {
+    saved.last = d.passageId; saved.pos[d.passageId] = d.sentenceIdx;
+    saveSettings().catch(() => {});
+    if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
+  };
 
   const allTopics = await getDictationTopics();
   const selId = decodeURIComponent(location.hash).startsWith("#chinh-ta/") ? decodeURIComponent(location.hash).slice("#chinh-ta/".length) : "";
-  if (selId && selId !== d.passageId && allTopics.some(t => t.id === selId)) { d.passageId = selId; d.sentenceIdx = 0; d.checked = false; d._lastPlayedKey = ""; }
+  if (selId && (selId !== d.passageId || !d._resumed) && allTopics.some(t => t.id === selId)) { d.passageId = selId; d.sentenceIdx = resumeIdx(allTopics.find(t => t.id === selId)); d.checked = false; d._lastPlayedKey = ""; d._resumed = true; }
   const inLesson = !!selId;
   const topicBandOf = (t) => {
     const b = String(t.band || "");
@@ -7318,6 +7336,7 @@ VIEWS["chinh-ta"] = async () => {
     if (d.sentenceIdx < curTopic.sentences.length - 1) {
       d.sentenceIdx++;
       d.checked = false;
+      saveDict();
       VIEWS["chinh-ta"]();
     } else {
       showToast(`Hoàn thành bài "${curTopic.title}"! Bạn có thể chọn bài tiếp theo ở phía trên.`);
@@ -7326,7 +7345,7 @@ VIEWS["chinh-ta"] = async () => {
 
   if ($("#btn-prev-sentence")) {
     $("#btn-prev-sentence").onclick = () => {
-      if (d.sentenceIdx > 0) { d.sentenceIdx--; d.checked = false; VIEWS["chinh-ta"](); }
+      if (d.sentenceIdx > 0) { d.sentenceIdx--; d.checked = false; saveDict(); VIEWS["chinh-ta"](); }
     };
   }
   if ($("#btn-next-sentence")) $("#btn-next-sentence").onclick = goNextSentence;
@@ -7343,6 +7362,7 @@ VIEWS["chinh-ta"] = async () => {
     el.onclick = () => {
       d.sentenceIdx = Number(el.dataset.jumpSentence);
       d.checked = false;
+      saveDict();
       d.viewMode = "dictation";
       VIEWS["chinh-ta"]();
     };
@@ -7378,6 +7398,7 @@ VIEWS["chinh-ta"] = async () => {
       d.score.ok++;
       updateScoreDOM();
     }
+    saveDict();
 
     const feedbackPanel = $("#feedback-panel");
     const stateCorrect = $("#state-correct");
@@ -7441,7 +7462,7 @@ VIEWS["chinh-ta"] = async () => {
   });
   document.querySelectorAll("[data-select-topic]").forEach((card) => {
     card.onclick = () => {
-      if (card.dataset.selectTopic !== d.passageId) { d.sentenceIdx = 0; d.checked = false; d._lastPlayedKey = ""; }
+      if (card.dataset.selectTopic !== d.passageId) { d._resumed = false; d.checked = false; d._lastPlayedKey = ""; }
       d.passageId = card.dataset.selectTopic;
       location.hash = "#chinh-ta/" + encodeURIComponent(card.dataset.selectTopic);
     };

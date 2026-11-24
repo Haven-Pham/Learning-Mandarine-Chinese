@@ -107,6 +107,15 @@ const Store = (() => {
           if (c.bands || v.bands) merged.bands = Object.assign({}, c.bands, v.bands);
           if (c.decks || v.decks) merged.decks = Object.assign({}, c.decks, v.decks);
           if (c.extra || v.extra) merged.extra = Object.assign({}, c.extra, v.extra);
+          if (c.dictation || v.dictation) {   // dictation progress: union of done sentences ("ok" wins), furthest position per lesson
+            const a = c.dictation || {}, b2 = v.dictation || {}, dm = {}, pos = Object.assign({}, a.pos, b2.pos);
+            for (const id of new Set([...Object.keys(a.doneMap || {}), ...Object.keys(b2.doneMap || {})])) {
+              const x = (a.doneMap || {})[id] || {}, y = (b2.doneMap || {})[id] || {}; dm[id] = Object.assign({}, x, y);
+              for (const i of Object.keys(x)) if (x[i] === "ok") dm[id][i] = "ok";
+            }
+            for (const id of Object.keys(a.pos || {})) pos[id] = Math.max(a.pos[id] || 0, (b2.pos || {})[id] || 0);
+            merged.dictation = Object.assign({}, a, b2, { doneMap: dm, pos });
+          }
           keep.push([k, merged]);
         }
       }
