@@ -1,0 +1,1285 @@
+{
+ "tu": {
+  "鞭炮": {
+   "vn": "pháo (pháo dây, pháo tết)",
+   "ng": [
+    "(danh từ) pháo nổ, pháo dây đốt dịp lễ Tết, khai trương, lễ hội chùa chiền (放鞭炮 đốt pháo, 鞭炮聲 tiếng pháo)"
+   ],
+   "us": "Động từ đi kèm là 放 (放鞭炮 đốt pháo). Lượng từ: 串 (一串鞭炮 một dây pháo).",
+   "co": [
+    "放鞭炮|đốt pháo",
+    "一串鞭炮|một dây pháo",
+    "鞭炮聲|tiếng pháo nổ",
+    "環保鞭炮|pháo điện tử thân thiện môi trường"
+   ],
+   "sy": [
+    "炮竹|pháo trúc (hay dùng trong văn bản quy định ở Đài Loan)"
+   ],
+   "cf": [
+    "鞭炮 vs 煙火|鞭炮 là pháo nổ màu đỏ tạo tiếng đì đùng (đốt mặt đất dịp Tết, rước kiệu); 煙火 là pháo hoa bắn lên trời nhiều màu sắc."
+   ],
+   "lt": "串 (一串鞭炮).",
+   "mk": "Đừng nhầm với pháo hoa — pháo hoa (như ở tháp Taipei 101 đêm giao thừa) là 煙火 (yānhuǒ).",
+   "tw": "Ở Đài Loan đốt pháo trong khu dân cư ban đêm bị phạt; nhiều miếu và gia đình chuyển sang dùng 電子鞭炮 (pháo điện tử) để giảm khói bụi và tiếng ồn.",
+   "mh": "Tiên Pháo → biānpào. ĐỌC: 'tiên' → biān (-iên → -ian, thanh 1); 'pháo' → pào (thanh 4). NGHĨA: 鞭 dây roi dài + 炮 pháo nổ → từng quả pháo kết thành dây dài = pháo dây.",
+   "vd": [
+    {
+     "t": "Lễ Tết",
+     "zh": "除夕夜十二點一到，遠處傳來陣陣鞭炮聲，增添了不少過年的氣氛。",
+     "vn": "Đúng mười hai giờ đêm giao thừa, từ xa vọng lại từng tràng tiếng pháo làm tăng thêm không khí đón Tết."
+    },
+    {
+     "t": "Môi trường",
+     "zh": "為了減少空氣污染與噪音，現在許多廟宇都改用電子音效取代放鞭炮。",
+     "vn": "Để giảm ô nhiễm không khí và tiếng ồn, hiện nay nhiều ngôi miếu đã chuyển sang dùng âm thanh điện tử thay cho đốt pháo."
+    },
+    {
+     "t": "Khai trương",
+     "zh": "樓下新開的麵包店今天早上舉辦開幕活動，在門口放了一串喜氣的鞭炮。",
+     "vn": "Tiệm bánh mì mới mở dưới lầu sáng nay tổ chức khai trương, đốt một dây pháo mừng ngay trước cửa."
+    }
+   ]
+  },
+  "變成": {
+   "vn": "biến thành; trở thành",
+   "ng": [
+    "(động từ) biến thành, chuyển hóa thành một trạng thái, sự vật hay vai trò khác (冰塊變成水 cục đá tan thành nước, 變成好朋友 trở thành bạn tốt)"
+   ],
+   "us": "Theo sau bởi danh từ hoặc cụm trạng thái kết quả (變成 + N / Adj). Diễn tả sự biến đổi rõ rệt so với ban đầu.",
+   "co": [
+    "變成好朋友|trở thành bạn thân",
+    "變成現實|biến thành hiện thực",
+    "變成習慣|trở thành thói quen",
+    "變成這樣|ra nông nỗi này"
+   ],
+   "sy": [
+    "成為|trở thành (trang trọng hơn, thiên về vai trò/chức danh)",
+    "化為|hóa thành (văn viết)"
+   ],
+   "cf": [
+    "變成 vs 成為|成為 trang trọng, thường dùng cho mục tiêu/vai trò tích cực (成為一名醫師 trở thành bác sĩ); 變成 dùng rộng rãi hơn cho mọi sự biến đổi vật lý, tình huống (水變成冰, 誤會變成好事)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng ghép trực tiếp 變 với danh từ mà thiếu 成 (*水變冰 ❌ → 水變成冰).",
+   "tw": "Ở Đài Loan hay nói 沒想到當年的興趣，現在竟然變成我的正職了 (Không ngờ sở thích năm xưa giờ lại trở thành nghề chính của tôi).",
+   "mh": "Biến Thành → biànchéng. ĐỌC: 'biến' → biàn (thanh 4); 'thành' → chéng (th- → ch-, thanh 2). NGHĨA: 變 thay đổi + 成 thành ra → biến thành.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "他們原本只是語言交換的夥伴，相處久了就變成無話不談的好朋友。",
+     "vn": "Họ vốn chỉ là bạn trao đổi ngôn ngữ, tiếp xúc lâu dần trở thành bạn thân chuyện gì cũng tâm sự."
+    },
+    {
+     "t": "Đô thị",
+     "zh": "這座廢棄多年的舊倉庫經過重新規劃，已經變成熱門的文創展覽空間。",
+     "vn": "Nhà kho cũ bỏ hoang nhiều năm này sau khi quy hoạch lại đã biến thành không gian triển lãm văn hóa sáng tạo hút khách."
+    },
+    {
+     "t": "Học tập",
+     "zh": "每天花二十分鐘聽播客，堅持幾個月下來就變成我最期待的日常習慣。",
+     "vn": "Mỗi ngày dành hai mươi phút nghe podcast, kiên trì vài tháng liền trở thành thói quen thường nhật tôi mong đợi nhất."
+    }
+   ]
+  },
+  "變更": {
+   "vn": "thay đổi; điều chỉnh (lịch trình, thông tin, quy định)",
+   "ng": [
+    "(động từ) thay đổi, sửa đổi chính thức (變更行程 thay đổi lịch trình, 變更地址 đổi địa chỉ, 變更密碼 đổi mật khẩu)"
+   ],
+   "us": "Trang trọng hơn 改 / 換, thường dùng trong hành chính, hợp đồng, lịch họp, tài khoản hệ thống. Chú ý chữ 更 ở đây đọc thanh 1 gēng (KHÔNG đọc gèng!).",
+   "co": [
+    "變更行程|thay đổi lịch trình",
+    "變更地址|thay đổi địa chỉ",
+    "變更設計|thay đổi thiết kế",
+    "臨時變更|thay đổi đột xuất"
+   ],
+   "sy": [
+    "更改|sửa đổi, thay đổi",
+    "調整|điều chỉnh"
+   ],
+   "cf": [
+    "變更 vs 改變|改變 dùng rộng cho suy nghĩ, thói quen, cuộc sống; 變更 chỉ dùng cho thủ tục, kế hoạch, thông tin đăng ký, lịch trình chính thức."
+   ],
+   "lt": "Động từ. Chữ 更 đọc gēng (thay đổi), khác với gèng (càng).",
+   "mk": "Rất hay đọc nhầm thành *biàngèng ❌ — phải đọc là biàngēng!",
+   "tw": "Trong thông báo công sở và ngân hàng Đài Loan rất hay thấy 若行程有任何變更，將另行通知 (Nếu lịch trình có thay đổi sẽ thông báo riêng).",
+   "mh": "Biến Canh → biàngēng. ĐỌC: 'biến' → biàn (thanh 4); 'canh' → gēng (c- → g-, thanh 1). NGHĨA: 變 đổi + 更 thay mới → thay đổi chính thức.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "由於會議室臨時進行設備維修，下午的簡報地點變更到五樓大會議廳。",
+     "vn": "Do phòng họp đột xuất bảo trì thiết bị, địa điểm thuyết trình chiều nay đổi sang hội trường lớn tầng năm."
+    },
+    {
+     "t": "Thủ tục",
+     "zh": "如果您的聯絡電話或通訊地址有變更，請記得登入會員系統更新資料。",
+     "vn": "Nếu số điện thoại liên lạc hoặc địa chỉ của quý khách có thay đổi, vui lòng đăng nhập hệ thống thành viên cập nhật."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "這張優惠機票屬於特價艙等，開票之後若要變更日期需要補收手續費。",
+     "vn": "Vé máy bay ưu đãi này thuộc hạng giá rẻ, sau khi xuất vé nếu muốn đổi ngày cần đóng thêm phí thủ tục."
+    }
+   ]
+  },
+  "變化": {
+   "vn": "biến hóa; sự thay đổi",
+   "ng": [
+    "(danh từ) sự thay đổi, biến chuyển (天氣變化 thay đổi thời tiết, 很大的變化 sự thay đổi lớn)",
+    "(động từ) thay đổi, biến hóa (市場一直在變化 thị trường luôn biến động)"
+   ],
+   "us": "Dùng rất phổ biến làm cả danh từ (發生變化, 變化很大) lẫn nội động từ (不斷變化). Không mang tân ngữ trực tiếp (*變化計畫 ❌ → 改變計畫).",
+   "co": [
+    "天氣變化|thay đổi thời tiết",
+    "發生變化|xảy ra thay đổi",
+    "變化很大|thay đổi rất lớn",
+    "隨機應變|tùy cơ ứng biến"
+   ],
+   "sy": [
+    "變動|biến động (nhân sự, giá cả)",
+    "改變|thay đổi (ngoại động từ, mang được tân ngữ)"
+   ],
+   "an": [
+    "固定|cố định",
+    "穩定|ổn định"
+   ],
+   "cf": [
+    "變化 vs 改變|改變 mang được tân ngữ (改變想法 thay đổi suy nghĩ); 變化 là nội động từ/danh từ, KHÔNG mang tân ngữ trực tiếp (想法有了變化 suy nghĩ đã có thay đổi)."
+   ],
+   "lt": "Danh từ / Nội động từ.",
+   "mk": "Đừng dùng 變化 làm ngoại động từ (*變化我的計畫 ❌ → 改變我的計畫).",
+   "tw": "Ở Đài Loan bản tin thời tiết hay nhắc 氣溫變化大 (nhiệt độ biến đổi lớn), 請留意天氣變化.",
+   "mh": "Biến Hóa → biànhuà. ĐỌC: 'biến' → biàn (thanh 4); 'hóa' → huà (thanh 4). NGHĨA: 變 đổi + 化 chuyển hóa → sự thay đổi, biến hóa.",
+   "vd": [
+    {
+     "t": "Đô thị",
+     "zh": "隔了五年再度回到這座城市，我發現市容和交通建設都有了驚人的變化。",
+     "vn": "Cách năm năm quay lại thành phố này, tôi thấy diện mạo đô thị và hạ tầng giao thông đều có sự thay đổi đáng kinh ngạc."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "換季時早晚氣溫變化相當明顯，建議採用洋蔥式穿搭比較保險。",
+     "vn": "Lúc chuyển mùa nhiệt độ sáng tối thay đổi khá rõ, nên mặc đồ nhiều lớp kiểu củ hành cho chắc ăn."
+    },
+    {
+     "t": "Kinh tế",
+     "zh": "面對快速變化的消費趨勢，品牌必須不斷創新才能留住顧客。",
+     "vn": "Trước xu hướng tiêu dùng thay đổi nhanh chóng, thương hiệu phải không ngừng đổi mới mới giữ chân được khách hàng."
+    }
+   ]
+  },
+  "便條": {
+   "vn": "mẩu giấy nhắn; giấy ghi chú",
+   "ng": [
+    "(danh từ) mảnh giấy nhỏ ghi lời nhắn ngắn hoặc ghi chú (留一張便條 để lại một mẩu giấy nhắn, 便利貼 giấy note dán)"
+   ],
+   "us": "Lượng từ: 張 (一張便條 một tờ giấy nhắn). Trong văn phòng hiện đại ở Đài Loan, giấy note có keo dán gọi 便利貼 (biànlìtiē) rất phổ biến.",
+   "co": [
+    "留便條|để lại giấy nhắn",
+    "便條紙|giấy ghi chú",
+    "寫張便條|viết một mẩu giấy nhắn"
+   ],
+   "sy": [
+    "紙條|mẩu giấy (chung hơn)",
+    "便利貼|giấy note dán (post-it)"
+   ],
+   "cf": [
+    "便條 vs 便利貼|便條 là mảnh giấy ghi lời nhắn nói chung; 便利貼 là loại giấy note vuông có dải keo dán ở mép sau."
+   ],
+   "lt": "張 (一張便條). Chữ 便 đọc biàn (tiện lợi), không đọc pián.",
+   "mk": "Đừng đọc nhầm thành *piántiáo ❌ — đọc là biàntiáo.",
+   "tw": "Ở Đài Loan bàn làm việc văn phòng nào cũng có xấp 便條紙 (giấy note xé) và 便利貼 (giấy dán note).",
+   "mh": "Tiện Điều → biàntiáo. ĐỌC: 'tiện' → biàn (thanh 4); 'điều' → tiáo (đ- dấu huyền → t-, thanh 2). NGHĨA: 便 tiện tay + 條 mảnh giấy dài → mảnh giấy tiện tay ghi nhắn = giấy nhắn.",
+   "vd": [
+    {
+     "t": "Công sở",
+     "zh": "主管出門開會前，在我的電腦螢幕旁留了一張便條交代下午的工作。",
+     "vn": "Trước khi ra ngoài họp, sếp để lại một mẩu giấy nhắn bên cạnh màn hình máy tính tôi dặn dò việc buổi chiều."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "媽媽早上比較早出門，就在冰箱門上貼了張便條提醒我把早餐拿去加熱。",
+     "vn": "Sáng mẹ ra ngoài sớm nên dán một mẩu giấy nhắn lên cửa tủ lạnh nhắc tôi hâm nóng bữa sáng."
+    },
+    {
+     "t": "Học tập",
+     "zh": "我在書桌旁放了一疊便條紙，想到什麼靈感或待辦事項就能立刻記下來。",
+     "vn": "Tôi đặt một xấp giấy ghi chú cạnh bàn học, nghĩ ra ý tưởng hay việc cần làm gì là ghi xuống ngay được."
+    }
+   ]
+  },
+  "表達": {
+   "vn": "biểu đạt; bày tỏ, diễn đạt",
+   "ng": [
+    "(động từ) diễn đạt, trình bày suy nghĩ, ý kiến, tình cảm bằng lời nói hoặc hành động (表達意見 bày tỏ ý kiến, 表達感謝 bày tỏ lòng biết ơn, 口語表達 diễn đạt khẩu ngữ)"
+   ],
+   "us": "Đi với danh từ chỉ suy nghĩ, cảm xúc, lập trường (想法, 意見, 感謝, 關心, 立場). Rất hay dùng kèm phó từ 清楚 (表達得很清楚 diễn đạt rất rõ ràng).",
+   "co": [
+    "表達意見|bày tỏ ý kiến",
+    "表達感謝|bày tỏ lòng biết ơn",
+    "表達能力|khả năng diễn đạt",
+    "清楚表達|diễn đạt rõ ràng"
+   ],
+   "sy": [
+    "表示|biểu thị, tỏ ra (ngắn gọn hơn, hay dùng trong tin tức/phát biểu)",
+    "闡述|trình bày sâu sắc (văn viết)"
+   ],
+   "cf": [
+    "表達 vs 表示|表達 nhấn mạnh quá trình dùng lời/hành động truyền đạt ý tưởng, cảm xúc (表達能力 năng lực diễn đạt); 表示 nhấn mạnh tỏ thái độ/ý nghĩa (表示同意 bày tỏ đồng ý, 紅燈表示停止 đèn đỏ báo hiệu dừng lại)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Không dùng 表達 với nghĩa 'ký hiệu mang ý nghĩa gì' (*這個標誌表達禁止停車 ❌ → 表示禁止停車).",
+   "tw": "Trong phỏng vấn xin việc ở Đài Loan, 溝通表達能力 (năng lực giao tiếp và diễn đạt) là kỹ năng được hỏi nhiều nhất.",
+   "mh": "Biểu Đạt → biǎodá. ĐỌC: 'biểu' → biǎo (thanh 3); 'đạt' → dá (đ- → d-, thanh 2). NGHĨA: 表 lộ ra ngoài + 達 truyền tới được → truyền đạt ra ngoài = biểu đạt.",
+   "vd": [
+    {
+     "t": "Giao tiếp",
+     "zh": "在團隊討論中，勇敢而有條理地表達自己的想法非常重要。",
+     "vn": "Trong thảo luận nhóm, mạnh dạn và mạch lạc bày tỏ suy nghĩ của mình là điều rất quan trọng."
+    },
+    {
+     "t": "Cảm ơn",
+     "zh": "我們特別準備了一張全體同事簽名的卡片，向即將退休的課長表達感謝。",
+     "vn": "Chúng tôi đặc biệt chuẩn bị một tấm thiệp có chữ ký toàn thể đồng nghiệp để bày tỏ lòng biết ơn tới trưởng phòng sắp nghỉ hưu."
+    },
+    {
+     "t": "Học tập",
+     "zh": "學中文到中級階段後，她已經能流暢地用中文表達對社會議題的看法。",
+     "vn": "Học tiếng Hoa đến trình độ trung cấp rồi, cô ấy đã có thể diễn đạt trôi chảy quan điểm về các vấn đề xã hội bằng tiếng Hoa."
+    }
+   ]
+  },
+  "表面": {
+   "vn": "bề mặt; bề ngoài, vẻ ngoài",
+   "ng": [
+    "(danh từ) bề mặt vật lý của đồ vật (地球表面 bề mặt Trái Đất, 桌面表面 bề mặt bàn)",
+    "(danh từ nghĩa bóng) vẻ bề ngoài, mặt nổi (表面上 trên bề mặt / bề ngoài, 只看表面 chỉ nhìn bề ngoài)"
+   ],
+   "us": "Cụm cực hay gặp trong bài đọc hiểu: 表面上…，其實/實際上… (Bề ngoài thì…, nhưng thực tế lại…).",
+   "co": [
+    "表面上|bề ngoài thì",
+    "只看表面|chỉ nhìn bề ngoài",
+    "表面功夫|làm cho có, hình thức",
+    "物體表面|bề mặt vật thể"
+   ],
+   "sy": [
+    "外表|ngoại hình, vẻ ngoài (người, kiến trúc)"
+   ],
+   "an": [
+    "內在|bên trong, nội tại",
+    "實質|thực chất"
+   ],
+   "cf": [
+    "表面 vs 外表|外表 thường chỉ ngoại hình con người hoặc dáng vẻ bên ngoài tòa nhà; 表面 chỉ bề mặt vật lý hoặc mặt hình thức đối lập với bản chất/thực chất."
+   ],
+   "lt": "Danh từ.",
+   "mk": "Đừng dùng 表面 để khen ngoại hình ai (*她的表面很漂亮 ❌ → 她的外表很漂亮).",
+   "tw": "Ở Đài Loan hay phê bình cách làm hình thức là 只做表面功夫 (chỉ làm màu bên ngoài).",
+   "mh": "Biểu Diện → biǎomiàn. ĐỌC: 'biểu' → biǎo (thanh 3); 'diện' → miàn (thanh 4). NGHĨA: 表 lớp ngoài + 面 mặt → mặt ngoài = bề mặt, bề ngoài.",
+   "vd": [
+    {
+     "t": "Nhận xét",
+     "zh": "看事情不能只看表面，應該深入調查才能了解真正的問題所在。",
+     "vn": "Nhìn nhận sự việc không thể chỉ nhìn bề ngoài, cần tìm hiểu sâu mới rõ vấn đề thực sự nằm ở đâu."
+    },
+    {
+     "t": "Tâm lý",
+     "zh": "他表面上看起來十分冷靜，其實心裡對這次簡報緊張得不得了。",
+     "vn": "Bề ngoài anh ấy trông hết sức bình tĩnh, thực ra trong lòng đang hồi hộp vô cùng về buổi thuyết trình này."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "清潔木質家具時，請用微濕的軟布輕擦表面，避免刮傷保護漆。",
+     "vn": "Khi lau chùi đồ gỗ, vui lòng dùng khăn mềm hơi ẩm lau nhẹ bề mặt để tránh làm trầy lớp sơn bảo vệ."
+    }
+   ]
+  },
+  "吵架": {
+   "vn": "cãi nhau; cãi vã",
+   "ng": [
+    "(động từ ly hợp) cãi nhau, tranh cãi to tiếng (跟朋友吵架 cãi nhau với bạn, 吵了一架 cãi nhau một trận)"
+   ],
+   "us": "Động từ ly hợp: KHÔNG mang tân ngữ trực tiếp (*吵架他 ❌). Phải dùng 跟/和 + người + 吵架 (他們常常吵架 Họ hay cãi nhau). Tách ra để thêm lượng từ: 吵了一架, 大吵一架 (cãi nhau một trận to).",
+   "co": [
+    "跟人吵架|cãi nhau với ai",
+    "大吵一架|cãi nhau một trận lớn",
+    "為小事吵架|cãi nhau vì chuyện nhỏ",
+    "吵架和好|cãi nhau rồi làm hòa"
+   ],
+   "sy": [
+    "爭執|tranh chấp, lời qua tiếng lại (trang trọng hơn)",
+    "拌嘴|đấu khẩu nhẹ, cãi vặt (khẩu ngữ)"
+   ],
+   "an": [
+    "和好|làm hòa"
+   ],
+   "cf": [
+    "吵架 vs 爭論|吵架 mang tính cảm xúc, to tiếng, đôi khi mất bình tĩnh; 爭論 là tranh luận lý lẽ về một quan điểm/vấn đề."
+   ],
+   "lt": "Động từ ly hợp: 吵(了一)架.",
+   "mk": "Đừng nói *我吵架我弟弟 ❌ → PHẢI nói 我跟我弟弟吵架.",
+   "tw": "Ở Đài Loan cãi nhau nhẹ giữa vợ chồng hay người yêu thường nói 吵嘴 / 鬥嘴; cãi to nói 大吵一架.",
+   "mh": "Sao Giá → chǎojià. ĐỌC: 'sao' → chǎo (thanh 3); 'giá' → jià (thanh 4). NGHĨA: 吵 ồn ào to tiếng + 架 xô xát/giằng co → to tiếng cãi vã = cãi nhau.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "兄弟倆小時候常常為了搶玩具吵架，長大以後感情反而變得非常好。",
+     "vn": "Hai anh em hồi nhỏ hay cãi nhau vì tranh đồ chơi, lớn lên tình cảm ngược lại trở nên rất thân thiết."
+    },
+    {
+     "t": "Ứng xử",
+     "zh": "意見不合時最好先冷靜十分鐘再溝通，免得一時衝動吵架傷了感情。",
+     "vn": "Khi bất đồng ý kiến tốt nhất nên bình tĩnh mười phút rồi mới trao đổi, kẻo nhất thời nóng nảy cãi nhau làm tổn thương tình cảm."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "他們昨天雖然因為家務分工大吵了一架，今天早上已經互相道歉和好了。",
+     "vn": "Hôm qua họ tuy cãi nhau một trận to vì phân chia việc nhà, sáng nay đã xin lỗi nhau và làm hòa rồi."
+    }
+   ]
+  },
+  "成果": {
+   "vn": "thành quả; kết quả đạt được",
+   "ng": [
+    "(danh từ) thành quả, kết quả tốt đẹp đạt được sau quá trình nỗ lực, nghiên cứu, làm việc (研究成果 thành quả nghiên cứu, 學習成果 thành quả học tập, 成果發表會 buổi báo cáo thành quả)"
+   ],
+   "us": "Luôn mang nghĩa tích cực (khác với 結果 có thể tốt hoặc xấu). Thường đi với 獲得, 展現, 分享, 豐碩 (成果豐碩 thành quả dồi dào).",
+   "co": [
+    "研究成果|thành quả nghiên cứu",
+    "學習成果|thành quả học tập",
+    "成果豐碩|thành quả phong phú",
+    "成果發表會|buổi trình bày thành quả"
+   ],
+   "sy": [
+    "成就|thành tựu (tầm vóc lớn hơn)",
+    "成績|thành tích, điểm số"
+   ],
+   "cf": [
+    "成果 vs 結果|結果 trung tính (có thể tốt hoặc xấu: 考試結果 kết quả thi); 成果 luôn là kết quả tích cực thu hoạch được nhờ công sức bỏ ra."
+   ],
+   "lt": "項, 個 (一項重要成果).",
+   "mk": "Đừng dùng 成果 cho kết quả tiêu cực (*失敗的成果 ❌ → 失敗的結果).",
+   "tw": "Ở các trường đại học Đài Loan, câu lạc bộ sinh viên cuối học kỳ thường tổ chức 成發 (viết tắt của 成果發表會 — buổi biểu diễn/báo cáo thành quả).",
+   "mh": "Thành Quả → chéngguǒ. ĐỌC: 'thành' → chéng (th- → ch-, thanh 2); 'quả' → guǒ (qu- → g-, thanh 3). NGHĨA: 成 hoàn thành + 果 trái ngọt → trái ngọt thu được = thành quả.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "這項跨國合作專案歷經半年籌備，今天終於向大家展示第一階段的成果。",
+     "vn": "Dự án hợp tác xuyên quốc gia này trải qua nửa năm chuẩn bị, hôm nay cuối cùng đã trình bày thành quả giai đoạn một cho mọi người."
+    },
+    {
+     "t": "Học tập",
+     "zh": "這學期結束前，語言班會舉辦成果發表會，讓每位學員上台分享心得。",
+     "vn": "Trước khi kết thúc học kỳ này, lớp ngôn ngữ sẽ tổ chức buổi báo cáo thành quả để mỗi học viên lên chia sẻ cảm nhận."
+    },
+    {
+     "t": "Khoa học",
+     "zh": "這支研發團隊歷時三年，終於在再生能源電池技術上取得豐碩成果。",
+     "vn": "Nhóm nghiên cứu phát triển này mất ba năm, cuối cùng đã đạt được thành quả dồi dào trong công nghệ pin năng lượng tái tạo."
+    }
+   ]
+  },
+  "單身": {
+   "vn": "độc thân",
+   "ng": [
+    "(tính từ) độc thân, chưa kết hôn hoặc hiện không có người yêu (單身生活 cuộc sống độc thân, 保持單身 giữ trạng thái độc thân, 單身族 nhóm người độc thân)"
+   ],
+   "us": "Dùng làm vị ngữ (他是單身 Anh ấy độc thân) hoặc định ngữ (單身貴族 người độc thân có điều kiện tài chính tốt, 單身套房 phòng studio cho người độc thân).",
+   "co": [
+    "單身生活|cuộc sống độc thân",
+    "單身貴族|người độc thân thành đạt",
+    "保持單身|giữ trạng thái độc thân",
+    "黃金單身漢|chàng độc thân hoàng kim"
+   ],
+   "sy": [
+    "未婚|chưa kết hôn (giấy tờ hành chính)"
+   ],
+   "an": [
+    "已婚|đã kết hôn"
+   ],
+   "cf": [
+    "單身 vs 未婚|Trên giấy tờ hành chính tình trạng hôn nhân ghi 未婚 (chưa kết hôn); trong giao tiếp hàng ngày 單身 dùng cho người hiện không có người yêu hoặc chưa lập gia đình."
+   ],
+   "lt": "Tính từ (không dùng *很單身 ❌ — dùng 還是單身 / 是單身).",
+   "mk": "Không ghép phó từ mức độ với 單身 (*他非常單身 ❌ → 他目前是單身).",
+   "tw": "Ở Đài Loan có trào lưu 單身經濟 (kinh tế độc thân: suất lẩu 1 người 個人鍋, quán nướng 1 người, căn hộ nhỏ).",
+   "mh": "Đơn Thân → dānshēn. ĐỌC: 'đơn' → dān (đ- → d-, thanh 1); 'thân' → shēn (th- → sh-, thanh 1). NGHĨA: 單 một mình + 身 thân thể → sống một mình = độc thân.",
+   "vd": [
+    {
+     "t": "Xã hội",
+     "zh": "隨著現代人越來越重視個人空間，主打單身族群的個人火鍋店大受歡迎。",
+     "vn": "Khi người hiện đại ngày càng coi trọng không gian cá nhân, các quán lẩu một người nhắm tới nhóm độc thân rất được ưa chuộng."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "她非常享受現在的單身生活，下班後可以自由安排運動、閱讀和旅行。",
+     "vn": "Cô ấy rất tận hưởng cuộc sống độc thân hiện tại, tan làm có thể tự do sắp xếp tập thể thao, đọc sách và du lịch."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "過年回家時，很多單身的年輕人都最怕親戚一直追問什麼時候要結婚。",
+     "vn": "Tết về quê, nhiều bạn trẻ độc thân sợ nhất bị họ hàng hỏi dồn bao giờ lấy vợ lấy chồng."
+    }
+   ]
+  },
+  "對象": {
+   "vn": "đối tượng; người yêu / đối tượng hẹn hò",
+   "ng": [
+    "(danh từ) đối tượng mục tiêu của hành động, dịch vụ, nghiên cứu (服務對象 đối tượng phục vụ, 補助對象 đối tượng được trợ cấp, 合作對象 đối tác)",
+    "(danh từ) đối tượng hẹn hò, người yêu hoặc người dự định kết hôn (找對象 tìm người yêu/bạn đời, 結婚對象 đối tượng kết hôn)"
+   ],
+   "us": "Hai nghĩa đều rất hay gặp trong TOCFL: nghĩa công việc/xã hội (目標對象, 研究對象) và nghĩa tình cảm (交往對象).",
+   "co": [
+    "服務對象|đối tượng phục vụ",
+    "合作對象|đối tác hợp tác",
+    "交往對象|người yêu / đối tượng hẹn hò",
+    "學習對象|tấm gương để học hỏi"
+   ],
+   "sy": [
+    "目標|mục tiêu",
+    "伴侶|bạn đời"
+   ],
+   "cf": [
+    "對象 vs 目標|對象 thường là con người, tổ chức hoặc nhóm cụ thể mà hành động hướng tới (客戶對象); 目標 là đích đến, chỉ tiêu cần đạt."
+   ],
+   "lt": "個, 位.",
+   "mk": "Trong ngữ cảnh tình cảm, 有對象了 = 'có người yêu/người tìm hiểu rồi'.",
+   "tw": "Ở Đài Loan trong tuyển dụng/học bổng hay ghi 申請對象 (đối tượng đủ điều kiện nộp đơn); hỏi thăm chuyện tình cảm hay hỏi 最近有穩定的對象嗎？",
+   "mh": "Đối Tượng → duìxiàng. ĐỌC: 'đối' → duì (đ- → d-, thanh 4); 'tượng' → xiàng (t- → x-, -ương → -iang, thanh 4). NGHĨA: 對 hướng tới + 象 hình ảnh/sự vật → mục tiêu hướng tới = đối tượng.",
+   "vd": [
+    {
+     "t": "Kinh doanh",
+     "zh": "這款健康飲料的主要銷售對象是注重養生的上班族與銀髮族。",
+     "vn": "Đối tượng khách hàng chính của loại thức uống tốt cho sức khỏe này là dân văn phòng và người cao tuổi chú trọng dưỡng sinh."
+    },
+    {
+     "t": "Tình cảm",
+     "zh": "選擇結婚對象時，彼此的價值觀和生活習慣合不合得來非常關鍵。",
+     "vn": "Khi chọn đối tượng kết hôn, giá trị quan và thói quen sinh hoạt của hai người có hợp nhau hay không là điều rất then chốt."
+    },
+    {
+     "t": "Học tập",
+     "zh": "那位前輩做事細心又有耐心，一直是整個部門值得效法的學習對象。",
+     "vn": "Người đi trước đó làm việc cẩn thận lại kiên nhẫn, luôn là tấm gương đáng học hỏi của cả phòng ban."
+    }
+   ]
+  },
+  "分開": {
+   "vn": "tách ra; chia ra; chia tay",
+   "ng": [
+    "(động từ) tách ra, chia riêng ra (把垃圾分開 phân loại rác riêng ra, 分開住 sống riêng, 分開付款 trả tiền riêng)",
+    "(động từ) xa cách, chia tay (他們分開了 họ chia tay / tạm xa nhau rồi)"
+   ],
+   "us": "Rất hay dùng trong đời sống: 分開算 (tính tiền riêng), 分開裝 (đựng riêng ra), 跟…分開 (tách khỏi / chia tay với).",
+   "co": [
+    "分開算|tính tiền riêng",
+    "分開裝|đựng riêng ra",
+    "分開住|sống riêng",
+    "分開一段時間|xa nhau một thời gian"
+   ],
+   "sy": [
+    "分離|chia ly (trang trọng, cảm xúc hơn)",
+    "分手|chia tay (chỉ riêng tình yêu)"
+   ],
+   "an": [
+    "合併|gộp lại",
+    "一起|cùng nhau"
+   ],
+   "cf": [
+    "分開 vs 分手|分手 chỉ riêng chuyện chia tay của cặp đôi yêu nhau; 分開 dùng rộng cho cả đồ vật (tách riêng túi), thanh toán (tính riêng) lẫn con người (xa nhau hoặc chia tay)."
+   ],
+   "lt": "Động từ (bổ ngữ kết quả).",
+   "mk": "Khi đi ăn nhóm ở Đài Loan muốn thanh toán riêng từng người, nói 我們分開結帳 (Chúng tôi tính tiền riêng) là chuẩn nhất!",
+   "tw": "Mua đồ nóng và đồ lạnh ở cửa hàng tiện lợi Đài Loan, nhân viên hay hỏi 熱的跟冰的要分開裝嗎？ (Đồ nóng và đồ lạnh có cần đựng riêng túi không?).",
+   "mh": "Phân Khai → fēnkāi. ĐỌC: 'phân' → fēn (ph- → f-, thanh 1); 'khai' → kāi (kh- → k-, thanh 1). NGHĨA: 分 chia + 開 mở ra → tách riêng ra = tách ra, chia tay.",
+   "vd": [
+    {
+     "t": "Mua sắm",
+     "zh": "不好意思，這袋是熱湯、那袋是冷飲，麻煩幫我分開裝比較好拿。",
+     "vn": "Xin lỗi, túi này là canh nóng, túi kia là đồ uống lạnh, nhờ bạn đựng riêng giúp tôi cho dễ cầm."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "洗衣服前應該先把深色和淺色的衣物分開，才不會互相染色。",
+     "vn": "Trước khi giặt quần áo nên tách riêng đồ màu đậm và màu nhạt trước để không bị lem màu sang nhau."
+    },
+    {
+     "t": "Tình cảm",
+     "zh": "兩個人因為工作地點分開在南北兩地，只有週末才能搭高鐵見面。",
+     "vn": "Hai người vì địa điểm làm việc tách nhau ở hai miền Nam Bắc nên chỉ cuối tuần mới đi tàu cao tốc gặp nhau được."
+    }
+   ]
+  },
+  "夫婦": {
+   "vn": "vợ chồng; phu phụ (trang trọng)",
+   "ng": [
+    "(danh từ) cặp vợ chồng, đôi phu phụ (一對夫婦 một cặp vợ chồng, 模範夫婦 cặp vợ chồng kiểu mẫu, 林先生夫婦 vợ chồng ông Lâm)"
+   ],
+   "us": "Trang trọng, lịch sự hơn 夫妻 và 兩口子; thường dùng trên báo chí, thiệp mời hoặc khi gọi kính trọng một cặp vợ chồng (陳教授夫婦 vợ chồng giáo sư Trần).",
+   "co": [
+    "一對夫婦|một cặp vợ chồng",
+    "新婚夫婦|vợ chồng mới cưới",
+    "老夫婦|cặp vợ chồng già",
+    "模範夫婦|cặp vợ chồng kiểu mẫu"
+   ],
+   "sy": [
+    "夫妻|vợ chồng (phổ biến nhất trong đời sống)",
+    "伴侶|bạn đời"
+   ],
+   "cf": [
+    "夫婦 vs 夫妻|夫婦 lịch sự, trang trọng, hay đặt sau họ tên người khác (王先生夫婦); 夫妻 dùng rộng rãi trong khẩu ngữ lẫn văn viết (他們是夫妻 Họ là vợ chồng)."
+   ],
+   "lt": "對 (一對夫婦 một cặp vợ chồng).",
+   "mk": "Ít khi tự xưng mình là 我們夫婦 trong khẩu ngữ thân mật — dùng 我們夫妻 hoặc 我跟太太/先生.",
+   "tw": "Ở Đài Loan trong thiệp mời cưới hay tin tức xã hội rất hay dùng 夫婦 (退休老夫婦 cặp vợ chồng già về hưu).",
+   "mh": "Phu Phụ → fūfù. ĐỌC: 'phu' → fū (ph- → f-, thanh 1); 'phụ' → fù (thanh 4). NGHĨA: 夫 chồng + 婦 vợ → cặp vợ chồng.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "巷口那家手工豆花攤是一對親切的老夫婦經營的，已經賣了三十多年。",
+     "vn": "Quầy tào phớ thủ công đầu ngõ do một cặp vợ chồng già thân thiện mở, đã bán hơn ba mươi năm rồi."
+    },
+    {
+     "t": "Xã hội",
+     "zh": "這對新婚夫婦決定先租小套房存錢，等過幾年再規劃買房。",
+     "vn": "Cặp vợ chồng mới cưới này quyết định thuê phòng nhỏ tiết kiệm trước, đợi vài năm nữa mới tính chuyện mua nhà."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "非常感謝張總經理夫婦遠道而來參加我們公司的週年晚宴。",
+     "vn": "Vô cùng cảm ơn vợ chồng tổng giám đốc Trương đã lặn lội đường xa tới dự tiệc kỷ niệm của công ty chúng tôi."
+    }
+   ]
+  },
+  "花心": {
+   "vn": "đào hoa (nghĩa xấu); lăng nhăng, trăng hoa",
+   "ng": [
+    "(tính từ) lăng nhăng, không chung thủy trong tình cảm, hay đứng núi này trông núi nọ (花心大蘿蔔 gã trăng hoa)"
+   ],
+   "us": "Luôn mang sắc thái chê trách trong chuyện tình cảm. Trái nghĩa là 專情 (chung tình) hoặc 專一.",
+   "co": [
+    "花心大蘿蔔|kẻ lăng nhăng, trăng hoa",
+    "太花心|quá lăng nhăng",
+    "改掉花心|bỏ thói trăng hoa"
+   ],
+   "sy": [
+    "多情|đa tình (nhẹ hơn, có thể trung tính)",
+    "劈腿|bắt cá hai tay (khẩu ngữ Đài Loan)"
+   ],
+   "an": [
+    "專情|chung tình",
+    "專一|chung thủy, một lòng"
+   ],
+   "cf": [
+    "花心 vs 劈腿|花心 là tính cách dễ rung động, hay tán tỉnh nhiều người; 劈腿 là hành động cụ thể đang yêu người này nhưng lén lút quen thêm người khác."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Đừng dịch nghĩa đen là 'nhụy hoa' trong ngữ cảnh con người — 花心 là lăng nhăng, trăng hoa!",
+   "tw": "Ở Đài Loan khẩu ngữ hay trêu người hay đổi ý hoặc thích nhiều idol một lúc là 很花心; còn ngoại tình/bắt cá hai tay gọi 劈腿.",
+   "mh": "Hoa Tâm → huāxīn. ĐỌC: 'hoa' → huā (thanh 1); 'tâm' → xīn (t- → x-, thanh 1). NGHĨA: 花 bông hoa nở khắp nơi + 心 trái tim → trái tim bay nhảy từ hoa này sang hoa khác = lăng nhăng.",
+   "vd": [
+    {
+     "t": "Tình cảm",
+     "zh": "感情中最基本的原則就是忠誠，沒有人能接受另一半太過花心。",
+     "vn": "Nguyên tắc cơ bản nhất trong tình cảm là sự chung thủy, không ai có thể chấp nhận nửa kia quá lăng nhăng."
+    },
+    {
+     "t": "Giải trí",
+     "zh": "劇裡的男主角原本是個花心的人，直到遇見女主角才學會認真對待感情。",
+     "vn": "Nam chính trong phim vốn là người trăng hoa, mãi đến khi gặp nữ chính mới học cách nghiêm túc với tình cảm."
+    },
+    {
+     "t": "Bạn bè",
+     "zh": "別被他嘴甜的樣子騙了，聽說他以前交過不少女朋友，個性有點花心。",
+     "vn": "Đừng bị vẻ ngọt miệng của anh ta đánh lừa, nghe nói trước đây anh ta quen không ít bạn gái, tính hơi lăng nhăng."
+    }
+   ]
+  },
+  "婚禮": {
+   "vn": "lễ cưới; đám cưới",
+   "ng": [
+    "(danh từ) hôn lễ, nghi thức và tiệc cưới (舉辦婚禮 tổ chức đám cưới, 參加婚禮 đi ăn cưới, 戶外婚禮 đám cưới ngoài trời)"
+   ],
+   "us": "Lượng từ: 場 (一場婚禮 một đám cưới). Phân biệt với 結婚 (động từ 'kết hôn') và 婚姻 (cuộc sống hôn nhân).",
+   "co": [
+    "舉辦婚禮|tổ chức đám cưới",
+    "參加婚禮|dự đám cưới",
+    "戶外婚禮|đám cưới ngoài trời",
+    "婚禮主持人|MC đám cưới"
+   ],
+   "sy": [
+    "喜宴|tiệc cưới (chỉ phần tiệc đãi khách)",
+    "婚宴|tiệc cưới"
+   ],
+   "cf": [
+    "婚禮 vs 婚姻|婚禮 là buổi lễ cưới diễn ra trong một ngày; 婚姻 là cả đời sống vợ chồng sau khi cưới."
+   ],
+   "lt": "場 (一場溫馨的婚禮 một đám cưới ấm cúng).",
+   "mk": "Đừng nói *我下週要參加他的結婚 ❌ → phải nói 參加他的婚禮.",
+   "tw": "Ở Đài Loan đi đám cưới có phong tục gửi tiền mừng 包紅包 (chú ý số tiền phải là số chẵn, tránh số 4!), và khi nhận thiệp cưới gọi 紅色炸彈 ('quả bom màu đỏ' — cách nói đùa thân mật).",
+   "mh": "Hôn Lễ → hūnlǐ. ĐỌC: 'hôn' → hūn (thanh 1); 'lễ' → lǐ (thanh 3). NGHĨA: 婚 kết hôn + 禮 nghi lễ → lễ cưới.",
+   "vd": [
+    {
+     "t": "Bạn bè",
+     "zh": "這個週末我要搭高鐵去台中參加大學好友的戶外婚禮。",
+     "vn": "Cuối tuần này tôi sẽ đi tàu cao tốc tới Đài Trung dự đám cưới ngoài trời của bạn thân đại học."
+    },
+    {
+     "t": "Chuẩn bị",
+     "zh": "為了籌備一場溫馨難忘的婚禮，這對新人提前半年就開始挑選場地與菜色。",
+     "vn": "Để chuẩn bị một đám cưới ấm cúng khó quên, cặp đôi tân hôn đã bắt đầu chọn địa điểm và thực đơn trước nửa năm."
+    },
+    {
+     "t": "Phong tục",
+     "zh": "在台灣參加親友的婚禮時，紅包金額通常會挑選雙數以討個吉利。",
+     "vn": "Khi dự đám cưới người thân bạn bè ở Đài Loan, tiền mừng phong bì thường chọn số chẵn để lấy may."
+    }
+   ]
+  },
+  "婚姻": {
+   "vn": "hôn nhân",
+   "ng": [
+    "(danh từ) hôn nhân, đời sống vợ chồng (美滿的婚姻 cuộc hôn nhân viên mãn, 婚姻生活 đời sống hôn nhân, 經營婚姻 vun đắp hôn nhân)"
+   ],
+   "us": "Dùng khi nói về mối quan hệ vợ chồng lâu dài, tình trạng hôn nhân (婚姻狀況) hoặc quan điểm về gia đình.",
+   "co": [
+    "婚姻生活|cuộc sống hôn nhân",
+    "美滿的婚姻|hôn nhân viên mãn",
+    "婚姻狀況|tình trạng hôn nhân",
+    "經營婚姻|vun đắp hôn nhân"
+   ],
+   "sy": [
+    "家庭|gia đình (rộng hơn)"
+   ],
+   "cf": [
+    "婚姻 vs 婚禮 vs 結婚|結婚 là hành động/sự kiện kết hôn; 婚禮 là buổi lễ cưới; 婚姻 là quan hệ và cuộc sống vợ chồng kéo dài."
+   ],
+   "lt": "段 (一段婚姻 một cuộc hôn nhân).",
+   "mk": "Trong form điền thông tin, 'tình trạng hôn nhân' là 婚姻狀況 (未婚 chưa kết hôn / 已婚 đã kết hôn).",
+   "tw": "Ở Đài Loan năm 2019 đã hợp pháp hóa 同性婚姻 (hôn nhân đồng giới — đầu tiên tại châu Á); các bài viết hay nhắc 婚姻需要雙方用心經營.",
+   "mh": "Hôn Nhân → hūnyīn. ĐỌC: 'hôn' → hūn (thanh 1); 'nhân' → yīn (thanh 1). NGHĨA: 婚 nhà trai cưới vợ + 姻 nhà gái gả chồng → quan hệ vợ chồng = hôn nhân.",
+   "vd": [
+    {
+     "t": "Quan điểm",
+     "zh": "長久的婚姻不只要靠愛情，更需要雙方在日常生活中互相體諒與包容。",
+     "vn": "Hôn nhân bền lâu không chỉ dựa vào tình yêu mà còn cần hai bên thấu hiểu và bao dung cho nhau trong đời sống hàng ngày."
+    },
+    {
+     "t": "Thủ tục",
+     "zh": "現代的履歷表通常不再要求應徵者填寫年齡或婚姻狀況，以落實職場平等。",
+     "vn": "Sơ yếu lý lịch hiện đại thường không còn yêu cầu ứng viên điền tuổi tác hay tình trạng hôn nhân để thực hiện bình đẳng nơi công sở."
+    },
+    {
+     "t": "Xã hội",
+     "zh": "許多人認為進入婚姻前，應該先對財務規劃和育兒觀念達成共識。",
+     "vn": "Nhiều người cho rằng trước khi bước vào hôn nhân nên thống nhất trước về kế hoạch tài chính và quan điểm nuôi dạy con."
+    }
+   ]
+  },
+  "降低": {
+   "vn": "hạ thấp; giảm xuống",
+   "ng": [
+    "(động từ) làm giảm xuống, hạ thấp xuống (降低成本 giảm chi phí, 降低風險 giảm rủi ro, 溫度降低 nhiệt độ hạ xuống)"
+   ],
+   "us": "Dùng được cả làm ngoại động từ (降低 + 成本/標準/風險/音量) lẫn nội động từ (氣溫降低了). Cặp đối nghĩa chuẩn là 提高 (nâng cao).",
+   "co": [
+    "降低成本|giảm chi phí",
+    "降低風險|giảm rủi ro",
+    "降低標準|hạ thấp tiêu chuẩn",
+    "降低音量|hạ thấp âm lượng"
+   ],
+   "sy": [
+    "減少|giảm bớt (số lượng)",
+    "下降|giảm xuống (chỉ làm nội động từ)"
+   ],
+   "an": [
+    "提高|nâng cao",
+    "升高|tăng cao"
+   ],
+   "cf": [
+    "降低 vs 減少|降低 dùng cho mức độ, tỷ lệ, chi phí, nhiệt độ, rủi ro, tiêu chuẩn (hạ thấp mực); 減少 dùng cho số lượng đếm được (減少人數, 減少垃圾)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng nói *降低人數 ❌ để chỉ giảm số người — phải dùng 減少人數!",
+   "tw": "Trong tin tức kinh tế và sức khỏe Đài Loan cực hay gặp 降低碳排放 (giảm phát thải carbon), 降低感染風險 (giảm nguy cơ lây nhiễm).",
+   "mh": "Giáng Đê → jiàngdī. ĐỌC: 'giáng' → jiàng (gi- → j-, thanh 4); 'đê' → dī (đ- → d-, thanh 1). NGHĨA: 降 hạ xuống + 低 thấp → làm hạ thấp xuống = giảm xuống.",
+   "vd": [
+    {
+     "t": "Kinh doanh",
+     "zh": "透過自動化設備與流程優化，工廠成功將整體生產成本降低了兩成。",
+     "vn": "Thông qua thiết bị tự động hóa và tối ưu quy trình, nhà máy đã thành công giảm được 20% tổng chi phí sản xuất."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "規律運動搭配清淡飲食，能有效降低罹患慢性疾病的風險。",
+     "vn": "Tập thể dục đều đặn kết hợp ăn uống thanh đạm có thể giảm hiệu quả nguy cơ mắc bệnh mạn tính."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "夜間行經住宅區時請放慢車速並降低音量，避免影響居民休息。",
+     "vn": "Ban đêm đi qua khu dân cư vui lòng giảm tốc độ và hạ âm lượng để tránh ảnh hưởng giấc ngủ cư dân."
+    }
+   ]
+  },
+  "交友": {
+   "vn": "kết bạn; giao lưu kết bạn",
+   "ng": [
+    "(động từ ly hợp / danh từ) kết bạn, mở rộng mối quan hệ bạn bè hoặc tìm bạn hẹn hò (交友軟體 app hẹn hò/kết bạn, 交友圈 vòng tròn bạn bè, 擴大交友範圍 mở rộng quan hệ bạn bè)"
+   ],
+   "us": "Hơi trang trọng và gọn hơn 交朋友; thường dùng trong từ ghép: 交友軟體 (ứng dụng hẹn hò), 交友圈 (vòng bạn bè), 網路交友 (kết bạn qua mạng).",
+   "co": [
+    "交友軟體|ứng dụng kết bạn / hẹn hò",
+    "交友圈|vòng tròn bạn bè",
+    "網路交友|kết bạn qua mạng",
+    "交友謹慎|thận trọng khi kết bạn"
+   ],
+   "sy": [
+    "交朋友|kết bạn (khẩu ngữ hàng ngày)"
+   ],
+   "cf": [
+    "交友 vs 交朋友|交朋友 dùng trong câu khẩu ngữ (我很喜歡交朋友); 交友 hay dùng trong cụm định ngữ, bài báo (交友安全 an toàn khi kết bạn, 交友軟體)."
+   ],
+   "lt": "Động từ / Danh từ.",
+   "mk": "Trong khẩu ngữ hàng ngày nói 'tôi thích kết bạn' dùng 我喜歡交朋友 tự nhiên hơn *我喜歡交友.",
+   "tw": "Ở Đài Loan app hẹn hò (Tinder, Bumble, CMB…) đều gọi chung là 交友軟體; cảnh sát hay tuyên truyền 網路交友反詐騙 (chống lừa đảo khi kết bạn qua mạng — gọi 165).",
+   "mh": "Giao Hữu → jiāoyǒu. ĐỌC: 'giao' → jiāo (gi- → j-, thanh 1); 'hữu' → yǒu (thanh 3). NGHĨA: 交 giao lưu kết nối + 友 bạn bè → kết bạn.",
+   "vd": [
+    {
+     "t": "Xã hội",
+     "zh": "現代上班族生活圈比較固定，不少人會透過參加社團或使用交友軟體認識新朋友。",
+     "vn": "Dân văn phòng hiện đại vòng sinh hoạt khá cố định, không ít người tham gia câu lạc bộ hoặc dùng ứng dụng kết bạn để quen bạn mới."
+    },
+    {
+     "t": "An toàn",
+     "zh": "網路交友務必提高警覺，千萬不要輕易透露個人帳戶資訊或匯款給陌生人。",
+     "vn": "Khi kết bạn qua mạng nhất định phải nâng cao cảnh giác, tuyệt đối đừng dễ dàng tiết lộ thông tin tài khoản hay chuyển tiền cho người lạ."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "參加登山社和讀書會以後，她的交友圈明顯比以前寬廣了許多。",
+     "vn": "Sau khi tham gia câu lạc bộ leo núi và câu lạc bộ đọc sách, vòng tròn bạn bè của cô ấy rộng mở hơn trước rất nhiều."
+    }
+   ]
+  },
+  "加入": {
+   "vn": "gia nhập; tham gia vào; cho thêm vào",
+   "ng": [
+    "(động từ) gia nhập, trở thành thành viên của một tổ chức, nhóm, công ty (加入團隊 gia nhập đội ngũ, 加入會員 đăng ký thành viên)",
+    "(động từ) cho thêm, thêm nguyên liệu vào (加入一點鹽 cho thêm chút muối, 加入新元素 thêm yếu tố mới)"
+   ],
+   "us": "Dùng cho cả 'gia nhập tổ chức' (加入社團, 加入公司) lẫn 'thêm nguyên liệu/thành phần' (加入牛奶). Khác với 參加 (chỉ tham dự một buổi/sự kiện).",
+   "co": [
+    "加入會員|đăng ký thành viên",
+    "加入團隊|gia nhập đội nhóm",
+    "加入購物車|thêm vào giỏ hàng",
+    "加入社團|gia nhập câu lạc bộ"
+   ],
+   "sy": [
+    "參加|tham gia (sự kiện, hoạt động, cuộc thi)",
+    "添加|thêm vào (nguyên liệu, phụ gia)"
+   ],
+   "an": [
+    "退出|rút khỏi, rời khỏi"
+   ],
+   "cf": [
+    "加入 vs 參加|加入 nhấn mạnh trở thành thành viên lâu dài của nhóm/tổ chức (加入公司, 加入俱樂部) hoặc cho thêm vào; 參加 là tham dự hoạt động/sự kiện (參加會議, 參加比賽)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng nói *加入會議 ❌ khi ý là tham dự cuộc họp — hãy dùng 參加會議 (trừ khi nói 'vào phòng họp online' 加入線上會議).",
+   "tw": "Ở Đài Loan mua hàng online nút 'Thêm vào giỏ' là 加入購物車; vào siêu thị/quán uống nhân viên hay hỏi 有加入會員嗎？ (Bạn có đăng ký thành viên chưa?).",
+   "mh": "Gia Nhập → jiārù. ĐỌC: 'gia' → jiā (gi- → j-, thanh 1); 'nhập' → rù (nh- → r-, thanh 4). NGHĨA: 加 thêm vào + 入 đi vào trong → gia nhập, thêm vào.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "非常歡迎你加入我們的開發團隊，期待未來一起完成更多精彩的作品。",
+     "vn": "Rất chào đón bạn gia nhập đội ngũ phát triển của chúng tôi, mong chờ tương lai cùng hoàn thành thêm nhiều sản phẩm xuất sắc."
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "這道湯快煮好的時候再加入少許胡椒粉和蔥花，香氣會立刻提升。",
+     "vn": "Khi nồi canh này sắp chín hãy cho thêm một chút tiêu và hành lá, hương thơm sẽ dậy lên ngay."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "下載應用程式並免費加入會員，首次消費就能獲得現金折價券。",
+     "vn": "Tải ứng dụng và đăng ký thành viên miễn phí, lần mua đầu tiên sẽ nhận được phiếu giảm giá tiền mặt."
+    }
+   ]
+  },
+  "浪漫": {
+   "vn": "lãng mạn",
+   "ng": [
+    "(tính từ) lãng mạn, giàu chất thơ và tình cảm (浪漫的氣氛 bầu không khí lãng mạn, 浪漫的電影 phim lãng mạn, 浪漫主義 chủ nghĩa lãng mạn)"
+   ],
+   "us": "Dùng cho không khí, cảnh vật, hành động tình cảm hoặc tính cách. Từ phiên âm kết hợp ý nghĩa từ tiếng Anh 'romantic'.",
+   "co": [
+    "浪漫的氣氛|bầu không khí lãng mạn",
+    "浪漫約會|buổi hẹn hò lãng mạn",
+    "浪漫主義|chủ nghĩa lãng mạn",
+    "非常浪漫|vô cùng lãng mạn"
+   ],
+   "sy": [
+    "羅曼蒂克|lãng mạn (phiên âm cũ hơn)"
+   ],
+   "an": [
+    "現實|thực tế"
+   ],
+   "cf": [
+    "浪漫 vs 溫馨|浪漫 thiên về tình yêu đôi lứa, lung linh, giàu cảm xúc thơ mộng; 溫馨 thiên về sự ấm áp, gần gũi gia đình/bạn bè."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Chú ý chữ 漫 có bộ 氵 (nước — tràn đầy), đừng viết nhầm sang 慢 (chậm).",
+   "tw": "Ở Đài Loan địa điểm hẹn hò nổi tiếng 浪漫 là ngắm hoàng hôn 淡水漁人碼頭 (Bến Ngư Phủ Đạm Thủy) hoặc ngắm đèn đêm núi Dương Minh.",
+   "mh": "Lãng Mạn → làngmàn. ĐỌC: 'lãng' → làng (thanh 4); 'mạn' → màn (thanh 4). NGHĨA: 浪 sóng nước dạt dào + 漫 lan tỏa tự do → giàu cảm xúc bay bổng = lãng mạn.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "傍晚時分沿著淡水河畔散步欣賞橘紅色的夕陽，氣氛顯得格外浪漫。",
+     "vn": "Lúc chiều tà dạo bước dọc bờ sông Đạm Thủy ngắm hoàng hôn đỏ cam, bầu không khí trở nên đặc biệt lãng mạn."
+    },
+    {
+     "t": "Tình cảm",
+     "zh": "他雖然平常不擅長說甜言蜜語，但總會在紀念日悄悄準備浪漫的小驚喜。",
+     "vn": "Anh ấy tuy bình thường không giỏi nói lời đường mật, nhưng luôn âm thầm chuẩn bị bất ngờ nhỏ lãng mạn vào ngày kỷ niệm."
+    },
+    {
+     "t": "Nghệ thuật",
+     "zh": "這間老宅改建的餐廳點上柔和的黃色燈光，讓整個空間充滿法式浪漫氣息。",
+     "vn": "Nhà hàng cải tạo từ ngôi nhà cổ này thắp ánh đèn vàng dịu nhẹ, khiến cả không gian tràn đầy nét lãng mạn kiểu Pháp."
+    }
+   ]
+  },
+  "老公": {
+   "vn": "chồng, ông xã (khẩu ngữ thân mật)",
+   "ng": [
+    "(danh từ khẩu ngữ) chồng, ông xã (cách gọi thân mật phổ biến nhất trong đời sống hàng ngày ở Đài Loan)"
+   ],
+   "us": "Dùng trong giao tiếp thân mật với bạn bè, gia đình hoặc gọi trực tiếp chồng mình. Trong tình huống trang trọng (công sở, giấy tờ) nên dùng 先生 (chồng tôi) hoặc 丈夫.",
+   "co": [
+    "我老公|chồng tôi / ông xã tôi",
+    "好老公|người chồng tốt",
+    "叫老公|gọi chồng"
+   ],
+   "sy": [
+    "先生|chồng (lịch sự, chuẩn mực ở Đài Loan)",
+    "丈夫|chồng (trang trọng, văn viết)"
+   ],
+   "an": [
+    "老婆|vợ, bà xã"
+   ],
+   "cf": [
+    "老公 vs 先生|Ở Đài Loan, nói chuyện với bạn bè gọi chồng là 我老公; nói với sếp, khách hàng hay người mới quen gọi 我先生 cho lịch sự."
+   ],
+   "lt": "個, 位.",
+   "mk": "Trong phỏng vấn hoặc email công sở nên dùng 我先生 (chồng tôi), tránh dùng 我老公 vì quá thân mật.",
+   "tw": "Ở Đài Loan cả 老公 lẫn 先生 đều cực kỳ phổ biến; 老公 nghe gần gũi, dễ thương hơn.",
+   "mh": "Lão Công → lǎogōng. ĐỌC: 'lão' → lǎo (thanh 3); 'công' → gōng (c- → g-, thanh 1). NGHĨA: 老 gắn bó đến già + 公 người đàn ông trong nhà → ông xã, chồng.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "她跟朋友分享說，自己最慶幸的就是嫁給一位懂得體貼又會分擔家務的好老公。",
+     "vn": "Cô ấy chia sẻ với bạn bè rằng điều may mắn nhất là cưới được người chồng tốt biết quan tâm và san sẻ việc nhà."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "下班路上突然下起大雨，她趕緊打電話請老公帶傘到捷運站出口接她。",
+     "vn": "Trên đường tan làm trời bất ngờ mưa to, cô ấy vội gọi điện nhờ chồng mang ô ra cổng ga tàu điện ngầm đón."
+    },
+    {
+     "t": "Nấu ăn",
+     "zh": "每個週末她都會和老公一起去傳統市場買菜，回家合力煮一桌豐盛的料理。",
+     "vn": "Cuối tuần nào cô ấy cũng đi chợ truyền thống cùng chồng mua thức ăn, về nhà chung tay nấu một mâm cơm thịnh soạn."
+    }
+   ]
+  },
+  "老婆": {
+   "vn": "vợ, bà xã (khẩu ngữ thân mật)",
+   "ng": [
+    "(danh từ khẩu ngữ) vợ, bà xã (cách gọi thân mật phổ biến nhất trong đời sống hàng ngày)"
+   ],
+   "us": "Tương ứng với 老公, dùng thân mật khi nói chuyện với vợ hoặc kể với bạn bè. Trong môi trường trang trọng dùng 太太 (vợ tôi — chuẩn Đài Loan) hoặc 妻子.",
+   "co": [
+    "我老婆|vợ tôi / bà xã tôi",
+    "娶老婆|cưới vợ",
+    "老婆餅|bánh vợ (đặc sản bánh nướng)"
+   ],
+   "sy": [
+    "太太|vợ (lịch sự, chuẩn Đài Loan)",
+    "妻子|vợ (trang trọng, văn viết)"
+   ],
+   "an": [
+    "老公|chồng, ông xã"
+   ],
+   "cf": [
+    "老婆 vs 太太|Với bạn bè thân dùng 我老婆; với sếp, khách hàng hoặc người lớn tuổi dùng 我太太 (lưu ý ở Đài Loan không gọi vợ là 愛人 như cách cũ ở Đại Lục)."
+   ],
+   "lt": "個, 位.",
+   "mk": "Trong ngữ cảnh công sở nên dùng 我太太 thay cho 我老婆.",
+   "tw": "Ở Đài Loan bánh đặc sản Đài Trung có 太陽餅 và 老婆餅 (bánh nhân mứt bí dẻo ngọt rất ngon!).",
+   "mh": "Lão Bà → lǎopó. ĐỌC: 'lão' → lǎo (thanh 3); 'bà' → pó (thanh 2). NGHĨA: 老 cùng nhau đi tới tuổi già + 婆 người phụ nữ trong nhà → bà xã, vợ.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "他每天下班都會先傳訊息問老婆晚上想吃什麼，再順路買回家。",
+     "vn": "Ngày nào tan làm anh ấy cũng nhắn tin hỏi vợ tối muốn ăn gì trước rồi tiện đường mua về."
+    },
+    {
+     "t": "Kỷ niệm",
+     "zh": "為了慶祝結婚週年，他偷偷訂了老婆最喜歡的海景餐廳。",
+     "vn": "Để kỷ niệm ngày cưới, anh ấy bí mật đặt bàn ở nhà hàng view biển mà vợ thích nhất."
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "這家老餅舖做的手工老婆餅外皮酥脆、內餡香甜不膩，很適合作為伴手禮。",
+     "vn": "Bánh vợ thủ công ở tiệm bánh lâu đời này vỏ ngoài giòn rụm, nhân trong thơm ngọt không ngấy, rất hợp làm quà biếu."
+    }
+   ]
+  },
+  "戀愛": {
+   "vn": "yêu đương; tình yêu",
+   "ng": [
+    "(động từ / danh từ) yêu đương, đang trong mối quan hệ tình cảm (談戀愛 yêu đương, 初戀 mối tình đầu, 熱戀 đang yêu say đắm)"
+   ],
+   "us": "Thường đi kèm động từ 談 (談戀愛 = yêu đương, hẹn hò). Không nói *我戀愛他 ❌ — phải nói 我跟他談戀愛 hoặc 我愛他.",
+   "co": [
+    "談戀愛|yêu đương, hẹn hò",
+    "戀愛經驗|kinh nghiệm yêu đương",
+    "自由戀愛|tự do yêu đương",
+    "戀愛腦|mù quáng vì yêu (tiếng lóng)"
+   ],
+   "sy": [
+    "交往|hẹn hò, quen nhau (rất phổ biến ở Đài Loan)"
+   ],
+   "an": [
+    "失戀|thất tình"
+   ],
+   "cf": [
+    "談戀愛 vs 交往|談戀愛 nói chung về việc yêu đương; 交往 nhấn mạnh hai người đang chính thức quen nhau/hẹn hò (他們正在交往 Họ đang quen nhau)."
+   ],
+   "lt": "Động từ / Danh từ.",
+   "mk": "Đừng mang tân ngữ người trực tiếp sau 戀愛 (*戀愛她 ❌ → 跟她談戀愛 / 跟她交往).",
+   "tw": "Ở Đài Loan hỏi ai đó đang hẹn hò bao lâu thường dùng 交往 (你們交往多久了？), còn nói chung chuyện tình cảm dùng 談戀愛.",
+   "mh": "Luyến Ái → liàn'ài. ĐỌC: 'luyến' → liàn (thanh 4); 'ái' → ài (thanh 4). NGHĨA: 戀 lưu luyến nhớ nhung + 愛 yêu thương → yêu đương.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "談戀愛不只是分享快樂，更重要的是在遇到低潮時能夠彼此扶持。",
+     "vn": "Yêu đương không chỉ là chia sẻ niềm vui, quan trọng hơn là có thể nâng đỡ nhau khi gặp giai đoạn khó khăn."
+    },
+    {
+     "t": "Sinh viên",
+     "zh": "有些大學生認為，在課業與社團之外談一場純粹的戀愛也是青春的美好回憶。",
+     "vn": "Một số sinh viên cho rằng bên cạnh việc học và câu lạc bộ, trải qua một mối tình trong sáng cũng là ký ức đẹp của tuổi trẻ."
+    },
+    {
+     "t": "Tâm lý",
+     "zh": "就算在戀愛關係中，雙方也應該保留各自的興趣與交友空間。",
+     "vn": "Dù ở trong mối quan hệ yêu đương, hai bên cũng nên giữ lại sở thích và không gian bạn bè riêng của mỗi người."
+    }
+   ]
+  },
+  "離婚": {
+   "vn": "ly hôn",
+   "ng": [
+    "(động từ ly hợp) ly hôn, chấm dứt quan hệ vợ chồng về mặt pháp lý (辦理離婚 làm thủ tục ly hôn, 跟他離婚 ly hôn với anh ấy)"
+   ],
+   "us": "Động từ ly hợp giống 結婚: KHÔNG mang tân ngữ trực tiếp (*離婚他 ❌). Phải dùng 跟/和 + người + 離婚 (他們決定和平離婚 Họ quyết định ly hôn trong hòa bình).",
+   "co": [
+    "離婚協議書|đơn thỏa thuận ly hôn",
+    "辦理離婚|làm thủ tục ly hôn",
+    "離婚率|tỷ lệ ly hôn",
+    "和平離婚|ly hôn trong hòa bình"
+   ],
+   "sy": [
+    "分居|ly thân (chưa chấm dứt pháp lý)"
+   ],
+   "an": [
+    "結婚|kết hôn"
+   ],
+   "cf": [
+    "離婚 vs 分手|離婚 là chấm dứt hôn nhân hợp pháp giữa vợ chồng; 分手 là chia tay giữa người yêu chưa kết hôn."
+   ],
+   "lt": "Động từ ly hợp: 離過婚 (đã từng ly hôn).",
+   "mk": "Đừng nói *她離婚前夫 ❌ → phải nói 她跟前夫離婚了.",
+   "tw": "Ở Đài Loan thủ tục ly hôn đồng thuận (協議離婚) cũng làm tại 戶政事務所 (Cơ quan hộ tịch) với chữ ký 2 người làm chứng.",
+   "mh": "Ly Hôn → líhūn. ĐỌC: 'ly' → lí (thanh 2); 'hôn' → hūn (thanh 1). NGHĨA: 離 rời xa + 婚 hôn nhân → chấm dứt hôn nhân = ly hôn.",
+   "vd": [
+    {
+     "t": "Xã hội",
+     "zh": "這份社會調查報告指出，溝通不良與經濟壓力是造成現代夫妻離婚的主要原因。",
+     "vn": "Báo cáo khảo sát xã hội này chỉ ra rằng giao tiếp kém và áp lực kinh tế là nguyên nhân chính khiến vợ chồng hiện đại ly hôn."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "即使父母選擇離婚，雙方仍然應該共同關心孩子的情緒與成長需求。",
+     "vn": "Dù cha mẹ chọn ly hôn, cả hai vẫn nên cùng nhau quan tâm tới cảm xúc và nhu cầu trưởng thành của con cái."
+    },
+    {
+     "t": "Pháp lý",
+     "zh": "雙方在律師見證下簽署離婚協議書，並約定好後續的財產分配方式。",
+     "vn": "Hai bên ký thỏa thuận ly hôn trước sự chứng kiến của luật sư và thống nhất cách phân chia tài sản sau đó."
+    }
+   ]
+  },
+  "錄取": {
+   "vn": "trúng tuyển; được nhận (vào trường, công ty)",
+   "ng": [
+    "(động từ) trúng tuyển, được tuyển chọn vào trường học, công ty, chương trình học bổng (順利錄取 trúng tuyển suôn sẻ, 錄取通知書 giấy báo trúng tuyển, 錄取率 tỷ lệ trúng tuyển)"
+   ],
+   "us": "Dùng ở cả thể chủ động (公司錄取了他 Công ty đã nhận anh ấy) lẫn bị động (他被錄取了 / 他錄取了 Anh ấy trúng tuyển rồi).",
+   "co": [
+    "錄取通知書|giấy báo trúng tuyển / thư mời nhận việc",
+    "錄取率|tỷ lệ trúng tuyển",
+    "順利錄取|trúng tuyển suôn sẻ",
+    "正式錄取|trúng tuyển chính thức"
+   ],
+   "sy": [
+    "入選|được chọn vào danh sách",
+    "聘用|tuyển dụng (công ty thuê nhân sự)"
+   ],
+   "an": [
+    "落榜|thi trượt, không trúng tuyển"
+   ],
+   "cf": [
+    "錄取 vs 考上|考上 chỉ riêng việc thi đỗ (kỳ thi tuyển sinh, công chức); 錄取 dùng rộng cho cả thi đỗ đại học, nhận học bổng lẫn trúng tuyển phỏng vấn xin việc."
+   ],
+   "lt": "Động từ.",
+   "mk": "Trong tuyển dụng ở Đài Loan, thư nhận việc (offer letter) gọi 錄取通知 (lùqǔ tōngzhī).",
+   "tw": "Ở Đài Loan đậu phỏng vấn xin việc hay nói 收到錄取通知 (nhận được offer) hoặc 拿到 offer; còn đậu dự bị gọi 備取 (chính thức là 正取).",
+   "mh": "Lục Thủ → lùqǔ. ĐỌC: 'lục' → lù (thanh 4); 'thủ' → qǔ (thanh 3). NGHĨA: 錄 ghi tên vào danh sách + 取 chọn lấy → chọn nhận vào = trúng tuyển.",
+   "vd": [
+    {
+     "t": "Phỏng vấn",
+     "zh": "面試結束三天後，她終於收到夢寐以求的科技公司寄來的錄取通知。",
+     "vn": "Ba ngày sau khi phỏng vấn xong, cô ấy cuối cùng đã nhận được thư báo trúng tuyển từ công ty công nghệ mơ ước."
+    },
+    {
+     "t": "Học tập",
+     "zh": "這項海外獎學金每年申請人數眾多，錄取率不到百分之十，競爭相當激烈。",
+     "vn": "Học bổng du học này mỗi năm rất đông người nộp đơn, tỷ lệ trúng tuyển chưa tới mười phần trăm, cạnh tranh khá khốc liệt."
+    },
+    {
+     "t": "Tuyển dụng",
+     "zh": "他憑著流利的雙語能力和扎實的實習作品集，順利獲得多家企業錄取。",
+     "vn": "Nhờ khả năng song ngữ lưu loát và bộ sản phẩm thực tập chắc tay, anh ấy thuận lợi được nhiều doanh nghiệp tuyển nhận."
+    }
+   ]
+  },
+  "搶": {
+   "vn": "giành, tranh giành; cướp; tranh thủ",
+   "ng": [
+    "(động từ) tranh nhau mua/giành lấy (搶票 săn vé, 搶購 tranh mua, 搶著說話 tranh nhau nói)",
+    "(động từ) cướp giật (搶劫 cướp của, 搶銀行 cướp ngân hàng)",
+    "(động từ) tranh thủ gấp (搶時間 chạy đua thời gian, 搶修 sửa chữa khẩn cấp)"
+   ],
+   "us": "Dùng cực kỳ phổ biến trong đời sống hiện đại với nghĩa 'săn/giành nhanh kẻo hết' (搶高鐵票 săn vé tàu cao tốc dịp Tết, 搶演唱會門票 săn vé concert).",
+   "co": [
+    "搶票|săn vé",
+    "搶購|tranh nhau mua",
+    "搶劫|cướp giật",
+    "搶修|sửa chữa khẩn cấp"
+   ],
+   "sy": [
+    "爭奪|tranh đoạt (trang trọng hơn)",
+    "奪取|đoạt lấy"
+   ],
+   "an": [
+    "讓|nhường"
+   ],
+   "cf": [
+    "搶 vs 偷|偷 là lấy trộm lén lút khi chủ không biết; 搶 là giật/cướp công khai trước mặt hoặc tranh giành quyết liệt."
+   ],
+   "lt": "Động từ.",
+   "mk": "Khi nói 搶票 (săn vé) hoàn toàn là nghĩa đời thường bình thường, không mang nghĩa phạm pháp!",
+   "tw": "Ở Đài Loan mỗi dịp Tết hay lễ dài, cảnh quen thuộc nhất là nửa đêm thức dậy 搶火車票 / 搶高鐵票 (canh giờ săn vé tàu) và 搶演唱會門票.",
+   "mh": "Thưởng → qiǎng. ĐỌC: 'thưởng' ở đây đọc qiǎng (thanh 3). NGHĨA: 扌 bàn tay + 倉 kho chứa → đưa tay giật nhanh về mình = giành, cướp.",
+   "vd": [
+    {
+     "t": "Giao thông",
+     "zh": "每逢春節連假開賣返鄉車票時，大家都要在午夜十二點準時上網搶票。",
+     "vn": "Mỗi dịp mở bán vé về quê nghỉ Tết, mọi người đều phải đúng mười hai giờ đêm lên mạng săn vé."
+    },
+    {
+     "t": "Khẩn cấp",
+     "zh": "颱風造成山區部分路段坍方停電，台電人員正冒雨全力搶修中。",
+     "vn": "Bão khiến một số đoạn đường miền núi sạt lở mất điện, nhân viên điện lực Đài Loan đang dầm mưa dốc sức sửa chữa khẩn cấp."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這家名店的限量中秋月餅一開放預購，不到五分鐘就被民眾搶購一空。",
+     "vn": "Bánh trung thu phiên bản giới hạn của tiệm nổi tiếng này vừa mở đặt trước chưa đầy năm phút đã bị người dân tranh mua sạch."
+    }
+   ]
+  },
+  "情人": {
+   "vn": "người yêu; tình nhân",
+   "ng": [
+    "(danh từ) người yêu, cặp tình nhân (情人節 Lễ Tình nhân, 夢中情人 người trong mộng, 戀愛中的情人 đôi tình nhân)"
+   ],
+   "us": "Thường gặp nhất trong dịp lễ 情人節 (14/2 — 西洋情人節 và mùng 7/7 âm lịch — 七夕情人節) và các cụm cố định (夢中情人). Trong giao tiếp bình thường giới thiệu người yêu của mình ít dùng 情人, mà dùng 男朋友 / 女朋友 / 另一半.",
+   "co": [
+    "情人節|Lễ Tình nhân (14/2)",
+    "七夕情人節|Lễ Thất Tịch (7/7 âm lịch)",
+    "夢中情人|người trong mộng",
+    "情侶|cặp đôi yêu nhau"
+   ],
+   "sy": [
+    "戀人|người yêu (thơ mộng, văn chương)",
+    "情侶|đôi tình nhân (dùng cho cả hai người)"
+   ],
+   "cf": [
+    "情人 vs 情侶|情人 chỉ từng cá nhân (người yêu) hoặc dùng trong tên ngày lễ 情人節; 情侶 chỉ cả cặp đôi đang yêu nhau (一對情侶 một cặp đôi)."
+   ],
+   "lt": "個, 對.",
+   "mk": "Chú ý: giới thiệu người yêu với bạn bè không nói *這是我的情人 ❌ (nghe giống 'nhân tình' ngoài luồng!) — hãy nói 這是我的男朋友 / 女朋友.",
+   "tw": "Ở Đài Loan ăn mừng tới 3 dịp 情人節 mỗi năm: 2/14 (西洋情人節), 3/14 (白色情人節) và mùng 7/7 âm lịch (七夕情人節).",
+   "mh": "Tình Nhân → qíngrén. ĐỌC: 'tình' → qíng (t- → q-, thanh 2); 'nhân' → rén (nh- → r-, thanh 2). NGHĨA: 情 tình cảm + 人 người → người yêu, tình nhân.",
+   "vd": [
+    {
+     "t": "Ngày lễ",
+     "zh": "西洋情人節這天，花店裡的玫瑰花和特色餐廳的座位幾乎都早早被預訂一空。",
+     "vn": "Ngày Lễ Tình nhân phương Tây này, hoa hồng ở tiệm hoa và bàn ở các nhà hàng đặc sắc hầu như đều bị đặt kín từ sớm."
+    },
+    {
+     "t": "Văn hóa",
+     "zh": "每年農曆七月七日是傳統的七夕情人節，許多城市都會舉辦浪漫的煙火活動。",
+     "vn": "Mùng bảy tháng bảy âm lịch hàng năm là lễ Thất Tịch truyền thống, nhiều thành phố đều tổ chức bắn pháo hoa lãng mạn."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "不管有沒有伴侶，只要懂得好好愛自己，每一天都能過得像情人節一樣開心。",
+     "vn": "Dù có bạn đời hay chưa, chỉ cần biết yêu thương bản thân thật tốt thì ngày nào cũng vui như Lễ Tình nhân."
+    }
+   ]
+  },
+  "失戀": {
+   "vn": "thất tình",
+   "ng": [
+    "(động từ ly hợp) thất tình, tan vỡ tình cảm (失戀了 thất tình rồi, 失戀的痛苦 nỗi đau thất tình)"
+   ],
+   "us": "Nội động từ, không mang tân ngữ. Thường dùng 失戀了 (đang/vừa thất tình) hoặc 失戀過 (từng thất tình).",
+   "co": [
+    "失戀了|thất tình rồi",
+    "走過失戀|vượt qua cú sốc thất tình",
+    "失戀情歌|nhạc buồn thất tình"
+   ],
+   "sy": [
+    "分手|chia tay (hành động chấm dứt mối quan hệ)"
+   ],
+   "an": [
+    "熱戀|đang yêu say đắm"
+   ],
+   "cf": [
+    "失戀 vs 分手|分手 là hành động chia tay giữa hai người (我們分手了); 失戀 nhấn mạnh cảm giác mất mát, đau buồn khi tình yêu tan vỡ hoặc đơn phương bị từ chối."
+   ],
+   "lt": "Động từ ly hợp.",
+   "mk": "Đừng nói *我失戀他 ❌ — 失戀 không mang tân ngữ người phía sau.",
+   "tw": "Ở Đài Loan bạn bè an ủi người 失戀 hay rủ đi hát KTV (唱失戀情歌) hoặc ăn đồ ngọt giải sầu.",
+   "mh": "Thất Luyến → shīliàn. ĐỌC: 'thất' → shī (th- → sh-, thanh 1); 'luyến' → liàn (thanh 4). NGHĨA: 失 đánh mất + 戀 tình yêu → đánh mất tình yêu = thất tình.",
+   "vd": [
+    {
+     "t": "An ủi",
+     "zh": "好朋友最近剛失戀心情很低落，週末我打算陪他去海邊散散心。",
+     "vn": "Bạn thân dạo này mới thất tình tâm trạng rất chán nản, cuối tuần tôi định đi biển giải khuây cùng cậu ấy."
+    },
+    {
+     "t": "Trưởng thành",
+     "zh": "失戀雖然讓人難過，但也是重新認識自己、學習獨立成長的過程。",
+     "vn": "Thất tình tuy khiến người ta buồn bã, nhưng cũng là quá trình nhìn nhận lại bản thân và học cách trưởng thành độc lập."
+    },
+    {
+     "t": "Âm nhạc",
+     "zh": "這首經典抒情歌旋律溫柔動人，陪伴許多人度過了失戀的低潮期。",
+     "vn": "Bản nhạc trữ tình kinh điển này giai điệu dịu dàng lay động, đã đồng hành cùng nhiều người vượt qua giai đoạn suy sụp vì thất tình."
+    }
+   ]
+  },
+  "省": {
+   "vn": "tiết kiệm; giảm bớt, đỡ; tỉnh (địa lý)",
+   "ng": [
+    "(động từ) tiết kiệm, giảm bớt (省錢 tiết kiệm tiền, 省時間 tiết kiệm thời gian, 省事 đỡ rắc rối, 省電 tiết kiệm điện)",
+    "(danh từ) tỉnh (đơn vị hành chính: 台灣省, 省道 quốc lộ cấp tỉnh)"
+   ],
+   "us": "Ở trình độ B1 nghĩa động từ 'tiết kiệm/đỡ tốn' là quan trọng nhất: 省 + 錢 / 時間 / 力氣 / 電 / 麻煩. Chú ý chữ 省 còn âm đọc xǐng = tự kiểm điểm (反省 tự kiểm điểm).",
+   "co": [
+    "省錢|tiết kiệm tiền",
+    "省時間|tiết kiệm thời gian",
+    "省電|tiết kiệm điện",
+    "省事|đỡ phiền phức, gọn việc"
+   ],
+   "sy": [
+    "節省|tiết kiệm (trang trọng, 2 âm tiết)",
+    "節約|tiết kiệm (tài nguyên, năng lượng)"
+   ],
+   "an": [
+    "浪費|lãng phí",
+    "費|tốn kém"
+   ],
+   "cf": [
+    "省 vs 存|省 là giảm chi tiêu, đỡ tốn (省錢 chi ít đi); 存 là cất giữ tiền tích lũy lại (存錢 gửi tiết kiệm)."
+   ],
+   "lt": "Động từ (shěng) / Danh từ (shěng). Chú ý âm thứ hai xǐng trong 反省 (fǎnxǐng = tự kiểm điểm).",
+   "mk": "Đừng đọc 反省 thành *fǎnshěng ❌ — phải đọc là fǎnxǐng!",
+   "tw": "Ở Đài Loan có cụm rất hay: 省得… (đỡ phải…: 早點出門，省得塞車 Ra sớm chút đỡ phải kẹt xe) và 省荷包 (tiết kiệm ví tiền).",
+   "mh": "Tỉnh → shěng. ĐỌC: 'tỉnh' ở đây đọc shěng (thanh 3). NGHĨA: 少 ít đi + 目 nhìn xét → cắt giảm bớt đi = tiết kiệm; đơn vị tỉnh.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "自己在家煮飯不但比天天外食健康，一個月下來還能省下不少生活費。",
+     "vn": "Tự nấu cơm ở nhà không chỉ lành mạnh hơn ăn ngoài mỗi ngày mà một tháng còn tiết kiệm được kha khá sinh hoạt phí."
+    },
+    {
+     "t": "Môi trường",
+     "zh": "挑選有節能標章的變頻冷氣，長期使用下來既環保又非常省電。",
+     "vn": "Chọn máy lạnh Inverter có nhãn tiết kiệm năng lượng, dùng lâu dài vừa bảo vệ môi trường vừa rất tiết kiệm điện."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "這條新開通的快速道路讓通勤族每天至少省了二十分鐘的車程。",
+     "vn": "Tuyến đường cao tốc mới thông xe này giúp người đi làm mỗi ngày tiết kiệm được ít nhất hai mươi phút đi đường."
+    }
+   ]
+  },
+  "心意": {
+   "vn": "tấm lòng; thành ý",
+   "ng": [
+    "(danh từ) tấm lòng chân thành, ý tốt dành cho người khác (一點心意 chút tấm lòng, 領情/收下心意 nhận tấm lòng)"
+   ],
+   "us": "Thường dùng khi tặng quà (一點小心意 chút quà mọn/tấm lòng nhỏ) hoặc cảm ơn sự quan tâm của người khác (謝謝你的心意 Cảm ơn tấm lòng của bạn).",
+   "co": [
+    "一點心意|chút tấm lòng",
+    "表達心意|bày tỏ tấm lòng",
+    "領受心意|đón nhận tấm lòng",
+    "心意相通|tâm đầu ý hợp"
+   ],
+   "sy": [
+    "誠意|thành ý (nhấn mạnh sự chân thành trong lời nói/hành động)",
+    "情意|tình nghĩa"
+   ],
+   "cf": [
+    "心意 vs 意思|心意 là tấm lòng yêu thương, biết ơn gửi gắm qua món quà/hành động; 意思 là ý nghĩa của từ/câu hoặc ý định."
+   ],
+   "lt": "份, 點 (一份心意 / 一點小心意).",
+   "mk": "Khi tặng quà cho đối tác hoặc người lớn ở Đài Loan, câu khiêm tốn chuẩn mực là 這是我的一點小心意，請您笑納 (Đây là chút tấm lòng nhỏ của tôi, xin hãy nhận cho).",
+   "tw": "Ở Đài Loan khi muốn từ chối khéo quà tặng đắt tiền hay nói 心意我收下了，禮物真的不用這麼客氣！(Tấm lòng tôi xin nhận, còn quà thật sự không cần khách sáo thế đâu!).",
+   "mh": "Tâm Ý → xīnyì. ĐỌC: 'tâm' → xīn (t- → x-, thanh 1); 'ý' → yì (thanh 4). NGHĨA: 心 trái tim + 意 ý niệm → ý tốt xuất phát từ trái tim = tấm lòng.",
+   "vd": [
+    {
+     "t": "Tặng quà",
+     "zh": "這盒茶葉是我回故鄉時特別挑選的，一點小心意，希望老師會喜歡。",
+     "vn": "Hộp trà này là em đặc biệt chọn khi về quê, chút tấm lòng nhỏ, mong thầy sẽ thích."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "送禮最重要的不是價格高低，而是背後那份真誠關懷對方的心意。",
+     "vn": "Tặng quà quan trọng nhất không phải giá tiền cao hay thấp, mà là tấm lòng quan tâm chân thành đằng sau đó."
+    },
+    {
+     "t": "Từ chối khéo",
+     "zh": "您的心意我完全領會了，不過這件禮物實在太貴重，我真的不好意思收下。",
+     "vn": "Tấm lòng của anh/chị tôi hoàn toàn hiểu, nhưng món quà này thực sự quá quý giá, tôi thật ngại nhận."
+    }
+   ]
+  }
+ }
+}

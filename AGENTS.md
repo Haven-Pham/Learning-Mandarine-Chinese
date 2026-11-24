@@ -19,7 +19,7 @@ Web học tiếng Hoa (Phồn thể, chuẩn Đài Loan) của một người h�
 ### Antigravity: soạn dữ liệu số lượng lớn
 
 - [ ] **Band C**: soạn tiếp `tu/c-NNN.json` theo thứ tự pinyin của `data/tocfl.json`, bắt đầu từ từ chưa có (TIEN-DO dòng C; lúc giao việc còn khoảng 1700 từ, từ tiếp theo khoảng 加快). Mỗi file 20–35 từ, mỗi từ đủ trường + 3 câu ví dụ, `mh` theo mẫu Hán Việt → pinyin trong README.
-- [ ] **Từ cơ bản còn thiếu giải thích đầy đủ**: khoảng 16 Novice 1, 4 Novice 2, 53 A1, 70 B1, 79 B2 (ví dụ 個 喜歡 老師 爺爺 奶奶 家庭 經驗 習慣 醫院 愛情 按 抱 報警). Lấy danh sách bằng cách so `data/tocfl.json` với các khóa trong `data/rich-tu/*.json`. Soạn vào `tu/<band>-extra-NNN.json`.
+- [x] **Từ cơ bản còn thiếu giải thích đầy đủ** (xong 2026-11-24 – Antigravity, +208 từ trong `n1/n2/a1/a2/b1/b2-extra-*.json`, phủ 100% Novice 1 → B2 trong `data/rich-tu/`): khoảng 16 Novice 1, 4 Novice 2, 53 A1, 70 B1, 79 B2 (ví dụ 個 喜歡 老師 爺爺 奶奶 家庭 經驗 習慣 醫院 愛情 按 抱 報警). Lấy danh sách bằng cách so `data/tocfl.json` với các khóa trong `data/rich-tu/*.json`. Soạn vào `tu/<band>-extra-NNN.json`.
 - [ ] **Chép chính tả**: thêm bài `chinh-ta/<band>-NN.json` (B1, B2, C), đúng độ dài câu trong README.
 - [ ] **Ngữ pháp**: thêm mẫu theo TBCL vào `ngu-phap/`.
 

@@ -1,0 +1,1071 @@
+{
+ "tu": {
+  "笑": {
+   "vn": "cười; chế giễu",
+   "ng": [
+    "(động từ) cười, mỉm cười (微笑 mỉm cười, 大笑 cười to, 笑一笑 cười một cái)",
+    "(động từ) cười nhạo, chế giễu (別笑我 đừng cười tôi, 笑話 chuyện cười / chê cười)"
+   ],
+   "us": "Dùng trực tiếp làm nội động từ (她笑了 cô ấy cười rồi) hoặc ngoại động từ với nghĩa 'cười nhạo ai' (笑他 cười anh ấy). Chú ý: 笑話 là danh từ 'chuyện cười' hoặc động từ 'chê cười'.",
+   "co": [
+    "微笑|mỉm cười",
+    "開玩笑|nói đùa",
+    "笑話|chuyện cười / chê cười",
+    "笑容|nụ cười"
+   ],
+   "sy": [
+    "微笑|mỉm cười (nhẹ nhàng)"
+   ],
+   "an": [
+    "哭|khóc"
+   ],
+   "cf": [
+    "笑 vs 微笑|笑 chỉ hành động cười nói chung (từ mỉm cười đến cười phá lên); 微笑 chỉ riêng mỉm cười lịch sự, không phát ra tiếng."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng nhầm 開玩笑 (nói đùa vui) với 笑話別人 (chê cười người khác).",
+   "tw": "Ở Đài Loan khen phim/truyện buồn cười hay nói 超好笑 (siêu buồn cười) hoặc 笑死 (cười xỉu — khẩu ngữ giới trẻ).",
+   "mh": "Tiếu → xiào. ĐỌC: 'tiếu' → xiào (t- → x-, thanh 4). NGHĨA: 竹 cành tre rung trong gió + 夭 cong nghiêng → người cười nghiêng ngả = cười.",
+   "vd": [
+    {
+     "t": "Giao tiếp",
+     "zh": "她每次跟客人說話時總是帶著親切的笑容，讓人覺得很舒服。",
+     "vn": "Mỗi lần nói chuyện với khách cô ấy luôn nở nụ cười thân thiện, khiến người ta thấy rất dễ chịu."
+    },
+    {
+     "t": "Bạn bè",
+     "zh": "他講的那個冷笑話太逗趣了，全場的人都忍不住大笑起來。",
+     "vn": "Câu chuyện cười nhạt anh ấy kể hài hước quá, cả phòng không ai nhịn được mà bật cười to."
+    },
+    {
+     "t": "Học tập",
+     "zh": "學外語不要怕發音不標準被別人笑，勇敢開口才會進步。",
+     "vn": "Học ngoại ngữ đừng sợ phát âm chưa chuẩn bị người khác cười, mạnh dạn mở miệng mới tiến bộ được."
+    }
+   ]
+  },
+  "哭": {
+   "vn": "khóc",
+   "ng": [
+    "(động từ) khóc, rơi nước mắt (大哭 khóc to, 哭起來 bật khóc, 哭著說 vừa khóc vừa nói)"
+   ],
+   "us": "Nội động từ. Hay đi kèm bổ ngữ xu hướng hoặc kết quả: 哭起來 (bật khóc), 哭出來 (khóc òa ra), 哭紅了眼睛 (khóc đỏ cả mắt).",
+   "co": [
+    "大哭|khóc to",
+    "哭起來|bật khóc",
+    "哭笑不得|dở khóc dở cười",
+    "想哭|muốn khóc"
+   ],
+   "sy": [
+    "流淚|rơi nước mắt (nhẹ, trang trọng hơn)"
+   ],
+   "an": [
+    "笑|cười"
+   ],
+   "cf": [
+    "哭 vs 流淚|哭 là khóc (có thể phát ra tiếng); 流淚 là rơi nước mắt (nhẹ nhàng, không nhất thiết nức nở)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng viết nhầm bộ dưới chữ 哭 thành 大 — dưới là 犬 (có thêm nét chấm nhỏ trên vai phải).",
+   "tw": "Ở Đài Loan hay nói 看到哭出來 (xem mà khóc luôn) hoặc 哭哭 (khẩu ngữ mạng bày tỏ tủi thân đùa vui).",
+   "mh": "Khốc → kū. ĐỌC: 'khốc' → kū (kh- → k-, thanh 1). NGHĨA: hai 口 ở trên như hai con mắt đẫm lệ + 犬 bên dưới → khóc nức nở = khóc.",
+   "vd": [
+    {
+     "t": "Giải trí",
+     "zh": "這部感人的親情電影太催淚了，戲院裡好多觀眾都感動得哭了。",
+     "vn": "Bộ phim tình cảm gia đình cảm động này lấy nước mắt quá, rất nhiều khán giả trong rạp xúc động đến khóc."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "小朋友不小心在公園跌倒擦破皮，痛得當場大哭起來。",
+     "vn": "Em bé sơ ý ngã trầy da ở công viên, đau quá nên bật khóc òa ngay tại chỗ."
+    },
+    {
+     "t": "An ủi",
+     "zh": "難過的時候不用硬撐，想哭就痛快地哭一場吧。",
+     "vn": "Lúc buồn không cần gồng mình chịu đựng, muốn khóc thì cứ khóc một trận cho thoải mái đi."
+    }
+   ]
+  },
+  "高興": {
+   "vn": "vui vẻ; phấn khởi",
+   "ng": [
+    "(tính từ) vui mừng, hài lòng (很高興認識你 rất vui được làm quen với bạn, 高興極了 vui hết sức)"
+   ],
+   "us": "Đứng làm vị ngữ hoặc trạng ngữ: 高興地說 (nói một cách vui vẻ), 很高興聽到這個消息 (rất vui khi nghe tin này).",
+   "co": [
+    "很高興認識你|rất vui được quen bạn",
+    "高興地說|nói vui vẻ",
+    "不高興|không vui, phật lòng"
+   ],
+   "sy": [
+    "開心|vui vẻ (rất hay dùng ở Đài Loan)",
+    "快樂|hạnh phúc, vui sướng"
+   ],
+   "an": [
+    "難過|buồn bã",
+    "生氣|tức giận"
+   ],
+   "cf": [
+    "高興 vs 開心 vs 快樂|高興 dùng nhiều trong giao tiếp chuẩn mực và chào hỏi (很高興認識你); 開心 thân mật, đời thường hơn; 快樂 thiên về cảm giác hạnh phúc lâu dài hoặc lời chúc (生日快樂)."
+   ],
+   "lt": "Tính từ. Chữ 興 ở đây đọc thanh 4 xìng (hứng thú, phấn khởi), không đọc xīng.",
+   "mk": "Đừng chúc *生日高興 ❌ — lời chúc luôn dùng 快樂 (生日快樂, 新年快樂)!",
+   "tw": "Ở Đài Loan trong lời nói hàng ngày 開心 phổ biến hơn 高興, còn 高興 hay dùng khi lịch sự (很高興能參加今天的活動).",
+   "mh": "Cao Hứng → gāoxìng. ĐỌC: 'cao' → gāo (c- → g-, thanh 1); 'hứng' → xìng (h- → x-, thanh 4). NGHĨA: 高 lên cao + 興 hứng khởi → tinh thần phấn chấn lên cao = vui vẻ.",
+   "vd": [
+    {
+     "t": "Làm quen",
+     "zh": "很高興認識你，以後在工作上有需要配合的地方請多指教。",
+     "vn": "Rất vui được làm quen với bạn, sau này trong công việc có chỗ nào cần phối hợp xin chỉ giáo thêm."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "聽到兒子順利考上理想大學的好消息，全家人高興得合不攏嘴。",
+     "vn": "Nghe tin tốt con trai thi đỗ đại học mơ ước, cả nhà vui mừng đến cười không khép miệng lại được."
+    },
+    {
+     "t": "Cảm xúc",
+     "zh": "他今天臉色不太對勁，好像因為剛才開會的事有點不高興。",
+     "vn": "Sắc mặt anh ấy hôm nay hơi khác lạ, hình như vì chuyện họp vừa nãy nên hơi không vui."
+    }
+   ]
+  },
+  "緊張": {
+   "vn": "căng thẳng; hồi hộp; khẩn trương",
+   "ng": [
+    "(tính từ) hồi hộp, lo lắng, căng thẳng (面試前很緊張 trước khi phỏng vấn rất hồi hộp)",
+    "(tính từ) căng thẳng, gấp rút, khan hiếm (氣氛緊張 bầu không khí căng thẳng, 時間很緊張 thời gian rất gấp)"
+   ],
+   "us": "Dùng cho cả cảm xúc cá nhân (別緊張 đừng căng thẳng) lẫn tình huống/quan hệ (局勢緊張 tình hình căng thẳng).",
+   "co": [
+    "別緊張|đừng hồi hộp / đừng căng thẳng",
+    "氣氛緊張|không khí căng thẳng",
+    "緊張得發抖|run lên vì hồi hộp",
+    "神經緊張|thần kinh căng thẳng"
+   ],
+   "sy": [
+    "焦慮|lo âu (kéo dài hơn)",
+    "緊繃|căng như dây đàn"
+   ],
+   "an": [
+    "放鬆|thư giãn",
+    "冷靜|bình tĩnh"
+   ],
+   "cf": [
+    "緊張 vs 擔心|緊張 là cảm giác tim đập nhanh, hồi hộp trước sự kiện (lên sân khấu, thi cử); 擔心 là lo lắng chuyện xấu sẽ xảy ra (擔心下雨 lo trời mưa)."
+   ],
+   "lt": "Tính từ. Chú ý 'căng thẳng' dịch là 緊張, không dùng *緊張 ❌.",
+   "mk": "Đừng dùng 緊張 với nghĩa 'lo cho sức khỏe của ai' (*我很緊張媽媽 ❌ → 我很擔心媽媽).",
+   "tw": "Ở Đài Loan hay khuyên nhau trước khi thi/phỏng vấn là 深呼吸，別太緊張！(Hít thở sâu, đừng quá căng thẳng!).",
+   "mh": "Khẩn Trương → jǐnzhāng. ĐỌC: 'khẩn' → jǐn (kh- trước i → j-, thanh 3); 'trương' → zhāng (tr- → zh-, -ương → -ang, thanh 1). NGHĨA: 緊 siết chặt + 張 kéo căng dây cung → kéo căng hết mức = căng thẳng, hồi hộp.",
+   "vd": [
+    {
+     "t": "Phỏng vấn",
+     "zh": "第一次用中文參加正式面試，我坐在等候區緊張得手心直冒汗。",
+     "vn": "Lần đầu tham gia phỏng vấn chính thức bằng tiếng Hoa, tôi ngồi ở khu vực chờ hồi hộp đến mức lòng bàn tay đổ mồ hôi."
+    },
+    {
+     "t": "Thi đấu",
+     "zh": "這場籃球賽最後一分鐘比分只差兩分，現場氣氛非常緊張。",
+     "vn": "Phút cuối của trận bóng rổ này tỷ số chỉ cách nhau hai điểm, bầu không khí tại sân cực kỳ căng thẳng."
+    },
+    {
+     "t": "An ủi",
+     "zh": "你平常練習得很扎實，上台報告的時候放輕鬆，不用太緊張。",
+     "vn": "Bình thường bạn luyện tập rất chắc rồi, lúc lên bục thuyết trình cứ thả lỏng, không cần quá căng thẳng."
+    }
+   ]
+  },
+  "可愛": {
+   "vn": "dễ thương; đáng yêu",
+   "ng": [
+    "(tính từ) dễ thương, đáng yêu (dùng cho trẻ nhỏ, thú cưng, đồ vật nhỏ xinh hoặc tính cách hồn nhiên)"
+   ],
+   "us": "Dùng trực tiếp với phó từ mức độ (好可愛, 非常可愛) hoặc làm định ngữ (可愛的小貓 chú mèo con đáng yêu).",
+   "co": [
+    "好可愛|dễ thương quá",
+    "長得很可愛|trông rất đáng yêu",
+    "可愛的插畫|tranh minh họa dễ thương"
+   ],
+   "sy": [
+    "討喜|dễ mến, được lòng người"
+   ],
+   "an": [
+    "可怕|đáng sợ",
+    "討厭|đáng ghét"
+   ],
+   "cf": [
+    "可愛 vs 漂亮|可愛 là dễ thương, nhỏ nhắn, tạo cảm giác muốn che chở; 漂亮 là xinh đẹp, mỹ miều."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Tránh khen đàn ông trưởng thành hoặc sếp nam là 可愛 (nên dùng 親切 thân thiện hoặc 帥氣 phong độ).",
+   "tw": "Ở Đài Loan người dân cực hay thốt lên 好可愛喔！(Dễ thương quá đi!) khi thấy chó mèo, trẻ em hay đồ văn phòng phẩm xinh xắn.",
+   "mh": "Khả Ái → kě'ài. ĐỌC: 'khả' → kě (kh- → k-, thanh 3); 'ái' → ài (thanh 4). NGHĨA: 可 đáng được + 愛 yêu thương → đáng yêu, dễ thương.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "鄰居新領養的那隻柴犬圓滾滾的，走路的樣子超級可愛。",
+     "vn": "Chú chó Shiba hàng xóm mới nhận nuôi tròn vo, dáng đi trông siêu dễ thương."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這家文具店賣的貓咪造型貼紙非常可愛，我忍不住買了兩張。",
+     "vn": "Miếng dán hình mèo bán ở tiệm văn phòng phẩm này rất dễ thương, tôi không nhịn được mua liền hai tờ."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "妹妹剛學會講幾個單字，每次模仿大人說話的表情都很可愛。",
+     "vn": "Em gái mới học nói vài từ đơn, mỗi lần bắt chước người lớn nói chuyện biểu cảm đều rất đáng yêu."
+    }
+   ]
+  },
+  "生氣": {
+   "vn": "tức giận; nổi giận",
+   "ng": [
+    "(động từ ly hợp / tính từ) tức giận, giận dữ (別生氣 đừng giận, 他生氣了 anh ấy giận rồi)",
+    "(danh từ) sức sống, sinh khí (生氣勃勃 tràn đầy sức sống — nghĩa văn viết)"
+   ],
+   "us": "Động từ ly hợp: KHÔNG mang tân ngữ trực tiếp (*生氣他 ❌). Muốn nói 'giận ai' phải dùng 生 + người + 的氣 (別生我的氣 đừng giận tôi) hoặc 對 + người + 生氣 (對他生氣).",
+   "co": [
+    "別生氣|đừng giận",
+    "生我的氣|giận tôi",
+    "氣呼呼|hậm hực, tức tối",
+    "容易生氣|dễ nổi nóng"
+   ],
+   "sy": [
+    "發火|nổi nóng (mạnh hơn)",
+    "憤怒|phẫn nộ (trang trọng, mạnh)"
+   ],
+   "an": [
+    "高興|vui vẻ",
+    "開心|vui mừng"
+   ],
+   "cf": [
+    "生氣 vs 憤怒|生氣 dùng trong đời sống hàng ngày; 憤怒 mạnh hơn, thường dùng cho sự phẫn nộ trước bất công hoặc văn viết."
+   ],
+   "lt": "Động từ ly hợp: 生(誰的)氣.",
+   "mk": "Lỗi rất hay mắc: *我生氣他 ❌ → PHẢI nói 我生他的氣 hoặc 我對他很生氣!",
+   "tw": "Ở Đài Loan trong khẩu ngữ hay nói tắt là 很氣 (tức lắm) hoặc 不爽 (bực mình — thân mật).",
+   "mh": "Sinh Khí → shēngqì. ĐỌC: 'sinh' → shēng (s- → sh-, -inh → -eng, thanh 1); 'khí' → qì (kh- → q-, thanh 4). NGHĨA: 生 nổi lên + 氣 cơn giận/hơi nóng → nổi cơn giận = tức giận.",
+   "vd": [
+    {
+     "t": "Xin lỗi",
+     "zh": "剛才是我太心急說錯了話，真對不起，請你別生我的氣。",
+     "vn": "Vừa nãy là tôi nóng vội lỡ lời, thật sự xin lỗi, mong bạn đừng giận tôi."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "有人在排隊買票時故意插隊，讓後面的旅客都非常生氣。",
+     "vn": "Có người cố tình chen ngang khi xếp hàng mua vé, khiến các hành khách phía sau vô cùng tức giận."
+    },
+    {
+     "t": "Tính cách",
+     "zh": "主管的脾氣一向很好，就算遇到突發狀況也很少對下屬生氣。",
+     "vn": "Tính sếp xưa nay rất tốt, dù gặp tình huống bất ngờ cũng rất ít khi nổi giận với cấp dưới."
+    }
+   ]
+  },
+  "難過": {
+   "vn": "buồn bã; khó chịu",
+   "ng": [
+    "(tính từ) buồn bã, đau lòng (聽到這個消息我很難過 nghe tin này tôi rất buồn)",
+    "(tính từ) khó chịu trong người (胃很難過 dạ dày khó chịu) hoặc khó khăn chật vật (日子很難過 ngày tháng khó sống)"
+   ],
+   "us": "Dùng phổ biến nhất với nghĩa buồn bã, chạnh lòng; có thể dùng kèm 很 / 非常 / 有點.",
+   "co": [
+    "很難過|rất buồn",
+    "感到難過|cảm thấy buồn bã",
+    "別難過|đừng buồn nữa",
+    "心裡難過|trong lòng buồn bã"
+   ],
+   "sy": [
+    "傷心|đau lòng, thương tâm (sâu hơn)",
+    "沮喪|chán nản, thất vọng"
+   ],
+   "an": [
+    "開心|vui vẻ",
+    "高興|vui mừng"
+   ],
+   "cf": [
+    "難過 vs 傷心|難過 dùng rộng từ buồn nhẹ (thi trượt, mưa lỡ hẹn) đến buồn sâu; 傷心 nặng hơn, nhấn mạnh sự đau lòng, tổn thương tình cảm."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Đừng dịch nghĩa đen 'khó đi qua' trong câu cảm xúc — 難過 ở đây là buồn bã, khó chịu trong lòng.",
+   "tw": "Ở Đài Loan an ủi bạn bè hay nói 別難過了，下次一定會更好的！(Đừng buồn nữa, lần sau nhất định sẽ tốt hơn!).",
+   "mh": "Nan Quá → nánguò. ĐỌC: 'nan' → nán (thanh 2); 'quá' → guò (qu- → g-, thanh 4). NGHĨA: 難 khó + 過 vượt qua → cảm giác nặng nề khó vượt qua trong lòng = buồn bã.",
+   "vd": [
+    {
+     "t": "An ủi",
+     "zh": "這次檢定差一點就過關，你別太難過，多準備幾個月再考一次就好。",
+     "vn": "Kỳ thi năng lực lần này thiếu chút nữa là đỗ, bạn đừng buồn quá, ôn thêm vài tháng rồi thi lại thôi."
+    },
+    {
+     "t": "Cảm xúc",
+     "zh": "陪伴家裡十幾年的老狗過世了，全家人這幾天都非常難過。",
+     "vn": "Chú chó già gắn bó với gia đình hơn mười năm đã qua đời, mấy hôm nay cả nhà đều rất buồn."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "他昨天晚上吃壞肚子，今天早上起床覺得胃很不舒服、非常難過。",
+     "vn": "Tối qua anh ấy ăn phải đồ lạ đau bụng, sáng nay ngủ dậy thấy dạ dày rất khó chịu."
+    }
+   ]
+  },
+  "聰明": {
+   "vn": "thông minh; lanh lợi",
+   "ng": [
+    "(tính từ) thông minh, sáng dạ, nhạy bén (聰明的孩子 đứa trẻ thông minh, 聰明的做法 cách làm khôn ngoan)"
+   ],
+   "us": "Dùng cho người, động vật hoặc cách làm/lựa chọn khôn ngoan. Khi tự nói về mình tránh dùng 聰明 để giữ khiêm tốn.",
+   "co": [
+    "聰明伶俐|thông minh lanh lợi",
+    "聰明的選擇|lựa chọn thông minh",
+    "耍小聰明|khôn vặt"
+   ],
+   "sy": [
+    "機靈|lanh lợi, nhanh trí",
+    "睿智|sáng suốt, uyên bác (người lớn tuổi)"
+   ],
+   "an": [
+    "笨|ngốc, chậm hiểu",
+    "愚蠢|ngu ngốc"
+   ],
+   "cf": [
+    "聰明 vs 智慧|聰明 là sự nhanh nhạy, hiểu nhanh (tính từ); 智慧 là trí tuệ, sự từng trải sâu sắc (danh từ)."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Chú ý chữ 聰 bên trái là bộ 耳 (tai — nghe rõ), chữ 明 là sáng mắt → tai thính mắt tinh.",
+   "tw": "Ở Đài Loan khen ai chọn cách tiện lợi hay nói 你好聰明喔！(Bạn thông minh ghê!) hoặc 這方法真聰明.",
+   "mh": "Thông Minh → cōngmíng. ĐỌC: 'thông' → cōng (thanh 1); 'minh' → míng (-inh → -ing, thanh 2). NGHĨA: 聰 tai nghe thấu + 明 mắt nhìn sáng → hiểu nhanh biết rõ = thông minh.",
+   "vd": [
+    {
+     "t": "Học tập",
+     "zh": "這位新來的實習生非常聰明，流程只要示範一遍就能獨立操作。",
+     "vn": "Thực tập sinh mới đến này rất thông minh, quy trình chỉ cần làm mẫu một lần là tự làm được ngay."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "她利用通勤時間聽中文廣播練聽力，真是個聰明的學習方法。",
+     "vn": "Cô ấy tận dụng thời gian đi làm để nghe đài tiếng Hoa luyện nghe, đúng là một cách học thông minh."
+    },
+    {
+     "t": "Thú cưng",
+     "zh": "邊境牧羊犬是相當聰明的犬種，很快就能學會主人的指令。",
+     "vn": "Chó Border Collie là giống chó khá thông minh, rất nhanh đã học được mệnh lệnh của chủ."
+    }
+   ]
+  },
+  "相信": {
+   "vn": "tin; tin tưởng",
+   "ng": [
+    "(động từ) tin, tin tưởng vào ai/điều gì (我相信你 tôi tin bạn, 相信自己 tin vào bản thân, 很難相信 khó mà tin được)"
+   ],
+   "us": "Theo sau bởi người, sự việc hoặc cả mệnh đề (我相信他一定能成功 Tôi tin anh ấy nhất định sẽ thành công). Có thể đi với phó từ mức độ (很相信, 完全相信).",
+   "co": [
+    "相信自己|tin vào bản thân",
+    "不敢相信|không dám tin",
+    "相信我|tin tôi đi",
+    "深信不疑|tin tưởng tuyệt đối"
+   ],
+   "sy": [
+    "信任|tín nhiệm, tin cậy (mức độ tin tưởng vào nhân cách/năng lực)",
+    "信賴|tin cậy"
+   ],
+   "an": [
+    "懷疑|nghi ngờ"
+   ],
+   "cf": [
+    "相信 vs 信任|相信 là tin lời nói hoặc tin sự việc là thật (相信這件事); 信任 là tin tưởng giao phó trọng trách cho ai (信任這位夥伴), không đi với mệnh đề sự việc."
+   ],
+   "lt": "Động từ. Chữ 相 ở đây đọc thanh 1 xiāng.",
+   "mk": "Đừng đọc nhầm thành *xiàngxìn ❌ — chữ 相 trong 相信 đọc thanh 1 xiāngxìn.",
+   "tw": "Ở Đài Loan hay dùng 不敢相信！(Không thể tin nổi!) khi quá bất ngờ.",
+   "mh": "Tương Tín → xiāngxìn. ĐỌC: 'tương' → xiāng (t- → x-, -ương → -iang, thanh 1); 'tín' → xìn (t- → x-, thanh 4). NGHĨA: 相 lẫn nhau + 信 chữ tín → đặt niềm tin = tin tưởng.",
+   "vd": [
+    {
+     "t": "Động viên",
+     "zh": "只要你持續每天累積實力，我相信明年考試一定能順利通過。",
+     "vn": "Chỉ cần bạn kiên trì tích lũy năng lực mỗi ngày, tôi tin kỳ thi năm sau nhất định sẽ vượt qua suôn sẻ."
+    },
+    {
+     "t": "An toàn thông tin",
+     "zh": "網路上流傳的未經證實消息，我們應該先查證，不要輕易相信。",
+     "vn": "Những tin tức chưa được kiểm chứng lan truyền trên mạng, chúng ta nên xác minh trước, đừng dễ dàng tin ngay."
+    },
+    {
+     "t": "Bất ngờ",
+     "zh": "真不敢相信時間過得這麼快，轉眼間今年已經快結束了。",
+     "vn": "Thật không dám tin thời gian trôi nhanh thế, chớp mắt mà năm nay đã sắp hết rồi."
+    }
+   ]
+  },
+  "經驗": {
+   "vn": "kinh nghiệm",
+   "ng": [
+    "(danh từ) kinh nghiệm tích lũy được từ thực tế công việc, cuộc sống (工作經驗 kinh nghiệm làm việc, 累積經驗 tích lũy kinh nghiệm)"
+   ],
+   "us": "Ghép với động từ 有 (có kinh nghiệm), 累積 (tích lũy), 分享 (chia sẻ), 缺乏 (thiếu). Mô tả dày dặn: 經驗豐富 (giàu kinh nghiệm).",
+   "co": [
+    "工作經驗|kinh nghiệm làm việc",
+    "經驗豐富|giàu kinh nghiệm",
+    "分享經驗|chia sẻ kinh nghiệm",
+    "累積經驗|tích lũy kinh nghiệm"
+   ],
+   "sy": [
+    "經歷|trải nghiệm, quá trình từng trải qua",
+    "體驗|trải nghiệm (cảm nhận thực tế)"
+   ],
+   "cf": [
+    "經驗 vs 經歷|經驗 là bài học, kỹ năng đúc kết được sau khi làm (工作經驗); 經歷 là những chuyện/quá trình bản thân đã đi qua (人生經歷)."
+   ],
+   "lt": "個, 次 (一次寶貴的經驗 một kinh nghiệm quý báu).",
+   "mk": "Đừng nói *我有很多經驗 làm việc ❌ theo trật tự Việt — phải đặt định ngữ trước: 我有很多工作經驗.",
+   "tw": "Trong tin tuyển dụng ở Đài Loan (104) rất hay ghi 不拘經驗 (không yêu cầu kinh nghiệm) hoặc 具相關經驗者佳 (ưu tiên có kinh nghiệm liên quan).",
+   "mh": "Kinh Nghiệm → jīngyàn. ĐỌC: 'kinh' → jīng (k- trước i → j-, -inh → -ing, thanh 1); 'nghiệm' → yàn (ng- mất, thanh 4). NGHĨA: 經 từng trải qua + 驗 kiểm chứng → điều đúc kết từ thực tế = kinh nghiệm.",
+   "vd": [
+    {
+     "t": "Tuyển dụng",
+     "zh": "這份職務歡迎應屆畢業生應徵，沒有相關工作經驗也沒有關係。",
+     "vn": "Vị trí này chào đón sinh viên mới ra trường ứng tuyển, không có kinh nghiệm làm việc liên quan cũng không sao."
+    },
+    {
+     "t": "Học tập",
+     "zh": "學姊在講座上大方分享她申請獎學金的經驗，讓大家獲益良多。",
+     "vn": "Chị khóa trên hào phóng chia sẻ kinh nghiệm xin học bổng trong buổi tọa đàm, giúp mọi người thu hoạch được rất nhiều."
+    },
+    {
+     "t": "Công việc",
+     "zh": "這位老師傅維修經驗豐富，機器哪裡出毛病一聽聲音就知道。",
+     "vn": "Bác thợ lành nghề này kinh nghiệm sửa chữa phong phú, máy hỏng chỗ nào chỉ nghe tiếng là biết ngay."
+    }
+   ]
+  },
+  "辛苦": {
+   "vn": "vất vả; cực nhọc",
+   "ng": [
+    "(tính từ) vất vả, gian khổ, nhọc nhằn (工作很辛苦 công việc rất vất vả, 辛苦錢 tiền kiếm được bằng mồ hôi công sức)",
+    "(câu xã giao) vất vả rồi! (辛苦了！ — câu cảm ơn, ghi nhận công sức cực kỳ phổ biến ở Đài Loan)"
+   ],
+   "us": "Ngoài nghĩa tính từ 'vất vả', cụm 辛苦了 / 辛苦你了 là câu giao tiếp vàng trong công sở Đài Loan để cảm ơn người đã giúp mình hoặc đồng nghiệp vừa làm xong việc.",
+   "co": [
+    "辛苦了|vất vả rồi!",
+    "辛苦工作|làm việc vất vả",
+    "不辭辛苦|không quản ngại vất vả",
+    "辛苦費|tiền công vất vả"
+   ],
+   "sy": [
+    "勞累|mệt nhọc",
+    "辛勞|vất vả (trang trọng)"
+   ],
+   "an": [
+    "輕鬆|nhẹ nhàng, thoải mái"
+   ],
+   "cf": [
+    "辛苦 vs 累|累 là cảm giác mệt mỏi về thể chất/tinh thần; 辛苦 nhấn mạnh công sức bỏ ra nhiều, quá trình vất vả (và dùng để khen/cảm ơn người khác: 辛苦了)."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Đừng chỉ dịch 辛苦了 là 'mệt rồi' — trong công sở nó có nghĩa 'cảm ơn bạn đã vất vả/làm tốt lắm'!",
+   "tw": "Ở Đài Loan nhân viên giao hàng, bác tài, đồng nghiệp tan ca đều hay được chào câu 辛苦了！(Vất vả cho anh/chị rồi!).",
+   "mh": "Tân Khổ → xīnkǔ. ĐỌC: 'tân' → xīn (t- → x-, thanh 1); 'khổ' → kǔ (kh- → k-, thanh 3). NGHĨA: 辛 cay + 苦 đắng → cay đắng gian nan = vất vả.",
+   "vd": [
+    {
+     "t": "Công sở",
+     "zh": "這週趕專案大家都加班到很晚，真的辛苦了，週末好好休息吧。",
+     "vn": "Tuần này chạy dự án mọi người đều tăng ca tới khuya, thật sự vất vả rồi, cuối tuần nghỉ ngơi thật tốt nhé."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "為了把三個孩子拉拔長大，父母年輕時日夜工作非常辛苦。",
+     "vn": "Để nuôi ba đứa con khôn lớn, thời trẻ cha mẹ làm việc ngày đêm vô cùng vất vả."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "麻煩你大老遠跑一趟幫忙送文件，真是辛苦你了。",
+     "vn": "Phiền bạn lặn lội đường xa tới giao tài liệu giúp, thật vất vả cho bạn quá."
+    }
+   ]
+  },
+  "願意": {
+   "vn": "sẵn lòng; bằng lòng, đồng ý",
+   "ng": [
+    "(động từ năng nguyện) sẵn lòng, tự nguyện, đồng ý làm gì (我很願意幫忙 tôi rất sẵn lòng giúp, 你願意嗎？ bạn có đồng ý không?)"
+   ],
+   "us": "Theo sau bởi động từ (願意 + V). Phủ định: 不願意 (không muốn, không bằng lòng). Mang sắc thái tự nguyện, vui vẻ chấp nhận.",
+   "co": [
+    "很願意|rất sẵn lòng",
+    "不願意|không bằng lòng",
+    "心甘情願|cam tâm tình nguyện"
+   ],
+   "sy": [
+    "樂意|vui lòng, sẵn lòng (lịch sự)",
+    "肯|chịu, bằng lòng (khẩu ngữ)"
+   ],
+   "an": [
+    "拒絕|từ chối"
+   ],
+   "cf": [
+    "願意 vs 想|想 là bản thân nảy sinh ý muốn (我想喝茶); 願意 là thái độ đồng ý/sẵn lòng đáp lại yêu cầu hoặc tình huống (我願意幫你)."
+   ],
+   "lt": "Động từ năng nguyện.",
+   "mk": "Không đặt danh từ trực tiếp sau 願意 (*我願意這份工作 ❌ → 我願意接受這份工作).",
+   "tw": "Ở Đài Loan khi nhận lời giúp đỡ ai một cách lịch sự hay nói 沒問題，我很願意幫忙！",
+   "mh": "Nguyện Ý → yuànyì. ĐỌC: 'nguyện' → yuàn (ng- mất, thanh 4); 'ý' → yì (thanh 4). NGHĨA: 願 mong muốn + 意 tâm ý → thuận theo ý lòng = sẵn lòng, bằng lòng.",
+   "vd": [
+    {
+     "t": "Giúp đỡ",
+     "zh": "只要我有時間，都很願意協助新同事熟悉公司的作業系統。",
+     "vn": "Chỉ cần có thời gian, tôi đều rất sẵn lòng hỗ trợ đồng nghiệp mới làm quen với hệ thống làm việc của công ty."
+    },
+    {
+     "t": "Cơ hội",
+     "zh": "他為了追求更深入的專業發展，願意放棄高薪重新出國進修。",
+     "vn": "Để theo đuổi sự phát triển chuyên môn sâu hơn, anh ấy sẵn sàng từ bỏ lương cao để ra nước ngoài học tiếp."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "如果大家願意各退一步，這場誤會其實很快就能化解。",
+     "vn": "Nếu mọi người đều bằng lòng nhường nhau một bước thì hiểu lầm này thực ra rất nhanh sẽ hóa giải được."
+    }
+   ]
+  },
+  "習慣": {
+   "vn": "thói quen; quen với",
+   "ng": [
+    "(danh từ) thói quen (好習慣 thói quen tốt, 生活習慣 thói quen sinh hoạt, 養成習慣 hình thành thói quen)",
+    "(động từ) quen với, thích nghi (習慣這裡的天氣 quen với thời tiết ở đây, 還沒習慣 vẫn chưa quen)"
+   ],
+   "us": "Vừa là danh từ vừa là động từ. Khi là động từ có thể mang tân ngữ trực tiếp (習慣早起 quen dậy sớm) hoặc dùng kết quả 習慣了 (quen rồi).",
+   "co": [
+    "生活習慣|thói quen sinh hoạt",
+    "養成習慣|hình thành thói quen",
+    "習慣了|quen rồi",
+    "飲食習慣|thói quen ăn uống"
+   ],
+   "sy": [
+    "適應|thích nghi (tập trung vào quá trình điều chỉnh với môi trường mới)"
+   ],
+   "cf": [
+    "習慣 vs 適應|習慣 thiên về lặp đi lặp lại thành nếp quen; 適應 thiên về thích nghi với điều kiện sống/môi trường mới (適應新環境)."
+   ],
+   "lt": "個 (一個好習慣).",
+   "mk": "Đừng nhầm với 'tập quán' mang tính xã hội lớn (phong tục tập quán dùng 習俗 / 風俗習慣).",
+   "tw": "Ở Đài Loan hay hỏi người mới sang sống: 來台灣一陣子了，生活還習慣嗎？ (Sang Đài Loan một thời gian rồi, cuộc sống có quen không?).",
+   "mh": "Tập Quán → xíguàn. ĐỌC: 'tập' → xí (t- → x-, thanh 2); 'quán' → guàn (qu- → g-, thanh 4). NGHĨA: 習 luyện lặp lại + 貫 xuyên suốt → làm lặp đi lặp lại thành nếp = thói quen, quen.",
+   "vd": [
+    {
+     "t": "Sức khỏe",
+     "zh": "養成每天固定時間運動和早睡早起的好習慣，對身體非常有幫助。",
+     "vn": "Hình thành thói quen tốt tập thể dục đúng giờ mỗi ngày và ngủ sớm dậy sớm rất có ích cho sức khỏe."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "剛搬到南部時覺得夏天很熱，住了兩年以後現在已經完全習慣了。",
+     "vn": "Mới chuyển xuống miền Nam thấy mùa hè nóng quá, sống được hai năm rồi giờ đã hoàn toàn quen."
+    },
+    {
+     "t": "Học tập",
+     "zh": "她習慣在讀完一篇文章後，隨手把重點整理成筆記。",
+     "vn": "Cô ấy có thói quen sau khi đọc xong một bài viết sẽ tiện tay tóm tắt ý chính thành ghi chú."
+    }
+   ]
+  },
+  "當然": {
+   "vn": "đương nhiên; tất nhiên rồi",
+   "ng": [
+    "(phó từ) đương nhiên, tất nhiên (當然可以 tất nhiên là được, 當然沒問題 đương nhiên không vấn đề gì)",
+    "(tính từ) lẽ đương nhiên (理所當然 lẽ dĩ nhiên)"
+   ],
+   "us": "Đặt trước vị ngữ hoặc đứng độc lập để trả lời khẳng định mạnh mẽ (當然！ Tất nhiên rồi!). Hay đi theo cặp: 當然…，不過/但是… (Tất nhiên là…, nhưng mà…).",
+   "co": [
+    "當然可以|tất nhiên là được",
+    "當然沒問題|đương nhiên không vấn đề gì",
+    "理所當然|lẽ đương nhiên",
+    "那當然|cái đó đương nhiên rồi"
+   ],
+   "sy": [
+    "自然|tự nhiên, dĩ nhiên",
+    "肯定|chắc chắn"
+   ],
+   "cf": [
+    "當然 vs 一定|當然 nhấn mạnh 'chuyện hiển nhiên không cần bàn cãi'; 一定 nhấn mạnh 'chắc chắn sẽ xảy ra hoặc bắt buộc phải làm'."
+   ],
+   "lt": "Phó từ.",
+   "mk": "Không nói *我很當然 ❌ — 當然 là phó từ/tính từ không nhận 很 (chỉ dùng 理所當然 hoặc đứng trực tiếp).",
+   "tw": "Ở Đài Loan khi trả lời vui vẻ hay nói 當然好啊！(Tất nhiên là được chứ!) hoặc 那當然！(Chuyện đó đương nhiên!).",
+   "mh": "Đương Nhiên → dāngrán. ĐỌC: 'đương' → dāng (đ- → d-, -ương → -ang, thanh 1); 'nhiên' → rán (nh- → r-, thanh 2). NGHĨA: 當 hợp lẽ + 然 như thế → hợp lẽ hiển nhiên = đương nhiên.",
+   "vd": [
+    {
+     "t": "Giao tiếp",
+     "zh": "這本書我看完了，你如果想借回去參考的話，當然沒問題。",
+     "vn": "Cuốn sách này tôi đọc xong rồi, nếu bạn muốn mượn về tham khảo thì đương nhiên không vấn đề gì."
+    },
+    {
+     "t": "Thái độ",
+     "zh": "別人幫我們忙時要心存感謝，千萬不要把善意當成理所當然。",
+     "vn": "Khi người khác giúp mình cần biết ơn, tuyệt đối đừng coi thiện ý là điều hiển nhiên."
+    },
+    {
+     "t": "Thảo luận",
+     "zh": "這個方案當然有很多優點，但是預算方面還需要再仔細評估。",
+     "vn": "Phương án này đương nhiên có nhiều ưu điểm, nhưng về mặt ngân sách vẫn cần đánh giá kỹ thêm."
+    }
+   ]
+  },
+  "更": {
+   "vn": "càng; hơn nữa",
+   "ng": [
+    "(phó từ) càng, thêm nữa; biểu thị mức độ cao hơn so với trước hoặc so với cái khác (更好 càng tốt hơn, 更快 càng nhanh hơn, 更有經驗 càng có kinh nghiệm)"
+   ],
+   "us": "Đặt trước tính từ hoặc động từ tâm lý (更喜歡 thích hơn nữa, 更了解 hiểu rõ hơn). Thường dùng trong câu so sánh 比 (這家比那家更便宜 Quán này còn rẻ hơn quán kia) hoặc cấu trúc 越…越….",
+   "co": [
+    "更好|tốt hơn nữa",
+    "更何況|huống hồ là",
+    "更加|càng thêm",
+    "更重要|càng quan trọng hơn"
+   ],
+   "sy": [
+    "更加|càng thêm (nhấn mạnh hơn, dùng cho từ 2 âm tiết)"
+   ],
+   "cf": [
+    "更 vs 最|更 là so sánh hơn bậc nữa ('càng… hơn'); 最 là so sánh nhất ('nhất')."
+   ],
+   "lt": "Phó từ (gèng = càng). Chú ý chữ 更 còn âm đọc gēng = thay đổi (更新 cập nhật, 變更 thay đổi).",
+   "mk": "Đừng đọc nhầm gèng (càng) với gēng (thay đổi: 更新 gēngxīn).",
+   "tw": "Ở Đài Loan hay nói 這樣更方便 (Như vậy càng tiện hơn) hoặc 更不用說… (Càng khỏi phải nói đến…).",
+   "mh": "Cánh → gèng. ĐỌC: 'cánh' → gèng (c- → g-, -anh → -eng, thanh 4). NGHĨA: tăng thêm một nấc nữa = càng.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "把流程簡化以後，整個團隊的溝通變得更有效率了。",
+     "vn": "Sau khi đơn giản hóa quy trình, việc trao đổi của cả nhóm trở nên hiệu quả hơn nữa."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "昨天已經夠冷了，沒想到今天寒流報到，氣溫比昨天更低。",
+     "vn": "Hôm qua đã đủ lạnh rồi, không ngờ hôm nay không khí lạnh tràn về, nhiệt độ còn thấp hơn hôm qua."
+    },
+    {
+     "t": "Học tập",
+     "zh": "多聽當地人的對話，能讓你更自然地掌握口語表達。",
+     "vn": "Nghe nhiều hội thoại của người bản xứ có thể giúp bạn nắm bắt cách diễn đạt khẩu ngữ tự nhiên hơn."
+    }
+   ]
+  },
+  "醫院": {
+   "vn": "bệnh viện",
+   "ng": [
+    "(danh từ) bệnh viện lớn có nhiều khoa và giường nội trú (大醫院 bệnh viện lớn, 急診室 phòng cấp cứu bệnh viện)"
+   ],
+   "us": "Phân biệt với 診所 (phòng khám tư/chuyên khoa gần nhà). Ở Đài Loan ốm nhẹ như cảm cúm thường ra 診所 trước rồi mới lên 醫院 nếu cần.",
+   "co": [
+    "大醫院|bệnh viện lớn",
+    "去醫院檢查|đi bệnh viện kiểm tra",
+    "醫院掛號|đăng ký khám bệnh ở bệnh viện",
+    "住院|nhập viện"
+   ],
+   "sy": [
+    "診所|phòng khám (nhỏ hơn, khám bệnh thông thường)"
+   ],
+   "cf": [
+    "醫院 vs 診所|醫院 là bệnh viện lớn (台大醫院, 長庚醫院), có cấp cứu và nội trú; 診所 là phòng khám nhỏ (牙醫診所 phòng khám nha khoa, 家醫科診所)."
+   ],
+   "lt": "家, 間 (一家醫院).",
+   "mk": "Đi khám bệnh nhẹ ở Đài Loan nói 去診所看醫生 sẽ sát thực tế hơn; chỉ khi khám chuyên sâu hoặc cấp cứu mới tới 大醫院.",
+   "tw": "Ở Đài Loan đi khám tại 醫院 hay 診所 đều dùng thẻ 健保卡 (thẻ bảo hiểm y tế toàn dân) và có thể 網路掛號 (đăng ký số khám online trước).",
+   "mh": "Y Viện → yīyuàn. ĐỌC: 'y' → yī (thanh 1); 'viện' → yuàn (v- → y-, thanh 4). NGHĨA: 醫 y học chữa bệnh + 院 cơ sở lớn → cơ sở khám chữa bệnh = bệnh viện.",
+   "vd": [
+    {
+     "t": "Sức khỏe",
+     "zh": "為了避免久等，去大醫院看診前可以先在網路上預約掛號。",
+     "vn": "Để tránh phải đợi lâu, trước khi đi khám ở bệnh viện lớn có thể đặt lịch đăng ký khám trên mạng trước."
+    },
+    {
+     "t": "Chăm sóc",
+     "zh": "這家綜合醫院設備齊全，也有提供多國語言的志工導引服務。",
+     "vn": "Bệnh viện đa khoa này trang thiết bị đầy đủ, còn có dịch vụ tình nguyện viên hướng dẫn đa ngôn ngữ."
+    },
+    {
+     "t": "Khẩn cấp",
+     "zh": "他騎車滑倒扭傷腳踝，朋友趕緊陪他到附近的醫院照X光檢查。",
+     "vn": "Anh ấy chạy xe bị trượt ngã trật mắt cá chân, bạn vội đưa tới bệnh viện gần đó chụp X-quang kiểm tra."
+    }
+   ]
+  },
+  "公司": {
+   "vn": "công ty",
+   "ng": [
+    "(danh từ) công ty, doanh nghiệp (科技公司 công ty công nghệ, 上市公司 công ty niêm yết, 開公司 mở công ty)"
+   ],
+   "us": "Dùng cho mọi loại doanh nghiệp từ nhỏ đến lớn. Đi làm ở công ty: 在公司上班 / 去公司.",
+   "co": [
+    "科技公司|công ty công nghệ",
+    "外商公司|công ty nước ngoài",
+    "總公司|trụ sở chính",
+    "開公司|mở công ty"
+   ],
+   "sy": [
+    "企業|doanh nghiệp (quy mô lớn, trang trọng)",
+    "廠商|nhà cung cấp, hãng sản xuất"
+   ],
+   "cf": [
+    "公司 vs 企業|公司 dùng phổ biến trong đời sống và giấy tờ đăng ký; 企業 mang sắc thái vĩ mô hơn (中小企業 doanh nghiệp vừa và nhỏ, 企業文化 văn hóa doanh nghiệp)."
+   ],
+   "lt": "家, 間 (一家公司).",
+   "mk": "Lượng từ cho công ty là 家 hoặc 間 (這家公司), không dùng *一個公司 ❌.",
+   "tw": "Ở Đài Loan đi làm công ty nước ngoài gọi 外商公司; công ty gia đình hay truyền thống gọi 傳產 (傳統產業).",
+   "mh": "Công Ty → gōngsī. ĐỌC: 'công' → gōng (c- → g-, thanh 1); 'ty' → sī (thanh 1). NGHĨA: 公 chung + 司 quản lý → tổ chức kinh doanh chung = công ty.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "這家公司福利不錯，除了年終獎金之外，每年還有員工旅遊補助。",
+     "vn": "Công ty này phúc lợi khá tốt, ngoài thưởng cuối năm ra mỗi năm còn có trợ cấp du lịch cho nhân viên."
+    },
+    {
+     "t": "Nghề nghiệp",
+     "zh": "他大學畢業後先在貿易公司累積了三年經驗，後來才自己創業。",
+     "vn": "Sau khi tốt nghiệp đại học anh ấy tích lũy ba năm kinh nghiệm ở một công ty thương mại rồi mới tự khởi nghiệp."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "不好意思，我現在正在趕去公司的路上，到了馬上回撥給您。",
+     "vn": "Xin lỗi, hiện tôi đang trên đường vội tới công ty, đến nơi tôi gọi lại cho anh/chị ngay."
+    }
+   ]
+  },
+  "辦公室": {
+   "vn": "văn phòng; phòng làm việc",
+   "ng": [
+    "(danh từ) văn phòng làm việc (trong công ty, cơ quan, trường học: 教師辦公室 phòng giáo viên, 辦公室用品 đồ dùng văn phòng)"
+   ],
+   "us": "Chỉ không gian làm việc cụ thể (phòng làm việc). Lượng từ là 間 (一間辦公室).",
+   "co": [
+    "辦公室文化|văn hóa công sở",
+    "進辦公室|vào văn phòng",
+    "開放式辦公室|văn phòng không gian mở",
+    "教師辦公室|phòng giáo viên"
+   ],
+   "sy": [
+    "工作室|phòng làm việc riêng, studio"
+   ],
+   "cf": [
+    "辦公室 vs 公司|公司 là cả doanh nghiệp/tổ chức; 辦公室 là căn phòng/khu vực bàn ghế làm việc."
+   ],
+   "lt": "間 (一間辦公室).",
+   "mk": "Không nói *我在辦公室上班 ở nhà ❌ — làm việc từ xa gọi 在家上班 / 遠距上班.",
+   "tw": "Ở Đài Loan nhân viên văn phòng gọi 上班族 (shàngbānzú), buổi chiều văn phòng hay có văn hóa đặt trà sữa chung 訂飲料 / 揪團購.",
+   "mh": "Biện Công Thất → bàngōngshì. ĐỌC: 'biện' → bàn (thanh 4); 'công' → gōng (thanh 1); 'thất' → shì (th- → sh-, thanh 4). NGHĨA: 辦公 xử lý công việc + 室 căn phòng → văn phòng.",
+   "vd": [
+    {
+     "t": "Công sở",
+     "zh": "新搬進來的這間辦公室採光非常明亮，窗外還能看到一整片公園綠地。",
+     "vn": "Văn phòng mới chuyển vào này đón ánh sáng rất tốt, ngoài cửa sổ còn nhìn thấy cả một mảng công viên xanh mát."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "夏天辦公室冷氣開得很強，很多同事都會在座位上放一件薄外套。",
+     "vn": "Mùa hè máy lạnh văn phòng bật rất mạnh, nhiều đồng nghiệp đều để sẵn một chiếc áo khoác mỏng ở chỗ ngồi."
+    },
+    {
+     "t": "Công việc",
+     "zh": "下午三點我在辦公室開線上會議，這段時間可能不方便接電話。",
+     "vn": "Ba giờ chiều tôi họp trực tuyến ở văn phòng, khoảng thời gian này có thể không tiện nghe điện thoại."
+    }
+   ]
+  },
+  "工人": {
+   "vn": "công nhân; người lao động chân tay",
+   "ng": [
+    "(danh từ) công nhân nhà máy, công trường, người làm nghề thủ công/lao động kỹ thuật (建築工人 công nhân xây dựng, 清潔工人 công nhân vệ sinh)"
+   ],
+   "us": "Chỉ người lao động trực tiếp sản xuất, xây dựng, sửa chữa. Với nhân viên văn phòng hoặc nhân viên nói chung dùng 員工 (nhân viên).",
+   "co": [
+    "建築工人|công nhân xây dựng",
+    "工廠工人|công nhân nhà máy",
+    "搬家工人|nhân viên chuyển nhà",
+    "施工人員|nhân viên thi công"
+   ],
+   "sy": [
+    "勞工|người lao động (pháp lý, xã hội)",
+    "師傅|thợ lành nghề (cách gọi lịch sự ở Đài Loan)"
+   ],
+   "cf": [
+    "工人 vs 員工|工人 là công nhân lao động trực tiếp (công trường, xưởng); 員工 là nhân viên công ty nói chung (bao gồm cả văn phòng)."
+   ],
+   "lt": "位, 名, 個.",
+   "mk": "Khi gọi trực tiếp thợ sửa điện nước, thợ xây ở Đài Loan, nên gọi 師傅 (thợ/bác thợ) cho lịch sự, không gọi thẳng '工人'.",
+   "tw": "Ở Đài Loan luật lao động dùng 勞工 (Ngày Quốc tế Lao động = 勞動節); công nhân công trường trên bảng báo hay ghi 施工人員.",
+   "mh": "Công Nhân → gōngrén. ĐỌC: 'công' → gōng (c- → g-, thanh 1); 'nhân' → rén (nh- → r-, thanh 2). NGHĨA: 工 công việc sản xuất + 人 người → công nhân.",
+   "vd": [
+    {
+     "t": "Xây dựng",
+     "zh": "在大太陽底下施工的建築工人非常辛苦，工地必須提供充足的飲水與休息空間。",
+     "vn": "Công nhân xây dựng thi công dưới trời nắng gắt rất vất vả, công trường phải cung cấp đủ nước uống và chỗ nghỉ ngơi."
+    },
+    {
+     "t": "An toàn",
+     "zh": "進入工地現場的工人一律必須戴上安全帽並穿戴反光背心。",
+     "vn": "Công nhân vào khu vực công trường đều bắt buộc đội mũ bảo hộ và mặc áo phản quang."
+    },
+    {
+     "t": "Công nghiệp",
+     "zh": "這座自動化工廠導入新設備後，工人不再需要搬運過重的零件。",
+     "vn": "Sau khi nhà máy tự động hóa này đưa thiết bị mới vào, công nhân không còn phải khuân vác linh kiện quá nặng nữa."
+    }
+   ]
+  },
+  "護士": {
+   "vn": "y tá; điều dưỡng",
+   "ng": [
+    "(danh từ) y tá, điều dưỡng viên chăm sóc bệnh nhân tại bệnh viện và phòng khám"
+   ],
+   "us": "Từ quen thuộc trong đời sống hàng ngày. Hiện nay tại Đài Loan, chức danh chuyên môn chính thức và lịch sự hơn là 護理師 (điều dưỡng viên).",
+   "co": [
+    "護士站|quầy trực y tá/điều dưỡng",
+    "男護士|nam điều dưỡng",
+    "白衣天使|thiên thần áo trắng"
+   ],
+   "sy": [
+    "護理師|điều dưỡng viên (chính thức và tôn trọng hơn ở Đài Loan)"
+   ],
+   "cf": [
+    "護士 vs 護理師|Ở Đài Loan, ngành y khuyến khích gọi là 護理師 (điều dưỡng có chứng chỉ chuyên môn) thay vì 護士 hay 護士小姐."
+   ],
+   "lt": "位, 名.",
+   "mk": "Khi đi khám ở bệnh viện Đài Loan, gọi 護理師 sẽ rất lịch sự và được trân trọng hơn gọi 護士小姐.",
+   "tw": "Quầy điều dưỡng ở bệnh viện Đài Loan ghi 護理站; ngày Quốc tế Điều dưỡng 12/5 là 國際護師節.",
+   "mh": "Hộ Sĩ → hùshì. ĐỌC: 'hộ' → hù (thanh 4); 'sĩ' → shì (s- → sh-, thanh 4). NGHĨA: 護 chăm sóc bảo vệ + 士 người có chuyên môn → y tá, điều dưỡng.",
+   "vd": [
+    {
+     "t": "Bệnh viện",
+     "zh": "打針的時候這位護士動作非常輕柔，還會一邊聊天分散病人的注意力。",
+     "vn": "Lúc tiêm mũi thuốc, cô y tá này thao tác rất nhẹ nhàng, còn vừa trò chuyện để phân tán sự chú ý của bệnh nhân."
+    },
+    {
+     "t": "Nghề nghiệp",
+     "zh": "醫院裡的護士和護理師經常需要輪班，日夜守護病患的健康。",
+     "vn": "Y tá và điều dưỡng trong bệnh viện thường xuyên phải trực ca, ngày đêm chăm sóc sức khỏe bệnh nhân."
+    },
+    {
+     "t": "Khám bệnh",
+     "zh": "量完血壓以後，護士請我們先在診間外面稍候叫號。",
+     "vn": "Sau khi đo huyết áp xong, y tá mời chúng tôi ra ngoài phòng khám đợi gọi số."
+    }
+   ]
+  },
+  "司機": {
+   "vn": "tài xế; người lái xe",
+   "ng": [
+    "(danh từ) tài xế, người lái xe chuyên nghiệp (計程車司機 tài xế taxi, 公車司機 tài xế xe buýt, 貨車司機 tài xế xe tải)"
+   ],
+   "us": "Chỉ người làm nghề lái xe. Khi gọi lịch sự ở Đài Loan thường gọi 司機大哥 (anh tài xế) hoặc 司機先生.",
+   "co": [
+    "計程車司機|tài xế taxi",
+    "公車司機|tài xế xe buýt",
+    "司機大哥|anh tài xế (gọi thân mật)",
+    "代駕司機|tài xế lái hộ"
+   ],
+   "sy": [
+    "駕駛|người lái xe (trang trọng, trên biển báo: 駕駛座 ghế lái)"
+   ],
+   "cf": [
+    "司機 vs 駕駛|司機 là nghề tài xế (xe buýt, taxi, xe tải); 駕駛 là người cầm lái nói chung (bao gồm người tự lái xe cá nhân)."
+   ],
+   "lt": "位, 個.",
+   "mk": "Đừng gọi người tự lái xe gia đình là 司機 trừ khi nói đùa ('hôm nay làm tài xế cho cả nhà').",
+   "tw": "Ở Đài Loan đi taxi (小黃) hay gọi bác tài là 司機大哥 hoặc 運將 (yùnjiàng, từ tiếng Nhật 'unchan').",
+   "mh": "Tư Cơ → sījī. ĐỌC: 'tư' → sī (thanh 1); 'cơ' → jī (thanh 1). NGHĨA: 司 điều khiển phụ trách + 機 máy móc xe cộ → người điều khiển xe = tài xế.",
+   "vd": [
+    {
+     "t": "Giao thông",
+     "zh": "這位計程車司機對台北的路況瞭若指掌，很快就幫我們避開塞車路段。",
+     "vn": "Bác tài xế taxi này thuộc đường Đài Bắc như lòng bàn tay, rất nhanh đã giúp chúng tôi tránh được đoạn kẹt xe."
+    },
+    {
+     "t": "An toàn",
+     "zh": "長途客運的司機每開滿規定時數就必須輪換休息，確保行車安全。",
+     "vn": "Tài xế xe khách đường dài cứ lái đủ số giờ quy định là phải đổi ca nghỉ ngơi để bảo đảm an toàn giao thông."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "下車時別忘了跟辛苦的公車司機說一聲謝謝。",
+     "vn": "Lúc xuống xe đừng quên nói một lời cảm ơn với bác tài xế xe buýt vất vả nhé."
+    }
+   ]
+  },
+  "老闆/老板": {
+   "vn": "ông chủ, bà chủ; sếp",
+   "ng": [
+    "(danh từ) chủ cửa hàng, chủ quán ăn (老闆，我要一碗牛肉麵 Ông chủ ơi, cho tôi một tô mì bò)",
+    "(danh từ) sếp, chủ doanh nghiệp (大老闆 ông chủ lớn, 老闆娘 bà chủ)"
+   ],
+   "us": "Từ cực kỳ thông dụng ở Đài Loan: vào bất kỳ quán ăn, sạp chợ, tiệm tạp hóa nào gọi nhân viên/chủ quán đều gọi 老闆 (nam) hoặc 老闆娘 (nữ). Trong công ty cũng hay gọi sếp tổng là 老闆 (chỉ dùng khi nói về họ, ít gọi thẳng mặt nếu có chức danh như 經理).",
+   "co": [
+    "老闆娘|bà chủ, vợ ông chủ",
+    "當老闆|làm chủ",
+    "大老闆|ông chủ lớn",
+    "慣老闆|sếp bóc lột (tiếng lóng Đài Loan)"
+   ],
+   "sy": [
+    "主管|sếp trực tiếp, quản lý",
+    "店主|chủ tiệm"
+   ],
+   "an": [
+    "員工|nhân viên"
+   ],
+   "cf": [
+    "老闆 vs 主管|Ở Đài Loan, 老闆 là chủ tiệm hoặc chủ/sếp công ty (ít dùng 領導 của Đại Lục); 主管 là quản lý cấp trên trực tiếp của bạn."
+   ],
+   "lt": "位, 個. Cách viết chuẩn Đài Loan là 老闆 (板 có bộ 木 là chữ giản thể/thông tục).",
+   "mk": "Ở Đài Loan gọi chủ quán ăn là 老闆 rất thân thiện và tự nhiên, đừng gọi 服务员 (không dùng ở Đài Loan).",
+   "tw": "Đi chợ đêm hay quán ăn Đài Loan, câu mở miệng quen thuộc nhất là 老闆，不好意思，我想點餐！(Ông chủ ơi, cho tôi gọi món!).",
+   "mh": "Lão Bản → lǎobǎn. ĐỌC: 'lão' → lǎo (thanh 3); 'bản' → bǎn (thanh 3; nói liền thành láobǎn). NGHĨA: người đứng đầu cửa hiệu/doanh nghiệp = ông chủ, sếp.",
+   "vd": [
+    {
+     "t": "Ăn uống",
+     "zh": "老闆，麻煩給我一份蛋餅加起司，還有一杯溫豆漿外帶。",
+     "vn": "Ông chủ ơi, làm giúp tôi một phần bánh trứng cuộn thêm phô mai và một ly sữa đậu nành ấm mang về nhé."
+    },
+    {
+     "t": "Công việc",
+     "zh": "我們公司的老闆非常重視員工的身心健康，從不鼓勵無意義的加班。",
+     "vn": "Sếp công ty chúng tôi rất coi trọng sức khỏe thể chất và tinh thần của nhân viên, không bao giờ khuyến khích tăng ca vô nghĩa."
+    },
+    {
+     "t": "Khởi nghiệp",
+     "zh": "當老闆看起來自由，其實每天都要承擔營運和人事的壓力。",
+     "vn": "Làm chủ trông có vẻ tự do, thực ra ngày nào cũng phải gánh áp lực vận hành và nhân sự."
+    }
+   ]
+  },
+  "變": {
+   "vn": "biến đổi; thay đổi; trở thành",
+   "ng": [
+    "(động từ) biến đổi, thay đổi trạng thái (天氣變冷了 trời trở lạnh rồi, 變胖 tăng cân, 變好 trở nên tốt hơn)",
+    "(động từ) biến thành, đổi sang (變成 biến thành, 變魔術 làm ảo thuật)"
+   ],
+   "us": "Rất hay đi kèm tính từ để diễn tả sự chuyển biến: 變 + tính từ (+ 了) như 變多 (nhiều lên), 變快 (nhanh hơn), 變漂亮 (đẹp lên). Đi với danh từ phải dùng 變成.",
+   "co": [
+    "變冷|trở lạnh",
+    "變好|tốt lên",
+    "變成|biến thành",
+    "改變|thay đổi"
+   ],
+   "sy": [
+    "改變|thay đổi (có chủ ý hoặc rõ nét hơn)",
+    "變化|biến hóa, sự thay đổi"
+   ],
+   "an": [
+    "不變|không đổi"
+   ],
+   "cf": [
+    "變 + Adj vs 變成 + N|Trước tính từ dùng 變 hoặc 變得 (變瘦了 gầy đi rồi); trước danh từ dùng 變成 (變成朋友 trở thành bạn bè)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng nối 變 trực tiếp với danh từ (*他變老師 ❌ → 他變成老師了).",
+   "tw": "Ở Đài Loan rất hay nói 變天了 (trời trở gió đổi mùa rồi) hoặc 變好吃了 (ngon hơn trước rồi).",
+   "mh": "Biến → biàn. ĐỌC: 'biến' → biàn (-iên → -ian, thanh 4). NGHĨA: thay đổi hình dạng, tính chất → biến đổi, trở nên.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "入秋以後早晚天氣明顯變涼了，出門記得多帶一件薄外套。",
+     "vn": "Vào thu rồi thời tiết sáng tối mát mẻ rõ rệt, ra ngoài nhớ mang thêm một chiếc áo khoác mỏng."
+    },
+    {
+     "t": "Đô thị",
+     "zh": "這條捷運線通車之後，附近的交通變得方便許多，商圈也跟著熱鬧起來。",
+     "vn": "Sau khi tuyến tàu điện ngầm này thông xe, giao thông quanh đây tiện lợi hơn nhiều, khu thương mại cũng nhộn nhịp theo."
+    },
+    {
+     "t": "Học tập",
+     "zh": "每天堅持練習聽力三十分鐘，三個月後你會發現自己的反應變快了。",
+     "vn": "Mỗi ngày kiên trì luyện nghe ba mươi phút, sau ba tháng bạn sẽ thấy phản xạ của mình nhanh hơn hẳn."
+    }
+   ]
+  },
+  "包": {
+   "vn": "gói, bọc; túi xách; bánh bao; bao trọn",
+   "ng": [
+    "(động từ) gói, bọc, bao quanh (包餃子 gói sủi cảo, 包禮物 gói quà, 包起來 gói lại)",
+    "(danh từ) túi, cặp, bánh bao (書包 cặp sách, 背包 ba lô, 麵包 bánh mì, 包子 bánh bao)",
+    "(lượng từ) gói, bịch (一包衛生紙 một gói khăn giấy, 一包餅乾 một bịch bánh quy)"
+   ],
+   "us": "Đa năng: vừa là động từ 'gói/bọc', vừa là lượng từ 'gói/bịch', vừa ghép thành danh từ chỉ túi (包包 túi xách) và đồ ăn bọc nhân (小籠包 tiểu long bao).",
+   "co": [
+    "包起來|gói lại",
+    "一包餅乾|một gói bánh quy",
+    "紅包|bao lì xì",
+    "包車|thuê trọn xe"
+   ],
+   "sy": [
+    "包裝|đóng gói, bao bì",
+    "袋子|túi đựng"
+   ],
+   "cf": [
+    "包 vs 袋|包 là gói/bịch đóng sẵn hoặc túi xách đeo (一包面紙, 背包); 袋 là cái bao, túi đựng (塑膠袋 túi nilon, 環保袋 túi vải môi trường)."
+   ],
+   "lt": "Lượng từ cho đồ đóng gói (一包糖果, 兩包米). Túi xách trong khẩu ngữ hay nói 包包 (一個包包).",
+   "mk": "Gói đồ ăn mang về ở nhà hàng Đài Loan nói 打包 (dǎbāo: 幫我打包 gói mang về giúp tôi).",
+   "tw": "Ở Đài Loan mua đồ ăn dư không ăn hết chỉ cần nói 不好意思，幫我打包！(Xin lỗi, gói mang về giúp tôi!); quà cưới/Tết đi phong bì gọi 包紅包.",
+   "mh": "Bao → bāo. ĐỌC: 'bao' → bāo (trùng âm, thanh 1). NGHĨA: hình thai nhi được bọc trong bụng mẹ → bao bọc, gói, chiếc túi.",
+   "vd": [
+    {
+     "t": "Mua sắm",
+     "zh": "店員細心地把這個易碎的陶瓷杯用氣泡紙包好，再放進紙盒裡。",
+     "vn": "Nhân viên cửa hàng cẩn thận dùng xốp hơi bọc kỹ chiếc cốc gốm dễ vỡ này rồi mới cho vào hộp giấy."
+    },
+    {
+     "t": "Siêu thị",
+     "zh": "家裡的衛生紙快用完了，下班順路去賣場買一大包回來。",
+     "vn": "Giấy vệ sinh ở nhà sắp hết rồi, tan làm tiện đường ghé siêu thị mua một bịch lớn về."
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "過年圍爐時，全家人坐在一起邊聊天邊包水餃特別有氣氛。",
+     "vn": "Lúc quây quần đêm giao thừa, cả nhà ngồi cùng nhau vừa trò chuyện vừa gói sủi cảo thật có không khí."
+    }
+   ]
+  },
+  "把": {
+   "vn": "đem, lấy (câu chữ 把); nắm, cầm; (lượng từ) cái, bó",
+   "ng": [
+    "(giới từ) dùng trong câu chữ 把 để đưa tân ngữ lên trước động từ, nhấn mạnh kết quả/xử lý lên tân ngữ (把門關上 đóng cửa lại, 把作業寫完 làm xong bài tập)",
+    "(lượng từ) dùng cho vật có tay cầm hoặc nắm/bó (一把傘 một cây ô, 一把椅子 một cái ghế, 一把鑰匙 một chùm/chiếc chìa khóa, 一把青菜 một bó rau)"
+   ],
+   "us": "Cấu trúc câu chữ 把: Chủ ngữ + 把 + Tân ngữ xác định + Động từ + Thành phần khác (bổ ngữ kết quả, 了, 到…, 給…). KHÔNG dùng câu 把 với động từ trơn không có kết quả (*我把書看 ❌ → 我把書看完了).",
+   "co": [
+    "把門關上|đóng cửa lại",
+    "把東西收好|cất đồ đạc gọn gàng",
+    "一把傘|một cây ô",
+    "一把椅子|một cái ghế"
+   ],
+   "sy": [
+    "將|đem (dạng văn viết của 把)"
+   ],
+   "cf": [
+    "把 vs 將|把 dùng trong khẩu ngữ và văn viết thông thường; 將 trang trọng hơn, hay gặp trong hướng dẫn, tin tức (請將資料填妥)."
+   ],
+   "lt": "Lượng từ cho vật có cán/tay cầm: 傘 (ô), 鑰匙 (chìa khóa), 刀 (dao), 剪刀 (kéo), 椅子 (ghế), 吉他 (đàn guitar).",
+   "mk": "Lỗi ngữ pháp kinh điển: động từ sau 把 không có bổ ngữ/kết quả (*我把咖啡喝 ❌ → 我把咖啡喝完了); hoặc đặt phủ định sai chỗ (沒/別 phải đặt TRƯỚC 把: 別把手機忘了).",
+   "tw": "Ở Đài Loan trong câu mệnh lệnh nhẹ hay dùng 把 + N + V + 一下: 麻煩把窗戶關一下 (Nhờ đóng cửa sổ một chút).",
+   "mh": "Bả → bǎ. ĐỌC: 'bả' → bǎ (trùng âm, thanh 3). NGHĨA: 扌 bàn tay + 巴 nắm giữ → dùng tay nắm lấy xử lý = đem, cầm, lượng từ vật có tay cầm.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "出門前別忘了把陽台的窗戶關好，免得午後雷陣雨飄進家裡。",
+     "vn": "Trước khi ra ngoài đừng quên đóng kỹ cửa sổ ban công kẻo mưa giông buổi chiều tạt vào nhà."
+    },
+    {
+     "t": "Công việc",
+     "zh": "請在今天下班前把這份報表的數據核對清楚，再寄給主管審核。",
+     "vn": "Vui lòng kiểm tra rõ số liệu của bảng báo cáo này trước giờ tan làm hôm nay rồi gửi sếp duyệt."
+    },
+    {
+     "t": "Đồ dùng",
+     "zh": "台北天氣說變就變，我的包包裡隨時都會放一把輕便的折疊傘。",
+     "vn": "Thời tiết Đài Bắc thay đổi bất chợt, trong túi tôi lúc nào cũng để sẵn một cây ô gấp gọn nhẹ."
+    }
+   ]
+  }
+ }
+}

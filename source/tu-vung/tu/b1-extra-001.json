@@ -1,0 +1,1273 @@
+{
+ "tu": {
+  "哎": {
+   "vn": "ôi, ủa, ơ (thán từ ngạc nhiên, nhắc nhở)",
+   "ng": [
+    "(thán từ) ôi, ủa, này — biểu thị sự ngạc nhiên, sực nhớ ra hoặc nhắc nhở nhẹ nhàng (哎，你別走那麼快！ Này, bạn đừng đi nhanh thế!, 哎，我忘了帶鑰匙！ Ôi, tôi quên mang chìa khóa rồi!)"
+   ],
+   "us": "Đứng đầu câu trong khẩu ngữ tự nhiên. Thanh 1 āi thường thể hiện ngạc nhiên/nhắc nhở; ghép thành 哎呀 (āiyā) = ôi chao / trời ơi.",
+   "co": [
+    "哎呀|ôi chao, trời ơi",
+    "哎喲|ối, á (đau hoặc ngạc nhiên)"
+   ],
+   "sy": [
+    "喂|này, a lô",
+    "咦|ủa (ngạc nhiên)"
+   ],
+   "cf": [
+    "哎 vs 唉|哎 dùng khi ngạc nhiên, sực nhớ hoặc gọi nhẹ (哎，等一下！); 唉 là tiếng thở dài ngao ngán, tiếc nuối (唉，沒辦法)."
+   ],
+   "lt": "Thán từ. Đọc āi (thanh 1).",
+   "mk": "Đừng viết lẫn 哎 (ngạc nhiên/nhắc nhở) với 唉 (thở dài tiếc nuối).",
+   "tw": "Ở Đài Loan trong khẩu ngữ hay nói 哎呀 (āiyā) hoặc 欸 (ēi) để mở đầu câu gọi chú ý.",
+   "mh": "Ai → āi. ĐỌC: giữ gần nguyên thanh 1 āi. NGHĨA: 口 cái miệng + 艾 → tiếng thốt ra từ miệng khi bất ngờ = ôi, này.",
+   "vd": [
+    {
+     "t": "Nhắc nhở",
+     "zh": "哎，你的雨傘忘在椅子旁邊了，快拿回去吧！",
+     "vn": "Này, cây ô của bạn để quên bên cạnh ghế kìa, mau lấy lại đi!"
+    },
+    {
+     "t": "Ngạc nhiên",
+     "zh": "哎，你不是說今天要出差嗎？怎麼還在辦公室裡？",
+     "vn": "Ủa, không phải bạn nói hôm nay đi công tác sao? Sao vẫn còn ở văn phòng thế?"
+    },
+    {
+     "t": "Đời sống",
+     "zh": "哎呀，我剛才把水杯打翻了，快拿抹布來擦一下！",
+     "vn": "Ôi chao, tôi vừa làm đổ ly nước rồi, mau lấy khăn lau giúp một chút!"
+    }
+   ]
+  },
+  "唉": {
+   "vn": "ôi, thở dài (thán từ tiếc nuối, ngao ngán)",
+   "ng": [
+    "(thán từ) ôi, haizz — biểu thị tiếng thở dài, cảm giác tiếc nuối, bất lực hoặc mệt mỏi (唉，真是可惜 Ôi, thật đáng tiếc, 唉，別提了 Haizz, đừng nhắc nữa)"
+   ],
+   "us": "Đứng đầu câu, theo sau bởi dấu phẩy. Đọc āi (thanh 1) hoặc ài (thanh 4 kéo dài như tiếng thở dài).",
+   "co": [
+    "唉聲嘆氣|thở ngắn than dài",
+    "唉，沒辦法|haizz, hết cách rồi",
+    "唉，真可惜|ôi, tiếc thật đấy"
+   ],
+   "sy": [
+    "哎|ôi (nhẹ hơn, thiên về ngạc nhiên)"
+   ],
+   "cf": [
+    "唉 vs 哎|唉 luôn mang sắc thái buồn, tiếc, chán nản (thở dài); 哎 mang sắc thái giật mình, nhắc nhở."
+   ],
+   "lt": "Thán từ.",
+   "mk": "Không dùng 唉 khi đang vui mừng hay hào hứng.",
+   "tw": "Ở Đài Loan khi than thở nhẹ hay nói 唉，真的沒辦法耶 (Haizz, đúng là hết cách thật).",
+   "mh": "Ai → āi. ĐỌC: phát âm giống tiếng thở dài āi / ài. NGHĨA: 口 miệng + 矣 (trợ từ cảm thán cổ) → tiếng thở dài ngao ngán.",
+   "vd": [
+    {
+     "t": "Tiếc nuối",
+     "zh": "唉，早知道會突然下大雨，出門前就應該多帶一雙備用襪子。",
+     "vn": "Haizz, biết sớm trời đột ngột mưa to thế này thì trước khi ra ngoài đã mang thêm đôi tất dự phòng."
+    },
+    {
+     "t": "Bất lực",
+     "zh": "唉，這班車剛好開走，下一班還要再等二十分鐘。",
+     "vn": "Ôi, chuyến xe này vừa chạy mất rồi, chuyến sau còn phải đợi thêm hai mươi phút nữa."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "整天坐在這裡唉聲嘆氣也解決不了問題，不如起身想辦法吧。",
+     "vn": "Ngồi đây thở ngắn than dài cả ngày cũng không giải quyết được vấn đề, chi bằng đứng lên tìm cách đi."
+    }
+   ]
+  },
+  "愛情": {
+   "vn": "tình yêu (nam nữ)",
+   "ng": [
+    "(danh từ) tình yêu đôi lứa (純真的愛情 tình yêu trong sáng, 愛情電影 phim tình cảm, 愛情故事 câu chuyện tình yêu)"
+   ],
+   "us": "Chỉ riêng tình yêu lãng mạn đôi lứa; không dùng cho tình cảm gia đình (親情) hay tình bạn (友情).",
+   "co": [
+    "愛情故事|câu chuyện tình yêu",
+    "愛情電影|phim tình cảm lãng mạn",
+    "談戀愛|yêu đương",
+    "愛情長跑|cuộc tình lâu năm"
+   ],
+   "sy": [
+    "戀情|mối tình",
+    "感情|tình cảm (rộng hơn)"
+   ],
+   "cf": [
+    "愛情 vs 親情 vs 友情|Ba loại tình cảm lớn: 愛情 (tình yêu đôi lứa), 親情 (tình thân gia đình), 友情 (tình bạn)."
+   ],
+   "lt": "段 (一段愛情 một mối tình).",
+   "mk": "Đừng dùng 愛情 cho tình cảm cha mẹ con cái — đó là 親情 (qīnqíng).",
+   "tw": "Ở Đài Loan phim thần tượng tình cảm gọi 愛情劇 / 偶像劇; cặp đôi yêu lâu nhiều năm gọi 愛情長跑 (chạy marathon tình yêu).",
+   "mh": "Ái Tình → àiqíng. ĐỌC: 'ái' → ài (thanh 4); 'tình' → qíng (t- → q-, -inh → -ing, thanh 2). NGHĨA: 愛 yêu + 情 tình cảm → tình yêu đôi lứa.",
+   "vd": [
+    {
+     "t": "Quan điểm",
+     "zh": "健康的愛情需要建立在彼此信任、尊重和良好的溝通之上。",
+     "vn": "Một tình yêu lành mạnh cần được xây dựng trên nền tảng tin tưởng, tôn trọng và giao tiếp tốt giữa hai người."
+    },
+    {
+     "t": "Giải trí",
+     "zh": "這部輕鬆幽默的愛情喜劇在週末票房拿下冠軍，非常受年輕人歡迎。",
+     "vn": "Bộ phim hài tình cảm nhẹ nhàng hóm hỉnh này đứng đầu phòng vé cuối tuần, rất được giới trẻ ưa chuộng."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "他們經過十年的愛情長跑，終於決定在今年步入禮堂。",
+     "vn": "Sau mười năm yêu nhau bền bỉ, cuối cùng họ đã quyết định bước vào lễ đường trong năm nay."
+    }
+   ]
+  },
+  "愛心": {
+   "vn": "lòng nhân ái; tấm lòng yêu thương; hình trái tim",
+   "ng": [
+    "(danh từ) lòng nhân ái, tấm lòng yêu thương giúp đỡ người khác (充滿愛心 giàu lòng nhân ái, 發揮愛心 phát huy lòng nhân ái)",
+    "(danh từ) hình trái tim (畫一顆愛心 vẽ một hình trái tim, 按愛心 thả tim trên mạng xã hội)"
+   ],
+   "us": "Dùng rất phổ biến trong các hoạt động thiện nguyện (愛心義賣 bán hàng từ thiện) và mạng xã hội (點愛心 thả tim).",
+   "co": [
+    "充滿愛心|giàu lòng nhân ái",
+    "愛心義賣|bán hàng từ thiện",
+    "愛心便當|cơm hộp yêu thương (người nhà chuẩn bị)",
+    "按愛心|thả tim"
+   ],
+   "sy": [
+    "善心|lòng thiện, tấm lòng tốt"
+   ],
+   "an": [
+    "冷漠|lạnh lùng, vô cảm"
+   ],
+   "cf": [
+    "愛心 vs 愛情|愛心 là lòng nhân ái, sự quan tâm rộng lớn với cộng đồng/động vật (hoặc icon trái tim); 愛情 là tình yêu đôi lứa."
+   ],
+   "lt": "份 (一份愛心 một tấm lòng), 顆 (一顆愛心 một hình trái tim).",
+   "mk": "Đừng nhầm với 'ái tâm' theo kiểu tình yêu nam nữ — 愛心 thiên về lòng tốt, thiện nguyện.",
+   "tw": "Ở Đài Loan rất hay thấy cụm 愛心傘 (ô chia sẻ miễn phí ở ga tàu), 愛心義賣 (hội chợ từ thiện), 愛心媽媽 (các mẹ tình nguyện hỗ trợ trường tiểu học).",
+   "mh": "Ái Tâm → àixīn. ĐỌC: 'ái' → ài (thanh 4); 'tâm' → xīn (t- → x-, -âm → -in, thanh 1). NGHĨA: 愛 yêu thương + 心 tấm lòng → tấm lòng nhân ái, hình trái tim.",
+   "vd": [
+    {
+     "t": "Thiện nguyện",
+     "zh": "學校每年年底都會舉辦愛心義賣會，把所得全數捐給偏鄉兒童。",
+     "vn": "Cuối mỗi năm trường đều tổ chức hội chợ từ thiện, quyên góp toàn bộ số tiền thu được cho trẻ em vùng sâu vùng xa."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "捷運站出口放了幾把免費借用的愛心傘，讓忘記帶傘的旅客應急。",
+     "vn": "Lối ra ga tàu điện ngầm đặt sẵn vài cây ô chia sẻ miễn phí để hành khách quên mang ô dùng tạm."
+    },
+    {
+     "t": "Tính cách",
+     "zh": "她非常有愛心，假日經常去動物之家當志工照顧流浪貓狗。",
+     "vn": "Cô ấy rất giàu lòng nhân ái, ngày nghỉ thường tới trạm cứu hộ động vật làm tình nguyện chăm sóc chó mèo hoang."
+    }
+   ]
+  },
+  "按": {
+   "vn": "ấn, bấm; dựa theo",
+   "ng": [
+    "(động từ) ấn, nhấn, bấm bằng tay (按按鈕 bấm nút, 按門鈴 bấm chuông cửa, 按摩 mát-xa)",
+    "(giới từ) căn cứ theo, dựa theo (按規定 theo quy định, 按時 đúng giờ, 按順序 theo thứ tự)"
+   ],
+   "us": "Nghĩa động từ dùng cho nút bấm, chuông, bàn phím, điện thoại; nghĩa giới từ thường rút gọn từ 按照 (按計畫 theo kế hoạch, 按步就班 từng bước một).",
+   "co": [
+    "按按鈕|bấm nút",
+    "按門鈴|bấm chuông cửa",
+    "按時|đúng giờ",
+    "按規定|theo quy định"
+   ],
+   "sy": [
+    "壓|đè, ép xuống",
+    "按照|căn cứ theo, dựa theo"
+   ],
+   "cf": [
+    "按 vs 壓|按 dùng tay bấm/ấn nhẹ nút hoặc xoa bóp; 壓 nhấn mạnh dùng lực đè nặng xuống."
+   ],
+   "lt": "Động từ / Giới từ.",
+   "mk": "Trên xe buýt Đài Loan bấm chuông xin xuống là 按下車鈴 (không dùng *打鈴 ❌).",
+   "tw": "Ở Đài Loan mạng xã hội dùng 按讚 (bấm Like), 按愛心 (thả tim); đi xe buýt nhớ 按下車鈴 (bấm chuông xuống xe).",
+   "mh": "Án → àn. ĐỌC: 'án' → àn (trùng âm, thanh 4). NGHĨA: 扌 bàn tay + 安 đặt xuống → dùng tay ấn xuống = bấm, theo chuẩn mực.",
+   "vd": [
+    {
+     "t": "Giao thông",
+     "zh": "公車快到目的地前，記得先按下車鈴提醒司機靠站。",
+     "vn": "Trước khi xe buýt sắp tới điểm đến, nhớ bấm chuông xin xuống để báo bác tài dừng trạm."
+    },
+    {
+     "t": "Công việc",
+     "zh": "所有申請文件都必須按規定格式填寫，否則會被退件補辦。",
+     "vn": "Mọi hồ sơ đăng ký đều phải điền theo đúng mẫu quy định, nếu không sẽ bị trả lại để bổ sung."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "請在門口按對講機，我幫你開一樓的大門。",
+     "vn": "Bạn bấm chuông liên lạc ngoài cửa nhé, tôi mở cửa tầng một cho bạn."
+    }
+   ]
+  },
+  "安定": {
+   "vn": "ổn định; an định",
+   "ng": [
+    "(tính từ) ổn định, yên bình, không biến động (生活安定 cuộc sống ổn định, 社會安定 xã hội yên ổn)",
+    "(động từ) làm yên lòng, ổn định lại (安定人心 ổn định lòng người, 安定情緒 trấn tĩnh cảm xúc)"
+   ],
+   "us": "Thiên về cuộc sống, xã hội, tâm lý yên ổn không xáo trộn; ít dùng cho số liệu kinh tế hay tốc độ mạng (dùng 穩定).",
+   "co": [
+    "生活安定|cuộc sống ổn định",
+    "社會安定|xã hội yên bình",
+    "安定人心|ổn định lòng người",
+    "安定下來|ổn định lại (an cư)"
+   ],
+   "sy": [
+    "穩定|ổn định (dùng rộng hơn: giá cả, mạng, thu nhập)",
+    "安穩|yên ổn"
+   ],
+   "an": [
+    "動盪|biến động, bất ổn",
+    "不安|bất an"
+   ],
+   "cf": [
+    "安定 vs 穩定|安定 thiên về cuộc sống, trật tự xã hội, tinh thần yên ổn (心裡安定); 穩定 thiên về trạng thái kỹ thuật, kinh tế, mức độ ít dao động (網路穩定, 收入穩定)."
+   ],
+   "lt": "Tính từ / Động từ.",
+   "mk": "Đừng nói *網路很安定 ❌ — sóng mạng ổn định phải dùng 穩定!",
+   "tw": "Ở Đài Loan hay nói 搬來台北半年後，生活終於慢慢安定下來了 (Sau nửa năm chuyển tới Đài Bắc, cuộc sống cuối cùng cũng dần ổn định).",
+   "mh": "An Định → āndìng. ĐỌC: 'an' → ān (thanh 1); 'định' → dìng (đ- → d-, -inh → -ing, thanh 4). NGHĨA: 安 yên bình + 定 cố định → yên ổn vững vàng = ổn định.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "經歷幾年四處奔波後，他終於找到理想的工作，生活也慢慢安定下來。",
+     "vn": "Sau vài năm bôn ba khắp nơi, anh ấy cuối cùng đã tìm được công việc lý tưởng và cuộc sống dần ổn định lại."
+    },
+    {
+     "t": "Xã hội",
+     "zh": "完善的社會福利制度，有助於維持整體社會的長期安定。",
+     "vn": "Hệ thống phúc lợi xã hội hoàn thiện giúp duy trì sự ổn định lâu dài của toàn xã hội."
+    },
+    {
+     "t": "Tâm lý",
+     "zh": "聽到醫師詳細說明檢查結果一切正常，大家焦急的心情才總算安定了下來。",
+     "vn": "Nghe bác sĩ giải thích chi tiết kết quả kiểm tra đều bình thường, tâm trạng lo lắng của mọi người mới yên tâm lại."
+    }
+   ]
+  },
+  "安靜": {
+   "vn": "yên tĩnh; im lặng",
+   "ng": [
+    "(tính từ) yên tĩnh, không ồn ào (環境很安靜 môi trường rất yên tĩnh, 請保持安靜 vui lòng giữ yên lặng)",
+    "(tính từ) trầm tính, ít nói (個性很安靜 tính cách điềm đạm, ít ồn ào)"
+   ],
+   "us": "Dùng cho không gian, bầu không khí hoặc tính cách. Dạng lặp lại để nhấn mạnh trạng thái: 安安靜靜 (yên ắng hẳn: 安安靜靜地看書 ngồi đọc sách thật yên tĩnh).",
+   "co": [
+    "保持安靜|giữ yên lặng",
+    "環境安靜|môi trường yên tĩnh",
+    "安靜下來|yên lặng trở lại",
+    "安安靜靜|yên ắng, lặng lẽ"
+   ],
+   "sy": [
+    "寧靜|tĩnh lặng, thanh bình (văn chương hơn)",
+    "靜悄悄|im ắng không tiếng động"
+   ],
+   "an": [
+    "吵|ồn ào",
+    "熱鬧|náo nhiệt"
+   ],
+   "cf": [
+    "安靜 vs 寧靜|安靜 dùng phổ biến trong mọi ngữ cảnh hàng ngày (thư viện, lớp học, nhà ở); 寧靜 giàu chất thơ hơn (寧靜的夜晚 đêm thanh vắng)."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Giữ yên lặng là 保持安靜 (bǎochí ānjìng), đừng dịch word-by-word thành *留安靜 ❌.",
+   "tw": "Trong thư viện và rạp chiếu phim Đài Loan luôn có biển 請保持安靜，手機請轉靜音 (Vui lòng giữ yên lặng, chuyển điện thoại sang chế độ im lặng).",
+   "mh": "An Tĩnh → ānjìng. ĐỌC: 'an' → ān (thanh 1); 'tĩnh' → jìng (t- → j-, -inh → -ing, thanh 4). NGHĨA: 安 yên bình + 靜 lặng lẽ → yên tĩnh.",
+   "vd": [
+    {
+     "t": "Thư viện",
+     "zh": "圖書館閱覽區禁止交談，請所有讀者輕聲細語並保持安靜。",
+     "vn": "Khu vực đọc sách trong thư viện cấm trò chuyện, xin quý độc giả đi nhẹ nói khẽ và giữ yên lặng."
+    },
+    {
+     "t": "Nhà ở",
+     "zh": "這條巷子離大馬路有一段距離，晚上睡覺的時候特別安靜。",
+     "vn": "Con ngõ này cách đường lớn một đoạn nên tối đi ngủ đặc biệt yên tĩnh."
+    },
+    {
+     "t": "Học tập",
+     "zh": "老師一走進教室，原本吵雜的同學立刻安靜下來準備上課。",
+     "vn": "Thầy giáo vừa bước vào lớp, các bạn học đang ồn ào lập tức im lặng ngay để chuẩn bị vào bài."
+    }
+   ]
+  },
+  "安排": {
+   "vn": "sắp xếp; bố trí",
+   "ng": [
+    "(động từ) sắp xếp, bố trí lịch trình, công việc, nhân sự (安排時間 sắp xếp thời gian, 安排行程 lên lịch trình, 安排面試 sắp xếp phỏng vấn)",
+    "(danh từ) sự sắp xếp, kế hoạch bố trí (聽從公司的安排 tuân theo sự sắp xếp của công ty)"
+   ],
+   "us": "Dùng rất thường xuyên trong công việc và du lịch: 安排 + 時間 / 行程 / 會議 / 住宿 / 人力.",
+   "co": [
+    "安排時間|sắp xếp thời gian",
+    "安排行程|lên lịch trình",
+    "安排面試|sắp xếp buổi phỏng vấn",
+    "妥善安排|bố trí chu đáo"
+   ],
+   "sy": [
+    "規劃|hoạch định, lên kế hoạch (tầm vĩ mô/dài hạn hơn)",
+    "調度|điều phối (nhân lực, xe cộ)"
+   ],
+   "cf": [
+    "安排 vs 計畫|安排 thiên về hành động bố trí cụ thể (ai làm gì, mấy giờ đi đâu); 計畫 thiên về dự định, bản kế hoạch tổng thể."
+   ],
+   "lt": "Động từ / Danh từ.",
+   "mk": "Không dùng 安排 cho việc 'sắp xếp đồ đạc trên bàn cho gọn' — dọn/xếp đồ dùng 整理 (zhěnglǐ) hoặc 擺放 (bǎifàng)!",
+   "tw": "Ở Đài Loan khi đi du lịch hay nói 行程都安排好了 (Lịch trình đã sắp xếp xong xuôi rồi).",
+   "mh": "An Bài → ānpái. ĐỌC: 'an' → ān (thanh 1); 'bài' → pái (thanh 2). NGHĨA: 安 đặt yên + 排 xếp hàng thứ tự → sắp xếp vào đúng chỗ = sắp xếp, bố trí.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "這次三天兩夜的花蓮之旅，由最熟悉當地的朋友負責安排所有行程。",
+     "vn": "Chuyến đi Hoa Liên ba ngày hai đêm lần này do người bạn rành địa phương nhất phụ trách sắp xếp toàn bộ lịch trình."
+    },
+    {
+     "t": "Công việc",
+     "zh": "人資部門已經幫你安排好下週二上午十點的第二次面試。",
+     "vn": "Phòng nhân sự đã sắp xếp cho bạn buổi phỏng vấn vòng hai vào mười giờ sáng thứ Ba tuần sau."
+    },
+    {
+     "t": "Học tập",
+     "zh": "學會合理安排每天的讀書與休息時間，備考效率才會大幅提升。",
+     "vn": "Biết cách sắp xếp hợp lý thời gian học và nghỉ mỗi ngày thì hiệu quả ôn thi mới tăng mạnh được."
+    }
+   ]
+  },
+  "按照": {
+   "vn": "căn cứ theo; dựa theo, tuân theo",
+   "ng": [
+    "(giới từ) dựa theo, làm theo đúng tiêu chuẩn, thứ tự, quy định (按照規定 theo quy định, 按照順序 theo thứ tự, 按照計畫 theo kế hoạch)"
+   ],
+   "us": "Cấu trúc: 按照 + tiêu chuẩn/quy định/kế hoạch + V. Trang trọng và đầy đủ hơn 按, nhưng ít dùng hơn 根據 khi trích dẫn lý do hay nguồn tin.",
+   "co": [
+    "按照規定|theo quy định",
+    "按照順序|theo thứ tự",
+    "按照計畫|theo kế hoạch",
+    "按照步驟|theo từng bước"
+   ],
+   "sy": [
+    "按|theo (dạng rút gọn)",
+    "依照|y theo, tuân theo",
+    "根據|căn cứ vào"
+   ],
+   "cf": [
+    "按照 vs 根據|按照 nhấn mạnh 'làm đúng theo quy trình/thứ tự/kế hoạch'; 根據 nhấn mạnh 'dựa trên căn cứ, bằng chứng, nguồn tin để phán đoán' (根據氣象報告 theo dự báo thời tiết)."
+   ],
+   "lt": "Giới từ.",
+   "mk": "Không dùng 按照 để dẫn nguồn tin tức (*按照新聞報導 ❌ → 根據新聞報導).",
+   "tw": "Ở Đài Loan trong hướng dẫn sử dụng và văn bản công sở hay dùng 依照 hoặc 按照 đều rất tự nhiên.",
+   "mh": "Án Chiếu → ànzhào. ĐỌC: 'án' → àn (thanh 4); 'chiếu' → zhào (ch- → zh-, thanh 4). NGHĨA: 按 căn cứ + 照 soi chiếu theo → làm đúng theo khuôn mẫu = dựa theo.",
+   "vd": [
+    {
+     "t": "Hướng dẫn",
+     "zh": "組裝這張書桌時，只要按照說明書上的步驟一步步操作就能完成。",
+     "vn": "Khi lắp ráp chiếc bàn học này, chỉ cần làm từng bước theo hướng dẫn sử dụng là hoàn thành."
+    },
+    {
+     "t": "Xếp hàng",
+     "zh": "現場領取號碼牌後，請大家按照叫號順序依序辦理手續。",
+     "vn": "Sau khi lấy phiếu số thứ tự tại chỗ, xin mọi người làm thủ tục lần lượt theo thứ tự gọi số."
+    },
+    {
+     "t": "Công việc",
+     "zh": "只要按照原本排定的時程推進，我們一定能在月底前順利交件。",
+     "vn": "Chỉ cần tiến hành đúng theo lịch trình đã định ban đầu, chúng ta nhất định sẽ bàn giao suôn sẻ trước cuối tháng."
+    }
+   ]
+  },
+  "白": {
+   "vn": "trắng; rõ ràng; miễn phí",
+   "ng": [
+    "(tính từ) màu trắng (白色 màu trắng, 白紙 giấy trắng, 白雲 mây trắng)",
+    "(tính từ) sáng, rõ ràng (白天 ban ngày, 明白 hiểu rõ)",
+    "(tính từ/phó từ) không công, miễn phí, trơn (白開水 nước lọc trắng, 白吃 ăn chùa)"
+   ],
+   "us": "Dùng trực tiếp trước danh từ (白襯衫 áo sơ mi trắng) hoặc ghép 白色. Lưu ý phó từ 白/白白 mang nghĩa 'uổng công' nằm ở mục riêng.",
+   "co": [
+    "白色|màu trắng",
+    "白天|ban ngày",
+    "白開水|nước lọc đun sôi để nguội",
+    "白飯|cơm trắng"
+   ],
+   "sy": [
+    "潔白|trắng tinh khôi",
+    "雪白|trắng như tuyết"
+   ],
+   "an": [
+    "黑|đen"
+   ],
+   "cf": [
+    "白 vs 白色|Trước danh từ đơn giản thường dùng 白 (白襯衫, 白飯); khi làm vị ngữ hoặc nhấn mạnh màu sắc dùng 白色 (這件是白色的)."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Nước lọc uống hàng ngày ở Đài Loan gọi 白開水 (báikāishuǐ), không chỉ nói *白水 ❌.",
+   "tw": "Ở Đài Loan trà sữa trân châu trắng gọi 白玉珍珠; nói ai thiếu tinh tế trong giao tiếp gọi 白目 (báimù, từ tiếng Đài).",
+   "mh": "Bạch → bái. ĐỌC: 'bạch' → bái (thanh 2). NGHĨA: ánh sáng mặt trời vừa ló rạng chiếu sáng trắng tinh → màu trắng, sáng rõ.",
+   "vd": [
+    {
+     "t": "Sức khỏe",
+     "zh": "營養師建議大家少喝含糖手搖飲，平常應該多喝白開水補充水分。",
+     "vn": "Chuyên gia dinh dưỡng khuyên mọi người bớt uống trà sữa có đường, bình thường nên uống nhiều nước lọc bổ sung nước."
+    },
+    {
+     "t": "Trang phục",
+     "zh": "這件白襯衫剪裁俐落，搭配深色西裝褲穿去面試非常得體。",
+     "vn": "Chiếc áo sơ mi trắng này cắt may gọn gàng, phối với quần âu tối màu đi phỏng vấn rất lịch sự."
+    },
+    {
+     "t": "Thời gian",
+     "zh": "他白天在公司上班，晚上則利用空檔準備語言檢定考試。",
+     "vn": "Ban ngày anh ấy đi làm ở công ty, còn buổi tối tận dụng thời gian rảnh ôn thi chứng chỉ ngoại ngữ."
+    }
+   ]
+  },
+  "白/白白": {
+   "vn": "uổng công, vô ích; không công",
+   "ng": [
+    "(phó từ) uổng công, phí hoài, không thu được kết quả gì (白跑一趟 đi một chuyến uổng công, 白白浪費 phí hoài vô ích, 白費力氣 tốn công vô ích)"
+   ],
+   "us": "Đặt trực tiếp trước động từ: 白 + V (白等了 đợi uổng công rồi, 白做工 làm công cốc) hoặc 白白 + V hai âm tiết (白白浪費時間 lãng phí thời gian vô ích).",
+   "co": [
+    "白跑一趟|đi một chuyến uổng công",
+    "白費力氣|tốn công vô ích",
+    "白白浪費|lãng phí uổng phí",
+    "白忙一場|bận rộn công cốc"
+   ],
+   "sy": [
+    "徒勞|uổng công (văn viết)",
+    "枉費|uổng phí"
+   ],
+   "cf": [
+    "白 + V vs 白白 + V|白 thường đi với động từ 1 âm tiết hoặc cụm ngắn (白去, 白等, 白買); 白白 nhấn mạnh sự tiếc nuối rõ hơn, hay đi với động từ 2 âm tiết (白白錯過 bỏ lỡ uổng phí)."
+   ],
+   "lt": "Phó từ.",
+   "mk": "Đừng dịch nghĩa màu trắng khi thấy 白 đứng ngay trước động từ (vd. 白等了 = đợi công cốc, không phải 'đợi trắng').",
+   "tw": "Ở Đài Loan rất hay nói 還好有先打電話確認，不然就白跑一趟了！(May mà gọi điện xác nhận trước, không thì đi một chuyến công cốc!).",
+   "mh": "Bạch Bạch → bái / báibái. ĐỌC: 'bạch' → bái (thanh 2). NGHĨA: tờ giấy trắng không có kết quả gì → uổng công, trắng tay.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "出門前先查好餐廳的公休日，才不會大老遠過去卻白跑一趟。",
+     "vn": "Trước khi ra ngoài hãy xem kỹ ngày nghỉ của nhà hàng để khỏi lặn lội đường xa tới rồi đi một chuyến uổng công."
+    },
+    {
+     "t": "Cơ hội",
+     "zh": "這麼難得的實習機會如果不主動爭取，白白錯過實在太可惜了。",
+     "vn": "Cơ hội thực tập hiếm có thế này nếu không chủ động nắm bắt, bỏ lỡ uổng phí thì thật quá đáng tiếc."
+    },
+    {
+     "t": "Công việc",
+     "zh": "檔案記得隨時存檔，免得突然停電讓一整個下午的努力全白費了。",
+     "vn": "Nhớ lưu file thường xuyên kẻo mất điện đột ngột làm công sức cả buổi chiều đổ sông đổ biển."
+    }
+   ]
+  },
+  "白菜": {
+   "vn": "cải thảo; cải trắng",
+   "ng": [
+    "(danh từ) rau cải thảo, cải bẹ trắng (大白菜 cải thảo, 小白菜 cải thìa/cải ngọt lá nhỏ, 白菜滷 cải thảo hầm)"
+   ],
+   "us": "Chỉ họ rau cải phổ biến trong ẩm thực Đài Loan. Lượng từ cho một bắp cải thảo là 顆 (一顆大白菜), cho một bó cải nhỏ là 把 (一把小白菜).",
+   "co": [
+    "大白菜|cải thảo",
+    "小白菜|cải thìa / cải trắng nhỏ",
+    "白菜滷|cải thảo hầm (món Đài Loan)",
+    "翠玉白菜|Ngọc Bạch Thái (bảo vật Cố Cung)"
+   ],
+   "sy": [
+    "青菜|rau xanh nói chung"
+   ],
+   "cf": [
+    "大白菜 vs 高麗菜|大白菜 là cải thảo (lá dài, mềm, hay nấu lẩu/hầm); 高麗菜 là bắp cải tròn (cực phổ biến ở Đài Loan)."
+   ],
+   "lt": "顆 (一顆大白菜), 把 (一把小白菜).",
+   "mk": "Chú ý ở Đài Loan bắp cải tròn là 高麗菜, còn 大白菜 là cải thảo!",
+   "tw": "Ở Bảo tàng Cố Cung Đài Bắc có báu vật nổi tiếng nhất là 「翠玉白菜」 (Bắp cải ngọc bích); ngoài quán cơm Đài Loan có món bình dân siêu ngon là 白菜滷 (cải thảo hầm tôm khô nấm hương).",
+   "mh": "Bạch Thái → báicài. ĐỌC: 'bạch' → bái (thanh 2); 'thái' → cài (thanh 4). NGHĨA: 白 cọng trắng + 菜 rau → rau cải trắng, cải thảo.",
+   "vd": [
+    {
+     "t": "Ẩm thực",
+     "zh": "冬天煮火鍋的時候放進幾片大白菜，湯頭喝起來會變得非常鮮甜。",
+     "vn": "Mùa đông nấu lẩu cho thêm vài lá cải thảo, nước dùng uống vào sẽ trở nên rất ngọt thanh."
+    },
+    {
+     "t": "Văn hóa",
+     "zh": "來到台北故宮博物院，許多外國旅客第一個想看的就是翠玉白菜。",
+     "vn": "Tới Bảo tàng Cố Cung Đài Bắc, nhiều du khách nước ngoài muốn xem đầu tiên chính là báu vật Ngọc Bạch Thái."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "今天傳統市場的大白菜特別新鮮，我順手買了一顆回家做白菜滷。",
+     "vn": "Hôm nay cải thảo ngoài chợ truyền thống đặc biệt tươi, tôi tiện tay mua một bắp về làm món cải thảo hầm."
+    }
+   ]
+  },
+  "擺": {
+   "vn": "bày, đặt, xếp; lắc, vung",
+   "ng": [
+    "(động từ) bày, đặt, sắp xếp ngay ngắn (擺在桌上 đặt trên bàn, 擺攤 bày sạp bán hàng, 擺盤 bày biện đĩa ăn)",
+    "(động từ) lắc lư, vung qua lại (搖擺 lắc lư, 擺手 vẫy tay từ chối)"
+   ],
+   "us": "Thiên về đặt đồ vật có ý đồ trưng bày, sắp đặt gọn gàng (擺放, 擺設). Phổ biến trong khẩu ngữ Đài Loan hơn 放 khi nói 'bày ra'.",
+   "co": [
+    "擺在桌上|đặt trên bàn",
+    "擺攤|bày sạp bán hàng",
+    "擺設|bài trí, đồ trang trí",
+    "擺脫|thoát khỏi"
+   ],
+   "sy": [
+    "放|đặt, để (chung chung hơn)",
+    "陳列|trưng bày (trang trọng, cửa hàng/bảo tàng)"
+   ],
+   "cf": [
+    "擺 vs 放|放 là đặt để thông thường (把書放在桌上); 擺 mang sắc thái bày biện, sắp đặt gọn đẹp hoặc trưng bày (客廳擺了一盆花 phòng khách bày một chậu hoa)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng nhầm 擺脫 (thoát khỏi thói quen xấu/rắc rối) với nghĩa đặt đồ.",
+   "tw": "Ở Đài Loan rất hay nói 擺攤 (bán hàng ở chợ đêm/chợ phiên cuối tuần) và 擺盤 (trình bày món ăn đẹp mắt).",
+   "mh": "Bãi → bǎi. ĐỌC: 'bãi' → bǎi (trùng âm, thanh 3). NGHĨA: 扌 bàn tay + 罷 → dùng tay sắp đặt, gạt sang bên = bày đặt, vung.",
+   "vd": [
+    {
+     "t": "Nhà ở",
+     "zh": "她在書桌角落擺了一盆綠色小盆栽，看書累了抬頭就能放鬆眼睛。",
+     "vn": "Cô ấy bày một chậu cây xanh nhỏ ở góc bàn học, đọc sách mỏi mắt ngẩng lên là thư giãn được ngay."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "週末的文創市集非常熱鬧，很多年輕設計師會來這裡擺攤賣手作飾品。",
+     "vn": "Chợ phiên sáng tạo cuối tuần rất náo nhiệt, nhiều nhà thiết kế trẻ tới đây bày gian hàng bán phụ kiện thủ công."
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "這家餐廳的料理不只口味地道，連擺盤都講究得像藝術品一樣。",
+     "vn": "Món ăn ở nhà hàng này không chỉ hương vị chuẩn mực mà cả cách bày đĩa cũng tinh tế như tác phẩm nghệ thuật."
+    }
+   ]
+  },
+  "班機": {
+   "vn": "chuyến bay",
+   "ng": [
+    "(danh từ) chuyến bay theo lịch trình định kỳ của hãng hàng không (國際班機 chuyến bay quốc tế, 直飛班機 chuyến bay thẳng, 班機延誤 chuyến bay bị hoãn)"
+   ],
+   "us": "Từ chuẩn dùng ở Đài Loan cho 'chuyến bay' (ở Đại Lục hay dùng 航班, tuy Đài Loan cũng hiểu 航班 nhưng 班機 cực kỳ phổ biến trên loa sân bay và tin tức).",
+   "co": [
+    "直飛班機|chuyến bay thẳng",
+    "班機延誤|chuyến bay bị trễ/hoãn",
+    "班機取消|chuyến bay bị hủy",
+    "搭班機|đi chuyến bay"
+   ],
+   "sy": [
+    "航班|chuyến bay (dùng nhiều ở cả Đài Loan và Đại Lục)"
+   ],
+   "cf": [
+    "班機 vs 飛機|飛機 là chiếc máy bay (phương tiện); 班機 là chuyến bay theo lịch trình cụ thể (mã chuyến bay, giờ cất cánh)."
+   ],
+   "lt": "班, 架 (這班班機 / 這班飛機).",
+   "mk": "Đừng nói *我坐一個班機 ❌ — dùng 我搭這班飛機 hoặc 我的班機是幾點.",
+   "tw": "Tại sân bay Đào Viên (桃園機場), bảng điện tử và thông báo thường ghi 班機時刻 (lịch chuyến bay), 班機延誤 (chuyến bay bị hoãn).",
+   "mh": "Ban Cơ → bānjī. ĐỌC: 'ban' → bān (thanh 1); 'cơ' → jī (thanh 1). NGHĨA: 班 chuyến theo ca lịch + 機 máy bay → chuyến bay.",
+   "vd": [
+    {
+     "t": "Sân bay",
+     "zh": "受到颱風外圍環流影響，今天上午有多架國際班機宣布延誤或取消。",
+     "vn": "Do ảnh hưởng hoàn lưu ngoài của bão, sáng nay có nhiều chuyến bay quốc tế thông báo bị hoãn hoặc hủy."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "我訂了明天早上八點直飛東京的班機，必須提前兩個小時到機場報到。",
+     "vn": "Tôi đã đặt chuyến bay thẳng đi Tokyo lúc tám giờ sáng mai, phải tới sân bay làm thủ tục trước hai tiếng."
+    },
+    {
+     "t": "Đón khách",
+     "zh": "麻煩把你的班機號碼傳給我，我好先查降落時間再去接機。",
+     "vn": "Nhờ bạn gửi số hiệu chuyến bay cho tôi nhé, để tôi tra giờ hạ cánh rồi ra đón."
+    }
+   ]
+  },
+  "辦理": {
+   "vn": "làm (thủ tục); xử lý, giải quyết",
+   "ng": [
+    "(động từ) làm, tiến hành xử lý các thủ tục hành chính, giấy tờ, giao dịch (辦理簽證 làm thị thực, 辦理入住 làm thủ tục nhận phòng, 辦理退貨 làm thủ tục trả hàng)"
+   ],
+   "us": "Trang trọng hơn 辦; dùng với danh từ chỉ thủ tục, giấy tờ, dịch vụ (手續, 證件, 業務, 登記, 帳號).",
+   "co": [
+    "辦理手續|làm thủ tục",
+    "辦理簽證|làm visa/thị thực",
+    "辦理入住|làm thủ tục check-in",
+    "辦理退貨|làm thủ tục trả hàng"
+   ],
+   "sy": [
+    "辦|làm (khẩu ngữ gọn hơn: 辦護照)",
+    "申辦|đăng ký làm thủ tục",
+    "處理|xử lý (vấn đề, công việc)"
+   ],
+   "cf": [
+    "辦理 vs 處理|辦理 dùng cho thủ tục hành chính, giấy tờ, đăng ký dịch vụ; 處理 dùng cho giải quyết sự cố, vấn đề, công việc nói chung."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng dùng 辦理 cho việc nhà hay bài tập (*辦理作業 ❌ → 做作業 / 寫作業).",
+   "tw": "Ở Đài Loan đi ngân hàng, bưu điện hay cơ quan di trú đều có quầy 辦理業務 (giải quyết giao dịch) và 線上辦理 (làm thủ tục trực tuyến).",
+   "mh": "Biện Lý → bànlǐ. ĐỌC: 'biện' → bàn (thanh 4); 'lý' → lǐ (thanh 3). NGHĨA: 辦 thực hiện + 理 sắp xếp xử lý → tiến hành làm thủ tục.",
+   "vd": [
+    {
+     "t": "Thủ tục",
+     "zh": "請攜帶護照與居留證正本，親自前往櫃檯辦理開戶手續。",
+     "vn": "Vui lòng mang theo bản chính hộ chiếu và thẻ cư trú, trực tiếp tới quầy làm thủ tục mở tài khoản."
+    },
+    {
+     "t": "Khách sạn",
+     "zh": "這間飯店規定下午三點以後才能辦理入住，早到的話可以先寄放行李。",
+     "vn": "Khách sạn này quy định sau ba giờ chiều mới được làm thủ tục nhận phòng, nếu đến sớm có thể gửi hành lý trước."
+    },
+    {
+     "t": "Hành chính",
+     "zh": "現在很多政府機關都提供線上申辦服務，不用請假出門也能輕鬆辦理。",
+     "vn": "Hiện nay nhiều cơ quan chính phủ cung cấp dịch vụ đăng ký trực tuyến, không cần xin nghỉ ra ngoài cũng làm thủ tục dễ dàng."
+    }
+   ]
+  },
+  "半天": {
+   "vn": "nửa ngày; một lúc lâu, mãi (khẩu ngữ)",
+   "ng": [
+    "(danh từ thời gian) nửa ngày (sáng hoặc chiều: 請半天假 xin nghỉ nửa ngày)",
+    "(danh từ khẩu ngữ) một lúc rất lâu, mãi (等了半天 đợi mãi, 想了半天 nghĩ mãi không ra)"
+   ],
+   "us": "Nghĩa bóng 'rất lâu/mãi' cực kỳ phổ biến trong khẩu ngữ: 找了半天 (tìm mãi), 講了半天 (nói cả buổi trời) — dù thực tế chỉ mới 10–15 phút!",
+   "co": [
+    "請半天假|xin nghỉ nửa ngày",
+    "等了半天|đợi mãi một lúc lâu",
+    "找了半天|tìm mãi",
+    "搞了半天|hóa ra loay hoay mãi là..."
+   ],
+   "sy": [
+    "老半天|lâu ơi là lâu (nhấn mạnh hơn)"
+   ],
+   "cf": [
+    "半天 (nghĩa đen) vs 半天 (khẩu ngữ)|請半天假 = xin nghỉ đúng nửa ngày; 我找了半天 = tôi tìm mãi cả buổi (mang tính phóng đại cảm xúc)."
+   ],
+   "lt": "Danh từ thời gian.",
+   "mk": "Khi người bản xứ nói 等了半天 đừng hiểu máy móc là họ đã đợi đủ 12 tiếng — ý họ là 'đợi mãi sốt ruột quá'!",
+   "tw": "Ở Đài Loan khẩu ngữ cực hay dùng 搞了半天 (Loay hoay mãi hóa ra là…) và 老半天 (lâu lắc).",
+   "mh": "Bán Thiên → bàntiān. ĐỌC: 'bán' → bàn (thanh 4); 'thiên' → tiān (thanh 1). NGHĨA: 半 một nửa + 天 ngày → nửa ngày, hoặc một lúc lâu.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "我明天上午要去醫院做年度健檢，已經先跟主管請了半天假。",
+     "vn": "Sáng mai tôi phải đi bệnh viện khám sức khỏe định kỳ, đã xin sếp nghỉ nửa ngày trước rồi."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "我在房間裡找了半天都找不到眼鏡，結果它就掛在我的頭上。",
+     "vn": "Tôi tìm mãi trong phòng không thấy kính đâu, hóa ra nó đang cài ngay trên đầu tôi."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "大家討論了半天還是沒有共識，最後決定先休息十分鐘再繼續。",
+     "vn": "Mọi người thảo luận cả buổi vẫn chưa thống nhất được, cuối cùng quyết định nghỉ mười phút rồi tiếp tục."
+    }
+   ]
+  },
+  "包含": {
+   "vn": "bao hàm; bao gồm",
+   "ng": [
+    "(động từ) bao hàm, chứa đựng, bao gồm (費用包含早餐 chi phí bao gồm bữa sáng, 包含很多細節 bao gồm nhiều chi tiết)"
+   ],
+   "us": "Dùng khi liệt kê các thành phần nằm bên trong một tổng thể (dịch vụ, chi phí, ý nghĩa, nội dung).",
+   "co": [
+    "包含早餐|bao gồm bữa sáng",
+    "包含稅金|đã bao gồm thuế",
+    "包含在內|bao gồm ở trong đó",
+    "不包含|không bao gồm"
+   ],
+   "sy": [
+    "包括|bao gồm (hay dùng hơn khi liệt kê các hạng mục cụ thể)",
+    "含有|chứa đựng (thành phần vật chất)"
+   ],
+   "cf": [
+    "包含 vs 包括|包含 thiên về 'chứa đựng bên trong, bao hàm cả ý nghĩa lẫn thành phần' (價格包含運費); 包括 thiên về liệt kê các mục thuộc phạm vi (與會者包括學生和老師)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Tránh nhầm với 包涵 (bāohán — đồng âm nhưng bộ 氵: lượng thứ, bỏ qua: 請多多包涵 xin lượng thứ!).",
+   "tw": "Trên trang đặt phòng và hóa đơn ở Đài Loan hay ghi 含稅 (đã gồm thuế) / 不包含服務費 (chưa gồm phí phục vụ).",
+   "mh": "Bao Hàm → bāohán. ĐỌC: 'bao' → bāo (thanh 1); 'hàm' → hán (thanh 2). NGHĨA: 包 bọc lấy + 含 ngậm bên trong → chứa đựng, bao gồm.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "這個旅遊套裝行程的費用已經包含來回車票、住宿以及兩頓早餐。",
+     "vn": "Chi phí của gói du lịch này đã bao gồm vé xe khứ hồi, chỗ ở và hai bữa sáng."
+    },
+    {
+     "t": "Học tập",
+     "zh": "這本華語教材的內容相當豐富，包含日常會話、文法解說和練習題。",
+     "vn": "Nội dung cuốn giáo trình tiếng Hoa này khá phong phú, bao gồm hội thoại thường ngày, giải thích ngữ pháp và bài tập."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "標示的價格不包含運費，結帳滿一定金額才可以免運。",
+     "vn": "Giá niêm yết chưa bao gồm phí vận chuyển, thanh toán đạt mức quy định mới được miễn phí giao hàng."
+    }
+   ]
+  },
+  "寶貴": {
+   "vn": "quý báu; quý giá",
+   "ng": [
+    "(tính từ) quý báu, vô cùng đáng quý (thường dùng cho thứ trừu tượng: 寶貴的時間 thời gian quý báu, 寶貴的經驗 kinh nghiệm quý báu, 寶貴的意見 ý kiến quý báu)"
+   ],
+   "us": "Chủ yếu bổ nghĩa cho danh từ trừu tượng (時間, 經驗, 機會, 意見, 生命, 資源). Với đồ vật đắt tiền cụ thể thường dùng 貴重 (đồ vật quý giá).",
+   "co": [
+    "寶貴的時間|thời gian quý báu",
+    "寶貴的經驗|kinh nghiệm quý báu",
+    "寶貴的意見|ý kiến quý báu",
+    "寶貴的機會|cơ hội quý báu"
+   ],
+   "sy": [
+    "珍貴|trân quý (dùng được cho cả vật lẫn tình cảm/ký ức)",
+    "貴重|quý giá (đồ vật giá trị cao)"
+   ],
+   "an": [
+    "廉價|rẻ mạt"
+   ],
+   "cf": [
+    "寶貴 vs 貴重|寶貴 dùng cho giá trị tinh thần, thời gian, kinh nghiệm, tính mạng; 貴重 dùng cho đồ vật vật chất đắt tiền (貴重物品 tài sản quý giá)."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Đừng nói *把寶貴的手機收好 ❌ — đồ vật có giá trị cao dùng 貴重物品.",
+   "tw": "Ở Đài Loan kết thúc bài thuyết trình hoặc phỏng vấn rất hay nói 謝謝各位撥出寶貴的時間！(Cảm ơn mọi người đã dành thời gian quý báu!).",
+   "mh": "Bảo Quý → bǎoguì. ĐỌC: 'bảo' → bǎo (thanh 3); 'quý' → guì (qu- → g-, thanh 4). NGHĨA: 寶 báu vật + 貴 quý trọng → đáng trân trọng như báu vật = quý báu.",
+   "vd": [
+    {
+     "t": "Công sở",
+     "zh": "非常感謝各位客戶填寫問卷，提供這麼多寶貴的建議幫助我們改進。",
+     "vn": "Vô cùng cảm ơn quý khách hàng đã điền khảo sát, đóng góp nhiều ý kiến quý báu giúp chúng tôi cải thiện."
+    },
+    {
+     "t": "Học tập",
+     "zh": "這趟海外交換學生的經歷，成為我大學時期最寶貴的回憶與經驗。",
+     "vn": "Trải nghiệm sinh viên trao đổi ở nước ngoài lần này đã trở thành ký ức và kinh nghiệm quý báu nhất thời đại học của tôi."
+    },
+    {
+     "t": "Thời gian",
+     "zh": "時間非常寶貴，別把精力浪費在無意義的爭吵上。",
+     "vn": "Thời gian vô cùng quý báu, đừng lãng phí sức lực vào những cuộc tranh cãi vô nghĩa."
+    }
+   ]
+  },
+  "保養": {
+   "vn": "bảo dưỡng; chăm sóc (da, sức khỏe, máy móc)",
+   "ng": [
+    "(động từ) bảo dưỡng định kỳ máy móc, xe cộ (車子保養 bảo dưỡng xe)",
+    "(động từ) chăm sóc da, giữ gìn sắc đẹp và sức khỏe (皮膚保養 chăm sóc da, 保養品 mỹ phẩm dưỡng da)"
+   ],
+   "us": "Dùng cho cả 3 mảng: xe cộ/thiết bị (定期保養), làn da (擦保養品), và sức khỏe cơ thể (保養身體).",
+   "co": [
+    "保養品|sản phẩm dưỡng da",
+    "定期保養|bảo dưỡng định kỳ",
+    "保養身體|giữ gìn sức khỏe",
+    "保養皮膚|chăm sóc da"
+   ],
+   "sy": [
+    "維護|bảo trì (hệ thống, cơ sở hạ tầng)",
+    "護膚|dưỡng da"
+   ],
+   "cf": [
+    "保養 vs 維修|保養 là chăm sóc, bảo dưỡng phòng ngừa khi máy còn chạy tốt; 維修 là sửa chữa khi máy đã hỏng."
+   ],
+   "lt": "Động từ / Danh từ.",
+   "mk": "Mỹ phẩm dưỡng da (toner, serum, kem dưỡng) ở Đài Loan gọi 保養品, khác với 化妝品 (đồ trang điểm).",
+   "tw": "Ở Đài Loan xe máy cứ chạy mỗi 1000 km đều mang ra tiệm 換機油、做保養 (thay nhớt, bảo dưỡng); đồ skincare gọi 保養品.",
+   "mh": "Bảo Dưỡng → bǎoyǎng. ĐỌC: 'bảo' → bǎo (thanh 3); 'dưỡng' → yǎng (d- → y-, -ương → -ang, thanh 3). NGHĨA: 保 giữ gìn + 養 nuôi dưỡng → chăm sóc giữ bền lâu = bảo dưỡng.",
+   "vd": [
+    {
+     "t": "Giao thông",
+     "zh": "機車騎滿一千公里就應該按時回車行更換機油並做基本保養。",
+     "vn": "Xe máy chạy đủ một nghìn cây số thì nên đúng hạn mang ra tiệm thay nhớt và bảo dưỡng cơ bản."
+    },
+    {
+     "t": "Làm đẹp",
+     "zh": "冬天空氣乾燥，洗完臉後要記得擦保濕保養品，皮膚才不會脫皮。",
+     "vn": "Mùa đông không khí khô hanh, rửa mặt xong nhớ bôi sản phẩm dưỡng ẩm để da không bị bong tróc."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "她平常非常注重飲食與睡眠保養，看起來比同齡人有精神得多。",
+     "vn": "Bình thường cô ấy rất chú trọng chăm sóc ăn uống và giấc ngủ nên trông có sức sống hơn nhiều so với bạn cùng trang lứa."
+    }
+   ]
+  },
+  "保證/証": {
+   "vn": "bảo đảm; cam đoan",
+   "ng": [
+    "(động từ) bảo đảm, cam đoan chắc chắn (我保證 tôi xin cam đoan, 保證品質 bảo đảm chất lượng)",
+    "(danh từ) sự bảo đảm, giấy bảo hành/tiền đặt cọc (保證書 giấy bảo hành/cam kết, 保證金 tiền ký quỹ)"
+   ],
+   "us": "Theo sau bởi danh từ (保證安全 bảo đảm an toàn) hoặc mệnh đề (我保證下次不會遲到 Tôi hứa lần sau sẽ không đi muộn).",
+   "co": [
+    "保證品質|bảo đảm chất lượng",
+    "保證書|giấy bảo hành / giấy cam kết",
+    "保證金|tiền đặt cọc / ký quỹ",
+    "我向你保證|tôi cam đoan với bạn"
+   ],
+   "sy": [
+    "確保|bảo đảm chắc chắn (trang trọng, biện pháp)",
+    "擔保|bảo lãnh"
+   ],
+   "cf": [
+    "保證 vs 確保|保證 là lời cam kết/hứa chắc của chủ thể (我保證完成); 確保 là thực hiện biện pháp để kết quả chắc chắn đạt được (確保行車安全)."
+   ],
+   "lt": "Động từ / Danh từ. Chữ chuẩn Đài Loan là 保證 (証 là dạng thông tục cũ).",
+   "mk": "Đừng nhầm 保證金 (tiền ký quỹ/đặt cọc) với 押金 (tiền cọc thuê nhà — hay dùng 押金 hơn cho thuê trọ).",
+   "tw": "Ở Đài Loan mua đồ điện tử hay hỏi 有保固嗎？ (Có bảo hành không?) và giữ 保固書/保證書.",
+   "mh": "Bảo Chứng → bǎozhèng. ĐỌC: 'bảo' → bǎo (thanh 3); 'chứng' → zhèng (ch- → zh-, thanh 4). NGHĨA: 保 giữ chắc + 證 chứng nhận → đứng ra cam kết chắc chắn = bảo đảm.",
+   "vd": [
+    {
+     "t": "Chất lượng",
+     "zh": "這家農場的蔬果每天新鮮直送，保證不添加任何人工防腐劑。",
+     "vn": "Rau củ quả của nông trại này giao tươi mỗi ngày, bảo đảm không thêm bất kỳ chất bảo quản nhân tạo nào."
+    },
+    {
+     "t": "Lời hứa",
+     "zh": "你放心把這項任務交給我，我保證一定會在截止日期前準時完成。",
+     "vn": "Bạn cứ yên tâm giao nhiệm vụ này cho tôi, tôi cam đoan nhất định sẽ hoàn thành đúng hạn."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "購買這台筆記型電腦後請妥善保管保證書，一年內非人為損壞皆可免費維修。",
+     "vn": "Sau khi mua chiếc laptop này vui lòng giữ kỹ giấy bảo hành, trong một năm lỗi không do người dùng đều được sửa miễn phí."
+    }
+   ]
+  },
+  "抱": {
+   "vn": "ôm; ẵm; ôm ấp (suy nghĩ)",
+   "ng": [
+    "(động từ) ôm, ẵm bằng vòng tay (擁抱 ôm nhau, 抱小孩 ẵm em bé, 抱一抱 ôm một cái)",
+    "(động từ mở rộng) ôm ấp, giữ (thái độ, hy vọng: 抱著希望 ôm hy vọng, 抱歉 áy náy/xin lỗi)"
+   ],
+   "us": "Dùng trực tiếp với người, thú cưng hoặc vật lớn ôm bằng hai tay (抱一箱書 ôm một thùng sách). Cũng dùng trong cấu trúc 抱著…的心情/態度 (với tâm trạng/thái độ…).",
+   "co": [
+    "擁抱|ôm chặt",
+    "抱小孩|ẵm trẻ con",
+    "抱著希望|ôm ấp hy vọng",
+    "抱歉|xin lỗi, áy náy"
+   ],
+   "sy": [
+    "擁抱|ôm (tình cảm, trang trọng hơn)"
+   ],
+   "cf": [
+    "抱 vs 拿|拿 là cầm nắm bằng bàn tay (vật nhẹ); 抱 là vòng hai tay ôm vào lòng (em bé, thú cưng, thùng đồ lớn)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Chú ý 抱佛腳 (tạm thời ôm chân Phật = nước đến chân mới nhảy: 臨時抱佛腳).",
+   "tw": "Ở Đài Loan ôn thi sát ngày hay tự trêu là 臨時抱佛腳 (nước đến chân mới nhảy); ôm động viên bạn bè nói 抱一個！(Ôm một cái nào!).",
+   "mh": "Bão → bào. ĐỌC: 'bão' → bào (thanh 4). NGHĨA: 扌 bàn tay + 包 bọc lấy → vòng tay ôm vào lòng = ôm, ẵm.",
+   "vd": [
+    {
+     "t": "Tình cảm",
+     "zh": "好久不見的兩位老友在機場重逢，開心地上前緊緊抱在一起。",
+     "vn": "Hai người bạn cũ lâu ngày không gặp hội ngộ ở sân bay, vui mừng tiến tới ôm chặt lấy nhau."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "媽媽一手抱著剛睡著的嬰兒，另一手小心翼翼地把門推開。",
+     "vn": "Người mẹ một tay ẵm em bé vừa ngủ say, tay kia cẩn thận đẩy cửa mở ra."
+    },
+    {
+     "t": "Thái độ",
+     "zh": "面對新環境的挑戰，我們應該抱著開放學習的心態去迎接。",
+     "vn": "Đối mặt với thử thách ở môi trường mới, chúng ta nên giữ tâm thế cởi mở học hỏi để đón nhận."
+    }
+   ]
+  },
+  "抱怨": {
+   "vn": "phàn nàn; than phiền",
+   "ng": [
+    "(động từ) phàn nàn, kêu ca, than phiền vì không hài lòng (抱怨天氣 than phiền thời tiết, 跟朋友抱怨 phàn nàn với bạn)"
+   ],
+   "us": "Cấu trúc: 跟/向 + người + 抱怨 + sự việc (他常跟同事抱怨工作量太大 Anh ấy hay phàn nàn với đồng nghiệp là khối lượng việc quá lớn).",
+   "co": [
+    "抱怨不停|phàn nàn không ngừng",
+    "滿腹抱怨|đầy bụng than phiền",
+    "向人抱怨|than phiền với ai"
+   ],
+   "sy": [
+    "埋怨|oán trách, trách móc (nhấn mạnh đổ lỗi cho ai)",
+    "發牢騷|cằn nhằn, xả bực dọc (khẩu ngữ)"
+   ],
+   "an": [
+    "稱讚|khen ngợi",
+    "感謝|cảm ơn"
+   ],
+   "cf": [
+    "抱怨 vs 埋怨|抱怨 là kêu ca, than phiền chung về hoàn cảnh hoặc con người; 埋怨 nặng hơn, thiên về oán trách trực tiếp một người cụ thể."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng viết nhầm *報怨 ❌ (報 là báo đáp/báo thù, như 以德報怨 lấy đức báo oán); phàn nàn là 抱怨 (bộ 扌).",
+   "tw": "Ở Đài Loan than phiền với bạn thân hay nói 跟你抱怨一下喔… (Cho mình than thở với bạn chút nhé…).",
+   "mh": "Bão Oán → bàoyuàn. ĐỌC: 'bão' → bào (thanh 4); 'oán' → yuàn (thanh 4). NGHĨA: 抱 ôm giữ + 怨 nỗi bực dọc → giữ nỗi bất mãn rồi nói ra = phàn nàn.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "與其每天抱怨工作太繁重，不如試著重新整理流程提高效率。",
+     "vn": "Thay vì ngày nào cũng phàn nàn công việc quá nặng, chi bằng thử sắp xếp lại quy trình để nâng cao hiệu suất."
+    },
+    {
+     "t": "Dịch vụ",
+     "zh": "由於連假期間人手不足，出餐速度變慢，引來不少顧客抱怨。",
+     "vn": "Do thiếu nhân lực dịp nghỉ lễ, tốc độ lên món chậm đi khiến không ít khách hàng phàn nàn."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "她只是想找個信任的朋友抱怨一下最近的壓力，並不是真的要你給建議。",
+     "vn": "Cô ấy chỉ muốn tìm một người bạn tin cậy để than thở chút áp lực gần đây, không hẳn là cần bạn cho lời khuyên."
+    }
+   ]
+  },
+  "報名": {
+   "vn": "báo danh; đăng ký (tham gia)",
+   "ng": [
+    "(động từ ly hợp) ghi danh, đăng ký tham gia kỳ thi, khóa học, sự kiện, cuộc thi (報名考試 đăng ký thi, 報名參加 đăng ký tham gia, 報名截止 hết hạn đăng ký)"
+   ],
+   "us": "Rất hay dùng trong học tập, thi cử, hoạt động. Có thể mang tân ngữ phía sau (報名華語課, 報名路跑活動) hoặc tách ra (報了名 đã đăng ký rồi).",
+   "co": [
+    "報名參加|đăng ký tham gia",
+    "報名費|lệ phí đăng ký",
+    "報名截止|hết hạn đăng ký",
+    "網路報名|đăng ký trực tuyến"
+   ],
+   "sy": [
+    "登記|đăng ký (hành chính, khách sạn, tài khoản)",
+    "註冊|đăng ký tài khoản / nhập học"
+   ],
+   "cf": [
+    "報名 vs 註冊|報名 là ghi danh tham gia kỳ thi, lớp học, cuộc thi, sự kiện; 註冊 là đăng ký tài khoản website hoặc làm thủ tục nhập học chính thức ở trường."
+   ],
+   "lt": "Động từ ly hợp.",
+   "mk": "Đăng ký tài khoản mạng dùng 註冊, không dùng *報名帳號 ❌.",
+   "tw": "Ở Đài Loan đăng ký thi TOCFL gọi 報名華語文能力測驗, đăng ký chạy marathon gọi 報名路跑.",
+   "mh": "Báo Danh → bàomíng. ĐỌC: 'báo' → bào (thanh 4); 'danh' → míng (thanh 2). NGHĨA: 報 báo lên + 名 tên → báo tên lên danh sách tham gia = đăng ký.",
+   "vd": [
+    {
+     "t": "Thi cử",
+     "zh": "這場語言檢定考試的報名時間到本週五截止，想參加的人要把握時間。",
+     "vn": "Thời hạn đăng ký kỳ thi năng lực ngôn ngữ này kết thúc vào thứ Sáu tuần này, ai muốn thi cần tranh thủ."
+    },
+    {
+     "t": "Hoạt động",
+     "zh": "這門攝影工作坊名額有限，剛開放網路報名不到十分鐘就額滿了。",
+     "vn": "Buổi workshop nhiếp ảnh này số lượng có hạn, mới mở đăng ký online chưa đầy mười phút đã kín chỗ."
+    },
+    {
+     "t": "Học tập",
+     "zh": "我已經報名了下個月開課的商業簡報技巧班，希望能提升表達能力。",
+     "vn": "Tôi đã đăng ký lớp kỹ năng thuyết trình thương mại khai giảng tháng sau, hy vọng nâng cao khả năng diễn đạt."
+    }
+   ]
+  },
+  "把握": {
+   "vn": "nắm bắt; chắc chắn, phần thắng",
+   "ng": [
+    "(động từ) nắm bắt, tận dụng (把握機會 nắm bắt cơ hội, 把握時間 tranh thủ thời gian)",
+    "(danh từ) sự chắc chắn, niềm tin thành công (有把握 có phần chắc, 沒把握 không chắc lắm)"
+   ],
+   "us": "Hai cách dùng đều cực kỳ thông dụng ở trình độ B1–B2: 把握 + 機會/時間/當下 (động từ) và 有/沒 + 把握 (danh từ).",
+   "co": [
+    "把握機會|nắm bắt cơ hội",
+    "把握時間|tranh thủ thời gian",
+    "有把握|có phần chắc chắn",
+    "沒什麼把握|không chắc chắn lắm"
+   ],
+   "sy": [
+    "抓住|nắm lấy (cụ thể hơn)",
+    "勝算|phần thắng"
+   ],
+   "cf": [
+    "有把握 vs 有信心|有把握 dựa trên đánh giá năng lực/dữ kiện thực tế ('nắm chắc phần thắng'); 有信心 thiên về niềm tin tinh thần ('tự tin')."
+   ],
+   "lt": "Động từ / Danh từ.",
+   "mk": "Không nói *我很把握 ❌ — 把握 khi chỉ sự chắc chắn là danh từ, phải dùng 有把握: 我很有把握.",
+   "tw": "Ở Đài Loan hay nói 把握當下 (trân trọng nắm bắt hiện tại) và 你對這次比賽有把握嗎？ (Bạn có nắm chắc phần thắng trận này không?).",
+   "mh": "Bả Ác → bǎwò. ĐỌC: 'bả' → bǎ (thanh 3); 'ác' → wò (thanh 4). NGHĨA: 把 cầm lấy + 握 nắm chặt trong tay → nắm chắc trong tay = nắm bắt, chắc chắn.",
+   "vd": [
+    {
+     "t": "Cơ hội",
+     "zh": "這麼難得的跨部門合作計畫一定要好好把握，對未來的履歷很有加分。",
+     "vn": "Dự án hợp tác liên phòng ban hiếm có thế này nhất định phải nắm bắt thật tốt, sẽ cộng điểm lớn cho hồ sơ tương lai."
+    },
+    {
+     "t": "Thi cử",
+     "zh": "經過三個月扎實的模擬練習，他對這次考過中高級檢定相當有把握。",
+     "vn": "Sau ba tháng luyện đề bài bản, anh ấy khá chắc chắn về việc vượt qua kỳ thi trung cao cấp lần này."
+    },
+    {
+     "t": "Thời gian",
+     "zh": "距離交稿只剩最後兩天，大家得把握時間把細節校對完畢。",
+     "vn": "Chỉ còn hai ngày cuối trước hạn nộp bài, mọi người phải tranh thủ thời gian hiệu đính xong các chi tiết."
+    }
+   ]
+  },
+  "北方": {
+   "vn": "phương Bắc; miền Bắc",
+   "ng": [
+    "(danh từ) hướng Bắc, khu vực phía Bắc (往北方走 đi về hướng Bắc, 北方人 người miền Bắc, 北方氣候 khí hậu phương Bắc)"
+   ],
+   "us": "Chỉ phương hướng hoặc vùng địa lý rộng lớn ở phía Bắc. Lưu ý: nói về miền Bắc Đài Loan người bản xứ dùng 北部 (台北、桃園、新竹…) chứ ít dùng 北方.",
+   "co": [
+    "北方人|người miền Bắc",
+    "北方菜|món ăn miền Bắc (Trung Quốc)",
+    "往北方|về hướng Bắc"
+   ],
+   "sy": [
+    "北部|miền Bắc (một quốc gia/hòn đảo: 台灣北部)",
+    "北邊|phía Bắc (gần, định vị)"
+   ],
+   "an": [
+    "南方|phương Nam, miền Nam"
+   ],
+   "cf": [
+    "北方 vs 北部|Ở Đài Loan, nói về các vùng trong nước luôn dùng 北部、中部、南部、東部; 北方 thường chỉ phương hướng chung hoặc miền Bắc Trung Quốc (北方麵食)."
+   ],
+   "lt": "Danh từ phương vị.",
+   "mk": "Đừng gọi miền Bắc Đài Loan là *台灣北方 ❌ — hãy dùng 台灣北部.",
+   "tw": "Ở Đài Loan ẩm thực gốc miền Bắc Trung Quốc (như bánh kếp hành, sủi cảo, mì kéo) thường gọi 北方麵食.",
+   "mh": "Bắc Phương → běifāng. ĐỌC: 'bắc' → běi (thanh 3); 'phương' → fāng (ph- → f-, -ương → -ang, thanh 1). NGHĨA: 北 hướng Bắc + 方 phương hướng/vùng miền → phương Bắc.",
+   "vd": [
+    {
+     "t": "Ẩm thực",
+     "zh": "這家老字號餐廳專賣手工水餃和蔥油餅，充滿道地的北方風味。",
+     "vn": "Nhà hàng lâu đời này chuyên bán sủi cảo thủ công và bánh hành chiên, mang đậm hương vị miền Bắc."
+    },
+    {
+     "t": "Thiên nhiên",
+     "zh": "每逢秋天，大批候鳥會從寒冷的北方飛往溫暖的南方過冬。",
+     "vn": "Mỗi độ thu về, từng đàn chim di cư lớn bay từ phương Bắc giá lạnh xuống phương Nam ấm áp trú đông."
+    },
+    {
+     "t": "Phương hướng",
+     "zh": "指南針的紅色指針永遠指向北方，在山裡健行時是很實用的工具。",
+     "vn": "Kim đỏ của la bàn luôn chỉ về hướng Bắc, là công cụ rất hữu ích khi đi bộ đường dài trong núi."
+    }
+   ]
+  },
+  "背後": {
+   "vn": "sau lưng; phía sau (ẩn giấu)",
+   "ng": [
+    "(danh từ) phía sau lưng (背後有人 phía sau lưng có người, 背後說壞話 nói xấu sau lưng)",
+    "(danh từ nghĩa bóng) đằng sau sự việc, góc khuất không thấy ngay (成功背後的努力 nỗ lực đằng sau thành công, 背後的原因 nguyên nhân sâu xa phía sau)"
+   ],
+   "us": "Dùng cho cả vị trí không gian (sau lưng ai) lẫn nghĩa bóng cực hay gặp trong báo chí và bài đọc TOCFL: …背後的意義/故事/原因.",
+   "co": [
+    "背後說壞話|nói xấu sau lưng",
+    "背後的原因|nguyên nhân đằng sau",
+    "背後的故事|câu chuyện đằng sau",
+    "默默支持|âm thầm ủng hộ phía sau"
+   ],
+   "sy": [
+    "後面|phía sau (thuần túy vị trí)",
+    "幕後|hậu trường (sân khấu, truyền thông)"
+   ],
+   "an": [
+    "前面|phía trước",
+    "當面|trước mặt"
+   ],
+   "cf": [
+    "背後 vs 後面|後面 chỉ vị trí phía sau chung (房子後面 sau nhà); 背後 chỉ sau lưng người hoặc nguyên nhân/câu chuyện ẩn giấu đằng sau một hiện tượng."
+   ],
+   "lt": "Danh từ phương vị.",
+   "mk": "Đừng nói *學校背後 ❌ để chỉ sau lưng tòa nhà trường học — dùng 學校後面 tự nhiên hơn.",
+   "tw": "Ở Đài Loan rất hay dùng cụm 背後默默支持 (âm thầm ủng hộ phía sau) và 背後靈 (đùa vui ai cứ đứng lù lù sau lưng mình).",
+   "mh": "Bối Hậu → bèihòu. ĐỌC: 'bối' → bèi (thanh 4); 'hậu' → hòu (thanh 4). NGHĨA: 背 cái lưng + 後 phía sau → sau lưng, đằng sau.",
+   "vd": [
+    {
+     "t": "Thành công",
+     "zh": "每一位頂尖運動員站上頒獎台的背後，都藏著多年日復一日的刻苦訓練。",
+     "vn": "Đằng sau mỗi vận động viên đỉnh cao đứng trên bục vinh quang đều ẩn chứa nhiều năm tháng khổ luyện ngày qua ngày."
+    },
+    {
+     "t": "Ứng xử",
+     "zh": "對同事有意見應該當面理性溝通，千萬不要在背後說人是非。",
+     "vn": "Có ý kiến với đồng nghiệp nên trao đổi thẳng thắn ôn hòa trước mặt, tuyệt đối đừng nói xấu sau lưng."
+    },
+    {
+     "t": "Phân tích",
+     "zh": "這項政策看似簡單，背後其實牽涉到預算分配與地方需求的平衡。",
+     "vn": "Chính sách này trông có vẻ đơn giản, đằng sau thực chất liên quan đến sự cân bằng giữa phân bổ ngân sách và nhu cầu địa phương."
+    }
+   ]
+  },
+  "背景": {
+   "vn": "bối cảnh; phông nền; xuất thân",
+   "ng": [
+    "(danh từ) phông nền phía sau trong ảnh, tranh, sân khấu (背景音樂 nhạc nền, 虛化背景 làm mờ phông nền)",
+    "(danh từ) bối cảnh lịch sử, hoàn cảnh gia đình, nền tảng chuyên môn (歷史背景 bối cảnh lịch sử, 家庭背景 hoàn cảnh gia đình, 學歷背景 nền tảng học vấn)"
+   ],
+   "us": "Dùng rộng trong nhiếp ảnh, âm nhạc, lịch sử, phỏng vấn tuyển dụng (專業背景 nền tảng chuyên môn).",
+   "co": [
+    "背景音樂|nhạc nền",
+    "歷史背景|bối cảnh lịch sử",
+    "專業背景|nền tảng chuyên môn",
+    "家庭背景|hoàn cảnh gia đình"
+   ],
+   "sy": [
+    "環境|môi trường, hoàn cảnh",
+    "資歷|thâm niên, lý lịch"
+   ],
+   "cf": [
+    "背景 vs 背後|背景 là phông nền, bối cảnh thời đại hoặc nền tảng chuyên môn của ai; 背後 là sau lưng hoặc nguyên nhân ẩn giấu."
+   ],
+   "lt": "個.",
+   "mk": "Trong phỏng vấn xin việc, 'nền tảng/xuất thân chuyên môn' dùng 專業背景 hoặc 學經歷背景.",
+   "tw": "Ở Đài Loan họp online hay dùng 虛擬背景 (phông nền ảo); nhạc nền quán cà phê gọi 背景音樂 (BGM).",
+   "mh": "Bối Cảnh → bèijǐng. ĐỌC: 'bối' → bèi (thanh 4); 'cảnh' → jǐng (c- trước i → j-, -anh → -ing, thanh 3). NGHĨA: 背 phía sau + 景 khung cảnh → phông nền, bối cảnh.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "我們團隊成員來自不同的專業背景，討論提案時總能激盪出多元觀點。",
+     "vn": "Thành viên nhóm chúng tôi đến từ nhiều nền tảng chuyên môn khác nhau, khi thảo luận đề xuất luôn nảy ra góc nhìn đa dạng."
+    },
+    {
+     "t": "Văn hóa",
+     "zh": "先了解這部小說的時代背景，讀起來會更能體會主角內心的掙扎。",
+     "vn": "Hiểu trước bối cảnh thời đại của cuốn tiểu thuyết này thì khi đọc sẽ càng thấm thía sự giằng xé nội tâm của nhân vật chính."
+    },
+    {
+     "t": "Nhiếp ảnh",
+     "zh": "拍證件照時必須選擇素色背景，而且臉部光線要均勻自然。",
+     "vn": "Khi chụp ảnh thẻ phải chọn phông nền trơn một màu, hơn nữa ánh sáng trên khuôn mặt cần đều và tự nhiên."
+    }
+   ]
+  },
+  "輩子": {
+   "vn": "đời, kiếp (một đời người)",
+   "ng": [
+    "(danh từ) một đời người, kiếp người — hầu như luôn đi kèm lượng/số từ phía trước: 一輩子 (cả đời), 下輩子 (kiếp sau), 上輩子 (kiếp trước), 半輩子 (nửa đời)"
+   ],
+   "us": "Không đứng trơ một mình; luôn ghép 一輩子 (cả đời), 這輩子 (kiếp này), 下輩子 (kiếp sau). Thường dùng làm trạng ngữ thời gian: 我一輩子都不會忘記 (Cả đời tôi sẽ không bao giờ quên).",
+   "co": [
+    "一輩子|cả đời, suốt đời",
+    "這輩子|kiếp này, đời này",
+    "下輩子|kiếp sau",
+    "半輩子|nửa đời người"
+   ],
+   "sy": [
+    "一生|một đời (trang trọng, văn viết)",
+    "終生|suốt đời (văn viết)"
+   ],
+   "cf": [
+    "一輩子 vs 一生|一輩子 giàu cảm xúc, dùng nhiều trong khẩu ngữ (做一輩子的好朋友 làm bạn tốt cả đời); 一生 trang trọng hơn, dùng trong tiểu sử, văn viết."
+   ],
+   "lt": "Danh từ (luôn kèm định ngữ chỉ kiếp/đời ở trước).",
+   "mk": "Đừng nói *一個輩子 ❌ — chỉ nói 一輩子 (không thêm 個!).",
+   "tw": "Ở Đài Loan hay nói 活到老學到老，學習是一輩子的事 (Học tập là chuyện cả đời).",
+   "mh": "Bối Tử → bèizi. ĐỌC: 'bối' → bèi (thanh 4); 子 đọc thanh nhẹ zi. NGHĨA: 輩 thế hệ/một đời + 子 hậu tố danh từ → một đời người.",
+   "vd": [
+    {
+     "t": "Tình bạn",
+     "zh": "大學室友陪我度過許多低潮，我相信我們會是一輩子的好朋友。",
+     "vn": "Bạn cùng phòng đại học đã đồng hành cùng tôi qua nhiều giai đoạn khó khăn, tôi tin chúng tôi sẽ là bạn tốt cả đời."
+    },
+    {
+     "t": "Cảm xúc",
+     "zh": "老師當年在我迷茫時給的鼓勵，讓我這輩子都銘記在心。",
+     "vn": "Lời động viên thầy dành cho tôi năm ấy lúc tôi hoang mang khiến cả đời này tôi luôn khắc ghi trong lòng."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "這對老夫妻辛苦打拚了半輩子，退休後終於能安心環遊世界。",
+     "vn": "Cặp vợ chồng già này vất vả phấn đấu nửa đời người, sau khi nghỉ hưu cuối cùng cũng yên tâm đi du lịch vòng quanh thế giới."
+    }
+   ]
+  },
+  "本人": {
+   "vn": "bản thân, chính chủ; tôi (tự xưng trang trọng)",
+   "ng": [
+    "(đại từ) chính người đó, chính chủ (本人親自辦理 chính chủ trực tiếp làm thủ tục, 照片比本人年輕 ảnh trông trẻ hơn ngoài đời)",
+    "(đại từ trang trọng) tôi, bản thân tôi (dùng trong giấy tờ, thư từ, phát biểu trang trọng: 本人承諾 tôi xin cam kết)"
+   ],
+   "us": "Rất hay gặp trong thủ tục hành chính (須由本人簽名 phải do chính chủ ký tên) và nhận xét người thật ngoài đời (他本人很親切 ngoài đời anh ấy rất thân thiện).",
+   "co": [
+    "本人親自|chính chủ trực tiếp",
+    "本人簽名|chính chủ ký tên",
+    "本人比照片帥|ngoài đời đẹp trai hơn ảnh",
+    "非本人|không phải chính chủ"
+   ],
+   "sy": [
+    "自己|tự mình (thông thường)",
+    "當事人|đương sự"
+   ],
+   "cf": [
+    "本人 vs 自己|本人 nhấn mạnh 'đích thân chính chủ, không nhờ người khác thay thế' hoặc 'người thật ngoài đời'; 自己 mang nghĩa 'tự bản thân' nói chung."
+   ],
+   "lt": "Đại từ.",
+   "mk": "Trong giao tiếp đời thường với bạn bè đừng tự xưng 本人 (nghe cứng và trịnh trọng quá) — dùng 我.",
+   "tw": "Ở Đài Loan đi lấy bưu kiện bảo đảm hoặc nhận thẻ ngân hàng luôn yêu cầu 本人攜帶身分證領取 (chính chủ mang CMND đến nhận).",
+   "mh": "Bản Nhân → běnrén. ĐỌC: 'bản' → běn (thanh 3); 'nhân' → rén (nh- → r-, thanh 2). NGHĨA: 本 gốc/chính mình + 人 người → chính bản thân người đó.",
+   "vd": [
+    {
+     "t": "Ngân hàng",
+     "zh": "申請補發金融卡屬於重要業務，規定必須由存戶本人親自到場辦理。",
+     "vn": "Đăng ký cấp lại thẻ ngân hàng thuộc giao dịch quan trọng, quy định bắt buộc chính chủ tài khoản phải trực tiếp đến làm."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "以前只在電視上看過這位作家，今天簽書會見到他本人，發現他非常幽默親切。",
+     "vn": "Trước đây chỉ thấy nhà văn này trên tivi, hôm nay buổi ký tặng sách gặp anh ấy ngoài đời mới thấy rất hóm hỉnh và thân thiện."
+    },
+    {
+     "t": "Giấy tờ",
+     "zh": "請在申請表最下方簽署本人姓名並填上日期，以示確認。",
+     "vn": "Vui lòng ký tên chính chủ và điền ngày tháng ở dòng cuối đơn đăng ký để xác nhận."
+    }
+   ]
+  },
+  "逼": {
+   "vn": "ép buộc; dồn ép; áp sát",
+   "ng": [
+    "(động từ) ép buộc, bắt ép ai làm điều họ không muốn (別逼我 đừng ép tôi, 逼他答應 ép anh ấy đồng ý)",
+    "(động từ) dồn vào đường cùng, áp sát (逼近 tiến sát gần, 逼真 giống như thật)"
+   ],
+   "us": "Cấu trúc hay dùng: 逼 + người + V (不要逼孩子學不喜歡的才藝 Đừng ép con học năng khiếu nó không thích) hoặc 被逼無奈 (bị ép bất đắc dĩ).",
+   "co": [
+    "別逼我|đừng ép tôi",
+    "逼不得已|bất đắc dĩ phải làm",
+    "逼近|tiến sát đến gần",
+    "逼真|sống động như thật"
+   ],
+   "sy": [
+    "強迫|cưỡng ép, bắt buộc (trang trọng hơn)",
+    "迫使|buộc phải (văn viết)"
+   ],
+   "an": [
+    "自願|tự nguyện"
+   ],
+   "cf": [
+    "逼 vs 強迫|逼 dùng nhiều trong khẩu ngữ và giàu hình ảnh dồn ép (別把自己逼太緊 đừng tự ép mình quá mức); 強迫 trang trọng hơn, dùng trong pháp lý/quy định."
+   ],
+   "lt": "Động từ.",
+   "mk": "Chú ý 逼 gần với nghĩa 'ép sát, dồn nén', không dùng với nghĩa 'khuyến khích'.",
+   "tw": "Ở Đài Loan rất hay tự nhắc nhau 不要把自己逼得太緊 (Đừng tự gây áp lực ép mình quá căng).",
+   "mh": "Bức → bī. ĐỌC: 'bức' → bī (thanh 1). NGHĨA: 辶 bước đi + 畐 đầy ắp sát lại → tiến sát dồn ép = ép buộc, áp sát.",
+   "vd": [
+    {
+     "t": "Tâm lý",
+     "zh": "追求完美固然是好事，但也不要把自己逼得太緊，適時放鬆才能走得長遠。",
+     "vn": "Theo đuổi sự hoàn hảo dĩ nhiên là tốt, nhưng cũng đừng tự ép mình quá căng, thư giãn đúng lúc mới đi đường dài được."
+    },
+    {
+     "t": "Giáo dục",
+     "zh": "家長與其硬逼孩子死背單字，不如引導他們找到學習的樂趣。",
+     "vn": "Phụ huynh thay vì ép con học vẹt từ vựng, chi bằng hướng dẫn chúng tìm thấy niềm vui học tập."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "颱風暴風圈正快速逼近台灣東部海域，氣象署已發布海上警報。",
+     "vn": "Vòng bão đang tiến sát rất nhanh vùng biển phía Đông Đài Loan, Cục Khí tượng đã phát cảnh báo trên biển."
+    }
+   ]
+  }
+ }
+}

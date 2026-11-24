@@ -1,0 +1,175 @@
+{
+ "tu": {
+  "在": {
+   "vn": "ở, tại; đang (làm gì)",
+   "ng": [
+    "(động từ) ở, có mặt tại một nơi (我在家 tôi ở nhà, 銀行在前面 ngân hàng ở phía trước)",
+    "(giới từ) ở, tại (đặt TRƯỚC động từ: 在公司工作 làm việc ở công ty, 在圖書館看書 đọc sách ở thư viện)",
+    "(phó từ) đang (chỉ hành động đang diễn ra: 他在講電話 anh ấy đang nghe điện thoại)"
+   ],
+   "us": "Quy tắc trật tự cực quan trọng: Chủ ngữ + 在 + Địa điểm + Động từ (我在台北工作, KHÔNG nói *我工作在台北 ❌). Khi chỉ hành động đang diễn ra: 正在 / 在 + V (+ 呢).",
+   "co": [
+    "在家|ở nhà",
+    "在學校|ở trường",
+    "在做什麼|đang làm gì",
+    "在這裡|ở đây"
+   ],
+   "sy": [
+    "正在|đang (nhấn mạnh hơn)",
+    "於|tại, ở (văn viết)"
+   ],
+   "cf": [
+    "在 (động từ) vs 在 (giới từ)|我在公司 = Tôi ở công ty (động từ); 我在公司吃飯 = Tôi ăn cơm ở công ty (giới từ dẫn địa điểm đặt trước động từ)."
+   ],
+   "lt": "Động từ / Giới từ / Phó từ.",
+   "mk": "Lỗi ngược trật tự theo tiếng Việt: *我吃飯在餐廳 ❌ → phải đưa địa điểm lên trước động từ: 我在餐廳吃飯!",
+   "tw": "Ở Đài Loan gọi điện thoại hay hỏi 你現在在哪裡？ hoặc 你在忙嗎？ (Bạn có đang bận không?).",
+   "mh": "Tại → zài. ĐỌC: 'tại' → zài (t- → z-, giữ vần -ai, thanh 4). NGHĨA: chữ ghép từ 才 và 土 (đất) → đứng chân trên mặt đất = ở tại, tồn tại.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "他目前在一家科技公司擔任工程師，工作相當忙碌。",
+     "vn": "Anh ấy hiện đang làm kỹ sư tại một công ty công nghệ, công việc khá bận rộn."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "請問王經理現在在辦公室嗎？我有文件要請他簽名。",
+     "vn": "Xin hỏi giám đốc Vương hiện có ở văn phòng không? Tôi có tài liệu cần nhờ ông ấy ký tên."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "弟弟正在房間裡準備明天的期末考，先別打擾他。",
+     "vn": "Em trai đang ở trong phòng chuẩn bị cho kỳ thi cuối kỳ ngày mai, khoan hãy làm phiền nó."
+    }
+   ]
+  },
+  "愛": {
+   "vn": "yêu; yêu thích, hay (làm gì)",
+   "ng": [
+    "(động từ) yêu, thương yêu (愛家人 yêu gia đình, 我愛你 anh yêu em)",
+    "(động từ) rất thích, mê (愛喝咖啡 mê uống cà phê, 愛旅遊 thích du lịch)",
+    "(động từ) hay, dễ (chỉ thói quen hoặc đặc tính: 愛笑 hay cười, 愛生氣 hay giận)"
+   ],
+   "us": "Dùng trực tiếp với tân ngữ (愛 + người/vật) hoặc động từ (愛 + V). Mạnh và sâu sắc hơn 喜歡; trong khẩu ngữ 愛 + V còn mang nghĩa 'hay làm gì' (他很愛開玩笑 anh ấy rất hay đùa).",
+   "co": [
+    "愛好|sở thích",
+    "愛護|yêu quý, bảo vệ",
+    "愛笑|hay cười",
+    "熱愛|yêu tha thiết"
+   ],
+   "sy": [
+    "喜歡|thích (nhẹ hơn)",
+    "喜愛|yêu thích"
+   ],
+   "an": [
+    "恨|hận, ghét"
+   ],
+   "cf": [
+    "愛 vs 喜歡|Với người khác giới, 我愛你 rất trang trọng và sâu đậm; khi mới có cảm tình thường dùng 我喜歡你."
+   ],
+   "lt": "Động từ. Chữ Phồn thể 愛 có bộ Tâm 心 ở giữa (yêu phải có trái tim), khác chữ giản thể 爱 đã lược 心.",
+   "mk": "Không dùng 愛 với mọi đồ vật nhỏ nhặt như tiếng Anh 'I love this pen' — thường dùng 很喜歡 tự nhiên hơn.",
+   "tw": "Ở Đài Loan câu 愛你喔 hay dùng trêu đùa thân thiết giữa bạn bè hoặc người thân; cũng hay nói 愛吃 (háu ăn/mê ăn).",
+   "mh": "Ái → ài. ĐỌC: 'ái' → ài (giữ gần nguyên, thanh 4). NGHĨA: 爫 bàn tay + 冖 che chở + 心 trái tim + 夂 bước chân → dùng cả tấm lòng che chở đi cùng = yêu.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "父母不管多辛苦，總是全心全意地愛著自己的孩子。",
+     "vn": "Cha mẹ dù vất vả đến đâu cũng luôn toàn tâm toàn ý yêu thương con cái của mình."
+    },
+    {
+     "t": "Sở thích",
+     "zh": "她非常愛閱讀歷史小說，家裡的書櫃已經快放不下了。",
+     "vn": "Cô ấy vô cùng yêu thích đọc tiểu thuyết lịch sử, tủ sách ở nhà sắp không còn chỗ chứa nữa rồi."
+    },
+    {
+     "t": "Tính cách",
+     "zh": "這個小朋友特別愛笑，每次看到鄰居都會主動打招呼。",
+     "vn": "Đứa bé này đặc biệt hay cười, mỗi lần thấy hàng xóm đều chủ động chào hỏi."
+    }
+   ]
+  },
+  "哪": {
+   "vn": "nào (đại từ nghi vấn)",
+   "ng": [
+    "(đại từ nghi vấn) nào; phải đi kèm lượng từ hoặc 裡/邊 trước danh từ (哪一個人 người nào, 哪本書 cuốn sách nào, 哪裡 ở đâu)"
+   ],
+   "us": "Cấu trúc bắt buộc: 哪 + lượng từ + danh từ (哪個國家 nước nào, 哪一天 ngày nào). Tuyệt đối không nói *哪人 ❌ (phải là 哪國人 hoặc 哪一個人).",
+   "co": [
+    "哪裡|ở đâu",
+    "哪個|cái nào, người nào",
+    "哪國人|người nước nào",
+    "哪一天|ngày nào"
+   ],
+   "sy": [
+    "什麼|gì (hỏi rộng hơn, không giới hạn lựa chọn)"
+   ],
+   "cf": [
+    "哪 (nǎ) vs 那 (nà)|哪 có bộ 口 (miệng — mở miệng để hỏi) đọc thanh 3 là 'nào'; 那 không có bộ 口 đọc thanh 4 là 'đó, kia'."
+   ],
+   "lt": "Đại từ. Khi đứng trước lượng từ trong khẩu ngữ hay đọc thành něi (哪個 něige).",
+   "mk": "Hay viết nhầm 哪 (nào) thành 那 (đó), hoặc quên lượng từ (*哪書 ❌ → 哪本書).",
+   "tw": "Ở Đài Loan hỏi địa điểm luôn dùng 哪裡 (nǎlǐ), hiếm khi dùng 哪兒 (nǎr của miền Bắc Trung Quốc).",
+   "mh": "Na → nǎ. ĐỌC: giữ phụ âm n- + a thanh 3 (nǎ). NGHĨA: 口 cái miệng + 那 kia → mở miệng hỏi chỉ ra cái nào = nào.",
+   "vd": [
+    {
+     "t": "Hỏi đường",
+     "zh": "請問要搭哪一班公車才能直接到美術館？",
+     "vn": "Xin hỏi phải đi chuyến xe buýt nào mới tới thẳng bảo tàng mỹ thuật được ạ?"
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這兩件襯衫的顏色都很襯你，你比較喜歡哪一件？",
+     "vn": "Màu sắc của hai chiếc áo sơ mi này đều rất hợp với bạn, bạn thích chiếc nào hơn?"
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "請問您是從哪個城市來的？第一次到台灣旅遊嗎？",
+     "vn": "Xin hỏi bạn đến từ thành phố nào? Đây là lần đầu bạn du lịch Đài Loan à?"
+    }
+   ]
+  },
+  "比": {
+   "vn": "so với; so sánh; thi đấu",
+   "ng": [
+    "(giới từ) so với (dùng trong câu so sánh hơn: A 比 B + tính từ: 今天比昨天熱 hôm nay nóng hơn hôm qua)",
+    "(động từ) so sánh, thi đấu, làm động tác ra hiệu (比賽 thi đấu, 比手畫腳 múa tay ra hiệu)",
+    "(danh từ) tỷ số, tỷ lệ (三比二 ba hai / 3-2)"
+   ],
+   "us": "Câu so sánh chuẩn: A 比 B + tính từ (+ 一點 / 得多 / 多了). KHÔNG dùng 很 trong câu 比 (*他比我很高 ❌ → 他比我高得多 / 他比我高一點).",
+   "co": [
+    "比較|khá là / so sánh",
+    "比賽|thi đấu, cuộc thi",
+    "比起來|so ra thì",
+    "高一點|cao hơn một chút"
+   ],
+   "sy": [
+    "較|hơn, tương đối (văn viết)"
+   ],
+   "cf": [
+    "A 比 B 高 vs A 沒有 B 高|Câu khẳng định dùng 比; câu phủ định thường dùng 沒有 (他沒有我高 anh ấy không cao bằng tôi) hoặc 不比 (không hơn)."
+   ],
+   "lt": "Giới từ / Động từ. Phía sau tính từ chỉ dùng mức độ chênh lệch cụ thể (一點, 很多, 五歲), không dùng 很/非常.",
+   "mk": "Lỗi cực phổ biến: thêm 很 vào câu so sánh (*今天比昨天很冷 ❌ → 今天比昨天冷多了).",
+   "tw": "Ở Đài Loan đọc tỷ số thể thao dùng 比: 台灣隊以五比三贏得比賽 (Đội Đài Loan thắng 5-3).",
+   "mh": "Tỷ → bǐ. ĐỌC: 'tỷ' → bǐ (t- → b- ở chữ này, thanh 3). NGHĨA: hai chữ 匕 đứng cạnh nhau → đặt hai vật sát nhau để đối chiếu = so sánh, so với.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "今天早上的氣溫比昨天低了五度，出門記得加件外套。",
+     "vn": "Nhiệt độ sáng nay thấp hơn hôm qua năm độ, ra ngoài nhớ mặc thêm áo khoác."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "搭高鐵雖然貴一點，但時間比開車快得多。",
+     "vn": "Đi tàu cao tốc tuy đắt hơn một chút, nhưng thời gian nhanh hơn lái xe nhiều."
+    },
+    {
+     "t": "Học tập",
+     "zh": "跟半年前比起來，她的中文口說流利了不少。",
+     "vn": "So với nửa năm trước, khả năng nói tiếng Hoa của cô ấy lưu loát hơn hẳn."
+    }
+   ]
+  }
+ }
+}

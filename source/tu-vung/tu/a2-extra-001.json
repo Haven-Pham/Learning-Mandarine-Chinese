@@ -1,0 +1,47 @@
+{
+ "tu": {
+  "約": {
+   "vn": "hẹn; ước chừng, khoảng",
+   "ng": [
+    "(động từ) hẹn, mời gặp mặt (約朋友吃飯 hẹn bạn ăn cơm, 約時間 hẹn giờ)",
+    "(phó từ) khoảng, ước chừng (約十分鐘 khoảng mười phút, 約一百人 khoảng một trăm người)",
+    "(danh từ) hợp đồng, giao ước (合約 hợp đồng, 簽約 ký hợp đồng)"
+   ],
+   "us": "Hẹn ai làm gì: 約 + người + (時間/地點) + V (我約了他明天見面 tôi hẹn anh ấy mai gặp). Khi làm phó từ mang nghĩa 'khoảng', trang trọng và gọn hơn 大概 (約半小時 khoảng nửa tiếng).",
+   "co": [
+    "約時間|hẹn giờ",
+    "約會|hẹn hò",
+    "預約|đặt hẹn trước",
+    "大約|khoảng chừng"
+   ],
+   "sy": [
+    "大概|khoảng chừng (khẩu ngữ hơn)",
+    "邀請|mời (trang trọng hơn)"
+   ],
+   "cf": [
+    "約 vs 預約|約 dùng hẹn bạn bè, đối tác gặp nhau (約朋友); 預約 dùng đặt lịch trước với nhà hàng, bác sĩ, dịch vụ (預約餐廳, 預約看診)."
+   ],
+   "lt": "Động từ / Phó từ.",
+   "mk": "Đừng nói *我約見面他 ❌ — người được hẹn phải đứng ngay sau 約: 我約他見面.",
+   "tw": "Ở Đài Loan rủ nhau tụ tập rất hay nói 改天約喔！(Hôm khác hẹn nhé!) hoặc 約一波 (rủ làm một kèo — tiếng lóng giới trẻ).",
+   "mh": "Ước → yuē. ĐỌC: 'ước' → yuē (thanh 1). NGHĨA: 糹 sợi tơ + 勺 múc/buộc → dùng dây buộc lại thành giao ước = hẹn, ước chừng.",
+   "vd": [
+    {
+     "t": "Giao tiếp",
+     "zh": "我們好久沒碰面了，下禮拜找一天約出來喝杯咖啡吧。",
+     "vn": "Chúng ta lâu lắm không gặp nhau rồi, tuần sau chọn một ngày hẹn ra uống ly cà phê nhé."
+    },
+    {
+     "t": "Đi lại",
+     "zh": "從車站搭計程車到會場約十五分鐘，現在出發時間剛剛好。",
+     "vn": "Từ ga đi taxi tới hội trường khoảng mười lăm phút, bây giờ xuất phát là vừa đẹp."
+    },
+    {
+     "t": "Công việc",
+     "zh": "我已經跟客戶約好明天下午兩點在會議室討論合作細節。",
+     "vn": "Tôi đã hẹn xong với khách hàng hai giờ chiều mai thảo luận chi tiết hợp tác tại phòng họp."
+    }
+   ]
+  }
+ }
+}

@@ -2,7 +2,7 @@
 
 Tự tạo khi chạy `tools/build_rich_words.py`. Đừng sửa tay.
 
-Từ lẻ đã soạn (thư mục `tu/`): **5276**
+Từ lẻ đã soạn (thư mục `tu/`): **5484**
 
 ## B1 theo chủ đề
 

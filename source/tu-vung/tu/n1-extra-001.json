@@ -1,0 +1,697 @@
+{
+ "tu": {
+  "個": {
+   "vn": "cái, người (lượng từ thông dụng nhất)",
+   "ng": [
+    "(lượng từ) lượng từ phổ biến nhất, dùng cho người, đồ vật, sự việc, thời gian (一個人 một người, 兩個蘋果 hai quả táo, 三個月 ba tháng)",
+    "(trợ từ khẩu ngữ) đứng giữa động từ và tân ngữ/bổ ngữ tạo cảm giác tự nhiên, nhẹ nhàng (見個面 gặp mặt một chút, 洗個澡 đi tắm cái)"
+   ],
+   "us": "Đặt sau số từ hoặc 這/那/哪: 這個 (cái này), 兩個人 (hai người). Khi quên lượng từ chuyên biệt của danh từ, có thể tạm dùng 個 để đối phương vẫn hiểu.",
+   "co": [
+    "一個人|một người / một mình",
+    "這個人|người này",
+    "每個星期|mỗi tuần",
+    "見個面|gặp mặt một chút"
+   ],
+   "sy": [
+    "位|vị (lượng từ lịch sự hơn cho người)"
+   ],
+   "cf": [
+    "個 vs 位|個 dùng thân mật, trung tính cho người (一個朋友); 位 trang trọng, lịch sự hơn (一位老師, 請問幾位？)."
+   ],
+   "lt": "Bản thân 個 là lượng từ. Khi đi với số 2 phải dùng 兩 (兩個), không dùng 二 (*二個 ❌).",
+   "mk": "Hay nói nhầm *二個人 ❌ thay vì 兩個人; hoặc quên lượng từ (*三朋友 ❌ → 三個朋友).",
+   "tw": "Ở Đài Loan khẩu ngữ thường nói 這個 là zhège hoặc nèige cho 那個; hay đệm 個 trong động từ ly hợp: 吃個飯、聊個天.",
+   "mh": "Cá → gè / ge. ĐỌC: 'cá' → gè (c- → g-, thanh 4; khi làm lượng từ thường đọc thanh nhẹ ge). NGHĨA: 亻 người + 固 vững chắc → từng cá thể riêng lẻ = cái, người.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "我剛搬來台北，在這個社區認識了兩個很熱心的鄰居。",
+     "vn": "Tôi mới chuyển đến Đài Bắc, ở khu dân cư này quen được hai người hàng xóm rất nhiệt tình."
+    },
+    {
+     "t": "Hẹn gặp",
+     "zh": "我們好久沒見了，週末有空的話一起吃個飯吧。",
+     "vn": "Chúng ta lâu lắm rồi không gặp, cuối tuần rảnh thì cùng đi ăn một bữa nhé."
+    },
+    {
+     "t": "Học tập",
+     "zh": "這個漢字筆畫很多，我寫了五次才記住。",
+     "vn": "Chữ Hán này nhiều nét quá, tôi viết năm lần mới nhớ được."
+    }
+   ]
+  },
+  "喜歡": {
+   "vn": "thích; yêu thích",
+   "ng": [
+    "(động từ) có thiện cảm, thích ai hoặc thích cái gì/làm gì (喜歡喝茶 thích uống trà, 喜歡這部電影 thích bộ phim này)"
+   ],
+   "us": "Theo sau bởi danh từ hoặc động từ: 喜歡 + N / V. Phủ định dùng 不喜歡 (không dùng *沒喜歡 ❌). Có thể thêm phó từ chỉ mức độ: 很喜歡, 非常喜歡, 最喜歡.",
+   "co": [
+    "很喜歡|rất thích",
+    "最喜歡|thích nhất",
+    "喜歡看書|thích đọc sách",
+    "不喜歡吃辣|không thích ăn cay"
+   ],
+   "sy": [
+    "愛|yêu, thích sâu sắc hơn",
+    "喜愛|yêu thích (trang trọng hơn)"
+   ],
+   "an": [
+    "討厭|ghét"
+   ],
+   "cf": [
+    "喜歡 vs 愛|喜歡 là thích ở mức nhẹ đến vừa (thích món ăn, thích một người); 愛 sâu đậm hơn nhiều (yêu gia đình, yêu người yêu, mê mẩn)."
+   ],
+   "lt": "Động từ tâm lý, nhận được phó từ mức độ 很 / 非常 / 超.",
+   "mk": "Đừng phủ định bằng *沒喜歡 ❌ — phải dùng 不喜歡.",
+   "tw": "Người Đài Loan nói rất hay thêm 超 hoặc 滿: 超喜歡這家店的奶茶！(Mê tít trà sữa quán này!).",
+   "mh": "Hỷ Hoan → xǐhuān. ĐỌC: 'hỷ' → xǐ (h- trước i → x-, thanh 3); 'hoan' → huān (thanh 1; ở Đại Lục đọc thanh nhẹ xǐhuan, Đài Loan thường giữ thanh 1 xǐhuān). NGHĨA: 喜 vui mừng + 歡 hân hoan → lòng vui vẻ đón nhận = thích.",
+   "vd": [
+    {
+     "t": "Sở thích",
+     "zh": "我平常很喜歡去書店逛逛，順便買幾本中文書回家看。",
+     "vn": "Bình thường tôi rất thích đi dạo hiệu sách, tiện thể mua vài cuốn sách tiếng Hoa về nhà đọc."
+    },
+    {
+     "t": "Ăn uống",
+     "zh": "你喜歡喝熱茶還是冰奶茶？我幫你點。",
+     "vn": "Bạn thích uống trà nóng hay trà sữa đá? Tôi gọi giúp bạn."
+    },
+    {
+     "t": "Công việc",
+     "zh": "她很喜歡這份工作，因為同事之間相處非常融洽。",
+     "vn": "Cô ấy rất thích công việc này vì đồng nghiệp hòa đồng với nhau."
+    }
+   ]
+  },
+  "很": {
+   "vn": "rất (phó từ chỉ mức độ)",
+   "ng": [
+    "(phó từ) rất, lắm; đặt trước tính từ hoặc động từ tâm lý (很好 rất tốt, 很忙 rất bận, 很想家 rất nhớ nhà)"
+   ],
+   "us": "Trong tiếng Hoa, tính từ làm vị ngữ thường đi kèm 很 để câu tự nhiên (今天很熱 = hôm nay nóng, không nhất thiết mang nghĩa 'rất' mạnh). Nếu bỏ 很 (今天熱), câu thường mang hàm ý so sánh (hôm nay nóng, hôm qua thì không).",
+   "co": [
+    "很好|rất tốt",
+    "很多|rất nhiều",
+    "很方便|rất tiện lợi",
+    "很遠|rất xa"
+   ],
+   "sy": [
+    "非常|vô cùng, rất",
+    "滿|khá là (khẩu ngữ Đài Loan)"
+   ],
+   "cf": [
+    "很 vs 是|Tuyệt đối KHÔNG dùng 是 trước tính từ (*他是很高 ❌ → 他很高). Chỉ dùng 是 với danh từ."
+   ],
+   "lt": "Phó từ. Phủ định: 不太 (không lắm) nhẹ hơn 很不 (rất không).",
+   "mk": "Lỗi kinh điển của người Việt: dịch 'anh ấy rất cao' thành *他是很高 ❌ → đúng là 他很高.",
+   "tw": "Ở Đài Loan khẩu ngữ thường thay 很 bằng 滿 (滿好吃的 khá ngon) hoặc 超 (超累 siêu mệt).",
+   "mh": "Ngận → hěn. ĐỌC: âm Hán Việt ít dùng, nhớ vần -en thanh 3 (hěn). NGHĨA: 彳 bước chân + 艮 dừng lại → nhấn mạnh mức độ = rất.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "這家早餐店的蛋餅很好吃，每天早上都要排隊。",
+     "vn": "Bánh trứng cuộn ở quán ăn sáng này rất ngon, sáng nào cũng phải xếp hàng."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "從我家走到捷運站很近，大概五分鐘就到了。",
+     "vn": "Từ nhà tôi đi bộ ra ga tàu điện ngầm rất gần, khoảng năm phút là tới."
+    },
+    {
+     "t": "Cảm xúc",
+     "zh": "謝謝你專程來接我，我真的很感動。",
+     "vn": "Cảm ơn bạn đã đặc biệt đến đón tôi, tôi thật sự rất cảm động."
+    }
+   ]
+  },
+  "老師": {
+   "vn": "thầy giáo, cô giáo; giáo viên",
+   "ng": [
+    "(danh từ) thầy giáo, cô giáo dạy học ở mọi cấp học (中文老師 giáo viên tiếng Hoa)",
+    "(danh từ xưng hô) cách gọi tôn trọng người có chuyên môn, nghệ nhân, hướng dẫn viên (陳老師 thầy/cô Trần)"
+   ],
+   "us": "Đặt sau họ để gọi trực tiếp: 林老師 (thầy/cô Lâm). Không phân biệt nam nữ; khi cần phân biệt mới nói 男老師 / 女老師.",
+   "co": [
+    "中文老師|giáo viên tiếng Hoa",
+    "請教老師|thỉnh giáo thầy/cô",
+    "老師好|em chào thầy/cô",
+    "當老師|làm giáo viên"
+   ],
+   "sy": [
+    "教師|giáo viên (trang trọng, văn bản)",
+    "教授|giáo sư (ở đại học)"
+   ],
+   "an": [
+    "學生|học sinh, sinh viên"
+   ],
+   "cf": [
+    "老師 vs 教師|老師 dùng gọi trực tiếp và trong giao tiếp hàng ngày; 教師 dùng trong giấy tờ, nghề nghiệp chính thức (教師節 Ngày Nhà giáo)."
+   ],
+   "lt": "位 (lịch sự), 個 (thông thường). Ở Đài Loan ngày Nhà giáo 教師節 là 28/9 (ngày sinh Khổng Tử).",
+   "mk": "Đặt họ TRƯỚC 老師: 王老師 (đúng), không nói *老師王 ❌.",
+   "tw": "Ở Đài Loan sinh viên đại học vẫn hay gọi giảng viên là 老師 (rất gần gũi) thay vì lúc nào cũng gọi 教授.",
+   "mh": "Lão Sư → lǎoshī. ĐỌC: 'lão' → lǎo (thanh 3); 'sư' → shī (s- → sh-, thanh 1). NGHĨA: 老 từng trải, đáng kính + 師 người truyền dạy → người thầy đáng kính = thầy/cô giáo.",
+   "vd": [
+    {
+     "t": "Trường học",
+     "zh": "老師講解文法非常清楚，連最難的句型我們也一下子就聽懂了。",
+     "vn": "Thầy/cô giảng ngữ pháp rất rõ ràng, ngay cả mẫu câu khó nhất chúng tôi cũng nghe hiểu ngay."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "請問林老師今天在辦公室嗎？我想交作業給他。",
+     "vn": "Xin hỏi thầy Lâm hôm nay có ở văn phòng không? Em muốn nộp bài tập cho thầy."
+    },
+    {
+     "t": "Nghề nghiệp",
+     "zh": "她從小就想當一名小學老師，現在終於實現夢想了。",
+     "vn": "Từ nhỏ cô ấy đã muốn làm giáo viên tiểu học, giờ cuối cùng cũng thực hiện được ước mơ rồi."
+    }
+   ]
+  },
+  "買": {
+   "vn": "mua",
+   "ng": [
+    "(động từ) dùng tiền mua hàng hóa, vé, đồ dùng (買東西 mua đồ, 買票 mua vé, 買咖啡 mua cà phê)"
+   ],
+   "us": "買 + đồ vật. Mua cho ai: 幫/給 + người + 買 + vật (幫媽媽買水果 mua trái cây cho mẹ). Mua được: 買得到 / 買到了.",
+   "co": [
+    "買東西|mua sắm, mua đồ",
+    "買單|tính tiền, thanh toán",
+    "買票|mua vé",
+    "買禮物|mua quà"
+   ],
+   "sy": [
+    "購買|mua sắm (trang trọng, thương mại)"
+   ],
+   "an": [
+    "賣|bán"
+   ],
+   "cf": [
+    "買 (mǎi) vs 賣 (mài)|買 thanh 3 là MUA (không có nét 十 ở trên); 賣 thanh 4 là BÁN (có 士 ở trên: 'có thêm mười đồng để bán')."
+   ],
+   "lt": "Động từ. Hay đi với bổ ngữ kết quả: 買到 (mua được), 買錯 (mua nhầm), 買貴了 (mua bị đắt).",
+   "mk": "Rất hay đọc nhầm thanh 3 買 (mǎi) với thanh 4 賣 (mài) — đọc sai thành ngược nghĩa hoàn toàn!",
+   "tw": "Ở Đài Loan tính tiền nhà hàng thường nói 結帳 nhiều hơn 買單.",
+   "mh": "Mãi → mǎi. ĐỌC: 'mãi' → mǎi (thanh 3, trùng vần -ai). NGHĨA: 罒 lưới/mắt + 貝 vỏ sò tiền bạc → chọn hàng trả tiền = mua.",
+   "vd": [
+    {
+     "t": "Mua sắm",
+     "zh": "下班後我要順路去超市買一些青菜和牛奶。",
+     "vn": "Tan làm tôi sẽ tiện đường ghé siêu thị mua ít rau xanh và sữa tươi."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "高鐵票可以提前在網路上買，到車站直接掃描就能進站。",
+     "vn": "Vé tàu cao tốc có thể mua trước trên mạng, tới ga quét mã trực tiếp là vào được."
+    },
+    {
+     "t": "Quà tặng",
+     "zh": "這件外套打折後很划算，我決定買下來送給弟弟。",
+     "vn": "Chiếc áo khoác này giảm giá xong rất hời, tôi quyết định mua tặng em trai."
+    }
+   ]
+  },
+  "學生": {
+   "vn": "học sinh; sinh viên",
+   "ng": [
+    "(danh từ) người đang theo học ở trường tiểu học, trung học hoặc đại học (小學生 học sinh tiểu học, 大學生 sinh viên đại học, 留學生 du học sinh)"
+   ],
+   "us": "Dùng chung cho học sinh và sinh viên. Muốn nói rõ cấp bậc thì thêm tiền tố: 國中生 (học sinh THCS ở Đài Loan), 高中生 (học sinh THPT), 大學生 (sinh viên), 研究生 (học viên cao học).",
+   "co": [
+    "大學生|sinh viên đại học",
+    "留學生|du học sinh",
+    "學生證|thẻ học sinh / thẻ sinh viên",
+    "學生餐廳|căn tin sinh viên"
+   ],
+   "sy": [
+    "學員|học viên (khóa học, trung tâm)"
+   ],
+   "an": [
+    "老師|giáo viên"
+   ],
+   "cf": [
+    "學生 vs 學員|學生 là học sinh, sinh viên trường chính quy; 學員 là học viên tham gia khóa đào tạo, lớp kỹ năng."
+   ],
+   "lt": "位, 個, 名 (一名學生).",
+   "mk": "Chú ý ở Đài Loan cấp 2 là 國中生 (không gọi 初中生 như Đại Lục).",
+   "tw": "Ở Đài Loan thẻ sinh viên 學生證 thường tích hợp luôn thẻ 悠遊卡 (EasyCard) để đi xe buýt, tàu điện và được giảm giá vé bảo tàng, rạp phim.",
+   "mh": "Học Sinh → xuéshēng. ĐỌC: 'học' → xué (h- → x-, thanh 2); 'sinh' → shēng (s- → sh-, -inh → -eng, thanh 1). NGHĨA: 學 học tập + 生 người trẻ/học trò → người đang đi học = học sinh, sinh viên.",
+   "vd": [
+    {
+     "t": "Trường học",
+     "zh": "這個華語中心有來自二十多個國家的學生一起上課。",
+     "vn": "Trung tâm tiếng Hoa này có học viên đến từ hơn hai mươi quốc gia cùng học."
+    },
+    {
+     "t": "Ưu đãi",
+     "zh": "憑學生證買博物館門票可以享有半價優惠。",
+     "vn": "Xuất trình thẻ sinh viên khi mua vé vào bảo tàng sẽ được giảm nửa giá."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "開學以後，學校附近的便當店中午總是擠滿了學生。",
+     "vn": "Sau khi khai giảng, quán cơm hộp gần trường buổi trưa lúc nào cũng chật kín sinh viên."
+    }
+   ]
+  },
+  "筆": {
+   "vn": "bút; cây bút; (lượng từ) món tiền, nét chữ",
+   "ng": [
+    "(danh từ) bút viết nói chung (原子筆 bút bi, 鉛筆 bút chì, 鋼筆 bút máy, 毛筆 bút lông)",
+    "(lượng từ) món tiền, khoản giao dịch (一筆錢 một khoản tiền, 一筆訂單 một đơn hàng)"
+   ],
+   "us": "Lượng từ cho cây bút là 枝 hoặc 支 (一枝筆 một cây bút). Cũng làm lượng từ cho khoản tiền, nét chữ (筆畫 nét chữ).",
+   "co": [
+    "原子筆|bút bi",
+    "鉛筆|bút chì",
+    "筆記本|sổ ghi chép / máy tính xách tay",
+    "一筆錢|một khoản tiền"
+   ],
+   "sy": [
+    "文具|văn phòng phẩm (nhóm rộng hơn)"
+   ],
+   "cf": [
+    "原子筆 vs 圓珠筆|Đài Loan gọi bút bi là 原子筆; Đại Lục hay gọi 圓珠筆."
+   ],
+   "lt": "枝 / 支 (一枝筆). Chữ 筆 vẽ bộ trúc 竹 ở trên + lông 毛 ở dưới (bút lông thời xưa làm từ ống tre và lông thú).",
+   "mk": "Đừng dùng lượng từ *一個筆 ❌ — dùng 一枝筆 hoặc 一支筆.",
+   "tw": "Ở Đài Loan bút bi là 原子筆, bút xóa kéo là 立可帶 (tên thương hiệu quen dùng), laptop cũng gọi 筆電 (筆記型電腦).",
+   "mh": "Bút → bǐ. ĐỌC: 'bút' → bǐ (giữ phụ âm b-, thanh 3). NGHĨA: 竹 tre + 毛 lông → ống tre gắn lông thú (bút lông cổ) = cây bút.",
+   "vd": [
+    {
+     "t": "Học tập",
+     "zh": "不好意思，我的原子筆沒水了，可以借我一枝筆嗎？",
+     "vn": "Xin lỗi, bút bi của tôi hết mực rồi, bạn cho tôi mượn một cây bút được không?"
+    },
+    {
+     "t": "Công việc",
+     "zh": "簽合約的時候請用黑色或藍色的筆填寫姓名。",
+     "vn": "Khi ký hợp đồng vui lòng dùng bút mực đen hoặc xanh để điền họ tên."
+    },
+    {
+     "t": "Tài chính",
+     "zh": "公司最近收到一筆來自海外客戶的大額訂單。",
+     "vn": "Công ty gần đây nhận được một đơn hàng lớn từ khách hàng nước ngoài."
+    }
+   ]
+  },
+  "看": {
+   "vn": "nhìn, xem, đọc, thăm, khám",
+   "ng": [
+    "(động từ) nhìn, xem (看電影 xem phim, 看風景 ngắm cảnh)",
+    "(động từ) đọc (看書 đọc sách, 看新聞 đọc tin tức)",
+    "(động từ) đi thăm, đi khám bệnh (看醫生 đi khám bác sĩ, 看朋友 thăm bạn)",
+    "(động từ) tùy vào, coi như (看情況 tùy tình hình, 我看 theo tôi thấy)"
+   ],
+   "us": "Động từ đa nghĩa cực quan trọng: 看書 (đọc sách), 看病/看醫生 (khám bệnh), 看看 (xem thử). Chú ý âm đọc thứ hai kān = trông nom (看家 trông nhà, 看門 canh cổng).",
+   "co": [
+    "看書|đọc sách",
+    "看電影|xem phim",
+    "看醫生|đi khám bác sĩ",
+    "看情況|tùy tình hình"
+   ],
+   "sy": [
+    "瞧|nhìn (khẩu ngữ)",
+    "閱讀|đọc hiểu (trang trọng)"
+   ],
+   "cf": [
+    "看 vs 看見|看 là hành động nhìn/xem (có chủ đích); 看見 là nhìn thấy (kết quả: 我看了半天都沒看見 tôi nhìn mãi mà không thấy)."
+   ],
+   "lt": "Động từ (kàn = nhìn/xem; kān = trông giữ).",
+   "mk": "Đừng dịch 'đọc sách' theo nghĩa ngồi đọc thầm là *讀書 ❌ — đọc sách/đọc báo thường ngày dùng 看書 / 看報紙 (讀書 hay mang nghĩa 'đi học, học bài').",
+   "tw": "Ở Đài Loan đi khám bệnh nói 看醫生 hoặc 看病; nói 'để xem đã' hay nói 再看看.",
+   "mh": "Khán → kàn. ĐỌC: 'khán' → kàn (kh- → k-, thanh 4). NGHĨA: 手 tay che trên + 目 mắt → đưa tay che nắng trên mắt để nhìn xa = nhìn, xem.",
+   "vd": [
+    {
+     "t": "Giải trí",
+     "zh": "週末晚上我通常會在家看一部紀錄片放鬆心情。",
+     "vn": "Tối cuối tuần tôi thường ở nhà xem một bộ phim tài liệu để thư giãn."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "他這幾天一直咳嗽，最好趕快去診所看醫生。",
+     "vn": "Mấy hôm nay anh ấy cứ ho suốt, tốt nhất mau tới phòng khám gặp bác sĩ."
+    },
+    {
+     "t": "Quyết định",
+     "zh": "明天要不要去爬山，還要看早上的天氣狀況再決定。",
+     "vn": "Ngày mai có đi leo núi hay không còn phải xem tình hình thời tiết buổi sáng rồi mới quyết định."
+    }
+   ]
+  },
+  "什麼/甚麼": {
+   "vn": "cái gì, gì (đại từ nghi vấn)",
+   "ng": [
+    "(đại từ nghi vấn) cái gì, gì (這是什麼？ Đây là cái gì?, 你想吃什麼？ Bạn muốn ăn gì?)",
+    "(đại từ phiếm chỉ) bất cứ cái gì (什麼都吃 cái gì cũng ăn, 沒什麼 không có gì đâu)"
+   ],
+   "us": "Đặt ở đúng vị trí của danh từ cần hỏi (không đảo lên đầu câu như tiếng Anh): 你叫什麼名字？ (Bạn tên là gì?). Dùng trong cấu trúc 什麼都… (cái gì cũng…).",
+   "co": [
+    "什麼時候|khi nào, lúc nào",
+    "為什麼|tại sao",
+    "沒什麼|không có gì đâu",
+    "什麼地方|nơi nào"
+   ],
+   "sy": [
+    "啥|cái gì (khẩu ngữ phương ngữ)"
+   ],
+   "cf": [
+    "什麼 vs 甚麼|Hai cách viết cùng nghĩa và cùng âm shénme. Ở Đài Loan 什麼 dùng phổ biến nhất, 甚麼 hay gặp trong văn chương hoặc báo chí truyền thống."
+   ],
+   "lt": "Đại từ. Khi đứng trước danh từ: 什麼 + N (什麼問題 vấn đề gì).",
+   "mk": "Đừng đảo 什麼 lên đầu câu hỏi như tiếng Anh (*什麼你買了？ ❌ → 你買了什麼？).",
+   "tw": "Ở Đài Loan khi đáp lại lời cảm ơn hoặc xin lỗi nhẹ hay nói 沒什麼啦 (Không có gì đâu mà) hoặc 有什麼事嗎？ (Có chuyện gì thế?).",
+   "mh": "Thập Ma → shénme. ĐỌC: chữ 什 đọc shén (thanh 2, ngoại lệ), 麼 đọc thanh nhẹ me. NGHĨA: đại từ hỏi sự vật chưa rõ = cái gì.",
+   "vd": [
+    {
+     "t": "Giao tiếp",
+     "zh": "請問這道菜裡面放了什麼香料？味道好特別。",
+     "vn": "Xin hỏi món ăn này cho gia vị gì bên trong thế? Mùi vị đặc biệt quá."
+    },
+    {
+     "t": "Công việc",
+     "zh": "如果操作上有什麼問題，隨時都可以發訊息問我。",
+     "vn": "Nếu trong lúc thao tác có vấn đề gì, cứ nhắn tin hỏi tôi bất cứ lúc nào."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "他對食物完全不挑，無論什麼口味都吃得很開心。",
+     "vn": "Anh ấy hoàn toàn không kén ăn, bất kể khẩu vị gì cũng ăn rất ngon miệng."
+    }
+   ]
+  },
+  "朋友": {
+   "vn": "bạn bè; người bạn",
+   "ng": [
+    "(danh từ) bạn bè, người bạn thân thiết (好朋友 bạn thân, 新朋友 bạn mới, 交朋友 kết bạn)"
+   ],
+   "us": "Dùng cho cả số ít và số nhiều (一個朋友 một người bạn, 很多朋友 nhiều bạn bè). Người yêu: 男朋友 (bạn trai), 女朋友 (bạn gái).",
+   "co": [
+    "好朋友|bạn thân",
+    "交朋友|kết bạn",
+    "男女朋友|bạn trai / bạn gái",
+    "老朋友|bạn cũ"
+   ],
+   "sy": [
+    "好友|bạn thân (văn viết, mạng xã hội)",
+    "夥伴|bạn đồng hành, đối tác"
+   ],
+   "an": [
+    "敵人|kẻ thù",
+    "陌生人|người lạ"
+   ],
+   "cf": [
+    "朋友 vs 同學 / 同事|朋友 là bạn bè nói chung; 同學 là bạn học cùng lớp/trường; 同事 là đồng nghiệp cùng cơ quan."
+   ],
+   "lt": "個, 位 (一位朋友).",
+   "mk": "Chữ 友 có âm gốc thanh 3 yǒu, nhưng trong 朋友 thường đọc nhẹ hơn (péngyou / péngyǒu).",
+   "tw": "Ở Đài Loan người dẫn chương trình hay chào khán giả là 各位朋友 (Quý vị và các bạn); bạn thân chí cốt còn gọi 好閨蜜 (nữ) hoặc 麻吉 (májí, từ tiếng Nhật 'maji').",
+   "mh": "Bằng Hữu → péngyǒu. ĐỌC: 'bằng' → péng (thanh 2); 'hữu' → yǒu (thanh 3). NGHĨA: 朋 hai xâu tiền/hai vầng trăng song hành + 友 hai bàn tay nắm lấy nhau → người đồng hành gắn bó = bạn bè.",
+   "vd": [
+    {
+     "t": "Giao tiếp",
+     "zh": "她個性開朗又大方，剛到新環境就交到不少好朋友。",
+     "vn": "Tính cô ấy cởi mở lại hào phóng, mới tới môi trường mới đã kết được không ít bạn thân."
+    },
+    {
+     "t": "Cuối tuần",
+     "zh": "這個星期六我約了幾位大學朋友一起去夜市吃小吃。",
+     "vn": "Thứ Bảy này tôi hẹn vài người bạn đại học cùng đi chợ đêm ăn đồ ăn vặt."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "真正的朋友會在你遇到困難的時候伸出援手。",
+     "vn": "Người bạn thực sự sẽ đưa tay giúp đỡ khi bạn gặp khó khăn."
+    }
+   ]
+  },
+  "貴": {
+   "vn": "đắt; quý giá; (kính ngữ) quý",
+   "ng": [
+    "(tính từ) đắt, giá cao (太貴了 đắt quá, 東西很貴 đồ rất đắt)",
+    "(tính từ) quý giá, tôn quý (寶貴 quý báu, 貴賓 quý khách)",
+    "(kính ngữ) quý (dùng để hỏi thăm lịch sự: 您貴姓？ Quý danh/họ của ngài là gì?, 貴公司 quý công ty)"
+   ],
+   "us": "Chủ yếu dùng với nghĩa 'đắt' trong sinh hoạt; trong môi trường công sở và giao tiếp lịch sự dùng nghĩa kính ngữ: 貴公司 (quý công ty), 貴姓 (quý tính).",
+   "co": [
+    "太貴了|đắt quá rồi",
+    "貴姓|quý tính (hỏi họ lịch sự)",
+    "貴公司|quý công ty",
+    "物價很貴|vật giá đắt đỏ"
+   ],
+   "sy": [
+    "昂貴|đắt đỏ (trang trọng)"
+   ],
+   "an": [
+    "便宜|rẻ"
+   ],
+   "cf": [
+    "貴 vs 昂貴|貴 dùng rộng rãi trong khẩu ngữ lẫn văn viết; 昂貴 trang trọng hơn, nhấn mạnh mức giá rất cao (租金昂貴 tiền thuê đắt đỏ)."
+   ],
+   "lt": "Tính từ. Hỏi họ lịch sự: 請問您貴姓？ — KHÔNG dùng 貴 cho bản thân (*我貴姓陳 ❌ → 我姓陳).",
+   "mk": "Không tự xưng 貴 cho mình hay công ty mình (công ty mình là 本公司, không phải 貴公司).",
+   "tw": "Ở Đài Loan hay than giá cao là 好貴喔！(Đắt quá trời ơi!), hoặc hỏi lịch sự 請問貴姓大名？",
+   "mh": "Quý → guì. ĐỌC: 'quý' → guì (qu- → g-, thanh 4). NGHĨA: trên là đồ đựng quý + dưới là 貝 vỏ sò tiền bạc → giá trị cao = đắt, quý.",
+   "vd": [
+    {
+     "t": "Mua sắm",
+     "zh": "這雙皮鞋質感雖然不錯，但價格對我來說有點太貴了。",
+     "vn": "Đôi giày da này chất liệu tuy khá tốt, nhưng giá cả đối với tôi hơi đắt quá."
+    },
+    {
+     "t": "Công sở",
+     "zh": "請問先生貴姓？我幫您確認一下今天的預約紀錄。",
+     "vn": "Xin hỏi anh họ gì ạ? Tôi kiểm tra giúp anh lịch hẹn hôm nay."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "颱風過後菜市場的青菜變貴了不少。",
+     "vn": "Sau cơn bão, rau xanh ngoài chợ trở nên đắt hơn khá nhiều."
+    }
+   ]
+  },
+  "便宜": {
+   "vn": "rẻ; món hời",
+   "ng": [
+    "(tính từ) rẻ, giá thấp (很便宜 rất rẻ, 便宜一點 rẻ hơn một chút)",
+    "(danh từ) lợi ích nhỏ, món hời (佔便宜 chiếm hời, lợi dụng)"
+   ],
+   "us": "Đọc piányí (ở Đài Loan hay đọc thanh 2 cả hai chữ piányí, Đại Lục đọc piányi). Khi làm vị ngữ: 這家店很便宜 (Quán này rất rẻ). Tránh nhầm với 方便 (fāngbiàn = tiện lợi).",
+   "co": [
+    "很便宜|rất rẻ",
+    "便宜一點|rẻ hơn một chút",
+    "便宜又好吃|rẻ mà ngon",
+    "佔便宜|chiếm hời, lợi dụng"
+   ],
+   "sy": [
+    "划算|đáng tiền, hời",
+    "實惠|giá phải chăng, kinh tế"
+   ],
+   "an": [
+    "貴|đắt",
+    "昂貴|đắt đỏ"
+   ],
+   "cf": [
+    "便宜 vs 划算|便宜 chỉ giá tiền thấp (rẻ); 划算 chỉ 'đáng đồng tiền bát gạo' (có thể không quá rẻ nhưng chất lượng vượt giá)."
+   ],
+   "lt": "Chữ 便 có hai cách đọc: pián (chỉ trong 便宜 rẻ, 大腹便便) và biàn (trong 方便 tiện lợi, 便當 cơm hộp).",
+   "mk": "Rất hay đọc nhầm thành *biànyí ❌ — phải đọc là piányí! Và đừng nhầm nghĩa với 'tiện nghi' trong tiếng Việt.",
+   "tw": "Ở Đài Loan hay khen quán ăn là 俗又大碗 (từ tiếng Đài: rẻ mà tô to) hoặc 便宜又大碗.",
+   "mh": "Tiện Nghi → piányí (bẫy Hán Việt!). ĐỌC: chữ 便 ở đây đọc pián (không đọc biàn), 宜 đọc yí (thanh 2). NGHĨA: 便 thuận tiện + 宜 hợp lý → giá cả dễ chịu = rẻ.",
+   "vd": [
+    {
+     "t": "Mua sắm",
+     "zh": "換季大拍賣的時候，很多冬天的衣服都比平常便宜一半。",
+     "vn": "Lúc xả hàng chuyển mùa, nhiều quần áo mùa đông đều rẻ hơn một nửa so với bình thường."
+    },
+    {
+     "t": "Ăn uống",
+     "zh": "學校後門那家自助餐便宜又乾淨，很受附近居民歡迎。",
+     "vn": "Quán cơm tự chọn cổng sau trường vừa rẻ vừa sạch sẽ, rất được cư dân quanh đó ưa chuộng."
+    },
+    {
+     "t": "Mặc cả",
+     "zh": "老闆，我一次買三盒，可以算便宜一點嗎？",
+     "vn": "Ông chủ ơi, tôi mua một lúc ba hộp, có thể tính rẻ hơn một chút được không?"
+    }
+   ]
+  },
+  "想": {
+   "vn": "muốn; nghĩ; nhớ",
+   "ng": [
+    "(động từ năng nguyện) muốn, định làm gì (我想喝水 tôi muốn uống nước, 你想去哪裡？ bạn muốn đi đâu?)",
+    "(động từ) suy nghĩ, nghĩ rằng (讓我想一想 để tôi nghĩ một chút, 我想他不會來 tôi nghĩ anh ấy sẽ không đến)",
+    "(động từ) nhớ nhung (很想家 rất nhớ nhà, 我很想你 tôi rất nhớ bạn)"
+   ],
+   "us": "Có 3 nghĩa lớn tùy ngữ cảnh: 想 + động từ = muốn; 想 + người/nơi chốn = nhớ; 想 + mệnh đề/vấn đề = nghĩ.",
+   "co": [
+    "想家|nhớ nhà",
+    "想一想|suy nghĩ một chút",
+    "想法|suy nghĩ, ý tưởng",
+    "想辦法|tìm cách"
+   ],
+   "sy": [
+    "想要|muốn có, muốn làm",
+    "思考|suy ngẫm (sâu hơn)",
+    "想念|nhớ nhung"
+   ],
+   "cf": [
+    "想 vs 要|想 nhẹ nhàng, lịch sự hơn ('muốn, định'); 要 quyết tâm hoặc yêu cầu mạnh hơn ('muốn/phải/sẽ'). Khi gọi món dùng 我要… hoặc 我想要… đều được."
+   ],
+   "lt": "Động từ. Phủ định: 不想 (không muốn / không nhớ).",
+   "mk": "Khi nói 'tôi nhớ bạn', chỉ cần 我想你 (hoặc 我很想你), không dùng *我記得你 ❌ (記得 = nhớ ra/không quên).",
+   "tw": "Ở Đài Loan hay dùng 想說… (tôi nghĩ là / tôi định là…) để mở đầu giải thích trong khẩu ngữ: 我想說順路就幫你買了.",
+   "mh": "Tưởng → xiǎng. ĐỌC: 'tưởng' → xiǎng (t- → x-, -ương → -iang, thanh 3). NGHĨA: 相 xem xét + 心 tấm lòng → hình ảnh hiện lên trong tâm trí = nghĩ, muốn, nhớ.",
+   "vd": [
+    {
+     "t": "Dự định",
+     "zh": "今年夏天我想去花東旅行，看看海景也放鬆一下。",
+     "vn": "Mùa hè năm nay tôi muốn đi du lịch Hoa Liên - Đài Đông, ngắm biển và thư giãn một chút."
+    },
+    {
+     "t": "Suy nghĩ",
+     "zh": "這個決定很重要，你先回家仔細想一想再回覆我吧。",
+     "vn": "Quyết định này rất quan trọng, bạn cứ về nhà suy nghĩ kỹ rồi trả lời tôi sau nhé."
+    },
+    {
+     "t": "Tình cảm",
+     "zh": "出國工作以後，每逢過年過節我就特別想念家裡的飯菜。",
+     "vn": "Từ khi ra nước ngoài làm việc, mỗi dịp lễ Tết tôi lại đặc biệt nhớ cơm nhà."
+    }
+   ]
+  },
+  "吃": {
+   "vn": "ăn; (nghĩa bóng) chịu, tiêu hao",
+   "ng": [
+    "(động từ) ăn (吃飯 ăn cơm, 吃早餐 ăn sáng, 吃水果 ăn trái cây)",
+    "(động từ) uống thuốc (吃藥 uống thuốc — tiếng Hoa dùng 吃 cho thuốc viên/thuốc bột)",
+    "(động từ mở rộng) chịu đựng, tốn (吃苦 chịu khổ, 吃虧 chịu thiệt, 吃力 tốn sức)"
+   ],
+   "us": "Đi với mọi loại thức ăn và cả thuốc (吃藥). Không dùng cho đồ uống lỏng (nước, trà, canh đều dùng 喝).",
+   "co": [
+    "吃飯|ăn cơm",
+    "吃早餐|ăn sáng",
+    "吃藥|uống thuốc",
+    "吃飽了|ăn no rồi"
+   ],
+   "sy": [
+    "用餐|dùng bữa (lịch sự, nhà hàng)"
+   ],
+   "an": [
+    "喝|uống"
+   ],
+   "cf": [
+    "吃藥 vs 喝水|Thuốc dù nuốt cùng nước vẫn nói 吃藥 (không nói *喝藥 ❌ trừ thuốc sắc dạng nước 喝中藥)."
+   ],
+   "lt": "Động từ. Hay ghép bổ ngữ: 吃飽 (ăn no), 吃完 (ăn xong), 吃素 (ăn chay), 好吃 (ngon).",
+   "mk": "Đừng nói *喝藥 ❌ cho thuốc viên thông thường — phải dùng 吃藥.",
+   "tw": "Ở Đài Loan người lớn hay chào nhau bằng 吃飽沒？ (Ăn cơm chưa?, ảnh hưởng tiếng Đài). Ăn vặt ở chợ đêm gọi 吃小吃.",
+   "mh": "Ngật → chī. ĐỌC: âm Hán Việt ít dùng, nhớ ch- cong lưỡi + i thanh 1 (chī). NGHĨA: 口 cái miệng + 乞 xin/đưa vào → đưa thức ăn vào miệng = ăn.",
+   "vd": [
+    {
+     "t": "Ăn uống",
+     "zh": "我們中午打算去公司附近的麵館吃牛肉麵，你要一起去嗎？",
+     "vn": "Trưa nay chúng tôi định tới quán mì gần công ty ăn mì bò, bạn có muốn đi cùng không?"
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "醫生交代這包藥必須在飯後半小時吃，才不會傷胃。",
+     "vn": "Bác sĩ dặn gói thuốc này phải uống sau bữa ăn nửa tiếng để không hại dạ dày."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "她因為宗教信仰的關係，已經吃素十幾年了。",
+     "vn": "Vì tín ngưỡng tôn giáo, cô ấy đã ăn chay hơn mười năm nay rồi."
+    }
+   ]
+  },
+  "不": {
+   "vn": "không (phó từ phủ định)",
+   "ng": [
+    "(phó từ) không; phủ định hiện tại, tương lai, thói quen, ý muốn và tính từ (不去 không đi, 不貴 không đắt, 不是 không phải)"
+   ],
+   "us": "Đặt trước động từ hoặc tính từ. Lưu ý biến điệu khi nói: trước thanh 4, 不 đổi từ thanh 4 thành thanh 2 (不是 búshì, 不要 búyào). Không dùng 不 với 有 (phải dùng 沒有).",
+   "co": [
+    "不是|không phải",
+    "不要|không muốn / đừng",
+    "不錯|khá tốt, không tệ",
+    "不一定|chưa chắc"
+   ],
+   "sy": [
+    "沒|không, chưa (phủ định quá khứ hoặc 有)"
+   ],
+   "cf": [
+    "不 vs 沒|不 phủ định thói quen, ý muốn, hiện tại/tương lai và tính từ (我不喝咖啡 tôi không uống cà phê); 沒 phủ định việc đã xảy ra chưa hoặc sở hữu (我昨天沒喝咖啡 hôm qua tôi đã không uống; 我沒有錢 tôi không có tiền)."
+   ],
+   "lt": "Phó từ. Biến điệu: 不 + thanh 4 → bú (不对 búduì).",
+   "mk": "Tuyệt đối KHÔNG viết/nói *不有 ❌ — phủ định của 有 luôn là 沒有!",
+   "tw": "Ở Đài Loan hay dùng 不會啦 (không có gì đâu / đâu có sao) để đáp lại lời cảm ơn hoặc xin lỗi.",
+   "mh": "Bất → bù. ĐỌC: 'bất' → bù (giữ phụ âm b-, thanh 4; biến thành thanh 2 bú trước thanh 4). NGHĨA: hình mầm cây bị chặn lại không mọc lên → phủ định = không.",
+   "vd": [
+    {
+     "t": "Ăn uống",
+     "zh": "我不喝含糖飲料，平常只喝無糖綠茶或白開水。",
+     "vn": "Tôi không uống đồ uống có đường, bình thường chỉ uống trà xanh không đường hoặc nước lọc."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "今天下班後我還有事，不好意思，不能跟你們去聚餐了。",
+     "vn": "Hôm nay tan làm tôi còn có việc, xin lỗi nhé, không đi ăn tụ tập với mọi người được rồi."
+    },
+    {
+     "t": "Nhận xét",
+     "zh": "這家新開的咖啡廳環境安靜，咖啡也不錯喝。",
+     "vn": "Quán cà phê mới mở này không gian yên tĩnh, cà phê uống cũng khá ngon."
+    }
+   ]
+  },
+  "沒有": {
+   "vn": "không có; chưa (làm gì)",
+   "ng": [
+    "(động từ) không có, không sở hữu (沒有時間 không có thời gian, 沒有問題 không có vấn đề)",
+    "(phó từ) chưa, đã không (phủ định hành động trong quá khứ: 我昨天沒有去 hôm qua tôi đã không đi)"
+   ],
+   "us": "Phủ định của 有 (có) và phủ định hành động đã xảy ra. Trong khẩu ngữ thường rút gọn thành 沒 (沒空, 沒去). Khi phủ định quá khứ bằng 沒有/沒, KHÔNG dùng thêm 了 ở cuối câu (*我沒有去了 ❌ → 我沒有去).",
+   "co": [
+    "沒有時間|không có thời gian",
+    "沒有問題|không vấn đề gì",
+    "沒有關係|không sao đâu",
+    "有沒有|có hay không"
+   ],
+   "sy": [
+    "沒|không có, chưa (dạng rút gọn)",
+    "無|vô, không có (văn viết)"
+   ],
+   "an": [
+    "有|có"
+   ],
+   "cf": [
+    "沒有 vs 不|沒有 phủ định sở hữu (有) và sự việc quá khứ; 不 phủ định ý định, thói quen, tính chất."
+   ],
+   "lt": "Động từ / Phó từ. Câu hỏi chính phản: 有沒有 + N/V (你有沒有帶傘？ Bạn có mang ô không?).",
+   "mk": "Đừng giữ 了 trong câu phủ định với 沒有 (*我沒有吃了 ❌ → 我還沒吃 / 我沒有吃).",
+   "tw": "Ở Đài Loan người ta rất hay nói 沒有啊 (Đâu có đâu) để phủ nhận nhẹ nhàng khi được khen hoặc hỏi thăm.",
+   "mh": "Một Hữu → méiyǒu. ĐỌC: 'một' ở đây đọc méi (thanh 2, không đọc mò); 'hữu' → yǒu (thanh 3). NGHĨA: 沒 chìm mất + 有 có → không tồn tại = không có.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "這份簡報已經修改好了，如果沒有其他意見，我們就定案吧。",
+     "vn": "Bài thuyết trình này đã sửa xong rồi, nếu không có ý kiến nào khác thì chúng ta chốt nhé."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "出門前忘記看氣象，結果外面下雨了，我卻沒有帶雨傘。",
+     "vn": "Trước khi ra ngoài quên xem thời tiết, kết quả ngoài trời mưa mà tôi lại không mang ô."
+    },
+    {
+     "t": "Học tập",
+     "zh": "昨天晚上太累了，我沒有複習生詞就直接睡著了。",
+     "vn": "Tối qua mệt quá, tôi chưa ôn từ mới đã ngủ thiếp đi luôn."
+    }
+   ]
+  }
+ }
+}

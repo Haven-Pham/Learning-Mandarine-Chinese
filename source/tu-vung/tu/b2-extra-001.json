@@ -1,0 +1,1117 @@
+{
+ "tu": {
+  "報警": {
+   "vn": "báo cảnh sát; báo động",
+   "ng": [
+    "(động từ ly hợp) gọi báo cảnh sát khi gặp sự cố, tai nạn, trộm cắp hoặc lừa đảo (立刻報警 lập tức báo cảnh sát, 報警處理 báo cảnh sát xử lý)",
+    "(động từ) phát tín hiệu báo động (防盜系統報警 hệ thống chống trộm báo động)"
+   ],
+   "us": "Động từ ly hợp. Ở Đài Loan số điện thoại báo cảnh sát là **110**, chống lừa đảo là **165**, cấp cứu/cứu hỏa là **119**.",
+   "co": [
+    "立刻報警|lập tức báo cảnh sát",
+    "報警處理|báo cảnh sát xử lý",
+    "報警求助|gọi cảnh sát cầu cứu",
+    "報警電話|số điện thoại báo cảnh sát"
+   ],
+   "sy": [
+    "報案|trình báo vụ án (tại đồn cảnh sát)"
+   ],
+   "cf": [
+    "報警 vs 報案|報警 là gọi điện/báo cho cảnh sát tới hiện trường ngay; 報案 là làm biên bản trình báo vụ việc/tài sản bị mất tại đồn cảnh sát (去派出所報案)."
+   ],
+   "lt": "Động từ ly hợp.",
+   "mk": "Nhớ số khẩn cấp tại Đài Loan: 110 (cảnh sát), 119 (cứu hỏa/cấp cứu), 165 (chống lừa đảo).",
+   "tw": "Ở Đài Loan nếu gặp va chạm giao thông nhỏ trên đường, quy tắc vàng là giữ nguyên hiện trường và 立刻打110報警 để lấy biên bản làm bảo hiểm.",
+   "mh": "Báo Cảnh → bàojǐng. ĐỌC: 'báo' → bào (thanh 4); 'cảnh' → jǐng (c- trước i → j-, -anh → -ing, thanh 3). NGHĨA: 報 thông báo + 警 cảnh sát/cảnh báo → báo cảnh sát.",
+   "vd": [
+    {
+     "t": "Giao thông",
+     "zh": "發生擦撞事故時請保持冷靜，先把車停在安全處並立刻打110報警處理。",
+     "vn": "Khi xảy ra va chạm giao thông hãy giữ bình tĩnh, dừng xe ở nơi an toàn trước rồi lập tức gọi 110 báo cảnh sát xử lý."
+    },
+    {
+     "t": "An ninh",
+     "zh": "民眾若發現可疑人員在社區門口徘徊，應提高警覺並隨時準備報警求助。",
+     "vn": "Người dân nếu phát hiện người khả nghi lảng vảng trước cổng khu dân cư nên nâng cao cảnh giác và sẵn sàng báo cảnh sát hỗ trợ."
+    },
+    {
+     "t": "Chống lừa đảo",
+     "zh": "接到自稱檢察官要求匯款的電話，他立刻察覺不對勁，馬上掛斷並報警查證。",
+     "vn": "Nhận được cuộc gọi tự xưng kiểm sát viên yêu cầu chuyển tiền, anh ấy lập tức thấy bất thường, cúp máy ngay và báo cảnh sát xác minh."
+    }
+   ]
+  },
+  "保留": {
+   "vn": "giữ lại; bảo lưu",
+   "ng": [
+    "(động từ) giữ lại, bảo tồn không bỏ đi (保留傳統 giữ gìn truyền thống, 保留座位 giữ chỗ, 保留發票 giữ lại hóa đơn)",
+    "(động từ) giữ thái độ dè dặt, chưa nói hết (持保留態度 giữ thái độ dè dặt, 毫無保留 không hề giấu giếm)"
+   ],
+   "us": "Dùng cho cả vật/quyền lợi (保留名額 giữ suất, 保留權利 bảo lưu quyền) lẫn thái độ/ý kiến (有所保留).",
+   "co": [
+    "保留傳統|giữ gìn truyền thống",
+    "保留座位|giữ chỗ ngồi",
+    "毫無保留|không chút giấu giếm",
+    "持保留態度|giữ thái độ dè dặt"
+   ],
+   "sy": [
+    "保存|bảo quản (thực phẩm, tài liệu, hiện vật)",
+    "維持|duy trì (trạng thái)"
+   ],
+   "an": [
+    "取消|hủy bỏ",
+    "放棄|từ bỏ"
+   ],
+   "cf": [
+    "保留 vs 保存|保存 thiên về bảo quản không bị hư hỏng (保存期限 hạn sử dụng, 保存食物); 保留 thiên về giữ lại quyền lợi, truyền thống, vị trí hoặc chưa bỏ đi."
+   ],
+   "lt": "Động từ.",
+   "mk": "Hạn sử dụng thực phẩm là 保存期限 (không phải *保留期限 ❌); còn thời gian giữ bàn nhà hàng là 座位保留十分鐘.",
+   "tw": "Ở Đài Loan nhà hàng đặt bàn thường thông báo 訂位僅保留十分鐘 (Đặt bàn chỉ giữ chỗ trong 10 phút).",
+   "mh": "Bảo Lưu → bǎoliú. ĐỌC: 'bảo' → bǎo (thanh 3); 'lưu' → liú (thanh 2). NGHĨA: 保 gìn giữ + 留 lưu lại → giữ lại, bảo lưu.",
+   "vd": [
+    {
+     "t": "Nhà hàng",
+     "zh": "這間熱門餐廳的訂位只保留十分鐘，如果路上塞車記得提前打電話告知。",
+     "vn": "Nhà hàng đông khách này chỉ giữ bàn đặt trong mười phút, nếu trên đường kẹt xe nhớ gọi điện báo trước."
+    },
+    {
+     "t": "Văn hóa",
+     "zh": "老街在翻修過程中特地保留了原有的紅磚建築結構，展現濃厚的歷史風貌。",
+     "vn": "Trong quá trình trùng tu, phố cổ đặc biệt giữ lại kết cấu kiến trúc gạch đỏ nguyên bản, thể hiện đậm nét dấu ấn lịch sử."
+    },
+    {
+     "t": "Thảo luận",
+     "zh": "對於這項新方案的實際執行效益，幾位資深主管目前仍持保留態度。",
+     "vn": "Đối với hiệu quả thực thi thực tế của phương án mới này, vài quản lý kỳ cựu hiện vẫn giữ thái độ dè dặt."
+    }
+   ]
+  },
+  "撥": {
+   "vn": "bấm số (gọi điện); gạt, vén; trích ra (tiền, thời gian)",
+   "ng": [
+    "(động từ) bấm số gọi điện thoại (撥電話 gọi điện, 撥打專線 gọi đường dây nóng, 回撥 gọi lại)",
+    "(động từ) trích ra, dành ra (撥款 cấp ngân sách/giải ngân, 撥空 / 撥出時間 dành thời gian)",
+    "(động từ) gạt nhẹ, vén, gảy (撥開頭髮 vén tóc, 撥動琴弦 gảy dây đàn)"
+   ],
+   "us": "Nghĩa hay gặp nhất trong công sở và TOCFL B2 là 撥電話 / 撥打 (gọi điện), 撥空 (dành chút thời gian) và 撥款 (cấp vốn).",
+   "co": [
+    "撥電話|gọi điện thoại",
+    "撥空|dành chút thời gian",
+    "撥款|cấp vốn, giải ngân",
+    "回撥|gọi lại"
+   ],
+   "sy": [
+    "打|gọi điện (khẩu ngữ: 打電話)"
+   ],
+   "cf": [
+    "撥 vs 拔|撥 (bō, có 發) là bấm số, gạt ra, trích quỹ; 拔 (bá, có 犮) là nhổ lên (拔牙 nhổ răng, 拔河 kéo co). Rất dễ viết nhầm!"
+   ],
+   "lt": "Động từ.",
+   "mk": "Cẩn thận mặt chữ: 撥 (bō — gạt/bấm số) và 拔 (bá — nhổ) rất giống nhau, đừng nhầm!",
+   "tw": "Ở Đài Loan viết email công sở cực hay dùng 感謝您撥冗出席 (Cảm ơn ngài đã dành thời gian tham dự) hoặc 請撥打客服專線.",
+   "mh": "Bát → bō. ĐỌC: 'bát' ở đây đọc bō (thanh 1). NGHĨA: 扌 bàn tay + 發 phát đi → dùng tay gạt/bấm số phát đi = bấm số, trích ra.",
+   "vd": [
+    {
+     "t": "Dịch vụ",
+     "zh": "若使用上有任何疑問，歡迎於上班時間撥打免付費客服專線洽詢。",
+     "vn": "Nếu có bất kỳ thắc mắc nào khi sử dụng, vui lòng gọi đường dây nóng chăm sóc khách hàng miễn phí trong giờ làm việc."
+    },
+    {
+     "t": "Công sở",
+     "zh": "非常感謝各位貴賓在百忙之中撥空參加今天的開幕茶會。",
+     "vn": "Vô cùng cảm ơn quý khách đã dành thời gian giữa lịch trình bận rộn tới tham dự tiệc trà khai trương hôm nay."
+    },
+    {
+     "t": "Chính sách",
+     "zh": "政府預計明年撥款改善偏鄉地區的網路基礎設施與數位教學資源。",
+     "vn": "Chính phủ dự kiến năm sau cấp ngân sách cải thiện hạ tầng mạng và tài nguyên giảng dạy số tại vùng sâu vùng xa."
+    }
+   ]
+  },
+  "不良": {
+   "vn": "không tốt; xấu, kém (thói quen, phản ứng, phẩm chất)",
+   "ng": [
+    "(tính từ) không tốt, kém, xấu (消化不良 tiêu hóa kém, 營養不良 suy dinh dưỡng, 不良習慣 thói quen xấu, 不良反應 phản ứng phụ/bất lợi)"
+   ],
+   "us": "Trang trọng, dùng nhiều trong y tế, kỹ thuật, giáo dục và báo chí (不良品 sản phẩm lỗi, 溝通不良 giao tiếp kém). Không dùng như 很不好 trong khẩu ngữ (*這家餐廳很不良 ❌).",
+   "co": [
+    "不良習慣|thói quen xấu",
+    "消化不良|tiêu hóa kém",
+    "營養不良|suy dinh dưỡng",
+    "不良反應|phản ứng phụ, tác dụng bất lợi"
+   ],
+   "sy": [
+    "不好|không tốt (khẩu ngữ)",
+    "欠佳|chưa tốt, kém (văn viết)"
+   ],
+   "an": [
+    "良好|tốt đẹp, thuận lợi"
+   ],
+   "cf": [
+    "不良 vs 壞|不良 mang sắc thái khách quan, chuyên môn (chất lượng kém, chức năng trục trặc, thói quen có hại); 壞 thiên về đạo đức xấu hoặc đồ vật bị hỏng."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Trong sản xuất, tỷ lệ hàng lỗi gọi 不良率 (bùliánglǜ), sản phẩm lỗi là 不良品.",
+   "tw": "Ở Đài Loan trong toa thuốc hay ghi 若出現不良反應請立即停藥就醫 (Nếu có phản ứng bất lợi hãy ngừng thuốc và đi khám ngay).",
+   "mh": "Bất Lương → bùliáng. ĐỌC: 'bất' → bù (thanh 4); 'lương' → liáng (-ương → -iang, thanh 2). NGHĨA: 不 không + 良 tốt đẹp → không tốt, kém.",
+   "vd": [
+    {
+     "t": "Sức khỏe",
+     "zh": "長期熬夜加上三餐不定時，很容易導致胃部不適和消化不良。",
+     "vn": "Thức khuya kéo dài cộng thêm ăn uống thất thường rất dễ dẫn đến khó chịu dạ dày và tiêu hóa kém."
+    },
+    {
+     "t": "Sản xuất",
+     "zh": "品管部門在出貨前都會嚴格抽檢，確保將不良品的比例降到最低。",
+     "vn": "Bộ phận kiểm soát chất lượng đều kiểm tra mẫu nghiêm ngặt trước khi xuất hàng để đảm bảo giảm tỷ lệ hàng lỗi xuống mức thấp nhất."
+    },
+    {
+     "t": "Giáo dục",
+     "zh": "改掉拖延和過度滑手機等不良習慣後，他的專注力有了明顯進步。",
+     "vn": "Sau khi bỏ các thói quen xấu như trì hoãn và lướt điện thoại quá mức, khả năng tập trung của anh ấy tiến bộ rõ rệt."
+    }
+   ]
+  },
+  "成本": {
+   "vn": "chi phí (sản xuất, kinh doanh); giá vốn",
+   "ng": [
+    "(danh từ) chi phí đầu vào để sản xuất hàng hóa, cung cấp dịch vụ hoặc thực hiện một việc (生產成本 chi phí sản xuất, 人力成本 chi phí nhân lực, 機會成本 chi phí cơ hội)"
+   ],
+   "us": "Thuật ngữ kinh tế/công sở cực hay xuất hiện trong TOCFL B2: 降低成本 (giảm chi phí), 控制成本 (kiểm soát chi phí), 成本上升 (chi phí tăng).",
+   "co": [
+    "降低成本|giảm chi phí",
+    "人力成本|chi phí nhân lực",
+    "時間成本|chi phí thời gian",
+    "機會成本|chi phí cơ hội"
+   ],
+   "sy": [
+    "費用|chi phí, lệ phí (người tiêu dùng trả)",
+    "開銷|khoản chi tiêu (sinh hoạt)"
+   ],
+   "an": [
+    "利潤|lợi nhuận"
+   ],
+   "cf": [
+    "成本 vs 費用|成本 là giá vốn, chi phí đầu vào để tạo ra sản phẩm/kết quả (người làm/doanh nghiệp tính); 費用 là khoản tiền phải trả cho dịch vụ (學費, 運費, 手續費)."
+   ],
+   "lt": "項, 筆.",
+   "mk": "Đừng nói *我的生活成本 ❌ thay cho sinh hoạt phí cá nhân thông thường (thường dùng 生活費 hoặc 開銷); 成本 hay dùng cho kinh doanh, dự án hoặc 時間成本.",
+   "tw": "Ở Đài Loan báo chí kinh tế hay nhắc 原物料成本上漲 (chi phí nguyên vật liệu tăng) khiến quán ăn buộc phải 調漲售價 (tăng giá bán).",
+   "mh": "Thành Bản → chéngběn. ĐỌC: 'thành' → chéng (th- → ch-, thanh 2); 'bản' → běn (thanh 3). NGHĨA: 成 tạo thành + 本 vốn gốc → vốn bỏ ra để tạo thành sản phẩm = chi phí, giá vốn.",
+   "vd": [
+    {
+     "t": "Kinh doanh",
+     "zh": "由於進口原物料與海運費用同步上漲，今年各行業的營運成本都增加不少。",
+     "vn": "Do nguyên vật liệu nhập khẩu và cước vận tải biển đồng loạt tăng, chi phí vận hành của các ngành năm nay đều tăng đáng kể."
+    },
+    {
+     "t": "Công việc",
+     "zh": "這套雲端系統雖然初期導入費用較高，但長期來看能幫公司大幅節省人力成本。",
+     "vn": "Hệ thống đám mây này tuy phí triển khai ban đầu hơi cao nhưng về lâu dài có thể giúp công ty tiết kiệm lớn chi phí nhân lực."
+    },
+    {
+     "t": "Quản lý",
+     "zh": "做決策時除了計算金錢支出，也別忘了把時間成本和機會成本納入考量。",
+     "vn": "Khi ra quyết định ngoài tính toán chi tiêu tiền bạc cũng đừng quên đưa chi phí thời gian và chi phí cơ hội vào cân nhắc."
+    }
+   ]
+  },
+  "呈現": {
+   "vn": "thể hiện; hiện ra, bày ra",
+   "ng": [
+    "(động từ) hiện rõ ra, thể hiện ra một trạng thái, xu hướng hoặc tác phẩm (呈現上升趨勢 thể hiện xu hướng tăng, 呈現多元風貌 thể hiện diện mạo đa dạng)"
+   ],
+   "us": "Từ văn viết sang trọng và rất đắt giá trong bài đọc hiểu, báo cáo, phân tích biểu đồ (數據呈現… số liệu cho thấy…, 完美呈現 thể hiện hoàn hảo).",
+   "co": [
+    "呈現上升趨勢|cho thấy xu hướng tăng",
+    "完美呈現|thể hiện hoàn hảo",
+    "呈現出|hiện ra, toát lên",
+    "視覺呈現|trình bày thị giác"
+   ],
+   "sy": [
+    "展現|thể hiện, phô diễn (năng lực, phong thái)",
+    "顯示|cho thấy (kết quả, màn hình)"
+   ],
+   "cf": [
+    "呈現 vs 表現|表現 thường có chủ ngữ là con người (他表現很好 Anh ấy thể hiện rất tốt); 呈現 thường dùng cho dữ liệu, tác phẩm, xu hướng, cảnh tượng hiện ra trước mắt."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng nói *他今天呈現很好 ❌ để khen ai — dùng 表現!",
+   "tw": "Ở Đài Loan khi giới thiệu triển lãm, ẩm thực hay biểu đồ đều rất hay dùng 呈現 (以最自然的方式呈現食材原味).",
+   "mh": "Trình Hiện → chéngxiàn. ĐỌC: 'trình' → chéng (tr- → ch-, thanh 2); 'hiện' → xiàn (h- → x-, thanh 4). NGHĨA: 呈 dâng bày ra + 現 hiện lên → hiện rõ ra trước mắt = thể hiện.",
+   "vd": [
+    {
+     "t": "Kinh tế",
+     "zh": "根據最新統計資料，今年觀光旅遊人次呈現穩定成長的趨勢。",
+     "vn": "Theo số liệu thống kê mới nhất, lượt khách du lịch năm nay thể hiện xu hướng tăng trưởng ổn định."
+    },
+    {
+     "t": "Nghệ thuật",
+     "zh": "這部紀錄片以細膩的鏡頭，真實呈現了台灣傳統工藝師傅的日常堅持。",
+     "vn": "Bộ phim tài liệu này dùng góc quay tinh tế, thể hiện chân thực sự kiên trì thường ngày của các nghệ nhân thủ công truyền thống Đài Loan."
+    },
+    {
+     "t": "Thiên nhiên",
+     "zh": "傍晚的雲層在夕陽照射下呈現出金黃與紫紅交織的迷人色彩。",
+     "vn": "Những tầng mây chiều dưới ánh hoàng hôn hiện lên sắc vàng kim pha tím đỏ đầy mê hoặc."
+    }
+   ]
+  },
+  "陳列": {
+   "vn": "trưng bày; bày biện (hàng hóa, hiện vật)",
+   "ng": [
+    "(động từ) trưng bày ngay ngắn theo trật tự trong cửa hàng, tủ kính, bảo tàng (陳列商品 trưng bày hàng hóa, 陳列室 phòng trưng bày)"
+   ],
+   "us": "Trang trọng và chuyên môn hơn 擺; dùng cho cửa hàng bán lẻ (商品陳列), triển lãm, bảo tàng (陳列古物).",
+   "co": [
+    "商品陳列|trưng bày hàng hóa",
+    "櫥窗陳列|trưng bày tủ kính",
+    "陳列室|phòng trưng bày",
+    "整齊陳列|trưng bày ngay ngắn"
+   ],
+   "sy": [
+    "擺放|bày đặt (đời thường)",
+    "展示|triển lãm, giới thiệu"
+   ],
+   "cf": [
+    "陳列 vs 擺|Ở nhà đặt đồ lên bàn dùng 擺/放; ở siêu thị, trung tâm thương mại, bảo tàng sắp xếp sản phẩm/hiện vật theo hàng lối đẹp mắt dùng 陳列."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng dùng 陳列 cho đồ đạc lộn xộn trong phòng ngủ — dùng 擺放 hoặc 放.",
+   "tw": "Trong ngành bán lẻ và trung tâm thương mại (百貨公司) Đài Loan, vị trí nhân viên thiết kế trưng bày quầy kệ gọi 陳列設計師 / 陳列專員.",
+   "mh": "Trần Liệt → chénliè. ĐỌC: 'trần' → chén (tr- → ch-, thanh 2); 'liệt' → liè (thanh 4). NGHĨA: 陳 bày ra + 列 xếp thành hàng → sắp xếp bày ra theo hàng lối = trưng bày.",
+   "vd": [
+    {
+     "t": "Bán lẻ",
+     "zh": "這間書店依據主題重新規劃書籍陳列，讓讀者更容易找到感興趣的新書。",
+     "vn": "Hiệu sách này quy hoạch lại cách trưng bày sách theo chủ đề, giúp độc giả dễ tìm thấy sách mới mình quan tâm hơn."
+    },
+    {
+     "t": "Bảo tàng",
+     "zh": "展覽廳的玻璃櫃中陳列著數十件清代青花瓷器，保存狀況十分完好。",
+     "vn": "Trong tủ kính phòng triển lãm trưng bày hàng chục món đồ sứ thanh hoa thời Thanh, tình trạng bảo quản hết sức nguyên vẹn."
+    },
+    {
+     "t": "Thương mại",
+     "zh": "百貨公司每到換季就會更新櫥窗陳列，吸引路過民眾的目光。",
+     "vn": "Trung tâm thương mại mỗi dịp chuyển mùa đều làm mới phần trưng bày tủ kính để thu hút ánh nhìn của người đi đường."
+    }
+   ]
+  },
+  "充分/充份": {
+   "vn": "đầy đủ; trọn vẹn, dồi dào",
+   "ng": [
+    "(tính từ) đầy đủ, kỹ lưỡng, không thiếu sót (充分準備 chuẩn bị đầy đủ, 充分利用 tận dụng triệt để, 充分的理由 lý do xác đáng)"
+   ],
+   "us": "Dùng cho những thứ trừu tượng: thời gian, chuẩn bị, bằng chứng, lý do, giao tiếp (充分時間, 充分證據, 充分溝通). Không dùng cho lượng nước hay đồ ăn cụ thể (dùng 充足 hoặc 夠).",
+   "co": [
+    "充分準備|chuẩn bị đầy đủ",
+    "充分利用|tận dụng tối đa",
+    "充分溝通|giao tiếp thấu đáo",
+    "充分理由|lý do đầy đủ, xác đáng"
+   ],
+   "sy": [
+    "充足|đầy đủ, dồi dào (thiên về vật chất: ánh sáng, nguồn nước, ngân sách)"
+   ],
+   "an": [
+    "不足|không đủ",
+    "缺乏|thiếu thốn"
+   ],
+   "cf": [
+    "充分 vs 充足|充分 thiên về mức độ kỹ lưỡng, trừu tượng (充分討論, 充分發揮); 充足 thiên về số lượng/nguồn lực vật chất (陽光充足 ánh nắng đầy đủ, 資金充足 vốn dồi dào)."
+   ],
+   "lt": "Tính từ. Chữ chuẩn Đài Loan là 充分 (充份 là dạng biến thể).",
+   "mk": "Đừng nói *水很充分 ❌ — dùng 水源充足.",
+   "tw": "Ở Đài Loan hay khuyên trước khi quyết định lớn cần 充分溝通 (trao đổi thấu đáo) và 充分休息 (nghỉ ngơi đầy đủ).",
+   "mh": "Sung Phân → chōngfèn. ĐỌC: 'sung' → chōng (thanh 1); 'phân' → fèn (ph- → f-, thanh 4). NGHĨA: 充 đầy ắp + 分 trọn phần → đủ đầy trọn vẹn = đầy đủ.",
+   "vd": [
+    {
+     "t": "Phỏng vấn",
+     "zh": "只要事前做好充分準備並熟悉公司背景，面試時自然就能從容應對。",
+     "vn": "Chỉ cần chuẩn bị đầy đủ từ trước và nắm rõ bối cảnh công ty, lúc phỏng vấn tự nhiên sẽ ứng đối điềm tĩnh."
+    },
+    {
+     "t": "Thời gian",
+     "zh": "她很懂得充分利用通勤和午休的零碎時間來背單字、練聽力。",
+     "vn": "Cô ấy rất biết tận dụng triệt để khoảng thời gian vụn lúc đi làm và nghỉ trưa để học từ vựng, luyện nghe."
+    },
+    {
+     "t": "Công việc",
+     "zh": "這項改革涉及多個部門，在正式上路前必須先與基層員工充分溝通。",
+     "vn": "Cải cách này liên quan nhiều phòng ban, trước khi áp dụng chính thức cần trao đổi thấu đáo với nhân viên tuyến đầu trước."
+    }
+   ]
+  },
+  "傳單": {
+   "vn": "tờ rơi; tờ quảng cáo",
+   "ng": [
+    "(danh từ) tờ rơi quảng cáo, tờ thông báo phát tay trên phố hoặc bỏ vào hộp thư (發傳單 phát tờ rơi, 廣告傳單 tờ rơi quảng cáo)"
+   ],
+   "us": "Động từ đi kèm là 發 (發傳單 phát tờ rơi) hoặc 印 (印傳單 in tờ rơi). Lượng từ: 張 (一張傳單).",
+   "co": [
+    "發傳單|phát tờ rơi",
+    "廣告傳單|tờ rơi quảng cáo",
+    "宣傳單|tờ tuyên truyền",
+    "打工發傳單|làm thêm phát tờ rơi"
+   ],
+   "sy": [
+    "DM|tờ quảng cáo/catalog siêu thị (rất hay dùng ở Đài Loan)"
+   ],
+   "cf": [
+    "傳單 vs 海報|傳單 là tờ rơi nhỏ phát tận tay; 海報 là áp phích khổ lớn dán trên tường."
+   ],
+   "lt": "張 (一張傳單).",
+   "mk": "Phát tờ rơi dùng động từ 發 (fā), không dùng *給傳單 ❌.",
+   "tw": "Ở Đài Loan tờ rơi khuyến mãi của siêu thị (như 全聯, 家樂福) hay gọi là DM (Direct Mail) hoặc 廣告傳單.",
+   "mh": "Truyền Đơn → chuándān. ĐỌC: 'truyền' → chuán (tr- → ch-, thanh 2); 'đơn' → dān (đ- → d-, thanh 1). NGHĨA: 傳 truyền đi + 單 tờ giấy đơn → tờ giấy truyền tin quảng cáo = tờ rơi.",
+   "vd": [
+    {
+     "t": "Làm thêm",
+     "zh": "大學暑假期間，他曾在捷運站出口附近打工發補習班的招生傳單。",
+     "vn": "Dịp nghỉ hè đại học, anh ấy từng làm thêm phát tờ rơi tuyển sinh của trung tâm luyện thi gần lối ra ga tàu điện ngầm."
+    },
+    {
+     "t": "Khai trương",
+     "zh": "這張新開幕咖啡廳的傳單上附有買一送一的優惠券，週末可以去試試看。",
+     "vn": "Trên tờ rơi của quán cà phê mới khai trương này có kèm phiếu mua một tặng một, cuối tuần có thể ghé thử."
+    },
+    {
+     "t": "Môi trường",
+     "zh": "為了響應減紙環保，越來越多店家改用線上電子目錄取代傳統紙本傳單。",
+     "vn": "Để hưởng ứng giảm giấy bảo vệ môi trường, ngày càng nhiều cửa hàng chuyển sang dùng danh mục điện tử thay cho tờ rơi giấy truyền thống."
+    }
+   ]
+  },
+  "出售": {
+   "vn": "bán; rao bán (trang trọng)",
+   "ng": [
+    "(động từ) bán ra, rao bán (thường dùng cho tài sản lớn, bất động sản, hàng hóa trên biển hiệu/văn bản: 房屋出售 bán nhà, 公開出售 bán công khai, 僅供展示，恕不出售 chỉ trưng bày, không bán)"
+   ],
+   "us": "Trang trọng hơn 賣; rất hay gặp trên biển báo, tin đăng bán nhà/xe, hợp đồng và tin tức kinh tế.",
+   "co": [
+    "房屋出售|bán nhà",
+    "公開出售|bán công khai",
+    "恕不出售|xin lỗi không bán",
+    "低價出售|bán giá thấp"
+   ],
+   "sy": [
+    "賣|bán (khẩu ngữ)",
+    "販售|bày bán (cửa hàng, máy bán hàng tự động)",
+    "銷售|tiêu thụ, kinh doanh bán hàng"
+   ],
+   "an": [
+    "購買|mua",
+    "收購|thu mua"
+   ],
+   "cf": [
+    "出售 vs 販售|出售 thường dùng khi sang nhượng/rao bán tài sản (房屋出售, 出售股權) hoặc thông báo bán hàng; 販售 dùng cho bán lẻ thường xuyên (自動販賣機 máy bán hàng tự động, 販售飲料)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Trong khẩu ngữ đi chợ đừng nói *老闆，你出售蘋果嗎？ ❌ — dùng 賣!",
+   "tw": "Ở Đài Loan đi ngoài đường thấy biển đỏ dán trên cửa sổ ghi 「自售」 (chính chủ tự bán) hoặc 「房屋出售」 (bán nhà).",
+   "mh": "Xuất Thụ → chūshòu. ĐỌC: 'xuất' → chū (thanh 1); 'thụ' → shòu (th- → sh-, thanh 4). NGHĨA: 出 đưa ra ngoài + 售 bán → đem ra bán = rao bán, bán.",
+   "vd": [
+    {
+     "t": "Bất động sản",
+     "zh": "這棟屋齡十年的電梯大樓因為地點極佳，屋主一貼出出售公告就接到許多詢問電話。",
+     "vn": "Tòa nhà thang máy mười năm tuổi này nhờ vị trí đắc địa, chủ nhà vừa dán thông báo bán đã nhận được nhiều cuộc gọi hỏi thăm."
+    },
+    {
+     "t": "Triển lãm",
+     "zh": "現場展出的手工陶器皆為藝術家私人收藏，僅供觀賞，恕不出售。",
+     "vn": "Các món đồ gốm thủ công trưng bày tại đây đều là bộ sưu tập cá nhân của nghệ sĩ, chỉ để thưởng lãm, không bán."
+    },
+    {
+     "t": "Kinh doanh",
+     "zh": "這家二手書店除了出售舊書，也歡迎民眾把不看的書籍拿來估價回收。",
+     "vn": "Hiệu sách cũ này ngoài bán sách cũ còn chào đón người dân mang sách không đọc nữa tới định giá thu mua."
+    }
+   ]
+  },
+  "措施": {
+   "vn": "biện pháp; chính sách đối phó",
+   "ng": [
+    "(danh từ) biện pháp, giải pháp cụ thể do chính phủ, cơ quan hoặc doanh nghiệp ban hành để xử lý vấn đề (防疫措施 biện pháp phòng dịch, 安全措施 biện pháp an toàn, 採取措施 áp dụng biện pháp)"
+   ],
+   "us": "Hầu như luôn đi với động từ 採取 (áp dụng biện pháp), 實施 (thực thi), 推動 (thúc đẩy), 加強 (tăng cường). Thường dùng ở tầm tổ chức, chính phủ, công ty.",
+   "co": [
+    "採取措施|áp dụng biện pháp",
+    "安全措施|biện pháp an toàn",
+    "配套措施|biện pháp đồng bộ đi kèm",
+    "因應措施|biện pháp ứng phó"
+   ],
+   "sy": [
+    "辦法|cách làm, biện pháp (đời thường hơn)",
+    "對策|đối sách"
+   ],
+   "cf": [
+    "措施 vs 方法|方法 là cách làm nói chung (cá nhân học bài, nấu ăn); 措施 là biện pháp quản lý mang tính hệ thống của cơ quan, nhà trường, chính phủ."
+   ],
+   "lt": "項 (一項措施).",
+   "mk": "Đừng nói *我個人念書的措施 ❌ — cách học cá nhân dùng 方法!",
+   "tw": "Trong tin tức Đài Loan rất hay gặp 配套措施 (các biện pháp hỗ trợ đi kèm một chính sách mới) và 防災措施 (biện pháp phòng chống thiên tai).",
+   "mh": "Thố Thi → cuòshī. ĐỌC: 'thố' → cuò (thanh 4); 'thi' → shī (th- → sh-, thanh 1). NGHĨA: 措 sắp xếp xử lý + 施 thi hành → biện pháp thi hành.",
+   "vd": [
+    {
+     "t": "Giao thông",
+     "zh": "為了改善連假期間國道嚴重塞車的情況，交通部決定實施高乘載管制等疏運措施。",
+     "vn": "Để cải thiện tình trạng kẹt xe nghiêm trọng trên cao tốc dịp lễ, Bộ Giao thông quyết định thực thi các biện pháp điều tiết như kiểm soát số người trên xe."
+    },
+    {
+     "t": "An toàn",
+     "zh": "工廠近期全面檢視廠區消防設備，並加強夜間巡邏等各項安全措施。",
+     "vn": "Nhà máy gần đây rà soát toàn diện thiết bị phòng cháy chữa cháy và tăng cường các biện pháp an toàn như tuần tra ban đêm."
+    },
+    {
+     "t": "Chính sách",
+     "zh": "推行減塑政策時，政府也同步推出鼓勵自備環保杯的配套措施。",
+     "vn": "Khi triển khai chính sách giảm nhựa, chính phủ đồng thời đưa ra các biện pháp hỗ trợ đi kèm nhằm khuyến khích mang ly cá nhân."
+    }
+   ]
+  },
+  "代價": {
+   "vn": "cái giá phải trả; sự đánh đổi",
+   "ng": [
+    "(danh từ) cái giá phải trả (bằng thời gian, sức khỏe, tiền bạc, nỗ lực hoặc hậu quả nặng nề: 付出代價 trả giá, 慘痛的代價 cái giá đắt/đau xót, 不惜代價 bất chấp mọi giá)"
+   ],
+   "us": "Động từ chuẩn đi kèm là 付出 (付出代價 trả giá). Không dùng để hỏi giá bán món hàng (*這本書代價多少？ ❌ → 價格 / 多少錢).",
+   "co": [
+    "付出代價|trả giá",
+    "慘痛的代價|cái giá đau đớn",
+    "不惜代價|bất chấp mọi giá",
+    "高昂的代價|cái giá đắt đỏ"
+   ],
+   "sy": [
+    "成本|chi phí (thuần kinh tế)",
+    "犧牲|sự hy sinh"
+   ],
+   "cf": [
+    "代價 vs 價格|價格 là giá bán niêm yết của hàng hóa; 代價 là cái giá/sự đánh đổi phải chịu để đạt được mục tiêu hoặc do sai lầm gây ra."
+   ],
+   "lt": "個 (一個代價).",
+   "mk": "Tuyệt đối đừng nhầm 代價 với 價格 (giá bán món hàng)!",
+   "tw": "Ở Đài Loan báo chí hay cảnh báo 酒駕會讓無辜家庭付出慘痛的代價 (Lái xe khi say rượu sẽ khiến gia đình vô tội phải trả cái giá đau đớn).",
+   "mh": "Đại Giá → dàijià. ĐỌC: 'đại' → dài (đ- → d-, thanh 4); 'giá' → jià (gi- → j-, thanh 4). NGHĨA: 代 thay thế/đánh đổi + 價 giá trị → thứ phải đánh đổi = cái giá phải trả.",
+   "vd": [
+    {
+     "t": "Sức khỏe",
+     "zh": "為了賺錢而長期忽略休息與健康，將來恐怕得付出更大的代價。",
+     "vn": "Vì kiếm tiền mà lâu dài bỏ bê nghỉ ngơi và sức khỏe, tương lai e rằng sẽ phải trả cái giá lớn hơn nhiều."
+    },
+    {
+     "t": "Môi trường",
+     "zh": "經濟發展不應該以破壞自然生態環境作為代價，必須追求永續平衡。",
+     "vn": "Phát triển kinh tế không nên lấy việc phá hủy môi trường sinh thái tự nhiên làm cái giá phải trả, cần hướng tới cân bằng bền vững."
+    },
+    {
+     "t": "Bài học",
+     "zh": "這次投資失利雖然讓他付出了不小的代價，但也讓他學會做好風險控管。",
+     "vn": "Thất bại đầu tư lần này tuy khiến anh ấy phải trả giá không nhỏ, nhưng cũng giúp anh học được cách quản trị rủi ro."
+    }
+   ]
+  },
+  "貸款": {
+   "vn": "vay vốn; khoản vay (ngân hàng)",
+   "ng": [
+    "(động từ / danh từ) vay tiền từ ngân hàng/tổ chức tài chính; khoản tiền vay (申請貸款 nộp đơn vay vốn, 房屋貸款 vay mua nhà, 助學貸款 vay sinh viên)"
+   ],
+   "us": "Thuật ngữ tài chính chính thức; dùng cho vay ngân hàng có lãi suất (利息) và trả góp định kỳ (還貸款). Vay bạn bè người thân chỉ dùng 借錢.",
+   "co": [
+    "房屋貸款|vay mua nhà (房貸)",
+    "助學貸款|vay học phí sinh viên (學貸)",
+    "申請貸款|đăng ký vay vốn",
+    "貸款利率|lãi suất vay"
+   ],
+   "sy": [
+    "借貸|vay mượn (tài chính)"
+   ],
+   "an": [
+    "存款|tiền gửi tiết kiệm",
+    "還款|trả nợ vay"
+   ],
+   "cf": [
+    "貸款 vs 借錢|貸款 chỉ giao dịch vay có hợp đồng, lãi suất với ngân hàng/tổ chức tín dụng; 借錢 là vay mượn tiền thông thường giữa cá nhân."
+   ],
+   "lt": "筆 (一筆貸款 một khoản vay).",
+   "mk": "Đừng nói *我跟朋友貸款五百塊 ❌ — mượn bạn dùng 借錢!",
+   "tw": "Ở Đài Loan rất phổ biến các từ viết tắt: 房貸 (vay mua nhà), 車貸 (vay mua xe), 學貸 (vay học phí sinh viên), 青年創業貸款 (vay khởi nghiệp cho thanh niên).",
+   "mh": "Thải Khoản → dàikuǎn. ĐỌC: chữ 貸 đọc dài (thanh 4); 'khoản' → kuǎn (kh- → k-, thanh 3). NGHĨA: 貸 cho vay/đi vay + 款 khoản tiền → khoản tiền vay ngân hàng.",
+   "vd": [
+    {
+     "t": "Tài chính",
+     "zh": "買房前除了準備自備款，還必須仔細試算每個月需要償還的房屋貸款金額。",
+     "vn": "Trước khi mua nhà ngoài chuẩn bị tiền vốn tự có, còn phải tính kỹ số tiền vay mua nhà cần trả hàng tháng."
+    },
+    {
+     "t": "Khởi nghiệp",
+     "zh": "這對年輕創業者提交了完整的營運計畫書，順利通過銀行的創業貸款審核。",
+     "vn": "Cặp nhà khởi nghiệp trẻ này nộp bản kế hoạch kinh doanh đầy đủ, thuận lợi vượt qua vòng xét duyệt vay vốn khởi nghiệp của ngân hàng."
+    },
+    {
+     "t": "Giáo dục",
+     "zh": "不少大學生靠著低利率的就學貸款完成學業，畢業找到工作後再分期攤還。",
+     "vn": "Không ít sinh viên đại học nhờ khoản vay học phí lãi suất thấp để hoàn thành việc học, ra trường đi làm rồi trả góp dần."
+    }
+   ]
+  },
+  "典型": {
+   "vn": "điển hình; tiêu biểu",
+   "ng": [
+    "(tính từ) điển hình, mang đầy đủ đặc trưng tiêu biểu nhất của một loại (典型的例子 ví dụ điển hình, 典型症狀 triệu chứng điển hình)",
+    "(danh từ) hình mẫu điển hình, tấm gương tiêu biểu (成功典型 hình mẫu thành công)"
+   ],
+   "us": "Dùng nhiều làm định ngữ: 典型的 + N (典型的海島型氣候 khí hậu hải đảo điển hình, 典型的誤解 hiểu lầm điển hình).",
+   "co": [
+    "典型的例子|ví dụ điển hình",
+    "典型症狀|triệu chứng điển hình",
+    "典型代表|đại diện điển hình",
+    "非典型|không điển hình"
+   ],
+   "sy": [
+    "代表性|mang tính đại diện"
+   ],
+   "an": [
+    "特殊|đặc biệt, ngoại lệ"
+   ],
+   "cf": [
+    "典型 vs 代表|典型 nhấn mạnh mang đầy đủ đặc điểm đặc trưng nhất của nhóm đó; 代表 là đại diện/đại biểu cho một tập thể."
+   ],
+   "lt": "Tính từ / Danh từ.",
+   "mk": "Chú ý 典型 dùng được cho cả nghĩa tích cực lẫn tiêu cực (典型的詐騙手法 thủ đoạn lừa đảo điển hình).",
+   "tw": "Ở Đài Loan khi mô tả tính cách hay thời tiết rất hay nói 這是很典型的台灣夏季天氣 (Đây là kiểu thời tiết mùa hè rất điển hình của Đài Loan).",
+   "mh": "Điển Hình → diǎnxíng. ĐỌC: 'điển' → diǎn (đ- → d-, -iên → -ian, thanh 3); 'hình' → xíng (h- → x-, -inh → -ing, thanh 2). NGHĨA: 典 chuẩn mực + 型 khuôn mẫu → khuôn mẫu tiêu biểu = điển hình.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "上午艷陽高照、下午突然雷雨交加，正是台灣夏季最典型的天氣型態。",
+     "vn": "Sáng nắng chang chang, chiều bất ngờ sấm chớp mưa rào chính là kiểu thời tiết điển hình nhất của mùa hè Đài Loan."
+    },
+    {
+     "t": "An toàn",
+     "zh": "要求先匯款解除分期付款設定，是最典型的網路購物詐騙手法。",
+     "vn": "Yêu cầu chuyển tiền trước để hủy cài đặt trả góp là thủ đoạn lừa đảo mua sắm trực tuyến điển hình nhất."
+    },
+    {
+     "t": "Tính cách",
+     "zh": "他是個典型的行動派，一旦定好目標就會立刻擬定計畫開始執行。",
+     "vn": "Anh ấy là kiểu người hành động điển hình, hễ đặt xong mục tiêu là lập tức lập kế hoạch bắt tay làm ngay."
+    }
+   ]
+  },
+  "地震": {
+   "vn": "động đất",
+   "ng": [
+    "(danh từ) trận động đất, địa chấn (發生地震 xảy ra động đất, 地震警報 cảnh báo động đất, 餘震 dư chấn)"
+   ],
+   "us": "Động từ đi kèm: 發生地震 (xảy ra động đất), 遇到地震 (gặp động đất). Cường độ rung lắc tại địa phương ở Đài Loan gọi 震度 (cấp 1–7), độ lớn chấn tâm gọi 規模 (độ Richter).",
+   "co": [
+    "發生地震|xảy ra động đất",
+    "地震警報|cảnh báo động đất",
+    "防震演習|diễn tập phòng chống động đất",
+    "地震帶|vành đai động đất"
+   ],
+   "sy": [
+    "地動|rung chuyển mặt đất (khẩu ngữ cũ)",
+    "餘震|dư chấn"
+   ],
+   "cf": [
+    "地震 vs 餘震|地震 là trận động đất chính; 餘震 là các đợt rung lắc nhỏ tiếp nối sau trận động đất lớn."
+   ],
+   "lt": "場, 次 (一場大地震 một trận động đất lớn).",
+   "mk": "Chữ 震 có bộ 雨 (thời tiết/thiên nhiên) ở trên, đừng viết nhầm sang 振 (phấn chấn).",
+   "tw": "Đài Loan nằm trên vành đai động đất nên người dân rất quen với 國家級警報 (tin nhắn báo động trên điện thoại) và quy tắc 3 bước an toàn: 趴下、掩護、穩住 (Cúi xuống – Che chắn – Giữ vững).",
+   "mh": "Địa Chấn → dìzhèn. ĐỌC: 'địa' → dì (đ- → d-, thanh 4); 'chấn' → zhèn (ch- → zh-, thanh 4). NGHĨA: 地 mặt đất + 震 rung chuyển → mặt đất rung chuyển = động đất.",
+   "vd": [
+    {
+     "t": "An toàn",
+     "zh": "台灣位於環太平洋地震帶上，平時在家準備好緊急避難包非常重要。",
+     "vn": "Đài Loan nằm trên vành đai động đất Thái Bình Dương, bình thường chuẩn bị sẵn túi thoát hiểm khẩn cấp ở nhà là rất quan trọng."
+    },
+    {
+     "t": "Phòng tránh",
+     "zh": "發生地震時應立刻趴下尋找堅固桌底掩護，切勿搭乘電梯逃生。",
+     "vn": "Khi xảy ra động đất cần lập tức cúi xuống tìm gầm bàn chắc chắn trú ẩn, tuyệt đối không đi thang máy thoát hiểm."
+    },
+    {
+     "t": "Tin tức",
+     "zh": "今天清晨東部外海發生規模五點五的地震，所幸目前並未傳出重大災情。",
+     "vn": "Sáng sớm nay ngoài khơi miền Đông xảy ra trận động đất mạnh 5,5 độ, may mắn hiện chưa có thiệt hại nghiêm trọng."
+    }
+   ]
+  },
+  "斷": {
+   "vn": "đứt, gãy; cắt đứt; gián đoạn; phán đoán",
+   "ng": [
+    "(động từ) đứt, gãy rời (繩子斷了 dây đứt rồi, 樹枝折斷了 cành cây gãy rồi)",
+    "(động từ) bị cắt, gián đoạn (斷電 mất điện, 斷水 mất nước, 斷線 mất kết nối, 不斷 không ngừng)",
+    "(động từ) phán đoán, quyết định (判斷 phán đoán, 果斷 quyết đoán)"
+   ],
+   "us": "Dùng cho vật dài bị đứt/gãy (dây, bút chì, xương, cầu), mạng/điện bị ngắt (網路斷了), hoặc ghép thành phó từ 不斷 (liên tục không ngừng).",
+   "co": [
+    "斷線|mất kết nối, đứt mạng",
+    "不斷|không ngừng, liên tục",
+    "斷電|mất điện",
+    "判斷|phán đoán"
+   ],
+   "sy": [
+    "中斷|gián đoạn (quá trình, cuộc họp)",
+    "折斷|bẻ gãy"
+   ],
+   "an": [
+    "接|nối lại",
+    "連|liền mạch"
+   ],
+   "cf": [
+    "斷 vs 破|破 dùng cho vật có bề mặt/rỗng bị vỡ, rách (杯子破了 cốc vỡ, 衣服破了 áo rách); 斷 dùng cho vật dài, dòng chảy, kết nối bị đứt/gãy (線斷了, 網路斷了)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng nói *網路破了 ❌ — rớt mạng phải dùng 網路斷了 hoặc 斷線了!",
+   "tw": "Ở Đài Loan mạng bị rớt hay nói 網路斷線了; hàng hết sạch không sản xuất nữa gọi 斷貨.",
+   "mh": "Đoạn → duàn. ĐỌC: 'đoạn' → duàn (đ- → d-, thanh 4). NGHĨA: sợi tơ bên trái + 斤 cái rìu bên phải → dùng rìu chặt đứt = đứt, gián đoạn.",
+   "vd": [
+    {
+     "t": "Công nghệ",
+     "zh": "剛才視訊會議進行到一半突然斷線，我重新連線後才趕上最後的結論。",
+     "vn": "Vừa nãy họp trực tuyến đến giữa chừng bỗng bị mất mạng, tôi kết nối lại mới kịp nghe phần kết luận cuối."
+    },
+    {
+     "t": "Thiên tai",
+     "zh": "豪雨沖毀了山區道路與橋樑，導致村莊對外交通暫時中斷。",
+     "vn": "Mưa lớn cuốn trôi đường núi và cầu cống khiến giao thông đối ngoại của ngôi làng tạm thời bị gián đoạn."
+    },
+    {
+     "t": "Học tập",
+     "zh": "科技發展日新月異，各行各業都需要不斷學習新知才能保持競爭力。",
+     "vn": "Công nghệ phát triển thay đổi từng ngày, mọi ngành nghề đều cần không ngừng học hỏi kiến thức mới để giữ năng lực cạnh tranh."
+    }
+   ]
+  },
+  "法院": {
+   "vn": "tòa án",
+   "ng": [
+    "(danh từ) tòa án, cơ quan xét xử tư pháp (地方法院 tòa án địa phương, 最高法院 tòa án tối cao, 上法院 ra tòa)"
+   ],
+   "us": "Chỉ cơ quan xét xử pháp luật. Người xét xử ở tòa là 法官 (thẩm phán), người bào chữa là 律師 (luật sư).",
+   "co": [
+    "地方法院|tòa án địa phương",
+    "最高法院|tòa án tối cao",
+    "法院判決|phán quyết của tòa án",
+    "上法院|ra tòa"
+   ],
+   "sy": [
+    "法庭|phòng xử án, tòa (chỉ phiên tòa/phòng xét xử)"
+   ],
+   "cf": [
+    "法院 vs 法庭|法院 là cả cơ quan/tòa nhà tòa án (台北地方法院); 法庭 là phòng xử án hoặc phiên tòa cụ thể (開庭 mở phiên tòa)."
+   ],
+   "lt": "座, 家.",
+   "mk": "Phân biệt rõ: 法院 (tòa án), 檢察署 (viện kiểm sát), 警察局 (cơ quan cảnh sát).",
+   "tw": "Ở Đài Loan hệ thống tòa án có 3 cấp: 地方法院 → 高等法院 → 最高法院; nhiều người cũng đi công chứng giấy tờ tại 法院公證處.",
+   "mh": "Pháp Viện → fǎyuàn. ĐỌC: 'pháp' → fǎ (ph- → f-, thanh 3); 'viện' → yuàn (v- → y-, thanh 4). NGHĨA: 法 pháp luật + 院 cơ quan → cơ quan xét xử pháp luật = tòa án.",
+   "vd": [
+    {
+     "t": "Pháp luật",
+     "zh": "這起消費糾紛雙方協商多次未果，最後決定交由法院依法裁決。",
+     "vn": "Tranh chấp tiêu dùng này hai bên thương lượng nhiều lần không thành, cuối cùng quyết định đưa ra tòa án phán quyết theo luật."
+    },
+    {
+     "t": "Thủ tục",
+     "zh": "租賃合約可以帶到地方法院公證處辦理公證，對房東和房客都更有保障。",
+     "vn": "Hợp đồng thuê nhà có thể mang tới phòng công chứng tòa án địa phương làm công chứng, bảo đảm hơn cho cả chủ nhà lẫn người thuê."
+    },
+    {
+     "t": "Tin tức",
+     "zh": "經過長達半年的審理，法院今天終於針對這起環保訴訟案作出最終判決。",
+     "vn": "Sau nửa năm xét xử, tòa án hôm nay cuối cùng đã đưa ra phán quyết cuối cùng cho vụ kiện môi trường này."
+    }
+   ]
+  },
+  "份/份兒": {
+   "vn": "phần, suất; (lượng từ) bản, bộ, công việc, tình cảm",
+   "ng": [
+    "(lượng từ) phần, suất (一份餐點 một phần ăn, 一份工作 một công việc, 一份報告 một bản báo cáo, 一份報紙 một tờ báo, 一份心意 một tấm lòng)",
+    "(danh từ) phần, cổ phần (股份 cổ phần, 分份 chia phần)"
+   ],
+   "us": "Lượng từ cực kỳ quan trọng và đa dụng ở Đài Loan: đi với tài liệu/hợp đồng/báo cáo (一份合約), công việc (一份工作), phần ăn (一份蛋餅), quà/tình cảm (一份禮物, 一份力量).",
+   "co": [
+    "一份工作|một công việc",
+    "一份報告|một bản báo cáo",
+    "一份餐點|một phần ăn",
+    "一份心意|một tấm lòng"
+   ],
+   "sy": [
+    "張|tờ (một tờ giấy đơn lẻ)"
+   ],
+   "cf": [
+    "份 vs 張|張 dùng cho đúng 1 tờ giấy rời (一張紙); 份 dùng cho cả bộ tài liệu nhiều trang, bản hợp đồng, tờ báo, phần ăn, công việc."
+   ],
+   "lt": "Bản thân 份 là lượng từ. Ở Đài Loan gần như không dùng 份兒 (chỉ dùng 份).",
+   "mk": "Đừng nói *一個工作 ❌ hay *一個報紙 ❌ — phải dùng 一份工作, 一份報紙!",
+   "tw": "Gọi đồ ăn sáng ở Đài Loan lượng từ phổ biến nhất là 份: 老闆，一份蘿蔔糕、一份蛋餅！(Ông chủ ơi, một phần bánh củ cải, một phần bánh trứng cuộn!).",
+   "mh": "Phần → fèn. ĐỌC: 'phần' → fèn (ph- → f-, thanh 4). NGHĨA: 亻 người + 分 chia → phần được chia cho mỗi người = phần, suất.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "他在畢業前就順利找到一份符合興趣的行銷專員工作。",
+     "vn": "Trước khi tốt nghiệp anh ấy đã thuận lợi tìm được một công việc chuyên viên tiếp thị đúng sở thích."
+    },
+    {
+     "t": "Ăn uống",
+     "zh": "老闆，麻煩給我一份原味蛋餅外帶，不要加醬油膏，謝謝。",
+     "vn": "Ông chủ ơi, làm giúp tôi một phần bánh trứng cuộn vị nguyên bản mang về, không thêm xì dầu đặc nhé, cảm ơn."
+    },
+    {
+     "t": "Công sở",
+     "zh": "請把這份合約影印兩份，雙方簽名蓋章後各自保留一份存查。",
+     "vn": "Nhờ bạn photo bản hợp đồng này thành hai bản, hai bên ký tên đóng dấu xong mỗi bên giữ một bản lưu."
+    }
+   ]
+  },
+  "紛紛": {
+   "vn": "tấp nập; lần lượt, đua nhau, nhao nhao",
+   "ng": [
+    "(phó từ) nhiều người hoặc nhiều vật cùng lúc nối tiếp nhau làm gì (大家紛紛表示 mọi người lần lượt bày tỏ, 民眾紛紛搶購 người dân đua nhau mua, 落葉紛紛 lá rụng lả tả)"
+   ],
+   "us": "Chủ ngữ PHẢI là số nhiều (大家, 民眾, 網友, 媒體, 專家…). Tuyệt đối không dùng cho một người (*他紛紛說 ❌).",
+   "co": [
+    "紛紛表示|lần lượt bày tỏ",
+    "紛紛搶購|đua nhau mua",
+    "議論紛紛|bàn tán xôn xao",
+    "紛紛響應|nô nức hưởng ứng"
+   ],
+   "sy": [
+    "陸續|lần lượt (có thứ tự thời gian trước sau rõ hơn)",
+    "爭相|tranh nhau (văn viết)"
+   ],
+   "cf": [
+    "紛紛 vs 陸續|紛紛 nhấn mạnh số lượng đông đảo làm cùng lúc, rộn ràng (網友紛紛留言 dân mạng đua nhau bình luận); 陸續 nhấn mạnh từng người/nhóm lần lượt nối tiếp nhau theo thời gian (觀眾陸續進場 khán giả lần lượt vào rạp)."
+   ],
+   "lt": "Phó từ.",
+   "mk": "Lỗi ngữ pháp hay gặp: dùng 紛紛 với chủ ngữ số ít (*我紛紛報名 ❌ → 大家紛紛報名).",
+   "tw": "Cực kỳ hay gặp trong báo chí và tin tức Đài Loan: 網友紛紛留言按讚 (Cư dân mạng đua nhau bình luận thả like).",
+   "mh": "Phân Phân → fēnfēn. ĐỌC: 'phân' → fēn (ph- → f-, thanh 1). NGHĨA: 糹 sợi tơ nhiều rắc rối + 分 tỏa ra nhiều phía → đông đúc rối rít cùng lúc = lần lượt, đua nhau.",
+   "vd": [
+    {
+     "t": "Tin tức",
+     "zh": "這項便民新政策公布後，許多網友紛紛在社群平台上留言表示肯定。",
+     "vn": "Sau khi chính sách mới tiện ích cho người dân được công bố, nhiều cư dân mạng đua nhau bình luận bày tỏ sự ủng hộ trên mạng xã hội."
+    },
+    {
+     "t": "Thiên nhiên",
+     "zh": "一陣秋風吹過，公園步道兩旁的黃葉紛紛飄落，畫面十分詩意。",
+     "vn": "Một cơn gió thu thổi qua, lá vàng hai bên lối đi công viên lả tả rơi xuống, khung cảnh vô cùng nên thơ."
+    },
+    {
+     "t": "Xã hội",
+     "zh": "災情傳出後，國內外慈善團體與熱心企業紛紛捐款並運送物資支援。",
+     "vn": "Sau khi tin thiên tai lan ra, các tổ chức từ thiện trong ngoài nước và doanh nghiệp nhiệt tâm nô nức quyên góp và chuyển vật tư hỗ trợ."
+    }
+   ]
+  },
+  "風險": {
+   "vn": "rủi ro; nguy cơ",
+   "ng": [
+    "(danh từ) rủi ro, nguy cơ có thể xảy ra tổn thất hoặc nguy hiểm (投資風險 rủi ro đầu tư, 健康風險 nguy cơ sức khỏe, 承擔風險 chịu rủi ro, 降低風險 giảm rủi ro)"
+   ],
+   "us": "Dùng rộng trong tài chính, kinh doanh, y tế, pháp luật: 評估風險 (đánh giá rủi ro), 分散風險 (phân tán rủi ro), 風險控管 (quản trị rủi ro).",
+   "co": [
+    "降低風險|giảm thiểu rủi ro",
+    "承擔風險|chịu trách nhiệm/gánh rủi ro",
+    "投資風險|rủi ro đầu tư",
+    "冒著風險|liều lĩnh chịu rủi ro"
+   ],
+   "sy": [
+    "危險|nguy hiểm (trực tiếp, vật lý hơn)",
+    "危機|khủng hoảng"
+   ],
+   "an": [
+    "保障|sự bảo đảm",
+    "安全|an toàn"
+   ],
+   "cf": [
+    "風險 vs 危險|危險 là mối nguy rõ ràng trước mắt (hỏa hoạn, tai nạn); 風險 là xác suất/khả năng gặp bất lợi trong tương lai (tài chính, y tế, kinh doanh)."
+   ],
+   "lt": "個, 項.",
+   "mk": "Câu cảnh báo quen thuộc ở Đài Loan: 投資一定有風險 (Đầu tư chắc chắn có rủi ro).",
+   "tw": "Trong quảng cáo quỹ đầu tư ở Đài Loan bắt buộc có câu đọc nhanh cuối clip: 投資一定有風險，基金投資有賺有賠，申購前應詳閱公開說明書.",
+   "mh": "Phong Hiểm → fēngxiǎn. ĐỌC: 'phong' → fēng (ph- → f-, thanh 1); 'hiểm' → xiǎn (h- → x-, thanh 3). NGHĨA: 風 gió bão + 險 hiểm trở → sóng gió hiểm trở trên biển = rủi ro.",
+   "vd": [
+    {
+     "t": "Tài chính",
+     "zh": "理財專家建議不要把所有資金投入單一標的，應該多元配置以分散風險。",
+     "vn": "Chuyên gia tài chính khuyên không nên dồn toàn bộ vốn vào một kênh duy nhất mà nên phân bổ đa dạng để phân tán rủi ro."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "定期做健康檢查能及早發現潛在異常，大幅降低重大疾病的風險。",
+     "vn": "Khám sức khỏe định kỳ có thể phát hiện sớm bất thường tiềm ẩn, giảm mạnh nguy cơ bệnh nặng."
+    },
+    {
+     "t": "Kinh doanh",
+     "zh": "進軍海外市場前，團隊必須先完整評估當地法規與匯率波動的風險。",
+     "vn": "Trước khi tiến vào thị trường nước ngoài, đội ngũ phải đánh giá đầy đủ rủi ro về pháp luật địa phương và biến động tỷ giá."
+    }
+   ]
+  },
+  "分配": {
+   "vn": "phân bổ; phân chia, phân công",
+   "ng": [
+    "(động từ) chia đều hoặc phân bổ tài nguyên, thời gian, công việc, lợi ích (分配工作 phân công công việc, 分配時間 phân bổ thời gian, 資源分配 phân bổ tài nguyên)"
+   ],
+   "us": "Dùng cho thời gian, ngân sách, nhân lực, công việc, tài nguyên (合理分配 phân bổ hợp lý, 公平分配 chia công bằng).",
+   "co": [
+    "分配時間|phân bổ thời gian",
+    "分配工作|phân công công việc",
+    "資源分配|phân bổ tài nguyên",
+    "平均分配|chia đều"
+   ],
+   "sy": [
+    "分派|phân công (chỉ giao nhiệm vụ cho người)",
+    "配置|bố trí, phân bổ (vốn, thiết bị)"
+   ],
+   "cf": [
+    "分配 vs 安排|安排 là sắp xếp lịch trình, bố trí tổng thể; 分配 nhấn mạnh việc chia một tổng lượng (tiền, thời gian, khối lượng việc) thành các phần cho từng mục/từng người."
+   ],
+   "lt": "Động từ.",
+   "mk": "Phân bổ thời gian làm bài thi nói 分配作答時間 rất chuẩn và hay dùng trong TOCFL.",
+   "tw": "Ở Đài Loan hay bàn về 預算分配 (phân bổ ngân sách) và 家務分配 (phân chia việc nhà).",
+   "mh": "Phân Phối → fēnpèi. ĐỌC: 'phân' → fēn (ph- → f-, thanh 1); 'phối' → pèi (thanh 4). NGHĨA: 分 chia ra + 配 ghép phối cho từng phần → phân bổ, phân chia.",
+   "vd": [
+    {
+     "t": "Thi cử",
+     "zh": "閱讀測驗題目很多，考試時一定要妥善分配時間，不要在單一難題上卡太久。",
+     "vn": "Bài thi đọc hiểu rất nhiều câu hỏi, lúc thi nhất định phải phân bổ thời gian hợp lý, đừng kẹt quá lâu ở một câu khó."
+    },
+    {
+     "t": "Công việc",
+     "zh": "組長依照每個人的專長分配專案任務，讓整體進度比預期順利許多。",
+     "vn": "Nhóm trưởng phân công nhiệm vụ dự án theo sở trường từng người, giúp tiến độ chung suôn sẻ hơn dự kiến nhiều."
+    },
+    {
+     "t": "Xã hội",
+     "zh": "如何改善城鄉之間的教育與醫療資源分配不均，一直是社會關注的焦點。",
+     "vn": "Làm sao cải thiện tình trạng phân bổ nguồn lực giáo dục và y tế không đều giữa thành thị và nông thôn luôn là tâm điểm xã hội."
+    }
+   ]
+  },
+  "否定": {
+   "vn": "phủ định; phủ nhận, bác bỏ",
+   "ng": [
+    "(động từ) phủ nhận, không thừa nhận giá trị hoặc tính đúng đắn (否定別人的努力 phủ nhận nỗ lực của người khác, 自我否定 tự phủ nhận bản thân)",
+    "(tính từ / danh từ) phủ định (ngữ pháp: 否定句 câu phủ định, 否定的回答 câu trả lời phủ định)"
+   ],
+   "us": "Trái nghĩa trực tiếp với 肯定 (khẳng định). Dùng nhiều trong tranh luận, tâm lý học (自我否定) và ngữ pháp (否定詞).",
+   "co": [
+    "自我否定|tự phủ nhận bản thân",
+    "否定句|câu phủ định",
+    "全盤否定|phủ định sạch trơn",
+    "不可否定|không thể phủ nhận"
+   ],
+   "sy": [
+    "否認|chối bỏ, phủ nhận (sự thật, cáo buộc)"
+   ],
+   "an": [
+    "肯定|khẳng định"
+   ],
+   "cf": [
+    "否定 vs 否認|否認 là chối bỏ một sự việc/cáo buộc ('tôi không làm chuyện đó': 否認違法); 否定 là phủ nhận giá trị, ý kiến, đề xuất (否定這個方案 bác bỏ phương án này)."
+   ],
+   "lt": "Động từ / Tính từ.",
+   "mk": "Đừng dùng 否定 khi muốn nói 'anh ấy chối không nhận tội' — đó là 否認 (fǒurèn)!",
+   "tw": "Ở Đài Loan trong tư vấn tâm lý hay nhắc 不要因為一次失敗就全盤否定自己的價值 (Đừng vì một lần thất bại mà phủ nhận sạch trơn giá trị bản thân).",
+   "mh": "Phủ Định → fǒudìng. ĐỌC: 'phủ' → fǒu (ph- → f-, thanh 3); 'định' → dìng (đ- → d-, thanh 4). NGHĨA: 否 không phải + 定 xác định → bác bỏ, phủ định.",
+   "vd": [
+    {
+     "t": "Tâm lý",
+     "zh": "一次挫折並不代表你能力不足，千萬不要因此陷入自我否定的情緒裡。",
+     "vn": "Một lần vấp ngã không có nghĩa bạn kém năng lực, tuyệt đối đừng vì thế mà rơi vào tâm trạng tự phủ nhận bản thân."
+    },
+    {
+     "t": "Công việc",
+     "zh": "主管在提出改進建議前，總是先肯定團隊的用心，從不直接全盤否定大家的心血。",
+     "vn": "Trước khi góp ý cải thiện, sếp luôn ghi nhận công sức của cả nhóm trước, không bao giờ phủ nhận sạch trơn tâm huyết mọi người."
+    },
+    {
+     "t": "Ngôn ngữ",
+     "zh": "這本中文文法書詳細整理了「不」和「沒」在否定句中的使用差別。",
+     "vn": "Cuốn sách ngữ pháp tiếng Hoa này tổng hợp chi tiết sự khác biệt giữa 'bù' và 'méi' trong câu phủ định."
+    }
+   ]
+  },
+  "趕緊": {
+   "vn": "mau chóng; vội vàng, khẩn trương",
+   "ng": [
+    "(phó từ) tranh thủ mau chóng, lập tức không chậm trễ (趕緊出發 mau lên đường, 趕緊處理 khẩn trương xử lý, 趕緊回家 vội về nhà)"
+   ],
+   "us": "Đặt trước động từ (趕緊 + V). Sắc thái gấp gáp, khẩn trương hơn 快點 một chút và dùng được tốt cả trong văn nói lẫn văn viết.",
+   "co": [
+    "趕緊出發|mau chóng xuất phát",
+    "趕緊處理|khẩn trương xử lý",
+    "趕緊找人幫忙|vội tìm người giúp",
+    "趕緊收起來|mau cất vào"
+   ],
+   "sy": [
+    "趕快|mau lên (khẩu ngữ hơn)",
+    "連忙|vội vàng (kể lại hành động đã làm)"
+   ],
+   "an": [
+    "慢慢|từ từ"
+   ],
+   "cf": [
+    "趕緊 vs 趕快|Gần như đồng nghĩa; 趕快 hay dùng trong câu thúc giục trực tiếp (你趕快吃飯！), còn 趕緊 dùng tự nhiên cả trong câu kể sự việc (他看到下雨就趕緊收衣服)."
+   ],
+   "lt": "Phó từ.",
+   "mk": "Đừng đặt 趕緊 sau động từ (*走趕緊 ❌ → 趕緊走).",
+   "tw": "Ở Đài Loan dùng cả 趕緊 và 趕快 cực kỳ thường xuyên trong đời sống và tin tức.",
+   "mh": "Cản Khẩn → gǎnjǐn. ĐỌC: 'cản' → gǎn (c- → g-, thanh 3); 'khẩn' → jǐn (kh- trước i → j-, thanh 3; đọc liền gánjǐn). NGHĨA: 趕 đuổi kịp + 緊 gấp gáp → mau chóng không chậm trễ.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "天色突然暗了下來，遠處還傳來雷聲，我們得趕緊找地方躲雨。",
+     "vn": "Trời bỗng tối sầm lại, đằng xa còn vọng tiếng sấm, chúng ta phải mau chóng tìm chỗ trú mưa."
+    },
+    {
+     "t": "Công việc",
+     "zh": "發現寄出去的報價單數字有誤後，他趕緊打電話向客戶致歉並補寄正確版本。",
+     "vn": "Sau khi phát hiện số liệu trên bảng báo giá gửi đi bị sai, anh ấy vội gọi điện xin lỗi khách hàng và gửi bổ sung bản đúng."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "發燒持續兩天都沒有退，還是趕緊去醫院掛號讓醫生檢查比較安心。",
+     "vn": "Sốt kéo dài hai ngày vẫn chưa hạ, vẫn nên mau chóng tới bệnh viện đăng ký khám bác sĩ cho yên tâm."
+    }
+   ]
+  },
+  "告": {
+   "vn": "kiện; tố cáo; báo cho biết",
+   "ng": [
+    "(động từ) kiện ra tòa, tố cáo (告他 kiện anh ta, 提告 khởi kiện, 告上法院 kiện ra tòa)",
+    "(động từ) báo cho biết, tuyên bố (告訴 nói cho biết, 廣告 quảng cáo, 報告 báo cáo, 告別 từ biệt)"
+   ],
+   "us": "Khi đứng độc lập một chữ làm động từ, nghĩa phổ biến nhất là 'kiện ra tòa' (告某人). Các nghĩa khác nằm trong từ ghép 告訴, 公告, 警告, 廣告.",
+   "co": [
+    "告上法院|kiện ra tòa",
+    "提告|khởi kiện",
+    "告訴|nói cho biết",
+    "告一段落|tạm khép lại một giai đoạn"
+   ],
+   "sy": [
+    "起訴|khởi tố (cơ quan công tố)",
+    "控告|tố cáo, kiện tụng"
+   ],
+   "cf": [
+    "告 vs 告訴|告 một mình nghĩa là 'kiện' (我要告他 Tôi sẽ kiện hắn); 告訴 mới nghĩa là 'nói cho biết' (我告訴你 Tôi nói cho bạn biết)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng viết tắt 告訴 thành 告 (*我告你一件事 ❌ → 我告訴你一件事).",
+   "tw": "Ở Đài Loan trên mạng hay thấy câu đùa/cảnh báo 小心被告 (Cẩn thận bị kiện đấy!) và cụm công việc 告一段落 (công việc tạm xong một chặng).",
+   "mh": "Cáo → gào. ĐỌC: 'cáo' → gào (c- → g-, thanh 4). NGHĨA: 牛 con bò (vật tế) + 口 cái miệng → tâu trình rõ ràng = báo cáo, kiện.",
+   "vd": [
+    {
+     "t": "Pháp luật",
+     "zh": "這家公司未經授權就盜用插畫家的作品，最後被原作者一狀告上法院。",
+     "vn": "Công ty này chưa xin phép đã dùng trái phép tác phẩm của họa sĩ minh họa, cuối cùng bị tác giả gốc kiện ra tòa."
+    },
+    {
+     "t": "Công việc",
+     "zh": "忙了整整兩個月的年度稽核終於告一段落，整個部門總算能鬆一口氣。",
+     "vn": "Đợt kiểm toán thường niên bận rộn suốt hai tháng ròng cuối cùng cũng tạm khép lại, cả phòng mới thở phào nhẹ nhõm."
+    },
+    {
+     "t": "An toàn mạng",
+     "zh": "在網路上隨意散播不實謠言毀謗他人名譽，當事人是有權利依法提告的。",
+     "vn": "Tùy tiện tung tin đồn thất thiệt phỉ báng danh dự người khác trên mạng, đương sự có quyền khởi kiện theo pháp luật."
+    }
+   ]
+  },
+  "固定": {
+   "vn": "cố định; định kỳ, ổn định",
+   "ng": [
+    "(tính từ) cố định, không thay đổi vị trí, thời gian hay mức độ (固定時間 giờ cố định, 固定收入 thu nhập cố định, 固定位置 chỗ cố định)",
+    "(động từ) gắn chặt, cố định lại (把螺絲固定好 vặn chặt ốc cố định lại)"
+   ],
+   "us": "Vừa là tính từ (rất hay làm định ngữ hoặc trạng ngữ: 固定每天運動 đều đặn tập thể dục mỗi ngày) vừa là động từ kỹ thuật (用繩子固定 dùng dây buộc cố định).",
+   "co": [
+    "固定時間|thời gian cố định",
+    "固定收入|thu nhập cố định",
+    "固定支出|chi phí cố định",
+    "固定下來|cố định lại"
+   ],
+   "sy": [
+    "穩定|ổn định",
+    "定期|định kỳ"
+   ],
+   "an": [
+    "臨時|tạm thời",
+    "流動|di động, lưu động"
+   ],
+   "cf": [
+    "固定 vs 穩定|固定 nhấn mạnh không thay đổi, giữ nguyên một lịch/mức/vị trí (每週三固定開會); 穩定 nhấn mạnh ít dao động, vững vàng (情緒穩定, 表現穩定)."
+   ],
+   "lt": "Tính từ / Động từ.",
+   "mk": "Đừng nói *情緒固定 ❌ — tâm trạng ổn định phải dùng 情緒穩定!",
+   "tw": "Ở Đài Loan hay nói 我每週固定去健身房三次 (Tuần nào tôi cũng đi phòng gym cố định ba buổi).",
+   "mh": "Cố Định → gùdìng. ĐỌC: 'cố' → gù (c- → g-, thanh 4); 'định' → dìng (đ- → d-, thanh 4). NGHĨA: 固 vững chắc + 定 ấn định → gắn chặt không đổi = cố định.",
+   "vd": [
+    {
+     "t": "Học tập",
+     "zh": "他每天晚上固定花四十分鐘複習中文單字，半年下來詞彙量大幅增加。",
+     "vn": "Mỗi tối anh ấy đều dành cố định bốn mươi phút ôn từ vựng tiếng Hoa, sau nửa năm vốn từ tăng lên rõ rệt."
+    },
+    {
+     "t": "An toàn",
+     "zh": "裝修師傅把書櫃牢牢固定在牆面上，以免發生強震時櫃子倒塌傷人。",
+     "vn": "Thợ nội thất gắn chặt tủ sách cố định vào tường để tránh tủ đổ gây thương tích khi xảy ra động đất mạnh."
+    },
+    {
+     "t": "Tài chính",
+     "zh": "每個月領薪水後，她會先扣除房租和水電等固定支出，再規劃其餘預算。",
+     "vn": "Mỗi tháng sau khi nhận lương, cô ấy trừ trước các khoản chi cố định như tiền nhà và điện nước rồi mới lên kế hoạch phần còn lại."
+    }
+   ]
+  },
+  "規定": {
+   "vn": "quy định",
+   "ng": [
+    "(danh từ) quy định, điều lệ (遵守規定 tuân thủ quy định, 公司規定 quy định công ty, 違反規定 vi phạm quy định)",
+    "(động từ) quy định rằng (法律規定 pháp luật quy định, 學校規定 nhà trường quy định)"
+   ],
+   "us": "Cực kỳ thông dụng làm cả danh từ (按照規定 theo quy định) lẫn động từ (飯店規定下午三點入住 Khách sạn quy định 3 giờ chiều nhận phòng).",
+   "co": [
+    "遵守規定|tuân thủ quy định",
+    "違反規定|vi phạm quy định",
+    "按照規定|theo đúng quy định",
+    "相關規定|các quy định liên quan"
+   ],
+   "sy": [
+    "規則|quy tắc (trò chơi, ngữ pháp)",
+    "條例|điều lệ (pháp lý)"
+   ],
+   "cf": [
+    "規定 vs 規則|規定 là điều khoản do cơ quan, trường học, công ty đặt ra buộc tuân theo (公司規定); 規則 là luật lệ, quy tắc chung của trò chơi, giao thông, ngôn ngữ (遊戲規則, 交通規則)."
+   ],
+   "lt": "項, 條 (一條規定).",
+   "mk": "Chú ý: 'luật chơi' dùng 遊戲規則 (không nói *遊戲規定).",
+   "tw": "Trên tàu điện ngầm Đài Bắc (台北捷運) có 規定 nổi tiếng: 進入刷卡區後禁止飲食 (Sau khi qua cổng quẹt thẻ cấm ăn uống, kể cả nước lọc và kẹo cao su!).",
+   "mh": "Quy Định → guīdìng. ĐỌC: 'quy' → guī (qu- → g-, thanh 1); 'định' → dìng (đ- → d-, thanh 4). NGHĨA: 規 khuôn phép + 定 đặt ra → điều lệ đặt ra = quy định.",
+   "vd": [
+    {
+     "t": "Giao thông",
+     "zh": "台北捷運明確規定，旅客一通過驗票閘門就禁止喝水、吃東西或嚼口香糖。",
+     "vn": "Tàu điện ngầm Đài Bắc quy định rõ, hành khách vừa qua cổng soát vé là cấm uống nước, ăn uống hay nhai kẹo cao su."
+    },
+    {
+     "t": "Công việc",
+     "zh": "入職第一天人資會詳細說明請假流程與考勤等各項公司規定。",
+     "vn": "Ngày đầu nhận việc nhân sự sẽ giải thích chi tiết các quy định công ty như quy trình xin nghỉ phép và chấm công."
+    },
+    {
+     "t": "An toàn",
+     "zh": "進入實驗室的所有人員都必須嚴格遵守安全規定，配戴護目鏡與手套。",
+     "vn": "Mọi người vào phòng thí nghiệm đều phải tuân thủ nghiêm ngặt quy định an toàn, đeo kính bảo hộ và găng tay."
+    }
+   ]
+  }
+ }
+}
