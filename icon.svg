@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96"><rect width="96" height="96" rx="20" fill="#1C7563"/><text x="48" y="66" text-anchor="middle" font-family="Noto Serif TC, PingFang TC, Microsoft JhengHei, serif" font-size="54" font-weight="700" fill="#FFFFFF">學</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#A8261F"/>
+      <stop offset="100%" stop-color="#760A0A"/>
+    </linearGradient>
+  </defs>
+  <rect width="96" height="96" rx="20" fill="url(#bg)"/>
+  <rect x="9" y="9" width="78" height="78" rx="12" fill="none" stroke="#E6C687" stroke-width="1.6" stroke-opacity="0.88"/>
+  <text x="48" y="66" text-anchor="middle" font-family="Noto Serif TC, PingFang TC, Microsoft JhengHei, serif" font-size="52" font-weight="700" fill="#FDFBF7">學</text>
+</svg>
