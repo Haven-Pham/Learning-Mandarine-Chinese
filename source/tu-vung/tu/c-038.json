@@ -1,0 +1,1080 @@
+{
+ "tu": {
+  "將軍": {
+   "vn": "tướng quân; chiếu tướng (cờ tướng)",
+   "ng": [
+    "(danh từ) tướng quân, sĩ quan cấp tướng trong quân đội (老將軍 vị tướng già, 駐防將軍 tướng trấn giữ)",
+    "(động từ) chiếu tướng trong cờ tướng; nghĩa bóng là đặt đối phương vào thế bí khó xử (將他一軍 chiếu tướng / làm khó anh ta một vố)"
+   ],
+   "us": "Chữ 將 ở đây đọc thanh 1 jiāng (jiāngjūn), KHÔNG đọc jiàng! Rất hay gặp cả trong lịch sử lẫn thành ngữ đánh cờ 將一軍 (gây bất ngờ/làm khó).",
+   "co": [
+    "將他一軍|chiếu tướng / làm khó anh ta một vố",
+    "常勝將軍|vị tướng bách chiến bách thắng",
+    "老將軍|vị tướng lão thành"
+   ],
+   "sy": [
+    "將領|tướng lĩnh"
+   ],
+   "an": [
+    "士兵|binh sĩ"
+   ],
+   "cf": [
+    "將軍 (jiāngjūn) vs 大將 (dàjiàng)|Trong 將軍 chữ 將 đọc thanh 1 jiāng; trong 大將 (đại tướng), 將領 (tướng lĩnh) đọc thanh 4 jiàng."
+   ],
+   "lt": "位, 名 (一位將軍).",
+   "mk": "Đừng đọc nhầm 將軍 thành *jiàngjūn ❌ — phải đọc thanh 1 jiāngjūn!",
+   "tw": "Ở Đài Loan trong cuộc họp hay tranh luận, khi ai bất ngờ đưa ra câu hỏi hóc búa hay đùa 你這題真是將了我一軍！(Câu này bạn đúng là chiếu tướng tôi rồi!).",
+   "mh": "Tướng Quân → jiāngjūn. ĐỌC: 'tướng' ở đây đọc thanh 1 jiāng; 'quân' → jūn (thanh 1). NGHĨA: 將 chỉ huy + 軍 quân đội → vị tướng chỉ huy = tướng quân.",
+   "vd": [
+    {
+     "t": "Lịch sử",
+     "zh": "這部歷史劇刻畫了一位忠肝義膽的將軍，在危急關頭挺身而出守護百姓。",
+     "vn": "Bộ phim lịch sử này khắc họa một vị tướng quân trung nghĩa, đứng ra bảo vệ bách tính trong thời khắc nguy cấp."
+    },
+    {
+     "t": "Cờ tướng",
+     "zh": "爺爺下象棋棋藝高超，往往幾步棋就把對手逼到無路可退、直接將軍。",
+     "vn": "Ông nội chơi cờ tướng rất cao tay, thường chỉ vài nước đã ép đối thủ vào đường cùng và chiếu tướng ngay."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "原本以為這次提案能輕鬆過關，沒想到評審最後一個問題差點將了我們一軍。",
+     "vn": "Vốn tưởng đề xuất lần này sẽ dễ dàng thông qua, không ngờ câu hỏi cuối của giám khảo suýt làm chúng tôi bí thế."
+    }
+   ]
+  },
+  "獎勵": {
+   "vn": "khen thưởng; khích lệ, phần thưởng",
+   "ng": [
+    "(động từ / danh từ) thưởng để động viên, khích lệ (給予獎勵 trao phần thưởng, 獎勵機制 cơ chế khen thưởng, 獎勵員工 thưởng động viên nhân viên)"
+   ],
+   "us": "Dùng rộng trong công ty (獎金獎勵), giáo dục (鼓勵與獎勵) và chính sách nhà nước (獎勵投資 khuyến khích đầu tư, 獎勵生育 khuyến khích sinh con).",
+   "co": [
+    "給予獎勵|trao phần thưởng khích lệ",
+    "獎勵機制|cơ chế khen thưởng",
+    "獎勵制度|chế độ khen thưởng",
+    "精神獎勵|khen thưởng tinh thần"
+   ],
+   "sy": [
+    "獎賞|ban thưởng (thiên về vật chất/tiền)",
+    "鼓勵|khích lệ (tinh thần)"
+   ],
+   "an": [
+    "懲罰|trừng phạt"
+   ],
+   "cf": [
+    "獎勵 vs 獎賞|獎勵 vừa là vật chất vừa là tinh thần, dùng rộng cho chính sách, giáo dục, doanh nghiệp; 獎賞 thiên về ban thưởng hiện vật/tiền bạc cho công lao."
+   ],
+   "lt": "項 (一項獎勵).",
+   "mk": "Chú ý cặp đối nghĩa hay gặp trong văn bản: 獎懲 (khen thưởng và kỷ luật).",
+   "tw": "Ở Đài Loan chính phủ hay có 獎勵補助 (trợ cấp khuyến khích) cho khởi nghiệp, năng lượng xanh và nghiên cứu.",
+   "mh": "Tưởng Lệ → jiǎnglì. ĐỌC: 'tưởng' → jiǎng (t- → j-, -ương → -iang, thanh 3); 'lệ' → lì (thanh 4). NGHĨA: 獎 khen thưởng + 勵 khích lệ → khen thưởng động viên.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "公司建立明確的績效獎勵制度後，員工主動提出改善方案的意願大幅提高。",
+     "vn": "Sau khi công ty thiết lập chế độ khen thưởng hiệu suất rõ ràng, tinh thần chủ động đề xuất cải tiến của nhân viên tăng mạnh."
+    },
+    {
+     "t": "Chính sách",
+     "zh": "為推動綠能交通，政府提供購車獎勵補助，鼓勵民眾汰換老舊燃油機車。",
+     "vn": "Nhằm thúc đẩy giao thông xanh, chính phủ hỗ trợ khuyến khích mua xe để động viên người dân thay xe máy xăng cũ."
+    },
+    {
+     "t": "Học tập",
+     "zh": "每當順利完成一週的讀書進度，她就會買一杯喜歡的手沖咖啡當作給自己的小獎勵。",
+     "vn": "Mỗi khi hoàn thành suôn sẻ tiến độ học trong tuần, cô ấy lại mua một ly cà phê pha tay yêu thích làm phần thưởng nhỏ cho mình."
+    }
+   ]
+  },
+  "獎賞": {
+   "vn": "ban thưởng; phần thưởng",
+   "ng": [
+    "(động từ / danh từ) thưởng tiền bạc hoặc hiện vật để ghi nhận công lao, thành tích (獲得獎賞 nhận phần thưởng, 重重獎賞 trọng thưởng)"
+   ],
+   "us": "Thiên về phần thưởng cụ thể (tiền, quà, huân chương) trao từ cấp trên, cha mẹ hoặc ban tổ chức cho người lập công.",
+   "co": [
+    "獲得獎賞|nhận được phần thưởng",
+    "物質獎賞|phần thưởng vật chất",
+    "給予獎賞|ban thưởng"
+   ],
+   "sy": [
+    "獎勵|khen thưởng, khích lệ",
+    "賞賜|ban thưởng (cổ trang)"
+   ],
+   "an": [
+    "懲罰|trừng phạt"
+   ],
+   "cf": [
+    "獎賞 vs 獎品|獎品 chỉ riêng quà tặng/giải thưởng trong cuộc thi, rút thăm trúng thưởng; 獎賞 là hành động ban thưởng hoặc phần thưởng ghi nhận công sức."
+   ],
+   "lt": "份 (一份獎賞).",
+   "mk": "Trong rút thăm trúng thưởng siêu thị dùng 獎品 (phần quà trúng thưởng), không dùng 獎賞.",
+   "tw": "Trong giáo dục trẻ em hay bàn về 適度運用獎賞 (dùng phần thưởng ở mức hợp lý).",
+   "mh": "Tưởng Thưởng → jiǎngshǎng. ĐỌC: 'tưởng' → jiǎng (thanh 3); 'thưởng' → shǎng (th- → sh-, thanh 3; đọc liền jiángshǎng). NGHĨA: 獎 khen + 賞 ban thưởng → phần thưởng.",
+   "vd": [
+    {
+     "t": "Giáo dục",
+     "zh": "專家建議家長不要每次孩子考好就用金錢獎賞，以免削弱他們對學習本身的興趣。",
+     "vn": "Chuyên gia khuyên phụ huynh không nên cứ con thi tốt là thưởng tiền kẻo làm giảm hứng thú tự thân với việc học."
+    },
+    {
+     "t": "Công việc",
+     "zh": "他主動加班修復了系統重大漏洞，避免公司蒙受損失，月底獲得主管特別獎賞。",
+     "vn": "Anh ấy chủ động tăng ca vá lỗ hổng hệ thống nghiêm trọng giúp công ty tránh thiệt hại, cuối tháng được sếp thưởng đặc biệt."
+    },
+    {
+     "t": "Thú cưng",
+     "zh": "訓練小狗坐下和握手時，只要牠做對了就立刻給一塊小零食當作獎賞。",
+     "vn": "Khi huấn luyện chó con ngồi xuống và bắt tay, hễ nó làm đúng là lập tức cho một miếng bánh nhỏ làm phần thưởng."
+    }
+   ]
+  },
+  "獎狀": {
+   "vn": "giấy khen; bằng khen",
+   "ng": [
+    "(danh từ) giấy khen, bằng khen chính thức ghi nhận thành tích học tập, thi đấu hoặc đóng góp (頒發獎狀 trao giấy khen, 領獎狀 nhận giấy khen)"
+   ],
+   "us": "Lượng từ: 張 (一張獎狀 một tờ giấy khen). Khác với 獎盃 (cúp) và 獎牌 (huy chương).",
+   "co": [
+    "一張獎狀|một tờ giấy khen",
+    "頒發獎狀|trao giấy khen",
+    "領獎狀|nhận giấy khen",
+    "榮譽獎狀|bằng khen danh dự"
+   ],
+   "sy": [
+    "感謝狀|giấy cảm ơn (dành cho nhà tài trợ, diễn giả, tình nguyện viên ở Đài Loan)",
+    "證書|chứng chỉ, bằng cấp"
+   ],
+   "cf": [
+    "獎狀 vs 感謝狀|Ở Đài Loan: 獎狀 trao cho người đạt giải/thành tích xuất sắc; 感謝狀 trao cho diễn giả, tình nguyện viên, nhà tài trợ để bày tỏ lòng biết ơn."
+   ],
+   "lt": "張 (一張獎狀).",
+   "mk": "Chú ý lượng từ là 張 (一張獎狀), không dùng *一個獎狀 ❌.",
+   "tw": "Trong trường học Đài Loan cuối học kỳ có lễ trao 獎狀 cho học sinh giỏi, còn mời diễn giả tới nói chuyện luôn tặng 感謝狀.",
+   "mh": "Tưởng Trạng → jiǎngzhuàng. ĐỌC: 'tưởng' → jiǎng (thanh 3); 'trạng' → zhuàng (tr- → zh-, thanh 4). NGHĨA: 獎 khen thưởng + 狀 văn bản chứng nhận → giấy khen.",
+   "vd": [
+    {
+     "t": "Trường học",
+     "zh": "弟弟在全校朗讀比賽中獲得第一名，校長在朝會上親自頒發獎狀給他。",
+     "vn": "Em trai đạt hạng nhất cuộc thi đọc diễn cảm toàn trường, hiệu trưởng đích thân trao giấy khen cho em trong buổi chào cờ."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "客廳書櫃上整齊展示著她從小學到大學參加各項繪畫比賽獲得的獎狀。",
+     "vn": "Trên tủ sách phòng khách trưng bày ngay ngắn những tờ giấy khen cô ấy nhận được từ tiểu học đến đại học qua các cuộc thi vẽ."
+    },
+    {
+     "t": "Thiện nguyện",
+     "zh": "主辦單位特別製作了精美的獎狀與感謝狀，表揚長期投入社區服務的志工們。",
+     "vn": "Ban tổ chức đặc biệt làm giấy khen và thư cảm ơn trang trọng để tuyên dương các tình nguyện viên gắn bó lâu năm với cộng đồng."
+    }
+   ]
+  },
+  "講理": {
+   "vn": "biết điều; nói lý lẽ, hợp lý",
+   "ng": [
+    "(tính từ / động từ ly hợp) biết lý lẽ, cư xử công bằng hợp lý (講道理 biết lý lẽ, 不講理 vô lý, 蠻不講理 ngang ngược không nói lý lẽ)"
+   ],
+   "us": "Thường dùng ở dạng phủ định 不講理 (vô lý, ngang ngược) hoặc khen ai 很講理 (rất biết điều, nói chuyện có lý có tình).",
+   "co": [
+    "不講理|vô lý, không biết điều",
+    "蠻不講理|ngang ngược càn rỡ",
+    "講道理|nói lý lẽ, biết điều"
+   ],
+   "sy": [
+    "講道理|biết lý lẽ (đồng nghĩa, dùng phổ biến hơn trong khẩu ngữ)",
+    "通情達理|thấu tình đạt lý"
+   ],
+   "an": [
+    "無理取鬧|gây sự vô lý"
+   ],
+   "cf": [
+    "講理 vs 合理|講理 dùng cho thái độ, cách cư xử của con người ('người biết điều'); 合理 dùng cho giá cả, quy định, kế hoạch ('hợp lý')."
+   ],
+   "lt": "Tính từ / Động từ ly hợp.",
+   "mk": "Đừng nói *這個價格很講理 ❌ — giá cả hợp lý phải dùng 合理!",
+   "tw": "Ở Đài Loan gặp khách hàng quá quắt vô lý hay gọi 奧客 (tiếng Đài: khách hàng khó chịu, 不講理).",
+   "mh": "Giảng Lý → jiǎnglǐ. ĐỌC: 'giảng' → jiǎng (gi- → j-, thanh 3); 'lý' → lǐ (thanh 3; đọc liền jiánglǐ). NGHĨA: 講 nói + 理 lý lẽ → nói chuyện theo lý lẽ = biết điều.",
+   "vd": [
+    {
+     "t": "Giao tiếp",
+     "zh": "遇到爭執時只要雙方都冷靜講理，大多數誤會其實都能和平解決。",
+     "vn": "Khi gặp tranh cãi chỉ cần hai bên đều bình tĩnh nói lý lẽ, phần lớn hiểu lầm thực ra đều giải quyết ôn hòa được."
+    },
+    {
+     "t": "Dịch vụ",
+     "zh": "面對蠻不講理、當場大聲咆哮的顧客，店員依然保持專業冷靜的態度回應。",
+     "vn": "Trước vị khách ngang ngược vô lý lớn tiếng quát tháo tại chỗ, nhân viên cửa hàng vẫn giữ thái độ chuyên nghiệp bình tĩnh đáp lại."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "她是一位非常講理的媽媽，從不無緣無故責罵孩子，總是先聽完原因再溝通。",
+     "vn": "Cô ấy là người mẹ rất biết điều, không bao giờ mắng con vô cớ mà luôn nghe hết lý do rồi mới trao đổi."
+    }
+   ]
+  },
+  "講習": {
+   "vn": "tập huấn; bồi dưỡng ngắn hạn",
+   "ng": [
+    "(danh từ / động từ) lớp tập huấn, khóa bồi dưỡng kiến thức hoặc kỹ năng thực hành ngắn ngày (講習會 buổi tập huấn, 講習班 lớp tập huấn, 交通安全講習 lớp tập huấn an toàn giao thông)"
+   ],
+   "us": "Từ cực kỳ quen thuộc trong đời sống tại Đài Loan: thi bằng lái xe máy ở Đài Loan bắt buộc nghe 道路交通安全講習 (lớp tập huấn an toàn giao thông 120 phút), giáo viên/nhân viên thường xuyên tham gia 專業講習.",
+   "co": [
+    "講習會|buổi tập huấn",
+    "講習班|lớp tập huấn",
+    "安全講習|tập huấn an toàn",
+    "參加講習|tham gia tập huấn"
+   ],
+   "sy": [
+    "研習|hội thảo bồi dưỡng chuyên môn (rất hay dùng trong ngành giáo dục Đài Loan)",
+    "培訓|đào tạo"
+   ],
+   "cf": [
+    "講習 vs 講座|講座 là buổi nói chuyện/diễn thuyết một chiều theo chủ đề (chủ yếu nghe); 講習 mang tính tập huấn, hướng dẫn thực hành hoặc quy định bắt buộc (có học và áp dụng)."
+   ],
+   "lt": "場 (一場講習).",
+   "mk": "Khi thi bằng lái xe máy lần đầu ở Đài Loan, nhớ sắp xếp thời gian tham dự buổi 道安講習 bắt buộc!",
+   "tw": "Ở Đài Loan có các buổi 免費講習 rất hữu ích: 消防安全講習 (tập huấn PCCC), 稅務講習 (tập huấn khai thuế), 道安講習 (tập huấn luật giao thông).",
+   "mh": "Giảng Tập → jiǎngxí. ĐỌC: 'giảng' → jiǎng (thanh 3); 'tập' → xí (t- → x-, thanh 2). NGHĨA: 講 giảng giải + 習 thực hành → lớp tập huấn.",
+   "vd": [
+    {
+     "t": "Giao thông",
+     "zh": "在台灣初次考領機車駕照前，考生必須先完成兩個小時的交通安全講習。",
+     "vn": "Trước khi thi lấy bằng lái xe máy lần đầu ở Đài Loan, thí sinh phải hoàn thành hai tiếng tập huấn an toàn giao thông."
+    },
+    {
+     "t": "Công việc",
+     "zh": "公司下週三下午安排了一場資訊安全講習會，全體員工都必須準時出席。",
+     "vn": "Chiều thứ Tư tuần sau công ty sắp xếp một buổi tập huấn an toàn thông tin, toàn thể nhân viên đều phải tham dự đúng giờ."
+    },
+    {
+     "t": "Cộng đồng",
+     "zh": "區公所週末舉辦免費的居家急救講習，教導民眾正確操作心肺復甦術。",
+     "vn": "Ủy ban quận cuối tuần tổ chức lớp tập huấn sơ cứu tại nhà miễn phí, hướng dẫn người dân thao tác hô hấp nhân tạo đúng cách."
+    }
+   ]
+  },
+  "講義": {
+   "vn": "tài liệu học tập; đề cương bài giảng",
+   "ng": [
+    "(danh từ) tài liệu phát tay, giáo trình tóm tắt do giáo viên/diễn giả biên soạn cho buổi học hoặc khóa học (發講義 phát tài liệu, 上課講義 tài liệu trên lớp, 複習講義 tài liệu ôn tập)"
+   ],
+   "us": "Từ dùng hàng ngày trong mọi trường học, trung tâm ngôn ngữ và hội thảo tại Đài Loan! Lượng từ: 份 (一份講義) hoặc 本 (一本講義 nếu đóng thành tập).",
+   "co": [
+    "上課講義|tài liệu học trên lớp",
+    "發講義|phát tài liệu bài giảng",
+    "電子講義|tài liệu bản mềm (PDF)",
+    "補充講義|tài liệu bổ sung"
+   ],
+   "sy": [
+    "教材|giáo trình (quy mô lớn hơn, xuất bản chính thức)"
+   ],
+   "cf": [
+    "講義 vs 課本|課本 là sách giáo khoa chính thức; 講義 là tài liệu tóm tắt, bài tập, slide in rời do giảng viên tự soạn phát thêm cho lớp."
+   ],
+   "lt": "份, 本 (一份講義).",
+   "mk": "Chú ý nghĩa tiếng Hoa 講義 = 'tài liệu bài giảng/handout', không dịch thành 'giảng nghĩa'!",
+   "tw": "Ở đại học Đài Loan sinh viên rất hay lên hệ thống trường tải 電子講義 (slide/PDF bài giảng) hoặc ra tiệm photo in 講義.",
+   "mh": "Giảng Nghĩa → jiǎngyì. ĐỌC: 'giảng' → jiǎng (thanh 3); 'nghĩa' → yì (ng- mất, thanh 4). NGHĨA: 講 giảng dạy + 義 nội dung ý nghĩa → tài liệu bài giảng.",
+   "vd": [
+    {
+     "t": "Trường học",
+     "zh": "教授每次上課前一天都會把電子版講義上傳到教學平台，方便同學預習。",
+     "vn": "Giáo sư luôn tải tài liệu bài giảng bản điện tử lên hệ thống trước buổi học một ngày để sinh viên tiện xem trước."
+    },
+    {
+     "t": "Học tập",
+     "zh": "這份華語文法補充講義整理得很有條理，讓我一口氣弄懂了好幾個容易混淆的句型。",
+     "vn": "Tập tài liệu bổ sung ngữ pháp tiếng Hoa này trình bày rất mạch lạc, giúp tôi hiểu thông suốt luôn mấy mẫu câu dễ nhầm."
+    },
+    {
+     "t": "Hội thảo",
+     "zh": "為響應無紙化環保，本次研討會將不再印製紙本講義，請掃描現場條碼下載檔案。",
+     "vn": "Để hưởng ứng bảo vệ môi trường không giấy, hội thảo lần này sẽ không in tài liệu giấy, vui lòng quét mã tại chỗ để tải file."
+    }
+   ]
+  },
+  "講座": {
+   "vn": "buổi tọa đàm; buổi diễn thuyết chuyên đề",
+   "ng": [
+    "(danh từ) buổi nói chuyện, diễn thuyết chuyên đề do chuyên gia trình bày (專題講座 buổi tọa đàm chuyên đề, 線上講座 hội thảo trực tuyến/webinar, 舉辦講座 tổ chức tọa đàm)"
+   ],
+   "us": "Lượng từ: 場 (一場講座). Từ rất phổ biến trong trường đại học, nhà sách (như 誠品書店) và cộng đồng học tập ở Đài Loan.",
+   "co": [
+    "專題講座|tọa đàm chuyên đề",
+    "線上講座|tọa đàm trực tuyến",
+    "舉辦講座|tổ chức buổi diễn thuyết",
+    "聽講座|nghe tọa đàm"
+   ],
+   "sy": [
+    "演講|bài diễn thuyết, thuyết trình"
+   ],
+   "cf": [
+    "講座 vs 演講|演講 thiên về bài nói truyền cảm hứng hoặc phát biểu của cá nhân; 講座 thiên về buổi chia sẻ kiến thức chuyên sâu theo chủ đề (lịch sử, đầu tư, sức khỏe, du học)."
+   ],
+   "lt": "場 (一場講座).",
+   "mk": "Đừng nhầm với 'chỗ ngồi' (座位) — 講座 là buổi nói chuyện chuyên đề!",
+   "tw": "Ở Đài Loan các hiệu sách lớn như 誠品 (Eslite) và thư viện quận cuối tuần có rất nhiều 免費講座 (tọa đàm miễn phí) cực hay.",
+   "mh": "Giảng Tọa → jiǎngzuò. ĐỌC: 'giảng' → jiǎng (thanh 3); 'tọa' → zuò (t- → z-, thanh 4). NGHĨA: 講 giảng giải + 座 ghế ngồi nghe → buổi tọa đàm chuyên đề.",
+   "vd": [
+    {
+     "t": "Học tập",
+     "zh": "這週末書店邀請知名建築師舉辦免費講座，分享老屋翻修的設計案例。",
+     "vn": "Cuối tuần này hiệu sách mời kiến trúc sư nổi tiếng tổ chức buổi tọa đàm miễn phí chia sẻ các mẫu thiết kế cải tạo nhà cổ."
+    },
+    {
+     "t": "Nghề nghiệp",
+     "zh": "我報名了一場職涯規劃線上講座，希望了解不同產業目前的招募趨勢。",
+     "vn": "Tôi đã đăng ký một buổi tọa đàm trực tuyến về định hướng nghề nghiệp với mong muốn hiểu xu hướng tuyển dụng hiện nay của các ngành."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "醫院定期在社區活動中心舉辦營養講座，教導長輩如何吃得均衡又健康。",
+     "vn": "Bệnh viện định kỳ tổ chức các buổi tọa đàm dinh dưỡng tại nhà văn hóa khu phố, hướng dẫn người lớn tuổi ăn uống cân bằng và lành mạnh."
+    }
+   ]
+  },
+  "交錯": {
+   "vn": "đan xen; giao nhau, xen kẽ",
+   "ng": [
+    "(động từ) đan xen, chồng chéo, giao cắt nhau (光影交錯 ánh sáng và bóng tối đan xen, 縱橫交錯 ngang dọc chằng chịt, 悲喜交錯 buồn vui lẫn lộn)"
+   ],
+   "us": "Từ văn viết giàu hình ảnh, dùng cho không gian (đường sá, ánh sáng, dây điện), thời gian (時空交錯) lẫn cảm xúc.",
+   "co": [
+    "光影交錯|ánh sáng và bóng tối đan xen",
+    "縱橫交錯|ngang dọc chằng chịt",
+    "時空交錯|không gian thời gian đan xen",
+    "悲喜交錯|buồn vui lẫn lộn"
+   ],
+   "sy": [
+    "交織|đan dệt vào nhau (tình cảm, âm thanh, ánh sáng)"
+   ],
+   "cf": [
+    "交錯 vs 交織|交錯 nhấn mạnh các đường nét, lớp không gian cắt ngang xen kẽ nhau (巷弄交錯); 交織 nhấn mạnh hòa quyện dệt vào nhau (情感交織)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Chữ 錯 ở đây nghĩa gốc là 'đan xen, so le', KHÔNG mang nghĩa 'sai lầm'!",
+   "tw": "Rất hay xuất hiện trong bài văn miêu tả cảnh vật, du lịch, phim ảnh.",
+   "mh": "Giao Thác → jiāocuò. ĐỌC: 'giao' → jiāo (thanh 1); 'thác' → cuò (thanh 4). NGHĨA: 交 giao nhau + 錯 xen kẽ → đan xen giao cắt.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "台南的老城區巷弄縱橫交錯，隨意轉個彎就可能遇見一間充滿驚喜的特色小店。",
+     "vn": "Khu phố cổ Đài Nam ngõ ngách ngang dọc đan xen, tùy ý rẽ một góc là có thể bắt gặp một cửa tiệm độc đáo đầy bất ngờ."
+    },
+    {
+     "t": "Nhiếp ảnh",
+     "zh": "午後陽光穿過茂密的樹葉灑在步道上，形成光影交錯的迷人畫面。",
+     "vn": "Nắng chiều xuyên qua tán lá rậm rạp rọi xuống lối đi, tạo nên khung cảnh sáng tối đan xen đầy mê hoặc."
+    },
+    {
+     "t": "Điện ảnh",
+     "zh": "這部懸疑電影巧妙運用過去與現在兩條時間線交錯敘事，讓觀眾直到最後一刻才恍然大悟。",
+     "vn": "Bộ phim trinh thám này khéo léo kể chuyện đan xen giữa hai mốc quá khứ và hiện tại, khiến khán giả tới phút chót mới vỡ lẽ."
+    }
+   ]
+  },
+  "交貨": {
+   "vn": "giao hàng (thương mại, hợp đồng)",
+   "ng": [
+    "(động từ ly hợp) bàn giao hàng hóa theo đơn đặt hàng hoặc hợp đồng (準時交貨 giao hàng đúng hẹn, 延遲交貨 giao hàng trễ, 交貨日期 ngày giao hàng)"
+   ],
+   "us": "Thuật ngữ thương mại B2B / sản xuất (giữa xưởng, nhà cung cấp và đối tác). Với ship hàng lẻ đến nhà dân thường dùng 送貨 / 寄貨.",
+   "co": [
+    "準時交貨|giao hàng đúng hẹn",
+    "延遲交貨|giao hàng trễ hạn",
+    "交貨期|thời hạn giao hàng (交期)",
+    "驗收交貨|nghiệm thu bàn giao hàng"
+   ],
+   "sy": [
+    "出貨|xuất hàng khỏi kho",
+    "送貨|giao hàng tận nơi (ship lẻ)"
+   ],
+   "cf": [
+    "交貨 vs 送貨|交貨 là thuật ngữ hợp đồng thương mại ('bàn giao lô hàng đúng hạn'); 送貨 là hành động chở/giao hàng tới tận địa chỉ khách."
+   ],
+   "lt": "Động từ ly hợp.",
+   "mk": "Trong nhà máy/thương mại Đài Loan hay nói tắt 交貨日期 thành 交期 (jiāoqí).",
+   "tw": "Ở Đài Loan trong ngành thương mại xuất nhập khẩu và sản xuất cực hay nghe 趕交期 / 準時交貨.",
+   "mh": "Giao Hóa → jiāohuò. ĐỌC: 'giao' → jiāo (thanh 1); 'hóa' → huò (thanh 4). NGHĨA: 交 bàn giao + 貨 hàng hóa → giao hàng.",
+   "vd": [
+    {
+     "t": "Thương mại",
+     "zh": "這家零件供應商多年來始終維持高品質且準時交貨，因此深受國際大廠信賴。",
+     "vn": "Nhà cung cấp linh kiện này nhiều năm qua luôn giữ chất lượng cao và giao hàng đúng hẹn nên rất được các hãng lớn quốc tế tin cậy."
+    },
+    {
+     "t": "Công việc",
+     "zh": "因為上游原物料短缺，這批客製化商品恐怕會比原定日期延後一週交貨。",
+     "vn": "Do thiếu nguyên vật liệu đầu vào, lô hàng đặt riêng này e rằng sẽ giao trễ một tuần so với ngày dự kiến."
+    },
+    {
+     "t": "Hợp đồng",
+     "zh": "採購合約中已載明交貨地點、驗收標準以及逾期違約金的計算方式。",
+     "vn": "Trong hợp đồng mua hàng đã ghi rõ địa điểm giao hàng, tiêu chuẩn nghiệm thu và cách tính phạt vi phạm nếu giao trễ."
+    }
+   ]
+  },
+  "交集": {
+   "vn": "điểm chung; giao điểm, sự liên hệ",
+   "ng": [
+    "(danh từ) điểm giao nhau, điểm chung trong sở thích, cuộc sống hay quan hệ (沒有交集 không có điểm chung/không liên hệ, 產生交集 nảy sinh mối liên hệ)",
+    "(danh từ toán học) phép giao của hai tập hợp"
+   ],
+   "us": "Rất hay dùng trong đời sống và tâm lý quan hệ: 沒什麼交集 (chẳng có mấy điểm chung/ít tiếp xúc), 找到交集 (tìm được điểm chung).",
+   "co": [
+    "沒有交集|không có điểm chung / không liên hệ",
+    "產生交集|nảy sinh sự gắn kết",
+    "生活沒有交集|cuộc sống không có điểm chung",
+    "找到交集|tìm ra điểm giao nhau"
+   ],
+   "sy": [
+    "共同點|điểm chung"
+   ],
+   "cf": [
+    "交集 vs 共同點|共同點 chỉ đặc điểm giống nhau (chúng ta đều thích trà); 交集 rộng hơn, còn chỉ 'sự tiếp xúc, gắn kết trong vòng sinh hoạt hoặc công việc' (我們工作上沒有交集)."
+   ],
+   "lt": "個 (一個交集).",
+   "mk": "Cụm 沒有交集 rất tự nhiên để giải thích vì sao hai người dần xa cách hoặc ít quen biết.",
+   "tw": "Ở Đài Loan hay nói 畢業後大家各奔東西，生活圈慢慢就沒有交集了 (Ra trường mỗi người một nơi, vòng sống dần không còn giao nhau nữa).",
+   "mh": "Giao Tập → jiāojí. ĐỌC: 'giao' → jiāo (thanh 1); 'tập' → jí (t- → j-, thanh 2). NGHĨA: 交 giao nhau + 集 tập hợp → phần giao chung giữa hai tập hợp = điểm chung, sự liên hệ.",
+   "vd": [
+    {
+     "t": "Quan hệ",
+     "zh": "我們雖然在同一棟大樓上班，但屬於不同部門，平常業務上幾乎沒有交集。",
+     "vn": "Tuy chúng tôi làm việc cùng một tòa nhà nhưng thuộc hai phòng ban khác nhau, bình thường công việc hầu như chẳng có sự liên hệ nào."
+    },
+    {
+     "t": "Thảo luận",
+     "zh": "經過耐心傾聽彼此的訴求，原本立場對立的雙方終於找到了可以合作的交集。",
+     "vn": "Sau khi kiên nhẫn lắng nghe mong muốn của nhau, hai bên vốn đối lập lập trường cuối cùng cũng tìm được điểm chung để hợp tác."
+    },
+    {
+     "t": "Tình bạn",
+     "zh": "兩個個性截然不同的人，因為同樣熱愛登山而產生交集，成了無話不談的夥伴。",
+     "vn": "Hai người tính cách hoàn toàn khác biệt nhưng nhờ cùng đam mê leo núi mà kết nối với nhau, trở thành bạn đồng hành thân thiết."
+    }
+   ]
+  },
+  "交情": {
+   "vn": "giao tình; tình thân, mối quen biết",
+   "ng": [
+    "(danh từ) tình cảm quen biết, mức độ thân thiết giữa hai người hoặc hai gia đình (交情很深 giao tình rất sâu đậm, 多年交情 tình quen biết nhiều năm, 講交情 nể tình)"
+   ],
+   "us": "Dùng cho mối quan hệ bạn bè, đồng nghiệp, đối tác có độ gắn bó (有交情 có quen biết thân tình, 交情不錯 khá thân). Không dùng cho tình yêu nam nữ.",
+   "co": [
+    "交情很深|giao tình sâu đậm",
+    "多年交情|tình thân nhiều năm",
+    "交情不錯|quen biết khá thân",
+    "點頭之交|chỉ quen sơ chào hỏi"
+   ],
+   "sy": [
+    "友誼|tình bạn",
+    "情誼|tình nghĩa"
+   ],
+   "cf": [
+    "交情 vs 感情|感情 dùng rộng cho cả gia đình, tình yêu, bạn bè; 交情 chỉ mức độ thân thiết, mối quan hệ xã giao – bạn bè – đối tác."
+   ],
+   "lt": "份 (一份深厚的交情).",
+   "mk": "Đừng dùng 交情 để nói về tình yêu vợ chồng (*夫妻交情 ❌ → 夫妻感情).",
+   "tw": "Ở Đài Loan người ta hay nói 看在多年交情的份上 (Nể tình quen biết nhiều năm) hoặc 我們交情不錯.",
+   "mh": "Giao Tình → jiāoqíng. ĐỌC: 'giao' → jiāo (thanh 1); 'tình' → qíng (t- → q-, thanh 2). NGHĨA: 交 qua lại giao tiếp + 情 tình cảm → tình thân quen biết = giao tình.",
+   "vd": [
+    {
+     "t": "Bạn bè",
+     "zh": "他們兩位從大學時期就是室友，畢業二十年來依然維持著非常深厚的交情。",
+     "vn": "Hai người họ là bạn cùng phòng từ thời đại học, hai mươi năm sau khi ra trường vẫn giữ giao tình vô cùng sâu đậm."
+    },
+    {
+     "t": "Công việc",
+     "zh": "在職場上公事公辦很重要，但平時累積的良好交情往往能在關鍵時刻帶來協助。",
+     "vn": "Nơi công sở việc công ra việc công rất quan trọng, nhưng mối giao tình tốt tích lũy hàng ngày thường mang lại sự hỗ trợ vào lúc then chốt."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "我們只是偶爾在活動上碰面的點頭之交，彼此其實沒有太深的交情。",
+     "vn": "Chúng tôi chỉ là người quen sơ thi thoảng gặp ở sự kiện, thực ra giữa hai bên không có giao tình sâu đậm gì."
+    }
+   ]
+  },
+  "交涉": {
+   "vn": "giao thiệp; thương lượng, đàm phán giải quyết vấn đề",
+   "ng": [
+    "(động từ) trực tiếp thương lượng, trao đổi với đối phương để giải quyết tranh chấp, bất đồng hoặc đề nghị (與對方交涉 thương lượng với đối phương, 外交交涉 giao thiệp ngoại giao, 交涉未果 thương lượng không thành)"
+   ],
+   "us": "Thường dùng khi đã có vấn đề/tranh chấp/quyền lợi cần đứng ra nói chuyện giải quyết (跟廠商交涉, 跟航空公司交涉).",
+   "co": [
+    "與對方交涉|thương lượng với đối phương",
+    "交涉未果|thương lượng bất thành",
+    "出面交涉|đứng ra thương lượng",
+    "透過交涉|thông qua đàm phán"
+   ],
+   "sy": [
+    "協商|hiệp thương, bàn bạc (ôn hòa hơn)",
+    "談判|đàm phán (quy mô lớn, căng thẳng hơn)"
+   ],
+   "cf": [
+    "交涉 vs 談判|談判 thường dùng cho thương vụ lớn, ký hiệp định quốc tế; 交涉 dùng khi một bên chủ động tìm gặp đối phương để khiếu nại, đòi quyền lợi hoặc xử lý rắc rối cụ thể."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng dịch 交涉 là 'giao tiếp xã giao thông thường' — giao tiếp hàng ngày là 交流 / 溝通!",
+   "tw": "Trong tin tức tiêu dùng và ngoại giao Đài Loan rất hay gặp 多次交涉後終於達成共識.",
+   "mh": "Giao Thiệp → jiāoshè. ĐỌC: 'giao' → jiāo (thanh 1); 'thiệp' → shè (th- → sh-, thanh 4). NGHĨA: 交 qua lại + 涉 lội qua xử lý việc → đứng ra thương lượng giải quyết.",
+   "vd": [
+    {
+     "t": "Tiêu dùng",
+     "zh": "收到瑕疵商品後，她立刻附上照片與賣家交涉，最終順利獲得全額退款。",
+     "vn": "Sau khi nhận hàng lỗi, cô ấy lập tức gửi kèm ảnh thương lượng với người bán và cuối cùng được hoàn tiền đầy đủ."
+    },
+    {
+     "t": "Công việc",
+     "zh": "這批貨物在海關被扣留檢查，物流部門正緊急派員前往相關單位交涉處理。",
+     "vn": "Lô hàng này bị giữ lại kiểm tra ở hải quan, bộ phận hậu cần đang gấp rút cử người tới cơ quan liên quan thương lượng xử lý."
+    },
+    {
+     "t": "Cộng đồng",
+     "zh": "管委會代表社區住戶與建商交涉了整整一個月，才終於爭取到免費修繕地下室漏水。",
+     "vn": "Ban quản trị đại diện cư dân thương lượng với chủ đầu tư suốt một tháng mới giành được việc sửa chữa miễn phí chỗ thấm nước tầng hầm."
+    }
+   ]
+  },
+  "交談": {
+   "vn": "trò chuyện; đàm đạo, nói chuyện (trang trọng)",
+   "ng": [
+    "(động từ) trò chuyện, trao đổi bằng lời nói giữa hai hay nhiều người (輕聲交談 nói chuyện nhỏ nhẹ, 互相交談 trò chuyện với nhau, 禁止交談 cấm nói chuyện)"
+   ],
+   "us": "Trang trọng, lịch sự hơn 聊天; rất hay xuất hiện trên biển báo công cộng (圖書館內請勿交談 Xin đừng nói chuyện trong thư viện) và văn viết.",
+   "co": [
+    "輕聲交談|nói chuyện khẽ khàng",
+    "互相交談|trò chuyện với nhau",
+    "禁止交談|cấm nói chuyện",
+    "愉快交談|trò chuyện vui vẻ"
+   ],
+   "sy": [
+    "聊天|tán gẫu (thân mật, khẩu ngữ)",
+    "對話|đối thoại"
+   ],
+   "cf": [
+    "交談 vs 聊天|聊天 là tán gẫu thoải mái với bạn bè; 交談 trung tính và lịch sự hơn, dùng trên biển báo, tường thuật, gặp gỡ đối tác."
+   ],
+   "lt": "Động từ.",
+   "mk": "Rủ bạn đi uống cà phê tán gẫu dùng 聊天, đừng nói *我們去交談吧 ❌ (nghe quá cứng!).",
+   "tw": "Trong thư viện và phòng thi ở Đài Loan biển nhắc luôn viết 請勿大聲交談 (Vui lòng không nói chuyện lớn tiếng).",
+   "mh": "Giao Đàm → jiāotán. ĐỌC: 'giao' → jiāo (thanh 1); 'đàm' → tán (đ- dấu huyền → t-, thanh 2). NGHĨA: 交 qua lại + 談 nói chuyện → trò chuyện, đàm đạo.",
+   "vd": [
+    {
+     "t": "Thư viện",
+     "zh": "閱覽室內請保持安靜，若需要小組討論請移步至二樓的討論室再交談。",
+     "vn": "Trong phòng đọc vui lòng giữ yên lặng, nếu cần thảo luận nhóm xin di chuyển sang phòng thảo luận tầng hai rồi hãy trò chuyện."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "透過與當地居民自然交談，她的中文聽力與口語反應速度在半年內進步神速。",
+     "vn": "Thông qua việc trò chuyện tự nhiên với cư dân địa phương, kỹ năng nghe và phản xạ nói tiếng Hoa của cô ấy tiến bộ thần tốc trong nửa năm."
+    },
+    {
+     "t": "Công sở",
+     "zh": "兩位負責人趁著中場休息時間在走廊上簡短交談了幾句，確認了下午的簽約細節。",
+     "vn": "Hai người phụ trách tranh thủ giờ giải lao trao đổi ngắn vài câu ngoài hành lang để xác nhận chi tiết lễ ký kết buổi chiều."
+    }
+   ]
+  },
+  "焦急": {
+   "vn": "nóng lòng; sốt ruột, lo lắng gấp gáp",
+   "ng": [
+    "(tính từ) nóng ruột, lo lắng sốt sắng chờ đợi điều gì (焦急等待 nóng lòng chờ đợi, 心情焦急 tâm trạng sốt ruột, 焦急萬分 vô cùng sốt ruột)"
+   ],
+   "us": "Mạnh và giàu sắc thái lo lắng hơn 着急 (zháojí); dùng nhiều trong văn viết hoặc mô tả cảm xúc bồn chồn khi chờ tin/xử lý việc gấp.",
+   "co": [
+    "焦急等待|nóng lòng chờ đợi",
+    "心情焦急|tâm trạng sốt ruột",
+    "焦急萬分|vô cùng nóng ruột",
+    "神情焦急|vẻ mặt lo lắng sốt ruột"
+   ],
+   "sy": [
+    "著急|sốt ruột, vội (khẩu ngữ hàng ngày)",
+    "焦慮|lo âu (kéo dài)"
+   ],
+   "an": [
+    "冷靜|bình tĩnh",
+    "從容|ung dung, điềm tĩnh"
+   ],
+   "cf": [
+    "焦急 vs 著急|著急 phổ biến nhất trong khẩu ngữ (別著急 đừng vội); 焦急 thiên về văn viết, nhấn mạnh cảm giác đứng ngồi không yên vì lo lắng."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Chữ 焦 có bộ 灬 (lửa) bên dưới = như ngồi trên đống lửa → sốt ruột, nóng lòng!",
+   "tw": "Hay gặp khi kể cảnh chờ kết quả thi, chờ người thân trước phòng cấp cứu hoặc trễ chuyến bay.",
+   "mh": "Tiêu Cấp → jiāojí. ĐỌC: 'tiêu' → jiāo (t- → j-, thanh 1); 'cấp' → jí (thanh 2). NGHĨA: 焦 cháy xém nóng bức + 急 gấp gáp → nóng lòng sốt ruột.",
+   "vd": [
+    {
+     "t": "Sân bay",
+     "zh": "距離登機只剩二十分鐘卻還在路上塞車，車裡的乘客無不神情焦急地頻頻看錶。",
+     "vn": "Chỉ còn hai mươi phút nữa lên máy bay mà vẫn kẹt xe trên đường, hành khách trên xe ai nấy đều sốt ruột liên tục xem đồng hồ."
+    },
+    {
+     "t": "Thi cử",
+     "zh": "放榜前夕，許多考生都懷著焦急又期待的心情反覆刷新查詢網頁。",
+     "vn": "Trước giờ công bố kết quả, nhiều thí sinh đều mang tâm trạng vừa sốt ruột vừa hồi hộp liên tục tải lại trang tra cứu."
+    },
+    {
+     "t": "An ủi",
+     "zh": "遇到突發狀況越焦急越容易出錯，先深呼吸冷靜下來才能找到最好的辦法。",
+     "vn": "Gặp sự cố bất ngờ càng nóng ruột càng dễ sai sót, hít thở sâu bình tĩnh lại trước mới tìm ra cách tốt nhất."
+    }
+   ]
+  },
+  "腳本": {
+   "vn": "kịch bản; tập lệnh (script)",
+   "ng": [
+    "(danh từ) kịch bản phim, video, quảng cáo, bài thuyết trình (寫腳本 viết kịch bản, 影片腳本 kịch bản video)",
+    "(danh từ công nghệ) tập lệnh lập trình tự động hóa (自動化腳本 script tự động hóa)"
+   ],
+   "us": "Dùng cực kỳ rộng trong cả truyền thông/YouTube (拍片先寫腳本) lẫn lập trình IT (Python 腳本).",
+   "co": [
+    "寫腳本|viết kịch bản",
+    "影片腳本|kịch bản video",
+    "自動化腳本|tập lệnh tự động hóa",
+    "按照腳本|theo đúng kịch bản"
+   ],
+   "sy": [
+    "劇本|kịch bản phim/kịch sân khấu (chính thức, đầy đủ lời thoại)"
+   ],
+   "cf": [
+    "腳本 vs 劇本|劇本 dùng cho phim điện ảnh, phim truyền hình, vở kịch; 腳本 rộng hơn, dùng cho video ngắn, quảng cáo, podcast, buổi dẫn chương trình và cả script lập trình."
+   ],
+   "lt": "份 (一份腳本).",
+   "mk": "Trong ngành IT Đài Loan, 'script' dịch chuẩn là 腳本 (jiǎoběn).",
+   "tw": "Các YouTuber và nhóm marketing Đài Loan luôn nói 企劃和腳本 (lên ý tưởng và kịch bản video).",
+   "mh": "Cước Bản → jiǎoběn. ĐỌC: 'cước' → jiǎo (thanh 3); 'bản' → běn (thanh 3; đọc liền jiáoběn). NGHĨA: 腳 nền tảng/bước chân + 本 bản thảo → bản sườn từng bước = kịch bản, script.",
+   "vd": [
+    {
+     "t": "Truyền thông",
+     "zh": "拍宣傳影片前把分鏡和旁白腳本寫仔細，正式開拍時能省下至少一半的時間。",
+     "vn": "Trước khi quay video quảng bá viết kỹ kịch bản phân cảnh và lời dẫn sẽ tiết kiệm được ít nhất nửa thời gian lúc quay chính thức."
+    },
+    {
+     "t": "Công nghệ",
+     "zh": "他寫了一個簡短的自動化腳本，每天定時幫忙整理報表並寄送到團隊信箱。",
+     "vn": "Anh ấy viết một tập lệnh tự động ngắn, mỗi ngày đúng giờ tự tổng hợp báo cáo và gửi vào hộp thư nhóm."
+    },
+    {
+     "t": "Tình huống",
+     "zh": "今天簡報現場突然斷網，簡直完全不按原本的腳本走，還好我事先存了離線檔案。",
+     "vn": "Buổi thuyết trình hôm nay bỗng nhiên mất mạng, hoàn toàn trệch khỏi kịch bản ban đầu, may mà tôi lưu sẵn file ngoại tuyến."
+    }
+   ]
+  },
+  "攪和": {
+   "vn": "trộn lẫn, khuấy; xen vào làm rối tung",
+   "ng": [
+    "(động từ) khuấy trộn đều thức ăn, nguyên liệu (把麵粉和水攪和均勻 trộn đều bột mì với nước)",
+    "(động từ khẩu ngữ nghĩa bóng) xen vào quấy rối, làm rối tung chuyện lên (別來攪和 đừng xen vào làm rối nữa, 攪和在一起 dính líu/trộn lẫn vào nhau)"
+   ],
+   "us": "Từ khẩu ngữ sinh động: nghĩa đen là khuấy trộn (khẩu ngữ hơn 攪拌), nghĩa bóng hay dùng để chê ai xen vào làm hỏng chuyện.",
+   "co": [
+    "攪和均勻|trộn đều lên",
+    "別來攪和|đừng xen vào làm rối",
+    "攪和在一起|trộn lẫn / dính líu vào nhau"
+   ],
+   "sy": [
+    "攪拌|khuấy trộn (chuẩn mực trong nấu ăn)",
+    "摻和|xen vào (khẩu ngữ)"
+   ],
+   "cf": [
+    "攪和 vs 攪拌|攪拌 dùng chuẩn mực trong công thức nấu ăn và hóa học; 攪和 mang sắc thái khẩu ngữ, còn có nghĩa bóng 'xen vào gây rối'."
+   ],
+   "lt": "Động từ (jiǎohuò / jiǎohuo).",
+   "mk": "Chữ 和 ở đây đọc huò (trộn), không đọc hé!",
+   "tw": "Trong khẩu ngữ Đài Loan nấu ăn hay dùng 攪拌, còn 攪和 hay dùng theo nghĩa bóng hài hước hoặc bực mình (別把兩件事攪和在一起 Đừng trộn lẫn hai chuyện với nhau).",
+   "mh": "Giảo Hòa → jiǎohuò. ĐỌC: 'giảo' → jiǎo (gi- → j-, thanh 3); 'hòa' ở đây đọc huò (thanh 4). NGHĨA: 攪 khuấy + 和 trộn đều → khuấy trộn, làm rối tung.",
+   "vd": [
+    {
+     "t": "Nấu ăn",
+     "zh": "做蔥油餅麵糰時要把熱水慢慢倒進麵粉裡，用筷子攪和成絮狀再下手揉。",
+     "vn": "Khi làm bột bánh hành chiên phải rót từ từ nước nóng vào bột mì, dùng đũa khuấy trộn thành từng mảng rồi mới nhồi tay."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "這件事本來快要談妥了，結果他半路跳進來胡亂攪和，害大家又得從頭討論。",
+     "vn": "Chuyện này vốn sắp bàn xong rồi, kết quả anh ta nhảy ngang vào làm rối tung lên khiến mọi người phải thảo luận lại từ đầu."
+    },
+    {
+     "t": "Tư duy",
+     "zh": "工作上的意見分歧跟私人交情應該分清楚，千萬別把兩件事攪和在一起。",
+     "vn": "Bất đồng ý kiến trong công việc và tình cảm cá nhân nên tách bạch rõ ràng, đừng bao giờ trộn lẫn hai chuyện vào nhau."
+    }
+   ]
+  },
+  "轎車": {
+   "vn": "xe ô tô con; xe hơi (sedan)",
+   "ng": [
+    "(danh từ) xe ô tô con chở khách 4–5 chỗ ngồi (小轎車 xe ô tô con, 房車 xe sedan)"
+   ],
+   "us": "Lượng từ: 輛 hoặc 台 (一輛轎車 / 一台轎車). Ở Đài Loan cũng rất hay nói 自小客車 (trong văn bản giao thông) hoặc 房車 / 小客車.",
+   "co": [
+    "小轎車|xe ô tô con",
+    "高級轎車|xe hơi hạng sang",
+    "開轎車|lái xe ô tô con"
+   ],
+   "sy": [
+    "汽車|ô tô nói chung",
+    "房車|xe sedan (rất hay dùng ở Đài Loan)"
+   ],
+   "cf": [
+    "轎車 vs 休旅車|轎車 là xe ô tô con gầm thấp (sedan); 休旅車 là xe SUV gầm cao gia đình (rất phổ biến ở Đài Loan)."
+   ],
+   "lt": "輛, 台 (一台轎車).",
+   "mk": "Chữ 轎 vốn là 'chiếc kiệu' thời xưa → 轎車 = chiếc xe kín chỗ ngồi êm ái như kiệu = xe hơi con.",
+   "tw": "Ở Đài Loan gọi chung ô tô đi lại là 開車 / 汽車; phân loại xe con nói 轎車 hoặc 房車, xe SUV nói 休旅車.",
+   "mh": "Kiệu Xa → jiàochē. ĐỌC: 'kiệu' → jiào (k- → j-, thanh 4); 'xa' → chē (thanh 1). NGHĨA: 轎 chiếc kiệu kín + 車 xe → xe ô tô con.",
+   "vd": [
+    {
+     "t": "Giao thông",
+     "zh": "這條山間小路寬度有限，僅能容納一輛小轎車通行，會車時必須特別小心。",
+     "vn": "Con đường núi nhỏ này bề rộng có hạn, chỉ vừa một chiếc ô tô con đi qua, lúc tránh xe phải đặc biệt cẩn thận."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "由於市區停車位不好找，他們家最後決定買一台車身靈巧的小型油電混合轎車。",
+     "vn": "Do chỗ đỗ xe nội đô khó tìm, nhà họ cuối cùng quyết định mua một chiếc xe hơi hybrid cỡ nhỏ gọn gàng linh hoạt."
+    },
+    {
+     "t": "An toàn",
+     "zh": "這部新款轎車配備了自動緊急煞車與車道維持輔助系統，大幅提升長途行車安全。",
+     "vn": "Mẫu xe hơi mới này trang bị phanh khẩn cấp tự động và hỗ trợ giữ làn, nâng cao đáng kể an toàn khi lái đường dài."
+    }
+   ]
+  },
+  "叫好": {
+   "vn": "vỗ tay tán thưởng; khen hay",
+   "ng": [
+    "(động từ) reo hò khen hay, tán thưởng nhiệt liệt trước màn biểu diễn hay tác phẩm xuất sắc (拍手叫好 vỗ tay khen hay, 叫好又叫座 vừa được khen hay vừa ăn khách)"
+   ],
+   "us": "Rất hay dùng trong bình luận phim ảnh, nghệ thuật, thể thao (叫好又叫座 = vừa được giới phê bình khen hay vừa thắng lớn doanh thu).",
+   "co": [
+    "拍手叫好|vỗ tay tán thưởng",
+    "叫好又叫座|vừa hay vừa ăn khách",
+    "連聲叫好|liên tục khen hay",
+    "贏得滿堂叫好|nhận tràng pháo tay vang dội"
+   ],
+   "sy": [
+    "喝采|hô vang cổ vũ, tán thưởng",
+    "稱讚|khen ngợi"
+   ],
+   "an": [
+    "喝倒采|la ó chê bai"
+   ],
+   "cf": [
+    "叫好 vs 稱讚|稱讚 là lời khen ngợi trực tiếp (稱讚他很努力); 叫好 là tiếng reo hò tán thưởng bùng nổ trước màn trình diễn, bộ phim hay chính sách được lòng dân."
+   ],
+   "lt": "Động từ.",
+   "mk": "Cụm thành ngữ cực hay cho bài đọc giải trí: 叫好不叫座 (được khen hay nhưng ít người mua vé) vs 叫好又叫座 (vừa hay vừa bán chạy).",
+   "tw": "Báo chí văn hóa Đài Loan cực hay dùng 叫好又叫座 để khen phim Đài Loan đoạt giải Kim Mã lẫn thắng phòng vé.",
+   "mh": "Khiếu Hảo → jiàohǎo. ĐỌC: 'khiếu' → jiào (thanh 4); 'hảo' → hǎo (thanh 3). NGHĨA: 叫 hô vang + 好 hay quá → hô vang khen hay = tán thưởng.",
+   "vd": [
+    {
+     "t": "Biểu diễn",
+     "zh": "舞者在舞台上完成一連串高難度旋轉動作，台下觀眾頓時忍不住拍手叫好。",
+     "vn": "Nghệ sĩ múa hoàn thành chuỗi động tác xoay độ khó cao trên sân khấu, khán giả bên dưới lập tức không nhịn được vỗ tay tán thưởng."
+    },
+    {
+     "t": "Điện ảnh",
+     "zh": "這部本土電影劇情真摯動人，上映後票房屢創佳績，堪稱今年最叫好又叫座的作品。",
+     "vn": "Bộ phim nội địa này cốt truyện chân thành lay động, công chiếu xong phòng vé liên tiếp lập kỷ lục, xứng đáng là tác phẩm vừa hay vừa ăn khách nhất năm."
+    },
+    {
+     "t": "Chính sách",
+     "zh": "市政府推出通勤月票優惠方案後，大幅減輕上班族交通費，贏得民眾一致叫好。",
+     "vn": "Sau khi chính quyền thành phố tung gói vé tháng ưu đãi, chi phí đi lại của dân văn phòng giảm mạnh, nhận được sự tán thưởng đồng lòng của người dân."
+    }
+   ]
+  },
+  "教官": {
+   "vn": "giáo quan; sĩ quan huấn luyện",
+   "ng": [
+    "(danh từ) huấn luyện viên quân sự, cảnh sát, phi công (飛行教官 huấn luyện viên bay); tại Đài Loan còn chỉ sĩ quan quân huấn phụ trách kỷ luật và an toàn học đường ở cấp 3 và đại học"
+   ],
+   "us": "Từ mang dấu ấn văn hóa học đường rất đặc trưng của Đài Loan (高中教官 / 大學軍訓教官 — hiện nay Đài Loan đang chuyển dần sang 校安人員 nhân viên an toàn học đường).",
+   "co": [
+    "軍訓教官|sĩ quan quân huấn học đường",
+    "飛行教官|huấn luyện viên bay",
+    "教官室|phòng giáo quan"
+   ],
+   "sy": [
+    "教練|huấn luyện viên (thể thao, lái xe)"
+   ],
+   "cf": [
+    "教官 vs 教練|教練 dùng cho thể thao, tập gym, lái xe ô tô (駕訓班教練); 教官 dùng cho quân đội, cảnh sát, hàng không và sĩ quan quân huấn trong trường học Đài Loan."
+   ],
+   "lt": "位, 名 (一位教官).",
+   "mk": "Đừng gọi thầy dạy lái xe hay HLV gym là 教官 — họ là 教練 (jiàoliàn)!",
+   "tw": "Nhiều thế hệ học sinh cấp 3 Đài Loan có kỷ niệm khó quên với 教官 (người mặc quân phục gác cổng trường, nhắc nhở đồng phục và hỗ trợ sinh viên khi gặp sự cố ngoài trường).",
+   "mh": "Giáo Quan → jiàoguān. ĐỌC: 'giáo' → jiào (gi- → j-, thanh 4); 'quan' → guān (qu- → g-, thanh 1). NGHĨA: 教 huấn luyện + 官 sĩ quan → sĩ quan huấn luyện.",
+   "vd": [
+    {
+     "t": "Trường học",
+     "zh": "以前台灣高中校園裡常能看見教官站在校門口引導交通，維護學生上下學的安全。",
+     "vn": "Trước đây trong các trường cấp ba Đài Loan thường thấy giáo quan đứng trước cổng điều tiết giao thông, bảo vệ an toàn cho học sinh đi học về."
+    },
+    {
+     "t": "Hàng không",
+     "zh": "所有新進副機師都必須在資深飛行教官的陪同下完成數百小時的模擬機訓練。",
+     "vn": "Tất cả cơ phó mới vào đều phải hoàn thành hàng trăm giờ huấn luyện buồng lái mô phỏng dưới sự hướng dẫn của huấn luyện viên bay kỳ cựu."
+    },
+    {
+     "t": "An toàn",
+     "zh": "大學新生訓練時，校方特別請教官講解租屋消防安全與防範詐騙的注意事項。",
+     "vn": "Trong tuần lễ định hướng tân sinh viên, nhà trường đặc biệt mời giáo quan phổ biến an toàn PCCC khi thuê trọ và lưu ý phòng chống lừa đảo."
+    }
+   ]
+  },
+  "教化": {
+   "vn": "giáo hóa; cảm hóa, giáo dục hướng thiện",
+   "ng": [
+    "(động từ / danh từ) giáo dục, cảm hóa làm thay đổi nhân cách theo hướng tốt đẹp (教化人心 cảm hóa lòng người, 教化功能 chức năng giáo dục hướng thiện)"
+   ],
+   "us": "Từ văn viết trang trọng, thường gặp trong chủ đề giáo dục, văn hóa, nghệ thuật và pháp luật (như cải tạo phạm nhân 矯治教化).",
+   "co": [
+    "教化人心|cảm hóa lòng người",
+    "教化意義|ý nghĩa giáo dục hướng thiện",
+    "教化可能|khả năng cải tạo hướng thiện"
+   ],
+   "sy": [
+    "感化|cảm hóa (bằng tình cảm, tấm gương)",
+    "教育|giáo dục (rộng và thông dụng hơn)"
+   ],
+   "cf": [
+    "教化 vs 教育|教育 là dạy học, truyền đạt kiến thức và kỹ năng nói chung; 教化 thiên về cảm hóa đạo đức, dẫn dắt con người hướng thiện."
+   ],
+   "lt": "Động từ / Danh từ.",
+   "mk": "Đừng dùng 教化 cho việc dạy tiếng Hoa hay dạy toán (*教化中文 ❌ → 教中文).",
+   "tw": "Trong tin tức tư pháp Đài Loan rất hay xuất hiện cụm 仍有教化可能 (vẫn còn khả năng cải tạo hướng thiện).",
+   "mh": "Giáo Hóa → jiàohuà. ĐỌC: 'giáo' → jiào (thanh 4); 'hóa' → huà (thanh 4). NGHĨA: 教 dạy bảo + 化 cảm hóa → giáo hóa.",
+   "vd": [
+    {
+     "t": "Văn hóa",
+     "zh": "許多流傳百年的民間戲曲不僅具娛樂效果，同時也承載著寓教於樂的教化意義。",
+     "vn": "Nhiều vở tuồng dân gian lưu truyền trăm năm không chỉ có tính giải trí mà còn mang ý nghĩa giáo hóa lồng ghép nhẹ nhàng."
+    },
+    {
+     "t": "Pháp luật",
+     "zh": "現代獄政制度除了執行刑罰，更重視透過技能訓練與心理輔導發揮教化功能。",
+     "vn": "Hệ thống trại giam hiện đại ngoài thi hành án phạt còn chú trọng phát huy chức năng giáo hóa qua đào tạo nghề và tư vấn tâm lý."
+    },
+    {
+     "t": "Văn học",
+     "zh": "好的繪本不需要生硬說教，透過溫暖的故事自然就能達到潛移默化的教化效果。",
+     "vn": "Sách tranh hay không cần rao giảng khô cứng, qua câu chuyện ấm áp tự nhiên sẽ đạt được hiệu quả cảm hóa sâu lắng."
+    }
+   ]
+  },
+  "教誨": {
+   "vn": "lời dạy bảo; lời răn dạy (ân cần của bậc trên)",
+   "ng": [
+    "(danh từ / động từ) lời dạy bảo chân thành, sâu sắc của thầy cô, cha mẹ, bậc trưởng bối (老師的教誨 lời dạy bảo của thầy cô, 銘記教誨 khắc ghi lời dạy)"
+   ],
+   "us": "Rất trang trọng và giàu lòng kính trọng; chỉ dùng khi nhắc lời dạy của cha mẹ, thầy cô, bậc tiền bối (KHÔNG dùng khi nói mình dạy người khác).",
+   "co": [
+    "老師的教誨|lời dạy bảo của thầy cô",
+    "父母的教誨|lời răn dạy của cha mẹ",
+    "銘記教誨|khắc ghi lời dạy bảo",
+    "諄諄教誨|ân cần dạy bảo"
+   ],
+   "sy": [
+    "教導|dạy dỗ, chỉ bảo (trung tính hơn)",
+    "叮嚀|lời dặn dò (ấm áp, đời thường)"
+   ],
+   "cf": [
+    "教誨 vs 教訓|教訓 mang sắc thái răn đe, bài học đắt giá sau lỗi lầm (慘痛的教訓 bài học đau xót); 教誨 luôn ấm áp, kính trọng đối với lời chỉ dạy của thầy cô, cha mẹ."
+   ],
+   "lt": "番 (一番教誨).",
+   "mk": "Đừng nhầm 誨 (huì — bộ 言 lời nói dạy bảo) với 悔 (huǐ — bộ 忄 hối hận)!",
+   "tw": "Rất hay dùng trong lễ tốt nghiệp, thiệp chúc mừng ngày Nhà giáo 教師節 (感謝老師多年來的諄諄教誨).",
+   "mh": "Giáo Hối → jiàohuì. ĐỌC: 'giáo' → jiào (thanh 4); 'hối' → huì (thanh 4). NGHĨA: 教 dạy + 誨 lời khuyên răn → lời dạy bảo đáng kính.",
+   "vd": [
+    {
+     "t": "Tri ân",
+     "zh": "畢業多年以後，我依然深深感謝大學導師當年在課堂內外對我們的諄諄教誨。",
+     "vn": "Nhiều năm sau khi tốt nghiệp, tôi vẫn sâu sắc biết ơn những lời dạy bảo ân cần của thầy hướng dẫn đại học trong và ngoài lớp."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "他始終把祖父「做人要誠實守信」的教誨銘記在心，從不投機取巧。",
+     "vn": "Anh ấy luôn khắc ghi trong lòng lời răn dạy 'làm người phải trung thực giữ chữ tín' của ông nội, không bao giờ khôn lỏi."
+    },
+    {
+     "t": "Trưởng thành",
+     "zh": "年輕時常覺得長輩的話太囉嗦，直到自己獨當一面後才真正體會那些教誨的價值。",
+     "vn": "Hồi trẻ thường thấy lời người lớn dài dòng, mãi đến khi tự gánh vác công việc mới thực sự thấm thía giá trị của những lời dạy ấy."
+    }
+   ]
+  },
+  "教徒": {
+   "vn": "tín đồ (tôn giáo)",
+   "ng": [
+    "(danh từ) tín đồ theo một tôn giáo nhất định (佛教徒 Phật tử, 基督教徒 tín đồ Cơ Đốc giáo, 天主教徒 tín đồ Công giáo, 伊斯蘭教徒 / 穆斯林 tín đồ Hồi giáo)"
+   ],
+   "us": "Thường đi kèm tên tôn giáo đứng trước: …教徒. Lượng từ: 位 hoặc 名.",
+   "co": [
+    "佛教徒|tín đồ Phật giáo (Phật tử)",
+    "基督教徒|tín đồ Cơ Đốc giáo",
+    "天主教徒|tín đồ Công giáo",
+    "虔誠的教徒|tín đồ ngoan đạo"
+   ],
+   "sy": [
+    "信徒|tín đồ (dùng được cho cả tín ngưỡng dân gian như 媽祖信徒)"
+   ],
+   "cf": [
+    "教徒 vs 信徒|教徒 gắn với tên tôn giáo cụ thể (佛教徒, 基督教徒); 信徒 rộng hơn, dùng được cả cho tín ngưỡng dân gian (廟宇信徒 tín đồ đi lễ miếu)."
+   ],
+   "lt": "位, 名 (一位教徒).",
+   "mk": "Ở Đài Loan tín ngưỡng dân gian (như thờ Ma Tổ 媽祖) dùng 信徒 hoặc 信眾 phổ biến hơn 教徒.",
+   "tw": "Đài Loan rất đa dạng và cởi mở về tôn giáo: nhiều quán ăn ghi rõ 清真認證 (chứng nhận Halal cho tín đồ Hồi giáo) và 素食 (ăn chay cho Phật tử).",
+   "mh": "Giáo Đồ → jiàotú. ĐỌC: 'giáo' → jiào (thanh 4); 'đồ' → tú (đ- dấu huyền → t-, thanh 2). NGHĨA: 教 tôn giáo + 徒 người theo học/theo đạo → tín đồ.",
+   "vd": [
+    {
+     "t": "Văn hóa",
+     "zh": "這座城市對多元宗教非常友善，街上隨處可見服務不同教徒的清真餐廳與素食店。",
+     "vn": "Thành phố này rất thân thiện với đa dạng tôn giáo, trên phố đâu đâu cũng thấy nhà hàng Halal và quán chay phục vụ các tín đồ khác nhau."
+    },
+    {
+     "t": "Lễ hội",
+     "zh": "每逢聖誕夜，許多基督教徒與天主教徒都會前往教堂參加子夜彌撒與報佳音活動。",
+     "vn": "Mỗi đêm Giáng sinh, nhiều tín đồ Tin Lành và Công giáo đều tới nhà thờ dự thánh lễ nửa đêm và hát thánh ca."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "她是一位虔誠的佛教徒，每逢初一、十五都會吃素並到寺廟幫忙擔任義工。",
+     "vn": "Cô ấy là một Phật tử ngoan đạo, cứ mùng một và ngày rằm đều ăn chay và tới chùa phụ làm công quả."
+    }
+   ]
+  },
+  "教員": {
+   "vn": "giáo viên (cán bộ giảng dạy)",
+   "ng": [
+    "(danh từ) nhân viên giảng dạy, giáo viên trong trường học (專任教員 giáo viên cơ hữu, 教職員 cán bộ giáo viên và nhân viên nhà trường)"
+   ],
+   "us": "Từ hành chính/văn viết trang trọng; trong giao tiếp hàng ngày gọi trực tiếp vẫn dùng 老師, còn trên giấy tờ trường học hay gặp 教師 hoặc 教職員 (giáo viên + nhân viên hành chính).",
+   "co": [
+    "教職員|cán bộ giáo viên và nhân viên",
+    "專任教員|giáo viên cơ hữu",
+    "教員休息室|phòng nghỉ giáo viên"
+   ],
+   "sy": [
+    "教師|giáo viên (chính thức, phổ biến hơn 教員)",
+    "老師|thầy/cô giáo (gọi hàng ngày)"
+   ],
+   "an": [
+    "學生|học sinh, sinh viên"
+   ],
+   "cf": [
+    "教員 vs 老師|教員 là danh từ chỉ biên chế/chức danh trong văn bản hành chính (không dùng gọi trực tiếp *王教員 ❌); gọi trực tiếp luôn dùng 王老師."
+   ],
+   "lt": "位, 名 (一名教員).",
+   "mk": "Tuyệt đối không gọi trực tiếp thầy cô là *教員 ❌ — luôn gọi 老師!",
+   "tw": "Ở các trường đại học Đài Loan, cụm phổ biến nhất là 教職員工 (giảng viên và cán bộ nhân viên nhà trường).",
+   "mh": "Giáo Viên → jiàoyuán. ĐỌC: 'giáo' → jiào (thanh 4); 'viên' → yuán (v- → y-, thanh 2). NGHĨA: 教 giảng dạy + 員 nhân viên → giáo viên.",
+   "vd": [
+    {
+     "t": "Trường học",
+     "zh": "這棟大樓一樓設有教職員專用停車區，請來訪的校外貴賓將車輛停放於訪客區。",
+     "vn": "Tầng một tòa nhà này có khu đỗ xe dành riêng cho giáo viên và nhân viên, xin khách bên ngoài đỗ xe ở khu khách tham quan."
+    },
+    {
+     "t": "Giáo dục",
+     "zh": "為了維持小班制教學品質，該校今年特別增聘了十名外語專任教員。",
+     "vn": "Để duy trì chất lượng dạy lớp sĩ số nhỏ, trường năm nay đặc biệt tuyển thêm mười giáo viên ngoại ngữ cơ hữu."
+    },
+    {
+     "t": "Thông báo",
+     "zh": "新學期校務會議將於下週一上午召開，請全體教員與行政人員準時出席。",
+     "vn": "Cuộc họp hội đồng trường học kỳ mới sẽ diễn ra sáng thứ Hai tuần sau, đề nghị toàn thể giáo viên và nhân viên hành chính dự đúng giờ."
+    }
+   ]
+  },
+  "較量": {
+   "vn": "so tài; đọ sức, phân cao thấp",
+   "ng": [
+    "(động từ / danh từ) so tài, thi thố đọ sức xem ai hơn ai (一決較量 / 較量一番 so tài một phen, 正面較量 đối đầu trực diện, 實力的較量 cuộc đọ sức thực lực)"
+   ],
+   "us": "Trang trọng và kịch tính hơn 比賽; dùng cho cả thi đấu thể thao, đấu trí cờ vua lẫn cạnh tranh thương mại giữa các thương hiệu lớn.",
+   "co": [
+    "較量一番|so tài một phen",
+    "正面較量|đọ sức trực diện",
+    "實力較量|cuộc đọ sức thực lực",
+    "暗中較量|ngầm cạnh tranh đọ sức"
+   ],
+   "sy": [
+    "比試|thi thố, so tài",
+    "對決|đối đầu quyết định"
+   ],
+   "cf": [
+    "較量 vs 比較|比較 là so sánh khách quan hoặc phó từ 'khá là'; 較量 là trực tiếp thi đấu, đọ sức cao thấp giữa hai đối thủ."
+   ],
+   "lt": "場 (一場精彩的較量).",
+   "mk": "Chữ 量 ở đây đọc thanh 4 liàng (sức lực/đo lường), không đọc liáng!",
+   "tw": "Báo thể thao Đài Loan rất hay viết 兩支奪冠熱門隊伍今晚正面較量 (Hai ứng cử viên vô địch tối nay đọ sức trực diện).",
+   "mh": "Giáo Lượng → jiàoliàng. ĐỌC: 'giáo' → jiào (gi- → j-, thanh 4); 'lượng' → liàng (-ương → -iang, thanh 4). NGHĨA: 較 so sánh + 量 đo sức → đọ sức, so tài.",
+   "vd": [
+    {
+     "t": "Thể thao",
+     "zh": "這場羽球決賽由世界排名前兩名的好手正面較量，每一球都打得扣人心弦。",
+     "vn": "Trận chung kết cầu lông này là màn đọ sức trực diện giữa hai tay vợt hàng đầu thế giới, từng pha cầu đều kịch tính nghẹt thở."
+    },
+    {
+     "t": "Kinh doanh",
+     "zh": "隨著多家外送平台紛紛進軍台灣市場，業者之間展開了一場服務與價格的激烈較量。",
+     "vn": "Khi nhiều nền tảng giao đồ ăn đồng loạt tiến vào thị trường Đài Loan, giữa các hãng đã nổ ra cuộc đọ sức quyết liệt về dịch vụ và giá cả."
+    },
+    {
+     "t": "Cờ tướng",
+     "zh": "兩位棋友每次在公園碰面都要擺開棋盤較量一番，勝負其次，重在切磋樂趣。",
+     "vn": "Hai bạn cờ mỗi lần gặp nhau ở công viên đều bày bàn cờ so tài một phen, thắng thua là phụ, vui ở chỗ học hỏi lẫn nhau."
+    }
+   ]
+  },
+  "皆": {
+   "vn": "đều, tất cả (dạng văn viết của 都)",
+   "ng": [
+    "(phó từ) đều, tất cả — tương đương 都 trong văn viết trang trọng, biển thông báo và thành ngữ (皆可 đều được, 皆大歡喜 cả nhà đều vui, 眾所皆知 mọi người đều biết)"
+   ],
+   "us": "Đặt trước động từ/tính từ giống hệt 都, chỉ dùng trong văn viết, biển báo quy định (全場皆禁止吸菸 Toàn khu vực đều cấm hút thuốc) và thành ngữ 4 chữ.",
+   "co": [
+    "皆可|đều được",
+    "皆大歡喜|mọi người đều vui vẻ",
+    "眾所皆知|mọi người đều biết",
+    "男女老少皆宜|hợp với mọi lứa tuổi giới tính"
+   ],
+   "sy": [
+    "都|đều (thông dụng nhất)",
+    "均|đều (văn bản hành chính)"
+   ],
+   "cf": [
+    "皆 vs 都|都 dùng trong mọi câu nói và viết thường; 皆 trang trọng, súc tích, hay gặp trên biển thông báo, hợp đồng, báo chí và thành ngữ."
+   ],
+   "lt": "Phó từ.",
+   "mk": "Trong hội thoại bình thường đừng nói *我們皆去吃飯 ❌ — dùng 我們都去吃飯!",
+   "tw": "Trên thực đơn và biển thông báo Đài Loan rất hay viết 內用外帶皆可 (Ăn tại chỗ hay mang về đều được) và 現金刷卡皆可.",
+   "mh": "Giai → jiē. ĐỌC: 'giai' → jiē (gi- → j-, thanh 1). NGHĨA: 比 so sánh cùng nhau + 白 rõ ràng → tất cả đều như nhau = đều.",
+   "vd": [
+    {
+     "t": "Thông báo",
+     "zh": "本門市消費結帳方式多元，現金、信用卡與各大行動支付皆可使用。",
+     "vn": "Cửa hàng hỗ trợ nhiều phương thức thanh toán, tiền mặt, thẻ tín dụng và các ví thanh toán di động lớn đều dùng được."
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "這道清燉湯品口感溫潤不油膩，非常適合全家大小品嚐，可說是老少皆宜。",
+     "vn": "Món canh hầm thanh này vị dịu nhẹ không ngấy, rất hợp cho cả nhà thưởng thức, có thể nói là già trẻ đều hợp."
+    },
+    {
+     "t": "Công việc",
+     "zh": "經過雙方理性協調後，新方案兼顧了預算與品質，最終達成皆大歡喜的圓滿結果。",
+     "vn": "Sau khi hai bên thương lượng ôn hòa, phương án mới cân bằng được cả ngân sách lẫn chất lượng, cuối cùng đạt kết quả vẹn toàn ai cũng vui."
+    }
+   ]
+  }
+ }
+}

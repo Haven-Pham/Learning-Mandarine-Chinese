@@ -1,0 +1,1380 @@
+{
+ "tu": {
+  "加快": {
+   "vn": "đẩy nhanh; tăng tốc",
+   "ng": [
+    "(động từ) làm nhanh hơn, tăng tốc độ (加快腳步 rảo bước nhanh hơn, 加快進度 đẩy nhanh tiến độ, 加快速度 tăng tốc)"
+   ],
+   "us": "Dùng cho cả hành động cụ thể (加快腳步) lẫn tiến trình/công việc (加快轉型 đẩy nhanh chuyển đổi, 心跳加快 tim đập nhanh hơn).",
+   "co": [
+    "加快腳步|rảo bước, tăng tốc",
+    "加快進度|đẩy nhanh tiến độ",
+    "心跳加快|tim đập nhanh hơn",
+    "加快速度|tăng tốc độ"
+   ],
+   "sy": [
+    "加速|tăng tốc (thiên về kỹ thuật, quy trình, vật lý)"
+   ],
+   "an": [
+    "放慢|làm chậm lại",
+    "減慢|giảm tốc độ"
+   ],
+   "cf": [
+    "加快 vs 加速|加快 dễ dùng trong cả đời sống (加快腳步, 心跳加快) lẫn công việc; 加速 trang trọng hơn, dùng nhiều cho xe cộ, kinh tế, chuyển đổi số (加速推動)."
+   ],
+   "lt": "Động từ (bổ ngữ kết quả).",
+   "mk": "Đừng nói *加快跑 ❌ — phải nói 加快腳步 hoặc 跑快一點.",
+   "tw": "Trong tin tức kinh tế Đài Loan rất hay gặp 加快數位轉型 (đẩy nhanh chuyển đổi số) và 加快施工進度.",
+   "mh": "Gia Khoái → jiākuài. ĐỌC: 'gia' → jiā (gi- → j-, thanh 1); 'khoái' → kuài (kh- → k-, thanh 4). NGHĨA: 加 tăng thêm + 快 nhanh → làm nhanh thêm = đẩy nhanh.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "眼看公車已經快進站了，我趕緊加快腳步往前跑過去。",
+     "vn": "Thấy xe buýt sắp vào trạm rồi, tôi vội rảo bước nhanh hơn chạy về phía trước."
+    },
+    {
+     "t": "Công việc",
+     "zh": "為了趕在展覽開幕前完成佈置，整個團隊決定這週加快作業進度。",
+     "vn": "Để kịp hoàn thành trưng bày trước ngày khai mạc triển lãm, cả nhóm quyết định đẩy nhanh tiến độ trong tuần này."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "每次要上台做簡報前，我都覺得自己的心跳明顯加快。",
+     "vn": "Mỗi lần sắp lên bục thuyết trình, tôi đều cảm thấy nhịp tim của mình đập nhanh lên rõ rệt."
+    }
+   ]
+  },
+  "加重": {
+   "vn": "làm nặng thêm; tăng nặng (gánh nặng, hình phạt, bệnh tình)",
+   "ng": [
+    "(động từ) làm tăng thêm mức độ nặng nề, nghiêm trọng (加重負擔 tăng thêm gánh nặng, 病情加重 bệnh tình trở nặng, 加重處罰 tăng nặng hình phạt)",
+    "(động từ) nhấn mạnh giọng điệu (加重語氣 nhấn mạnh giọng nói)"
+   ],
+   "us": "Chữ 重 ở đây đọc thanh 4 zhòng (nặng), KHÔNG đọc chóng! Thường đi với 負擔, 病情, 症狀, 壓力, 處罰, 語氣.",
+   "co": [
+    "加重負擔|tăng thêm gánh nặng",
+    "病情加重|bệnh tình nặng thêm",
+    "加重處罰|tăng nặng hình phạt",
+    "加重語氣|nhấn mạnh giọng điệu"
+   ],
+   "sy": [
+    "加劇|làm trầm trọng thêm (mâu thuẫn, biến đổi khí hậu)"
+   ],
+   "an": [
+    "減輕|giảm nhẹ"
+   ],
+   "cf": [
+    "加重 vs 加劇|加重 đi với gánh nặng, bệnh tình, hình phạt, giọng điệu (nhấn mạnh trọng lượng/mức độ); 加劇 đi với khủng hoảng, cạnh tranh, mâu thuẫn, thiên tai."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng đọc nhầm thành *jiāchóng ❌ — đọc là jiāzhòng!",
+   "tw": "Trong tin tức pháp luật Đài Loan hay thấy 修法加重酒駕罰則 (sửa luật tăng nặng mức phạt lái xe khi say rượu).",
+   "mh": "Gia Trọng → jiāzhòng. ĐỌC: 'gia' → jiā (thanh 1); 'trọng' → zhòng (tr- → zh-, thanh 4). NGHĨA: 加 tăng thêm + 重 nặng → làm nặng thêm.",
+   "vd": [
+    {
+     "t": "Sức khỏe",
+     "zh": "感冒的時候如果沒有多休息還繼續熬夜，症狀很容易會因此加重。",
+     "vn": "Khi bị cảm nếu không nghỉ ngơi nhiều mà vẫn tiếp tục thức khuya, triệu chứng rất dễ nặng thêm."
+    },
+    {
+     "t": "Kinh tế",
+     "zh": "物價與房租雙雙上漲，無疑加重了剛出社會年輕人的生活負擔。",
+     "vn": "Vật giá và tiền thuê nhà đồng loạt tăng chắc chắn làm tăng thêm gánh nặng sinh hoạt cho người trẻ mới ra trường."
+    },
+    {
+     "t": "Pháp luật",
+     "zh": "為了遏止詐騙案件頻傳，立法院已通過條文加重詐欺罪的刑責。",
+     "vn": "Để ngăn chặn các vụ lừa đảo xảy ra liên tiếp, Viện Lập pháp đã thông qua điều khoản tăng nặng hình phạt tội lừa đảo."
+    }
+   ]
+  },
+  "枷鎖": {
+   "vn": "xiềng xích; gông cùm (nghĩa bóng: sự trói buộc)",
+   "ng": [
+    "(danh từ) gông cùm thời xưa; nghĩa bóng phổ biến nhất là sự trói buộc vô hình về tư tưởng, định kiến, quy tắc (打破枷鎖 phá vỡ xiềng xích, 擺脫枷鎖 thoát khỏi sự trói buộc)"
+   ],
+   "us": "Từ văn viết giàu hình ảnh, hầu như luôn dùng theo nghĩa bóng: 思想枷鎖 (xiềng xích tư tưởng), 傳統枷鎖 (sự trói buộc của hủ tục), 擺脫…的枷鎖.",
+   "co": [
+    "擺脫枷鎖|thoát khỏi xiềng xích",
+    "打破枷鎖|phá vỡ gông cùm",
+    "思想枷鎖|xiềng xích tư tưởng",
+    "無形的枷鎖|sự trói buộc vô hình"
+   ],
+   "sy": [
+    "束縛|sự ràng buộc, trói buộc"
+   ],
+   "an": [
+    "自由|tự do",
+    "解放|giải phóng"
+   ],
+   "cf": [
+    "枷鎖 vs 束縛|束縛 vừa là động từ vừa là danh từ, dùng phổ biến trong mọi văn cảnh; 枷鎖 là danh từ giàu sắc thái văn chương, nhấn mạnh sự đè nặng khắt khe."
+   ],
+   "lt": "副, 道 (一道無形的枷鎖).",
+   "mk": "Đừng viết nhầm bộ 木 của 枷 thành 扌.",
+   "tw": "Trong văn nghị luận và phê bình phim ảnh Đài Loan hay dùng 掙脫社會期待的枷鎖 (thoát khỏi xiềng xích kỳ vọng xã hội).",
+   "mh": "Gia Tỏa → jiāsuǒ. ĐỌC: 'gia' → jiā (thanh 1); 'tỏa' → suǒ (t- → s-, thanh 3). NGHĨA: 枷 cái gông gỗ + 鎖 ổ khóa sắt → gông cùm, xiềng xích.",
+   "vd": [
+    {
+     "t": "Tâm lý",
+     "zh": "過度在意他人的眼光與評價，往往會變成限制自己成長的無形枷鎖。",
+     "vn": "Quá để tâm ánh nhìn và đánh giá của người khác thường biến thành chiếc gông vô hình kìm hãm sự trưởng thành của bản thân."
+    },
+    {
+     "t": "Xã hội",
+     "zh": "這部紀錄片描寫女性如何勇敢打破傳統觀念的枷鎖，在專業領域發光發熱。",
+     "vn": "Bộ phim tài liệu này khắc họa cách phụ nữ dũng cảm phá vỡ xiềng xích quan niệm cũ để tỏa sáng trong lĩnh vực chuyên môn."
+    },
+    {
+     "t": "Nghệ thuật",
+     "zh": "唯有擺脫制式框架的枷鎖，創作者才能寫出真正打動人心的作品。",
+     "vn": "Chỉ khi thoát khỏi sự trói buộc của khuôn mẫu cứng nhắc, người sáng tác mới viết nên tác phẩm thực sự chạm tới lòng người."
+    }
+   ]
+  },
+  "夾雜": {
+   "vn": "lẫn lộn; xen lẫn, pha tạp",
+   "ng": [
+    "(động từ) xen lẫn, trộn lẫn thứ khác vào bên trong (夾雜著雨點 xen lẫn hạt mưa, 夾雜方言 pha lẫn phương ngữ, 情緒夾雜 cảm xúc lẫn lộn)"
+   ],
+   "us": "Thường dùng cấu trúc A 夾雜著 B (A có xen lẫn B), đặc biệt hay dùng cho thời tiết (狂風夾雜大雨), ngôn ngữ (中文夾雜英文) và cảm xúc (驚喜夾雜緊張).",
+   "co": [
+    "夾雜著|xen lẫn với",
+    "風雨交加夾雜|gió lớn xen lẫn mưa",
+    "夾雜方言|pha lẫn phương ngữ",
+    "真假夾雜|thật giả lẫn lộn"
+   ],
+   "sy": [
+    "混雜|hỗn tạp, trộn lẫn"
+   ],
+   "an": [
+    "純粹|thuần túy"
+   ],
+   "cf": [
+    "夾雜 vs 混雜|夾雜 nhấn mạnh có yếu tố phụ xen kẽ bên trong dòng chính (文中夾雜錯字); 混雜 nhấn mạnh nhiều thứ trộn lộn vào nhau khó phân biệt."
+   ],
+   "lt": "Động từ. Chữ 夾 đọc thanh 2 jiá ở Đài Loan (Đại Lục đọc jiā).",
+   "mk": "Chú ý chuẩn phát âm Đài Loan của 夾雜 là jiázá (thanh 2 + thanh 2).",
+   "tw": "Ở Đài Loan giao tiếp đời thường rất hay 中英文夾雜 (nói xen lẫn tiếng Hoa và tiếng Anh) hoặc 國台語夾雜 (xen lẫn tiếng Hoa và tiếng Đài).",
+   "mh": "Giáp Tạp → jiázá. ĐỌC: 'giáp' → jiá (gi- → j-, thanh 2 chuẩn Đài); 'tạp' → zá (t- → z-, thanh 2). NGHĨA: 夾 kẹp xen vào + 雜 tạp nham → xen lẫn vào nhau.",
+   "vd": [
+    {
+     "t": "Ngôn ngữ",
+     "zh": "許多台灣上班族在開會討論時，習慣在中文句子裡自然夾雜幾個英文專業術語。",
+     "vn": "Nhiều dân văn phòng Đài Loan khi họp thảo luận có thói quen tự nhiên xen lẫn vài thuật ngữ chuyên ngành tiếng Anh vào câu tiếng Hoa."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "這波強烈冷氣團來襲，高海拔山區夜間氣溫驟降，雨水中開始夾雜細小的冰霰。",
+     "vn": "Đợt không khí lạnh mạnh tràn về khiến vùng núi cao ban đêm giảm nhiệt đột ngột, trong mưa bắt đầu xen lẫn hạt mưa đá nhỏ."
+    },
+    {
+     "t": "Cảm xúc",
+     "zh": "即將離開熟悉的校園踏入職場，他的心情既期待又夾雜著一絲忐忑不安。",
+     "vn": "Sắp rời mái trường quen thuộc bước vào đời đi làm, tâm trạng anh ấy vừa háo hức vừa xen lẫn chút hồi hộp lo âu."
+    }
+   ]
+  },
+  "假若": {
+   "vn": "giả như; nếu như (văn viết)",
+   "ng": [
+    "(liên từ) giả như, nếu như (dùng trong câu giả thiết văn viết trang trọng, tương đương 如果 / 假使)"
+   ],
+   "us": "Đứng đầu vế điều kiện giả thiết: 假若 + điều kiện，那麼/就 + kết quả. Sắc thái trang trọng hơn 如果 và 要是.",
+   "co": [
+    "假若…就…|giả như… thì…",
+    "假若如此|giả như là vậy",
+    "假若沒有|giả như không có"
+   ],
+   "sy": [
+    "假使|giả sử",
+    "假如|giả như",
+    "如果|nếu (thông dụng nhất)"
+   ],
+   "cf": [
+    "假若 vs 如果|Nghĩa tương đương; 如果 dùng mọi lúc từ nói đến viết, còn 假若 chỉ dùng trong văn viết, bài luận, diễn văn trang trọng."
+   ],
+   "lt": "Liên từ.",
+   "mk": "Trong hội thoại hàng ngày không cần dùng 假若 — dùng 如果 tự nhiên hơn.",
+   "tw": "Rất hay gặp trong bài đọc hiểu nghị luận và văn học TOCFL Band C.",
+   "mh": "Giả Nhược → jiǎruò. ĐỌC: 'giả' → jiǎ (gi- → j-, thanh 3); 'nhược' → ruò (nh- → r-, thanh 4). NGHĨA: 假 giả thiết + 若 nếu như → giả như.",
+   "vd": [
+    {
+     "t": "Nghị luận",
+     "zh": "假若人類現在仍不積極減少碳排放，未來數十年內極端氣候只會更加頻繁。",
+     "vn": "Giả như loài người hiện nay vẫn không tích cực giảm phát thải carbon, vài thập kỷ tới thời tiết cực đoan sẽ chỉ càng thường xuyên hơn."
+    },
+    {
+     "t": "Công việc",
+     "zh": "假若這批原料無法於本週五前送達工廠，整個生產排程都必須重新調整。",
+     "vn": "Nếu như lô nguyên liệu này không thể tới nhà máy trước thứ Sáu tuần này, toàn bộ lịch sản xuất sẽ phải điều chỉnh lại."
+    },
+    {
+     "t": "Suy ngẫm",
+     "zh": "假若當初沒有勇敢跨出舒適圈，我或許永遠不會發現自己真正的潛力。",
+     "vn": "Giả như ban đầu không dũng cảm bước ra khỏi vùng an toàn, có lẽ tôi sẽ mãi chẳng nhận ra tiềm năng thực sự của mình."
+    }
+   ]
+  },
+  "假使": {
+   "vn": "giả sử; nếu như",
+   "ng": [
+    "(liên từ) giả sử, nếu như (nêu giả thiết có thể xảy ra để suy luận kết quả)"
+   ],
+   "us": "Dùng giống 假若 / 假如 trong văn viết, thuyết trình hoặc tranh luận: 假使 + giả thiết，就/那麼 + kết quả.",
+   "co": [
+    "假使…就…|giả sử… thì…",
+    "假使發生|giả sử xảy ra",
+    "假使如此|giả sử là thế"
+   ],
+   "sy": [
+    "假設|giả thiết (vừa là động từ vừa là danh từ)",
+    "假若|giả như",
+    "如果|nếu"
+   ],
+   "cf": [
+    "假使 vs 假設|假使 chỉ là liên từ ('giả sử như'); 假設 vừa là động từ ('giả định rằng') vừa là danh từ ('giả thuyết khoa học': 提出假設)."
+   ],
+   "lt": "Liên từ.",
+   "mk": "Đừng dùng 假使 làm danh từ (*提出一個假使 ❌ → 提出一個假設).",
+   "tw": "Hay dùng trong các bài luận phân tích chính sách, kinh tế ở Đài Loan.",
+   "mh": "Giả Sử → jiǎshǐ. ĐỌC: 'giả' → jiǎ (thanh 3); 'sử' → shǐ (s- → sh-, thanh 3; đọc liền jiáshǐ). NGHĨA: 假 giả định + 使 khiến cho → giả sử.",
+   "vd": [
+    {
+     "t": "Kế hoạch",
+     "zh": "假使明天的戶外活動因為下雨被迫取消，我們也有備用室內場地可以立刻啟用。",
+     "vn": "Giả sử hoạt động ngoài trời ngày mai buộc phải hủy vì mưa, chúng ta cũng có địa điểm trong nhà dự phòng dùng ngay được."
+    },
+    {
+     "t": "Tài chính",
+     "zh": "假使市場利率持續維持在高檔，企業在擴充廠房時就必須更謹慎評估貸款成本。",
+     "vn": "Giả sử lãi suất thị trường tiếp tục duy trì ở mức cao, doanh nghiệp khi mở rộng nhà xưởng sẽ phải cân nhắc kỹ chi phí vay vốn."
+    },
+    {
+     "t": "Thảo luận",
+     "zh": "假使每個市民每天都少用一個塑膠袋，一年累積下來的減塑成效將十分驚人。",
+     "vn": "Giả sử mỗi công dân mỗi ngày bớt dùng một túi nilon, hiệu quả giảm nhựa tích lũy cả năm sẽ vô cùng đáng kinh ngạc."
+    }
+   ]
+  },
+  "假象": {
+   "vn": "ảo tượng; hiện tượng giả, vẻ bề ngoài đánh lừa",
+   "ng": [
+    "(danh từ) hiện tượng giả tạo, vẻ ngoài không đúng bản chất khiến người ta lầm tưởng (製造假象 tạo ảo tượng/màn kịch giả, 繁榮的假象 sự phồn vinh giả tạo, 被假象迷惑 bị ảo tượng đánh lừa)"
+   ],
+   "us": "Thường đi với 製造 (tạo ra), 揭穿 / 看穿 (vạch trần / nhìn thấu), 被…蒙蔽 / 迷惑 (bị che mắt bởi).",
+   "co": [
+    "製造假象|tạo hiện tượng giả",
+    "看穿假象|nhìn thấu ảo tượng",
+    "繁榮的假象|sự phồn vinh giả tạo",
+    "表面假象|vẻ giả tạo bên ngoài"
+   ],
+   "sy": [
+    "錯覺|ảo giác (do giác quan hoặc tâm lý tự nhầm)",
+    "表象|hiện tượng bề ngoài (trung tính hơn)"
+   ],
+   "an": [
+    "真相|sự thật, chân tướng"
+   ],
+   "cf": [
+    "假象 vs 錯覺|假象 là bề ngoài giả tạo (thường có chủ ý hoặc hiện tượng đánh lừa bản chất); 錯覺 là ảo giác phát sinh trong nhận thức/giác quan của người nhìn."
+   ],
+   "lt": "種 (一種假象).",
+   "mk": "Đừng viết nhầm 象 (hiện tượng/hình tượng) thành 像 (giống như).",
+   "tw": "Trong tin tức chống lừa đảo và tài chính Đài Loan hay cảnh báo 詐騙集團常製造高獲利的假象 (Nhóm lừa đảo thường dựng lên ảo tượng lợi nhuận cao).",
+   "mh": "Giả Tượng → jiǎxiàng. ĐỌC: 'giả' → jiǎ (thanh 3); 'tượng' → xiàng (t- → x-, -ương → -iang, thanh 4). NGHĨA: 假 giả dối + 象 hiện tượng → hiện tượng giả tạo = ảo tượng.",
+   "vd": [
+    {
+     "t": "Tài chính",
+     "zh": "投資人應該仔細檢視公司財報，千萬別被短期股價上漲的假象蒙蔽了判斷。",
+     "vn": "Nhà đầu tư nên xem kỹ báo cáo tài chính công ty, đừng bị ảo tượng cổ phiếu tăng ngắn hạn che mắt phán đoán."
+    },
+    {
+     "t": "Xã hội",
+     "zh": "社群媒體上光鮮亮麗的照片往往只是經過篩選的假象，不必拿來跟自己的日常比較。",
+     "vn": "Những bức ảnh hào nhoáng trên mạng xã hội thường chỉ là vẻ ngoài đã qua chọn lọc, không cần đem so với đời thường của mình."
+    },
+    {
+     "t": "Phân tích",
+     "zh": "經過深入查核後，審計團隊終於揭穿了這份報告背後人為製造的業績假象。",
+     "vn": "Sau khi kiểm tra chuyên sâu, đội kiểm toán cuối cùng đã vạch trần màn kịch thành tích giả tạo đằng sau bản báo cáo này."
+    }
+   ]
+  },
+  "架構": {
+   "vn": "kiến trúc (hệ thống); khung cấu trúc",
+   "ng": [
+    "(danh từ) khung kết cấu, kiến trúc tổng thể của hệ thống, tổ chức, bài viết, phần mềm (系統架構 kiến trúc hệ thống, 組織架構 cơ cấu tổ chức, 文章架構 bố cục bài viết)",
+    "(động từ) xây dựng khung sườn, thiết lập nền tảng (架構網站 xây dựng nền tảng trang web)"
+   ],
+   "us": "Từ cực kỳ thông dụng trong công sở, IT, viết luận và quản trị tại Đài Loan (ở Đại Lục hay dùng 結構 hoặc 架構 tùy ngữ cảnh, Đài Loan dùng 架構 rất rộng cho cả 簡報架構 bố cục slide lẫn 系統架構).",
+   "co": [
+    "系統架構|kiến trúc hệ thống",
+    "組織架構|cơ cấu tổ chức",
+    "文章架構|bố cục bài viết",
+    "基本架構|khung cơ bản"
+   ],
+   "sy": [
+    "結構|kết cấu (thiên về vật lý, câu chữ, thành phần bên trong)",
+    "框架|khung sườn"
+   ],
+   "cf": [
+    "架構 vs 結構|架構 nhấn mạnh khung tổng thể mang tính thiết kế, tổ chức (組織架構, 簡報架構); 結構 nhấn mạnh cách các bộ phận liên kết bên trong (建築結構, 句子結構)."
+   ],
+   "lt": "套, 個 (一套完整的架構).",
+   "mk": "Trong thuyết trình công việc, 'khung sườn bài thuyết trình' là 簡報架構.",
+   "tw": "Dân công sở và kỹ sư phần mềm Đài Loan nói 架構 hàng ngày: 先把簡報架構拉出來 (Lên khung bài thuyết trình trước đã).",
+   "mh": "Giá Cấu → jiàgòu. ĐỌC: 'giá' → jià (gi- → j-, thanh 4); 'cấu' → gòu (c- → g-, thanh 4). NGHĨA: 架 giàn khung + 構 xây dựng kết cấu → khung kiến trúc, cơ cấu.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "開始製作簡報之前，我習慣先用條列方式整理出清楚的邏輯架構。",
+     "vn": "Trước khi bắt đầu làm slide thuyết trình, tôi có thói quen gạch đầu dòng sắp xếp một khung logic rõ ràng trước."
+    },
+    {
+     "t": "Công nghệ",
+     "zh": "工程師重新設計了這套雲端系統的底層架構，讓尖峰時段的存取速度提升一倍。",
+     "vn": "Kỹ sư thiết kế lại kiến trúc lõi của hệ thống đám mây này, giúp tốc độ truy cập giờ cao điểm tăng gấp đôi."
+    },
+    {
+     "t": "Quản trị",
+     "zh": "公司併購完成後，管理層隨即公布新的部門組織架構與職責分工。",
+     "vn": "Sau khi công ty hoàn tất sáp nhập, ban lãnh đạo lập tức công bố cơ cấu tổ chức phòng ban và phân công trách nhiệm mới."
+    }
+   ]
+  },
+  "監督": {
+   "vn": "giám sát; đôn đốc",
+   "ng": [
+    "(động từ) giám sát, theo dõi kiểm tra để bảo đảm thực hiện đúng quy định/chất lượng (互相監督 giám sát lẫn nhau, 輿論監督 giám sát dư luận, 監督施工 giám sát thi công)"
+   ],
+   "us": "Dùng cho cả cấp trên/cơ quan giám sát (監督政府, 監督品質) lẫn bạn bè nhắc nhở nhau cùng tiến bộ (互相監督學習).",
+   "co": [
+    "互相監督|giám sát lẫn nhau",
+    "嚴格監督|giám sát nghiêm ngặt",
+    "監督機制|cơ chế giám sát",
+    "公開監督|giám sát công khai"
+   ],
+   "sy": [
+    "監管|quản lý giám sát (cơ quan nhà nước đối với ngành nghề)",
+    "督促|đôn đốc"
+   ],
+   "cf": [
+    "監督 vs 監視|監督 là theo dõi công khai nhằm bảo đảm chất lượng, công bằng, đúng luật (tích cực/trung tính); 監視 là theo dõi chặt chẽ, rình mò (tội phạm, camera an ninh)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng nhầm 監督 (giám sát chất lượng/công việc) với 監視 (theo dõi rình mò).",
+   "tw": "Ở Đài Loan báo chí thường nhắc 公民監督 (sự giám sát của công dân) và 監督公共工程品質.",
+   "mh": "Giám Đốc → jiāndū (bẫy Hán Việt!). ĐỌC: 'giám' → jiān (gi- → j-, thanh 1); 'đốc' → dū (đ- → d-, thanh 1). NGHĨA: 監 nhìn xét + 督 đôn đốc → động từ giám sát (KHÔNG phải danh từ chức vụ 'giám đốc' 經理/總監!).",
+   "vd": [
+    {
+     "t": "Xã hội",
+     "zh": "透明的預算資訊能讓全民共同監督公共建設的執行進度與施工品質。",
+     "vn": "Thông tin ngân sách minh bạch giúp toàn dân cùng giám sát tiến độ thi công và chất lượng công trình công cộng."
+    },
+    {
+     "t": "Học tập",
+     "zh": "我和朋友組了一個兩人讀書會，每天晚上互相監督對方完成背單字進度。",
+     "vn": "Tôi và bạn lập nhóm học hai người, tối nào cũng giám sát nhắc nhau hoàn thành tiến độ học từ vựng."
+    },
+    {
+     "t": "Sản xuất",
+     "zh": "食安檢驗機構定期派員到廠區監督製程衛生，確保市售食品符合法規標準。",
+     "vn": "Cơ quan kiểm định an toàn thực phẩm định kỳ cử người tới xưởng giám sát vệ sinh quy trình sản xuất để bảo đảm thực phẩm đạt chuẩn."
+    }
+   ]
+  },
+  "尖端": {
+   "vn": "tiên tiến nhất, mũi nhọn; đầu nhọn",
+   "ng": [
+    "(tính từ / danh từ) tiên tiến hàng đầu, mũi nhọn công nghệ (尖端科技 công nghệ mũi nhọn, 走在時代尖端 đi đầu thời đại)",
+    "(danh từ) đầu nhọn của vật (針的尖端 đầu nhọn cây kim)"
+   ],
+   "us": "Nghĩa phổ biến nhất ở Band C là 'hàng đầu/mũi nhọn công nghệ, khoa học': 尖端技術, 尖端醫學, 尖端人才.",
+   "co": [
+    "尖端科技|công nghệ mũi nhọn",
+    "尖端技術|kỹ thuật tiên tiến hàng đầu",
+    "時代尖端|đi đầu thời đại",
+    "尖端醫療|y học tiên tiến"
+   ],
+   "sy": [
+    "頂尖|đỉnh cao, xuất sắc nhất",
+    "前沿|tuyến đầu (nghiên cứu)"
+   ],
+   "an": [
+    "落後|lạc hậu"
+   ],
+   "cf": [
+    "尖端 vs 頂尖|尖端 thường dùng cho khoa học, công nghệ, thiết bị (尖端科技); 頂尖 hay dùng cho con người, đội ngũ, trường học (頂尖大學, 頂尖高手)."
+   ],
+   "lt": "Danh từ / Tính từ.",
+   "mk": "Chữ 尖 cấu tạo từ 小 (nhỏ) ở trên + 大 (to) ở dưới = trên nhỏ dưới to → đầu nhọn!",
+   "tw": "Trong tin tức ngành bán dẫn Đài Loan (新竹科學園區) cực hay gặp 尖端半導體製程 (quy trình bán dẫn mũi nhọn).",
+   "mh": "Tiêm Đoan → jiānduān. ĐỌC: 'tiêm' → jiān (t- → j-, thanh 1); 'đoan' → duān (đ- → d-, thanh 1). NGHĨA: 尖 đầu nhọn + 端 chóp đầu → đỉnh mũi nhọn = tiên tiến nhất.",
+   "vd": [
+    {
+     "t": "Công nghệ",
+     "zh": "新竹科學園區匯聚了許多研發尖端半導體技術的頂尖企業與工程師。",
+     "vn": "Khu công nghệ cao Tân Trúc quy tụ nhiều doanh nghiệp và kỹ sư hàng đầu nghiên cứu công nghệ bán dẫn mũi nhọn."
+    },
+    {
+     "t": "Y tế",
+     "zh": "這家醫學中心引進了全球最尖端的微創手術設備，大幅縮短病患的恢復期。",
+     "vn": "Trung tâm y khoa này đưa vào thiết bị phẫu thuật ít xâm lấn tiên tiến nhất thế giới, rút ngắn đáng kể thời gian hồi phục của bệnh nhân."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "拆開這把新剪刀的包裝時請小心，避免被金屬尖端割傷手指。",
+     "vn": "Khi mở bao bì chiếc kéo mới này hãy cẩn thận tránh bị đầu nhọn kim loại làm đứt tay."
+    }
+   ]
+  },
+  "堅固": {
+   "vn": "kiên cố; vững chắc",
+   "ng": [
+    "(tính từ) chắc chắn, bền vững, khó bị hư hại hay đổ sập (堅固的建築 công trình kiên cố, 結構堅固 kết cấu vững chắc, 基礎堅固 nền tảng vững vàng)"
+   ],
+   "us": "Chủ yếu dùng cho công trình, đồ đạc, kết cấu vật lý (牆壁, 橋樑, 家具, 行李箱) hoặc nghĩa bóng 'nền tảng/niềm tin vững chắc'.",
+   "co": [
+    "堅固耐用|bền chắc lâu hỏng",
+    "結構堅固|kết cấu kiên cố",
+    "堅固的橋樑|cây cầu vững chắc",
+    "堅固防線|phòng tuyến kiên cố"
+   ],
+   "sy": [
+    "牢固|chắc chắn (nút thắt, kiến thức, mối liên kết)",
+    "結實|chắc khỏe (đồ đạc, vóc dáng)"
+   ],
+   "an": [
+    "脆弱|mong manh, dễ vỡ"
+   ],
+   "cf": [
+    "堅固 vs 結實|堅固 trang trọng hơn, dùng cho nhà cửa, cầu đường, thành lũy, nền tảng; 結實 thân mật hơn, dùng được cả cho thân hình săn chắc (身體結實) và đồ dùng bền."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Đừng dùng 堅固 để khen cơ bắp khỏe mạnh (*他身體很堅固 ❌ → 他身體很結實).",
+   "tw": "Ở Đài Loan chọn mua nhà hay chọn bàn trú ẩn động đất rất hay hỏi 結構堅固嗎？ (Kết cấu có kiên cố không?).",
+   "mh": "Kiên Cố → jiāngù. ĐỌC: 'kiên' → jiān (k- trước i → j-, thanh 1); 'cố' → gù (c- → g-, thanh 4). NGHĨA: 堅 cứng rắn + 固 vững chắc → kiên cố.",
+   "vd": [
+    {
+     "t": "Kiến trúc",
+     "zh": "這座百年石橋經過多次颱風與洪水考驗依然屹立不搖，可見當時工法有多麼堅固。",
+     "vn": "Cây cầu đá trăm tuổi này trải qua nhiều trận bão lũ vẫn đứng vững, đủ thấy kỹ thuật xây dựng xưa kiên cố thế nào."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "常出國出差的人挑選行李箱時，除了外型，更重視輪子好推且外殼堅固耐用。",
+     "vn": "Người hay đi công tác nước ngoài khi chọn vali ngoài kiểu dáng còn coi trọng bánh xe trơn và vỏ ngoài bền chắc."
+    },
+    {
+     "t": "An toàn",
+     "zh": "地震發生時應該立刻蹲在堅固的實木桌下保護頭部，遠離玻璃窗戶。",
+     "vn": "Khi động đất xảy ra nên lập tức ngồi dưới chiếc bàn gỗ đặc vững chắc để bảo vệ đầu, tránh xa cửa kính."
+    }
+   ]
+  },
+  "堅忍": {
+   "vn": "kiên nhẫn chịu đựng; kiên trì bền bỉ",
+   "ng": [
+    "(tính từ) ý chí kiên cường, nhẫn nại chịu đựng gian khổ không lùi bước (堅忍不拔 kiên cường bất khuất, 堅忍的毅力 nghị lực bền bỉ)"
+   ],
+   "us": "Trang trọng, giàu tính khen ngợi phẩm chất ý chí trong nghịch cảnh (thường gặp trong thành ngữ 堅忍不拔 hoặc văn viết).",
+   "co": [
+    "堅忍不拔|kiên cường bất khuất",
+    "堅忍的毅力|nghị lực kiên trì bền bỉ",
+    "堅忍的精神|tinh thần nhẫn nại kiên cường"
+   ],
+   "sy": [
+    "堅毅|kiên nghị, bền gan",
+    "忍耐|nhẫn nại (động từ)"
+   ],
+   "an": [
+    "軟弱|yếu đuối"
+   ],
+   "cf": [
+    "堅忍 vs 耐心|耐心 là kiên nhẫn trong việc thường ngày (xếp hàng, dạy trẻ em); 堅忍 ở tầm cao hơn: bền bỉ chịu đựng thử thách gian nan dài lâu."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Đừng dùng 堅忍 cho việc nhỏ như 'kiên nhẫn đợi xe buýt' — dùng 耐心!",
+   "tw": "Hay gặp trong bài viết kể về vận động viên, nhà khoa học hoặc tiền nhân vượt khó.",
+   "mh": "Kiên Nhẫn → jiānrěn. ĐỌC: 'kiên' → jiān (k- → j-, thanh 1); 'nhẫn' → rěn (nh- → r-, thanh 3). NGHĨA: 堅 vững chí + 忍 nhẫn nại → bền gan chịu khó = kiên cường nhẫn nại.",
+   "vd": [
+    {
+     "t": "Thể thao",
+     "zh": "這位馬拉松選手歷經兩次重傷復健仍重返賽場，展現出令人敬佩的堅忍毅力。",
+     "vn": "Vận động viên marathon này trải qua hai lần chấn thương nặng và phục hồi vẫn trở lại đường chạy, thể hiện nghị lực bền bỉ đáng khâm phục."
+    },
+    {
+     "t": "Lịch sử",
+     "zh": "先民在資源匱乏的年代憑著堅忍不拔的精神開墾土地，才奠定了今日的繁榮。",
+     "vn": "Người xưa trong thời kỳ thiếu thốn tài nguyên nhờ tinh thần kiên cường bất khuất khai khẩn đất đai mới đặt nền móng cho sự phồn vinh hôm nay."
+    },
+    {
+     "t": "Nghiên cứu",
+     "zh": "基礎科學研究往往需要十年以上的累積，極度考驗學者的熱情與堅忍。",
+     "vn": "Nghiên cứu khoa học cơ bản thường cần hơn mười năm tích lũy, thử thách cao độ niềm đam mê và sự bền bỉ của học giả."
+    }
+   ]
+  },
+  "堅信": {
+   "vn": "kiên tín; tin chắc, vững tin",
+   "ng": [
+    "(động từ) tin tưởng sâu sắc, vững tin không lay chuyển (堅信不疑 tin chắc không chút nghi ngờ, 我堅信 tôi tin chắc rằng)"
+   ],
+   "us": "Mạnh và trang trọng hơn 相信; theo sau bởi mệnh đề hoặc lý tưởng/nguyên tắc (堅信努力終有回報 vững tin nỗ lực cuối cùng sẽ có đền đáp).",
+   "co": [
+    "堅信不疑|tin chắc không nghi ngờ",
+    "堅信自己|vững tin vào bản thân",
+    "我始終堅信|tôi luôn vững tin rằng"
+   ],
+   "sy": [
+    "深信|tin sâu sắc",
+    "確信|tin chắc (dựa trên căn cứ)"
+   ],
+   "an": [
+    "懷疑|nghi ngờ"
+   ],
+   "cf": [
+    "堅信 vs 確信|堅信 thiên về niềm tin vững vàng vào giá trị, tương lai, ý chí; 確信 thiên về sự chắc chắn về một sự thật/dữ kiện."
+   ],
+   "lt": "Động từ.",
+   "mk": "Trong hội thoại nhẹ nhàng ('tôi tin anh ấy mai sẽ tới') dùng 我相信 là đủ; 堅信 dùng cho niềm tin lớn, lý tưởng.",
+   "tw": "Rất hay dùng trong bài phát biểu, thư xin việc và tự truyện phỏng vấn ở Đài Loan.",
+   "mh": "Kiên Tín → jiānxìn. ĐỌC: 'kiên' → jiān (thanh 1); 'tín' → xìn (t- → x-, thanh 4). NGHĨA: 堅 vững vàng + 信 tin tưởng → tin chắc không đổi.",
+   "vd": [
+    {
+     "t": "Niềm tin",
+     "zh": "雖然創業初期屢遭挫折，但她始終堅信只要產品夠用心，終究會贏得市場肯定。",
+     "vn": "Tuy giai đoạn đầu khởi nghiệp nhiều lần vấp ngã, cô ấy vẫn luôn vững tin chỉ cần sản phẩm đủ tâm huyết thì cuối cùng sẽ được thị trường công nhận."
+    },
+    {
+     "t": "Giáo dục",
+     "zh": "這位老師堅信每個孩子都有獨特的天賦，只是需要合適的引導方式。",
+     "vn": "Người thầy này tin chắc mỗi đứa trẻ đều có thiên phú riêng, chỉ là cần cách dẫn dắt phù hợp."
+    },
+    {
+     "t": "Hợp tác",
+     "zh": "我們堅信公開透明的溝通機制，是維繫長期夥伴關係最重要的基石。",
+     "vn": "Chúng tôi tin chắc cơ chế giao tiếp công khai minh bạch là nền tảng quan trọng nhất để duy trì quan hệ đối tác lâu dài."
+    }
+   ]
+  },
+  "堅硬": {
+   "vn": "cứng rắn; rắn chắc",
+   "ng": [
+    "(tính từ) rất cứng, rắn chắc (về tính chất vật lý của đá, kim loại, vỏ hạt, bề mặt: 堅硬的岩石 tảng đá cứng rắn, 堅硬的外殼 lớp vỏ cứng)"
+   ],
+   "us": "Chỉ tính chất vật lý của vật liệu (đá, kim cương, vỏ sò, xương); không dùng cho thái độ hay tòa nhà (tòa nhà dùng 堅固, thái độ cứng rắn dùng 強硬).",
+   "co": [
+    "堅硬的岩石|đá cứng rắn",
+    "外殼堅硬|lớp vỏ cứng",
+    "質地堅硬|chất liệu cứng chắc"
+   ],
+   "sy": [
+    "硬|cứng (khẩu ngữ)",
+    "剛硬|cứng rắn"
+   ],
+   "an": [
+    "柔軟|mềm mại"
+   ],
+   "cf": [
+    "堅硬 vs 堅固|堅硬 chỉ độ cứng của bản thân vật chất (鑽石很堅硬 kim cương rất cứng); 堅固 chỉ kết cấu công trình bền vững không dễ sập (房子很堅固)."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Đừng nói *他的態度很堅硬 ❌ — thái độ cứng rắn dùng 強硬!",
+   "tw": "Trong khoa học tự nhiên và đời sống hay dùng 質地堅硬 (kết cấu/chất liệu cứng).",
+   "mh": "Kiên Ngạnh → jiānyìng. ĐỌC: 'kiên' → jiān (thanh 1); 'ngạnh' → yìng (ng- mất, thanh 4). NGHĨA: 堅 chắc + 硬 cứng → cứng rắn.",
+   "vd": [
+    {
+     "t": "Tự nhiên",
+     "zh": "鑽石是自然界中已知最堅硬的礦物，因此廣泛應用於精密工業切割工具。",
+     "vn": "Kim cương là khoáng vật cứng nhất được biết đến trong tự nhiên, vì thế được ứng dụng rộng rãi trong công cụ cắt gọt công nghiệp chính xác."
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "核桃的外殼相當堅硬，必須借助專門的核桃夾才能輕鬆剝開取肉。",
+     "vn": "Vỏ quả óc chó khá cứng, phải nhờ kìm kẹp chuyên dụng mới dễ dàng tách lấy nhân."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "牙醫提醒大家盡量不要用牙齒直接咬冰塊或過於堅硬的骨頭，以免造成牙齒裂傷。",
+     "vn": "Nha sĩ nhắc mọi người hạn chế dùng răng cắn trực tiếp đá viên hay xương quá cứng kẻo làm nứt răng."
+    }
+   ]
+  },
+  "兼職": {
+   "vn": "kiêm nhiệm; làm thêm (bán thời gian)",
+   "ng": [
+    "(động từ / danh từ) làm việc bán thời gian song song với công việc chính hoặc việc học (兼職工作 việc làm thêm, 兼職翻譯 biên dịch bán thời gian, 找兼職 tìm việc làm thêm)"
+   ],
+   "us": "Trang trọng hơn 打工 (làm thêm tính theo giờ của sinh viên), dùng nhiều cho người đã đi làm nhận thêm việc ngoài giờ hoặc vị trí part-time chuyên môn (兼職講師 giảng viên thỉnh giảng).",
+   "co": [
+    "兼職工作|công việc bán thời gian",
+    "兼職人員|nhân viên bán thời gian",
+    "全職與兼職|toàn thời gian và bán thời gian",
+    "兼職講師|giảng viên bán thời gian"
+   ],
+   "sy": [
+    "打工|làm thêm theo giờ (sinh viên, dịch vụ)",
+    "斜槓|làm đa nghề tự do (slash career — rất phổ biến ở Đài Loan)"
+   ],
+   "an": [
+    "全職|toàn thời gian",
+    "專職|chuyên trách"
+   ],
+   "cf": [
+    "兼職 vs 打工|打工 thường chỉ việc làm thêm theo giờ ở quán ăn, cửa hàng tiện lợi (sinh viên); 兼職 rộng và chuyên nghiệp hơn, bao gồm cả chuyên viên, gia sư, biên dịch làm bán thời gian."
+   ],
+   "lt": "份 (一份兼職).",
+   "mk": "Chú ý ở Đài Loan lao động/du học sinh nước ngoài làm 兼職/打工 bắt buộc phải có 工作許可證 (giấy phép lao động)!",
+   "tw": "Trên 104 Đài Loan phân rõ 全職 (Full-time) và 兼職 (Part-time); người đi làm có nhiều nguồn thu ngoài giờ còn gọi 斜槓族.",
+   "mh": "Kiêm Chức → jiānzhí. ĐỌC: 'kiêm' → jiān (k- → j-, thanh 1); 'chức' → zhí (ch- → zh-, thanh 2). NGHĨA: 兼 làm song song + 職 chức vụ/công việc → làm thêm, bán thời gian.",
+   "vd": [
+    {
+     "t": "Tuyển dụng",
+     "zh": "這家翻譯社目前正在招募熟悉越南語與中文的兼職校對人員，可在家彈性接案。",
+     "vn": "Công ty dịch thuật này hiện đang tuyển cộng tác viên hiệu đính bán thời gian thông thạo tiếng Việt và tiếng Hoa, có thể nhận việc linh hoạt tại nhà."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "他白天在設計公司擔任正職，週末則在社區大學兼職教導基礎攝影課程。",
+     "vn": "Ban ngày anh ấy làm chính thức tại công ty thiết kế, còn cuối tuần làm thêm dạy khóa nhiếp ảnh cơ bản ở đại học cộng đồng."
+    },
+    {
+     "t": "Pháp lý",
+     "zh": "外籍學生在台灣從事任何兼職或實習之前，都必須依法先向勞動部申請工作許可證。",
+     "vn": "Du học sinh nước ngoài tại Đài Loan trước khi làm bất kỳ công việc bán thời gian hay thực tập nào đều phải xin giấy phép lao động từ Bộ Lao động theo luật."
+    }
+   ]
+  },
+  "艱鉅": {
+   "vn": "gian nan và nặng nề; cam go (nhiệm vụ, thử thách)",
+   "ng": [
+    "(tính từ) vô cùng khó khăn, nặng nề và đòi hỏi nhiều công sức (艱鉅的任務 nhiệm vụ cam go, 艱鉅的挑戰 thử thách lớn lao, 工程艱鉅 công trình gian nan)"
+   ],
+   "us": "Từ văn viết trang trọng, gần như luôn đi với 任務 (nhiệm vụ), 挑戰 (thử thách), 工程 (công trình), 工作 (công việc trọng đại).",
+   "co": [
+    "艱鉅的任務|nhiệm vụ cam go",
+    "艱鉅的挑戰|thử thách gian nan",
+    "工程艱鉅|công trình đầy gian khổ"
+   ],
+   "sy": [
+    "艱難|gian nan, khó khăn",
+    "繁重|nặng nề, nhiều việc"
+   ],
+   "an": [
+    "輕鬆|nhẹ nhàng",
+    "容易|dễ dàng"
+   ],
+   "cf": [
+    "艱鉅 vs 艱苦|艱鉅 nhấn mạnh tính chất công việc/nhiệm vụ cực kỳ to lớn và khó hoàn thành; 艱苦 nhấn mạnh điều kiện sống/môi trường thiếu thốn vất vả."
+   ],
+   "lt": "Tính từ. Ở Đài Loan viết 艱鉅 (có bộ 金); Đại Lục thường viết 艱巨.",
+   "mk": "Đừng dùng 艱鉅 cho việc đời thường nhỏ nhặt (*這道數學題很艱鉅 ❌ → 很難).",
+   "tw": "Báo chí Đài Loan hay dùng khi viết về các dự án hạ tầng lớn như đào hầm xuyên núi 雪山隧道 (工程極為艱鉅).",
+   "mh": "Gian Cự → jiānjù. ĐỌC: 'gian' → jiān (gi- → j-, thanh 1); 'cự' → jù (thanh 4). NGHĨA: 艱 gian nan + 鉅 to lớn → nhiệm vụ lớn lao đầy khó khăn = cam go.",
+   "vd": [
+    {
+     "t": "Hạ tầng",
+     "zh": "當年開鑿貫穿雪山山脈的長隧道地質複雜，是台灣交通史上最艱鉅的工程之一。",
+     "vn": "Năm xưa việc đào đường hầm dài xuyên dãy núi Tuyết Sơn có địa chất phức tạp, là một trong những công trình cam go nhất lịch sử giao thông Đài Loan."
+    },
+    {
+     "t": "Công việc",
+     "zh": "要在短短三個月內完成全公司舊系統的資料移轉，對資訊部門來說是一項極為艱鉅的任務。",
+     "vn": "Hoàn tất chuyển đổi dữ liệu hệ thống cũ của toàn công ty chỉ trong ba tháng là nhiệm vụ vô cùng cam go đối với phòng IT."
+    },
+    {
+     "t": "Môi trường",
+     "zh": "邁向淨零碳排的轉型之路充滿艱鉅挑戰，需要政府、企業與全民共同努力。",
+     "vn": "Con đường chuyển đổi hướng tới phát thải ròng bằng không đầy thử thách cam go, đòi hỏi chính phủ, doanh nghiệp và toàn dân chung sức."
+    }
+   ]
+  },
+  "艱苦": {
+   "vn": "gian khổ; cực khổ",
+   "ng": [
+    "(tính từ) gian khổ, vất vả, điều kiện thiếu thốn (環境艱苦 môi trường gian khổ, 艱苦奮鬥 phấn đấu gian khổ, 艱苦的歲月 năm tháng cực khổ)"
+   ],
+   "us": "Thiên về hoàn cảnh sống, điều kiện làm việc, quá trình phấn đấu vất vả gian lao.",
+   "co": [
+    "艱苦奮鬥|phấn đấu gian khổ",
+    "生活艱苦|cuộc sống cực khổ",
+    "條件艱苦|điều kiện thiếu thốn gian khổ",
+    "艱苦訓練|huấn luyện gian khổ"
+   ],
+   "sy": [
+    "辛苦|vất vả (đời thường, nhẹ hơn)",
+    "困苦|khốn khó"
+   ],
+   "an": [
+    "舒適|thoải mái",
+    "安逸|nhàn hạ"
+   ],
+   "cf": [
+    "艱苦 vs 辛苦|辛苦 dùng cho mệt nhọc thường ngày (上班很辛苦); 艱苦 mạnh và trang trọng hơn, chỉ hoàn cảnh khắc nghiệt, thử thách kéo dài."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Không dùng 艱苦 để cảm ơn đồng nghiệp (*今天艱苦你了 ❌ → 今天辛苦你了!).",
+   "tw": "Hay dùng khi nhắc về giai đoạn khởi nghiệp hoặc thế hệ đi trước gây dựng cơ nghiệp.",
+   "mh": "Gian Khổ → jiānkǔ. ĐỌC: 'gian' → jiān (thanh 1); 'khổ' → kǔ (kh- → k-, thanh 3). NGHĨA: 艱 gian nan + 苦 cay đắng → gian khổ.",
+   "vd": [
+    {
+     "t": "Lịch sử",
+     "zh": "老一輩常提醒年輕人要珍惜現有的富足，不要忘記當年艱苦打拚的歲月。",
+     "vn": "Thế hệ đi trước thường nhắc giới trẻ trân trọng sự đủ đầy hiện tại, đừng quên những năm tháng gian khổ phấn đấu xưa kia."
+    },
+    {
+     "t": "Thể thao",
+     "zh": "經過長達四年的艱苦訓練，這支國家隊終於在國際大賽上奪得金牌。",
+     "vn": "Trải qua bốn năm trời huấn luyện gian khổ, đội tuyển quốc gia này cuối cùng đã giành huy chương vàng tại giải đấu quốc tế."
+    },
+    {
+     "t": "Khoa học",
+     "zh": "這群生態學者深入條件艱苦的高山原始林，只為記錄瀕危鳥類的棲息狀況。",
+     "vn": "Nhóm nhà sinh thái học này đi sâu vào rừng nguyên sinh núi cao điều kiện gian khổ chỉ để ghi nhận tình trạng cư trú của loài chim quý hiếm."
+    }
+   ]
+  },
+  "艱難": {
+   "vn": "gian nan; khó khăn",
+   "ng": [
+    "(tính từ) gian nan, khó khăn, trắc trở (艱難的決定 quyết định khó khăn, 生活艱難 cuộc sống chật vật, 步履艱難 bước đi nặng nề/khó khăn)"
+   ],
+   "us": "Dùng rộng cho cả hoàn cảnh khó khăn lẫn lựa chọn khó khăn (做出艱難的決定 đưa ra quyết định khó khăn), quá trình phục hồi chậm chạp.",
+   "co": [
+    "艱難的決定|quyết định khó khăn",
+    "處境艱難|tình cảnh gian nan",
+    "艱難險阻|gian nan hiểm trở",
+    "度過艱難時期|vượt qua giai đoạn khó khăn"
+   ],
+   "sy": [
+    "困難|khó khăn (thông dụng)",
+    "艱辛|gian truân"
+   ],
+   "an": [
+    "順利|thuận lợi",
+    "容易|dễ dàng"
+   ],
+   "cf": [
+    "艱難 vs 困難|困難 vừa là danh từ vừa là tính từ (遇到困難); 艱難 là tính từ sắc thái nặng và trang trọng hơn, nhấn mạnh sự chật vật, trắc trở."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Không dùng 艱難 làm danh từ đơn lẻ như 困難 (*遇到一個艱難 ❌ → 遇到一個困難).",
+   "tw": "Báo chí Đài Loan hay dùng cụm 做出艱難的決定 (đưa ra một quyết định đầy khó khăn).",
+   "mh": "Gian Nan → jiānnán. ĐỌC: 'gian' → jiān (thanh 1); 'nan' → nán (thanh 2). NGHĨA: 艱 khó nhọc + 難 khó khăn → gian nan.",
+   "vd": [
+    {
+     "t": "Lựa chọn",
+     "zh": "是否要辭去穩定的工作赴海外深造，對她而言是一個非常艱難的決定。",
+     "vn": "Có nên nghỉ công việc ổn định để ra nước ngoài học cao hơn hay không đối với cô ấy là một quyết định rất khó khăn."
+    },
+    {
+     "t": "Kinh doanh",
+     "zh": "疫情期間觀光業處境格外艱難，不少旅宿業者靠著轉型國旅才勉強撐過難關。",
+     "vn": "Trong thời kỳ dịch bệnh ngành du lịch rơi vào tình cảnh đặc biệt gian nan, không ít cơ sở lưu trú phải chuyển sang khách nội địa mới gắng gượng vượt qua."
+    },
+    {
+     "t": "Động viên",
+     "zh": "再艱難的日子也總會過去，只要家人彼此陪伴就一定能迎來轉機。",
+     "vn": "Những ngày tháng gian nan đến mấy rồi cũng sẽ qua, chỉ cần gia đình đồng hành bên nhau nhất định sẽ đón cơ hội mới."
+    }
+   ]
+  },
+  "簡便": {
+   "vn": "đơn giản và tiện lợi; gọn nhẹ",
+   "ng": [
+    "(tính từ) đơn giản, gọn nhẹ, dễ thao tác và tiện lợi (手續簡便 thủ tục gọn nhẹ, 操作簡便 thao tác đơn giản tiện lợi, 簡便料理 món ăn làm nhanh gọn)"
+   ],
+   "us": "Nhấn mạnh hai ưu điểm cùng lúc: vừa đơn giản (簡) vừa tiện lợi (便). Rất hay dùng cho thủ tục, thiết bị, cách nấu ăn.",
+   "co": [
+    "操作簡便|thao tác đơn giản tiện lợi",
+    "手續簡便|thủ tục gọn nhẹ",
+    "簡便方法|phương pháp gọn tiện",
+    "簡便器材|dụng cụ gọn nhẹ"
+   ],
+   "sy": [
+    "便捷|tiện lợi nhanh chóng",
+    "輕便|nhẹ nhàng tiện mang theo (đồ vật, quần áo)"
+   ],
+   "an": [
+    "繁瑣|rườm rà, phức tạp"
+   ],
+   "cf": [
+    "簡便 vs 輕便|輕便 chỉ trọng lượng nhẹ dễ mang theo (輕便雨衣 áo mưa mỏng gọn); 簡便 chỉ quy trình, cách làm, thao tác đơn giản và tiện dụng."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Chữ 便 đọc biàn (tiện lợi), không đọc pián.",
+   "tw": "Trong hướng dẫn thiết bị gia dụng và dịch vụ công ở Đài Loan rất hay quảng bá 申請流程簡便快速 (Quy trình đăng ký gọn nhẹ nhanh chóng).",
+   "mh": "Giản Tiện → jiǎnbiàn. ĐỌC: 'giản' → jiǎn (gi- → j-, thanh 3); 'tiện' → biàn (thanh 4). NGHĨA: 簡 đơn giản + 便 thuận tiện → gọn nhẹ, đơn giản tiện lợi.",
+   "vd": [
+    {
+     "t": "Dịch vụ",
+     "zh": "現在透過手機應用程式就能線上繳納水電費，流程比以前跑臨櫃簡便多了。",
+     "vn": "Bây giờ qua ứng dụng điện thoại là đóng được tiền điện nước trực tuyến, quy trình gọn tiện hơn nhiều so với trước đây phải ra quầy."
+    },
+    {
+     "t": "Công nghệ",
+     "zh": "這款新推出的翻譯筆介面設計直覺、操作簡便，連不熟悉科技產品的長輩也能輕鬆上手。",
+     "vn": "Chiếc bút dịch mới ra mắt này giao diện trực quan, thao tác đơn giản tiện lợi, ngay cả người lớn tuổi ít rành công nghệ cũng dùng dễ dàng."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "平日下班太累時，我喜歡煮一鍋材料簡便的番茄蛋花湯配麵條當晚餐。",
+     "vn": "Ngày thường tan làm quá mệt, tôi thích nấu một nồi canh cà chua trứng nguyên liệu gọn nhẹ ăn cùng mì làm bữa tối."
+    }
+   ]
+  },
+  "簡稱": {
+   "vn": "tên gọi tắt; gọi tắt là",
+   "ng": [
+    "(động từ / danh từ) gọi tắt là; tên viết tắt của tổ chức, trường học, khái niệm (台灣大學簡稱台大 Đại học Quốc lập Đài Loan gọi tắt là Đài Đại, 英文簡稱 tên viết tắt tiếng Anh)"
+   ],
+   "us": "Cấu trúc chuẩn: A 簡稱 B (A gọi tắt là B) hoặc A 的簡稱是 B. Cực kỳ hữu ích khi sống ở Đài Loan vì người Đài rất chuộng nói tắt (vd. 便利商店 → 超商, 國民中學 → 國中, 國立台灣大學 → 台大, 高速鐵路 → 高鐵).",
+   "co": [
+    "簡稱為|được gọi tắt là",
+    "英文簡稱|tên viết tắt tiếng Anh",
+    "官方簡稱|tên tắt chính thức"
+   ],
+   "sy": [
+    "縮寫|viết tắt (chủ yếu chữ cái, từ viết tắt)"
+   ],
+   "an": [
+    "全稱|tên gọi đầy đủ"
+   ],
+   "cf": [
+    "簡稱 vs 縮寫|簡稱 dùng nhiều cho tên gọi rút gọn tiếng Hoa (台大, 捷運, 健保); 縮寫 dùng nhiều cho viết tắt chữ cái tiếng Anh (AI, CEO, TOCFL)."
+   ],
+   "lt": "Động từ / Danh từ.",
+   "mk": "Đừng nhầm 簡稱 (tên gọi tắt) với 暱稱 (biệt danh thân mật).",
+   "tw": "Ở Đài Loan đâu đâu cũng có 簡稱: 北車 (ga Đài Bắc), 全聯 (siêu thị PX Mart), 健保 (bảo hiểm y tế), 資工 (công nghệ thông tin), 傳產 (ngành truyền thống).",
+   "mh": "Giản Xưng → jiǎnchēng. ĐỌC: 'giản' → jiǎn (thanh 3); 'xưng' → chēng (thanh 1). NGHĨA: 簡 rút gọn + 稱 gọi tên → tên gọi tắt.",
+   "vd": [
+    {
+     "t": "Giáo dục",
+     "zh": "「國立臺灣大學」通常簡稱「臺大」，是台灣歷史最悠久的綜合型研究大學。",
+     "vn": "'Đại học Quốc lập Đài Loan' thường gọi tắt là 'Đài Đại', là trường đại học nghiên cứu tổng hợp lâu đời nhất Đài Loan."
+    },
+    {
+     "t": "Văn hóa",
+     "zh": "台灣日常生活中有許多有趣的簡稱，例如把台北車站直接叫做「北車」。",
+     "vn": "Trong đời sống thường ngày ở Đài Loan có nhiều cách gọi tắt thú vị, ví dụ gọi thẳng ga Đài Bắc là 'Bắc Xa'."
+    },
+    {
+     "t": "Thi cử",
+     "zh": "「華語文能力測驗」的英文簡稱是 TOCFL，是申請台灣獎學金常見的語言門檻。",
+     "vn": "Tên viết tắt tiếng Anh của 'Kỳ thi Năng lực Hoa ngữ' là TOCFL, là yêu cầu ngôn ngữ quen thuộc khi xin học bổng Đài Loan."
+    }
+   ]
+  },
+  "簡化": {
+   "vn": "đơn giản hóa; rút gọn",
+   "ng": [
+    "(động từ) làm cho đơn giản đi, bớt rườm rà (簡化流程 đơn giản hóa quy trình, 簡化手續 rút gọn thủ tục, 過度簡化 đơn giản hóa quá mức)"
+   ],
+   "us": "Dùng nhiều trong quản trị, thủ tục, công nghệ và ngôn ngữ (漢字簡化 giản thể hóa chữ Hán).",
+   "co": [
+    "簡化流程|đơn giản hóa quy trình",
+    "簡化手續|rút gọn thủ tục",
+    "簡化步驟|giảm bớt các bước",
+    "過度簡化|đơn giản hóa quá mức"
+   ],
+   "sy": [
+    "精簡|tinh giản (nhân sự, văn bản, chi phí)"
+   ],
+   "an": [
+    "複雜化|phức tạp hóa"
+   ],
+   "cf": [
+    "簡化 vs 精簡|簡化 là làm quy trình/khái niệm đơn giản dễ làm hơn; 精簡 là cắt bỏ phần thừa để gọn và chất lượng hơn (精簡人力 tinh giản nhân sự, 文字精簡)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Chú ý hậu tố 化 = '-hóa' (簡化 đơn giản hóa, 現代化 hiện đại hóa, 自動化 tự động hóa).",
+   "tw": "Ở Đài Loan trong cải cách hành chính và thiết kế sản phẩm rất hay nói 簡化作業流程 (đơn giản hóa quy trình làm việc).",
+   "mh": "Giản Hóa → jiǎnhuà. ĐỌC: 'giản' → jiǎn (thanh 3); 'hóa' → huà (thanh 4). NGHĨA: 簡 đơn giản + 化 biến thành → đơn giản hóa.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "公司導入電子簽核系統後，大幅簡化了請假與費用報銷的審批流程。",
+     "vn": "Sau khi công ty áp dụng hệ thống ký duyệt điện tử, quy trình duyệt nghỉ phép và hoàn ứng chi phí đã được đơn giản hóa đáng kể."
+    },
+    {
+     "t": "Thiết kế",
+     "zh": "這款購物網站重新簡化了結帳步驟，消費者現在只需點選三次即可完成下單。",
+     "vn": "Trang mua sắm này rút gọn lại các bước thanh toán, người tiêu dùng giờ chỉ cần bấm ba lần là đặt hàng xong."
+    },
+    {
+     "t": "Tư duy",
+     "zh": "社會議題背後往往交織著多重成因，我們不應該把複雜現象過度簡化為單一結論。",
+     "vn": "Đằng sau các vấn đề xã hội thường đan xen nhiều nguyên nhân, chúng ta không nên đơn giản hóa quá mức hiện tượng phức tạp thành một kết luận duy nhất."
+    }
+   ]
+  },
+  "簡體": {
+   "vn": "chữ Giản thể",
+   "ng": [
+    "(danh từ) chữ Hán Giản thể — hệ thống chữ Hán được rút gọn nét, dùng chính thức tại Trung Quốc Đại Lục và Singapore (簡體字 chữ Giản thể, 繁簡轉換 chuyển đổi Phồn – Giản)"
+   ],
+   "us": "Đối lập trực tiếp với 繁體 / 正體 (chữ Phồn thể dùng tại Đài Loan, Hồng Kông, Ma Cao).",
+   "co": [
+    "簡體字|chữ Giản thể",
+    "繁簡轉換|chuyển đổi Phồn – Giản",
+    "簡體中文|tiếng Trung Giản thể"
+   ],
+   "sy": [
+    "簡化字|chữ giản hóa"
+   ],
+   "an": [
+    "繁體|chữ Phồn thể",
+    "正體|chữ Chính thể (cách gọi trang trọng ở Đài Loan)"
+   ],
+   "cf": [
+    "簡體 vs 繁體|Ở Đài Loan dùng 繁體字 / 正體字 (như 臺灣, 學習, 電話); ở Đại Lục dùng 簡體字 (như 台湾, 学习, 电话). Nắm vững Phồn thể sẽ dễ đọc Giản thể hơn chiều ngược lại."
+   ],
+   "lt": "Danh từ.",
+   "mk": "Trong bài thi TOCFL tại Đài Loan và giấy tờ hành chính Đài Loan luôn ưu tiên dùng 繁體字 (chữ Phồn thể).",
+   "tw": "Ở Đài Loan chính phủ hay gọi chữ Phồn thể là 正體字 (chữ Chính thể), và trên các trang web chọn ngôn ngữ ghi 繁體中文 / 簡體中文.",
+   "mh": "Giản Thể → jiǎntǐ. ĐỌC: 'giản' → jiǎn (thanh 3); 'thể' → tǐ (th- → t-, thanh 3; đọc liền jiántǐ). NGHĨA: 簡 rút gọn + 體 thể chữ → chữ Giản thể.",
+   "vd": [
+    {
+     "t": "Ngôn ngữ",
+     "zh": "熟悉繁體字之後，再透過前後文辨認簡體字其實相當容易，反之則需要多花時間適應。",
+     "vn": "Sau khi quen thuộc chữ Phồn thể, nhận diện chữ Giản thể qua ngữ cảnh thực ra khá dễ, còn ngược lại sẽ cần nhiều thời gian thích nghi hơn."
+    },
+    {
+     "t": "Công nghệ",
+     "zh": "這套電子書閱讀器內建繁體與簡體即時轉換功能，方便不同地區的讀者閱讀。",
+     "vn": "Máy đọc sách điện tử này tích hợp tính năng chuyển đổi tức thì giữa Phồn thể và Giản thể, thuận tiện cho độc giả nhiều khu vực."
+    },
+    {
+     "t": "Học tập",
+     "zh": "在台灣生活和準備 TOCFL 考試時，建議一開始就以繁體字為主，同時大致了解常見簡體字形。",
+     "vn": "Khi sống tại Đài Loan và ôn thi TOCFL, nên bắt đầu lấy chữ Phồn thể làm chính, đồng thời nắm sơ qua mặt chữ Giản thể thông dụng."
+    }
+   ]
+  },
+  "檢討": {
+   "vn": "kiểm điểm; rút kinh nghiệm, rà soát lại",
+   "ng": [
+    "(động từ / danh từ) rà soát lại sai sót để rút kinh nghiệm, kiểm điểm (檢討錯誤 rút kinh nghiệm sai lầm, 自我檢討 tự kiểm điểm, 檢討會議 cuộc họp tổng kết rút kinh nghiệm)"
+   ],
+   "us": "Ở Đài Loan 檢討 rất phổ biến trong công việc với sắc thái khách quan 'rà soát lại để cải thiện' (檢討改善 / 檢討流程), không chỉ mang nghĩa nặng nề 'viết bản kiểm điểm' như tiếng Việt.",
+   "co": [
+    "檢討改善|rà soát để cải thiện",
+    "自我檢討|tự kiểm điểm bản thân",
+    "檢討會議|cuộc họp rút kinh nghiệm",
+    "深刻檢討|kiểm điểm sâu sắc"
+   ],
+   "sy": [
+    "反省|tự nhìn lại, tự vấn (thiên về nội tâm, đạo đức)",
+    "覆盤|tổng kết rút kinh nghiệm từng bước"
+   ],
+   "cf": [
+    "檢討 vs 反省|反省 là tự suy ngẫm bên trong bản thân (自我反省); 檢討 có thể là tập thể cùng mổ xẻ quy trình, chính sách, dự án để sửa lỗi và cải tiến (檢討政策, 檢討專案)."
+   ],
+   "lt": "Động từ / Danh từ.",
+   "mk": "Đừng hiểu 檢討 chỉ là bị kỷ luật — ở công sở Đài Loan họp 檢討會 sau mỗi sự kiện là quy trình chuẩn để làm tốt hơn lần sau!",
+   "tw": "Ở Đài Loan có câu nói quen thuộc về rà soát lỗi: 檢討改進 (rà soát cải tiến); cũng có cụm phê bình 檢討被害者 (đổ lỗi cho nạn nhân).",
+   "mh": "Kiểm Thảo → jiǎntǎo. ĐỌC: 'kiểm' → jiǎn (k- → j-, thanh 3); 'thảo' → tǎo (th- → t-, thanh 3; đọc liền jiántǎo). NGHĨA: 檢 kiểm tra + 討 thảo luận mổ xẻ → rà soát rút kinh nghiệm, kiểm điểm.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "每次大型活動結束後，團隊都會召開檢討會議，記錄優點與下次需要改進的地方。",
+     "vn": "Sau mỗi sự kiện lớn kết thúc, nhóm đều tổ chức họp rút kinh nghiệm để ghi nhận điểm mạnh và những chỗ cần cải thiện lần sau."
+    },
+    {
+     "t": "Học tập",
+     "zh": "寫完模擬試題最重要的步驟是仔細檢討錯題，找出自己最常混淆的文法觀念。",
+     "vn": "Bước quan trọng nhất sau khi làm xong đề thi thử là rà soát kỹ các câu sai để tìm ra điểm ngữ pháp mình hay nhầm nhất."
+    },
+    {
+     "t": "Chính sách",
+     "zh": "相關單位表示將全面檢討現行交通安全設計，優先改善事故頻傳的路口。",
+     "vn": "Cơ quan liên quan cho biết sẽ rà soát toàn diện thiết kế an toàn giao thông hiện hành, ưu tiên cải thiện các ngã tư hay xảy ra tai nạn."
+    }
+   ]
+  },
+  "賤": {
+   "vn": "rẻ mạt; thấp hèn; (khiêm ngữ cổ) hèn mọn",
+   "ng": [
+    "(tính từ) rẻ mạt, giá rất thấp (穀賤傷農 lúa rẻ hại nông dân, 賤賣 bán tháo rẻ mạt)",
+    "(tính từ) thấp hèn, đáng khinh (卑賤 hèn mọn, 下賤 đê tiện)",
+    "(khiêm ngữ cũ) hèn mọn — dùng trong cách nói lịch sự cổ điển (賤名 tên mọn của tôi)"
+   ],
+   "us": "Từ mang sắc thái mạnh; trong tiếng Hoa hiện đại chủ yếu gặp trong từ ghép như 賤賣 (bán tháo giá rẻ bèo), 卑賤 (hèn kém), 貧賤 (nghèo hèn) hoặc khẩu ngữ mạnh (tránh dùng tùy tiện với người khác vì rất xúc phạm!).",
+   "co": [
+    "賤賣|bán tháo rẻ mạt",
+    "卑賤|hèn mọn, thấp kém",
+    "穀賤傷農|lúa rẻ hại nhà nông",
+    "貧賤|nghèo hèn"
+   ],
+   "sy": [
+    "廉價|rẻ mạt (trung tính hơn cho hàng hóa)",
+    "低廉|giá thấp"
+   ],
+   "an": [
+    "貴|đắt, quý giá",
+    "高貴|cao quý"
+   ],
+   "cf": [
+    "賤賣 vs 特賣|特賣 là bán khuyến mãi giảm giá bình thường; 賤賣 là bán tống bán tháo với giá rẻ mạt dưới xa giá trị thực."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Tuyệt đối tránh dùng chữ 賤 một mình để nói về con người trong giao tiếp hàng ngày vì đây là từ mắng chửi rất nặng!",
+   "tw": "Trong tin tức nông nghiệp Đài Loan hay gặp thành ngữ 菜賤傷農 (rau rẻ quá làm hại nông dân) khi nông sản được mùa rớt giá.",
+   "mh": "Tiện → jiàn. ĐỌC: 'tiện' → jiàn (t- → j-, thanh 4). NGHĨA: 貝 vỏ sò tiền bạc + 戔 nhỏ bé ít ỏi → giá trị quá thấp = rẻ mạt, thấp hèn.",
+   "vd": [
+    {
+     "t": "Nông nghiệp",
+     "zh": "每逢高麗菜盛產供過於求時，產地價格暴跌，常出現「菜賤傷農」的困境。",
+     "vn": "Mỗi khi bắp cải vào vụ cung vượt cầu, giá tại vườn lao dốc, thường xảy ra tình cảnh 'rau rẻ hại nhà nông'."
+    },
+    {
+     "t": "Kinh doanh",
+     "zh": "這批庫存如果再不盡快處理就會過季，店家只好含淚低價賤賣以換取現金流。",
+     "vn": "Lô hàng tồn này nếu không sớm xử lý sẽ qua mùa, chủ tiệm đành ngậm ngùi bán tháo giá rẻ mạt để lấy dòng tiền."
+    },
+    {
+     "t": "Giá trị",
+     "zh": "職業本身不分貴賤，任何靠雙手踏實付出的人都值得社會尊重。",
+     "vn": "Nghề nghiệp bản thân không phân sang hèn, bất kỳ ai lao động chân chính bằng đôi tay mình đều đáng được xã hội tôn trọng."
+    }
+   ]
+  },
+  "濺": {
+   "vn": "bắn tung tóe; văng (nước, dầu, tia lửa)",
+   "ng": [
+    "(động từ) bắn ra, văng tung tóe (chất lỏng hoặc tia lửa: 水花四濺 nước bắn tung tóe, 濺了一身水 bị bắn nước ướt cả người, 油濺出來 dầu bắn ra)"
+   ],
+   "us": "Thường dùng với chất lỏng (水, 泥水, 油, 湯) hoặc tia lửa (火花四濺). Cấu trúc hay gặp: 濺到 + vật/người (小心熱油濺到手上 Cẩn thận dầu nóng bắn vào tay).",
+   "co": [
+    "水花四濺|nước bắn tung tóe",
+    "火花四濺|tia lửa bắn tung tóe",
+    "濺到衣服|bắn lên quần áo",
+    "濺起水花|làm nước bắn lên"
+   ],
+   "sy": [
+    "噴|phun ra (có áp lực mạnh từ vòi)",
+    "灑|vẩy, làm đổ rơi vãi"
+   ],
+   "cf": [
+    "濺 vs 灑|灑 là làm đổ, rưới hoặc rơi vãi từ vật chứa (水灑出來了 nước tràn đổ ra); 濺 là chất lỏng va đập mạnh rồi bắn tóe các giọt nhỏ ra xung quanh (車子經過濺起泥水)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Chú ý bộ 氵 (nước) bên trái chữ 濺 — phân biệt với 賤 (bộ 貝 tiền bạc = rẻ mạt).",
+   "tw": "Ở Đài Loan ngày mưa đi bộ sát lề đường rất sợ xe chạy nhanh 濺起泥水 (bắn nước bẩn lên quần áo).",
+   "mh": "Tiễn → jiàn. ĐỌC: 'tiễn' → jiàn (t- → j-, thanh 4). NGHĨA: 氵 nước + 賤 (ghi âm) → nước va đập bắn tung tóe = bắn, văng.",
+   "vd": [
+    {
+     "t": "Nấu ăn",
+     "zh": "把洗好的青菜放進熱油鍋前要先瀝乾水分，才不會害熱油到處亂濺燙傷手。",
+     "vn": "Trước khi cho rau rửa sạch vào chảo dầu nóng cần để ráo nước để dầu nóng không bắn tung tóe làm bỏng tay."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "下雨天開車行經積水路段時請放慢速度，以免車輪濺起泥水淋濕路旁行人。",
+     "vn": "Trời mưa lái xe qua đoạn đường đọng nước vui lòng chạy chậm để bánh xe không bắn nước bẩn ướt người đi bộ bên đường."
+    },
+    {
+     "t": "Thiên nhiên",
+     "zh": "瀑布從數十公尺高的懸崖傾瀉而下，撞擊岩石後水花四濺，氣勢非常壯觀。",
+     "vn": "Thác nước đổ ào từ vách đá cao hàng chục mét, đập vào đá khiến bọt nước bắn tung tóe, cảnh tượng vô cùng hùng vĩ."
+    }
+   ]
+  },
+  "見解": {
+   "vn": "kiến giải; quan điểm, cách nhìn sâu sắc",
+   "ng": [
+    "(danh từ) quan điểm, nhận định, cách nhìn nhận có chiều sâu về một vấn đề (獨到的見解 kiến giải độc đáo, 個人見解 quan điểm cá nhân, 發表見解 trình bày quan điểm)"
+   ],
+   "us": "Trang trọng hơn 看法 / 意見; nhấn mạnh sự hiểu biết sâu sắc, phân tích có chiều sâu (thường dùng cho chuyên gia, tác giả, nhà phân tích).",
+   "co": [
+    "獨到的見解|kiến giải độc đáo",
+    "個人見解|quan điểm cá nhân",
+    "發表見解|trình bày kiến giải",
+    "精闢見解|nhận định sắc sảo"
+   ],
+   "sy": [
+    "觀點|quan điểm, góc nhìn",
+    "看法|cách nhìn (đời thường)"
+   ],
+   "cf": [
+    "見解 vs 意見|意見 là ý kiến góp ý hoặc phản đối nói chung (有什麼意見嗎？); 見解 là nhận định chuyên sâu, sắc sảo về một vấn đề học thuật/xã hội."
+   ],
+   "lt": "番, 點 (一番獨到的見解).",
+   "mk": "Đừng hỏi bạn ăn gì bằng *你對晚餐有什麼見解？ ❌ (nghe quá trịnh trọng!) — dùng 想法 / 意見.",
+   "tw": "Hay dùng khi giới thiệu khách mời tọa đàm: 邀請教授分享他對經濟趨勢的獨到見解.",
+   "mh": "Kiến Giải → jiànjiě. ĐỌC: 'kiến' → jiàn (k- → j-, thanh 4); 'giải' → jiě (gi- → j-, thanh 3). NGHĨA: 見 nhìn thấy + 解 lý giải → cách nhìn và lý giải sâu sắc = kiến giải.",
+   "vd": [
+    {
+     "t": "Tọa đàm",
+     "zh": "這位經濟學者在論壇上針對產業轉型提出許多精闢見解，贏得全場熱烈掌聲。",
+     "vn": "Học giả kinh tế này đưa ra nhiều nhận định sắc sảo về chuyển đổi ngành nghề tại diễn đàn, nhận được tràng pháo tay nồng nhiệt."
+    },
+    {
+     "t": "Đọc sách",
+     "zh": "這本評論集對當代都市建築與生活空間的關係有相當獨到的見解，非常值得一讀。",
+     "vn": "Tập tiểu luận này có nhiều kiến giải khá độc đáo về mối quan hệ giữa kiến trúc đô thị đương đại và không gian sống, rất đáng đọc."
+    },
+    {
+     "t": "Thảo luận",
+     "zh": "以上只是我個人的淺薄見解，歡迎大家提出不同角度的看法一起交流。",
+     "vn": "Trên đây chỉ là vài kiến giải nhỏ của cá nhân tôi, rất hoan nghênh mọi người nêu góc nhìn khác để cùng trao đổi."
+    }
+   ]
+  },
+  "見識": {
+   "vn": "kiến thức trải nghiệm; mở mang tầm mắt",
+   "ng": [
+    "(danh từ) vốn hiểu biết rộng nhờ từng trải thực tế (增廣見識 mở rộng tầm mắt, 見識廣博 hiểu biết rộng, 長見識 mở mang thêm)",
+    "(động từ) tận mắt chứng kiến, trải nghiệm cho biết (見識一下 trải nghiệm/chứng kiến cho biết)"
+   ],
+   "us": "Rất hay dùng trong cụm 長見識 (mở mang tầm mắt), 增廣見聞/見識, và 見識到 (tận mắt thấy/chứng kiến được).",
+   "co": [
+    "長見識|mở mang tầm mắt",
+    "增廣見識|mở rộng hiểu biết",
+    "見識廣博|từng trải hiểu rộng",
+    "見識一下|trải nghiệm thử cho biết"
+   ],
+   "sy": [
+    "閱歷|sự từng trải",
+    "見聞|điều mắt thấy tai nghe"
+   ],
+   "cf": [
+    "見識 vs 知識|知識 là tri thức học được từ sách vở, trường lớp; 見識 là sự hiểu biết và tầm nhìn đúc kết từ việc đi nhiều, tiếp xúc thực tế."
+   ],
+   "lt": "Danh từ / Động từ.",
+   "mk": "Cụm 長見識 (zhǎng jiànshì = mở mang tầm mắt): chữ 長 đọc thanh 3 zhǎng (tăng trưởng), không đọc cháng!",
+   "tw": "Ở Đài Loan đi du lịch hoặc tham dự triển lãm quốc tế hay nói 趁年輕多出去看看，長長見識！(Tranh thủ còn trẻ đi nhiều cho mở mang tầm mắt!).",
+   "mh": "Kiến Thức → jiànshì. ĐỌC: 'kiến' → jiàn (thanh 4); 'thức' → shì (th- → sh-, thanh 4). NGHĨA: 見 từng thấy qua + 識 hiểu biết → sự từng trải, mở mang tầm mắt.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "出國自助旅行能接觸不同國家的飲食與文化，對年輕人來說是非常好增廣見識的機會。",
+     "vn": "Du lịch tự túc nước ngoài giúp tiếp xúc ẩm thực và văn hóa nhiều nước, là cơ hội rất tốt để người trẻ mở mang tầm mắt."
+    },
+    {
+     "t": "Công việc",
+     "zh": "參加這場國際科技展讓我真正見識到人工智慧在醫療領域的最新突破。",
+     "vn": "Tham dự triển lãm công nghệ quốc tế này giúp tôi tận mắt chứng kiến những đột phá mới nhất của trí tuệ nhân tạo trong y tế."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "多跟不同領域的前輩聊天，常常一句話就能讓人豁然開朗、長了不少見識。",
+     "vn": "Trò chuyện nhiều với người đi trước ở các lĩnh vực khác nhau, đôi khi chỉ một câu cũng giúp người ta vỡ lẽ và mở mang thêm nhiều điều."
+    }
+   ]
+  },
+  "見證": {
+   "vn": "chứng kiến; nhân chứng, minh chứng",
+   "ng": [
+    "(động từ) tận mắt chứng kiến một khoảnh khắc lịch sử hoặc quan trọng; làm chứng (見證歷史 chứng kiến lịch sử, 見證奇蹟 chứng kiến kỳ tích, 律師見證 luật sư làm chứng)",
+    "(danh từ) minh chứng, bằng chứng sống (歷史的見證 minh chứng lịch sử)"
+   ],
+   "us": "Trang trọng, giàu cảm xúc hơn 看到 / 目擊; dùng cho những sự kiện trọng đại, bước ngoặt lịch sử, hôn lễ hoặc ký kết pháp lý.",
+   "co": [
+    "見證歷史|chứng kiến lịch sử",
+    "見證人|người làm chứng",
+    "歷史見證|minh chứng lịch sử",
+    "共同見證|cùng nhau chứng kiến"
+   ],
+   "sy": [
+    "目擊|chứng kiến tận mắt (tai nạn, vụ việc)",
+    "證實|xác nhận chứng thực"
+   ],
+   "cf": [
+    "見證 vs 目擊|目擊 dùng cho vụ tai nạn, tội phạm (目擊者 nhân chứng vụ án); 見證 dùng cho khoảnh khắc lịch sử, thành tựu, hôn lễ hoặc xác nhận pháp lý."
+   ],
+   "lt": "Động từ / Danh từ.",
+   "mk": "Đừng dùng 見證 cho việc chứng kiến tai nạn giao thông (*見證車禍 ❌ → 目擊車禍).",
+   "tw": "Ở Đài Loan trong đám cưới hay lễ kỷ niệm rất hay nói 感謝各位親友今天前來見證我們的幸福.",
+   "mh": "Kiến Chứng → jiànzhèng. ĐỌC: 'kiến' → jiàn (thanh 4); 'chứng' → zhèng (ch- → zh-, thanh 4). NGHĨA: 見 nhìn thấy + 證 làm chứng → tận mắt chứng kiến, minh chứng.",
+   "vd": [
+    {
+     "t": "Lịch sử",
+     "zh": "這座百年火車站見證了當地從農業小鎮一步步發展為繁華都市的歷程。",
+     "vn": "Nhà ga trăm tuổi này đã chứng kiến hành trình địa phương phát triển từng bước từ thị trấn nông nghiệp thành đô thị phồn hoa."
+    },
+    {
+     "t": "Thể thao",
+     "zh": "球場內數萬名觀眾起立歡呼，共同見證球隊拿下隊史首座總冠軍獎盃。",
+     "vn": "Hàng vạn khán giả trên sân đứng dậy reo hò, cùng chứng kiến đội bóng giành chiếc cúp vô địch đầu tiên trong lịch sử đội."
+    },
+    {
+     "t": "Pháp lý",
+     "zh": "雙方代表在公證人的見證下正式簽署這份跨國合作協議書。",
+     "vn": "Đại diện hai bên chính thức ký kết thỏa thuận hợp tác xuyên quốc gia trước sự chứng kiến của công chứng viên."
+    }
+   ]
+  },
+  "建造": {
+   "vn": "xây dựng; kiến tạo (công trình lớn)",
+   "ng": [
+    "(động từ) xây dựng, thi công các công trình lớn như cầu, nhà, đường sắt, tàu thuyền (建造橋樑 xây cầu, 建造工廠 xây nhà máy, 建造船隻 đóng tàu)"
+   ],
+   "us": "Trang trọng, dùng cho công trình vật chất quy mô vừa và lớn (橋樑, 房屋, 紀念館, 港口). Không dùng cho thứ trừu tượng như 'xây dựng quan hệ' (dùng 建立).",
+   "co": [
+    "建造橋樑|xây dựng cầu",
+    "建造房屋|xây nhà",
+    "建造工廠|xây dựng nhà máy",
+    "斥資建造|đầu tư kinh phí xây dựng"
+   ],
+   "sy": [
+    "興建|xây mới (công trình công cộng, rất hay dùng ở Đài Loan)",
+    "修建|xây sửa"
+   ],
+   "an": [
+    "拆除|tháo dỡ"
+   ],
+   "cf": [
+    "建造 vs 建立|建造 chỉ dùng cho công trình kiến trúc, vật thể hữu hình (建造大樓); 建立 dùng cho cái trừu tượng (建立信任 xây dựng niềm tin, 建立制度 thiết lập chế độ)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Đừng nói *建造友誼 ❌ — phải dùng 建立友誼!",
+   "tw": "Báo chí Đài Loan dùng song song 建造 và 興建 cho cầu đường, nhà hát, bảo tàng.",
+   "mh": "Kiến Tạo → jiànzào. ĐỌC: 'kiến' → jiàn (thanh 4); 'tạo' → zào (t- → z-, thanh 4). NGHĨA: 建 dựng lên + 造 chế tạo → xây dựng công trình.",
+   "vd": [
+    {
+     "t": "Kiến trúc",
+     "zh": "這座結合綠建築理念建造的圖書館，屋頂鋪滿太陽能板並能回收雨水灌溉植栽。",
+     "vn": "Thư viện được xây dựng theo triết lý kiến trúc xanh này phủ kín pin mặt trời trên mái và thu hồi nước mưa tưới cây."
+    },
+    {
+     "t": "Lịch sử",
+     "zh": "當地最著名的古堡由荷蘭人於十七世紀建造，至今仍是重要的文化地標。",
+     "vn": "Pháo đài cổ nổi tiếng nhất địa phương do người Hà Lan xây dựng từ thế kỷ XVII, đến nay vẫn là biểu tượng văn hóa quan trọng."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "政府計畫在河口建造一座跨海大橋，藉此紓解市區長年的通勤車潮。",
+     "vn": "Chính phủ dự định xây một cây cầu vượt biển ở cửa sông nhằm giảm tải dòng xe đi làm đông đúc lâu năm ở nội đô."
+    }
+   ]
+  },
+  "健身": {
+   "vn": "tập gym; rèn luyện thể hình, tập thể dục",
+   "ng": [
+    "(động từ ly hợp) rèn luyện thể lực, tập gym, tập thể hình (去健身 đi tập gym, 健身教練 huấn luyện viên gym, 健身器材 dụng cụ tập thể hình)"
+   ],
+   "us": "Rất phổ biến trong đời sống hiện đại ở Đài Loan; chỉ cả tập tạ/thể hình trong phòng gym lẫn tập rèn sức khỏe nói chung.",
+   "co": [
+    "去健身|đi tập gym",
+    "健身房|phòng tập gym",
+    "健身教練|huấn luyện viên thể hình",
+    "健身器材|máy tập thể hình"
+   ],
+   "sy": [
+    "運動|vận động, tập thể dục (rộng hơn, gồm chạy bộ, bơi, bóng rổ)",
+    "重訓|tập tạ (重量訓練 — cực phổ biến ở Đài Loan)"
+   ],
+   "cf": [
+    "健身 vs 運動|運動 bao gồm mọi hoạt động thể thao (chạy bộ, cầu lông, bơi); 健身 thiên về rèn luyện cơ bắp, sức bền và vóc dáng (thường với máy tập hoặc bodyweight)."
+   ],
+   "lt": "Động từ ly hợp.",
+   "mk": "Ở Đài Loan người tập gym rất hay nói 重訓 (zhòngxùn = tập tạ) và 有氧 (yǒuyǎng = cardio).",
+   "tw": "Phong trào 健身 ở Đài Loan rất phát triển, có các trung tâm thể thao công lập giá rẻ 國民運動中心 (tính theo giờ, chỉ 50 Đài tệ/giờ!).",
+   "mh": "Kiện Thân → jiànshēn. ĐỌC: 'kiện' → jiàn (k- → j-, thanh 4); 'thân' → shēn (th- → sh-, thanh 1). NGHĨA: 健 khỏe mạnh + 身 thân thể → rèn luyện cơ thể khỏe mạnh = tập gym.",
+   "vd": [
+    {
+     "t": "Sức khỏe",
+     "zh": "為了改善久坐辦公室造成的腰痠背痛，他每週固定安排三天晚上去健身。",
+     "vn": "Để cải thiện tình trạng đau lưng mỏi vai do ngồi văn phòng lâu, anh ấy sắp xếp cố định ba tối mỗi tuần đi tập gym."
+    },
+    {
+     "t": "Dinh dưỡng",
+     "zh": "許多健身族群會特別注意蛋白質攝取，運動後常喝無糖豆漿或吃雞胸肉補充體力。",
+     "vn": "Nhiều người tập gym đặc biệt chú ý lượng đạm nạp vào, sau khi tập thường uống sữa đậu nành không đường hoặc ăn ức gà bổ sung."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "初學者開始健身時建議先請專業教練指導正確姿勢，避免施力不當導致運動傷害。",
+     "vn": "Người mới bắt đầu tập gym nên nhờ huấn luyện viên hướng dẫn tư thế đúng trước để tránh dùng lực sai gây chấn thương."
+    }
+   ]
+  },
+  "健身房": {
+   "vn": "phòng tập gym; phòng tập thể hình",
+   "ng": [
+    "(danh từ) phòng tập thể hình có trang bị máy chạy bộ, tạ và thiết bị tập luyện"
+   ],
+   "us": "Lượng từ: 間 hoặc 家 (一間健身房). Rất thông dụng trong giao tiếp hàng ngày ở Đài Loan.",
+   "co": [
+    "去健身房|đi phòng gym",
+    "健身房會員|hội viên phòng gym",
+    "社區健身房|phòng gym của khu chung cư",
+    "24小時健身房|phòng gym mở cửa 24 giờ"
+   ],
+   "sy": [
+    "運動中心|trung tâm thể thao (công lập ở Đài Loan, có cả hồ bơi và sân cầu lông)"
+   ],
+   "cf": [
+    "健身房 vs 運動中心|健身房 là phòng gym tư nhân (thường đóng phí tháng/năm); 國民運動中心 là trung tâm thể thao công lập từng quận ở Đài Loan, trả phí theo giờ rất rẻ."
+   ],
+   "lt": "間, 家 (一間健身房).",
+   "mk": "Đừng dịch word-by-word thành *運動房 ❌ — phải là 健身房.",
+   "tw": "Ở Đài Loan ngoài các chuỗi 健身房 tư nhân, mỗi quận ở Đài Bắc/Đài Trung đều có 運動中心 với phòng gym tính theo giờ rất tiện.",
+   "mh": "Kiện Thân Phòng → jiànshēnfáng. ĐỌC: 'kiện thân' → jiànshēn; 'phòng' → fáng (ph- → f-, thanh 2). NGHĨA: 健身 tập thể hình + 房 căn phòng → phòng tập gym.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "我家巷口最近新開了一間二十四小時營業的健身房，加班再晚都能去運動一下。",
+     "vn": "Đầu ngõ nhà tôi gần đây mới mở một phòng gym hoạt động 24 giờ, tăng ca muộn đến mấy cũng ghé tập một chút được."
+    },
+    {
+     "t": "Tiêu dùng",
+     "zh": "簽署健身房會員合約前，務必看清楚月費計算方式與中途解約的退費規定。",
+     "vn": "Trước khi ký hợp đồng hội viên phòng gym, nhất định phải đọc kỹ cách tính phí tháng và quy định hoàn tiền nếu hủy giữa chừng."
+    },
+    {
+     "t": "Thói quen",
+     "zh": "外面下大雨不方便去河濱慢跑時，我會改去社區附設的健身房跑跑步機。",
+     "vn": "Khi ngoài trời mưa to không tiện chạy bộ ven sông, tôi chuyển sang phòng gym của khu chung cư chạy trên máy."
+    }
+   ]
+  },
+  "健壯": {
+   "vn": "khỏe mạnh cường tráng; vạm vỡ",
+   "ng": [
+    "(tính từ) thân thể khỏe mạnh, vạm vỡ, tràn đầy sức lực (體格健壯 thể trạng cường tráng, 健壯的牛羊 đàn gia súc khỏe mạnh)"
+   ],
+   "us": "Dùng cho con người (thường nam giới, vận động viên, thanh niên) hoặc động vật (ngựa, bò, chó lớn).",
+   "co": [
+    "體格健壯|thể trạng vạm vỡ khỏe mạnh",
+    "身軀健壯|thân hình cường tráng",
+    "長得健壯|lớn lên khỏe mạnh cứng cáp"
+   ],
+   "sy": [
+    "強壯|cường tráng, khỏe mạnh",
+    "硬朗|khỏe mạnh dẻo dai (dùng cho người già)"
+   ],
+   "an": [
+    "虛弱|yếu ớt",
+    "瘦弱|gầy yếu"
+   ],
+   "cf": [
+    "健壯 vs 健康|健康 là khỏe mạnh không bệnh tật (dùng cho mọi lứa tuổi, cả tinh thần và chế độ ăn); 健壯 nhấn mạnh vóc dáng to khỏe, cơ bắp vạm vỡ."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Đừng dùng 健壯 cho đồ ăn (*這道菜很健壯 ❌ → 很健康) hay người già (người già khỏe mạnh dùng 硬朗).",
+   "tw": "Trong văn viết và thể thao dùng 體格健壯 rất chuẩn mực.",
+   "mh": "Kiện Tráng → jiànzhuàng. ĐỌC: 'kiện' → jiàn (thanh 4); 'tráng' → zhuàng (tr- → zh-, thanh 4). NGHĨA: 健 khỏe + 壯 vạm vỡ → khỏe mạnh cường tráng.",
+   "vd": [
+    {
+     "t": "Thể thao",
+     "zh": "長期游泳加上重量訓練，讓原本瘦弱的他練出了一副十分健壯的體格。",
+     "vn": "Bơi lội lâu dài kết hợp tập tạ giúp anh ấy từ vóc dáng gầy yếu rèn được thân hình hết sức cường tráng."
+    },
+    {
+     "t": "Nông nghiệp",
+     "zh": "這座高山牧場水草豐美、空氣清新，飼養的乳牛每一頭都長得格外健壯。",
+     "vn": "Nông trại núi cao này cỏ nước dồi dào, không khí trong lành, đàn bò sữa nuôi ở đây con nào cũng lớn lên đặc biệt khỏe mạnh."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "搬家公司派來的幾位師傅個個身形健壯，沒多久就把沉重的實木衣櫃順利搬上三樓。",
+     "vn": "Mấy bác thợ công ty chuyển nhà cử tới ai nấy đều vạm vỡ khỏe mạnh, chẳng mấy chốc đã khiêng tủ gỗ đặc nặng nề lên tầng ba gọn gàng."
+    }
+   ]
+  }
+ }
+}

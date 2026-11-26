@@ -72,9 +72,21 @@ function cedFirst(w) {
   const e = S.ced && S.ced.get(w); if (!e) return null;
   return e.slice().sort((a, b) => (/^[A-ZĀÁǍÀĒÉĚÈŌÓǑÒ]/.test(a[0]) - /^[A-ZĀÁǍÀĒÉĚÈŌÓǑÒ]/.test(b[0])) || (/^surname/.test(a[1]) - /^surname/.test(b[1])));
 }
-function enOf(w) {
-  const e = cedFirst(w); if (!e) return "";
-  return e.map(([, defs]) => defs.split("/").filter((d) => !/^(variant of|old variant|see |CL:|surname )/.test(d)).slice(0, 3).join("; ")).filter(Boolean).slice(0, 2).join(" | ");
+const TW_CED_MAP = { "台": "臺", "汙": "污", "菸": "煙", "帳": "賬", "扣": "釦", "搜": "蒐", "祕": "秘", "溼": "濕", "艶": "豔", "裡": "裏" };
+const EN_FALLBACK = { "還要": "still need; also want; even more", "好了": "ready; done; okay; all right", "說起來": "speaking of; come to think of it", "走走": "to take a walk; to stroll" };
+function enOf(w, forms) {
+  const cands = [w, ...(forms || [])].filter(Boolean);
+  for (const raw of cands) {
+    for (const c of [raw, raw.replace(/[台汙菸帳扣搜祕溼艶裡]/g, (ch) => TW_CED_MAP[ch] || ch)]) {
+      const e = cedFirst(c);
+      if (e) {
+        const s = e.map(([, defs]) => defs.split("/").filter((d) => !/^(variant of|old variant|see |CL:|surname )/.test(d)).slice(0, 3).join("; ")).filter(Boolean).slice(0, 2).join(" | ");
+        if (s) return s;
+      }
+      if (EN_FALLBACK[c]) return EN_FALLBACK[c];
+    }
+  }
+  return "";
 }
 // The content shown on a card. Rich notes have full content; basic notes are built from the official list + CEDICT + Vietnamese batches.
 const hasRichExpl = (it) => !!(it && (it.us || it.mh || it.mi || (it.ng && it.ng.length)));
@@ -82,15 +94,19 @@ const needsRich = (n) => !!(n && n.kind !== "grammar" && (!n.rich || !hasRichExp
 function itemOf(n) {
   const v = S.vi.get(n.w) || (n.display && S.vi.get(n.display)) || (n.official && S.vi.get(n.official.w)) || {};
   if (n.rich) {
-    if (hasRichExpl(n.it)) return n.it;
+    const en = n.it.en || enOf(n.it.w, n.forms);
+    const hv = n.it.hv || v.hv || "";
+    if (hasRichExpl(n.it)) return (en === n.it.en && hv === n.it.hv) ? n.it : Object.assign({}, n.it, { en, hv });
     return Object.assign({}, v, n.it, {
       w: n.it.w,
+      en,
+      hv,
       band: n.it.band || v.band,
       ng: n.it.ng || v.ng,
       vd: n.it.vd || v.vd
     });
   }
-  return Object.assign({ w: n.w, py: n.py, pos: n.pos, band: n.band, en: enOf(n.w), vn: "", hv: "" }, v);
+  return Object.assign({ w: n.w, py: n.py, pos: n.pos, band: n.band, en: enOf(n.w, n.forms), vn: "", hv: "" }, v);
 }
 function typesOf(n) {
   if (n.kind === "grammar") return GRAMMAR_TYPES;
