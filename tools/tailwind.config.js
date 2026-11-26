@@ -1,4 +1,4 @@
-// Same theme as the inline tailwind.config in index.html. Keep both in sync.
+// Theme for the CSS served by the static website.
 module.exports = Object.assign({
   darkMode: "class",
   theme: {
