@@ -20,8 +20,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;600&family=Noto+Serif:ital,wght@0,600;0,700;1,600&family=Noto+Serif+TC:wght@500;600;700;900&display=swap" rel="stylesheet">
 <link rel="preload" href="vendor/material-symbols-outlined.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="css/tw.css?v=42">
-<link rel="stylesheet" href="style.css?v=53">
+<link rel="stylesheet" href="css/tw.css?v=43">
+<link rel="stylesheet" href="style.css?v=54">
 <script>
   try {
     var _th = localStorage.getItem("shth-theme") || "light";
@@ -110,10 +110,10 @@
 
 <!-- Main Single-Page Dynamic Content Container -->
 <main class="w-full pt-20 pb-20 xl:pb-0 bg-paper-base flex-1 min-h-[calc(100vh-80px)] flex flex-col" id="view">
-  <div class="max-w-7xl mx-auto px-4 py-12 w-full flex flex-col items-center justify-center text-center">
+  <div class="max-w-7xl mx-auto px-4 py-12 w-full flex flex-col items-center justify-center text-center" id="bootSplash">
     <img src="img/icon-192.png?v=2" alt="Học tiếng Hoa 學習本" class="w-20 h-20 rounded-2xl mb-4 shadow-md object-cover animate-pulse">
-    <h2 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2">Đang tải dữ liệu học tập...</h2>
-    <p class="font-body-md text-on-surface-variant max-w-md">Khởi tạo bộ từ vựng TOCFL 2024, từ điển Hán Việt CVDICT và kiểm tra tiến độ đồng bộ của bạn.</p>
+    <h2 class="font-headline-md text-headline-md text-on-surface font-semibold mb-2" id="bootStatusTitle">Đang tải dữ liệu học tập...</h2>
+    <p class="font-body-md text-on-surface-variant max-w-md" id="bootStatusSub">Khởi tạo bộ từ vựng TOCFL 2024, từ điển Hán Việt CVDICT và kiểm tra tiến độ đồng bộ của bạn.</p>
   </div>
 </main>
 
@@ -147,7 +147,7 @@
 </nav>
 
 <!-- Global Footer From Stitch -->
-<footer class="w-full bg-surface-container-low border-t border-border-subtle shadow-[0_-1px_6px_rgba(44,42,41,0.02)] mt-space-2xl">
+<footer class="w-full bg-surface-container-low border-t border-border-subtle shadow-[0_-1px_6px_rgba(44,42,41,0.02)] mt-space-2xl pb-20 xl:pb-0">
   <div class="max-w-7xl mx-auto px-margin py-space-xl">
     <div class="flex flex-col md:flex-row items-center justify-between gap-space-md text-center md:text-left">
       <div class="flex items-center gap-space-sm flex-wrap justify-center md:justify-start">
@@ -170,7 +170,7 @@
 <script src="js/srs.js?v=78"></script>
 <script src="js/store.js?v=43"></script>
 <script src="js/sync.js?v=43"></script>
-<script src="js/app.js?v=95"></script>
+<script src="js/app.js?v=96"></script>
 <script>
   const menuBtn = document.getElementById('mobileMenuBtn');
   const mobileMenu = document.getElementById('mobileMenu');
