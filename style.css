@@ -711,6 +711,10 @@ rt {
 
 /* ---- Study card, answer side (v45): two columns on wide screens, larger explanation, colour per section ---- */
 .study-wide { max-width: 1360px; width: 100%; }
+@media (max-width: 639px) {
+  .home-study-panel .home-study-counts > div { padding: 8px; min-width: 0; }
+  .home-study-panel .home-study-counts span { overflow-wrap: break-word; }
+}
 .study-back { display: flex; flex-direction: column; gap: 28px; }
 .sb-empty { padding: 14px 16px; border-radius: 12px; background: rgba(120, 100, 80, .06); color: #6b6560; font-size: 15px; }
 @media (min-width: 1024px) {

@@ -1760,6 +1760,104 @@ VIEWS["trang-chu"] = () => {
   setView(`
     <div class="max-w-7xl mx-auto px-margin w-full py-space-lg flex flex-col gap-space-xl">
       <!-- Top Hero Banner: East Asian Modern Scholar Scroll (Exact Stitch) -->
+      <!-- Primary Action: SRS Quick Launch -->
+      <section class="home-study-panel p-space-lg lg:p-space-xl rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between gap-space-md">
+        <div class="flex flex-col gap-space-md">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-space-sm">
+              <span class="w-1 h-4 rounded-full bg-primary-container"></span>
+              <h2 class="font-headline-md text-headline-md text-on-surface">Bắt đầu học ngay</h2>
+            </div>
+            <span class="font-label-sm text-label-sm text-secondary font-semibold bg-jade-subtle px-space-sm py-0.5 rounded-full flex items-center gap-1">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> ${c.total ? 'Có thẻ để học' : 'Đã hết thẻ hôm nay'}
+            </span>
+          </div>
+          <!-- Card Count Visual Breakdown -->
+          <div class="home-study-counts grid grid-cols-3 gap-space-sm my-space-xs">
+            <div class="p-space-md rounded-lg bg-cinnabar-subtle flex flex-col">
+              <span class="font-label-sm text-label-sm text-primary font-semibold">TỪ MỚI</span>
+              <span class="font-headline-lg text-headline-lg text-primary font-semibold mt-1">${fmt(c.fresh)}</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Mục tiêu: ${fmt(targetNew)}/ngày</span>
+            </div>
+            <div class="p-space-md rounded-lg bg-amber-subtle flex flex-col">
+              <span class="font-label-sm text-label-sm text-tertiary font-semibold">ĐẾN HẠN</span>
+              <span class="font-headline-lg text-headline-lg text-tertiary font-semibold mt-1">${fmt(c.due)}</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Đến hạn nhắc lại</span>
+            </div>
+            <div class="p-space-md rounded-lg bg-paper-muted flex flex-col">
+              <span class="font-label-sm text-label-sm text-on-surface font-semibold">TỔNG CỘNG</span>
+              <span class="font-headline-lg text-headline-lg text-on-surface font-semibold mt-1">${fmt(c.total)}</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Ước tính: ${estMinutes} phút</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-space-sm flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md">
+          <button type="button" class="w-full sm:w-auto sm:flex-1 min-h-[48px] px-space-xl py-3 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold hover:bg-primary transition-all duration-200 shadow-sm flex items-center justify-center gap-space-sm" id="btn-start-study">
+            <span class="material-symbols-outlined text-[20px]">play_circle</span>
+            <span>${c.due && c.fresh ? 'Bắt đầu học' : c.due ? 'Ôn thẻ đến hạn' : c.fresh ? 'Học thẻ mới' : 'Xem phiên học'}${c.total ? ` (${fmt(c.total)} thẻ)` : ''}</span>
+          </button>
+          <button type="button" class="w-full sm:w-auto min-h-[48px] px-space-lg py-3 rounded-lg bg-paper-muted text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-high transition-colors flex items-center justify-center gap-space-xs" id="btnToggleGoalEdit">
+            <span class="material-symbols-outlined text-[18px] text-outline">tune</span>
+            <span>Tùy chỉnh số lượng</span>
+          </button>
+        </div>
+
+        <!-- Collapsible Goal Edit Box -->
+        <div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-space-md" id="goalEditBox" hidden>
+          <div class="flex items-center justify-between">
+            <span class="font-label-md text-sm font-semibold text-on-surface">Đặt mục tiêu học tập mỗi ngày:</span>
+            <span class="text-xs text-outline">Tự do tăng/giảm thẻ theo thời gian của bạn</span>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
+            <div class="bg-paper-card p-3 rounded-xl border border-border-subtle flex flex-col gap-2">
+              <label class="text-xs font-semibold text-on-surface-variant">Thẻ mới mỗi ngày (tối đa 200):</label>
+              <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-primary font-bold text-base flex items-center justify-center btn-stepper" data-step="new" data-delta="-5">-</button>
+                <input type="number" id="goalNewCards" min="1" max="200" value="${targetNew}" class="flex-1 py-1 px-3 text-center rounded-lg border border-border-subtle font-code font-bold text-primary text-base">
+                <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-primary font-bold text-base flex items-center justify-center btn-stepper" data-step="new" data-delta="5">+</button>
+              </div>
+            </div>
+            <div class="bg-paper-card p-3 rounded-xl border border-border-subtle flex flex-col gap-2">
+              <label class="text-xs font-semibold text-on-surface-variant">Chỉ tiêu ôn thẻ mỗi ngày (tối đa 500):</label>
+              <div class="flex items-center gap-2">
+                <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-jade-subtle text-secondary font-bold text-base flex items-center justify-center btn-stepper" data-step="rev" data-delta="-10">-</button>
+                <input type="number" id="goalReviewCards" min="5" max="500" value="${targetRev}" class="flex-1 py-1 px-3 text-center rounded-lg border border-border-subtle font-code font-bold text-secondary text-base">
+                <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-jade-subtle text-secondary font-bold text-base flex items-center justify-center btn-stepper" data-step="rev" data-delta="10">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap text-xs">
+            <span class="text-outline font-medium">Gợi ý nhanh:</span>
+            <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-secondary-fixed text-secondary border border-secondary/30 btn-preset font-semibold" data-new="8" data-rev="30">🎯 Band B Khuyến nghị (8 mới / 30 ôn)</button>
+            <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle btn-preset" data-new="5" data-rev="20">🌱 Nhẹ nhàng (5 mới / 20 ôn)</button>
+            <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-primary border border-primary/30 btn-preset" data-new="15" data-rev="50">🚀 Tăng tốc (15 mới / 50 ôn)</button>
+          </div>
+          <div class="flex items-center justify-between pt-2 border-t border-border-subtle">
+            <span class="text-xs text-secondary font-semibold" id="goalSaveMsg"></span>
+            <div class="flex items-center gap-2">
+              <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-medium text-outline hover:text-on-surface" id="btnCancelGoal">Đóng</button>
+              <button type="button" class="px-4 py-1.5 rounded-lg text-xs font-semibold bg-primary-container text-white hover:bg-primary shadow-xs" id="btnSaveGoal">Lưu mục tiêu</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 Compact Daily Missions Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-1 border-t border-border-subtle/50">
+          <div class="p-2.5 rounded-lg bg-paper-muted/70 flex items-center justify-between text-xs">
+            <span class="font-medium text-on-surface">1. Giữ chuỗi (${summary.current} ngày)</span>
+            <span class="font-code font-bold ${task1Done ? 'text-secondary' : 'text-primary'}">${task1Pct}%</span>
+          </div>
+          <div class="p-2.5 rounded-lg bg-paper-muted/70 flex items-center justify-between text-xs">
+            <span class="font-medium text-on-surface">2. Ôn thẻ (${reviewedToday}/${targetRev})</span>
+            <span class="font-code font-bold ${task2Done ? 'text-secondary' : 'text-primary'}">${task2Pct}%</span>
+          </div>
+          <div class="p-2.5 rounded-lg bg-paper-muted/70 flex items-center justify-between text-xs">
+            <span class="font-medium text-on-surface">3. Từ mới (${st.newCards}/${targetNew})</span>
+            <span class="font-code font-bold ${task3Done ? 'text-secondary' : 'text-primary'}">${task3Pct}%</span>
+          </div>
+        </div>
+      </section>
       <section class="relative w-full rounded-xl overflow-hidden bg-surface-container-low shadow-sm border border-border-subtle/60">
         <div class="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-primary-container/5 blur-3xl pointer-events-none"></div>
         <div class="absolute -left-10 -top-10 w-64 h-64 rounded-full bg-secondary/5 blur-2xl pointer-events-none"></div>
@@ -1880,7 +1978,7 @@ VIEWS["trang-chu"] = () => {
         <!-- Metric 4: Daily Study Time -->
         <div class="p-space-lg rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
           <div class="flex items-center justify-between">
-            <span class="font-label-md text-label-md text-on-surface-variant">Thời gian hôm nay</span>
+            <span class="font-label-md text-label-md text-on-surface-variant">Thời gian ước tính hôm nay</span>
             <div class="w-9 h-9 rounded-lg bg-surface-container flex items-center justify-center">
               <span class="material-symbols-outlined text-[20px] text-on-surface-variant">timer</span>
             </div>
@@ -1897,112 +1995,10 @@ VIEWS["trang-chu"] = () => {
         </div>
       </section>
 
-      <!-- Main Dual Panel: Action Center (7 cols) + TOCFL Pathway Progress Widget (5 cols) -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-stretch">
-        <!-- Primary Action: SRS Quick Launch -->
-        <section class="lg:col-span-7 p-space-lg lg:p-space-xl rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between gap-space-md">
-          <div class="flex flex-col gap-space-md">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-space-sm">
-                <span class="w-1 h-4 rounded-full bg-primary-container"></span>
-                <h2 class="font-headline-md text-headline-md text-on-surface">Bắt đầu học ngay</h2>
-              </div>
-              <span class="font-label-sm text-label-sm text-secondary font-semibold bg-jade-subtle px-space-sm py-0.5 rounded-full flex items-center gap-1">
-                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Sẵn sàng ôn luyện
-              </span>
-            </div>
-            <p class="font-body-md text-body-md text-on-surface-variant">
-              Thuật toán Lặp lại ngắt quãng (Spaced Repetition) đã phân bổ tập thẻ tối ưu cho nhịp sinh học hôm nay của bạn.
-            </p>
-            <!-- Card Count Visual Breakdown -->
-            <div class="grid grid-cols-3 gap-space-sm my-space-xs">
-              <div class="p-space-md rounded-lg bg-cinnabar-subtle flex flex-col">
-                <span class="font-label-sm text-label-sm text-primary font-semibold">TỪ MỚI</span>
-                <span class="font-headline-lg text-headline-lg text-primary font-semibold mt-1">${fmt(c.fresh)}</span>
-                <span class="font-body-sm text-body-sm text-on-surface-variant">Mục tiêu: ${fmt(targetNew)}/ngày</span>
-              </div>
-              <div class="p-space-md rounded-lg bg-amber-subtle flex flex-col">
-                <span class="font-label-sm text-label-sm text-tertiary font-semibold">CẦN ÔN TẬP</span>
-                <span class="font-headline-lg text-headline-lg text-tertiary font-semibold mt-1">${fmt(c.due)}</span>
-                <span class="font-body-sm text-body-sm text-on-surface-variant">Đến hạn nhắc lại</span>
-              </div>
-              <div class="p-space-md rounded-lg bg-paper-muted flex flex-col">
-                <span class="font-label-sm text-label-sm text-on-surface font-semibold">TỔNG CỘNG</span>
-                <span class="font-headline-lg text-headline-lg text-on-surface font-semibold mt-1">${fmt(c.total)}</span>
-                <span class="font-body-sm text-body-sm text-on-surface-variant">Ước tính: ${estMinutes} phút</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="pt-space-sm flex flex-col sm:flex-row items-stretch sm:items-center gap-space-md">
-            <button type="button" class="w-full sm:w-auto sm:flex-1 min-h-[48px] px-space-xl py-3 rounded-lg bg-primary-container text-on-primary font-label-md text-label-md font-semibold hover:bg-primary transition-all duration-200 shadow-sm flex items-center justify-center gap-space-sm" id="btn-start-study">
-              <span class="material-symbols-outlined text-[20px]">play_circle</span>
-              <span>Bắt đầu ôn tập (${fmt(c.total)} thẻ)</span>
-            </button>
-            <button type="button" class="w-full sm:w-auto min-h-[48px] px-space-lg py-3 rounded-lg bg-paper-muted text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-high transition-colors flex items-center justify-center gap-space-xs" id="btnToggleGoalEdit">
-              <span class="material-symbols-outlined text-[18px] text-outline">tune</span>
-              <span>Tùy chỉnh số lượng</span>
-            </button>
-          </div>
-
-          <!-- Collapsible Goal Edit Box -->
-          <div class="p-space-md rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-space-md" id="goalEditBox" hidden>
-            <div class="flex items-center justify-between">
-              <span class="font-label-md text-sm font-semibold text-on-surface">Đặt mục tiêu học tập mỗi ngày:</span>
-              <span class="text-xs text-outline">Tự do tăng/giảm thẻ theo thời gian của bạn</span>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md">
-              <div class="bg-paper-card p-3 rounded-xl border border-border-subtle flex flex-col gap-2">
-                <label class="text-xs font-semibold text-on-surface-variant">Thẻ mới mỗi ngày (tối đa 200):</label>
-                <div class="flex items-center gap-2">
-                  <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-primary font-bold text-base flex items-center justify-center btn-stepper" data-step="new" data-delta="-5">-</button>
-                  <input type="number" id="goalNewCards" min="1" max="200" value="${targetNew}" class="flex-1 py-1 px-3 text-center rounded-lg border border-border-subtle font-code font-bold text-primary text-base">
-                  <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-primary font-bold text-base flex items-center justify-center btn-stepper" data-step="new" data-delta="5">+</button>
-                </div>
-              </div>
-              <div class="bg-paper-card p-3 rounded-xl border border-border-subtle flex flex-col gap-2">
-                <label class="text-xs font-semibold text-on-surface-variant">Chỉ tiêu ôn thẻ mỗi ngày (tối đa 500):</label>
-                <div class="flex items-center gap-2">
-                  <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-jade-subtle text-secondary font-bold text-base flex items-center justify-center btn-stepper" data-step="rev" data-delta="-10">-</button>
-                  <input type="number" id="goalReviewCards" min="5" max="500" value="${targetRev}" class="flex-1 py-1 px-3 text-center rounded-lg border border-border-subtle font-code font-bold text-secondary text-base">
-                  <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-jade-subtle text-secondary font-bold text-base flex items-center justify-center btn-stepper" data-step="rev" data-delta="10">+</button>
-                </div>
-              </div>
-            </div>
-            <div class="flex items-center gap-2 flex-wrap text-xs">
-              <span class="text-outline font-medium">Gợi ý nhanh:</span>
-              <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-secondary-fixed text-secondary border border-secondary/30 btn-preset font-semibold" data-new="8" data-rev="30">🎯 Band B Khuyến nghị (8 mới / 30 ôn)</button>
-              <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle btn-preset" data-new="5" data-rev="20">🌱 Nhẹ nhàng (5 mới / 20 ôn)</button>
-              <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-primary border border-primary/30 btn-preset" data-new="15" data-rev="50">🚀 Tăng tốc (15 mới / 50 ôn)</button>
-            </div>
-            <div class="flex items-center justify-between pt-2 border-t border-border-subtle">
-              <span class="text-xs text-secondary font-semibold" id="goalSaveMsg"></span>
-              <div class="flex items-center gap-2">
-                <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-medium text-outline hover:text-on-surface" id="btnCancelGoal">Đóng</button>
-                <button type="button" class="px-4 py-1.5 rounded-lg text-xs font-semibold bg-primary-container text-white hover:bg-primary shadow-xs" id="btnSaveGoal">Lưu mục tiêu</button>
-              </div>
-            </div>
-          </div>
-
-          <!-- 3 Compact Daily Missions Row -->
-          <div class="grid grid-cols-1 sm:grid-cols-3 gap-space-sm pt-1 border-t border-border-subtle/50">
-            <div class="p-2.5 rounded-lg bg-paper-muted/70 flex items-center justify-between text-xs">
-              <span class="font-medium text-on-surface">1. Giữ chuỗi (${summary.current}d)</span>
-              <span class="font-code font-bold ${task1Done ? 'text-secondary' : 'text-primary'}">${task1Pct}%</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-paper-muted/70 flex items-center justify-between text-xs">
-              <span class="font-medium text-on-surface">2. Ôn thẻ (${reviewedToday}/${targetRev})</span>
-              <span class="font-code font-bold ${task2Done ? 'text-secondary' : 'text-primary'}">${task2Pct}%</span>
-            </div>
-            <div class="p-2.5 rounded-lg bg-paper-muted/70 flex items-center justify-between text-xs">
-              <span class="font-medium text-on-surface">3. Từ mới (${st.newCards}/${targetNew})</span>
-              <span class="font-code font-bold ${task3Done ? 'text-secondary' : 'text-primary'}">${task3Pct}%</span>
-            </div>
-          </div>
-        </section>
+      <div>
 
         <!-- TOCFL Pathway Progress Widget (Exact Stitch 5 cols) -->
-        <section class="lg:col-span-5 p-space-lg rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between">
+        <section class="p-space-lg rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between">
           <div class="flex flex-col gap-space-md">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-space-sm">
@@ -2207,6 +2203,7 @@ VIEWS["trang-chu"] = () => {
   const startBtn = $("#btn-start-study");
   if (startBtn) {
     startBtn.onclick = () => {
+      if (c.total) prepareStudySession("all", c.total);
       location.hash = "#hoc";
     };
   }
@@ -2425,6 +2422,11 @@ function getClozeChoices(targetWord, targetBand) {
   return choices.sort(() => Math.random() - 0.5);
 }
 
+function prepareStudySession(mode, totalCount) {
+  S.session = { answered: 0, shown: false, start: totalCount, lastNote: null, mode, newKeys: new Set(), queue: [] };
+  S.session.current = nextCard(Date.now());
+}
+
 VIEWS["hoc"] = () => {
   if (!S.session) {
     const c = todayCounts();
@@ -2500,8 +2502,7 @@ VIEWS["hoc"] = () => {
     `);
 
     const launchSession = (mode, totalCount) => {
-      S.session = { answered: 0, shown: false, start: totalCount, lastNote: null, mode, newKeys: new Set(), queue: [] };
-      S.session.current = nextCard(Date.now());
+      prepareStudySession(mode, totalCount);
       renderCard();
     };
     const b = $("#start");
