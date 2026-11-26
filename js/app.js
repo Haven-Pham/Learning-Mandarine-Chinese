@@ -2869,8 +2869,8 @@ function renderCard() {
           <div class="flex items-center justify-between gap-space-sm flex-wrap">
             <div class="flex items-center gap-space-xs flex-wrap">
               <span class="px-space-sm py-0.5 rounded-full bg-cinnabar-subtle text-primary font-label-sm text-xs font-semibold tracking-wider">TOCFL ${band}</span>
-              ${it.pos ? `<span class="px-space-sm py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-xs">${it.pos}</span>` : ''}
-              ${it.hv ? `<span class="px-space-sm py-0.5 rounded-full bg-paper-muted text-on-surface-variant font-code text-xs">Hán Việt: ${it.hv}</span>` : ''}
+              ${ss.shown && it.pos ? `<span class="study-meta">Từ loại: <strong>${esc(it.pos)}</strong></span>` : ''}
+              ${ss.shown && it.hv ? `<span class="study-meta">Hán Việt: <strong>${esc(it.hv)}</strong></span>` : ''}
             </div>
             <div class="flex items-center gap-1.5">
               <button aria-label="Xem nét viết" class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-jade-subtle transition-colors" id="btnToggleStrokes" title="Xem thứ tự nét viết">
@@ -2926,19 +2926,18 @@ function renderCard() {
                     <span class="material-symbols-outlined text-[20px]">volume_up</span>
                   </button>
                 </div>
-                ${it.hv ? `<span class="font-label-md text-sm text-outline">Hán Việt: <strong class="text-on-surface font-semibold">${it.hv}</strong></span>` : ''}
               </div>
 
               <!-- Meaning Definition Row -->
               <div class="flex flex-col gap-1.5">
                 <div class="flex items-center gap-2">
                   <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
-                  <span class="font-label-sm text-xs text-outline uppercase tracking-wider font-semibold">Ý nghĩa chính</span>
+                  <span class="study-definition-label">Tiếng Việt</span>
                 </div>
                 <div class="text-xl font-headline-md text-on-surface font-semibold">
                   ${esc(it.vn || 'Chưa có nghĩa tiếng Việt')}
                 </div>
-                ${it.en ? `<div class="text-sm text-on-surface-variant font-body-sm">${esc(it.en)}</div>` : ''}
+                ${it.en ? `<div class="study-definition-en" lang="en"><div class="study-definition-label" lang="vi">Tiếng Anh</div>${esc(it.en)}</div>` : ''}
               </div>
 
               <!-- Contextual Example Box (local or TBCL/TOCFL) -->
@@ -2959,7 +2958,7 @@ function renderCard() {
                     ${exZh ? `<button type="button" class="text-secondary hover:text-primary p-1 transition-colors" onclick="say('${esc(exZh)}')" title="Nghe câu ví dụ"><span class="material-symbols-outlined text-[20px]">volume_up</span></button>` : ''}
                   </div>
                   ${exZh ? `<p class="font-headline-md text-lg md:text-xl text-on-surface font-serif font-medium leading-relaxed" lang="zh-Hant">${esc(exZh)}</p>` : ''}
-                  ${exPy ? `<p class="font-code text-xs text-on-surface-variant">${esc(exPy)}</p>` : ''}
+                  ${exPy ? `<p class="font-code study-example-pinyin text-on-surface-variant">${esc(exPy)}</p>` : ''}
                   ${exZh ? (exVn ? `<p class="font-body-md text-sm text-on-surface font-medium">${esc(exVn)}</p>` : `<p class="text-xs text-outline">Câu này chưa có bản dịch tiếng Việt.</p>`) : ''}
                   ${tb && tb.cmp ? `<div class="text-xs text-outline pt-1 border-t border-border-subtle/50">Từ ghép thường dùng: <strong class="text-on-surface">${esc(tb.cmp)}</strong></div>` : ''}
                 </div>
@@ -2968,6 +2967,7 @@ function renderCard() {
 
              </div>
              <div class="sb-more flex flex-col gap-space-lg">
+              <h2 class="study-more-heading">Xem thêm</h2>
               ${richDetailHTML(it) || `<p class="sb-empty">Từ này chưa có phần giải thích đầy đủ (cách dùng, cụm từ, lỗi hay gặp, câu tình huống). Phần này đang được soạn dần theo bài.</p>`}
 
               <!-- Character Decomposition Bento Cards -->

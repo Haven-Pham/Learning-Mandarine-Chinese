@@ -716,6 +716,12 @@ rt {
   .home-study-panel .home-study-counts span { overflow-wrap: break-word; }
 }
 .study-back { display: flex; flex-direction: column; gap: 28px; }
+.study-meta { padding: 4px 8px; border-radius: 8px; background: var(--paper-muted); font-size: .875rem; }
+.study-definition-label { font-size: .875rem; font-weight: 700; }
+.study-definition-en { margin-top: .5rem; padding: .75rem; border-radius: .75rem; background: var(--paper-muted); font-size: 1.0625rem; }
+.study-definition-en .study-definition-label { margin-bottom: .25rem; }
+.study-example-pinyin { font-size: 1rem; line-height: 1.55; }
+.study-more-heading { margin: 0; font-size: 1.25rem; font-weight: 700; }
 .sb-empty { padding: 14px 16px; border-radius: 12px; background: rgba(120, 100, 80, .06); color: #6b6560; font-size: 15px; }
 @media (min-width: 1024px) {
   .study-back { display: grid; grid-template-columns: minmax(0, 11fr) minmax(0, 9fr); grid-template-areas: "main more" "grade more"; column-gap: 36px; row-gap: 20px; align-items: start; }
@@ -756,7 +762,7 @@ html.dark .sb-more .rich-ex, [data-theme="dark"] .sb-more .rich-ex { background:
 /* left column: example sentence a bit larger too */
 .sb-main .font-body-md.text-sm { font-size: 17px; }
 .sb-main .font-code.text-xs { font-size: 14px; }
-.sb-more .rich ruby rt { font-size: 11px; }
+.sb-more .rich ruby rt { font-size: .75rem; }
 
 /* ---- Full Dark Theme Utility Overrides (Tailwind paper/surface/text/border classes) ---- */
 :root[data-theme="dark"] body,
