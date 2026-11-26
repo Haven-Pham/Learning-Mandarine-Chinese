@@ -726,17 +726,44 @@ rt {
 
 /* ---- Study card, answer side (v45): two columns on wide screens, larger explanation, colour per section ---- */
 .study-wide { max-width: 1360px; width: 100%; }
+.home-overview { display: grid; gap: clamp(.875rem, 2vw, 1.5rem); }
+.home-overview > * { min-width: 0; }
+.home-study-panel { border-top: 3px solid var(--primary-container); }
+.home-study-panel > div:first-child > div:first-child { gap: .75rem; flex-wrap: wrap; }
+.home-study-title { font-size: clamp(1.5rem, 3vw, 2.125rem); font-weight: 700; line-height: 1.2; }
+.home-study-counts > div { min-width: 0; }
+.home-quote-content { display: grid; height: 100%; }
+.home-quote-hanzi { font-family: var(--f-han); font-size: clamp(1.45rem, 3vw, 2.5rem); font-weight: 700; line-height: 1.3; }
+.home-quote-art > div { max-width: none; }
+.home-activity-grid { display: grid; grid-template-columns: repeat(10, minmax(0, 1fr)); gap: clamp(.2rem, .8vw, .5rem); }
+.home-activity-grid [title^="Hôm nay"] { outline: 2px solid var(--primary-container); outline-offset: -2px; }
+@media (min-width: 640px) and (max-width: 1099px) {
+  .home-quote-content { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); }
+}
+@media (min-width: 1100px) {
+  .home-overview { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+  .home-quote-content { align-content: space-between; }
+}
 @media (max-width: 639px) {
+  .home-dashboard { gap: 1.25rem; }
   .home-study-panel .home-study-counts > div { padding: 8px; min-width: 0; }
   .home-study-panel .home-study-counts span { overflow-wrap: break-word; }
+  .home-metrics > div { padding: .75rem; min-width: 0; }
+  .home-metrics > div > div:first-child { gap: .375rem; align-items: flex-start; }
+  .home-metrics > div > div:first-child > div { flex-shrink: 0; width: 1.75rem; height: 1.75rem; }
+  .home-metrics .text-display { font-size: 1.65rem; line-height: 1.25; }
 }
 .study-back { display: flex; flex-direction: column; gap: 28px; }
+.study-answer-hanzi { font-family: var(--f-han); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.2; overflow-wrap: anywhere; }
+.study-answer-pinyin { font-family: var(--f-code); font-size: clamp(1.125rem, 2vw, 1.4rem); color: var(--secondary); font-weight: 600; overflow-wrap: anywhere; }
+.sb-main, .sb-more, .sb-grade { min-width: 0; }
+.sb-grade { padding: 1rem; border: 1px solid var(--border-subtle); border-radius: 1rem; background: var(--paper-base); }
 .study-meta { padding: 4px 8px; border-radius: 8px; background: var(--paper-muted); font-size: .875rem; }
 .study-definition-label { font-size: .875rem; font-weight: 700; }
 .study-definition-en { margin-top: .5rem; padding: .75rem; border-radius: .75rem; background: var(--paper-muted); font-size: 1.0625rem; }
 .study-definition-en .study-definition-label { margin-bottom: .25rem; }
 .study-example-pinyin { font-size: 1rem; line-height: 1.55; }
-.study-more-heading { margin: 0; font-size: 1.25rem; font-weight: 700; }
+.study-more-heading { margin: 0; font-size: 1.375rem; font-weight: 700; }
 .sb-empty { padding: 14px 16px; border-radius: 12px; background: rgba(120, 100, 80, .06); color: #6b6560; font-size: 15px; }
 @media (min-width: 1024px) {
   .study-back { display: grid; grid-template-columns: minmax(0, 11fr) minmax(0, 9fr); grid-template-areas: "main more" "grade more"; column-gap: 36px; row-gap: 20px; align-items: start; }
@@ -773,6 +800,9 @@ rt {
 html.dark .sb-more .rich-ex, [data-theme="dark"] .sb-more .rich-ex { background: rgba(31, 95, 153, .18); }
 :root[data-theme="dark"] .sb-more .rich-kv > div, :root[data-theme="dark"] .sb-more .rich-note, :root[data-theme="dark"] .sb-more .rich-ex { background: rgba(255, 255, 255, .05) !important; }
 :root[data-theme="dark"] .sb-more .rich-tag { background: rgba(31, 95, 153, .35); color: #cfe2f5; }
+:root[data-theme="dark"] .sb-more .rich h4,
+:root[data-theme="dark"] .sb-more .rich-kv dt,
+:root[data-theme="dark"] .sb-more .rich-note b { color: var(--on-surface); }
 
 /* left column: example sentence a bit larger too */
 .sb-main .font-body-md.text-sm { font-size: 17px; }

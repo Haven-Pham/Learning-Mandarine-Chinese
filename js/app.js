@@ -1686,6 +1686,8 @@ VIEWS["trang-chu"] = () => {
   const b1Learned = b1Notes.filter((n) => noteLevel(n) > 0).length;
   const b1Pct = Math.round((b1Learned / b1Total) * 100);
   const b1Remain = Math.max(0, b1Total - b1Learned);
+  const b2Notes = vocab.filter((n) => inBand(n, "B2"));
+  const b2Learned = b2Notes.filter((n) => noteLevel(n) > 0).length;
 
   // 30 days matrix for Stitch Heatmap (3 rows x 10 cols = 30 days)
   const today = new Date(dayStart(Date.now()));
@@ -1747,15 +1749,15 @@ VIEWS["trang-chu"] = () => {
   }).join('');
 
   setView(`
-    <div class="max-w-7xl mx-auto px-margin w-full py-space-lg flex flex-col gap-space-xl">
-      <!-- Top Hero Banner: East Asian Modern Scholar Scroll (Exact Stitch) -->
+    <div class="home-dashboard max-w-7xl mx-auto px-margin w-full py-space-lg flex flex-col gap-space-xl">
+      <div class="home-overview">
       <!-- Primary Action: SRS Quick Launch -->
       <section class="home-study-panel p-space-lg lg:p-space-xl rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between gap-space-md">
         <div class="flex flex-col gap-space-md">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-space-sm">
               <span class="w-1 h-4 rounded-full bg-primary-container"></span>
-              <h2 class="font-headline-md text-headline-md text-on-surface">Bắt đầu học ngay</h2>
+              <h1 class="home-study-title">Học hôm nay</h1>
             </div>
             <span class="font-label-sm text-label-sm text-secondary font-semibold bg-jade-subtle px-space-sm py-0.5 rounded-full flex items-center gap-1">
               <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> ${c.total ? 'Có thẻ để học' : 'Đã hết thẻ hôm nay'}
@@ -1771,12 +1773,12 @@ VIEWS["trang-chu"] = () => {
             <div class="p-space-md rounded-lg bg-amber-subtle flex flex-col">
               <span class="font-label-sm text-label-sm text-tertiary font-semibold">ĐẾN HẠN</span>
               <span class="font-headline-lg text-headline-lg text-tertiary font-semibold mt-1">${fmt(c.due)}</span>
-              <span class="font-body-sm text-body-sm text-on-surface-variant">Đến hạn nhắc lại</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">Thẻ cần ôn</span>
             </div>
             <div class="p-space-md rounded-lg bg-paper-muted flex flex-col">
               <span class="font-label-sm text-label-sm text-on-surface font-semibold">TỔNG CỘNG</span>
               <span class="font-headline-lg text-headline-lg text-on-surface font-semibold mt-1">${fmt(c.total)}</span>
-              <span class="font-body-sm text-body-sm text-on-surface-variant">Ước tính: ${estMinutes} phút</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant">${c.total ? `Khoảng ${estMinutes} phút` : '0 phút'}</span>
             </div>
           </div>
         </div>
@@ -1847,12 +1849,12 @@ VIEWS["trang-chu"] = () => {
           </div>
         </div>
       </section>
-      <section class="relative w-full rounded-xl overflow-hidden bg-surface-container-low shadow-sm border border-border-subtle/60">
+      <section class="home-quote relative w-full rounded-xl overflow-hidden bg-surface-container-low shadow-sm border border-border-subtle/60">
         <div class="absolute -right-16 -bottom-16 w-80 h-80 rounded-full bg-primary-container/5 blur-3xl pointer-events-none"></div>
         <div class="absolute -left-10 -top-10 w-64 h-64 rounded-full bg-secondary/5 blur-2xl pointer-events-none"></div>
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg p-space-lg lg:p-space-xl items-center relative z-10">
+        <div class="home-quote-content gap-space-lg p-space-lg items-center relative z-10">
           <!-- Calligraphic Quote Block -->
-          <div class="lg:col-span-8 flex flex-col gap-space-md">
+          <div class="flex flex-col gap-space-md">
             <div class="flex items-center gap-space-sm flex-wrap">
               <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
               <span class="font-label-sm text-label-sm text-primary uppercase tracking-widest font-semibold">Khởi tâm mỗi ngày • 每日格言</span>
@@ -1860,9 +1862,9 @@ VIEWS["trang-chu"] = () => {
             </div>
             <div class="flex flex-col gap-space-xs">
               <div class="flex items-center gap-3 flex-wrap">
-                <h1 class="font-display text-3xl md:text-5xl text-on-surface tracking-wide leading-tight font-bold">
+                <h2 lang="zh-Hant" class="home-quote-hanzi">
                   學而時習之，不亦說乎
-                </h1>
+                </h2>
                 <button type="button" class="w-9 h-9 rounded-full bg-cinnabar-subtle text-primary hover:bg-primary hover:text-white flex items-center justify-center transition-all shadow-xs" onclick="if(typeof say==='function') say('學而時習之，不亦說乎')" title="Phát âm câu cách ngôn">
                   <span class="material-symbols-outlined text-[20px]">volume_up</span>
                 </button>
@@ -1886,10 +1888,10 @@ VIEWS["trang-chu"] = () => {
             </div>
           </div>
           <!-- Visual Mini Seal & Traditional Taiwanese Motif Card -->
-          <div class="lg:col-span-4 flex justify-center lg:justify-end">
+          <div class="home-quote-art flex justify-center">
             <div class="relative w-full max-w-[280px] p-space-md rounded-xl bg-paper-card shadow-sm border border-border-subtle/60 flex flex-col gap-space-sm items-center text-center">
               <div class="w-full h-32 rounded-lg overflow-hidden relative shadow-inner bg-gradient-to-br from-[#86090a] via-[#a8261f] to-[#176b4b]">
-                <img class="w-full h-full object-cover" alt="Traditional Taiwanese scholar academy" src="img/trang-chu-dai-loan.jpg" onerror="this.style.display='none'">
+                <img class="w-full h-full object-cover" alt="Sân trong của một thư viện cổ Đài Loan" src="img/trang-chu-dai-loan.jpg" onerror="this.style.display='none'">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
                 <div class="absolute bottom-2 left-3 text-left">
                   <span class="font-headline-md text-headline-md text-white font-semibold">臺灣華語</span>
@@ -1904,9 +1906,10 @@ VIEWS["trang-chu"] = () => {
           </div>
         </div>
       </section>
+      </div>
 
       <!-- Key Metrics Bento Row (Exact Stitch 4 Cards) -->
-      <section class="grid grid-cols-2 lg:grid-cols-4 gap-space-md">
+      <section aria-label="Thống kê học tập" class="home-metrics grid grid-cols-2 lg:grid-cols-4 gap-space-md">
         <!-- Metric 1: Streak -->
         <div class="p-space-lg rounded-xl bg-paper-card border border-border-subtle/70 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
           <div class="flex items-center justify-between">
@@ -2018,7 +2021,7 @@ VIEWS["trang-chu"] = () => {
                 <span class="w-6 h-6 rounded bg-outline text-white font-code text-code flex items-center justify-center font-semibold">B2</span>
                 <div class="flex flex-col">
                   <span class="font-label-md text-label-md text-on-surface font-medium">TOCFL Cao cấp (Band B2)</span>
-                  <span class="font-body-sm text-body-sm text-outline">Yêu cầu bổ sung ~1,500 từ chuyên sâu</span>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant">Đã học ${fmt(b2Learned)} / ${fmt(b2Notes.length)} từ</span>
                 </div>
               </div>
               <a href="#thu-muc/B2" class="text-primary hover:underline text-xs font-semibold">Mở B2 →</a>
@@ -2052,21 +2055,11 @@ VIEWS["trang-chu"] = () => {
           </div>
         </div>
         <!-- Clean Grid Heatmap Container -->
-        <div class="overflow-x-auto pb-1">
-          <div class="min-w-[640px] flex flex-col gap-1.5">
-            <!-- Days of week indicator -->
-            <div class="grid grid-cols-10 gap-1.5 text-center font-code text-[11px] text-outline">
-              <span>T2</span><span>T3</span><span>T4</span><span>T5</span><span>T6</span><span>T7</span><span>CN</span><span>T2</span><span>T3</span><span>T4</span>
-            </div>
-            <!-- 30 squares matrix -->
-            <div class="grid grid-cols-10 gap-1.5">
+        <div class="home-activity-grid" aria-label="Số thẻ đã học theo ngày">
               ${days30.map((d) => {
                 if (d.isToday) {
                   return `
-                    <div class="h-8 rounded bg-cinnabar-subtle shadow-sm flex items-center justify-center font-code text-[11px] text-primary font-bold relative" title="Hôm nay (${d.date}/${d.month}): Đã học ${d.revs} thẻ">
-                      <span class="relative z-10">Hôm nay</span>
-                      <span class="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-primary-container"></span>
-                    </div>
+                    <div class="h-8 rounded bg-cinnabar-subtle flex items-center justify-center font-code text-[11px] text-primary font-bold" title="Hôm nay (${d.date}/${d.month}): Đã học ${d.revs} thẻ">${d.date}</div>
                   `;
                 }
                 let cls = "bg-surface-container text-outline";
@@ -2075,8 +2068,6 @@ VIEWS["trang-chu"] = () => {
                 else if (d.revs > 0) cls = "bg-cinnabar-subtle text-primary";
                 return `<div class="h-8 rounded ${cls} flex items-center justify-center font-code text-[11px]" title="Ngày ${d.date}/${d.month}: ${d.revs} thẻ">${d.date}</div>`;
               }).join("")}
-            </div>
-          </div>
         </div>
         <div class="flex items-center justify-between pt-space-xs font-body-sm text-body-sm text-on-surface-variant">
           <span>Tổng cộng <strong>${fmt(monthTotalRevs)} lượt ôn</strong> trong 30 ngày qua</span>
@@ -2909,8 +2900,8 @@ function renderCard() {
               <!-- Word & Phonetics Header in Back -->
               <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-space-sm border-b border-border-subtle">
                 <div class="flex items-baseline gap-3 flex-wrap">
-                  <span class="font-display text-4xl text-on-surface font-serif font-bold">${esc(it.w)}</span>
-                  <span class="font-code text-lg text-tertiary font-semibold">${esc(it.py || '')}</span>
+                  <span lang="zh-Hant" class="study-answer-hanzi">${esc(it.w)}</span>
+                  <span class="study-answer-pinyin">${esc(it.py || '')}</span>
                   <button type="button" class="text-secondary hover:text-primary transition-colors p-1" onclick="say('${esc(it.w)}')" title="Nghe lại phát âm">
                     <span class="material-symbols-outlined text-[20px]">volume_up</span>
                   </button>
@@ -2955,21 +2946,6 @@ function renderCard() {
               })()}
 
              </div>
-             <div class="sb-more flex flex-col gap-space-lg">
-              <h2 class="study-more-heading">Xem thêm</h2>
-              ${richDetailHTML(it) || `<p class="sb-empty">Từ này chưa có phần giải thích đầy đủ (cách dùng, cụm từ, lỗi hay gặp, câu tình huống). Phần này đang được soạn dần theo bài.</p>`}
-
-              <!-- Character Decomposition Bento Cards -->
-              ${chars.length ? `
-                <div class="flex flex-col gap-2">
-                  <span class="text-xs text-outline font-semibold uppercase">Chiết tự & Cấu trúc chữ</span>
-                  <div class="grid grid-cols-1 md:grid-cols-${Math.min(chars.length, 3)} gap-space-md">
-                    ${charDecompHTML}
-                  </div>
-                </div>
-              ` : ''}
-
-             </div>
               <!-- SECTION: SRS EVALUATION & SKILL MASTERY -->
               <div class="sb-grade pt-space-md flex flex-col gap-space-md border-t border-border-subtle mt-2">
                 <!-- 6-level grading for this skill: the interval grows from this card's history -->
@@ -3002,6 +2978,21 @@ function renderCard() {
 
                 <div role="status" id="levelStatus" class="text-xs text-secondary text-center font-semibold"></div>
               </div>
+             <div class="sb-more flex flex-col gap-space-lg">
+              <h2 class="study-more-heading">Xem thêm</h2>
+              ${richDetailHTML(it) || `<p class="sb-empty">Từ này chưa có phần giải thích đầy đủ (cách dùng, cụm từ, lỗi hay gặp, câu tình huống). Phần này đang được soạn dần theo bài.</p>`}
+
+              <!-- Character Decomposition Bento Cards -->
+              ${chars.length ? `
+                <div class="flex flex-col gap-2">
+                  <span class="text-xs text-outline font-semibold uppercase">Chiết tự & Cấu trúc chữ</span>
+                  <div class="grid grid-cols-1 md:grid-cols-${Math.min(chars.length, 3)} gap-space-md">
+                    ${charDecompHTML}
+                  </div>
+                </div>
+              ` : ''}
+
+             </div>
             </div>
           `}
         </div>

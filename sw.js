@@ -1,5 +1,5 @@
 // Offline support: app files are network-first (so updates arrive), data files are cache-first.
-const VERSION = "shtv-135";
+const VERSION = "shtv-136";
 const SHELL = ["./", "index.html", "style.css", "css/tw.css", "vendor/hanzi-writer.min.js", "vendor/ts-fsrs.umd.js", "vendor/pinyin-pro.js", "vendor/opencc-cn2t.js", "vendor/material-symbols-outlined.woff2", "js/app.js", "js/srs.js", "js/store.js", "js/sync.js", "manifest.webmanifest"];
 
 const SHELL_PATHS = new Set(SHELL.map((path) => new URL(path, self.registration.scope).pathname));
