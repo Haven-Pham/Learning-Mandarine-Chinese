@@ -16,8 +16,23 @@ const Store = (() => {
       const t = db.transaction(store, "readwrite"); fn(t.objectStore(store));
       t.oncomplete = () => resolve(); t.onerror = () => reject(t.error); t.onabort = () => reject(t.error);
     });
+    const updateMany = (store, entries, change) => new Promise((resolve, reject) => {
+      const t = db.transaction(store, "readwrite");
+      const s = t.objectStore(store);
+      let value;
+      for (const [key, incoming] of entries) s.get(key).onsuccess = (event) => {
+        try {
+          const current = event.target.result;
+          value = change(current, incoming);
+          if (value !== current) s.put(value, key);
+        } catch (error) { reject(error); t.abort(); }
+      };
+      t.oncomplete = () => resolve(value);
+      t.onabort = () => reject(t.error || new Error("Không lưu được tiến độ."));
+    });
     return {
       kind: "indexeddb", all,
+      updateMany,
       putMany: (store, entries) => write(store, (s) => { for (const [k, v] of entries) s.put(v, k); }),
       del: (store, key) => write(store, (s) => s.delete(key)),
       clear: (store) => write(store, (s) => s.clear()),
@@ -30,9 +45,19 @@ const Store = (() => {
     const save = (store) => { localStorage.setItem(key(store), JSON.stringify(Object.fromEntries(cache[store]))); };
     return {
       kind: "localstorage",
-      all: async (store) => new Map(cache[store]),
-      putMany: async (store, entries) => { for (const [k, v] of entries) cache[store].set(k, v); save(store); },
-      del: async (store, k) => { cache[store].delete(k); save(store); },
+      updateMany: async (store, entries, change) => {
+        cache[store] = load(store);
+        let value;
+        for (const [k, incoming] of entries) {
+          value = change(cache[store].get(k), incoming);
+          cache[store].set(k, value);
+        }
+        save(store);
+        return value;
+      },
+      all: async (store) => load(store),
+      putMany: async (store, entries) => { cache[store] = load(store); for (const [k, v] of entries) cache[store].set(k, v); save(store); },
+      del: async (store, k) => { cache[store] = load(store); cache[store].delete(k); save(store); },
       clear: async (store) => { cache[store].clear(); save(store); },
     };
   }
@@ -57,11 +82,43 @@ const Store = (() => {
   const del = async (store, key) => (await backend()).del(store, key);
   const kind = async () => (await backend()).kind;
   const get = async (store, key) => (await all(store)).get(key);
+  const update = async (store, key, change) => (await backend()).updateMany(store, [[key]], change);
+
+  const COUNTERS = ["reviews", "again", "newCards"];
+  const count = (value) => Number.isSafeInteger(value) && value >= 0 ? value : 0;
+  const maxCounters = (a, b) => Object.fromEntries(COUNTERS.map((key) => [key, Math.max(count(a?.[key]), count(b?.[key]))]));
+  const statsBase = (row) => row?.byDevice ? row.base : row;
+  function newerCard(current, incoming) {
+    if (!current || (incoming.last || 0) > (current.last || 0)) return incoming;
+    if ((incoming.last || 0) === (current.last || 0) && (incoming.reps || 0) > (current.reps || 0)) return incoming;
+    return current;
+  }
+  function mergeStats(a, b) {
+    const base = maxCounters(statsBase(a), statsBase(b));
+    if (!a?.byDevice && !b?.byDevice) return base;
+    const byDevice = {};
+    for (const row of [a, b]) for (const [id, counts] of Object.entries(row?.byDevice || {})) {
+      if (/^[0-9a-f-]{36}$/i.test(id)) byDevice[id] = maxCounters(byDevice[id], counts);
+    }
+    const totals = { ...base };
+    for (const counts of Object.values(byDevice)) for (const key of COUNTERS) totals[key] += counts[key] || 0;
+    return { ...totals, base, byDevice };
+  }
+
+  const deviceId = () => update("kv", "syncDeviceId", (id) => id || crypto.randomUUID());
+  async function incrementStats(day, delta) {
+    const id = await deviceId();
+    return update("stats", day, (row) => {
+      const previous = row?.byDevice?.[id] || {};
+      const counts = Object.fromEntries(COUNTERS.map((key) => [key, count(previous[key]) + count(delta[key])]));
+      return mergeStats(row, { base: statsBase(row), byDevice: { [id]: counts } });
+    });
+  }
 
   // Sync secrets stay on this device only: never in backups, Gist content or progress codes.
   const SECRET_KEYS = ["syncToken", "syncGistId", "lastSyncTime"];
   // kv entries that stay on this device: never exported, synced, or wiped by a restore (private, copyrighted test packs)
-  const LOCAL_KV = ["mockTests"];
+  const LOCAL_KV = ["mockTests", "syncDeviceId"];
   function publicSettings(s) { const c = JSON.parse(JSON.stringify(s || {})); for (const k of SECRET_KEYS) delete c[k]; return c; }
   async function exportAll() {
     const out = { app: "so-hoc-tieng-hoa", version: 1, exportedAt: new Date().toISOString() };
@@ -71,8 +128,19 @@ const Store = (() => {
     return out;
   }
   // mode "replace": wipe then load; "merge": keep the newer state per card
-  async function importAll(data, mode) {
+  function validateBackup(data) {
     if (!data || data.app !== "so-hoc-tieng-hoa") throw new Error("File này không phải bản sao lưu của Sổ học tiếng Hoa.");
+    for (const store of STORES) {
+      const value = data[store];
+      if (value === undefined) continue;
+      if (!value || typeof value !== "object" || Array.isArray(value)) throw new Error("Bản sao lưu có dữ liệu không hợp lệ.");
+      if ((store === "stats" || store === "srs") && Object.values(value).some((row) => !row || typeof row !== "object" || Array.isArray(row))) {
+        throw new Error("Bản sao lưu có dữ liệu tiến độ không hợp lệ.");
+      }
+    }
+  }
+  async function importAll(data, mode) {
+    validateBackup(data);
     const b = await backend();
     const localKv = await b.all("kv"); const localSettings = localKv.get("settings") || {};
     const keepSecrets = (v) => { const c = Object.assign({}, v); for (const k of SECRET_KEYS) { delete c[k]; if (localSettings[k] !== undefined) c[k] = localSettings[k]; } return c; };
@@ -83,22 +151,15 @@ const Store = (() => {
         const keepLocal = s === "kv" ? LOCAL_KV.filter((k) => localKv.has(k)).map((k) => [k, localKv.get(k)]) : [];
         await b.clear(s); await b.putMany(s, incoming.filter(([k]) => !(s === "kv" && LOCAL_KV.includes(k))).concat(keepLocal)); continue;
       }
+      if (s === "stats" || s === "srs") {
+        if (incoming.length) await b.updateMany(s, incoming, s === "stats" ? mergeStats : newerCard);
+        continue;
+      }
       const cur = await b.all(s); const keep = [];
       for (const [k, v] of incoming) {
         if (s === "kv" && LOCAL_KV.includes(k)) continue;
         const c = cur.get(k);
         if (!c) keep.push([k, v]);
-        else if (s === "srs") {
-          const vLast = v.last || 0, cLast = c.last || 0;
-          if (vLast > cLast || (vLast === cLast && (v.reps || 0) > (c.reps || 0))) keep.push([k, v]);
-        }
-        else if (s === "stats") {
-          keep.push([k, {
-            reviews: Math.max(c.reviews || 0, v.reviews || 0),
-            again: Math.max(c.again || 0, v.again || 0),
-            newCards: Math.max(c.newCards || 0, v.newCards || 0)
-          }]);
-        }
         else if (s === "inbox") {
           keep.push([k, Object.assign({}, c, v)]);
         }
@@ -122,5 +183,5 @@ const Store = (() => {
       await b.putMany(s, keep);
     }
   }
-  return { all, get, put, del, putMany, exportAll, importAll, kind, publicSettings };
+  return { all, get, put, del, putMany, update, exportAll, importAll, validateBackup, incrementStats, deviceId, kind, publicSettings };
 })();

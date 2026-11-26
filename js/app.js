@@ -362,13 +362,9 @@ const cardKey = (key, t) => `${key}~${t}`;
 async function bumpReviewStats(now, grade, wasNew) {
   const key = dayKey(now);
   if (!S.stats) S.stats = new Map();
-  const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats.get(key));
-  st.reviews++;
-  if (wasNew) st.newCards++;
-  if (grade === 1) st.again++;
-  S.stats.set(key, st);
+  const stats = await Store.incrementStats(key, { reviews: 1, newCards: Number(wasNew), again: Number(grade === 1) });
+  S.stats.set(key, stats);
   if (S.session) S.session.answered = (S.session.answered || 0) + 1;
-  try { await Store.put("stats", key, st); } catch (e) {}
   if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
 }
 
@@ -694,15 +690,12 @@ async function applyWordLevel(n, level, afterSave) {
   if (S.cards) for (const [id, s] of entries) S.cards.set(id, s);
   await Store.putMany("srs", entries);
   await saveKin(n, entries);
-  if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
-
   if (level > 0 && wasNew) {
     const key = dayKey(now);
-    const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats ? S.stats.get(key) : null);
-    st.newCards++;
-    if (S.stats) S.stats.set(key, st);
-    await Store.put("stats", key, st);
+    const stats = await Store.incrementStats(key, { newCards: 1 });
+    if (S.stats) S.stats.set(key, stats);
   }
+  if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
   updateBadge();
   if (typeof afterSave === "function") afterSave();
 }
@@ -1598,11 +1591,7 @@ function syncInboxWordToLearning(entry, scheduleNow = false) {
       if (S.cards) S.cards.set(cid, next);
       ops.push(Store.put("srs", cid, next));
       const key = dayKey(now);
-      const st = Object.assign({ reviews: 0, newCards: 0, again: 0 }, S.stats.get(key));
-      st.reviews++;
-      st.newCards++;
-      S.stats.set(key, st);
-      ops.push(Store.put("stats", key, st));
+      ops.push(Store.incrementStats(key, { reviews: 1, newCards: 1 }).then((stats) => S.stats.set(key, stats)));
     }
     Promise.all(ops).then(() => {
       updateBadge();

@@ -3,6 +3,7 @@
 
 const Sync = (() => {
   const GIST_FILENAME = "so-hoc-tieng-hoa-sync.json";
+  const DEVICE_FILE = /^progress-[0-9a-f-]{36}\.json$/i;
   let syncPromise = null;
   let lastStatus = null;
   let listeners = [];
@@ -104,10 +105,11 @@ const Sync = (() => {
     }
 
     // Validate access before changing the working connection on this device.
-    const checkRes = await fetch(`https://api.github.com/gists/${gistId}`, { headers });
+    const checkRes = await fetch(`https://api.github.com/gists/${encodeURIComponent(gistId)}`, { headers, cache: "no-store" });
     if (!checkRes.ok) throw new Error(`Token không truy cập được Gist cũ (${checkRes.status}).`);
     const checkGist = await checkRes.json();
     if (!checkGist.files || !checkGist.files[GIST_FILENAME]) throw new Error("Gist này không chứa tiến độ học.");
+    if (checkGist.public) throw new Error("Hãy chọn Gist bí mật để lưu tiến độ.");
     await saveConfig({ token, gistId, autoSync: true });
 
     // 4. Run two-way sync
@@ -121,75 +123,109 @@ const Sync = (() => {
     notify("unconfigured", "Đã ngắt kết nối đồng bộ.");
   }
 
-  // Core Sync Function: Pull remote, merge locally, push merged back to remote
+  // Each browser writes only its own file. Old clients still use the original file.
   function syncNow() {
     if (syncPromise) return syncPromise;
     if (!isConfigured()) {
       notify("unconfigured", "Chưa cấu hình đồng bộ.");
       return Promise.resolve();
     }
-    syncPromise = performSync().finally(() => { syncPromise = null; });
+    const run = () => performSync();
+    syncPromise = (navigator.locks ? navigator.locks.request("shth-gist-sync", run) : run())
+      .finally(() => { syncPromise = null; });
     return syncPromise;
+  }
+
+  async function parseSnapshot(file) {
+    let content = file.content;
+    if (file.truncated) {
+      const url = new URL(file.raw_url);
+      if (url.origin !== "https://gist.githubusercontent.com") throw new Error("Đường dẫn tệp Gist không hợp lệ.");
+      const raw = await fetch(url.href, { cache: "no-store", redirect: "error" });
+      if (!raw.ok) throw new Error(`Không tải được tệp tiến độ đầy đủ (${raw.status}).`);
+      content = await raw.text();
+    }
+    let data;
+    try { data = JSON.parse(content); Store.validateBackup(data); }
+    catch (err) { throw new Error("Có tệp tiến độ không hợp lệ trên Gist. Đã dừng đồng bộ."); }
+    return data;
+  }
+
+  function snapshotContent(data) {
+    const { exportedAt, ...state } = data;
+    return JSON.stringify(state, (key, value) => {
+      if (!value || typeof value !== "object" || Array.isArray(value)) return value;
+      return Object.fromEntries(Object.keys(value).sort().map((name) => [name, value[name]]));
+    });
   }
 
   async function performSync() {
     const cfg = getConfig();
+    const sameConnection = () => cfg.token === getConfig().token && cfg.gistId === getConfig().gistId;
+    if (!cfg.token || !cfg.gistId) return;
     notify("syncing", "Đang đồng bộ dữ liệu...");
     try {
       const headers = {
         Authorization: `token ${cfg.token}`,
         Accept: "application/vnd.github.v3+json",
       };
-      const res = await fetch(`https://api.github.com/gists/${cfg.gistId}`, { headers });
+      const endpoint = `https://api.github.com/gists/${encodeURIComponent(cfg.gistId)}`;
+      const res = await fetch(endpoint, { headers, cache: "no-store" });
       if (!res.ok) {
         if (res.status === 404) throw new Error("Không tìm thấy Gist trên GitHub.");
         if (res.status === 401 || res.status === 403) throw new Error("Token hết hạn, thiếu quyền hoặc đã vượt giới hạn GitHub. Hãy kiểm tra Token trong Cài đặt.");
         throw new Error(`Không tải được Gist (${res.status}).`);
       }
       const gist = await res.json();
+      if (gist.public) throw new Error("Hãy chọn Gist bí mật để lưu tiến độ.");
+      if (gist.truncated) throw new Error("GitHub không trả đủ các tệp của Gist. Đã dừng đồng bộ.");
       const file = gist.files && gist.files[GIST_FILENAME];
       if (!file) throw new Error("Gist không có tệp tiến độ học.");
-      let content = file.content;
-      if (file.truncated) {
-        if (!file.raw_url) throw new Error("Tệp tiến độ trên Gist bị cắt, không có đường dẫn tải đầy đủ.");
-        const raw = await fetch(file.raw_url, { cache: "no-store" }); // no Authorization: gist.githubusercontent.com rejects that CORS preflight (403)
-        if (!raw.ok) throw new Error(`Không tải được tệp tiến độ đầy đủ (${raw.status}).`);
-        content = await raw.text();
+      const deviceFile = `progress-${await Store.deviceId()}.json`;
+      const entries = Object.entries(gist.files).filter(([name]) => DEVICE_FILE.test(name));
+      const [legacy, ...snapshots] = await Promise.all([
+        parseSnapshot(file),
+        ...entries.map(async ([name, value]) => ({ name, data: await parseSnapshot(value) }))
+      ]);
+      if (!sameConnection()) return;
+      const own = snapshots.find((snapshot) => snapshot.name === deviceFile);
+      snapshots.sort((a, b) => String(a.data.exportedAt || "").localeCompare(String(b.data.exportedAt || "")) || a.name.localeCompare(b.name));
+      await Store.importAll(legacy, "merge");
+      for (const { data } of snapshots) {
+        if (!sameConnection()) return;
+        await Store.importAll(data, "merge");
       }
-      if (!content) throw new Error("Tệp tiến độ trên Gist trống.");
-      let remoteData;
-      try {
-        remoteData = JSON.parse(content);
-      } catch (err) {
-        throw new Error("Tệp tiến độ trên Gist không đọc được. Chưa ghi đè dữ liệu đám mây.");
-      }
-      if (remoteData.app !== "so-hoc-tieng-hoa") {
-        throw new Error("Tệp trên Gist không đúng định dạng tiến độ học.");
-      }
-
-      await Store.importAll(remoteData, "merge");
+      if (!sameConnection()) return;
       if (typeof loadProgress === "function") await loadProgress();
       if (typeof syncAllInboxNotes === "function") syncAllInboxNotes();
+      // A grade during network upload must schedule another pass.
+      hasPendingLocalChanges = false;
       const mergedData = await Store.exportAll();
       mergedData.kv = Object.assign(mergedData.kv || {}, { settings: Store.publicSettings(S.settings) });
-      const patchRes = await fetch(`https://api.github.com/gists/${cfg.gistId}`, {
-        method: "PATCH",
-        headers: Object.assign({}, headers, { "Content-Type": "application/json" }),
-        body: JSON.stringify({
-          description: `Sổ học tiếng Hoa - Tiến độ học (${new Date().toLocaleString("vi-VN")})`,
-          files: { [GIST_FILENAME]: { content: JSON.stringify(mergedData) } },
-        }),
-      });
-      if (!patchRes.ok) throw new Error(`Không cập nhật được Gist (${patchRes.status}).`);
+      if (!sameConnection()) return;
+      if (!own || snapshotContent(own.data) !== snapshotContent(mergedData)) {
+        const patchRes = await fetch(endpoint, {
+          method: "PATCH",
+          headers: Object.assign({}, headers, { "Content-Type": "application/json" }),
+          body: JSON.stringify({ files: { [deviceFile]: { content: JSON.stringify(mergedData) } } }),
+        });
+        if (!patchRes.ok) throw new Error(`Không cập nhật được Gist (${patchRes.status}).`);
+      }
 
+      if (!sameConnection()) return;
       const nowIso = new Date().toISOString();
+      await Store.update("kv", "settings", (current) => {
+        if (!sameConnection()) return current || {};
+        return { ...(current || S.settings), lastSyncTime: nowIso };
+      });
+      if (!sameConnection()) return;
       S.settings.lastSyncTime = nowIso;
-      await Store.put("kv", "settings", JSON.parse(JSON.stringify(S.settings)));
-      hasPendingLocalChanges = false;
+      if (hasPendingLocalChanges && cfg.autoSync) scheduleSync();
       const timeText = new Date().toLocaleTimeString("vi-VN", { hour: "2-digit", minute: "2-digit" });
       notify("success", `Đã đồng bộ thành công lúc ${timeText}`);
       if (typeof updateBadge === "function") updateBadge();
     } catch (err) {
+      hasPendingLocalChanges = true;
       console.error("Sync error:", err);
       notify("error", err.message || String(err));
       throw err;
@@ -201,12 +237,19 @@ const Sync = (() => {
     hasPendingLocalChanges = true;
     const cfg = getConfig();
     if (!cfg.token || !cfg.gistId || !cfg.autoSync) return;
+    scheduleSync();
+  }
 
+  function scheduleSync() {
     if (debounceTimer) clearTimeout(debounceTimer);
     debounceTimer = setTimeout(() => {
       syncNow().catch((e) => console.warn("Auto-sync background failed:", e));
     }, 4000); // sync 4 seconds after user pauses reviewing
   }
+
+  window.addEventListener("online", () => {
+    if (isConfigured() && getConfig().autoSync) scheduleSync();
+  });
 
   // Fast code: Encode full progress into a portable Base64 string
   async function generateFastCode() {
@@ -231,6 +274,7 @@ const Sync = (() => {
     if (typeof loadProgress === "function") await loadProgress();
     if (typeof syncAllInboxNotes === "function") syncAllInboxNotes();
     if (typeof updateBadge === "function") updateBadge();
+    onCardGraded();
     return Object.keys(data.srs || {}).length;
   }
 
