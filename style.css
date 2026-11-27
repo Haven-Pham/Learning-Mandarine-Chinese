@@ -1393,6 +1393,60 @@ a.home-metric-card:hover {
   --tier-text: #8C364C;
   --tier-text-dark: #f9a8d4;
 }
+.home-band-card.tier-indigo {
+  --tier-accent: #3B5998;
+  --tier-tint: #EEF2FA;
+  --tier-tint-dark: #192235;
+  --tier-text: #2F4980;
+  --tier-text-dark: #93c5fd;
+}
+.vocab-topic-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.65rem;
+  line-height: 1;
+  font-family: var(--f-han);
+  color: var(--tier-text);
+  background: var(--tier-tint);
+  border: 2px solid rgba(44, 42, 41, 0.06);
+  box-shadow: 0 2px 8px rgba(44, 42, 41, 0.06);
+  transition: transform 0.2s ease;
+}
+.home-band-card:hover .vocab-topic-icon {
+  transform: scale(1.05);
+}
+:root[data-theme="dark"] .vocab-topic-icon {
+  background: var(--tier-tint-dark);
+  color: var(--tier-text-dark);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+.home-band-card.vocab-parent-banner:hover {
+  border-color: var(--border-subtle);
+  border-top-color: var(--tier-accent);
+  box-shadow: 0 2px 8px rgba(44, 42, 41, 0.04);
+  transform: none;
+}
+:root[data-theme="dark"] .home-band-card.vocab-parent-banner:hover {
+  border-color: var(--border-subtle);
+  border-top-color: var(--tier-text-dark);
+  box-shadow: 0 2px 8px rgba(44, 42, 41, 0.04);
+  transform: none;
+}
+.home-band-card.vocab-parent-banner:hover .home-band-avatar {
+  transform: none;
+}
+.home-band-card.vocab-parent-banner .home-band-watermark {
+  top: 50%;
+  bottom: auto;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  font-size: 3rem;
+}
 .home-band-card:hover {
   border-color: var(--tier-accent);
   box-shadow: 0 8px 18px rgba(44, 42, 41, 0.08);
@@ -1452,7 +1506,8 @@ a.home-metric-card:hover {
   color: var(--on-surface);
   transition: color 0.15s ease;
 }
-.home-band-title-link:hover {
+.home-band-title-link:hover,
+.home-band-card:not(.vocab-parent-banner):hover .home-band-title-link {
   color: var(--tier-text);
 }
 .home-band-pct {
@@ -1469,6 +1524,7 @@ a.home-metric-card:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 :root[data-theme="dark"] .home-band-avatar {
+  background: var(--tier-tint-dark);
   border-color: rgba(255, 255, 255, 0.14);
 }
 :root[data-theme="dark"] .home-band-tier-pill {
@@ -1479,7 +1535,8 @@ a.home-metric-card:hover {
 :root[data-theme="dark"] .home-band-title-link {
   color: var(--on-surface);
 }
-:root[data-theme="dark"] .home-band-title-link:hover {
+:root[data-theme="dark"] .home-band-title-link:hover,
+:root[data-theme="dark"] .home-band-card:not(.vocab-parent-banner):hover .home-band-title-link {
   color: var(--tier-text-dark) !important;
 }
 :root[data-theme="dark"] .home-band-watermark {
@@ -1494,6 +1551,7 @@ a.home-metric-card:hover {
 }
 :root[data-theme="dark"] .home-study-panel #btnToggleGoalEdit:hover,
 :root[data-theme="dark"] .home-dashboard [data-toggle-band]:hover:not(.bg-primary-container),
+:root[data-theme="dark"] .home-band-card [data-toggle-band]:hover:not(.bg-primary-container),
 :root[data-theme="dark"] #goalEditBox .btn-preset:hover,
 :root[data-theme="dark"] #goalEditBox .btn-stepper:hover {
   background-color: #362f2d !important;
@@ -1514,8 +1572,10 @@ a.home-metric-card:hover {
   .home-study-panel .home-study-counts span { overflow-wrap: break-word; }
   .home-icon-btn { width: 44px; height: 44px; }
   .home-search-btn { min-height: 44px; }
-  .home-dashboard [data-toggle-band] { min-height: 40px; padding-left: 0.85rem; padding-right: 0.85rem; }
-  .home-band-card .border-t a { min-height: 40px; display: inline-flex; align-items: center; }
+  .home-dashboard [data-toggle-band],
+  .home-band-card [data-toggle-band] { min-height: 36px; padding-left: 0.75rem; padding-right: 0.75rem; }
+  .home-band-card .border-t a,
+  .home-band-card .border-t button { min-height: 40px; display: inline-flex; align-items: center; }
   .home-metric-card { padding: 0.85rem; min-width: 0; }
   .home-metrics .text-display { font-size: 1.65rem; line-height: 1.25; }
   .home-activity-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }

@@ -4609,11 +4609,11 @@ VIEWS["thu-muc"] = (id) => {
   ];
 
   const PARENT_GROUP_DEFS = [
-    { id: "personal", shortLabel: "Của tôi", unitLabel: "từ", iconText: "我", title: "Của tôi", sub: "Thư mục cá nhân, từ hay quên, bộ từ đã nhập và khẩu ngữ Đài Loan." },
-    { id: "lop", shortLabel: "Lớp học", unitLabel: "mục", iconText: "課", title: "Lớp học", sub: "Từ vựng và ngữ pháp ghi chép từ vở lớp học." },
-    { id: "topics", shortLabel: "Chủ đề", unitLabel: "từ", iconText: "題", title: "Từ vựng theo Chủ đề", sub: "Từ vựng thực tế phân nhóm theo chủ đề đời sống, công việc và thi cử." },
-    { id: "bands", shortLabel: "TOCFL", unitLabel: "từ", iconText: "級", title: "Cấp độ TOCFL", sub: "Lộ trình chuẩn 7 cấp TOCFL từ Novice 1 đến Band C." },
-    { id: "radicals", shortLabel: "Bộ thủ", unitLabel: "bộ thủ", iconText: "部", title: "Bộ thủ chữ Hán", sub: `${KANGXI_RADICALS.length} bộ thủ Khang Hy cốt lõi và biến thể (氵, 忄, 扌…), tập viết & trắc nghiệm.`, directId: "bo-thu" }
+    { id: "personal", shortLabel: "Của tôi", unitLabel: "từ", iconText: "我", mark: "我", tier: "tier-personal", img: "img/home-personal.jpg", title: "Của tôi", sub: "Thư mục cá nhân, từ hay quên, bộ từ đã nhập và khẩu ngữ Đài Loan." },
+    { id: "lop", shortLabel: "Lớp học", unitLabel: "mục", iconText: "課", mark: "課", tier: "tier-indigo", img: "img/vocab-class.jpg", title: "Lớp học", sub: "Từ vựng và ngữ pháp ghi chép từ vở lớp học." },
+    { id: "topics", shortLabel: "Chủ đề", unitLabel: "từ", iconText: "題", mark: "題", tier: "tier-a", img: "img/vocab-topics.jpg", title: "Từ vựng theo Chủ đề", sub: "Từ vựng thực tế phân nhóm theo chủ đề đời sống, công việc và thi cử." },
+    { id: "bands", shortLabel: "TOCFL", unitLabel: "từ", iconText: "級", mark: "級", tier: "tier-b", img: "img/home-band-b.jpg", title: "Cấp độ TOCFL", sub: "Lộ trình chuẩn 7 cấp TOCFL từ Novice 1 đến Band C." },
+    { id: "radicals", shortLabel: "Bộ thủ", unitLabel: "bộ thủ", iconText: "部", mark: "部", tier: "tier-c", img: "img/home-band-c.jpg", title: "Bộ thủ chữ Hán", sub: `${KANGXI_RADICALS.length} bộ thủ Khang Hy cốt lõi và biến thể (氵, 忄, 扌…), tập viết & trắc nghiệm.`, directId: "bo-thu" }
   ];
 
   const parentGroups = PARENT_GROUP_DEFS.map((g) => {
@@ -4709,24 +4709,25 @@ VIEWS["thu-muc"] = (id) => {
             </div>
 
             ${currentParent ? `
-              <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div class="flex items-start gap-3 min-w-0">
-                  <div class="w-11 h-11 shrink-0 rounded-xl bg-surface-container text-on-surface flex items-center justify-center font-headline-md text-xl font-bold">${esc(currentParent.iconText)}</div>
+              <div class="home-band-card vocab-parent-banner ${currentParent.tier} !flex-col sm:!flex-row sm:items-center !justify-between !gap-3">
+                <span class="home-band-watermark" aria-hidden="true" lang="zh-Hant">${esc(currentParent.mark || currentParent.iconText)}</span>
+                <div class="flex items-start gap-3 min-w-0 relative z-10">
+                  <img src="${currentParent.img}" alt="" width="56" height="56" loading="lazy" class="home-band-avatar" onerror="this.onerror=null;this.src='img/icon-192.png'">
                   <div class="min-w-0">
                     <div class="flex items-center gap-2 flex-wrap">
                       <h2 class="font-headline-md text-lg font-bold text-on-surface m-0">${esc(currentParent.title)}</h2>
-                      <span class="px-2 py-0.5 rounded-md bg-paper-muted text-on-surface-variant border border-border-subtle font-code text-[11px] font-semibold">${currentParent.childCount} thư mục</span>
+                      <span class="home-band-tier-pill">${currentParent.childCount} thư mục</span>
                     </div>
                     <p class="text-xs text-on-surface-variant m-0 mt-0.5">${esc(currentParent.sub)}</p>
                   </div>
                 </div>
-                <div class="flex items-center justify-between sm:justify-end gap-3 flex-wrap sm:flex-nowrap shrink-0">
+                <div class="flex items-center justify-between sm:justify-end gap-3 flex-wrap sm:flex-nowrap shrink-0 relative z-10">
                   <div class="text-left sm:text-right">
-                    <div class="font-code text-xs font-semibold text-on-surface">${fmt(currentParent.learned)} / ${fmt(currentParent.total)} ${esc(currentParent.unitLabel || "từ")} (${currentParent.pct}%)</div>
-                    <div class="w-full max-w-[160px] sm:w-32 sm:ml-auto h-1.5 rounded-full bg-surface-container overflow-hidden mt-1"><div class="h-full rounded-full bg-secondary" style="width:${currentParent.pct}%"></div></div>
+                    <div class="font-code text-xs font-semibold text-on-surface">${fmt(currentParent.learned)} / ${fmt(currentParent.total)} ${esc(currentParent.unitLabel || "từ")} <span class="home-band-pct">(${currentParent.pct}%)</span></div>
+                    <div class="w-full max-w-[160px] sm:w-32 sm:ml-auto h-1.5 rounded-full bg-surface-container overflow-hidden mt-1"><div class="h-full rounded-full home-band-fill" style="width:${currentParent.pct}%"></div></div>
                   </div>
-                  <a href="#thu-muc" class="min-h-[36px] px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold inline-flex items-center gap-1 no-underline whitespace-nowrap">
-                    <span class="material-symbols-outlined text-[16px]">arrow_back</span><span>Quay lại</span>
+                  <a href="#thu-muc" class="min-h-[40px] px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold inline-flex items-center gap-1 no-underline whitespace-nowrap">
+                    <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_back</span><span>Quay lại</span>
                   </a>
                 </div>
               </div>
@@ -4825,64 +4826,105 @@ VIEWS["thu-muc"] = (id) => {
     box.querySelectorAll("[data-study]").forEach((b) => { b.onclick = () => startStudyWord(b.dataset.study); });
   };
 
+  // Ánh xạ ảnh đại diện gấu trúc & màu chủ đạo cho từng thư mục con (đồng bộ với Trang chủ)
+  const childVisualMeta = (f) => {
+    const bandMap = {
+      "Novice 1": { tier: "tier-novice", img: "img/home-band-novice.jpg", mark: "芽" },
+      "Novice 2": { tier: "tier-novice", img: "img/home-band-novice.jpg", mark: "初" },
+      "A1":       { tier: "tier-a",      img: "img/home-band-a.jpg",      mark: "入" },
+      "A2":       { tier: "tier-a",      img: "img/home-band-a.jpg",      mark: "基" },
+      "B1":       { tier: "tier-b",      img: "img/home-band-b.jpg",      mark: "進" },
+      "B2":       { tier: "tier-b",      img: "img/home-band-b.jpg",      mark: "高" },
+      "C":        { tier: "tier-c",      img: "img/home-band-c.jpg",      mark: "流" }
+    };
+    if (bandMap[f.id]) return bandMap[f.id];
+    if (f.id === "hay-quen") return { tier: "tier-b", img: "img/home-weak.jpg", mark: "忘" };
+    if (f.id === "cua-toi") return { tier: "tier-personal", img: "img/home-personal.jpg", mark: "我" };
+    if (f.id === "viet-tat") return { tier: "tier-a", img: "img/home-band-a.jpg", mark: "臺" };
+    if (f.id === "bo-thu") return { tier: "tier-c", img: "img/home-band-c.jpg", mark: "部" };
+    if (f.cat === "lop") {
+      return f.iconText === "法"
+        ? { tier: "tier-c", img: "img/home-grammar.jpg", mark: "法" }
+        : { tier: "tier-indigo", img: "img/vocab-class.jpg", mark: "課" };
+    }
+    if (f.cat === "topics") {
+      const tier = f.id.startsWith("band-b-") ? "tier-b" : (f.id.startsWith("band-c-") ? "tier-c" : "tier-a");
+      return { tier, img: null, mark: "題" };
+    }
+    return { tier: "tier-personal", img: "img/home-personal.jpg", mark: "冊" };
+  };
+
   // Thẻ thư mục con (dùng khi mở thư mục mẹ, xem tất cả, hoặc gõ tìm kiếm)
   const renderChildCardHTML = (f, showParentTag) => {
     const pGrp = showParentTag ? parentById.get(f.cat) : null;
     const isWeakFolder = f.id === "hay-quen";
+    const vis = childVisualMeta(f);
+    const thumbHTML = vis.img
+      ? `<img src="${vis.img}" alt="" width="56" height="56" loading="lazy" class="home-band-avatar" onerror="this.onerror=null;this.src='img/icon-192.png'">`
+      : `<div class="vocab-topic-icon">${esc(f.iconText)}</div>`;
     return `
-      <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_8px_rgba(44,42,41,0.03)] hover:shadow-md hover:border-primary/35 transition-all flex flex-col gap-space-sm group">
-        <div class="flex items-start gap-space-sm">
-          <a href="#thu-muc/${encodeURIComponent(f.id)}" class="w-10 h-10 shrink-0 rounded-xl bg-surface-container text-on-surface flex items-center justify-center no-underline font-headline-md font-bold">${esc(f.iconText)}</a>
-          <div class="min-w-0 flex-1">
-            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="no-underline"><h3 class="font-semibold text-on-surface group-hover:text-primary leading-snug m-0">${esc(f.title)}</h3></a>
-            <p class="text-xs text-on-surface-variant line-clamp-2 m-0 mt-0.5">${esc(f.sub)}</p>
+      <div class="home-band-card ${vis.tier}">
+        <span class="home-band-watermark" aria-hidden="true" lang="zh-Hant">${esc(vis.mark)}</span>
+        <div class="flex items-start gap-3 relative z-10">
+          <a href="#thu-muc/${encodeURIComponent(f.id)}" class="shrink-0 no-underline" tabindex="-1" aria-hidden="true">${thumbHTML}</a>
+          <div class="min-w-0 flex-1 flex flex-col gap-1">
+            ${f.isBand || pGrp ? `
+              <div class="flex items-center justify-between gap-1.5 flex-wrap">
+                ${f.isBand ? `<span class="home-band-tier-pill">${esc(f.id.replace("Novice ", "N"))}</span>` : `<span class="home-band-tier-pill">${esc(pGrp.shortLabel)}</span>`}
+                ${f.isBand ? `<button type="button" class="shrink-0 min-h-[28px] home-band-status-pill border transition-colors ${f.isLearning ? "bg-jade-subtle text-secondary border-secondary/30" : "bg-paper-muted text-on-surface-variant border-border-subtle hover:text-on-surface"}" data-toggle-band="${esc(f.id)}" aria-pressed="${f.isLearning ? "true" : "false"}" aria-label="${f.isLearning ? `Tạm dừng học ${esc(f.title)}` : `Bật học ${esc(f.title)}`}">${f.isLearning ? "Đang học" : "+ Bật"}</button>` : ""}
+              </div>
+            ` : ""}
+            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="no-underline"><h3 class="font-semibold home-band-title-link leading-snug m-0 text-base">${esc(f.title)}</h3></a>
+            <p class="text-xs text-on-surface-variant line-clamp-2 m-0">${esc(f.sub)}</p>
           </div>
-          ${f.isBand
-            ? `<button type="button" class="shrink-0 min-h-[30px] px-2.5 py-0.5 rounded-lg text-[11px] font-semibold border transition-colors ${f.isLearning ? "bg-jade-subtle text-secondary border-secondary/30" : "bg-paper-muted text-outline border-border-subtle hover:text-on-surface"}" data-toggle-band="${esc(f.id)}">${f.isLearning ? "Đang học" : "+ Bật"}</button>`
-            : (pGrp ? `<span class="shrink-0 px-2 py-0.5 rounded-md bg-paper-muted text-outline border border-border-subtle text-[10px] font-semibold">${esc(pGrp.shortLabel)}</span>` : "")}
         </div>
-        <div class="mt-auto">
+        <div class="mt-auto relative z-10">
           ${isWeakFolder ? `
-            <div class="flex justify-between text-xs mb-1"><span class="text-outline">Cần ôn lại</span><span class="font-code text-on-surface font-semibold">${fmt(f.total)} từ</span></div>
-            <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full rounded-full ${f.total ? "bg-tertiary" : "bg-secondary"}" style="width:${f.total ? 100 : 0}%"></div></div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-outline">Cần ôn lại</span><span class="font-code home-band-pct font-semibold">${fmt(f.total)} từ</span></div>
+            <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full rounded-full ${f.total ? "home-band-fill" : "bg-secondary"}" style="width:${f.total ? 100 : 0}%"></div></div>
           ` : `
-            <div class="flex justify-between text-xs mb-1"><span class="text-outline">Đã học</span><span class="font-code text-on-surface font-semibold">${fmt(f.learned)} / ${fmt(f.total)} (${f.pct}%)</span></div>
-            <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full rounded-full bg-secondary" style="width:${f.pct}%"></div></div>
+            <div class="flex justify-between text-xs mb-1"><span class="text-outline">Đã học</span><span class="font-code text-on-surface font-semibold">${fmt(f.learned)} / ${fmt(f.total)} <span class="home-band-pct">(${f.pct}%)</span></span></div>
+            <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full rounded-full home-band-fill" style="width:${f.pct}%"></div></div>
           `}
         </div>
-        <div class="flex items-center justify-between pt-space-xs border-t border-border-subtle/50">
+        <div class="flex items-center justify-between pt-2 border-t border-border-subtle/50 relative z-10">
           <a href="#thu-muc/${encodeURIComponent(f.id)}" class="text-xs text-primary hover:underline font-semibold no-underline">${f.id === "bo-thu" ? "Xem bộ thủ →" : "Xem từ →"}</a>
           ${isWeakFolder && f.total === 0
             ? `<span class="text-xs text-outline font-medium">Chưa có từ yếu</span>`
-            : `<button type="button" class="min-h-[34px] px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-label-sm font-semibold hover:bg-primary-container hover:text-on-primary transition-colors flex items-center gap-1" data-study-folder="${esc(f.id)}"><span class="material-symbols-outlined text-[16px]">play_arrow</span><span>${isWeakFolder ? "Ôn ngay" : "Học"}</span></button>`}
+            : `<button type="button" class="min-h-[34px] px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-label-sm font-semibold hover:bg-primary-container hover:text-on-primary transition-colors flex items-center gap-1" data-study-folder="${esc(f.id)}"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">play_arrow</span><span>${isWeakFolder ? "Ôn ngay" : "Học"}</span></button>`}
         </div>
       </div>
     `;
   };
 
-  // Thẻ thư mục mẹ (kiểu dáng đồng nhất hoàn toàn với thẻ thư mục hiện tại)
+  // Thẻ thư mục mẹ (ảnh đại diện gấu trúc dễ thương + màu nhấn riêng đồng bộ Trang chủ)
   const renderParentCardHTML = (g) => {
     const targetHref = g.directId ? `#thu-muc/${encodeURIComponent(g.directId)}` : `#thu-muc/nhom/${encodeURIComponent(g.id)}`;
     const badgeLabel = g.directId ? `${fmt(g.total)} bộ thủ` : `${g.childCount} thư mục`;
     return `
-      <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_8px_rgba(44,42,41,0.03)] hover:shadow-md hover:border-primary/35 transition-all flex flex-col gap-space-sm group" data-parent-folder="${esc(g.id)}">
-        <div class="flex items-start gap-space-sm">
-          <a href="${targetHref}" class="w-10 h-10 shrink-0 rounded-xl bg-surface-container text-on-surface flex items-center justify-center no-underline font-headline-md font-bold">${esc(g.iconText)}</a>
-          <div class="min-w-0 flex-1">
-            <a href="${targetHref}" class="no-underline"><h3 class="font-semibold text-on-surface group-hover:text-primary leading-snug m-0">${esc(g.title)}</h3></a>
-            <p class="text-xs text-on-surface-variant line-clamp-2 m-0 mt-0.5">${esc(g.sub)}</p>
+      <div class="home-band-card ${g.tier}" data-parent-folder="${esc(g.id)}">
+        <span class="home-band-watermark" aria-hidden="true" lang="zh-Hant">${esc(g.mark || g.iconText)}</span>
+        <div class="flex items-start gap-3 relative z-10">
+          <a href="${targetHref}" class="shrink-0 no-underline" tabindex="-1" aria-hidden="true">
+            <img src="${g.img}" alt="" width="56" height="56" loading="lazy" class="home-band-avatar" onerror="this.onerror=null;this.src='img/icon-192.png'">
+          </a>
+          <div class="min-w-0 flex-1 flex flex-col gap-1">
+            <div class="flex items-center justify-between gap-1.5 flex-wrap">
+              <span class="home-band-tier-pill">${esc(badgeLabel)}</span>
+            </div>
+            <a href="${targetHref}" class="no-underline"><h3 class="font-semibold home-band-title-link leading-snug m-0 text-base">${esc(g.title)}</h3></a>
+            <p class="text-xs text-on-surface-variant line-clamp-2 m-0">${esc(g.sub)}</p>
           </div>
-          <span class="shrink-0 px-2.5 py-0.5 rounded-lg text-[11px] font-semibold font-code bg-paper-muted text-on-surface-variant border border-border-subtle">${esc(badgeLabel)}</span>
         </div>
-        <div class="mt-auto">
-          <div class="flex justify-between text-xs mb-1"><span class="text-outline">Đã học</span><span class="font-code text-on-surface font-semibold">${fmt(g.learned)} / ${fmt(g.total)} (${g.pct}%)</span></div>
-          <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full rounded-full bg-secondary" style="width:${g.pct}%"></div></div>
+        <div class="mt-auto relative z-10">
+          <div class="flex justify-between text-xs mb-1"><span class="text-outline">Đã học</span><span class="font-code text-on-surface font-semibold">${fmt(g.learned)} / ${fmt(g.total)} <span class="home-band-pct">(${g.pct}%)</span></span></div>
+          <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full rounded-full home-band-fill" style="width:${g.pct}%"></div></div>
         </div>
-        <div class="flex items-center justify-between pt-space-xs border-t border-border-subtle/50">
+        <div class="flex items-center justify-between pt-2 border-t border-border-subtle/50 relative z-10">
           <a href="${targetHref}" class="text-xs text-primary hover:underline font-semibold no-underline">${g.directId ? "Xem bộ thủ →" : "Mở thư mục →"}</a>
           ${g.directId
-            ? `<button type="button" class="min-h-[34px] px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-label-sm font-semibold hover:bg-primary-container hover:text-on-primary transition-colors flex items-center gap-1" data-study-folder="${esc(g.directId)}"><span class="material-symbols-outlined text-[16px]">play_arrow</span><span>Học</span></button>`
-            : `<a href="${targetHref}" class="min-h-[34px] px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-label-sm font-semibold hover:bg-primary-container hover:text-on-primary transition-colors flex items-center gap-1 no-underline"><span class="material-symbols-outlined text-[16px]">folder_open</span><span>Mở (${g.childCount})</span></a>`}
+            ? `<button type="button" class="min-h-[34px] px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-label-sm font-semibold hover:bg-primary-container hover:text-on-primary transition-colors flex items-center gap-1" data-study-folder="${esc(g.directId)}"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">play_arrow</span><span>Học</span></button>`
+            : `<a href="${targetHref}" class="min-h-[34px] px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-label-sm font-semibold hover:bg-primary-container hover:text-on-primary transition-colors flex items-center gap-1 no-underline"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">folder_open</span><span>Mở (${g.childCount})</span></a>`}
         </div>
       </div>
     `;
@@ -10679,7 +10721,7 @@ function initSyncUI() {
     }).catch(() => {});
   } catch (e) { $("#view").innerHTML = `<div class="note">Không tải được dữ liệu: ${esc(e.message)}. Nếu mở bằng file trực tiếp trên máy, hãy dùng đường link GitHub Pages.</div>`; }
   if ("serviceWorker" in navigator && location.protocol === "https:") {
-    navigator.serviceWorker.register("sw.js").then((reg) => {
+    navigator.serviceWorker.register("sw.js", { updateViaCache: "none" }).then((reg) => {
       reg.update();
     }).catch(() => {});
     let swReloading = false;
