@@ -1858,29 +1858,51 @@ VIEWS["trang-chu"] = () => {
     </a>
   `).join("");
 
-  // 7 TOCFL Band Cards + 8th Personal/Topics Card (balanced 4x2 grid)
+  // 7 TOCFL Band Cards + 8th Personal/Topics Card (balanced 4x2 grid with cute panda emblems & distinct tier themes)
+  const BAND_CARD_META = {
+    "Novice 1": { tier: "tier-novice", code: "N1", mark: "芽", img: "img/home-band-novice.jpg", alt: "Gấu trúc mầm non TOCFL Novice 1" },
+    "Novice 2": { tier: "tier-novice", code: "N2", mark: "初", img: "img/home-band-novice.jpg", alt: "Gấu trúc mầm non TOCFL Novice 2" },
+    "A1":       { tier: "tier-a",      code: "A1", mark: "入", img: "img/home-band-a.jpg",      alt: "Gấu trúc đèn lồng TOCFL A1" },
+    "A2":       { tier: "tier-a",      code: "A2", mark: "基", img: "img/home-band-a.jpg",      alt: "Gấu trúc đèn lồng TOCFL A2" },
+    "B1":       { tier: "tier-b",      code: "B1", mark: "進", img: "img/home-band-b.jpg",      alt: "Gấu trúc thư sinh TOCFL B1" },
+    "B2":       { tier: "tier-b",      code: "B2", mark: "高", img: "img/home-band-b.jpg",      alt: "Gấu trúc thư sinh TOCFL B2" },
+    "C":        { tier: "tier-c",      code: "C",  mark: "流", img: "img/home-band-c.jpg",      alt: "Gấu trúc học sĩ TOCFL C" }
+  };
+
   const bandProgressHTML = bandList.map((b) => {
     const bs = bandStats.get(b) || { total: 0, learned: 0, pct: 0 };
     const isLearning = !!(S.settings.bands && S.settings.bands[b]);
+    const meta = BAND_CARD_META[b] || { tier: "tier-a", code: b, mark: "詞", img: "img/home-band-a.jpg", alt: `TOCFL ${b}` };
     return `
-      <div class="p-space-md rounded-xl bg-paper-card border border-border-subtle shadow-sm flex flex-col justify-between gap-space-sm hover:shadow-md transition-all">
-        <div class="flex items-center justify-between gap-2">
-          <span class="font-headline-md font-semibold text-on-surface text-base">TOCFL ${esc(b)}</span>
-          <span class="text-xs font-semibold px-2 py-0.5 rounded-full whitespace-nowrap ${isLearning ? 'bg-jade-subtle text-secondary' : 'bg-surface-container text-on-surface-variant'}">
-            ${isLearning ? 'Đang học' : 'Chưa bật'}
-          </span>
+      <div class="home-band-card ${meta.tier}">
+        <span class="home-band-watermark" aria-hidden="true" lang="zh-Hant">${esc(meta.mark)}</span>
+        <div class="flex items-start gap-3 relative z-10">
+          <a href="#thu-muc/${encodeURIComponent(b)}" class="shrink-0 no-underline" tabindex="-1" aria-hidden="true">
+            <img src="${meta.img}" alt="" width="56" height="56" loading="lazy" class="home-band-avatar" onerror="this.onerror=null;this.src='img/icon-192.png'">
+          </a>
+          <div class="min-w-0 flex-1 flex flex-col gap-1">
+            <div class="flex items-center justify-between gap-1.5 flex-wrap">
+              <span class="home-band-tier-pill">${esc(meta.code)}</span>
+              <span class="home-band-status-pill ${isLearning ? 'bg-jade-subtle text-secondary' : 'bg-surface-container text-on-surface-variant'}">
+                ${isLearning ? 'Đang học' : 'Chưa bật'}
+              </span>
+            </div>
+            <a href="#thu-muc/${encodeURIComponent(b)}" class="no-underline">
+              <span class="font-headline-md font-semibold home-band-title-link text-base leading-snug block">TOCFL ${esc(b)}</span>
+            </a>
+          </div>
         </div>
-        <div class="text-xs text-on-surface-variant line-clamp-1">${esc(BAND_INFO[b] || '')}</div>
-        <div class="flex flex-col gap-1.5 mt-1">
+        <div class="text-xs text-on-surface-variant line-clamp-1 relative z-10">${esc(BAND_INFO[b] || '')}</div>
+        <div class="flex flex-col gap-1.5 mt-0.5 relative z-10">
           <div class="flex justify-between text-xs font-medium">
             <span class="text-outline font-code">${fmt(bs.learned)} / ${fmt(bs.total)} từ</span>
-            <span class="text-primary font-bold font-code">${bs.pct}%</span>
+            <span class="home-band-pct font-bold font-code">${bs.pct}%</span>
           </div>
           <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
-            <div class="h-full ${isLearning ? 'bg-primary-container' : 'bg-outline'} rounded-full transition-all duration-300" style="width:${bs.pct}%;"></div>
+            <div class="h-full ${isLearning ? 'home-band-fill' : 'bg-outline'} rounded-full transition-all duration-300" style="width:${bs.pct}%;"></div>
           </div>
         </div>
-        <div class="flex items-center justify-between pt-2 border-t border-border-subtle text-xs mt-1 gap-2">
+        <div class="flex items-center justify-between pt-2 border-t border-border-subtle text-xs mt-0.5 gap-2 relative z-10">
           <a href="#thu-muc/${encodeURIComponent(b)}" class="text-primary hover:underline font-semibold no-underline">Xem từ →</a>
           <button type="button" class="text-xs px-2.5 py-1.5 rounded-lg border font-semibold transition-colors ${isLearning ? 'border-border-subtle bg-paper-muted text-on-surface hover:bg-surface-container-high' : 'bg-primary-container text-on-primary border-transparent hover:bg-primary'}" data-toggle-band="${esc(b)}">
             ${isLearning ? 'Tạm dừng' : 'Bật học'}
@@ -1889,19 +1911,30 @@ VIEWS["trang-chu"] = () => {
       </div>
     `;
   }).join("") + `
-      <div class="p-space-md rounded-xl bg-paper-card border border-border-subtle shadow-sm flex flex-col justify-between gap-space-sm hover:shadow-md transition-all">
-        <div class="flex items-center justify-between gap-2">
-          <span class="font-headline-md font-semibold text-on-surface text-base">Sổ từ &amp; Chủ đề</span>
-          <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-amber-subtle text-tertiary whitespace-nowrap">Cá nhân</span>
+      <div class="home-band-card tier-personal">
+        <span class="home-band-watermark" aria-hidden="true" lang="zh-Hant">冊</span>
+        <div class="flex items-start gap-3 relative z-10">
+          <a href="#thu-muc" class="shrink-0 no-underline" tabindex="-1" aria-hidden="true">
+            <img src="img/home-personal.jpg" alt="" width="56" height="56" loading="lazy" class="home-band-avatar" onerror="this.onerror=null;this.src='img/icon-192.png'">
+          </a>
+          <div class="min-w-0 flex-1 flex flex-col gap-1">
+            <div class="flex items-center justify-between gap-1.5 flex-wrap">
+              <span class="home-band-tier-pill">Sổ riêng</span>
+              <span class="home-band-status-pill bg-amber-subtle text-tertiary">Cá nhân</span>
+            </div>
+            <a href="#thu-muc" class="no-underline">
+              <span class="font-headline-md font-semibold home-band-title-link text-base leading-snug block">Sổ từ &amp; Chủ đề</span>
+            </a>
+          </div>
         </div>
-        <div class="text-xs text-on-surface-variant">
+        <div class="text-xs text-on-surface-variant line-clamp-2 relative z-10">
           Từ tự nhập từ bài đọc, hội thoại và ${fmt(topicCount)} bộ từ theo chủ đề đời sống.
         </div>
-        <div class="flex flex-wrap items-center gap-2 text-xs font-medium pt-1">
-          <span class="px-2 py-1 rounded-lg bg-surface-container text-on-surface font-code font-semibold whitespace-nowrap">${fmt(inboxCount)} từ tự nhập</span>
-          <span class="px-2 py-1 rounded-lg bg-surface-container text-on-surface font-code font-semibold whitespace-nowrap">${fmt(topicCount)} chủ đề</span>
+        <div class="flex flex-wrap items-center gap-1.5 text-xs font-medium relative z-10">
+          <span class="px-2 py-0.5 rounded-lg bg-surface-container text-on-surface font-code font-semibold whitespace-nowrap">${fmt(inboxCount)} từ nhập</span>
+          <span class="px-2 py-0.5 rounded-lg bg-surface-container text-on-surface font-code font-semibold whitespace-nowrap">${fmt(topicCount)} chủ đề</span>
         </div>
-        <div class="flex items-center justify-between pt-2 border-t border-border-subtle text-xs mt-1 gap-2">
+        <div class="flex items-center justify-between pt-2 border-t border-border-subtle text-xs mt-0.5 gap-2 relative z-10">
           <a href="#nhap" class="text-primary hover:underline font-semibold whitespace-nowrap no-underline">Hộp từ nhập →</a>
           <a href="#thu-muc" class="text-secondary hover:underline font-semibold whitespace-nowrap no-underline">Thư mục →</a>
         </div>
@@ -2271,59 +2304,83 @@ VIEWS["trang-chu"] = () => {
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-md">
-          <a href="#thu-muc/hay-quen" class="home-shortcut-card group">
-            <div class="flex flex-col gap-2">
-              <div class="w-11 h-11 rounded-xl bg-amber-subtle flex items-center justify-center">
-                <span class="material-symbols-outlined text-[22px] text-tertiary">priority_high</span>
+          <a href="#thu-muc/hay-quen" class="home-shortcut-card is-amber group">
+            <div class="home-shortcut-art">
+              <img src="img/home-weak.jpg" alt="Gấu trúc ôn từ hay quên" width="68" height="68" loading="lazy" class="home-shortcut-avatar" onerror="this.onerror=null;this.src='img/icon-192.png'">
+              <div class="flex flex-col items-end gap-1 min-w-0">
+                <span class="home-shortcut-badge">Ôn điểm yếu</span>
+                <span class="home-shortcut-hanzi" aria-hidden="true" lang="zh-Hant">忘</span>
               </div>
-              <h3 class="font-headline-md text-lg font-semibold text-on-surface m-0 group-hover:text-primary transition-colors">Từ hay quên</h3>
-              <p class="font-body-sm text-xs text-on-surface-variant m-0">Rèn lại ngay những từ từng trả lời sai hoặc ở mức Mới học.</p>
             </div>
-            <div class="flex items-center justify-between text-xs font-semibold text-tertiary pt-2 border-t border-border-subtle">
-              <span>${fmt(weakCount)} từ cần củng cố</span>
-              <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            <div class="home-shortcut-body">
+              <div class="flex flex-col gap-1">
+                <h3 class="font-headline-md text-lg font-semibold text-on-surface m-0 transition-colors">Từ hay quên</h3>
+                <p class="font-body-sm text-xs text-on-surface-variant m-0">Rèn lại ngay những từ từng trả lời sai hoặc ở mức Mới học.</p>
+              </div>
+              <div class="home-shortcut-foot">
+                <span>${fmt(weakCount)} từ cần củng cố</span>
+                <span class="material-symbols-outlined text-[18px] shrink-0 group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+              </div>
             </div>
           </a>
 
-          <a href="#chinh-ta" class="home-shortcut-card group">
-            <div class="flex flex-col gap-2">
-              <div class="w-11 h-11 rounded-xl bg-jade-subtle flex items-center justify-center">
-                <span class="material-symbols-outlined text-[22px] text-secondary">hearing</span>
+          <a href="#chinh-ta" class="home-shortcut-card is-jade group">
+            <div class="home-shortcut-art">
+              <img src="img/home-dictation.jpg" alt="Gấu trúc đeo tai nghe chép chính tả" width="68" height="68" loading="lazy" class="home-shortcut-avatar" onerror="this.onerror=null;this.src='img/icon-192.png'">
+              <div class="flex flex-col items-end gap-1 min-w-0">
+                <span class="home-shortcut-badge">Luyện nghe</span>
+                <span class="home-shortcut-hanzi" aria-hidden="true" lang="zh-Hant">聽</span>
               </div>
-              <h3 class="font-headline-md text-lg font-semibold text-on-surface m-0 group-hover:text-primary transition-colors">Chép chính tả</h3>
-              <p class="font-body-sm text-xs text-on-surface-variant m-0">Nghe giọng Đài Loan, gõ lại từng câu theo chủ đề Band A–C.</p>
             </div>
-            <div class="flex items-center justify-between text-xs font-semibold text-secondary pt-2 border-t border-border-subtle">
-              <span id="home-dict-count">${dictTopicsNow ? `${fmt(dictTopicsNow)} chủ đề` : 'Nghe & gõ câu'}${dictDoneCount ? ` · xong ${fmt(dictDoneCount)} câu` : ''}</span>
-              <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            <div class="home-shortcut-body">
+              <div class="flex flex-col gap-1">
+                <h3 class="font-headline-md text-lg font-semibold text-on-surface m-0 transition-colors">Chép chính tả</h3>
+                <p class="font-body-sm text-xs text-on-surface-variant m-0">Nghe giọng Đài Loan, gõ hoặc viết tay từng câu theo Band A–C.</p>
+              </div>
+              <div class="home-shortcut-foot">
+                <span id="home-dict-count">${dictTopicsNow ? `${fmt(dictTopicsNow)} chủ đề` : 'Nghe & gõ câu'}${dictDoneCount ? ` · xong ${fmt(dictDoneCount)} câu` : ''}</span>
+                <span class="material-symbols-outlined text-[18px] shrink-0 group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+              </div>
             </div>
           </a>
 
-          <a href="#ngu-phap" class="home-shortcut-card group">
-            <div class="flex flex-col gap-2">
-              <div class="w-11 h-11 rounded-xl bg-cinnabar-subtle flex items-center justify-center">
-                <span class="material-symbols-outlined text-[22px] text-primary">menu_book</span>
+          <a href="#ngu-phap" class="home-shortcut-card is-cinnabar group">
+            <div class="home-shortcut-art">
+              <img src="img/home-grammar.jpg" alt="Gấu trúc đọc sách ngữ pháp TOCFL" width="68" height="68" loading="lazy" class="home-shortcut-avatar" onerror="this.onerror=null;this.src='img/icon-192.png'">
+              <div class="flex flex-col items-end gap-1 min-w-0">
+                <span class="home-shortcut-badge">Mẫu câu</span>
+                <span class="home-shortcut-hanzi" aria-hidden="true" lang="zh-Hant">法</span>
               </div>
-              <h3 class="font-headline-md text-lg font-semibold text-on-surface m-0 group-hover:text-primary transition-colors">Ngữ pháp TOCFL</h3>
-              <p class="font-body-sm text-xs text-on-surface-variant m-0">Mẫu câu chuẩn Đài Loan phân theo cấp độ, kèm ví dụ &amp; ghi chú riêng.</p>
             </div>
-            <div class="flex items-center justify-between text-xs font-semibold text-primary pt-2 border-t border-border-subtle">
-              <span id="home-grammar-count">${fmt(grammarCountNow)} mẫu câu</span>
-              <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            <div class="home-shortcut-body">
+              <div class="flex flex-col gap-1">
+                <h3 class="font-headline-md text-lg font-semibold text-on-surface m-0 transition-colors">Ngữ pháp TOCFL</h3>
+                <p class="font-body-sm text-xs text-on-surface-variant m-0">Mẫu câu chuẩn Đài Loan phân theo cấp độ, kèm ví dụ &amp; ghi chú riêng.</p>
+              </div>
+              <div class="home-shortcut-foot">
+                <span id="home-grammar-count">${fmt(grammarCountNow)} mẫu câu</span>
+                <span class="material-symbols-outlined text-[18px] shrink-0 group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+              </div>
             </div>
           </a>
 
-          <a href="#thi-thu" class="home-shortcut-card group">
-            <div class="flex flex-col gap-2">
-              <div class="w-11 h-11 rounded-xl bg-surface-container flex items-center justify-center">
-                <span class="material-symbols-outlined text-[22px] text-on-surface">assignment</span>
+          <a href="#thi-thu" class="home-shortcut-card is-indigo group">
+            <div class="home-shortcut-art">
+              <img src="img/home-exam.jpg" alt="Gấu trúc làm đề thi thử TOCFL" width="68" height="68" loading="lazy" class="home-shortcut-avatar" onerror="this.onerror=null;this.src='img/icon-192.png'">
+              <div class="flex flex-col items-end gap-1 min-w-0">
+                <span class="home-shortcut-badge">Đề chuẩn</span>
+                <span class="home-shortcut-hanzi" aria-hidden="true" lang="zh-Hant">試</span>
               </div>
-              <h3 class="font-headline-md text-lg font-semibold text-on-surface m-0 group-hover:text-primary transition-colors">Thi thử TOCFL</h3>
-              <p class="font-body-sm text-xs text-on-surface-variant m-0">Làm đề Nghe &amp; Đọc bấm giờ thực chiến theo cấu trúc TOCFL.</p>
             </div>
-            <div class="flex items-center justify-between text-xs font-semibold text-on-surface pt-2 border-t border-border-subtle">
-              <span id="home-exam-count">${mockCountNow ? `${fmt(mockCountNow)} đề thi thử` : 'Phòng thi mô phỏng'}</span>
-              <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            <div class="home-shortcut-body">
+              <div class="flex flex-col gap-1">
+                <h3 class="font-headline-md text-lg font-semibold text-on-surface m-0 transition-colors">Thi thử TOCFL</h3>
+                <p class="font-body-sm text-xs text-on-surface-variant m-0">Làm đề Nghe &amp; Đọc bấm giờ thực chiến theo cấu trúc TOCFL.</p>
+              </div>
+              <div class="home-shortcut-foot">
+                <span id="home-exam-count">${mockCountNow ? `${fmt(mockCountNow)} đề thi thử` : 'Phòng thi mô phỏng'}</span>
+                <span class="material-symbols-outlined text-[18px] shrink-0 group-hover:translate-x-1 transition-transform" aria-hidden="true">arrow_forward</span>
+              </div>
             </div>
           </a>
         </div>
