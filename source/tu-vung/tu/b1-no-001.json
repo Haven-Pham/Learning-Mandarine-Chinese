@@ -1,213 +1,997 @@
-{"tu": {
-"布": {"vn": "vải", "ng": ["(danh từ) vải"],
- "us": "一塊布 / 布料 / 抹布 (giẻ lau).", "co": ["抹布|giẻ lau", "布料|chất vải", "一塊布|một mảnh vải"],
- "mh": "Bố → bù. ĐỌC: 'bố' (vải bố) → bù (thanh 4). NGHĨA: giống 'vải bố' tiếng Việt.",
- "vd": [{"t": "May đồ", "zh": "這塊布可以做一件襯衫。", "vn": "Mảnh vải này có thể may một chiếc sơ mi."},
-  {"t": "Dọn dẹp", "zh": "用抹布把桌子擦乾淨。", "vn": "Dùng giẻ lau sạch bàn."},
-  {"t": "Mua sắm", "zh": "這種布摸起來很舒服。", "vn": "Loại vải này sờ vào rất dễ chịu."}]},
-"不見(了)": {"vn": "biến mất; mất (đồ)", "ng": ["(động từ) không thấy đâu, mất"],
- "us": "Chủ ngữ là đồ vật: 我的錢包不見了 = ví của tôi mất rồi.", "co": ["不見了|mất rồi", "好久不見|lâu rồi không gặp"],
- "sy": ["丟|mất, đánh rơi"], "an": ["找到|tìm thấy"],
- "mh": "Bất Kiến → bú jiàn. ĐỌC: 不 trước thanh 4 đổi thành bú; 'kiến' → jiàn (k→j). NGHĨA: 'không thấy' → mất.",
- "vd": [{"t": "Mất đồ", "zh": "糟糕，我的手機不見了！", "vn": "Chết rồi, điện thoại của tôi mất rồi!"},
-  {"t": "Chào", "zh": "好久不見，你最近好嗎？", "vn": "Lâu rồi không gặp, dạo này bạn khỏe không?"},
-  {"t": "Thú cưng", "zh": "我家的貓不見了三天。", "vn": "Con mèo nhà tôi mất tích ba ngày rồi."}]},
-"布/佈置": {"vn": "bố trí; trang trí", "ng": ["(động từ) bày biện, trang trí", "(động từ) bố trí, sắp xếp (công việc)"],
- "us": "布置房間 / 布置會場. Viết 布置 hoặc 佈置.", "co": ["布置房間|trang trí phòng", "布置會場|bày biện hội trường"],
- "sy": ["裝飾|trang trí"],
- "mh": "Bố Trí → bù zhì. ĐỌC: 'bố' → bù; 'trí' → zhì (tr→zh, thanh 4). NGHĨA: giống 'bố trí'.",
- "vd": [{"t": "Nhà mới", "zh": "她把房間布置得很溫馨。", "vn": "Cô ấy trang trí căn phòng rất ấm cúng."},
-  {"t": "Tiệc", "zh": "我們一起來布置生日派對吧。", "vn": "Mình cùng trang trí tiệc sinh nhật nhé."},
-  {"t": "Sự kiện", "zh": "會場已經布置好了。", "vn": "Hội trường đã bày biện xong."}]},
-"出租": {"vn": "cho thuê", "ng": ["(động từ) cho thuê"],
- "us": "房屋出租 / 出租車 (taxi đại lục; Đài nói 計程車).", "co": ["房屋出租|cho thuê nhà", "出租套房|cho thuê phòng khép kín"],
- "an": ["租|thuê"],
- "mh": "Xuất Tô → chū zū. ĐỌC: 'xuất' → chū; 'tô' (thuê) → zū (t→z). NGHĨA: 出 ra + 租 thuê → đưa ra cho thuê.",
- "tw": "Biển 吉屋出租 dán trên cửa = nhà đẹp cho thuê.",
- "vd": [{"t": "Tìm nhà", "zh": "這附近有房子出租嗎？", "vn": "Gần đây có nhà cho thuê không?"},
-  {"t": "Biển", "zh": "門口貼著「套房出租」。", "vn": "Cửa có dán 'Cho thuê phòng khép kín'."},
-  {"t": "Kiếm tiền", "zh": "他把舊房子出租給學生。", "vn": "Ông ấy cho sinh viên thuê căn nhà cũ."}]},
-"地板": {"vn": "sàn nhà", "ng": ["(danh từ) sàn nhà"],
- "us": "拖地板 = lau sàn. 木地板 = sàn gỗ.", "co": ["拖地板|lau sàn", "木地板|sàn gỗ"],
- "mh": "Địa Bản → dì bǎn. ĐỌC: 'địa' → dì; 'bản' → bǎn (thanh 3). NGHĨA: 地 đất + 板 tấm ván → ván lát sàn.",
- "vd": [{"t": "Dọn nhà", "zh": "週末我要拖地板。", "vn": "Cuối tuần tôi phải lau sàn."},
-  {"t": "Nhắc", "zh": "地板很滑，小心！", "vn": "Sàn trơn lắm, cẩn thận!"},
-  {"t": "Văn hóa", "zh": "日本人喜歡坐在地板上吃飯。", "vn": "Người Nhật thích ngồi sàn ăn cơm."}]},
-"電燈": {"vn": "đèn điện", "ng": ["(danh từ) đèn điện"],
- "us": "開/關電燈. Lượng từ: 一盞燈.", "co": ["開電燈|bật đèn", "關電燈|tắt đèn"],
- "sy": ["燈|đèn"],
- "mh": "Điện Đăng → diàn dēng. ĐỌC: 'điện' → diàn; 'đăng' → dēng. Cả hai đ→d. NGHĨA: 'đèn điện'.",
- "vd": [{"t": "Tiết kiệm", "zh": "出門前記得關電燈。", "vn": "Trước khi ra ngoài nhớ tắt đèn."},
-  {"t": "Hỏng", "zh": "廁所的電燈壞了。", "vn": "Đèn nhà vệ sinh bị hỏng."},
-  {"t": "Tối", "zh": "天黑了，開電燈吧。", "vn": "Trời tối rồi, bật đèn đi."}]},
-"房客": {"vn": "người thuê nhà", "ng": ["(danh từ) khách thuê nhà"],
- "us": "Đối lại: 房東 (chủ nhà).", "co": ["新房客|người thuê mới"],
- "an": ["房東|chủ nhà"],
- "mh": "Phòng Khách → fáng kè. ĐỌC: 'phòng' → fáng (ph→f, -ong→-ang, thanh 2); 'khách' → kè. NGHĨA: chú ý: 房客 = người thuê nhà, KHÔNG phải 'phòng khách' (客廳)!",
- "lt": "Bẫy Hán Việt: phòng khách là 客廳 kètīng.",
- "vd": [{"t": "Chủ nhà", "zh": "房東在找新的房客。", "vn": "Chủ nhà đang tìm người thuê mới."},
-  {"t": "Quy định", "zh": "房客不可以養寵物。", "vn": "Người thuê không được nuôi thú cưng."},
-  {"t": "Hàng xóm", "zh": "隔壁的房客是大學生。", "vn": "Người thuê bên cạnh là sinh viên đại học."}]},
-"蓋": {"vn": "đậy; xây; đắp; đóng (dấu)", "ng": ["(động từ) xây (nhà)", "(động từ) đậy, đắp", "(động từ) đóng dấu", "(danh từ) cái nắp"],
- "us": "蓋房子 = xây nhà. 蓋被子 = đắp chăn. 蓋章 = đóng dấu.", "co": ["蓋房子|xây nhà", "蓋被子|đắp chăn", "蓋章|đóng dấu", "蓋子|nắp"],
- "mh": "Cái → gài. ĐỌC: 'cái' → gài (c→g, thanh 4). NGHĨA: 艹 + 盍 (đậy) → che đậy lên trên (như 'cái nắp' tiếng Việt cũng đọc giống!).",
- "vd": [{"t": "Xây dựng", "zh": "這裡要蓋一棟新大樓。", "vn": "Ở đây sắp xây một tòa nhà mới."},
-  {"t": "Ngủ", "zh": "晚上很冷，要蓋好被子。", "vn": "Buổi tối lạnh, phải đắp chăn kỹ."},
-  {"t": "Thủ tục", "zh": "這份文件要蓋章。", "vn": "Giấy tờ này phải đóng dấu."}]},
-"隔壁": {"vn": "nhà bên; bên cạnh", "ng": ["(danh từ) nhà bên cạnh, phòng bên"],
- "us": "住在隔壁 / 隔壁的鄰居.", "co": ["住在隔壁|ở nhà bên", "隔壁鄰居|hàng xóm sát vách"],
- "sy": ["旁邊|bên cạnh"],
- "mh": "Cách Bích → gé bì. ĐỌC: 'cách' → gé (c→g, thanh 2); 'bích' (tường) → bì. NGHĨA: 'cách một bức tường' → sát vách.",
- "vd": [{"t": "Hàng xóm", "zh": "我住在他隔壁。", "vn": "Tôi ở sát vách nhà anh ấy."},
-  {"t": "Ồn", "zh": "隔壁每天晚上都很吵。", "vn": "Nhà bên tối nào cũng ồn."},
-  {"t": "Chỉ đường", "zh": "銀行就在超商隔壁。", "vn": "Ngân hàng ngay cạnh cửa hàng tiện lợi."}]},
-"公寓": {"vn": "căn hộ; chung cư", "ng": ["(danh từ) căn hộ chung cư (thấp tầng)"],
- "us": "租公寓 / 公寓大樓. Ở Đài 公寓 thường là chung cư cũ không thang máy.", "co": ["租公寓|thuê căn hộ", "老公寓|chung cư cũ"],
- "sy": ["大樓|tòa nhà (cao tầng)"],
- "mh": "Công Ngụ → gōng yù. ĐỌC: 'công' → gōng; 'ngụ' → yù (ng- rơi). NGHĨA: 'nơi ngụ cư chung' → chung cư.",
- "vd": [{"t": "Thuê nhà", "zh": "我在學校附近租了一間公寓。", "vn": "Tôi thuê một căn hộ gần trường."},
-  {"t": "Mô tả", "zh": "這棟公寓沒有電梯。", "vn": "Chung cư này không có thang máy."},
-  {"t": "Mua nhà", "zh": "台北的公寓很貴。", "vn": "Căn hộ ở Đài Bắc rất đắt."}]},
-"過日子": {"vn": "sống qua ngày; sinh sống", "ng": ["(động từ) sống, sinh hoạt qua ngày"],
- "us": "好好過日子 / 怎麼過日子.", "co": ["好好過日子|sống cho tốt", "過苦日子|sống khổ"],
- "sy": ["生活|sinh sống"],
- "mh": "Quá Nhật Tử → guò rì zi. ĐỌC: 'quá' → guò (qu→gu); 'nhật' → rì (nh→r); 子 nhẹ. NGHĨA: 'cho ngày trôi qua' → sống.",
- "vd": [{"t": "Vợ chồng", "zh": "結婚以後要好好過日子。", "vn": "Kết hôn rồi phải sống cho đàng hoàng."},
-  {"t": "Tiết kiệm", "zh": "薪水不多，只能省一點過日子。", "vn": "Lương không nhiều, chỉ có thể sống tiết kiệm."},
-  {"t": "Hỏi", "zh": "沒有手機，以前的人怎麼過日子？", "vn": "Không có điện thoại, người xưa sống thế nào?"}]},
-"花園": {"vn": "vườn hoa", "ng": ["(danh từ) vườn hoa"],
- "us": "在花園裡 / 屋頂花園.", "co": ["屋頂花園|vườn trên sân thượng", "後花園|vườn sau"],
- "mh": "Hoa Viên → huā yuán. ĐỌC: 'hoa' → huā; 'viên' → yuán (v→y). NGHĨA: giống 'hoa viên'.",
- "vd": [{"t": "Nhà", "zh": "我們家後面有一個小花園。", "vn": "Sau nhà chúng tôi có một vườn hoa nhỏ."},
-  {"t": "Sở thích", "zh": "奶奶每天在花園裡種花。", "vn": "Bà ngày nào cũng trồng hoa trong vườn."},
-  {"t": "Thư giãn", "zh": "我們去花園散步吧。", "vn": "Mình ra vườn đi dạo nhé."}]},
-"居住": {"vn": "cư trú; sinh sống", "ng": ["(động từ) cư trú, ở"],
- "us": "Trang trọng hơn 住: 居住地址, 居住環境.", "co": ["居住地|nơi cư trú", "居住環境|môi trường sống"],
- "sy": ["住|ở"],
- "mh": "Cư Trú → jū zhù. ĐỌC: 'cư' → jū (c→j, thanh 1); 'trú' → zhù (tr→zh). NGHĨA: giống 'cư trú'.",
- "vd": [{"t": "Giấy tờ", "zh": "請寫下你的居住地址。", "vn": "Vui lòng ghi địa chỉ cư trú."},
-  {"t": "Thành phố", "zh": "這個地區的居住環境很好。", "vn": "Môi trường sống khu này rất tốt."},
-  {"t": "Thống kê", "zh": "很多越南人居住在台灣。", "vn": "Nhiều người Việt sinh sống ở Đài Loan."}]},
-"空間": {"vn": "không gian; chỗ", "ng": ["(danh từ) không gian, chỗ trống"],
- "us": "空間很大/很小 / 個人空間 / 進步的空間.", "co": ["個人空間|không gian riêng", "還有進步空間|còn chỗ để tiến bộ"],
- "mh": "Không Gian → kōng jiān. ĐỌC: 'không' → kōng; 'gian' → jiān (g→j, -an→-ian). NGHĨA: giống tiếng Việt.",
- "vd": [{"t": "Nhà", "zh": "這個房間的空間太小了。", "vn": "Phòng này chật quá."},
-  {"t": "Tình cảm", "zh": "每個人都需要自己的空間。", "vn": "Ai cũng cần không gian riêng."},
-  {"t": "Đánh giá", "zh": "你的中文還有進步的空間。", "vn": "Tiếng Hoa của bạn vẫn còn chỗ để tiến bộ."}]},
-"馬桶": {"vn": "bồn cầu", "ng": ["(danh từ) bồn cầu"],
- "us": "沖馬桶 = xả bồn cầu. 馬桶塞住了 = bồn cầu bị tắc.", "co": ["沖馬桶|xả nước bồn cầu", "馬桶塞住|bồn cầu tắc"],
- "mh": "Mã Dũng → mǎ tǒng. ĐỌC: 'mã' → mǎ; 桶 'dũng' (thùng) → tǒng (thanh 3). NGHĨA: 'thùng ngựa' — tên cổ của bô.",
- "tw": "Nhiều nơi ở Đài yêu cầu bỏ giấy vào thùng rác, không ném vào 馬桶 — giờ đã đổi ở nơi mới.",
- "vd": [{"t": "Sự cố", "zh": "馬桶塞住了，要找人來修。", "vn": "Bồn cầu bị tắc, phải gọi người đến sửa."},
-  {"t": "Nhắc", "zh": "用完廁所請沖馬桶。", "vn": "Dùng xong nhà vệ sinh vui lòng xả nước."},
-  {"t": "Lau dọn", "zh": "我每個星期洗一次馬桶。", "vn": "Mỗi tuần tôi cọ bồn cầu một lần."}]},
-"門": {"vn": "cửa; môn", "ng": ["(danh từ) cửa", "(lượng từ) môn (học)"],
- "us": "開門 / 關門 / 一門課 (một môn học).", "co": ["開門|mở cửa", "門口|cửa ra vào", "一門課|một môn học"],
- "mh": "Môn → mén. ĐỌC: 'môn' → mén (thanh 2). NGHĨA: chữ vẽ hai cánh cửa → 'cửa' (như 'ngọ môn', 'nhập môn').",
- "vd": [{"t": "Ra vào", "zh": "請把門關上。", "vn": "Làm ơn đóng cửa lại."},
-  {"t": "Hẹn", "zh": "我在門口等你。", "vn": "Tôi đợi bạn ở cửa."},
-  {"t": "Học", "zh": "這學期我選了五門課。", "vn": "Học kỳ này tôi chọn năm môn."}]},
-"熱水": {"vn": "nước nóng", "ng": ["(danh từ) nước nóng"],
- "us": "有熱水嗎？ / 熱水器 (bình nóng lạnh).", "co": ["熱水器|bình nóng lạnh", "喝熱水|uống nước nóng"],
- "an": ["冷水|nước lạnh"],
- "mh": "Nhiệt Thủy → rè shuǐ. ĐỌC: 'nhiệt' → rè (nh→r, thanh 4); 'thủy' → shuǐ. NGHĨA: giống 'nhiệt'.",
- "tw": "Người Đài khuyên ốm thì 多喝熱水 — câu đùa nổi tiếng vì ai cũng nói.",
- "vd": [{"t": "Thuê nhà", "zh": "這間套房有熱水嗎？", "vn": "Phòng này có nước nóng không?"},
-  {"t": "Ốm", "zh": "感冒了要多喝熱水。", "vn": "Cảm thì phải uống nhiều nước nóng."},
-  {"t": "Hỏng", "zh": "熱水器壞了，不能洗澡。", "vn": "Bình nóng lạnh hỏng, không tắm được."}]},
-"晒": {"vn": "phơi; phơi nắng", "ng": ["(động từ) phơi (quần áo)", "(động từ) bị nắng chiếu, rám nắng"],
- "us": "晒衣服 / 晒太陽 / 晒黑了 (bị đen). Cũng viết 曬.", "co": ["晒衣服|phơi đồ", "晒太陽|tắm nắng", "晒黑|rám đen"],
- "mh": "Sái → shài. ĐỌC: 'sái' → shài (s→sh, thanh 4). NGHĨA: 日 mặt trời + 西 → phơi dưới mặt trời.",
- "vd": [{"t": "Việc nhà", "zh": "今天天氣好，可以晒衣服。", "vn": "Hôm nay trời đẹp, có thể phơi đồ."},
-  {"t": "Biển", "zh": "去海邊玩了一天，我晒黑了。", "vn": "Đi biển chơi một ngày, tôi bị đen."},
-  {"t": "Mùa đông", "zh": "冬天晒晒太陽很舒服。", "vn": "Mùa đông phơi nắng rất dễ chịu."}]},
-"生活": {"vn": "cuộc sống; sinh hoạt", "ng": ["(danh từ) cuộc sống", "(động từ) sinh sống"],
- "us": "生活習慣 / 在台灣生活 / 生活費.", "co": ["生活費|chi phí sinh hoạt", "生活習慣|thói quen sinh hoạt", "日常生活|cuộc sống hằng ngày"],
- "sy": ["過日子|sống qua ngày"],
- "mh": "Sinh Hoạt → shēng huó. ĐỌC: 'sinh' → shēng; 'hoạt' → huó (thanh 2). NGHĨA: giống tiếng Việt.",
- "vd": [{"t": "Du học", "zh": "你習慣台灣的生活了嗎？", "vn": "Bạn quen cuộc sống ở Đài Loan chưa?"},
-  {"t": "Chi phí", "zh": "我每個月的生活費大概一萬五。", "vn": "Chi phí sinh hoạt mỗi tháng của tôi khoảng mười lăm nghìn."},
-  {"t": "Ước mơ", "zh": "我想過簡單的生活。", "vn": "Tôi muốn sống cuộc sống giản dị."}]},
-"舒適": {"vn": "thoải mái; dễ chịu", "ng": ["(tính từ) dễ chịu, tiện nghi (văn viết)"],
- "us": "Văn viết hơn 舒服: 舒適的環境.", "co": ["舒適的環境|môi trường dễ chịu", "舒適感|cảm giác thoải mái"],
- "sy": ["舒服|thoải mái"],
- "mh": "Thư Thích → shū shì. ĐỌC: 'thư' → shū (th→sh); 'thích' → shì (th→sh, thanh 4). NGHĨA: 舒 thư thái + 適 thích hợp.",
- "vd": [{"t": "Khách sạn", "zh": "這家飯店的房間很舒適。", "vn": "Phòng khách sạn này rất tiện nghi."},
-  {"t": "Giày", "zh": "這雙鞋穿起來很舒適。", "vn": "Đôi giày này đi rất êm."},
-  {"t": "Quảng cáo", "zh": "我們提供安靜舒適的環境。", "vn": "Chúng tôi cung cấp môi trường yên tĩnh dễ chịu."}]},
-"刷牙": {"vn": "đánh răng", "ng": ["(động từ) đánh răng"],
- "us": "刷牙洗臉 / 刷完牙.", "co": ["刷牙洗臉|đánh răng rửa mặt", "牙刷|bàn chải"],
- "mh": "Loát Nha → shuā yá. ĐỌC: 刷 → shuā (thanh 1); 'nha' → yá. NGHĨA: 刷 chải + 牙 răng.",
- "vd": [{"t": "Buổi sáng", "zh": "我起床以後先刷牙洗臉。", "vn": "Dậy rồi tôi đánh răng rửa mặt trước."},
-  {"t": "Dạy trẻ", "zh": "吃完糖要刷牙。", "vn": "Ăn kẹo xong phải đánh răng."},
-  {"t": "Thói quen", "zh": "你一天刷幾次牙？", "vn": "Bạn đánh răng mấy lần một ngày?"}]},
-"睡著": {"vn": "ngủ thiếp đi; ngủ được", "ng": ["(động từ) ngủ thiếp đi (đã vào giấc)"],
- "us": "睡不著 = không ngủ được. 著 đọc zháo.", "co": ["睡不著|không ngủ được", "睡著了|ngủ mất rồi"],
- "cf": ["睡覺|đi ngủ (hành động)"],
- "mh": "Thụy Trước → shuì zháo. ĐỌC: 'thụy' → shuì (th→sh); 著 → zháo (thanh 2). NGHĨA: 著 = đạt được → 'ngủ được'.",
- "lt": "著 ở đây đọc zháo, không phải zhe.",
- "vd": [{"t": "Mất ngủ", "zh": "喝了咖啡，我晚上睡不著。", "vn": "Uống cà phê, tối tôi không ngủ được."},
-  {"t": "Xem phim", "zh": "電影太無聊，我看到一半就睡著了。", "vn": "Phim chán quá, tôi xem được nửa thì ngủ mất."},
-  {"t": "Con nhỏ", "zh": "寶寶終於睡著了。", "vn": "Em bé cuối cùng cũng ngủ rồi."}]},
-"修理": {"vn": "sửa chữa", "ng": ["(động từ) sửa chữa (đồ vật)"],
- "us": "修理電腦 / 送去修理.", "co": ["修理費|phí sửa chữa", "送去修理|mang đi sửa"],
- "sy": ["修|sửa"], "cf": ["修改|sửa (văn bản)"],
- "mh": "Tu Lý → xiū lǐ. ĐỌC: 'tu' → xiū (t→x); 'lý' → lǐ. NGHĨA: 'tu sửa, chỉnh lý'.",
- "vd": [{"t": "Hỏng", "zh": "冷氣壞了，要找人來修理。", "vn": "Máy lạnh hỏng, phải gọi người đến sửa."},
-  {"t": "Giá", "zh": "修理手機要多少錢？", "vn": "Sửa điện thoại bao nhiêu tiền?"},
-  {"t": "Kỹ năng", "zh": "我爸爸很會修理東西。", "vn": "Bố tôi rất giỏi sửa đồ."}]},
-"醒": {"vn": "tỉnh; thức dậy", "ng": ["(động từ) tỉnh giấc", "(động từ) tỉnh (khỏi say, mê)"],
- "us": "醒了 / 叫醒 (gọi dậy) / 吵醒 (làm thức giấc).", "co": ["叫醒|gọi dậy", "吵醒|làm thức giấc", "提醒|nhắc nhở"],
- "an": ["睡|ngủ"],
- "mh": "Tỉnh → xǐng. ĐỌC: 'tỉnh' → xǐng (t→x, -inh→-ing, thanh 3). NGHĨA: 酉 (rượu) + 星 → tỉnh rượu → tỉnh dậy.",
- "vd": [{"t": "Buổi sáng", "zh": "明天六點叫醒我。", "vn": "Mai 6 giờ gọi tôi dậy."},
-  {"t": "Ồn", "zh": "我被外面的聲音吵醒了。", "vn": "Tôi bị tiếng ồn bên ngoài làm thức giấc."},
-  {"t": "Hỏi", "zh": "你醒了嗎？", "vn": "Bạn dậy chưa?"}]},
-"醒來": {"vn": "tỉnh dậy; thức dậy", "ng": ["(động từ) tỉnh lại, thức dậy"],
- "us": "一醒來就… = vừa tỉnh dậy là…", "co": ["早上醒來|sáng thức dậy", "醒來以後|sau khi tỉnh dậy"],
- "sy": ["起床|dậy (ra khỏi giường)"],
- "mh": "Tỉnh Lai → xǐng lái. ĐỌC: 'tỉnh' → xǐng; 'lai' → lái. NGHĨA: 'tỉnh lại'.",
- "vd": [{"t": "Thói quen", "zh": "我每天早上醒來先看手機。", "vn": "Sáng nào thức dậy tôi cũng xem điện thoại trước."},
-  {"t": "Bệnh viện", "zh": "手術以後他三個小時才醒來。", "vn": "Sau phẫu thuật ba tiếng anh ấy mới tỉnh."},
-  {"t": "Giấc mơ", "zh": "醒來以後，我忘了做了什麼夢。", "vn": "Tỉnh dậy rồi, tôi quên mất mình mơ gì."}]},
-"押金": {"vn": "tiền đặt cọc", "ng": ["(danh từ) tiền cọc"],
- "us": "付押金 / 押金兩個月 / 退押金.", "co": ["付押金|đặt cọc", "退押金|trả lại tiền cọc"],
- "sy": ["訂金|tiền đặt trước"],
- "mh": "Áp Kim → yā jīn. ĐỌC: 'áp' → yā (thanh 1); 'kim' → jīn (k→j). NGHĨA: 押 'áp' = cầm cố (như 'áp tải') + 金 tiền → tiền cầm giữ.",
- "tw": "Thuê nhà ở Đài thường 押金 hai tháng tiền nhà.",
- "vd": [{"t": "Thuê nhà", "zh": "租房子要付兩個月的押金。", "vn": "Thuê nhà phải đặt cọc hai tháng."},
-  {"t": "Chuyển đi", "zh": "搬走的時候，房東會退押金。", "vn": "Khi chuyển đi, chủ nhà sẽ trả lại tiền cọc."},
-  {"t": "Thuê xe", "zh": "租腳踏車要押金嗎？", "vn": "Thuê xe đạp có cần đặt cọc không?"}]},
-"衣櫃": {"vn": "tủ quần áo", "ng": ["(danh từ) tủ quần áo"],
- "us": "放進衣櫃 / 衣櫃裡.", "co": ["整理衣櫃|sắp xếp tủ quần áo"],
- "mh": "Y Quỹ → yī guì. ĐỌC: 'y' → yī; 'quỹ' (tủ) → guì (qu→gu, thanh 4). NGHĨA: 衣 áo + 櫃 tủ.",
- "vd": [{"t": "Phòng", "zh": "這個房間有床和衣櫃。", "vn": "Phòng này có giường và tủ quần áo."},
-  {"t": "Dọn", "zh": "我的衣櫃太亂了，要整理一下。", "vn": "Tủ quần áo của tôi bừa quá, phải sắp xếp lại."},
-  {"t": "Tìm đồ", "zh": "你的外套在衣櫃裡。", "vn": "Áo khoác của bạn ở trong tủ."}]},
-"用品": {"vn": "đồ dùng", "ng": ["(danh từ) đồ dùng, vật dụng"],
- "us": "生活用品 / 文具用品 / 運動用品.", "co": ["生活用品|đồ dùng sinh hoạt", "運動用品|dụng cụ thể thao"],
- "sy": ["東西|đồ"],
- "mh": "Dụng Phẩm → yòng pǐn. ĐỌC: 'dụng' → yòng; 'phẩm' → pǐn. NGHĨA: 'vật phẩm để dùng'.",
- "vd": [{"t": "Mua sắm", "zh": "我去超市買一些生活用品。", "vn": "Tôi đi siêu thị mua ít đồ dùng sinh hoạt."},
-  {"t": "Du học", "zh": "日常用品到台灣再買就好。", "vn": "Đồ dùng hằng ngày sang Đài rồi mua là được."},
-  {"t": "Cửa hàng", "zh": "這家店賣運動用品。", "vn": "Cửa hàng này bán dụng cụ thể thao."}]},
-"噪音": {"vn": "tiếng ồn", "ng": ["(danh từ) tiếng ồn"],
- "us": "噪音很大 / 製造噪音.", "co": ["噪音污染|ô nhiễm tiếng ồn", "製造噪音|gây ồn"],
- "mh": "Táo Âm → zào yīn. ĐỌC: 'táo' → zào (t→z, thanh 4); 'âm' → yīn. NGHĨA: 噪 'táo' = ồn ào (như chim kêu) + 音 âm thanh.",
- "vd": [{"t": "Hàng xóm", "zh": "樓上的噪音讓我睡不好。", "vn": "Tiếng ồn tầng trên làm tôi ngủ không ngon."},
-  {"t": "Thành phố", "zh": "這條路的機車噪音很大。", "vn": "Đường này tiếng xe máy rất ồn."},
-  {"t": "Quy định", "zh": "晚上十點以後請不要製造噪音。", "vn": "Sau 10 giờ tối vui lòng không gây ồn."}]},
-"整理": {"vn": "sắp xếp; dọn dẹp", "ng": ["(động từ) sắp xếp, dọn dẹp", "(động từ) chỉnh lý (tài liệu)"],
- "us": "整理房間 / 整理資料 / 整理行李.", "co": ["整理房間|dọn phòng", "整理資料|sắp xếp tài liệu", "整理行李|xếp hành lý"],
- "sy": ["收拾|thu dọn"],
- "mh": "Chỉnh Lý → zhěng lǐ. ĐỌC: 'chỉnh' → zhěng (ch→zh, -inh→-eng, thanh 3); 'lý' → lǐ. NGHĨA: giống 'chỉnh lý'.",
- "vd": [{"t": "Việc nhà", "zh": "週末我要整理房間。", "vn": "Cuối tuần tôi phải dọn phòng."},
-  {"t": "Học", "zh": "考試前我把筆記整理好了。", "vn": "Trước kỳ thi tôi đã sắp xếp lại ghi chép."},
-  {"t": "Du lịch", "zh": "明天要出發，今晚整理行李。", "vn": "Mai đi rồi, tối nay xếp hành lý."}]},
-"做夢/作夢": {"vn": "nằm mơ", "ng": ["(động từ) nằm mơ", "(nghĩa bóng) mơ tưởng"],
- "us": "做了一個夢 / 做夢也想不到 (nằm mơ cũng không ngờ). Viết 做夢 hoặc 作夢.", "co": ["做惡夢|gặp ác mộng", "做白日夢|mơ giữa ban ngày"],
- "mh": "Tố Mộng → zuò mèng. ĐỌC: 'tố' → zuò; 'mộng' → mèng (-ông→-eng, thanh 4). NGHĨA: 'làm (một) giấc mộng'.",
- "vd": [{"t": "Kể", "zh": "我昨天晚上做了一個奇怪的夢。", "vn": "Tối qua tôi mơ một giấc mơ kỳ lạ."},
-  {"t": "Bất ngờ", "zh": "我做夢也沒想到會中獎。", "vn": "Nằm mơ tôi cũng không ngờ được trúng thưởng."},
-  {"t": "Mơ tưởng", "zh": "不工作就想發財？別做夢了！", "vn": "Không làm mà muốn giàu? Đừng mơ nữa!"}]}
-}}
+{
+ "tu": {
+  "布": {
+   "vn": "vải",
+   "ng": [
+    "(danh từ) vải"
+   ],
+   "us": "一塊布 / 布料 / 抹布 (giẻ lau).",
+   "co": [
+    "抹布|giẻ lau",
+    "布料|chất vải",
+    "一塊布|một mảnh vải"
+   ],
+   "mh": "Bố → bù. ĐỌC: 'bố' (vải bố) → bù (thanh 4). NGHĨA: giống 'vải bố' tiếng Việt.",
+   "vd": [
+    {
+     "t": "May đồ",
+     "zh": "這塊布可以做一件襯衫。",
+     "vn": "Mảnh vải này có thể may một chiếc sơ mi."
+    },
+    {
+     "t": "Dọn dẹp",
+     "zh": "用抹布把桌子擦乾淨。",
+     "vn": "Dùng giẻ lau sạch bàn."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這種布摸起來很舒服。",
+     "vn": "Loại vải này sờ vào rất dễ chịu."
+    }
+   ]
+  },
+  "不見(了)": {
+   "vn": "biến mất; mất (đồ)",
+   "ng": [
+    "(động từ) không thấy đâu, mất"
+   ],
+   "us": "Chủ ngữ là đồ vật: 我的錢包不見了 = ví của tôi mất rồi.",
+   "co": [
+    "不見了|mất rồi",
+    "好久不見|lâu rồi không gặp"
+   ],
+   "sy": [
+    "丟|mất, đánh rơi"
+   ],
+   "an": [
+    "找到|tìm thấy"
+   ],
+   "mh": "Bất Kiến → bú jiàn. ĐỌC: 不 trước thanh 4 đổi thành bú; 'kiến' → jiàn (k→j). NGHĨA: 'không thấy' → mất.",
+   "vd": [
+    {
+     "t": "Mất đồ",
+     "zh": "糟糕，我的手機不見了！",
+     "vn": "Chết rồi, điện thoại của tôi mất rồi!"
+    },
+    {
+     "t": "Chào",
+     "zh": "好久不見，你最近好嗎？",
+     "vn": "Lâu rồi không gặp, dạo này bạn khỏe không?"
+    },
+    {
+     "t": "Thú cưng",
+     "zh": "我家的貓不見了三天。",
+     "vn": "Con mèo nhà tôi mất tích ba ngày rồi."
+    }
+   ]
+  },
+  "布/佈置": {
+   "vn": "bố trí; trang trí",
+   "ng": [
+    "(động từ) bày biện, trang trí",
+    "(động từ) bố trí, sắp xếp (công việc)"
+   ],
+   "us": "布置房間 / 布置會場. Viết 布置 hoặc 佈置.",
+   "co": [
+    "布置房間|trang trí phòng",
+    "布置會場|bày biện hội trường"
+   ],
+   "sy": [
+    "裝飾|trang trí"
+   ],
+   "mh": "Bố Trí → bù zhì. ĐỌC: 'bố' → bù; 'trí' → zhì (tr→zh, thanh 4). NGHĨA: giống 'bố trí'.",
+   "vd": [
+    {
+     "t": "Nhà mới",
+     "zh": "她把房間布置得很溫馨。",
+     "vn": "Cô ấy trang trí căn phòng rất ấm cúng."
+    },
+    {
+     "t": "Tiệc",
+     "zh": "我們一起來布置生日派對吧。",
+     "vn": "Mình cùng trang trí tiệc sinh nhật nhé."
+    },
+    {
+     "t": "Sự kiện",
+     "zh": "會場已經布置好了。",
+     "vn": "Hội trường đã bày biện xong."
+    }
+   ]
+  },
+  "出租": {
+   "vn": "cho thuê",
+   "ng": [
+    "(động từ) cho thuê"
+   ],
+   "us": "房屋出租 / 出租車 (taxi đại lục; Đài nói 計程車).",
+   "co": [
+    "房屋出租|cho thuê nhà",
+    "出租套房|cho thuê phòng khép kín"
+   ],
+   "an": [
+    "租|thuê"
+   ],
+   "mh": "Xuất Tô → chū zū. ĐỌC: 'xuất' → chū; 'tô' (thuê) → zū (t→z). NGHĨA: 出 ra + 租 thuê → đưa ra cho thuê.",
+   "tw": "Biển 吉屋出租 dán trên cửa = nhà đẹp cho thuê.",
+   "vd": [
+    {
+     "t": "Tìm nhà",
+     "zh": "這附近有房子出租嗎？",
+     "vn": "Gần đây có nhà cho thuê không?"
+    },
+    {
+     "t": "Biển",
+     "zh": "門口貼著「套房出租」。",
+     "vn": "Cửa có dán 'Cho thuê phòng khép kín'."
+    },
+    {
+     "t": "Kiếm tiền",
+     "zh": "他把舊房子出租給學生。",
+     "vn": "Ông ấy cho sinh viên thuê căn nhà cũ."
+    }
+   ]
+  },
+  "地板": {
+   "vn": "sàn nhà",
+   "ng": [
+    "(danh từ) sàn nhà"
+   ],
+   "us": "拖地板 = lau sàn. 木地板 = sàn gỗ.",
+   "co": [
+    "拖地板|lau sàn",
+    "木地板|sàn gỗ"
+   ],
+   "mh": "Địa Bản → dì bǎn. ĐỌC: 'địa' → dì; 'bản' → bǎn (thanh 3). NGHĨA: 地 đất + 板 tấm ván → ván lát sàn.",
+   "vd": [
+    {
+     "t": "Dọn nhà",
+     "zh": "週末我要拖地板。",
+     "vn": "Cuối tuần tôi phải lau sàn."
+    },
+    {
+     "t": "Nhắc",
+     "zh": "地板很滑，小心！",
+     "vn": "Sàn trơn lắm, cẩn thận!"
+    },
+    {
+     "t": "Văn hóa",
+     "zh": "日本人喜歡坐在地板上吃飯。",
+     "vn": "Người Nhật thích ngồi sàn ăn cơm."
+    }
+   ]
+  },
+  "電燈": {
+   "vn": "đèn điện",
+   "ng": [
+    "(danh từ) đèn điện"
+   ],
+   "us": "開/關電燈. Lượng từ: 一盞燈.",
+   "co": [
+    "開電燈|bật đèn",
+    "關電燈|tắt đèn"
+   ],
+   "sy": [
+    "燈|đèn"
+   ],
+   "mh": "Điện Đăng → diàn dēng. ĐỌC: 'điện' → diàn; 'đăng' → dēng. Cả hai đ→d. NGHĨA: 'đèn điện'.",
+   "vd": [
+    {
+     "t": "Tiết kiệm",
+     "zh": "出門前記得關電燈。",
+     "vn": "Trước khi ra ngoài nhớ tắt đèn."
+    },
+    {
+     "t": "Hỏng",
+     "zh": "廁所的電燈壞了。",
+     "vn": "Đèn nhà vệ sinh bị hỏng."
+    },
+    {
+     "t": "Tối",
+     "zh": "天黑了，開電燈吧。",
+     "vn": "Trời tối rồi, bật đèn đi."
+    }
+   ]
+  },
+  "房客": {
+   "vn": "người thuê nhà",
+   "ng": [
+    "(danh từ) khách thuê nhà"
+   ],
+   "us": "Đối lại: 房東 (chủ nhà).",
+   "co": [
+    "新房客|người thuê mới"
+   ],
+   "an": [
+    "房東|chủ nhà"
+   ],
+   "mh": "Phòng Khách → fáng kè. ĐỌC: 'phòng' → fáng (ph→f, -ong→-ang, thanh 2); 'khách' → kè. NGHĨA: chú ý: 房客 = người thuê nhà, KHÔNG phải 'phòng khách' (客廳)!",
+   "lt": "Bẫy Hán Việt: phòng khách là 客廳 kètīng.",
+   "vd": [
+    {
+     "t": "Chủ nhà",
+     "zh": "房東在找新的房客。",
+     "vn": "Chủ nhà đang tìm người thuê mới."
+    },
+    {
+     "t": "Quy định",
+     "zh": "房客不可以養寵物。",
+     "vn": "Người thuê không được nuôi thú cưng."
+    },
+    {
+     "t": "Hàng xóm",
+     "zh": "隔壁的房客是大學生。",
+     "vn": "Người thuê bên cạnh là sinh viên đại học."
+    }
+   ]
+  },
+  "蓋": {
+   "vn": "đậy; xây; đắp; đóng (dấu)",
+   "ng": [
+    "(động từ) xây (nhà)",
+    "(động từ) đậy, đắp",
+    "(động từ) đóng dấu",
+    "(danh từ) cái nắp"
+   ],
+   "us": "蓋房子 = xây nhà. 蓋被子 = đắp chăn. 蓋章 = đóng dấu.",
+   "co": [
+    "蓋房子|xây nhà",
+    "蓋被子|đắp chăn",
+    "蓋章|đóng dấu",
+    "蓋子|nắp"
+   ],
+   "mh": "Cái → gài. ĐỌC: 'cái' → gài (c→g, thanh 4). NGHĨA: 艹 + 盍 (đậy) → che đậy lên trên (như 'cái nắp' tiếng Việt cũng đọc giống!).",
+   "vd": [
+    {
+     "t": "Xây dựng",
+     "zh": "這裡要蓋一棟新大樓。",
+     "vn": "Ở đây sắp xây một tòa nhà mới."
+    },
+    {
+     "t": "Ngủ",
+     "zh": "晚上很冷，要蓋好被子。",
+     "vn": "Buổi tối lạnh, phải đắp chăn kỹ."
+    },
+    {
+     "t": "Thủ tục",
+     "zh": "這份文件要蓋章。",
+     "vn": "Giấy tờ này phải đóng dấu."
+    }
+   ]
+  },
+  "隔壁": {
+   "vn": "nhà bên; bên cạnh",
+   "ng": [
+    "(danh từ) nhà bên cạnh, phòng bên"
+   ],
+   "us": "住在隔壁 / 隔壁的鄰居.",
+   "co": [
+    "住在隔壁|ở nhà bên",
+    "隔壁鄰居|hàng xóm sát vách"
+   ],
+   "sy": [
+    "旁邊|bên cạnh"
+   ],
+   "mh": "Cách Bích → gé bì. ĐỌC: 'cách' → gé (c→g, thanh 2); 'bích' (tường) → bì. NGHĨA: 'cách một bức tường' → sát vách.",
+   "vd": [
+    {
+     "t": "Hàng xóm",
+     "zh": "我住在他隔壁。",
+     "vn": "Tôi ở sát vách nhà anh ấy."
+    },
+    {
+     "t": "Ồn",
+     "zh": "隔壁每天晚上都很吵。",
+     "vn": "Nhà bên tối nào cũng ồn."
+    },
+    {
+     "t": "Chỉ đường",
+     "zh": "銀行就在超商隔壁。",
+     "vn": "Ngân hàng ngay cạnh cửa hàng tiện lợi."
+    }
+   ]
+  },
+  "公寓": {
+   "vn": "căn hộ; chung cư",
+   "ng": [
+    "(danh từ) căn hộ chung cư (thấp tầng)"
+   ],
+   "us": "租公寓 / 公寓大樓. Ở Đài 公寓 thường là chung cư cũ không thang máy.",
+   "co": [
+    "租公寓|thuê căn hộ",
+    "老公寓|chung cư cũ"
+   ],
+   "sy": [
+    "大樓|tòa nhà (cao tầng)"
+   ],
+   "mh": "Công Ngụ → gōng yù. ĐỌC: 'công' → gōng; 'ngụ' → yù (ng- rơi). NGHĨA: 'nơi ngụ cư chung' → chung cư.",
+   "vd": [
+    {
+     "t": "Thuê nhà",
+     "zh": "我在學校附近租了一間公寓。",
+     "vn": "Tôi thuê một căn hộ gần trường."
+    },
+    {
+     "t": "Mô tả",
+     "zh": "這棟公寓沒有電梯。",
+     "vn": "Chung cư này không có thang máy."
+    },
+    {
+     "t": "Mua nhà",
+     "zh": "台北的公寓很貴。",
+     "vn": "Căn hộ ở Đài Bắc rất đắt."
+    }
+   ]
+  },
+  "過日子": {
+   "vn": "sống qua ngày; sinh sống",
+   "ng": [
+    "(động từ) sống, sinh hoạt qua ngày"
+   ],
+   "us": "好好過日子 / 怎麼過日子.",
+   "co": [
+    "好好過日子|sống cho tốt",
+    "過苦日子|sống khổ"
+   ],
+   "sy": [
+    "生活|sinh sống"
+   ],
+   "mh": "Quá Nhật Tử → guò rì zi. ĐỌC: 'quá' → guò (qu→gu); 'nhật' → rì (nh→r); 子 nhẹ. NGHĨA: 'cho ngày trôi qua' → sống.",
+   "vd": [
+    {
+     "t": "Vợ chồng",
+     "zh": "結婚以後要好好過日子。",
+     "vn": "Kết hôn rồi phải sống cho đàng hoàng."
+    },
+    {
+     "t": "Tiết kiệm",
+     "zh": "薪水不多，只能省一點過日子。",
+     "vn": "Lương không nhiều, chỉ có thể sống tiết kiệm."
+    },
+    {
+     "t": "Hỏi",
+     "zh": "沒有手機，以前的人怎麼過日子？",
+     "vn": "Không có điện thoại, người xưa sống thế nào?"
+    }
+   ]
+  },
+  "花園": {
+   "vn": "vườn hoa",
+   "ng": [
+    "(danh từ) vườn hoa"
+   ],
+   "us": "在花園裡 / 屋頂花園.",
+   "co": [
+    "屋頂花園|vườn trên sân thượng",
+    "後花園|vườn sau"
+   ],
+   "mh": "Hoa Viên → huā yuán. ĐỌC: 'hoa' → huā; 'viên' → yuán (v→y). NGHĨA: giống 'hoa viên'.",
+   "vd": [
+    {
+     "t": "Nhà",
+     "zh": "我們家後面有一個小花園。",
+     "vn": "Sau nhà chúng tôi có một vườn hoa nhỏ."
+    },
+    {
+     "t": "Sở thích",
+     "zh": "奶奶每天在花園裡種花。",
+     "vn": "Bà ngày nào cũng trồng hoa trong vườn."
+    },
+    {
+     "t": "Thư giãn",
+     "zh": "我們去花園散步吧。",
+     "vn": "Mình ra vườn đi dạo nhé."
+    }
+   ]
+  },
+  "居住": {
+   "vn": "cư trú; sinh sống",
+   "ng": [
+    "(động từ) cư trú, ở"
+   ],
+   "us": "Trang trọng hơn 住: 居住地址, 居住環境.",
+   "co": [
+    "居住地|nơi cư trú",
+    "居住環境|môi trường sống"
+   ],
+   "sy": [
+    "住|ở"
+   ],
+   "mh": "Cư Trú → jū zhù. ĐỌC: 'cư' → jū (c→j, thanh 1); 'trú' → zhù (tr→zh). NGHĨA: giống 'cư trú'.",
+   "vd": [
+    {
+     "t": "Giấy tờ",
+     "zh": "請寫下你的居住地址。",
+     "vn": "Vui lòng ghi địa chỉ cư trú."
+    },
+    {
+     "t": "Thành phố",
+     "zh": "這個地區的居住環境很好。",
+     "vn": "Môi trường sống khu này rất tốt."
+    },
+    {
+     "t": "Thống kê",
+     "zh": "很多越南人居住在台灣。",
+     "vn": "Nhiều người Việt sinh sống ở Đài Loan."
+    }
+   ]
+  },
+  "空間": {
+   "vn": "không gian; chỗ",
+   "ng": [
+    "(danh từ) không gian, chỗ trống"
+   ],
+   "us": "空間很大/很小 / 個人空間 / 進步的空間.",
+   "co": [
+    "個人空間|không gian riêng",
+    "還有進步空間|còn chỗ để tiến bộ"
+   ],
+   "mh": "Không Gian → kōng jiān. ĐỌC: 'không' → kōng; 'gian' → jiān (g→j, -an→-ian). NGHĨA: giống tiếng Việt.",
+   "vd": [
+    {
+     "t": "Nhà",
+     "zh": "這個房間的空間太小了。",
+     "vn": "Phòng này chật quá."
+    },
+    {
+     "t": "Tình cảm",
+     "zh": "每個人都需要自己的空間。",
+     "vn": "Ai cũng cần không gian riêng."
+    },
+    {
+     "t": "Đánh giá",
+     "zh": "你的中文還有進步的空間。",
+     "vn": "Tiếng Hoa của bạn vẫn còn chỗ để tiến bộ."
+    }
+   ]
+  },
+  "馬桶": {
+   "vn": "bồn cầu",
+   "ng": [
+    "(danh từ) bồn cầu"
+   ],
+   "us": "沖馬桶 = xả bồn cầu. 馬桶塞住了 = bồn cầu bị tắc.",
+   "co": [
+    "沖馬桶|xả nước bồn cầu",
+    "馬桶塞住|bồn cầu tắc"
+   ],
+   "mh": "Mã Dũng → mǎ tǒng. ĐỌC: 'mã' → mǎ; 桶 'dũng' (thùng) → tǒng (thanh 3). NGHĨA: 'thùng ngựa' — tên cổ của bô.",
+   "tw": "Nhiều nơi ở Đài yêu cầu bỏ giấy vào thùng rác, không ném vào 馬桶 — giờ đã đổi ở nơi mới.",
+   "vd": [
+    {
+     "t": "Sự cố",
+     "zh": "馬桶塞住了，要找人來修。",
+     "vn": "Bồn cầu bị tắc, phải gọi người đến sửa."
+    },
+    {
+     "t": "Nhắc",
+     "zh": "用完廁所請沖馬桶。",
+     "vn": "Dùng xong nhà vệ sinh vui lòng xả nước."
+    },
+    {
+     "t": "Lau dọn",
+     "zh": "我每個星期洗一次馬桶。",
+     "vn": "Mỗi tuần tôi cọ bồn cầu một lần."
+    }
+   ]
+  },
+  "門": {
+   "vn": "cửa; môn",
+   "ng": [
+    "(danh từ) cửa",
+    "(lượng từ) môn (học)"
+   ],
+   "us": "開門 / 關門 / 一門課 (một môn học).",
+   "co": [
+    "開門|mở cửa",
+    "門口|cửa ra vào",
+    "一門課|một môn học"
+   ],
+   "mh": "Môn → mén. ĐỌC: 'môn' → mén (thanh 2). NGHĨA: chữ vẽ hai cánh cửa → 'cửa' (như 'ngọ môn', 'nhập môn').",
+   "vd": [
+    {
+     "t": "Ra vào",
+     "zh": "請把門關上。",
+     "vn": "Làm ơn đóng cửa lại."
+    },
+    {
+     "t": "Hẹn",
+     "zh": "我在門口等你。",
+     "vn": "Tôi đợi bạn ở cửa."
+    },
+    {
+     "t": "Học",
+     "zh": "這學期我選了五門課。",
+     "vn": "Học kỳ này tôi chọn năm môn."
+    }
+   ]
+  },
+  "熱水": {
+   "vn": "nước nóng",
+   "ng": [
+    "(danh từ) nước nóng"
+   ],
+   "us": "有熱水嗎？ / 熱水器 (bình nóng lạnh).",
+   "co": [
+    "熱水器|bình nóng lạnh",
+    "喝熱水|uống nước nóng"
+   ],
+   "an": [
+    "冷水|nước lạnh"
+   ],
+   "mh": "Nhiệt Thủy → rè shuǐ. ĐỌC: 'nhiệt' → rè (nh→r, thanh 4); 'thủy' → shuǐ. NGHĨA: giống 'nhiệt'.",
+   "tw": "Người Đài khuyên ốm thì 多喝熱水 — câu đùa nổi tiếng vì ai cũng nói.",
+   "vd": [
+    {
+     "t": "Thuê nhà",
+     "zh": "這間套房有熱水嗎？",
+     "vn": "Phòng này có nước nóng không?"
+    },
+    {
+     "t": "Ốm",
+     "zh": "感冒了要多喝熱水。",
+     "vn": "Cảm thì phải uống nhiều nước nóng."
+    },
+    {
+     "t": "Hỏng",
+     "zh": "熱水器壞了，不能洗澡。",
+     "vn": "Bình nóng lạnh hỏng, không tắm được."
+    }
+   ]
+  },
+  "晒": {
+   "vn": "phơi; phơi nắng",
+   "ng": [
+    "(động từ) phơi (quần áo)",
+    "(động từ) bị nắng chiếu, rám nắng"
+   ],
+   "us": "晒衣服 / 晒太陽 / 晒黑了 (bị đen). Cũng viết 曬.",
+   "co": [
+    "晒衣服|phơi đồ",
+    "晒太陽|tắm nắng",
+    "晒黑|rám đen"
+   ],
+   "mh": "Sái → shài. ĐỌC: 'sái' → shài (s→sh, thanh 4). NGHĨA: 日 mặt trời + 西 → phơi dưới mặt trời.",
+   "vd": [
+    {
+     "t": "Việc nhà",
+     "zh": "今天天氣好，可以晒衣服。",
+     "vn": "Hôm nay trời đẹp, có thể phơi đồ."
+    },
+    {
+     "t": "Biển",
+     "zh": "去海邊玩了一天，我晒黑了。",
+     "vn": "Đi biển chơi một ngày, tôi bị đen."
+    },
+    {
+     "t": "Mùa đông",
+     "zh": "冬天晒晒太陽很舒服。",
+     "vn": "Mùa đông phơi nắng rất dễ chịu."
+    }
+   ]
+  },
+  "生活": {
+   "vn": "cuộc sống; sinh hoạt",
+   "ng": [
+    "(danh từ) cuộc sống",
+    "(động từ) sinh sống"
+   ],
+   "us": "生活習慣 / 在台灣生活 / 生活費.",
+   "co": [
+    "生活費|chi phí sinh hoạt",
+    "生活習慣|thói quen sinh hoạt",
+    "日常生活|cuộc sống hằng ngày"
+   ],
+   "sy": [
+    "過日子|sống qua ngày"
+   ],
+   "mh": "Sinh Hoạt → shēng huó. ĐỌC: 'sinh' → shēng; 'hoạt' → huó (thanh 2). NGHĨA: giống tiếng Việt.",
+   "vd": [
+    {
+     "t": "Du học",
+     "zh": "你習慣台灣的生活了嗎？",
+     "vn": "Bạn quen cuộc sống ở Đài Loan chưa?"
+    },
+    {
+     "t": "Chi phí",
+     "zh": "我每個月的生活費大概一萬五。",
+     "vn": "Chi phí sinh hoạt mỗi tháng của tôi khoảng mười lăm nghìn."
+    },
+    {
+     "t": "Ước mơ",
+     "zh": "我想過簡單的生活。",
+     "vn": "Tôi muốn sống cuộc sống giản dị."
+    }
+   ]
+  },
+  "舒適": {
+   "vn": "thoải mái; dễ chịu",
+   "ng": [
+    "(tính từ) dễ chịu, tiện nghi (văn viết)"
+   ],
+   "us": "Văn viết hơn 舒服: 舒適的環境.",
+   "co": [
+    "舒適的環境|môi trường dễ chịu",
+    "舒適感|cảm giác thoải mái"
+   ],
+   "sy": [
+    "舒服|thoải mái"
+   ],
+   "mh": "Thư Thích → shū shì. ĐỌC: 'thư' → shū (th→sh); 'thích' → shì (th→sh, thanh 4). NGHĨA: 舒 thư thái + 適 thích hợp.",
+   "vd": [
+    {
+     "t": "Khách sạn",
+     "zh": "這家飯店的房間很舒適。",
+     "vn": "Phòng khách sạn này rất tiện nghi."
+    },
+    {
+     "t": "Giày",
+     "zh": "這雙鞋穿起來很舒適。",
+     "vn": "Đôi giày này đi rất êm."
+    },
+    {
+     "t": "Quảng cáo",
+     "zh": "我們提供安靜舒適的環境。",
+     "vn": "Chúng tôi cung cấp môi trường yên tĩnh dễ chịu."
+    }
+   ]
+  },
+  "刷牙": {
+   "vn": "đánh răng",
+   "ng": [
+    "(động từ) đánh răng"
+   ],
+   "us": "刷牙洗臉 / 刷完牙.",
+   "co": [
+    "刷牙洗臉|đánh răng rửa mặt",
+    "牙刷|bàn chải"
+   ],
+   "mh": "Loát Nha → shuā yá. ĐỌC: 刷 → shuā (thanh 1); 'nha' → yá. NGHĨA: 刷 chải + 牙 răng.",
+   "vd": [
+    {
+     "t": "Buổi sáng",
+     "zh": "我起床以後先刷牙洗臉。",
+     "vn": "Dậy rồi tôi đánh răng rửa mặt trước."
+    },
+    {
+     "t": "Dạy trẻ",
+     "zh": "吃完糖要刷牙。",
+     "vn": "Ăn kẹo xong phải đánh răng."
+    },
+    {
+     "t": "Thói quen",
+     "zh": "你一天刷幾次牙？",
+     "vn": "Bạn đánh răng mấy lần một ngày?"
+    }
+   ]
+  },
+  "睡著": {
+   "vn": "ngủ thiếp đi; ngủ được",
+   "ng": [
+    "(động từ) ngủ thiếp đi (đã vào giấc)"
+   ],
+   "us": "睡不著 = không ngủ được. 著 đọc zháo.",
+   "co": [
+    "睡不著|không ngủ được",
+    "睡著了|ngủ mất rồi"
+   ],
+   "cf": [
+    "睡覺|đi ngủ (hành động)"
+   ],
+   "mh": "Thụy Trước → shuì zháo. ĐỌC: 'thụy' → shuì (th→sh); 著 → zháo (thanh 2). NGHĨA: 著 = đạt được → 'ngủ được'.",
+   "lt": "著 ở đây đọc zháo, không phải zhe.",
+   "vd": [
+    {
+     "t": "Mất ngủ",
+     "zh": "喝了咖啡，我晚上睡不著。",
+     "vn": "Uống cà phê, tối tôi không ngủ được."
+    },
+    {
+     "t": "Xem phim",
+     "zh": "電影太無聊，我看到一半就睡著了。",
+     "vn": "Phim chán quá, tôi xem được nửa thì ngủ mất."
+    },
+    {
+     "t": "Con nhỏ",
+     "zh": "寶寶終於睡著了。",
+     "vn": "Em bé cuối cùng cũng ngủ rồi."
+    }
+   ]
+  },
+  "修理": {
+   "vn": "sửa chữa",
+   "ng": [
+    "(động từ) sửa chữa (đồ vật)"
+   ],
+   "us": "修理電腦 / 送去修理.",
+   "co": [
+    "修理費|phí sửa chữa",
+    "送去修理|mang đi sửa"
+   ],
+   "sy": [
+    "修|sửa"
+   ],
+   "cf": [
+    "修改|sửa (văn bản)"
+   ],
+   "mh": "Tu Lý → xiū lǐ. ĐỌC: 'tu' → xiū (t→x); 'lý' → lǐ. NGHĨA: 'tu sửa, chỉnh lý'.",
+   "vd": [
+    {
+     "t": "Hỏng",
+     "zh": "冷氣壞了，要找人來修理。",
+     "vn": "Máy lạnh hỏng, phải gọi người đến sửa."
+    },
+    {
+     "t": "Giá",
+     "zh": "修理手機要多少錢？",
+     "vn": "Sửa điện thoại bao nhiêu tiền?"
+    },
+    {
+     "t": "Kỹ năng",
+     "zh": "我爸爸很會修理東西。",
+     "vn": "Bố tôi rất giỏi sửa đồ."
+    }
+   ]
+  },
+  "醒": {
+   "vn": "tỉnh; thức dậy",
+   "ng": [
+    "(động từ) tỉnh giấc",
+    "(động từ) tỉnh (khỏi say, mê)"
+   ],
+   "us": "醒了 / 叫醒 (gọi dậy) / 吵醒 (làm thức giấc).",
+   "co": [
+    "叫醒|gọi dậy",
+    "吵醒|làm thức giấc",
+    "提醒|nhắc nhở"
+   ],
+   "an": [
+    "睡|ngủ"
+   ],
+   "mh": "Tỉnh → xǐng. ĐỌC: 'tỉnh' → xǐng (t→x, -inh→-ing, thanh 3). NGHĨA: 酉 (rượu) + 星 → tỉnh rượu → tỉnh dậy.",
+   "vd": [
+    {
+     "t": "Buổi sáng",
+     "zh": "明天六點叫醒我。",
+     "vn": "Mai 6 giờ gọi tôi dậy."
+    },
+    {
+     "t": "Ồn",
+     "zh": "我被外面的聲音吵醒了。",
+     "vn": "Tôi bị tiếng ồn bên ngoài làm thức giấc."
+    },
+    {
+     "t": "Hỏi",
+     "zh": "你醒了嗎？",
+     "vn": "Bạn dậy chưa?"
+    }
+   ]
+  },
+  "醒來": {
+   "vn": "tỉnh dậy; thức dậy",
+   "ng": [
+    "(động từ) tỉnh lại, thức dậy"
+   ],
+   "us": "一醒來就… = vừa tỉnh dậy là…",
+   "co": [
+    "早上醒來|sáng thức dậy",
+    "醒來以後|sau khi tỉnh dậy"
+   ],
+   "sy": [
+    "起床|dậy (ra khỏi giường)"
+   ],
+   "mh": "Tỉnh Lai → xǐng lái. ĐỌC: 'tỉnh' → xǐng; 'lai' → lái. NGHĨA: 'tỉnh lại'.",
+   "vd": [
+    {
+     "t": "Thói quen",
+     "zh": "我每天早上醒來先看手機。",
+     "vn": "Sáng nào thức dậy tôi cũng xem điện thoại trước."
+    },
+    {
+     "t": "Bệnh viện",
+     "zh": "手術以後他三個小時才醒來。",
+     "vn": "Sau phẫu thuật ba tiếng anh ấy mới tỉnh."
+    },
+    {
+     "t": "Giấc mơ",
+     "zh": "醒來以後，我忘了做了什麼夢。",
+     "vn": "Tỉnh dậy rồi, tôi quên mất mình mơ gì."
+    }
+   ]
+  },
+  "押金": {
+   "vn": "tiền đặt cọc",
+   "ng": [
+    "(danh từ) tiền cọc"
+   ],
+   "us": "付押金 / 押金兩個月 / 退押金.",
+   "co": [
+    "付押金|đặt cọc",
+    "退押金|trả lại tiền cọc"
+   ],
+   "sy": [
+    "訂金|tiền đặt trước"
+   ],
+   "mh": "Áp Kim → yā jīn. ĐỌC: 'áp' → yā (thanh 1); 'kim' → jīn (k→j). NGHĨA: 押 'áp' = cầm cố (như 'áp tải') + 金 tiền → tiền cầm giữ.",
+   "tw": "Thuê nhà ở Đài thường 押金 hai tháng tiền nhà.",
+   "vd": [
+    {
+     "t": "Thuê nhà",
+     "zh": "租房子要付兩個月的押金。",
+     "vn": "Thuê nhà phải đặt cọc hai tháng."
+    },
+    {
+     "t": "Chuyển đi",
+     "zh": "搬走的時候，房東會退押金。",
+     "vn": "Khi chuyển đi, chủ nhà sẽ trả lại tiền cọc."
+    },
+    {
+     "t": "Thuê xe",
+     "zh": "租腳踏車要押金嗎？",
+     "vn": "Thuê xe đạp có cần đặt cọc không?"
+    }
+   ]
+  },
+  "衣櫃": {
+   "vn": "tủ quần áo",
+   "ng": [
+    "(danh từ) tủ quần áo"
+   ],
+   "us": "放進衣櫃 / 衣櫃裡.",
+   "co": [
+    "整理衣櫃|sắp xếp tủ quần áo"
+   ],
+   "mh": "Y Quỹ → yī guì. ĐỌC: 'y' → yī; 'quỹ' (tủ) → guì (qu→gu, thanh 4). NGHĨA: 衣 áo + 櫃 tủ.",
+   "vd": [
+    {
+     "t": "Phòng",
+     "zh": "這個房間有床和衣櫃。",
+     "vn": "Phòng này có giường và tủ quần áo."
+    },
+    {
+     "t": "Dọn",
+     "zh": "我的衣櫃太亂了，要整理一下。",
+     "vn": "Tủ quần áo của tôi bừa quá, phải sắp xếp lại."
+    },
+    {
+     "t": "Tìm đồ",
+     "zh": "你的外套在衣櫃裡。",
+     "vn": "Áo khoác của bạn ở trong tủ."
+    }
+   ]
+  },
+  "用品": {
+   "vn": "đồ dùng",
+   "ng": [
+    "(danh từ) đồ dùng, vật dụng"
+   ],
+   "us": "生活用品 / 文具用品 / 運動用品.",
+   "co": [
+    "生活用品|đồ dùng sinh hoạt",
+    "運動用品|dụng cụ thể thao"
+   ],
+   "sy": [
+    "東西|đồ"
+   ],
+   "mh": "Dụng Phẩm → yòng pǐn. ĐỌC: 'dụng' → yòng; 'phẩm' → pǐn. NGHĨA: 'vật phẩm để dùng'.",
+   "vd": [
+    {
+     "t": "Mua sắm",
+     "zh": "我去超市買一些生活用品。",
+     "vn": "Tôi đi siêu thị mua ít đồ dùng sinh hoạt."
+    },
+    {
+     "t": "Du học",
+     "zh": "日常用品到台灣再買就好。",
+     "vn": "Đồ dùng hằng ngày sang Đài rồi mua là được."
+    },
+    {
+     "t": "Cửa hàng",
+     "zh": "這家店賣運動用品。",
+     "vn": "Cửa hàng này bán dụng cụ thể thao."
+    }
+   ]
+  },
+  "噪音": {
+   "vn": "tiếng ồn",
+   "ng": [
+    "(danh từ) tiếng ồn"
+   ],
+   "us": "噪音很大 / 製造噪音.",
+   "co": [
+    "噪音污染|ô nhiễm tiếng ồn",
+    "製造噪音|gây ồn"
+   ],
+   "mh": "Táo Âm → zào yīn. ĐỌC: 'táo' → zào (t→z, thanh 4); 'âm' → yīn. NGHĨA: 噪 'táo' = ồn ào (như chim kêu) + 音 âm thanh.",
+   "vd": [
+    {
+     "t": "Hàng xóm",
+     "zh": "樓上的噪音讓我睡不好。",
+     "vn": "Tiếng ồn tầng trên làm tôi ngủ không ngon."
+    },
+    {
+     "t": "Thành phố",
+     "zh": "這條路的機車噪音很大。",
+     "vn": "Đường này tiếng xe máy rất ồn."
+    },
+    {
+     "t": "Quy định",
+     "zh": "晚上十點以後請不要製造噪音。",
+     "vn": "Sau 10 giờ tối vui lòng không gây ồn."
+    }
+   ]
+  },
+  "整理": {
+   "vn": "sắp xếp; dọn dẹp",
+   "ng": [
+    "(động từ) sắp xếp, dọn dẹp",
+    "(động từ) chỉnh lý (tài liệu)"
+   ],
+   "us": "整理房間 / 整理資料 / 整理行李.",
+   "co": [
+    "整理房間|dọn phòng",
+    "整理資料|sắp xếp tài liệu",
+    "整理行李|xếp hành lý"
+   ],
+   "sy": [
+    "收拾|thu dọn"
+   ],
+   "mh": "Chỉnh Lý → zhěng lǐ. ĐỌC: 'chỉnh' → zhěng (ch→zh, -inh→-eng, thanh 3); 'lý' → lǐ. NGHĨA: giống 'chỉnh lý'.",
+   "vd": [
+    {
+     "t": "Việc nhà",
+     "zh": "週末我要整理房間。",
+     "vn": "Cuối tuần tôi phải dọn phòng."
+    },
+    {
+     "t": "Học",
+     "zh": "考試前我把筆記整理好了。",
+     "vn": "Trước kỳ thi tôi đã sắp xếp lại ghi chép."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "明天要出發，今晚整理行李。",
+     "vn": "Mai đi rồi, tối nay xếp hành lý."
+    }
+   ],
+   "an": [
+    "弄亂|làm bừa bộn"
+   ],
+   "cf": [
+    "整理 vs 安排|整理 dùng cho đồ đạc, phòng ốc, tài liệu, ghi chú cho gọn gàng mạch lạc (整理房間, 整理筆記); 安排 dùng cho lịch trình, thời gian, nhân sự."
+   ],
+   "lt": "Động từ. Hay đi với bổ ngữ kết quả: 整理好 (dọn/soạn xong xuôi), 整理一下.",
+   "mk": "Đừng dùng 整理 cho việc lên lịch họp (*整理開會時間 ❌ → 安排開會時間).",
+   "tw": "Ở Đài Loan rất hay nói 整理行李 (xếp hành lý), 整理筆記 (hệ thống lại ghi chú), 整理思緒 (sắp xếp lại suy nghĩ)."
+  },
+  "做夢/作夢": {
+   "vn": "nằm mơ",
+   "ng": [
+    "(động từ) nằm mơ",
+    "(nghĩa bóng) mơ tưởng"
+   ],
+   "us": "做了一個夢 / 做夢也想不到 (nằm mơ cũng không ngờ). Viết 做夢 hoặc 作夢.",
+   "co": [
+    "做惡夢|gặp ác mộng",
+    "做白日夢|mơ giữa ban ngày"
+   ],
+   "mh": "Tố Mộng → zuò mèng. ĐỌC: 'tố' → zuò; 'mộng' → mèng (-ông→-eng, thanh 4). NGHĨA: 'làm (một) giấc mộng'.",
+   "vd": [
+    {
+     "t": "Kể",
+     "zh": "我昨天晚上做了一個奇怪的夢。",
+     "vn": "Tối qua tôi mơ một giấc mơ kỳ lạ."
+    },
+    {
+     "t": "Bất ngờ",
+     "zh": "我做夢也沒想到會中獎。",
+     "vn": "Nằm mơ tôi cũng không ngờ được trúng thưởng."
+    },
+    {
+     "t": "Mơ tưởng",
+     "zh": "不工作就想發財？別做夢了！",
+     "vn": "Không làm mà muốn giàu? Đừng mơ nữa!"
+    }
+   ]
+  }
+ }
+}

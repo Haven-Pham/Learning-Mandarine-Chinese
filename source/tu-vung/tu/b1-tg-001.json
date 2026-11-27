@@ -1,220 +1,1033 @@
-{"tu": {
-"曾": {"vn": "đã từng", "ng": ["(phó từ) đã từng (văn viết)"],
- "us": "曾 + động từ (+ 過). Văn viết của 曾經.", "co": ["曾去過|từng đi qua", "不曾|chưa từng"],
- "sy": ["曾經|đã từng"],
- "mh": "Tằng → céng. ĐỌC: 'tằng' → céng (t→c, -ăng→-eng, thanh 2). NGHĨA: 'tằng' = đã từng (như 'tằng tổ' = ông cố). Cũng là họ Tăng (đọc zēng).",
- "lt": "Họ 曾 (Tăng) đọc zēng, còn 'đã từng' đọc céng.",
- "vd": [{"t": "Kinh nghiệm", "zh": "我曾在台北住過一年。", "vn": "Tôi từng sống ở Đài Bắc một năm."},
-  {"t": "Phủ định", "zh": "我不曾見過這麼美的地方。", "vn": "Tôi chưa từng thấy nơi nào đẹp như vậy."},
-  {"t": "Lịch sử", "zh": "這裡曾是一個小漁村。", "vn": "Nơi đây từng là một làng chài nhỏ."}]},
-"曾經": {"vn": "đã từng", "ng": ["(phó từ) đã từng"],
- "us": "曾經 + động từ + 過. Phủ định: 沒有…過 hoặc 不曾.", "co": ["曾經去過|đã từng đi", "曾經喜歡|từng thích"],
- "sy": ["曾|đã từng"],
- "mh": "Tằng Kinh → céng jīng. ĐỌC: 'tằng' → céng; 'kinh' (trải qua) → jīng (k→j). NGHĨA: 'đã từng trải qua'.",
- "vd": [{"t": "Kinh nghiệm", "zh": "我曾經去過三次日本。", "vn": "Tôi đã từng đi Nhật ba lần."},
-  {"t": "Tình cảm", "zh": "我們曾經是很好的朋友。", "vn": "Chúng tôi từng là bạn rất thân."},
-  {"t": "Công việc", "zh": "他曾經當過老師。", "vn": "Anh ấy từng làm giáo viên."}]},
-"初": {"vn": "đầu; sơ; mùng", "ng": ["(danh từ) đầu (thời kỳ)", "(tiền tố) mùng (ngày 1–10 âm lịch)", "(tính từ) sơ, lần đầu"],
- "us": "月初 = đầu tháng. 初一 = mùng một. 初次 = lần đầu.", "co": ["月初|đầu tháng", "初一|mùng một", "初學者|người mới học"],
- "an": ["末|cuối"],
- "mh": "Sơ → chū. ĐỌC: 'sơ' → chū (s→ch, thanh 1). NGHĨA: 衤 (áo) + 刀 (dao) → cắt vải là bước đầu may áo → 'sơ' (ban sơ, sơ cấp).",
- "vd": [{"t": "Lịch", "zh": "我月初要繳房租。", "vn": "Đầu tháng tôi phải đóng tiền nhà."},
-  {"t": "Tết", "zh": "大年初一大家去拜年。", "vn": "Mùng một Tết mọi người đi chúc Tết."},
-  {"t": "Học", "zh": "這本書適合初學者。", "vn": "Quyển sách này phù hợp người mới học."}]},
-"重新": {"vn": "lại; làm lại từ đầu", "ng": ["(phó từ) lại (từ đầu), lại một lần nữa"],
- "us": "重新 + động từ: 重新開始, 重新做. 重 đọc chóng.", "co": ["重新開始|bắt đầu lại", "重新開機|khởi động lại máy"],
- "sy": ["再|lại"],
- "mh": "Trùng Tân → chóng xīn. ĐỌC: 重 'trùng' → chóng (tr→ch, thanh 2); 'tân' → xīn. NGHĨA: 'trùng' (lặp lại) + 'tân' (mới) → làm mới lại.",
- "lt": "重 = chóng (lại, trùng) / zhòng (nặng).",
- "vd": [{"t": "Máy tính", "zh": "電腦當機了，重新開機試試。", "vn": "Máy tính treo rồi, khởi động lại thử xem."},
-  {"t": "Bài tập", "zh": "寫錯太多了，我要重新寫。", "vn": "Viết sai nhiều quá, tôi phải viết lại."},
-  {"t": "Cuộc sống", "zh": "他想在台灣重新開始。", "vn": "Anh ấy muốn bắt đầu lại ở Đài Loan."}]},
-"從不": {"vn": "chưa bao giờ; không bao giờ", "ng": ["(phó từ) chưa bao giờ, xưa nay không"],
- "us": "從不 + động từ (thói quen). Quá khứ: 從來沒(有)…過.", "co": ["從不遲到|chưa bao giờ đến muộn", "從不抽菸|không bao giờ hút thuốc"],
- "sy": ["從來不|xưa nay không"],
- "mh": "Tòng Bất → cóng bù. ĐỌC: 'tòng' → cóng (t→c, thanh 2); 不 bù. NGHĨA: 從 (từ trước) + 不 → từ trước đến giờ không.",
- "vd": [{"t": "Thói quen", "zh": "他從不遲到。", "vn": "Anh ấy chưa bao giờ đến muộn."},
-  {"t": "Sức khỏe", "zh": "我爸爸從不喝酒。", "vn": "Bố tôi không bao giờ uống rượu."},
-  {"t": "Tính cách", "zh": "她從不說別人的壞話。", "vn": "Cô ấy không bao giờ nói xấu người khác."}]},
-"從小": {"vn": "từ nhỏ", "ng": ["(phó từ) từ nhỏ, từ bé"],
- "us": "從小就… = từ nhỏ đã….", "co": ["從小就|từ nhỏ đã", "從小到大|từ nhỏ đến lớn"],
- "mh": "Tòng Tiểu → cóng xiǎo. ĐỌC: 'tòng' → cóng; 'tiểu' → xiǎo. NGHĨA: 'từ (lúc) nhỏ'.",
- "vd": [{"t": "Sở thích", "zh": "我從小就喜歡畫畫。", "vn": "Từ nhỏ tôi đã thích vẽ."},
-  {"t": "Quê", "zh": "她從小在鄉下長大。", "vn": "Cô ấy lớn lên ở quê từ bé."},
-  {"t": "Bạn bè", "zh": "我們從小到大都是好朋友。", "vn": "Chúng tôi là bạn thân từ nhỏ đến lớn."}]},
-"當場": {"vn": "ngay tại chỗ", "ng": ["(phó từ) ngay tại chỗ, ngay lúc đó"],
- "us": "當場 + động từ: 當場抓到, 當場決定.", "co": ["當場抓到|bắt quả tang", "當場答應|đồng ý ngay"],
- "mh": "Đương Trường → dāng chǎng. ĐỌC: 'đương' → dāng; 'trường' → chǎng (tr→ch). NGHĨA: 'ngay tại hiện trường'.",
- "vd": [{"t": "Cảnh sát", "zh": "小偷被警察當場抓到。", "vn": "Tên trộm bị cảnh sát bắt quả tang."},
-  {"t": "Quyết định", "zh": "老闆當場就答應了。", "vn": "Sếp đồng ý ngay tại chỗ."},
-  {"t": "Cảm xúc", "zh": "聽到消息，她當場就哭了。", "vn": "Nghe tin, cô ấy khóc ngay tại chỗ."}]},
-"當年": {"vn": "năm ấy; hồi đó", "ng": ["(danh từ) năm đó, hồi ấy (quá khứ)"],
- "us": "想當年 = nhớ hồi đó…. 當年 (dāngnián) ≠ 當年 dàngnián (cùng năm).", "co": ["想當年|nhớ hồi xưa", "當年的我|tôi hồi đó"],
- "mh": "Đương Niên → dāng nián. ĐỌC: 'đương' → dāng; 'niên' → nián. NGHĨA: 'năm (niên) đó (đương)'.",
- "vd": [{"t": "Kỷ niệm", "zh": "當年我們一起在這裡念書。", "vn": "Hồi đó chúng tôi cùng học ở đây."},
-  {"t": "Ông bà", "zh": "爺爺常說：想當年……", "vn": "Ông hay nói: nhớ hồi xưa…"},
-  {"t": "So sánh", "zh": "這裡跟當年完全不一樣了。", "vn": "Nơi này hoàn toàn khác hồi đó."}]},
-"當天": {"vn": "ngày hôm đó; trong ngày", "ng": ["(danh từ) ngày hôm đó, cùng ngày"],
- "us": "當天來回 = đi về trong ngày. 當 đọc dāng (hoặc dàng = cùng ngày).", "co": ["當天來回|đi về trong ngày", "考試當天|ngày thi"],
- "mh": "Đương Thiên → dāng tiān. ĐỌC: 'đương' → dāng; 'thiên' → tiān. NGHĨA: 'chính ngày đó'.",
- "vd": [{"t": "Du lịch", "zh": "去九份可以當天來回。", "vn": "Đi Cửu Phần có thể đi về trong ngày."},
-  {"t": "Thi", "zh": "考試當天要帶身分證。", "vn": "Ngày thi phải mang chứng minh thư."},
-  {"t": "Giao hàng", "zh": "下午三點前訂購，當天送達。", "vn": "Đặt trước 3 giờ chiều, giao trong ngày."}]},
-"等待": {"vn": "chờ đợi", "ng": ["(động từ) chờ đợi (trang trọng)"],
- "us": "Văn viết của 等: 等待機會, 耐心等待.", "co": ["等待機會|chờ cơ hội", "耐心等待|kiên nhẫn chờ"],
- "sy": ["等|chờ"],
- "mh": "Đẳng Đãi → děng dài. ĐỌC: 'đẳng' → děng; 'đãi' → dài. NGHĨA: 等 chờ + 待 đợi.",
- "vd": [{"t": "Thông báo", "zh": "請耐心等待，馬上為您服務。", "vn": "Xin kiên nhẫn chờ, chúng tôi sẽ phục vụ ngay."},
-  {"t": "Cơ hội", "zh": "他在等待一個好機會。", "vn": "Anh ấy đang chờ một cơ hội tốt."},
-  {"t": "Bệnh viện", "zh": "等待看病的人很多。", "vn": "Người chờ khám bệnh rất đông."}]},
-"改天": {"vn": "hôm khác; bữa khác", "ng": ["(phó từ) hôm khác, lúc khác"],
- "us": "改天再… = hôm khác lại…. Hay dùng để từ chối khéo.", "co": ["改天再說|để hôm khác nói", "改天見|hẹn hôm khác"],
- "mh": "Cải Thiên → gǎi tiān. ĐỌC: 'cải' → gǎi; 'thiên' → tiān. NGHĨA: 'đổi (cải) ngày (thiên)'.",
- "tw": "改天一起吃飯 ở Đài nhiều khi chỉ là câu xã giao, chưa chắc là hẹn thật.",
- "vd": [{"t": "Hẹn", "zh": "今天沒空，改天再約吧。", "vn": "Hôm nay không rảnh, hẹn hôm khác nhé."},
-  {"t": "Xã giao", "zh": "改天一起吃飯！", "vn": "Hôm nào đi ăn cơm nhé!"},
-  {"t": "Từ chối", "zh": "這件事我們改天再說。", "vn": "Chuyện này để hôm khác bàn."}]},
-"趕": {"vn": "vội; kịp; đuổi", "ng": ["(động từ) vội vàng, gấp rút", "(động từ) đuổi kịp, kịp (giờ)", "(động từ) xua đuổi"],
- "us": "趕時間 = vội. 趕快 = mau lên. 趕報告 = gấp rút làm báo cáo.", "co": ["趕時間|đang vội", "趕快|nhanh lên", "趕走|đuổi đi"],
- "mh": "Cản → gǎn. ĐỌC: 'cản' → gǎn (c→g, thanh 3). NGHĨA: 走 (chạy) + 旱 → chạy vội.",
- "vd": [{"t": "Vội", "zh": "不好意思，我在趕時間。", "vn": "Xin lỗi, tôi đang vội."},
-  {"t": "Công việc", "zh": "我今天晚上要趕報告。", "vn": "Tối nay tôi phải gấp rút làm báo cáo."},
-  {"t": "Đuổi", "zh": "他把貓趕出去了。", "vn": "Anh ấy đuổi con mèo ra ngoài."}]},
-"趕上": {"vn": "kịp; đuổi kịp", "ng": ["(động từ) kịp (chuyến xe, thời gian)", "(động từ) đuổi kịp"],
- "us": "趕上 / 趕不上 (không kịp).", "co": ["趕上車|kịp chuyến xe", "趕不上|không kịp"],
- "sy": ["來得及|kịp"],
- "mh": "Cản Thượng → gǎn shàng. ĐỌC: 'cản' → gǎn; 'thượng' → shàng. NGHĨA: 'chạy (cản) lên (thượng)' → bắt kịp.",
- "vd": [{"t": "Đi lại", "zh": "跑快一點，還趕得上最後一班車。", "vn": "Chạy nhanh lên, vẫn kịp chuyến cuối."},
-  {"t": "Học", "zh": "我要努力趕上其他同學。", "vn": "Tôi phải cố gắng bắt kịp các bạn khác."},
-  {"t": "Trễ", "zh": "我沒趕上飛機。", "vn": "Tôi không kịp chuyến bay."}]},
-"過去": {"vn": "quá khứ; đi qua", "ng": ["(danh từ) quá khứ, trước đây", "(động từ) đi qua (đó)"],
- "us": "Danh từ: guòqù. Bổ ngữ: 走過去 (đi qua), 過去了 (qua rồi).", "co": ["過去的事|chuyện đã qua", "走過去|đi qua đó"],
- "an": ["將來|tương lai", "未來|tương lai"],
- "mh": "Quá Khứ → guò qù. ĐỌC: 'quá' → guò; 'khứ' → qù. NGHĨA: giống 'quá khứ'.",
- "vd": [{"t": "An ủi", "zh": "過去的事就讓它過去吧。", "vn": "Chuyện đã qua thì để nó qua đi."},
-  {"t": "So sánh", "zh": "過去這裡沒有捷運。", "vn": "Trước đây ở đây không có MRT."},
-  {"t": "Chỉ đường", "zh": "你走過去就看到了。", "vn": "Bạn đi qua đó là thấy."}]},
-"忽然/忽": {"vn": "bỗng nhiên; đột nhiên", "ng": ["(phó từ) bỗng nhiên"],
- "us": "忽然 + động từ. Gần nghĩa 突然 nhưng 忽然 chỉ là phó từ.", "co": ["忽然想到|chợt nghĩ ra", "忽然下雨|bỗng đổ mưa"],
- "sy": ["突然|đột nhiên"],
- "mh": "Hốt Nhiên → hū rán. ĐỌC: 'hốt' → hū (thanh 1); 'nhiên' → rán (nh→r). NGHĨA: 'hốt nhiên' = bỗng nhiên.",
- "cf": ["突然|có thể làm tính từ: 很突然; 忽然 không thể"],
- "vd": [{"t": "Thời tiết", "zh": "天空忽然下起大雨。", "vn": "Trời bỗng đổ mưa to."},
-  {"t": "Nhớ", "zh": "我忽然想起來今天是她的生日。", "vn": "Tôi chợt nhớ ra hôm nay là sinh nhật cô ấy."},
-  {"t": "Mất điện", "zh": "燈忽然滅了。", "vn": "Đèn bỗng tắt."}]},
-"及時": {"vn": "kịp thời", "ng": ["(tính từ/phó từ) kịp thời"],
- "us": "及時 + động từ: 及時送醫, 及時通知.", "co": ["及時送醫|đưa đi viện kịp thời", "及時雨|cơn mưa đúng lúc (người giúp kịp thời)"],
- "mh": "Cập Thời → jí shí. ĐỌC: 'cập' → jí (c→j, thanh 2); 'thời' → shí (th→sh). NGHĨA: 'cập' (kịp) + 'thời' → kịp thời.",
- "vd": [{"t": "Cấp cứu", "zh": "幸好及時送醫，他沒事了。", "vn": "May mà đưa đi viện kịp thời, anh ấy không sao."},
-  {"t": "Cảm ơn", "zh": "你真是及時雨！", "vn": "Bạn đúng là cứu tinh đúng lúc!"},
-  {"t": "Công việc", "zh": "有問題請及時告訴我。", "vn": "Có vấn đề xin báo tôi kịp thời."}]},
-"繼續": {"vn": "tiếp tục", "ng": ["(động từ) tiếp tục"],
- "us": "繼續 + động từ: 繼續努力, 繼續下雨.", "co": ["繼續努力|tiếp tục cố gắng", "繼續說|nói tiếp"],
- "an": ["停止|dừng"],
- "mh": "Kế Tục → jì xù. ĐỌC: 'kế' → jì; 'tục' → xù (t→x). NGHĨA: giống 'kế tục' → tiếp tục.",
- "vd": [{"t": "Động viên", "zh": "做得很好，繼續加油！", "vn": "Làm tốt lắm, tiếp tục cố lên!"},
-  {"t": "Thời tiết", "zh": "明天會繼續下雨。", "vn": "Ngày mai trời tiếp tục mưa."},
-  {"t": "Nói chuyện", "zh": "對不起打斷你，請繼續說。", "vn": "Xin lỗi đã ngắt lời, mời bạn nói tiếp."}]},
-"將來": {"vn": "tương lai; sau này", "ng": ["(danh từ) tương lai, sau này"],
- "us": "將來想做什麼？ / 在不久的將來.", "co": ["將來的計畫|kế hoạch tương lai", "不久的將來|tương lai gần"],
- "sy": ["未來|tương lai"], "an": ["過去|quá khứ"],
- "mh": "Tương Lai → jiāng lái. ĐỌC: 將 'tương' → jiāng (t→j); 'lai' → lái. NGHĨA: chính là 'tương lai' tiếng Việt!",
- "vd": [{"t": "Ước mơ", "zh": "你將來想做什麼工作？", "vn": "Sau này bạn muốn làm nghề gì?"},
-  {"t": "Kế hoạch", "zh": "我將來想在台灣工作。", "vn": "Sau này tôi muốn làm việc ở Đài Loan."},
-  {"t": "Tiết kiệm", "zh": "要為將來存一點錢。", "vn": "Phải để dành ít tiền cho tương lai."}]},
-"經過": {"vn": "đi qua; trải qua; quá trình", "ng": ["(động từ) đi qua (nơi)", "(động từ) trải qua (thời gian, quá trình)", "(danh từ) diễn biến"],
- "us": "經過 + nơi / 經過 + thời gian/việc / 事情的經過.", "co": ["經過門口|đi ngang cửa", "經過討論|qua thảo luận", "事情的經過|diễn biến sự việc"],
- "mh": "Kinh Quá → jīng guò. ĐỌC: 'kinh' → jīng; 'quá' → guò. NGHĨA: 'kinh qua' = trải qua.",
- "vd": [{"t": "Đường", "zh": "公車會經過台北車站嗎？", "vn": "Xe buýt có đi qua ga Đài Bắc không?"},
-  {"t": "Thời gian", "zh": "經過一年的努力，他通過了考試。", "vn": "Sau một năm nỗ lực, anh ấy đã thi đỗ."},
-  {"t": "Kể", "zh": "請你說一下事情的經過。", "vn": "Bạn kể lại diễn biến sự việc đi."}]},
-"開始": {"vn": "bắt đầu", "ng": ["(động từ) bắt đầu", "(danh từ) lúc đầu"],
- "us": "開始 + động từ / 一開始 (lúc đầu).", "co": ["一開始|lúc đầu", "重新開始|bắt đầu lại"],
- "an": ["結束|kết thúc"],
- "mh": "Khai Thủy → kāi shǐ. ĐỌC: 'khai' → kāi; 'thủy' (ban đầu) → shǐ. NGHĨA: 'khai' mở + 'thủy' khởi đầu (như 'nguyên thủy').",
- "vd": [{"t": "Lớp học", "zh": "上課開始了，請安靜。", "vn": "Bắt đầu học rồi, trật tự nào."},
-  {"t": "Học", "zh": "我去年開始學中文。", "vn": "Năm ngoái tôi bắt đầu học tiếng Hoa."},
-  {"t": "Lúc đầu", "zh": "一開始我很不習慣。", "vn": "Lúc đầu tôi rất không quen."}]},
-"刻": {"vn": "khắc; 15 phút", "ng": ["(lượng từ) khắc (15 phút)", "(động từ) khắc, chạm"],
- "us": "一刻 = 15 phút: 三點一刻 = 3 giờ 15. 刻字 = khắc chữ.", "co": ["一刻鐘|mười lăm phút", "三點一刻|ba giờ mười lăm", "刻字|khắc chữ"],
- "mh": "Khắc → kè. ĐỌC: 'khắc' → kè (kh→k, thanh 4). NGHĨA: giống 'khắc' (thời khắc, điêu khắc); một khắc = 15 phút.",
- "vd": [{"t": "Giờ", "zh": "現在是三點一刻。", "vn": "Bây giờ là ba giờ mười lăm."},
-  {"t": "Quà", "zh": "我請老闆在筆上刻我的名字。", "vn": "Tôi nhờ chủ khắc tên mình lên bút."},
-  {"t": "Thời gian", "zh": "再等一刻鐘就到了。", "vn": "Đợi thêm mười lăm phút nữa là đến."}]},
-"快": {"vn": "nhanh; sắp", "ng": ["(tính từ) nhanh", "(phó từ) sắp (快…了)", "(phó từ) mau"],
- "us": "快…了 = sắp…. 快點 = nhanh lên. 很快 = rất nhanh.", "co": ["快點|nhanh lên", "快到了|sắp đến rồi", "快樂|vui vẻ"],
- "an": ["慢|chậm"],
- "mh": "Khoái → kuài. ĐỌC: 'khoái' → kuài (kh→k). NGHĨA: 忄(lòng) + 夬 → lòng sảng khoái → nhanh, vui.",
- "vd": [{"t": "Giục", "zh": "快點，我們要遲到了！", "vn": "Nhanh lên, chúng ta sắp muộn rồi!"},
-  {"t": "Sắp", "zh": "快過年了，大家都很忙。", "vn": "Sắp Tết rồi, mọi người đều bận."},
-  {"t": "Tốc độ", "zh": "高鐵比火車快多了。", "vn": "Tàu cao tốc nhanh hơn tàu hỏa nhiều."}]},
-"來不及": {"vn": "không kịp", "ng": ["(động từ) không kịp"],
- "us": "來不及 + động từ / 已經來不及了.", "co": ["來不及吃|không kịp ăn", "已經來不及了|đã không kịp nữa"],
- "an": ["來得及|kịp"],
- "mh": "Lai Bất Cập → lái bù jí. ĐỌC: 'lai' → lái; 不 nhẹ; 'cập' → jí. NGHĨA: 'đến không kịp'.",
- "vd": [{"t": "Buổi sáng", "zh": "我起晚了，來不及吃早餐。", "vn": "Tôi dậy muộn, không kịp ăn sáng."},
-  {"t": "Hối hận", "zh": "現在後悔已經來不及了。", "vn": "Bây giờ hối hận đã không kịp nữa."},
-  {"t": "Đi lại", "zh": "快走，不然來不及了！", "vn": "Đi nhanh lên, không thì không kịp!"}]},
-"來得及": {"vn": "kịp", "ng": ["(động từ) còn kịp"],
- "us": "還來得及 = vẫn còn kịp.", "co": ["還來得及|vẫn còn kịp"],
- "an": ["來不及|không kịp"],
- "mh": "Lai Đắc Cập → lái de jí. ĐỌC: 'lai' → lái; 得 nhẹ de; 'cập' → jí. NGHĨA: 'đến được kịp'.",
- "vd": [{"t": "Trấn an", "zh": "別急，還來得及。", "vn": "Đừng vội, vẫn còn kịp."},
-  {"t": "Học", "zh": "現在開始準備，還來得及。", "vn": "Bây giờ bắt đầu chuẩn bị vẫn còn kịp."},
-  {"t": "Hỏi", "zh": "十分鐘到機場，來得及嗎？", "vn": "Mười phút đến sân bay, có kịp không?"}]},
-"老是": {"vn": "lúc nào cũng; cứ", "ng": ["(phó từ) luôn, cứ (thường mang ý phàn nàn)"],
- "us": "老是 + động từ: 他老是遲到 (cứ đến muộn).", "co": ["老是遲到|cứ đến muộn", "老是忘記|cứ quên"],
- "sy": ["總是|luôn luôn"],
- "mh": "Lão Thị → lǎo shì. ĐỌC: 'lão' → lǎo; 'thị' → shì. NGHĨA: 老 'lão' ở đây = luôn, mãi (khẩu ngữ).",
- "vd": [{"t": "Phàn nàn", "zh": "你怎麼老是遲到？", "vn": "Sao bạn cứ đến muộn mãi vậy?"},
-  {"t": "Trí nhớ", "zh": "我老是忘記帶鑰匙。", "vn": "Tôi cứ quên mang chìa khóa."},
-  {"t": "Thời tiết", "zh": "這幾天老是下雨。", "vn": "Mấy hôm nay cứ mưa suốt."}]},
-"慢慢": {"vn": "từ từ; dần dần", "ng": ["(phó từ) từ từ, chầm chậm, dần dần"],
- "us": "慢慢 + động từ / 慢慢來 (cứ từ từ).", "co": ["慢慢來|cứ từ từ", "慢慢吃|ăn từ từ", "慢慢地|dần dần"],
- "mh": "Mạn Mạn → màn màn. ĐỌC: 'mạn' → màn (thanh 4), lặp lại. NGHĨA: 慢 chậm, lặp lại → từ từ.",
- "tw": "慢慢來 (cứ từ từ) là câu người Đài hay nói để trấn an.",
- "vd": [{"t": "Trấn an", "zh": "不用急，慢慢來。", "vn": "Không cần vội, cứ từ từ."},
-  {"t": "Học", "zh": "我的中文慢慢進步了。", "vn": "Tiếng Hoa của tôi tiến bộ dần dần."},
-  {"t": "Ăn", "zh": "慢慢吃，別噎到。", "vn": "Ăn từ từ, kẻo nghẹn."}]},
-"秒": {"vn": "giây", "ng": ["(lượng từ) giây"],
- "us": "一秒 / 幾秒鐘 / 秒殺 (bán hết trong vài giây).", "co": ["幾秒鐘|vài giây", "秒殺|cháy hàng tức thì"],
- "mh": "Miểu → miǎo. ĐỌC: 'miểu' → miǎo (-iêu→-iao, thanh 3). NGHĨA: 禾 (lúa) + 少 → phần nhỏ xíu như râu lúa → giây.",
- "vd": [{"t": "Đếm", "zh": "等我三十秒。", "vn": "Chờ tôi ba mươi giây."},
-  {"t": "Mua vé", "zh": "演唱會的票一開賣就被秒殺了。", "vn": "Vé hòa nhạc vừa mở bán đã cháy sạch."},
-  {"t": "Thi chạy", "zh": "他一百公尺跑了十二秒。", "vn": "Anh ấy chạy 100 mét hết 12 giây."}]},
-"目前": {"vn": "hiện nay; trước mắt", "ng": ["(danh từ) hiện tại, trước mắt"],
- "us": "目前 + tình hình: 目前還不知道.", "co": ["到目前為止|tính đến nay", "目前的情況|tình hình hiện tại"],
- "sy": ["現在|bây giờ"],
- "mh": "Mục Tiền → mù qián. ĐỌC: 'mục' → mù; 'tiền' (trước) → qián. NGHĨA: 'trước mắt (mục)'.",
- "vd": [{"t": "Công việc", "zh": "目前我還在找工作。", "vn": "Hiện tôi vẫn đang tìm việc."},
-  {"t": "Tin tức", "zh": "到目前為止，沒有人受傷。", "vn": "Tính đến nay chưa có ai bị thương."},
-  {"t": "Bệnh viện", "zh": "他目前的情況很穩定。", "vn": "Tình hình hiện tại của anh ấy rất ổn định."}]},
-"年": {"vn": "năm; Tết", "ng": ["(danh từ) năm", "(danh từ) Tết (過年)"],
- "us": "今年 / 明年 / 一年 / 過年 (ăn Tết).", "co": ["過年|ăn Tết", "新年|năm mới", "年輕|trẻ"],
- "mh": "Niên → nián. ĐỌC: 'niên' → nián (-iên→-ian, thanh 2). NGHĨA: giống 'niên' (thanh niên, niên khóa).",
- "vd": [{"t": "Thời gian", "zh": "我在台灣住了兩年。", "vn": "Tôi sống ở Đài Loan hai năm rồi."},
-  {"t": "Tết", "zh": "你今年回越南過年嗎？", "vn": "Năm nay bạn về Việt Nam ăn Tết không?"},
-  {"t": "Chúc", "zh": "新年快樂！", "vn": "Chúc mừng năm mới!"}]},
-"年代": {"vn": "thập niên; thời đại", "ng": ["(danh từ) thập niên", "(danh từ) thời kỳ, thời đại"],
- "us": "八〇年代 = thập niên 80. 那個年代 = thời đó.", "co": ["九〇年代|thập niên 90", "那個年代|thời ấy"],
- "sy": ["時代|thời đại"],
- "mh": "Niên Đại → nián dài. ĐỌC: 'niên' → nián; 'đại' → dài. NGHĨA: giống 'niên đại'.",
- "vd": [{"t": "Âm nhạc", "zh": "我喜歡八〇年代的歌。", "vn": "Tôi thích nhạc thập niên 80."},
-  {"t": "Lịch sử", "zh": "在那個年代，很少人有電話。", "vn": "Thời ấy rất ít người có điện thoại."},
-  {"t": "Đồ cổ", "zh": "這張照片是七〇年代拍的。", "vn": "Bức ảnh này chụp vào thập niên 70."}]},
-"年年": {"vn": "năm nào cũng; hằng năm", "ng": ["(phó từ) mỗi năm, năm nào cũng"],
- "us": "Lời chúc: 年年有餘 (năm năm dư dả).", "co": ["年年有餘|năm nào cũng dư dả"],
- "sy": ["每年|mỗi năm"],
- "mh": "Niên Niên → nián nián. ĐỌC: 'niên' lặp lại. NGHĨA: lặp lại = mỗi năm.",
- "tw": "Tết ăn cá vì 魚 (yú) đồng âm 餘 → 年年有餘.",
- "vd": [{"t": "Chúc Tết", "zh": "祝你年年有餘！", "vn": "Chúc bạn năm nào cũng dư dả!"},
-  {"t": "Thói quen", "zh": "我們年年都去墾丁玩。", "vn": "Năm nào chúng tôi cũng đi Khẩn Đinh chơi."},
-  {"t": "Kinh tế", "zh": "房價年年上漲。", "vn": "Giá nhà năm nào cũng tăng."}]},
-"平時": {"vn": "bình thường; ngày thường", "ng": ["(danh từ) lúc bình thường, ngày thường"],
- "us": "平時 + thói quen. Đối: 假日.", "co": ["平時很忙|ngày thường rất bận", "比平時|so với thường ngày"],
- "sy": ["平常|bình thường"],
- "mh": "Bình Thời → píng shí. ĐỌC: 'bình' → píng; 'thời' → shí. NGHĨA: 'thời bình thường'.",
- "vd": [{"t": "Thói quen", "zh": "我平時很少看電視。", "vn": "Ngày thường tôi ít xem TV."},
-  {"t": "So sánh", "zh": "今天的人比平時多。", "vn": "Hôm nay đông người hơn ngày thường."},
-  {"t": "Lời khuyên", "zh": "平時多練習，考試就不怕了。", "vn": "Ngày thường luyện nhiều thì đi thi không sợ."}]}
-}}
+{
+ "tu": {
+  "曾": {
+   "vn": "đã từng",
+   "ng": [
+    "(phó từ) đã từng (văn viết)"
+   ],
+   "us": "曾 + động từ (+ 過). Văn viết của 曾經.",
+   "co": [
+    "曾去過|từng đi qua",
+    "不曾|chưa từng"
+   ],
+   "sy": [
+    "曾經|đã từng"
+   ],
+   "mh": "Tằng → céng. ĐỌC: 'tằng' → céng (t→c, -ăng→-eng, thanh 2). NGHĨA: 'tằng' = đã từng (như 'tằng tổ' = ông cố). Cũng là họ Tăng (đọc zēng).",
+   "lt": "Họ 曾 (Tăng) đọc zēng, còn 'đã từng' đọc céng.",
+   "vd": [
+    {
+     "t": "Kinh nghiệm",
+     "zh": "我曾在台北住過一年。",
+     "vn": "Tôi từng sống ở Đài Bắc một năm."
+    },
+    {
+     "t": "Phủ định",
+     "zh": "我不曾見過這麼美的地方。",
+     "vn": "Tôi chưa từng thấy nơi nào đẹp như vậy."
+    },
+    {
+     "t": "Lịch sử",
+     "zh": "這裡曾是一個小漁村。",
+     "vn": "Nơi đây từng là một làng chài nhỏ."
+    }
+   ]
+  },
+  "曾經": {
+   "vn": "đã từng",
+   "ng": [
+    "(phó từ) đã từng"
+   ],
+   "us": "曾經 + động từ + 過. Phủ định: 沒有…過 hoặc 不曾.",
+   "co": [
+    "曾經去過|đã từng đi",
+    "曾經喜歡|từng thích"
+   ],
+   "sy": [
+    "曾|đã từng"
+   ],
+   "mh": "Tằng Kinh → céng jīng. ĐỌC: 'tằng' → céng; 'kinh' (trải qua) → jīng (k→j). NGHĨA: 'đã từng trải qua'.",
+   "vd": [
+    {
+     "t": "Kinh nghiệm",
+     "zh": "我曾經去過三次日本。",
+     "vn": "Tôi đã từng đi Nhật ba lần."
+    },
+    {
+     "t": "Tình cảm",
+     "zh": "我們曾經是很好的朋友。",
+     "vn": "Chúng tôi từng là bạn rất thân."
+    },
+    {
+     "t": "Công việc",
+     "zh": "他曾經當過老師。",
+     "vn": "Anh ấy từng làm giáo viên."
+    }
+   ]
+  },
+  "初": {
+   "vn": "đầu; sơ; mùng",
+   "ng": [
+    "(danh từ) đầu (thời kỳ)",
+    "(tiền tố) mùng (ngày 1–10 âm lịch)",
+    "(tính từ) sơ, lần đầu"
+   ],
+   "us": "月初 = đầu tháng. 初一 = mùng một. 初次 = lần đầu.",
+   "co": [
+    "月初|đầu tháng",
+    "初一|mùng một",
+    "初學者|người mới học"
+   ],
+   "an": [
+    "末|cuối"
+   ],
+   "mh": "Sơ → chū. ĐỌC: 'sơ' → chū (s→ch, thanh 1). NGHĨA: 衤 (áo) + 刀 (dao) → cắt vải là bước đầu may áo → 'sơ' (ban sơ, sơ cấp).",
+   "vd": [
+    {
+     "t": "Lịch",
+     "zh": "我月初要繳房租。",
+     "vn": "Đầu tháng tôi phải đóng tiền nhà."
+    },
+    {
+     "t": "Tết",
+     "zh": "大年初一大家去拜年。",
+     "vn": "Mùng một Tết mọi người đi chúc Tết."
+    },
+    {
+     "t": "Học",
+     "zh": "這本書適合初學者。",
+     "vn": "Quyển sách này phù hợp người mới học."
+    }
+   ]
+  },
+  "重新": {
+   "vn": "lại; làm lại từ đầu",
+   "ng": [
+    "(phó từ) lại (từ đầu), lại một lần nữa"
+   ],
+   "us": "重新 + động từ: 重新開始, 重新做. 重 đọc chóng.",
+   "co": [
+    "重新開始|bắt đầu lại",
+    "重新開機|khởi động lại máy"
+   ],
+   "sy": [
+    "再|lại"
+   ],
+   "mh": "Trùng Tân → chóng xīn. ĐỌC: 重 'trùng' → chóng (tr→ch, thanh 2); 'tân' → xīn. NGHĨA: 'trùng' (lặp lại) + 'tân' (mới) → làm mới lại.",
+   "lt": "重 = chóng (lại, trùng) / zhòng (nặng).",
+   "vd": [
+    {
+     "t": "Máy tính",
+     "zh": "電腦當機了，重新開機試試。",
+     "vn": "Máy tính treo rồi, khởi động lại thử xem."
+    },
+    {
+     "t": "Bài tập",
+     "zh": "寫錯太多了，我要重新寫。",
+     "vn": "Viết sai nhiều quá, tôi phải viết lại."
+    },
+    {
+     "t": "Cuộc sống",
+     "zh": "他想在台灣重新開始。",
+     "vn": "Anh ấy muốn bắt đầu lại ở Đài Loan."
+    }
+   ]
+  },
+  "從不": {
+   "vn": "chưa bao giờ; không bao giờ",
+   "ng": [
+    "(phó từ) chưa bao giờ, xưa nay không"
+   ],
+   "us": "從不 + động từ (thói quen). Quá khứ: 從來沒(有)…過.",
+   "co": [
+    "從不遲到|chưa bao giờ đến muộn",
+    "從不抽菸|không bao giờ hút thuốc"
+   ],
+   "sy": [
+    "從來不|xưa nay không"
+   ],
+   "mh": "Tòng Bất → cóng bù. ĐỌC: 'tòng' → cóng (t→c, thanh 2); 不 bù. NGHĨA: 從 (từ trước) + 不 → từ trước đến giờ không.",
+   "vd": [
+    {
+     "t": "Thói quen",
+     "zh": "他從不遲到。",
+     "vn": "Anh ấy chưa bao giờ đến muộn."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "我爸爸從不喝酒。",
+     "vn": "Bố tôi không bao giờ uống rượu."
+    },
+    {
+     "t": "Tính cách",
+     "zh": "她從不說別人的壞話。",
+     "vn": "Cô ấy không bao giờ nói xấu người khác."
+    }
+   ]
+  },
+  "從小": {
+   "vn": "từ nhỏ",
+   "ng": [
+    "(phó từ) từ nhỏ, từ bé"
+   ],
+   "us": "從小就… = từ nhỏ đã….",
+   "co": [
+    "從小就|từ nhỏ đã",
+    "從小到大|từ nhỏ đến lớn"
+   ],
+   "mh": "Tòng Tiểu → cóng xiǎo. ĐỌC: 'tòng' → cóng; 'tiểu' → xiǎo. NGHĨA: 'từ (lúc) nhỏ'.",
+   "vd": [
+    {
+     "t": "Sở thích",
+     "zh": "我從小就喜歡畫畫。",
+     "vn": "Từ nhỏ tôi đã thích vẽ."
+    },
+    {
+     "t": "Quê",
+     "zh": "她從小在鄉下長大。",
+     "vn": "Cô ấy lớn lên ở quê từ bé."
+    },
+    {
+     "t": "Bạn bè",
+     "zh": "我們從小到大都是好朋友。",
+     "vn": "Chúng tôi là bạn thân từ nhỏ đến lớn."
+    }
+   ]
+  },
+  "當場": {
+   "vn": "ngay tại chỗ",
+   "ng": [
+    "(phó từ) ngay tại chỗ, ngay lúc đó"
+   ],
+   "us": "當場 + động từ: 當場抓到, 當場決定.",
+   "co": [
+    "當場抓到|bắt quả tang",
+    "當場答應|đồng ý ngay"
+   ],
+   "mh": "Đương Trường → dāng chǎng. ĐỌC: 'đương' → dāng; 'trường' → chǎng (tr→ch). NGHĨA: 'ngay tại hiện trường'.",
+   "vd": [
+    {
+     "t": "Cảnh sát",
+     "zh": "小偷被警察當場抓到。",
+     "vn": "Tên trộm bị cảnh sát bắt quả tang."
+    },
+    {
+     "t": "Quyết định",
+     "zh": "老闆當場就答應了。",
+     "vn": "Sếp đồng ý ngay tại chỗ."
+    },
+    {
+     "t": "Cảm xúc",
+     "zh": "聽到消息，她當場就哭了。",
+     "vn": "Nghe tin, cô ấy khóc ngay tại chỗ."
+    }
+   ]
+  },
+  "當年": {
+   "vn": "năm ấy; hồi đó",
+   "ng": [
+    "(danh từ) năm đó, hồi ấy (quá khứ)"
+   ],
+   "us": "想當年 = nhớ hồi đó…. 當年 (dāngnián) ≠ 當年 dàngnián (cùng năm).",
+   "co": [
+    "想當年|nhớ hồi xưa",
+    "當年的我|tôi hồi đó"
+   ],
+   "mh": "Đương Niên → dāng nián. ĐỌC: 'đương' → dāng; 'niên' → nián. NGHĨA: 'năm (niên) đó (đương)'.",
+   "vd": [
+    {
+     "t": "Kỷ niệm",
+     "zh": "當年我們一起在這裡念書。",
+     "vn": "Hồi đó chúng tôi cùng học ở đây."
+    },
+    {
+     "t": "Ông bà",
+     "zh": "爺爺常說：想當年……",
+     "vn": "Ông hay nói: nhớ hồi xưa…"
+    },
+    {
+     "t": "So sánh",
+     "zh": "這裡跟當年完全不一樣了。",
+     "vn": "Nơi này hoàn toàn khác hồi đó."
+    }
+   ]
+  },
+  "當天": {
+   "vn": "ngày hôm đó; trong ngày",
+   "ng": [
+    "(danh từ) ngày hôm đó, cùng ngày"
+   ],
+   "us": "當天來回 = đi về trong ngày. 當 đọc dāng (hoặc dàng = cùng ngày).",
+   "co": [
+    "當天來回|đi về trong ngày",
+    "考試當天|ngày thi"
+   ],
+   "mh": "Đương Thiên → dāng tiān. ĐỌC: 'đương' → dāng; 'thiên' → tiān. NGHĨA: 'chính ngày đó'.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "去九份可以當天來回。",
+     "vn": "Đi Cửu Phần có thể đi về trong ngày."
+    },
+    {
+     "t": "Thi",
+     "zh": "考試當天要帶身分證。",
+     "vn": "Ngày thi phải mang chứng minh thư."
+    },
+    {
+     "t": "Giao hàng",
+     "zh": "下午三點前訂購，當天送達。",
+     "vn": "Đặt trước 3 giờ chiều, giao trong ngày."
+    }
+   ]
+  },
+  "等待": {
+   "vn": "chờ đợi",
+   "ng": [
+    "(động từ) chờ đợi (trang trọng)"
+   ],
+   "us": "Văn viết của 等: 等待機會, 耐心等待.",
+   "co": [
+    "等待機會|chờ cơ hội",
+    "耐心等待|kiên nhẫn chờ"
+   ],
+   "sy": [
+    "等|chờ"
+   ],
+   "mh": "Đẳng Đãi → děng dài. ĐỌC: 'đẳng' → děng; 'đãi' → dài. NGHĨA: 等 chờ + 待 đợi.",
+   "vd": [
+    {
+     "t": "Thông báo",
+     "zh": "請耐心等待，馬上為您服務。",
+     "vn": "Xin kiên nhẫn chờ, chúng tôi sẽ phục vụ ngay."
+    },
+    {
+     "t": "Cơ hội",
+     "zh": "他在等待一個好機會。",
+     "vn": "Anh ấy đang chờ một cơ hội tốt."
+    },
+    {
+     "t": "Bệnh viện",
+     "zh": "等待看病的人很多。",
+     "vn": "Người chờ khám bệnh rất đông."
+    }
+   ]
+  },
+  "改天": {
+   "vn": "hôm khác; bữa khác",
+   "ng": [
+    "(phó từ) hôm khác, lúc khác"
+   ],
+   "us": "改天再… = hôm khác lại…. Hay dùng để từ chối khéo.",
+   "co": [
+    "改天再說|để hôm khác nói",
+    "改天見|hẹn hôm khác"
+   ],
+   "mh": "Cải Thiên → gǎi tiān. ĐỌC: 'cải' → gǎi; 'thiên' → tiān. NGHĨA: 'đổi (cải) ngày (thiên)'.",
+   "tw": "改天一起吃飯 ở Đài nhiều khi chỉ là câu xã giao, chưa chắc là hẹn thật.",
+   "vd": [
+    {
+     "t": "Hẹn",
+     "zh": "今天沒空，改天再約吧。",
+     "vn": "Hôm nay không rảnh, hẹn hôm khác nhé."
+    },
+    {
+     "t": "Xã giao",
+     "zh": "改天一起吃飯！",
+     "vn": "Hôm nào đi ăn cơm nhé!"
+    },
+    {
+     "t": "Từ chối",
+     "zh": "這件事我們改天再說。",
+     "vn": "Chuyện này để hôm khác bàn."
+    }
+   ]
+  },
+  "趕": {
+   "vn": "vội; kịp; đuổi",
+   "ng": [
+    "(động từ) vội vàng, gấp rút",
+    "(động từ) đuổi kịp, kịp (giờ)",
+    "(động từ) xua đuổi"
+   ],
+   "us": "趕時間 = vội. 趕快 = mau lên. 趕報告 = gấp rút làm báo cáo.",
+   "co": [
+    "趕時間|đang vội",
+    "趕快|nhanh lên",
+    "趕走|đuổi đi"
+   ],
+   "mh": "Cản → gǎn. ĐỌC: 'cản' → gǎn (c→g, thanh 3). NGHĨA: 走 (chạy) + 旱 → chạy vội.",
+   "vd": [
+    {
+     "t": "Vội",
+     "zh": "不好意思，我在趕時間。",
+     "vn": "Xin lỗi, tôi đang vội."
+    },
+    {
+     "t": "Công việc",
+     "zh": "我今天晚上要趕報告。",
+     "vn": "Tối nay tôi phải gấp rút làm báo cáo."
+    },
+    {
+     "t": "Đuổi",
+     "zh": "他把貓趕出去了。",
+     "vn": "Anh ấy đuổi con mèo ra ngoài."
+    }
+   ]
+  },
+  "趕上": {
+   "vn": "kịp; đuổi kịp",
+   "ng": [
+    "(động từ) kịp (chuyến xe, thời gian)",
+    "(động từ) đuổi kịp"
+   ],
+   "us": "趕上 / 趕不上 (không kịp).",
+   "co": [
+    "趕上車|kịp chuyến xe",
+    "趕不上|không kịp"
+   ],
+   "sy": [
+    "來得及|kịp"
+   ],
+   "mh": "Cản Thượng → gǎn shàng. ĐỌC: 'cản' → gǎn; 'thượng' → shàng. NGHĨA: 'chạy (cản) lên (thượng)' → bắt kịp.",
+   "vd": [
+    {
+     "t": "Đi lại",
+     "zh": "跑快一點，還趕得上最後一班車。",
+     "vn": "Chạy nhanh lên, vẫn kịp chuyến cuối."
+    },
+    {
+     "t": "Học",
+     "zh": "我要努力趕上其他同學。",
+     "vn": "Tôi phải cố gắng bắt kịp các bạn khác."
+    },
+    {
+     "t": "Trễ",
+     "zh": "我沒趕上飛機。",
+     "vn": "Tôi không kịp chuyến bay."
+    }
+   ]
+  },
+  "過去": {
+   "vn": "quá khứ; đi qua",
+   "ng": [
+    "(danh từ) quá khứ, trước đây",
+    "(động từ) đi qua (đó)"
+   ],
+   "us": "Danh từ: guòqù. Bổ ngữ: 走過去 (đi qua), 過去了 (qua rồi).",
+   "co": [
+    "過去的事|chuyện đã qua",
+    "走過去|đi qua đó"
+   ],
+   "an": [
+    "將來|tương lai",
+    "未來|tương lai"
+   ],
+   "mh": "Quá Khứ → guò qù. ĐỌC: 'quá' → guò; 'khứ' → qù. NGHĨA: giống 'quá khứ'.",
+   "vd": [
+    {
+     "t": "An ủi",
+     "zh": "過去的事就讓它過去吧。",
+     "vn": "Chuyện đã qua thì để nó qua đi."
+    },
+    {
+     "t": "So sánh",
+     "zh": "過去這裡沒有捷運。",
+     "vn": "Trước đây ở đây không có MRT."
+    },
+    {
+     "t": "Chỉ đường",
+     "zh": "你走過去就看到了。",
+     "vn": "Bạn đi qua đó là thấy."
+    }
+   ]
+  },
+  "忽然/忽": {
+   "vn": "bỗng nhiên; đột nhiên",
+   "ng": [
+    "(phó từ) bỗng nhiên"
+   ],
+   "us": "忽然 + động từ. Gần nghĩa 突然 nhưng 忽然 chỉ là phó từ.",
+   "co": [
+    "忽然想到|chợt nghĩ ra",
+    "忽然下雨|bỗng đổ mưa"
+   ],
+   "sy": [
+    "突然|đột nhiên"
+   ],
+   "mh": "Hốt Nhiên → hū rán. ĐỌC: 'hốt' → hū (thanh 1); 'nhiên' → rán (nh→r). NGHĨA: 'hốt nhiên' = bỗng nhiên.",
+   "cf": [
+    "突然|có thể làm tính từ: 很突然; 忽然 không thể"
+   ],
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "天空忽然下起大雨。",
+     "vn": "Trời bỗng đổ mưa to."
+    },
+    {
+     "t": "Nhớ",
+     "zh": "我忽然想起來今天是她的生日。",
+     "vn": "Tôi chợt nhớ ra hôm nay là sinh nhật cô ấy."
+    },
+    {
+     "t": "Mất điện",
+     "zh": "燈忽然滅了。",
+     "vn": "Đèn bỗng tắt."
+    }
+   ]
+  },
+  "及時": {
+   "vn": "kịp thời",
+   "ng": [
+    "(tính từ/phó từ) kịp thời"
+   ],
+   "us": "及時 + động từ: 及時送醫, 及時通知.",
+   "co": [
+    "及時送醫|đưa đi viện kịp thời",
+    "及時雨|cơn mưa đúng lúc (người giúp kịp thời)"
+   ],
+   "mh": "Cập Thời → jí shí. ĐỌC: 'cập' → jí (c→j, thanh 2); 'thời' → shí (th→sh). NGHĨA: 'cập' (kịp) + 'thời' → kịp thời.",
+   "vd": [
+    {
+     "t": "Cấp cứu",
+     "zh": "幸好及時送醫，他沒事了。",
+     "vn": "May mà đưa đi viện kịp thời, anh ấy không sao."
+    },
+    {
+     "t": "Cảm ơn",
+     "zh": "你真是及時雨！",
+     "vn": "Bạn đúng là cứu tinh đúng lúc!"
+    },
+    {
+     "t": "Công việc",
+     "zh": "有問題請及時告訴我。",
+     "vn": "Có vấn đề xin báo tôi kịp thời."
+    }
+   ]
+  },
+  "繼續": {
+   "vn": "tiếp tục",
+   "ng": [
+    "(động từ) tiếp tục"
+   ],
+   "us": "繼續 + động từ: 繼續努力, 繼續下雨.",
+   "co": [
+    "繼續努力|tiếp tục cố gắng",
+    "繼續說|nói tiếp"
+   ],
+   "an": [
+    "停止|dừng"
+   ],
+   "mh": "Kế Tục → jì xù. ĐỌC: 'kế' → jì; 'tục' → xù (t→x). NGHĨA: giống 'kế tục' → tiếp tục.",
+   "vd": [
+    {
+     "t": "Động viên",
+     "zh": "做得很好，繼續加油！",
+     "vn": "Làm tốt lắm, tiếp tục cố lên!"
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "明天會繼續下雨。",
+     "vn": "Ngày mai trời tiếp tục mưa."
+    },
+    {
+     "t": "Nói chuyện",
+     "zh": "對不起打斷你，請繼續說。",
+     "vn": "Xin lỗi đã ngắt lời, mời bạn nói tiếp."
+    }
+   ]
+  },
+  "將來": {
+   "vn": "tương lai; sau này",
+   "ng": [
+    "(danh từ) tương lai, sau này"
+   ],
+   "us": "將來想做什麼？ / 在不久的將來.",
+   "co": [
+    "將來的計畫|kế hoạch tương lai",
+    "不久的將來|tương lai gần"
+   ],
+   "sy": [
+    "未來|tương lai"
+   ],
+   "an": [
+    "過去|quá khứ"
+   ],
+   "mh": "Tương Lai → jiāng lái. ĐỌC: 將 'tương' → jiāng (t→j); 'lai' → lái. NGHĨA: chính là 'tương lai' tiếng Việt!",
+   "vd": [
+    {
+     "t": "Ước mơ",
+     "zh": "你將來想做什麼工作？",
+     "vn": "Sau này bạn muốn làm nghề gì?"
+    },
+    {
+     "t": "Kế hoạch",
+     "zh": "我將來想在台灣工作。",
+     "vn": "Sau này tôi muốn làm việc ở Đài Loan."
+    },
+    {
+     "t": "Tiết kiệm",
+     "zh": "要為將來存一點錢。",
+     "vn": "Phải để dành ít tiền cho tương lai."
+    }
+   ]
+  },
+  "經過": {
+   "vn": "đi qua; trải qua; quá trình",
+   "ng": [
+    "(động từ) đi qua (nơi)",
+    "(động từ) trải qua (thời gian, quá trình)",
+    "(danh từ) diễn biến"
+   ],
+   "us": "經過 + nơi / 經過 + thời gian/việc / 事情的經過.",
+   "co": [
+    "經過門口|đi ngang cửa",
+    "經過討論|qua thảo luận",
+    "事情的經過|diễn biến sự việc"
+   ],
+   "mh": "Kinh Quá → jīng guò. ĐỌC: 'kinh' → jīng; 'quá' → guò. NGHĨA: 'kinh qua' = trải qua.",
+   "vd": [
+    {
+     "t": "Đường",
+     "zh": "公車會經過台北車站嗎？",
+     "vn": "Xe buýt có đi qua ga Đài Bắc không?"
+    },
+    {
+     "t": "Thời gian",
+     "zh": "經過一年的努力，他通過了考試。",
+     "vn": "Sau một năm nỗ lực, anh ấy đã thi đỗ."
+    },
+    {
+     "t": "Kể",
+     "zh": "請你說一下事情的經過。",
+     "vn": "Bạn kể lại diễn biến sự việc đi."
+    }
+   ]
+  },
+  "開始": {
+   "vn": "bắt đầu",
+   "ng": [
+    "(động từ) bắt đầu",
+    "(danh từ) lúc đầu"
+   ],
+   "us": "開始 + động từ / 一開始 (lúc đầu).",
+   "co": [
+    "一開始|lúc đầu",
+    "重新開始|bắt đầu lại"
+   ],
+   "an": [
+    "結束|kết thúc"
+   ],
+   "mh": "Khai Thủy → kāi shǐ. ĐỌC: 'khai' → kāi; 'thủy' (ban đầu) → shǐ. NGHĨA: 'khai' mở + 'thủy' khởi đầu (như 'nguyên thủy').",
+   "vd": [
+    {
+     "t": "Lớp học",
+     "zh": "上課開始了，請安靜。",
+     "vn": "Bắt đầu học rồi, trật tự nào."
+    },
+    {
+     "t": "Học",
+     "zh": "我去年開始學中文。",
+     "vn": "Năm ngoái tôi bắt đầu học tiếng Hoa."
+    },
+    {
+     "t": "Lúc đầu",
+     "zh": "一開始我很不習慣。",
+     "vn": "Lúc đầu tôi rất không quen."
+    }
+   ]
+  },
+  "刻": {
+   "vn": "khắc; 15 phút",
+   "ng": [
+    "(lượng từ) khắc (15 phút)",
+    "(động từ) khắc, chạm"
+   ],
+   "us": "一刻 = 15 phút: 三點一刻 = 3 giờ 15. 刻字 = khắc chữ.",
+   "co": [
+    "一刻鐘|mười lăm phút",
+    "三點一刻|ba giờ mười lăm",
+    "刻字|khắc chữ"
+   ],
+   "mh": "Khắc → kè. ĐỌC: 'khắc' → kè (kh→k, thanh 4). NGHĨA: giống 'khắc' (thời khắc, điêu khắc); một khắc = 15 phút.",
+   "vd": [
+    {
+     "t": "Giờ",
+     "zh": "現在是三點一刻。",
+     "vn": "Bây giờ là ba giờ mười lăm."
+    },
+    {
+     "t": "Quà",
+     "zh": "我請老闆在筆上刻我的名字。",
+     "vn": "Tôi nhờ chủ khắc tên mình lên bút."
+    },
+    {
+     "t": "Thời gian",
+     "zh": "再等一刻鐘就到了。",
+     "vn": "Đợi thêm mười lăm phút nữa là đến."
+    }
+   ]
+  },
+  "快": {
+   "vn": "nhanh; sắp",
+   "ng": [
+    "(tính từ) nhanh",
+    "(phó từ) sắp (快…了)",
+    "(phó từ) mau"
+   ],
+   "us": "快…了 = sắp…. 快點 = nhanh lên. 很快 = rất nhanh.",
+   "co": [
+    "快點|nhanh lên",
+    "快到了|sắp đến rồi",
+    "快樂|vui vẻ"
+   ],
+   "an": [
+    "慢|chậm"
+   ],
+   "mh": "Khoái → kuài. ĐỌC: 'khoái' → kuài (kh→k). NGHĨA: 忄(lòng) + 夬 → lòng sảng khoái → nhanh, vui.",
+   "vd": [
+    {
+     "t": "Giục",
+     "zh": "快點，我們要遲到了！",
+     "vn": "Nhanh lên, chúng ta sắp muộn rồi!"
+    },
+    {
+     "t": "Sắp",
+     "zh": "快過年了，大家都很忙。",
+     "vn": "Sắp Tết rồi, mọi người đều bận."
+    },
+    {
+     "t": "Tốc độ",
+     "zh": "高鐵比火車快多了。",
+     "vn": "Tàu cao tốc nhanh hơn tàu hỏa nhiều."
+    }
+   ]
+  },
+  "來不及": {
+   "vn": "không kịp",
+   "ng": [
+    "(động từ) không kịp"
+   ],
+   "us": "來不及 + động từ / 已經來不及了.",
+   "co": [
+    "來不及吃|không kịp ăn",
+    "已經來不及了|đã không kịp nữa"
+   ],
+   "an": [
+    "來得及|kịp"
+   ],
+   "mh": "Lai Bất Cập → lái bù jí. ĐỌC: 'lai' → lái; 不 nhẹ; 'cập' → jí. NGHĨA: 'đến không kịp'.",
+   "vd": [
+    {
+     "t": "Buổi sáng",
+     "zh": "我起晚了，來不及吃早餐。",
+     "vn": "Tôi dậy muộn, không kịp ăn sáng."
+    },
+    {
+     "t": "Hối hận",
+     "zh": "現在後悔已經來不及了。",
+     "vn": "Bây giờ hối hận đã không kịp nữa."
+    },
+    {
+     "t": "Đi lại",
+     "zh": "快走，不然來不及了！",
+     "vn": "Đi nhanh lên, không thì không kịp!"
+    }
+   ]
+  },
+  "來得及": {
+   "vn": "kịp",
+   "ng": [
+    "(động từ) còn kịp"
+   ],
+   "us": "還來得及 = vẫn còn kịp.",
+   "co": [
+    "還來得及|vẫn còn kịp"
+   ],
+   "an": [
+    "來不及|không kịp"
+   ],
+   "mh": "Lai Đắc Cập → lái de jí. ĐỌC: 'lai' → lái; 得 nhẹ de; 'cập' → jí. NGHĨA: 'đến được kịp'.",
+   "vd": [
+    {
+     "t": "Trấn an",
+     "zh": "別急，還來得及。",
+     "vn": "Đừng vội, vẫn còn kịp."
+    },
+    {
+     "t": "Học",
+     "zh": "現在開始準備，還來得及。",
+     "vn": "Bây giờ bắt đầu chuẩn bị vẫn còn kịp."
+    },
+    {
+     "t": "Hỏi",
+     "zh": "十分鐘到機場，來得及嗎？",
+     "vn": "Mười phút đến sân bay, có kịp không?"
+    }
+   ]
+  },
+  "老是": {
+   "vn": "lúc nào cũng; cứ",
+   "ng": [
+    "(phó từ) luôn, cứ (thường mang ý phàn nàn)"
+   ],
+   "us": "老是 + động từ: 他老是遲到 (cứ đến muộn).",
+   "co": [
+    "老是遲到|cứ đến muộn",
+    "老是忘記|cứ quên"
+   ],
+   "sy": [
+    "總是|luôn luôn"
+   ],
+   "mh": "Lão Thị → lǎo shì. ĐỌC: 'lão' → lǎo; 'thị' → shì. NGHĨA: 老 'lão' ở đây = luôn, mãi (khẩu ngữ).",
+   "vd": [
+    {
+     "t": "Phàn nàn",
+     "zh": "你怎麼老是遲到？",
+     "vn": "Sao bạn cứ đến muộn mãi vậy?"
+    },
+    {
+     "t": "Trí nhớ",
+     "zh": "我老是忘記帶鑰匙。",
+     "vn": "Tôi cứ quên mang chìa khóa."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "這幾天老是下雨。",
+     "vn": "Mấy hôm nay cứ mưa suốt."
+    }
+   ]
+  },
+  "慢慢": {
+   "vn": "từ từ; dần dần",
+   "ng": [
+    "(phó từ) từ từ, chầm chậm, dần dần"
+   ],
+   "us": "慢慢 + động từ / 慢慢來 (cứ từ từ).",
+   "co": [
+    "慢慢來|cứ từ từ",
+    "慢慢吃|ăn từ từ",
+    "慢慢地|dần dần"
+   ],
+   "mh": "Mạn Mạn → màn màn. ĐỌC: 'mạn' → màn (thanh 4), lặp lại. NGHĨA: 慢 chậm, lặp lại → từ từ.",
+   "tw": "慢慢來 (cứ từ từ) là câu người Đài hay nói để trấn an.",
+   "vd": [
+    {
+     "t": "Trấn an",
+     "zh": "不用急，慢慢來。",
+     "vn": "Không cần vội, cứ từ từ."
+    },
+    {
+     "t": "Học",
+     "zh": "我的中文慢慢進步了。",
+     "vn": "Tiếng Hoa của tôi tiến bộ dần dần."
+    },
+    {
+     "t": "Ăn",
+     "zh": "慢慢吃，別噎到。",
+     "vn": "Ăn từ từ, kẻo nghẹn."
+    }
+   ]
+  },
+  "秒": {
+   "vn": "giây",
+   "ng": [
+    "(lượng từ) giây"
+   ],
+   "us": "一秒 / 幾秒鐘 / 秒殺 (bán hết trong vài giây).",
+   "co": [
+    "幾秒鐘|vài giây",
+    "秒殺|cháy hàng tức thì"
+   ],
+   "mh": "Miểu → miǎo. ĐỌC: 'miểu' → miǎo (-iêu→-iao, thanh 3). NGHĨA: 禾 (lúa) + 少 → phần nhỏ xíu như râu lúa → giây.",
+   "vd": [
+    {
+     "t": "Đếm",
+     "zh": "等我三十秒。",
+     "vn": "Chờ tôi ba mươi giây."
+    },
+    {
+     "t": "Mua vé",
+     "zh": "演唱會的票一開賣就被秒殺了。",
+     "vn": "Vé hòa nhạc vừa mở bán đã cháy sạch."
+    },
+    {
+     "t": "Thi chạy",
+     "zh": "他一百公尺跑了十二秒。",
+     "vn": "Anh ấy chạy 100 mét hết 12 giây."
+    }
+   ]
+  },
+  "目前": {
+   "vn": "hiện nay; trước mắt",
+   "ng": [
+    "(danh từ) hiện tại, trước mắt"
+   ],
+   "us": "目前 + tình hình: 目前還不知道.",
+   "co": [
+    "到目前為止|tính đến nay",
+    "目前的情況|tình hình hiện tại"
+   ],
+   "sy": [
+    "現在|bây giờ"
+   ],
+   "mh": "Mục Tiền → mù qián. ĐỌC: 'mục' → mù; 'tiền' (trước) → qián. NGHĨA: 'trước mắt (mục)'.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "目前我還在找工作。",
+     "vn": "Hiện tôi vẫn đang tìm việc."
+    },
+    {
+     "t": "Tin tức",
+     "zh": "到目前為止，沒有人受傷。",
+     "vn": "Tính đến nay chưa có ai bị thương."
+    },
+    {
+     "t": "Bệnh viện",
+     "zh": "他目前的情況很穩定。",
+     "vn": "Tình hình hiện tại của anh ấy rất ổn định."
+    }
+   ],
+   "an": [
+    "從前|trước đây",
+    "未來|tương lai"
+   ],
+   "cf": [
+    "目前 vs 現在|現在 dùng rộng trong cả khẩu ngữ lẫn văn viết, chỉ ngay giây phút này (現在幾點？); 目前 trang trọng hơn, chỉ giai đoạn hiện nay trong công việc, tin tức, báo cáo (目前進度 tiến độ hiện tại)."
+   ],
+   "lt": "Danh từ thời gian. Hay đi trong cụm 到目前為止 (cho đến hiện tại).",
+   "mk": "Đừng hỏi giờ bằng *目前幾點？ ❌ — hỏi giờ luôn dùng 現在幾點？",
+   "tw": "Trong phỏng vấn xin việc và email công sở Đài Loan cực hay mở đầu bằng 我目前在…工作 (Hiện tôi đang làm việc tại…)."
+  },
+  "年": {
+   "vn": "năm; Tết",
+   "ng": [
+    "(danh từ) năm",
+    "(danh từ) Tết (過年)"
+   ],
+   "us": "今年 / 明年 / 一年 / 過年 (ăn Tết).",
+   "co": [
+    "過年|ăn Tết",
+    "新年|năm mới",
+    "年輕|trẻ"
+   ],
+   "mh": "Niên → nián. ĐỌC: 'niên' → nián (-iên→-ian, thanh 2). NGHĨA: giống 'niên' (thanh niên, niên khóa).",
+   "vd": [
+    {
+     "t": "Thời gian",
+     "zh": "我在台灣住了兩年。",
+     "vn": "Tôi sống ở Đài Loan hai năm rồi."
+    },
+    {
+     "t": "Tết",
+     "zh": "你今年回越南過年嗎？",
+     "vn": "Năm nay bạn về Việt Nam ăn Tết không?"
+    },
+    {
+     "t": "Chúc",
+     "zh": "新年快樂！",
+     "vn": "Chúc mừng năm mới!"
+    }
+   ]
+  },
+  "年代": {
+   "vn": "thập niên; thời đại",
+   "ng": [
+    "(danh từ) thập niên",
+    "(danh từ) thời kỳ, thời đại"
+   ],
+   "us": "八〇年代 = thập niên 80. 那個年代 = thời đó.",
+   "co": [
+    "九〇年代|thập niên 90",
+    "那個年代|thời ấy"
+   ],
+   "sy": [
+    "時代|thời đại"
+   ],
+   "mh": "Niên Đại → nián dài. ĐỌC: 'niên' → nián; 'đại' → dài. NGHĨA: giống 'niên đại'.",
+   "vd": [
+    {
+     "t": "Âm nhạc",
+     "zh": "我喜歡八〇年代的歌。",
+     "vn": "Tôi thích nhạc thập niên 80."
+    },
+    {
+     "t": "Lịch sử",
+     "zh": "在那個年代，很少人有電話。",
+     "vn": "Thời ấy rất ít người có điện thoại."
+    },
+    {
+     "t": "Đồ cổ",
+     "zh": "這張照片是七〇年代拍的。",
+     "vn": "Bức ảnh này chụp vào thập niên 70."
+    }
+   ]
+  },
+  "年年": {
+   "vn": "năm nào cũng; hằng năm",
+   "ng": [
+    "(phó từ) mỗi năm, năm nào cũng"
+   ],
+   "us": "Lời chúc: 年年有餘 (năm năm dư dả).",
+   "co": [
+    "年年有餘|năm nào cũng dư dả"
+   ],
+   "sy": [
+    "每年|mỗi năm"
+   ],
+   "mh": "Niên Niên → nián nián. ĐỌC: 'niên' lặp lại. NGHĨA: lặp lại = mỗi năm.",
+   "tw": "Tết ăn cá vì 魚 (yú) đồng âm 餘 → 年年有餘.",
+   "vd": [
+    {
+     "t": "Chúc Tết",
+     "zh": "祝你年年有餘！",
+     "vn": "Chúc bạn năm nào cũng dư dả!"
+    },
+    {
+     "t": "Thói quen",
+     "zh": "我們年年都去墾丁玩。",
+     "vn": "Năm nào chúng tôi cũng đi Khẩn Đinh chơi."
+    },
+    {
+     "t": "Kinh tế",
+     "zh": "房價年年上漲。",
+     "vn": "Giá nhà năm nào cũng tăng."
+    }
+   ]
+  },
+  "平時": {
+   "vn": "bình thường; ngày thường",
+   "ng": [
+    "(danh từ) lúc bình thường, ngày thường"
+   ],
+   "us": "平時 + thói quen. Đối: 假日.",
+   "co": [
+    "平時很忙|ngày thường rất bận",
+    "比平時|so với thường ngày"
+   ],
+   "sy": [
+    "平常|bình thường"
+   ],
+   "mh": "Bình Thời → píng shí. ĐỌC: 'bình' → píng; 'thời' → shí. NGHĨA: 'thời bình thường'.",
+   "vd": [
+    {
+     "t": "Thói quen",
+     "zh": "我平時很少看電視。",
+     "vn": "Ngày thường tôi ít xem TV."
+    },
+    {
+     "t": "So sánh",
+     "zh": "今天的人比平時多。",
+     "vn": "Hôm nay đông người hơn ngày thường."
+    },
+    {
+     "t": "Lời khuyên",
+     "zh": "平時多練習，考試就不怕了。",
+     "vn": "Ngày thường luyện nhiều thì đi thi không sợ."
+    }
+   ]
+  }
+ }
+}

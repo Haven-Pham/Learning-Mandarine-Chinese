@@ -1,0 +1,1002 @@
+{
+ "tu": {
+  "過敏體質": {
+   "vn": "cơ địa dị ứng",
+   "ng": [
+    "(danh từ) cơ địa dễ bị dị ứng với thời tiết, phấn hoa, bụi mịn, hải sản hoặc thuốc men (天生過敏體質 cơ địa dị ứng bẩm sinh, 改善過敏體質 cải thiện cơ địa dị ứng)"
+   ],
+   "us": "Từ cực kỳ thông dụng trong đời sống và y tế tại Đài Loan (nhiều người ở Đài Bắc bị viêm mũi dị ứng 過敏性鼻炎 do thời tiết ẩm). Hay đi với 屬於 (thuộc loại), 改善 (cải thiện), 調整 (điều chỉnh).",
+   "co": [
+    "改善過敏體質|cải thiện cơ địa dị ứng",
+    "天生過敏體質|cơ địa dị ứng bẩm sinh",
+    "過敏原|dị nguyên (tác nhân gây dị ứng)",
+    "過敏性鼻炎|viêm mũi dị ứng"
+   ],
+   "sy": [
+    "敏感體質|cơ địa nhạy cảm"
+   ],
+   "cf": [
+    "過敏體質 vs 過敏|過敏 là phản ứng dị ứng cụ thể (對蝦子過敏 dị ứng tôm); 過敏體質 là đặc điểm thể chất lâu dài dễ bị dị ứng."
+   ],
+   "lt": "Cụm danh từ (過敏 + 體質).",
+   "mk": "Đừng dịch 過敏 là 'quá nhạy bén' trong ngữ cảnh sức khỏe — nó luôn có nghĩa 'dị ứng'!",
+   "tw": "Ở Đài Loan khí hậu ẩm nên rất nhiều người có 過敏體質; hay dùng 除濕機 (máy hút ẩm) và 空氣清淨機 (máy lọc không khí) để giảm triệu chứng.",
+   "mh": "Quá Mẫn Thể Chất → guòmǐn tǐzhì. ĐỌC: 'quá mẫn' → guòmǐn; 'thể chất' → tǐzhì (th- → t-, thanh 3 + 4). NGHĨA: 過敏 dị ứng + 體質 thể chất/cơ địa → cơ địa dị ứng.",
+   "vd": [
+    {
+     "t": "Sức khỏe",
+     "zh": "他從小就是過敏體質，每次換季溫差變大時早上起來都會連續打噴嚏。",
+     "vn": "Từ nhỏ anh ấy đã có cơ địa dị ứng, mỗi lần chuyển mùa chênh lệch nhiệt độ lớn là sáng dậy hắt hơi liên tục."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "家裡如果有過敏體質的成員，建議定期清洗床單被套並開啟空氣清淨機。",
+     "vn": "Nếu trong nhà có người cơ địa dị ứng, nên giặt ga gối định kỳ và bật máy lọc không khí."
+    },
+    {
+     "t": "Y tế",
+     "zh": "醫師建議透過規律運動與均衡飲食，循序漸進地調整過敏體質。",
+     "vn": "Bác sĩ khuyên thông qua vận động đều đặn và ăn uống cân bằng để điều chỉnh dần cơ địa dị ứng."
+    }
+   ]
+  },
+  "還清": {
+   "vn": "trả hết (nợ); thanh toán xong xuôi",
+   "ng": [
+    "(động từ) trả sạch, trả hết toàn bộ tiền nợ hoặc khoản vay (還清債務 trả hết nợ, 還清貸款 trả xong khoản vay, 還清房貸 trả hết nợ mua nhà)"
+   ],
+   "us": "Động từ kết quả (還 = trả lại + 清 = sạch sẽ/rõ ràng). Chú ý chữ 還 ở đây đọc thanh 2 huán (trả lại), KHÔNG đọc hái!",
+   "co": [
+    "還清貸款|trả hết khoản vay",
+    "還清債務|trả sạch nợ nần",
+    "還清學貸|trả hết nợ vay học phí",
+    "分期還清|trả góp cho đến khi hết"
+   ],
+   "sy": [
+    "清償|thanh toán hết nợ (thuật ngữ ngân hàng, pháp lý)",
+    "還完|trả xong (khẩu ngữ)"
+   ],
+   "an": [
+    "欠債|nợ nần",
+    "拖欠|nợ dây dưa không trả"
+   ],
+   "cf": [
+    "還清 vs 還完|還完 dùng chung cho cả trả đồ mượn (書還完了) và tiền; 還清 chuyên dùng cho tiền nợ, khoản vay ngân hàng, nhấn mạnh sạch nợ hoàn toàn."
+   ],
+   "lt": "Động từ (bổ ngữ kết quả).",
+   "mk": "Rất hay đọc nhầm thành *háiqīng ❌ — phải đọc là huánqīng!",
+   "tw": "Ở Đài Loan sinh viên ra trường đi làm vài năm hay chia sẻ niềm vui 終於把學貸還清了！(Cuối cùng cũng trả hết nợ vay sinh viên rồi!).",
+   "mh": "Hoàn Thanh → huánqīng. ĐỌC: 'hoàn' → huán (trả lại, thanh 2); 'thanh' → qīng (thanh 1). NGHĨA: 還 trả lại + 清 sạch sẽ → trả sạch nợ.",
+   "vd": [
+    {
+     "t": "Tài chính",
+     "zh": "他省吃儉用工作了五年，終於在今年把大學時期申請的就學貸款全部還清了。",
+     "vn": "Anh ấy tiết kiệm đi làm suốt năm năm, cuối cùng năm nay đã trả hết toàn bộ khoản vay học phí thời đại học."
+    },
+    {
+     "t": "Kinh doanh",
+     "zh": "這家公司業績回溫後，優先將銀行的營運貸款還清，大幅減輕了利息負擔。",
+     "vn": "Sau khi doanh số khởi sắc trở lại, công ty ưu tiên trả hết khoản vay vận hành của ngân hàng, giảm mạnh gánh nặng lãi suất."
+    },
+    {
+     "t": "Ngân hàng",
+     "zh": "貸款全數還清以後，別忘了向銀行申請清償證明書留存。",
+     "vn": "Sau khi trả hết toàn bộ khoản vay, đừng quên xin ngân hàng cấp giấy xác nhận đã tất toán để lưu lại."
+    }
+   ]
+  },
+  "黑眼圈": {
+   "vn": "quầng thâm mắt",
+   "ng": [
+    "(danh từ) vùng da sẫm màu dưới mắt do thức khuya, mệt mỏi hoặc dị ứng mũi (黑眼圈很重 quầng thâm mắt rất đậm, 淡化黑眼圈 làm mờ quầng thâm)"
+   ],
+   "us": "Đi kèm tính từ 重 (nặng/đậm) hoặc 深 (sâu/đậm): 黑眼圈很重 (quầng thâm mắt rất rõ). Rất hay dùng kèm 熬夜 (thức khuya).",
+   "co": [
+    "黑眼圈很重|quầng thâm mắt rất đậm",
+    "淡化黑眼圈|làm mờ quầng thâm mắt",
+    "熬夜長黑眼圈|thức khuya nổi quầng thâm",
+    "熊貓眼|mắt gấu trúc (nói đùa)"
+   ],
+   "sy": [
+    "熊貓眼|mắt gấu trúc (khẩu ngữ hài hước)"
+   ],
+   "cf": [
+    "黑眼圈 vs 眼袋|黑眼圈 là quầng thâm tối màu dưới mắt; 眼袋 là bọng mắt sưng phồng dưới mí dưới."
+   ],
+   "lt": "Danh từ.",
+   "mk": "Mô tả quầng thâm đậm dùng 很重 hoặc 很深, đừng nói *黑眼圈很大 ❌.",
+   "tw": "Ở Đài Loan thức khuya chạy deadline sáng hôm sau đồng nghiệp hay trêu 你今天黑眼圈超重，昨天又熬夜喔？",
+   "mh": "Hắc Nhãn Khuyên → hēiyǎnquān. ĐỌC: 'hắc' → hēi (thanh 1); 'nhãn' → yǎn (thanh 3); 'khuyên' → quān (thanh 1). NGHĨA: 黑 đen + 眼圈 quầng quanh mắt → quầng thâm mắt.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "這幾天趕專案天天熬夜到凌晨，照鏡子才發現自己的黑眼圈變得好重。",
+     "vn": "Mấy hôm nay chạy dự án thức khuya tới rạng sáng, soi gương mới thấy quầng thâm mắt mình đậm hẳn lên."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "除了睡眠不足之外，長期鼻過敏造成的血液循環不良也會引起明顯的黑眼圈。",
+     "vn": "Ngoài thiếu ngủ ra, tuần hoàn máu kém do viêm mũi dị ứng lâu ngày cũng gây ra quầng thâm mắt rõ rệt."
+    },
+    {
+     "t": "Chăm sóc",
+     "zh": "每天睡前用溫熱毛巾敷眼五分鐘，有助於放鬆眼周肌肉並減輕黑眼圈。",
+     "vn": "Mỗi tối trước khi ngủ đắp khăn ấm lên mắt năm phút giúp thư giãn cơ quanh mắt và giảm quầng thâm."
+    }
+   ]
+  },
+  "即期": {
+   "vn": "cận hạn sử dụng; sắp hết hạn",
+   "ng": [
+    "(tính từ) sắp đến hạn sử dụng (即期品 hàng cận date, 即期優惠 ưu đãi hàng cận hạn)",
+    "(tính từ tài chính) giao ngay (即期匯率 tỷ giá hối đoái giao ngay)"
+   ],
+   "us": "Từ cực kỳ quen thuộc khi sống ở Đài Loan: tại siêu thị (全聯) và cửa hàng tiện lợi (7-ELEVEN, FamilyMart), đồ ăn/sữa gần hết hạn gọi 即期品, bán giảm giá 30–35% vào buổi tối (gọi là i珍食 ở 7-11, 友善食光 ở FamilyMart)!",
+   "co": [
+    "即期品|hàng cận hạn sử dụng",
+    "即期食品|thực phẩm cận date",
+    "即期匯率|tỷ giá giao ngay (ngân hàng)",
+    "即期特價|giảm giá hàng cận hạn"
+   ],
+   "sy": [
+    "臨期|cận hạn (cách gọi ở Đại Lục)"
+   ],
+   "an": [
+    "過期|quá hạn sử dụng"
+   ],
+   "cf": [
+    "即期 vs 過期|即期 là SẮP hết hạn (vẫn ăn uống an toàn bình thường, được bán giảm giá); 過期 là ĐÃ hết hạn (không được bán/ăn)."
+   ],
+   "lt": "Tính từ.",
+   "mk": "Đừng nhầm 即期品 (hàng cận date còn dùng tốt) với 過期品 (hàng hết hạn)!",
+   "tw": "Ở Đài Loan sinh viên và dân văn phòng rất thích săn 即期品 ở 7-11 (sau 20h giảm 35%) và FamilyMart (sau 17h giảm 30%) vừa tiết kiệm vừa chống lãng phí thực phẩm.",
+   "mh": "Tức Kỳ → jíqí. ĐỌC: 'tức' → jí (t- → j-, thanh 2); 'kỳ' → qí (thanh 2 chuẩn Đài). NGHĨA: 即 sắp chạm tới + 期 kỳ hạn → cận hạn.",
+   "vd": [
+    {
+     "t": "Mua sắm",
+     "zh": "超市每天晚上七點過後會把即期品貼上折扣標籤，既能省錢又能減少食物浪費。",
+     "vn": "Siêu thị mỗi tối sau bảy giờ sẽ dán tem giảm giá lên hàng cận hạn, vừa tiết kiệm vừa giảm lãng phí thực phẩm."
+    },
+    {
+     "t": "Tài chính",
+     "zh": "打算出國旅遊前，可以先在網路銀行查詢即期匯率，趁匯率划算時分批換匯。",
+     "vn": "Trước khi đi du lịch nước ngoài, có thể xem tỷ giá giao ngay trên ngân hàng trực tuyến và chia đợt đổi tiền lúc tỷ giá tốt."
+    },
+    {
+     "t": "Tiêu dùng",
+     "zh": "購買特價的即期優格或鮮奶時，記得確認自己能在這兩天內喝完。",
+     "vn": "Khi mua sữa chua hay sữa tươi cận hạn giảm giá, nhớ chắc chắn rằng mình có thể uống hết trong hai ngày tới."
+    }
+   ]
+  },
+  "單車": {
+   "vn": "xe đạp",
+   "ng": [
+    "(danh từ) xe đạp (騎單車 đạp xe, 單車道 làn đường xe đạp, 單車環島 đạp xe vòng quanh đảo)"
+   ],
+   "us": "Từ chuẩn rất phổ biến ở Đài Loan (song song với 腳踏車 và 自行車), đặc biệt hay dùng trong thể thao, du lịch và biển báo (單車道 đường xe đạp, 微笑單車 YouBike).",
+   "co": [
+    "騎單車|đạp xe đạp",
+    "單車道|làn đường dành cho xe đạp",
+    "單車環島|đạp xe vòng quanh đảo",
+    "微笑單車|xe đạp công cộng YouBike"
+   ],
+   "sy": [
+    "腳踏車|xe đạp (khẩu ngữ phổ biến nhất ở Đài Loan)",
+    "自行車|xe đạp (chính thức, văn bản)"
+   ],
+   "cf": [
+    "單車 vs 腳踏車|Ở Đài Loan: khẩu ngữ hàng ngày dùng 腳踏車 nhiều nhất; trên biển báo, tin tức thể thao du lịch rất hay dùng 單車 hoặc 自行車."
+   ],
+   "lt": "輛, 台 (一台單車).",
+   "mk": "Chú ý ở Đài Loan xe máy là 機車 (không gọi 單車).",
+   "tw": "Đài Loan nổi tiếng với hệ thống 微笑單車 (YouBike) và mạng lưới 河濱單車道 (đường đạp xe ven sông cực đẹp ở Đài Bắc).",
+   "mh": "Đơn Xa → dānchē. ĐỌC: 'đơn' → dān (đ- → d-, thanh 1); 'xa' → chē (thanh 1). NGHĨA: 單 đơn chiếc gọn nhẹ + 車 xe → xe đạp.",
+   "vd": [
+    {
+     "t": "Thể thao",
+     "zh": "週末天氣晴朗時，很多家庭會沿著淡水河濱單車道騎單車吹風看夕陽。",
+     "vn": "Cuối tuần trời nắng đẹp, nhiều gia đình đạp xe dọc làn đường xe đạp ven sông Đạm Thủy hóng gió ngắm hoàng hôn."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "他利用畢業前的暑假花了九天完成單車環島，沿途拍下許多珍貴的風景照片。",
+     "vn": "Anh ấy tận dụng kỳ nghỉ hè trước khi tốt nghiệp mất chín ngày đạp xe vòng quanh đảo, dọc đường chụp được nhiều ảnh phong cảnh quý giá."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "捷運站出口旁邊就設有公共單車租借站，刷悠遊卡就能輕鬆騎最後一哩路回家。",
+     "vn": "Ngay cạnh lối ra ga tàu điện ngầm có trạm thuê xe đạp công cộng, quẹt thẻ EasyCard là đạp nhẹ nhàng đoạn đường cuối về nhà."
+    }
+   ]
+  },
+  "專長": {
+   "vn": "sở trường; chuyên môn thế mạnh",
+   "ng": [
+    "(danh từ) năng lực chuyên môn nổi trội, sở trường (個人專長 sở trường cá nhân, 發揮專長 phát huy sở trường, 專業專長 chuyên môn)"
+   ],
+   "us": "Từ cực kỳ hay dùng trong CV (履歷表), phỏng vấn xin việc và phân công công việc. Chú ý chữ 長 ở đây đọc thanh 2 cháng (dài/điểm mạnh), KHÔNG đọc zhǎng!",
+   "co": [
+    "發揮專長|phát huy sở trường",
+    "個人專長|sở trường cá nhân",
+    "學有專長|học hành có chuyên môn sâu",
+    "各展專長|mỗi người phát huy thế mạnh riêng"
+   ],
+   "sy": [
+    "特長|sở trường đặc biệt",
+    "強項|điểm mạnh (khẩu ngữ)"
+   ],
+   "an": [
+    "弱點|điểm yếu",
+    "短處|khuyết điểm"
+   ],
+   "cf": [
+    "專長 vs 興趣|興趣 là sở thích (việc bạn thích làm, chưa chắc giỏi); 專長 là kỹ năng chuyên môn bạn làm rất giỏi (trong CV luôn tách mục 興趣 và 專長)."
+   ],
+   "lt": "項 (一項專長).",
+   "mk": "Đừng đọc nhầm *zhuānzhǎng ❌ — phải đọc là zhuāncháng!",
+   "tw": "Trong sơ yếu lý lịch (履歷) và phỏng vấn ở Đài Loan, câu hỏi kinh điển là 請分享一下你的專業背景與個人專長.",
+   "mh": "Chuyên Trường → zhuāncháng. ĐỌC: 'chuyên' → zhuān (ch- → zh-, thanh 1); 'trường' → cháng (tr- → ch-, thanh 2). NGHĨA: 專 chuyên sâu + 長 điểm trội → sở trường chuyên môn.",
+   "vd": [
+    {
+     "t": "Phỏng vấn",
+     "zh": "在履歷表上具體列出自己的語言與數據分析專長，能讓面試官一眼看出你的優勢。",
+     "vn": "Liệt kê cụ thể sở trường ngoại ngữ và phân tích dữ liệu trên CV sẽ giúp người phỏng vấn thấy ngay lợi thế của bạn."
+    },
+    {
+     "t": "Công việc",
+     "zh": "主管依照每位組員的專長分配任務，讓整個企劃團隊的表現發揮到極致。",
+     "vn": "Quản lý phân công nhiệm vụ theo sở trường từng thành viên giúp cả nhóm kế hoạch phát huy tối đa năng lực."
+    },
+    {
+     "t": "Định hướng",
+     "zh": "如果能把興趣培養成專長，再結合成未來的工作，上班就會更有成就感。",
+     "vn": "Nếu có thể rèn sở thích thành sở trường rồi gắn với công việc tương lai thì đi làm sẽ có nhiều cảm giác thành tựu hơn."
+    }
+   ]
+  },
+  "旺季": {
+   "vn": "mùa cao điểm; mùa đắt khách",
+   "ng": [
+    "(danh từ) mùa cao điểm kinh doanh, du lịch, sản xuất có nhu cầu tăng mạnh (旅遊旺季 mùa du lịch cao điểm, 銷售旺季 mùa bán hàng cao điểm)"
+   ],
+   "us": "Đối lập trực tiếp với 淡季 (mùa thấp điểm / mùa vắng khách). Rất hay xuất hiện trong chủ đề du lịch, khách sạn, kinh tế của TOCFL Band C.",
+   "co": [
+    "旅遊旺季|mùa cao điểm du lịch",
+    "銷售旺季|mùa cao điểm bán hàng",
+    "旺季價格|giá mùa cao điểm",
+    "進入旺季|bước vào mùa cao điểm"
+   ],
+   "sy": [
+    "高峰期|giai đoạn cao điểm"
+   ],
+   "an": [
+    "淡季|mùa thấp điểm, mùa vắng khách"
+   ],
+   "cf": [
+    "旺季 vs 淡季|旺季 = mùa đông khách, giá vé/phòng cao; 淡季 = mùa vắng khách, giá mềm và thoải mái hơn."
+   ],
+   "lt": "Danh từ thời gian.",
+   "mk": "Chữ 旺 ghép từ 日 (mặt trời) + 王 (vua) → rực rỡ thịnh vượng = mùa đắt khách.",
+   "tw": "Ở Đài Loan mùa xuân ngắm hoa anh đào (賞櫻季) và dịp nghỉ hè (暑假) là 旅遊旺季; đặt vé máy bay hay homestay cần đặt trước 2–3 tháng.",
+   "mh": "Vượng Quý → wàngjì. ĐỌC: 'vượng' → wàng (v- → w-, -ương → -ang, thanh 4); 'quý' → jì (thanh 4). NGHĨA: 旺 thịnh vượng đông đúc + 季 mùa → mùa cao điểm.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "每年七、八月是澎湖和墾丁的旅遊旺季，機票與海景民宿往往提前兩個月就客滿。",
+     "vn": "Tháng bảy và tháng tám hàng năm là mùa cao điểm du lịch Bành Hồ và Khẩn Đinh, vé máy bay và homestay hướng biển thường kín chỗ trước hai tháng."
+    },
+    {
+     "t": "Kinh doanh",
+     "zh": "百貨公司進入週年慶與年末銷售旺季後，各樓層專櫃都需要加派人手支援。",
+     "vn": "Sau khi trung tâm thương mại bước vào dịp kỷ niệm và mùa cao điểm bán hàng cuối năm, các quầy hàng đều cần tăng cường nhân sự."
+    },
+    {
+     "t": "Tiết kiệm",
+     "zh": "如果時間彈性，選擇避開旺季在平日出遊，不但住宿便宜許多，景點也比較悠閒。",
+     "vn": "Nếu thời gian linh hoạt, chọn tránh mùa cao điểm để đi chơi ngày thường thì phòng ở rẻ hơn nhiều mà điểm tham quan cũng thảnh thơi hơn."
+    }
+   ]
+  },
+  "枕頭套": {
+   "vn": "vỏ gối; áo gối",
+   "ng": [
+    "(danh từ) vỏ bọc bên ngoài chiếc gối ngủ, có thể tháo ra giặt (換枕頭套 thay vỏ gối, 純棉枕頭套 vỏ gối cotton)"
+   ],
+   "us": "Cách nói đầy đủ và thông dụng nhất trong khẩu ngữ Đài Loan (rút gọn là 枕套). Lượng từ: 個 (一個枕頭套).",
+   "co": [
+    "換枕頭套|thay vỏ gối",
+    "純棉枕頭套|vỏ gối cotton",
+    "床單和枕頭套|ga trải giường và vỏ gối"
+   ],
+   "sy": [
+    "枕套|vỏ gối (gọn hơn, hay ghi trên bao bì)"
+   ],
+   "cf": [
+    "枕頭套 vs 被套|枕頭套 là vỏ gối; 被套 là vỏ chăn; 床包 là ga bọc nệm (Đài Loan hay dùng 床包)."
+   ],
+   "lt": "個 (一個枕頭套).",
+   "mk": "Đừng gọi vỏ gối là *枕頭袋 ❌ — vỏ bọc vừa khít luôn dùng 套 (枕頭套, 手機套, 椅套).",
+   "tw": "Ở Đài Loan mua bộ chăn ga gối ở siêu thị/IKEA sẽ thấy ghi 床包 (ga bọc nệm), 被套 (vỏ chăn) và 枕頭套 (vỏ gối).",
+   "mh": "Chẩm Đầu Sáo → zhěntóutào. ĐỌC: 'chẩm đầu' → zhěntóu (gối); 'sáo' → tào (vỏ bọc, thanh 4). NGHĨA: 枕頭 cái gối + 套 lớp bọc ngoài → vỏ gối.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "皮膚科醫師建議每週至少更換清洗一次枕頭套，能有效減少臉部毛孔阻塞。",
+     "vn": "Bác sĩ da liễu khuyên nên thay giặt vỏ gối ít nhất mỗi tuần một lần để giảm hiệu quả tình trạng bít tắc lỗ chân lông."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這組天絲材質的床包和枕頭套摸起來冰涼滑順，夏天睡起來特別舒服。",
+     "vn": "Bộ ga nệm và vỏ gối chất liệu Tencel này sờ vào mát mịn, mùa hè nằm ngủ đặc biệt dễ chịu."
+    },
+    {
+     "t": "Dọn dẹp",
+     "zh": "趁著週末難得出了大太陽，我把家裡的床單和枕頭套全都拆下來洗乾淨拿去曬。",
+     "vn": "Tranh thủ cuối tuần hiếm khi nắng to, tôi tháo hết ga giường và vỏ gối trong nhà đem giặt sạch phơi nắng."
+    }
+   ]
+  },
+  "欲": {
+   "vn": "muốn, định (văn viết); dục vọng, ham muốn",
+   "ng": [
+    "(động từ văn viết) muốn, dự định, sắp (欲購從速 muốn mua hãy nhanh tay, 欲罷不能 muốn dừng mà không được, 欲言又止 định nói lại thôi)",
+    "(danh từ) ham muốn, khát vọng (食慾/食欲 sự thèm ăn, 求知欲 khát khao hiểu biết, 購物欲 ham muốn mua sắm)"
+   ],
+   "us": "Trong tiếng Hoa hiện đại ở Đài Loan: 欲 dùng làm động từ 'muốn' trong văn bản, thông báo (欲申請者請洽… Ai muốn đăng ký xin liên hệ…) và thành ngữ; còn nghĩa 'ham muốn' hay viết 慾 (có bộ 心 bên dưới: 食慾, 購物慾) hoặc 欲 đều được.",
+   "co": [
+    "欲罷不能|muốn dừng mà không được",
+    "欲言又止|định nói lại thôi",
+    "欲速則不達|dục tốc bất đạt",
+    "求知欲|khát khao học hỏi"
+   ],
+   "sy": [
+    "想|muốn (khẩu ngữ)",
+    "想要|muốn (khẩu ngữ)"
+   ],
+   "cf": [
+    "欲 vs 慾|Ở Đài Loan, 欲 ưu tiên dùng làm động từ 'muốn/định' (欲報名者) và thành ngữ cổ; 慾 (có bộ 心) hay dùng cho danh từ chỉ ham muốn (食慾, 慾望)."
+   ],
+   "lt": "Động từ / Danh từ.",
+   "mk": "Trong hội thoại bình thường đừng nói *我欲喝茶 ❌ — dùng 我想喝茶!",
+   "tw": "Trên thông báo tuyển dụng và sự kiện ở Đài Loan cực hay thấy câu mở đầu: 欲報名參加者，請於本週五前填妥表單 (Ai muốn đăng ký tham gia vui lòng điền đơn trước thứ Sáu).",
+   "mh": "Dục → yù. ĐỌC: 'dục' → yù (d- → y-, thanh 4). NGHĨA: 谷 thung lũng trống + 欠 há miệng mong cầu → mong muốn, ham muốn.",
+   "vd": [
+    {
+     "t": "Thông báo",
+     "zh": "本次講座名額有限，欲報名參加的同學請盡早至系辦公室登記。",
+     "vn": "Số lượng chỗ buổi tọa đàm lần này có hạn, bạn nào muốn đăng ký tham gia xin sớm tới văn phòng khoa ghi danh."
+    },
+    {
+     "t": "Thành ngữ",
+     "zh": "學語言最忌諱急躁，正所謂「欲速則不達」，每天穩紮穩打反而進步最快。",
+     "vn": "Học ngoại ngữ kỵ nhất là nóng vội, đúng như câu 'dục tốc bất đạt', mỗi ngày học chắc từng bước lại tiến bộ nhanh nhất."
+    },
+    {
+     "t": "Giải trí",
+     "zh": "這部懸疑小說的劇情節奏緊湊，讓人一翻開就欲罷不能，一口氣看到半夜。",
+     "vn": "Cốt truyện tiểu thuyết trinh thám này dồn dập hấp dẫn khiến người đọc vừa mở ra là không dừng lại được, đọc một mạch tới nửa đêm."
+    }
+   ]
+  },
+  "止痛": {
+   "vn": "giảm đau; cắt cơn đau",
+   "ng": [
+    "(động từ ly hợp) làm dịu, cắt cơn đau (止痛藥 thuốc giảm đau, 止痛貼布 miếng dán giảm đau, 幫助止痛 giúp giảm đau)"
+   ],
+   "us": "Từ y tế cực kỳ thiết yếu khi đi hiệu thuốc (藥局) hoặc bệnh viện tại Đài Loan: 止痛藥 (thuốc giảm đau), 退燒止痛 (hạ sốt giảm đau).",
+   "co": [
+    "止痛藥|thuốc giảm đau",
+    "止痛貼布|miếng dán giảm đau",
+    "消炎止痛|kháng viêm giảm đau",
+    "暫時止痛|giảm đau tạm thời"
+   ],
+   "sy": [
+    "鎮痛|trấn thống, giảm đau (thuật ngữ y khoa)"
+   ],
+   "cf": [
+    "止痛 vs 治本|止痛 chỉ làm dịu triệu chứng đau tạm thời; muốn khỏi hẳn phải tìm nguyên nhân chữa tận gốc (治本)."
+   ],
+   "lt": "Động từ ly hợp.",
+   "mk": "Chú ý ở Đài Loan thuốc giảm đau phổ biến ở hiệu thuốc là 普拿疼 (Panadol — paracetamol), nên hỏi dược sĩ liều dùng an toàn.",
+   "tw": "Ở Đài Loan ra hiệu thuốc 藥局 hỏi mua thuốc giảm đau nói 不好意思，我想買消炎止痛藥 hoặc 止痛貼布 (miếng dán giảm đau vai gáy).",
+   "mh": "Chỉ Thống → zhǐtòng. ĐỌC: 'chỉ' → zhǐ (ch- → zh-, thanh 3); 'thống' → tòng (th- → t-, thanh 4). NGHĨA: 止 dừng lại + 痛 cơn đau → làm dứt cơn đau = giảm đau.",
+   "vd": [
+    {
+     "t": "Y tế",
+     "zh": "牙痛如果一直靠吃止痛藥硬撐，反而會延誤治療時機，還是盡快找牙醫檢查最好。",
+     "vn": "Đau răng nếu cứ uống thuốc giảm đau gồng chịu sẽ làm chậm trễ việc điều trị, tốt nhất vẫn nên đi nha sĩ khám sớm."
+    },
+    {
+     "t": "Hiệu thuốc",
+     "zh": "藥師提醒，這類消炎止痛藥建議在飯後服用，比較不容易刺激胃壁。",
+     "vn": "Dược sĩ nhắc loại thuốc kháng viêm giảm đau này nên uống sau bữa ăn để ít gây kích ứng dạ dày."
+    },
+    {
+     "t": "Thể thao",
+     "zh": "運動拉傷肌肉時，前二十四小時先冰敷有助於消腫並達到初步止痛效果。",
+     "vn": "Khi tập thể thao bị căng cơ, hai mươi bốn giờ đầu chườm lạnh trước giúp giảm sưng và giảm đau bước đầu."
+    }
+   ]
+  },
+  "水滾": {
+   "vn": "nước sôi (cách nói Đài Loan)",
+   "ng": [
+    "(cụm động từ) nước sôi sùng sục (水滾了 nước sôi rồi, 等水滾 đợi nước sôi)"
+   ],
+   "us": "Cách nói cực kỳ đặc trưng và tự nhiên của người Đài Loan! (Trong khi Đại Lục nói 水開了, người Đài Loan gần như 100% nói 水滾了 — ảnh hưởng từ tiếng Đài 'tsuí kún--ah').",
+   "co": [
+    "水滾了|nước sôi rồi",
+    "等水滾|đợi nước sôi",
+    "水滾下麵|nước sôi thì thả mì vào",
+    "滾水|nước sôi (khẩu ngữ Đài Loan)"
+   ],
+   "sy": [
+    "水開|nước sôi (cách nói Đại Lục)",
+    "沸騰|sôi sục (văn viết, khoa học)"
+   ],
+   "cf": [
+    "水滾了 vs 水開了|Ở Đài Loan nói 水滾了 tự nhiên hơn hẳn 水開了; khi nấu lẩu, luộc mì hay pha trà người Đài luôn nói 等水滾再放肉 (Đợi nước sôi rồi hãy cho thịt vào)."
+   ],
+   "lt": "Cụm chủ vị (水 + 滾).",
+   "mk": "Đừng dịch nghĩa đen 'nước lăn' — 滾 ở đây tả bọt nước cuộn sôi sùng sục!",
+   "tw": "Đi ăn lẩu ở Đài Loan, câu nghe nhiều nhất là 水滾了，可以下菜了！(Nước sôi rồi, thả rau vào được rồi!).",
+   "mh": "Thủy Cổn → shuǐgǔn. ĐỌC: 'thủy' → shuǐ (thanh 3); 'cổn' → gǔn (c- → g-, thanh 3; đọc liền shuígǔn). NGHĨA: 水 nước + 滾 cuộn trào → nước sôi cuộn bọt.",
+   "vd": [
+    {
+     "t": "Nấu ăn",
+     "zh": "煮水餃的時候要等鍋裡的水滾了再放進去，稍微攪拌一下才不會黏鍋底。",
+     "vn": "Khi luộc sủi cảo phải đợi nước trong nồi sôi rồi mới thả vào, khuấy nhẹ một chút để không bị dính đáy nồi."
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "火鍋的湯頭已經水滾冒煙了，大家可以把青菜和肉片下鍋開動囉！",
+     "vn": "Nước lẩu đã sôi bốc khói rồi, mọi người có thể thả rau xanh và thịt lát vào nồi ăn thôi!"
+    },
+    {
+     "t": "Pha trà",
+     "zh": "泡高山烏龍茶不需要等到水滾到燙手，大約九十度左右的水溫最能帶出茶香。",
+     "vn": "Pha trà Ô Long núi cao không cần đợi nước sôi sục bỏng tay, nhiệt độ khoảng chín mươi độ là dậy hương trà nhất."
+    }
+   ]
+  },
+  "為止": {
+   "vn": "cho đến (mốc thời gian, giới hạn)",
+   "ng": [
+    "(trợ từ / giới từ) đến tận lúc/mức đó thì dừng lại — luôn kết hợp với 到…為止 hoặc 至…為止 (到今天為止 tính đến hôm nay, 到目前為止 cho đến hiện tại, 直到學會為止 cho tới khi học được mới thôi)"
+   ],
+   "us": "Cấu trúc chuẩn TOCFL Band B2–C: 到/至 + mốc thời gian/giới hạn + 為止, hoặc 直到 + sự việc + 為止. Không đứng trơ một mình ở đầu câu.",
+   "co": [
+    "到目前為止|cho đến hiện tại",
+    "到今天為止|tính đến hôm nay",
+    "點到為止|nói vừa đủ dừng đúng lúc",
+    "直到…為止|cho đến khi… mới thôi"
+   ],
+   "sy": [
+    "止|dừng lại (văn bản ngắn: 額滿為止 đến khi đủ suất thì ngừng)"
+   ],
+   "cf": [
+    "到…為止 vs 以前|以前 chỉ trước một mốc thời gian (週五以前); 到…為止 nhấn mạnh kéo dài liên tục tới đúng điểm cuối đó rồi kết thúc (報名到週五為止)."
+   ],
+   "lt": "Cụm cố định (到/至/直到…為止).",
+   "mk": "Đừng thiếu 到 hoặc 直到 đứng trước 為止 (*目前為止 ❌ → 到目前為止).",
+   "tw": "Trên áp phích khuyến mãi Đài Loan câu kinh điển là 數量有限，售完為止 (Số lượng có hạn, bán đến khi hết thì thôi) và 額滿為止 (đủ chỗ sẽ đóng đăng ký).",
+   "mh": "Vi Chỉ → wéizhǐ. ĐỌC: 'vi' → wéi (v- → w-, thanh 2); 'chỉ' → zhǐ (ch- → zh-, thanh 3). NGHĨA: 為 làm mốc + 止 dừng lại → cho đến mốc đó thì dừng.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "到目前為止，這項新系統的運作都非常穩定，尚未接獲任何異常回報。",
+     "vn": "Cho đến thời điểm hiện tại, hệ thống mới này vận hành rất ổn định, chưa nhận được bất kỳ báo lỗi nào."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這款中秋限量禮盒數量有限，採取現場排隊購買，售完為止。",
+     "vn": "Hộp quà Trung Thu phiên bản giới hạn này số lượng có hạn, bán trực tiếp theo thứ tự xếp hàng cho đến khi hết."
+    },
+    {
+     "t": "Học tập",
+     "zh": "遇到難懂的語法概念，她總是會反覆練習造句，直到完全弄懂為止。",
+     "vn": "Gặp điểm ngữ pháp khó hiểu, cô ấy luôn lặp đi lặp lại việc đặt câu cho tới khi hiểu thấu hoàn toàn mới thôi."
+    }
+   ]
+  },
+  "燒烤": {
+   "vn": "đồ nướng; nướng (BBQ)",
+   "ng": [
+    "(danh từ / động từ) món nướng trên than hoa hoặc vỉ nướng; nướng đồ ăn (吃燒烤 ăn đồ nướng, 燒烤店 quán nướng, 日式燒烤 đồ nướng kiểu Nhật)"
+   ],
+   "us": "Dùng cho cả quán nướng (燒烤店 / 燒肉店) lẫn hoạt động nướng đồ ăn. Ở Đài Loan còn rất hay dùng 烤肉 (nướng thịt BBQ, đặc biệt vào Tết Trung Thu) và 串燒 (xiên nướng nhậu đêm).",
+   "co": [
+    "燒烤店|quán đồ nướng",
+    "吃燒烤|ăn đồ nướng",
+    "炭火燒烤|nướng than hoa",
+    "燒烤醬|nước sốt đồ nướng"
+   ],
+   "sy": [
+    "烤肉|nướng thịt BBQ (rất phổ biến ở Đài Loan)",
+    "串燒|xiên nướng"
+   ],
+   "cf": [
+    "燒烤 vs 烤肉|烤肉 là từ quen thuộc nhất khi cả nhà tự nướng thịt ngoài trời (中秋烤肉); 燒烤 dùng rộng cho các quán nướng, món nướng và phong cách chế biến."
+   ],
+   "lt": "家 (一家燒烤店).",
+   "mk": "Chú ý 燒 có bộ 火 (lửa), 烤 cũng có bộ 火 (nướng trên lửa).",
+   "tw": "Ở Đài Loan rất nhiều quán 吃到飽燒烤 (buffet nướng ăn thỏa thích) và 居酒屋串燒 (xiên nướng quán nhậu Nhật).",
+   "mh": "Thiêu Khảo → shāokǎo. ĐỌC: 'thiêu' → shāo (th- → sh-, thanh 1); 'khảo' → kǎo (kh- → k-, thanh 3). NGHĨA: 燒 đốt lửa + 烤 nướng chín → nướng, đồ nướng.",
+   "vd": [
+    {
+     "t": "Ẩm thực",
+     "zh": "這個週末我們部門聚餐選在東區一家人氣炭火燒烤店，大家吃得非常盡興。",
+     "vn": "Cuối tuần này phòng chúng tôi chọn tụ tập ở một quán nướng than hoa nổi tiếng khu Đông, mọi người ăn rất thỏa thích."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "雖然燒烤料理香氣誘人，但烤焦的部分容易產生有害物質，平常還是適量享用比較好。",
+     "vn": "Tuy món nướng thơm ngon hấp dẫn nhưng phần cháy khét dễ sinh chất có hại, bình thường vẫn nên ăn vừa phải."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "夜市裡這攤手工刷醬的炭烤串燒總是排滿人龍，是附近居民最愛的宵夜選擇。",
+     "vn": "Quầy xiên nướng than phết sốt thủ công trong chợ đêm này lúc nào cũng xếp hàng dài, là món ăn khuya yêu thích của cư dân quanh đây."
+    }
+   ]
+  },
+  "獨": {
+   "vn": "một mình; đơn độc; duy nhất, riêng",
+   "ng": [
+    "(tính từ / phó từ) một mình, riêng lẻ (獨自 một mình, 單獨 riêng lẻ, 獨居 sống một mình, 獨立 độc lập)",
+    "(tính từ) duy nhất, độc nhất (獨特 độc đáo, 獨家 độc quyền, 獨一無二 độc nhất vô nhị)"
+   ],
+   "us": "Hình vị cực kỳ năng suất trong tiếng Hoa hiện đại (ghép hàng loạt từ B1–C: 獨立, 獨特, 單獨, 獨自, 獨享, 獨當一面 tự gánh vác được việc).",
+   "co": [
+    "獨自|một mình",
+    "獨立|độc lập",
+    "獨特|độc đáo",
+    "獨當一面|tự mình đảm đương công việc"
+   ],
+   "sy": [
+    "單獨|riêng lẻ, một mình",
+    "唯獨|duy chỉ có"
+   ],
+   "an": [
+    "群|đàn, nhóm",
+    "共同|cùng chung"
+   ],
+   "cf": [
+    "獨 vs 單獨|Trong khẩu ngữ hiếm khi đứng 獨 một chữ, mà ghép 單獨 (riêng một mình), 獨自 (tự một mình) hoặc thành ngữ (獨一無二)."
+   ],
+   "lt": "Hình vị / Phó từ.",
+   "mk": "Phân biệt 獨 (độc = một mình) với 毒 (độc = chất độc) — phát âm giống nhau dú nhưng nghĩa khác hoàn toàn!",
+   "tw": "Ở Đài Loan có trào lưu 獨旅 (dúlǚ = du lịch một mình / solo travel) rất được giới trẻ yêu thích.",
+   "mh": "Độc → dú. ĐỌC: 'độc' → dú (đ- → d-, thanh 2). NGHĨA: 犭 loài thú sống tách đàn + 蜀 một con → đơn lẻ một mình, duy nhất.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "近年來「獨旅」風氣盛行，許多人喜歡一個人背起背包自由探索陌生的城市。",
+     "vn": "Những năm gần đây xu hướng du lịch một mình rất thịnh hành, nhiều người thích tự đeo ba lô khám phá thành phố lạ."
+    },
+    {
+     "t": "Công việc",
+     "zh": "經過一年的實務歷練後，這位新人現在已經能夠獨立規劃並獨當一面完成專案。",
+     "vn": "Sau một năm rèn luyện thực tế, nhân viên mới này giờ đã có thể tự hoạch định và một mình đảm đương hoàn thành dự án."
+    },
+    {
+     "t": "Nghệ thuật",
+     "zh": "每一件手工拉坏燒製的茶杯都有細微差異，對收藏者來說都是獨一無二的作品。",
+     "vn": "Mỗi chiếc tách trà nặn tay nung gốm đều có nét khác biệt nhỏ, với người sưu tầm đều là tác phẩm độc nhất vô nhị."
+    }
+   ]
+  },
+  "療": {
+   "vn": "chữa trị; trị liệu, chữa lành",
+   "ng": [
+    "(động từ) chữa bệnh, điều trị (治療 điều trị, 醫療 y tế, 療效 hiệu quả điều trị, 療程 liệu trình)",
+    "(hình vị hiện đại) chữa lành tinh thần (療癒 chữa lành — từ siêu phổ biến ở Đài Loan!)"
+   ],
+   "us": "Hình vị chuyên dùng trong y tế (治療, 醫療, 食療, 化療, 物理治療) và tâm lý đời sống (療癒系の小物 đồ vật mang lại cảm giác chữa lành).",
+   "co": [
+    "治療|điều trị",
+    "療癒|chữa lành (cực phổ biến ở Đài Loan)",
+    "醫療|y tế",
+    "療程|liệu trình điều trị"
+   ],
+   "sy": [
+    "醫治|chữa trị"
+   ],
+   "cf": [
+    "療癒 vs 治療|治療 là điều trị bệnh lý (y tế); 療癒 (liáoyù) là từ cực hot ở Đài Loan mang nghĩa 'chữa lành tâm hồn, mang lại cảm giác dễ chịu ấm áp'."
+   ],
+   "lt": "Hình vị / Động từ.",
+   "mk": "Chú ý bộ 疒 (bệnh tật) bao bên ngoài chữ 療 — mọi chữ có bộ này đều liên quan sức khỏe/bệnh tật (病, 痛, 瘦, 疲).",
+   "tw": "Ở Đài Loan từ 療癒 (chữa lành) dùng hàng ngày: 看貓咪睡覺好療癒喔！(Nhìn mèo ngủ thấy chữa lành quá đi!).",
+   "mh": "Liệu → liáo. ĐỌC: 'liệu' ở đây đọc thanh 2 liáo. NGHĨA: 疒 bệnh tật + 尞 (ghi âm) → chữa trị bệnh tật, chữa lành.",
+   "vd": [
+    {
+     "t": "Y tế",
+     "zh": "這項物理治療療程需要持續六週，配合居家伸展動作才能讓肩膀徹底復原。",
+     "vn": "Liệu trình vật lý trị liệu này cần duy trì sáu tuần, kết hợp bài tập giãn cơ tại nhà mới giúp vai hồi phục hoàn toàn."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "週末在咖啡廳聽著輕柔音樂、喝杯熱拿鐵看書，對忙碌的上班族來說非常療癒。",
+     "vn": "Cuối tuần ở quán cà phê nghe nhạc nhẹ, uống ly latte nóng đọc sách đối với dân văn phòng bận rộn vô cùng chữa lành."
+    },
+    {
+     "t": "Xã hội",
+     "zh": "台灣完善的健保制度讓民眾在生病時都能負擔得起良好的醫療照顧。",
+     "vn": "Hệ thống bảo hiểm y tế hoàn thiện của Đài Loan giúp người dân khi ốm đau đều có thể chi trả cho dịch vụ chăm sóc y tế tốt."
+    }
+   ]
+  },
+  "眼圈": {
+   "vn": "vòng mắt; vành mắt, quầng mắt",
+   "ng": [
+    "(danh từ) vùng da vòng quanh mắt (黑眼圈 quầng thâm mắt, 眼圈發紅 vành mắt đỏ hoe, 哭紅了眼圈 khóc đỏ cả vành mắt)"
+   ],
+   "us": "Thường gặp trong miêu tả cảm xúc xúc động sắp khóc (眼圈紅了 / 紅了眼圈 vành mắt đỏ hoe) và miêu tả mệt mỏi (黑眼圈).",
+   "co": [
+    "紅了眼圈|vành mắt đỏ hoe (xúc động)",
+    "黑眼圈|quầng thâm mắt",
+    "眼圈發黑|quầng mắt thâm đen",
+    "眼圈濕潤|vành mắt rưng rưng"
+   ],
+   "sy": [
+    "眼眶|hốc mắt, khóe mắt (眼眶泛淚 hốc mắt rưng rưng)"
+   ],
+   "cf": [
+    "眼圈 vs 眼眶|眼眶 nhấn mạnh hốc mắt chứa nước mắt (淚水在眼眶裡打轉); 眼圈 nhấn mạnh vùng da vòng quanh mắt (黑眼圈, 眼圈紅了)."
+   ],
+   "lt": "Danh từ.",
+   "mk": "Chữ 圈 đọc quān (vòng tròn, thanh 1), không đọc juàn (chuồng thú).",
+   "tw": "Trong văn viết cảm động hay dùng 聽完致詞大家都紅了眼圈 (Nghe xong bài phát biểu ai cũng đỏ hoe mắt).",
+   "mh": "Nhãn Khuyên → yǎnquān. ĐỌC: 'nhãn' → yǎn (thanh 3); 'khuyên' → quān (thanh 1). NGHĨA: 眼 mắt + 圈 vòng tròn → vòng quanh mắt.",
+   "vd": [
+    {
+     "t": "Cảm xúc",
+     "zh": "畢業典禮上播放回顧影片時，台下好幾位同學都感動得紅了眼圈。",
+     "vn": "Khi chiếu video nhìn lại kỷ niệm trong lễ tốt nghiệp, mấy bạn ngồi dưới đều xúc động đỏ hoe mắt."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "連續好幾天睡眠不足，他的眼圈明顯發黑，整個人看起來非常疲憊。",
+     "vn": "Thiếu ngủ liên tiếp nhiều ngày, quầng mắt anh ấy thâm đen rõ rệt, cả người trông rất mệt mỏi."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "看到久違的外孫從機場走出來，外婆激動得眼圈濕潤，連忙上前緊緊抱住他。",
+     "vn": "Thấy cháu ngoại lâu ngày mới về bước ra từ sân bay, bà ngoại xúc động rưng rưng mắt, vội tiến tới ôm chặt lấy cháu."
+    }
+   ]
+  },
+  "站牌": {
+   "vn": "biển trạm xe buýt; trụ biển báo bến xe",
+   "ng": [
+    "(danh từ) cột biển báo điểm dừng xe buýt có ghi số tuyến và lộ trình (公車站牌 biển trạm xe buýt, 智慧站牌 bảng điện tử báo giờ xe buýt)"
+   ],
+   "us": "Từ sinh hoạt cực kỳ quen thuộc ở Đài Loan: đi xe buýt nhớ đứng ngay cạnh 公車站牌 để vẫy tay (招手) khi xe tới!",
+   "co": [
+    "公車站牌|biển trạm xe buýt",
+    "智慧站牌|bảng điện tử báo giờ xe đến",
+    "站牌旁邊|bên cạnh trụ trạm xe",
+    "看站牌|xem bảng lộ trình trên trạm"
+   ],
+   "sy": [
+    "公車站|bến/trạm xe buýt (cả khu vực chờ)"
+   ],
+   "cf": [
+    "站牌 vs 車站|車站 là nhà ga lớn (火車站, 捷運站); 站牌 là trụ biển báo điểm dừng xe buýt ngoài đường."
+   ],
+   "lt": "個, 支 (一支公車站牌).",
+   "mk": "Đừng gọi trạm xe buýt nhỏ ngoài đường là *火車站* — chỉ nói 公車站 hoặc 公車站牌.",
+   "tw": "Ở Đài Bắc hầu hết 公車站牌 đều có màn hình LED 智慧站牌 báo chính xác còn mấy phút xe tới (vd. 「進站中」 xe đang vào trạm, 「3分」 còn 3 phút).",
+   "mh": "Trạm Bài → zhànpái. ĐỌC: 'trạm' → zhàn (tr- → zh-, thanh 4); 'bài' → pái (thanh 2). NGHĨA: 站 bến dừng + 牌 tấm biển → biển báo trạm xe.",
+   "vd": [
+    {
+     "t": "Đi lại",
+     "zh": "台北許多公車站牌都裝有電子看板，抬頭就能清楚看到下一班車還有幾分鐘進站。",
+     "vn": "Nhiều trụ trạm xe buýt ở Đài Bắc đều lắp bảng điện tử, ngẩng đầu là thấy rõ chuyến sau còn mấy phút vào trạm."
+    },
+    {
+     "t": "Hỏi đường",
+     "zh": "從捷運站二號出口走出來左轉，步行約三十公尺就能看到往市區的公車站牌。",
+     "vn": "Từ lối ra số hai ga tàu điện ngầm rẽ trái, đi bộ khoảng ba mươi mét là thấy biển trạm xe buýt vào trung tâm."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "今天下班時間公車站牌前排了好長的人龍，還好班次很密，等五分鐘就上車了。",
+     "vn": "Giờ tan làm hôm nay trước biển trạm xe buýt xếp hàng dài, may mà chuyến xe dày nên đợi năm phút là lên được xe."
+    }
+   ]
+  },
+  "答辯": {
+   "vn": "bảo vệ (luận văn); biện hộ, giải trình (trước tòa)",
+   "ng": [
+    "(động từ / danh từ) trả lời chất vấn, biện hộ trước tòa án (法庭答辯 biện hộ trước tòa, 答辯狀 bản tự bào chữa)",
+    "(động từ / danh từ) bảo vệ luận văn tốt nghiệp (論文答辯 bảo vệ luận văn — ở Đài Loan cũng hay gọi 論文口試)"
+   ],
+   "us": "Từ chuyên môn trong học thuật (bảo vệ luận văn) và pháp luật (biện hộ, trình bày ý kiến phản biện trước cáo buộc).",
+   "co": [
+    "論文答辯|bảo vệ luận văn",
+    "法庭答辯|biện hộ trước tòa",
+    "答辯狀|văn bản biện hộ/giải trình",
+    "出庭答辯|ra tòa biện hộ"
+   ],
+   "sy": [
+    "口試|vấn đáp / bảo vệ luận văn (rất phổ biến ở đại học Đài Loan)",
+    "辯護|bào chữa (luật sư)"
+   ],
+   "cf": [
+    "答辯 vs 辯護|辯護 thường do luật sư thực hiện để bào chữa cho thân chủ (律師辯護); 答辯 là đương sự trực tiếp trả lời chất vấn, giải trình hoặc bảo vệ luận văn."
+   ],
+   "lt": "場 (一場答辯).",
+   "mk": "Chú ý ở đại học Đài Loan, bảo vệ luận văn thạc sĩ/tiến sĩ thường gọi 論文口試 (kǒushì) nhiều hơn 論文答辯 (hay dùng ở Đại Lục), còn 答辯 ở Đài Loan rất phổ biến trong tòa án và thủ tục pháp lý.",
+   "tw": "Trong tòa án Đài Loan, bị đơn nộp bản giải trình gọi 答辯狀 (dábiànzhuàng).",
+   "mh": "Đáp Biện → dábiàn. ĐỌC: 'đáp' → dá (đ- → d-, thanh 2); 'biện' → biàn (thanh 4). NGHĨA: 答 trả lời + 辯 biện luận → trả lời biện hộ, bảo vệ luận văn.",
+   "vd": [
+    {
+     "t": "Pháp luật",
+     "zh": "在法庭答辯環節中，被告提出完整的合約往來紀錄作為證據，逐一回應原告的質疑。",
+     "vn": "Trong phần biện hộ trước tòa, bị đơn đưa ra hồ sơ hợp đồng đầy đủ làm chứng cứ, lần lượt phản hồi chất vấn của nguyên đơn."
+    },
+    {
+     "t": "Học thuật",
+     "zh": "他花了整整兩週反覆模擬論文答辯可能被問到的問題，最後順利獲得評審一致通過。",
+     "vn": "Anh ấy dành trọn hai tuần tập dượt các câu hỏi có thể gặp khi bảo vệ luận văn, cuối cùng thuận lợi được hội đồng thông qua."
+    },
+    {
+     "t": "Thủ tục",
+     "zh": "收到法院通知後，當事人可以在期限內撰寫答辯狀陳述事實經過與自身立場。",
+     "vn": "Sau khi nhận thông báo từ tòa án, đương sự có thể viết bản giải trình trình bày diễn biến sự việc và lập trường trong thời hạn."
+    }
+   ]
+  },
+  "職場": {
+   "vn": "chốn công sở; môi trường làm việc",
+   "ng": [
+    "(danh từ) nơi làm việc, môi trường công sở, thị trường lao động (職場新鮮人 người mới đi làm, 職場文化 văn hóa công sở, 職場禮儀 phép lịch sự công sở, 重返職場 quay lại đi làm)"
+   ],
+   "us": "Từ cực kỳ thông dụng tại Đài Loan trong mọi bài báo nghề nghiệp, phỏng vấn xin việc và sách kỹ năng (職場溝通 giao tiếp công sở, 職場穿搭 trang phục đi làm).",
+   "co": [
+    "職場新鮮人|người mới bước vào đời đi làm",
+    "職場文化|văn hóa công sở",
+    "職場禮儀|phép lịch sự nơi làm việc",
+    "職場壓力|áp lực công việc"
+   ],
+   "sy": [
+    "工作環境|môi trường làm việc"
+   ],
+   "an": [
+    "校園|trường học, giảng đường"
+   ],
+   "cf": [
+    "職場 vs 辦公室|辦公室 là căn phòng làm việc vật lý; 職場 là khái niệm rộng về môi trường nghề nghiệp, mối quan hệ công sở và con đường sự nghiệp."
+   ],
+   "lt": "Danh từ.",
+   "mk": "Chữ 場 đọc thanh 3 chǎng (zhíchǎng).",
+   "tw": "Ở Đài Loan sinh viên mới ra trường đi làm năm đầu gọi là 職場新鮮人 (người mới toanh nơi công sở) hoặc 社會新鮮人.",
+   "mh": "Chức Trường → zhíchǎng. ĐỌC: 'chức' → zhí (ch- → zh-, thanh 2); 'trường' → chǎng (tr- → ch-, thanh 3). NGHĨA: 職 nghề nghiệp + 場 nơi chốn → môi trường công sở.",
+   "vd": [
+    {
+     "t": "Nghề nghiệp",
+     "zh": "剛畢業的職場新鮮人難免會感到緊張，多觀察前輩的做法並主動發問就能很快適應。",
+     "vn": "Người mới ra trường bước vào công sở khó tránh hồi hộp, quan sát cách làm của người đi trước và chủ động hỏi sẽ nhanh thích nghi."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "準時赴約、回覆信件條理清晰，都是職場上建立專業形象的基本禮儀。",
+     "vn": "Đến hẹn đúng giờ, trả lời email mạch lạc đều là phép lịch sự cơ bản để xây dựng hình ảnh chuyên nghiệp nơi công sở."
+    },
+    {
+     "t": "Xã hội",
+     "zh": "越來越多年輕世代重視職場友善環境，希望工作與個人生活能夠取得良好平衡。",
+     "vn": "Ngày càng nhiều thế hệ trẻ coi trọng môi trường làm việc thân thiện, mong muốn cân bằng tốt giữa công việc và đời sống cá nhân."
+    }
+   ]
+  },
+  "螢幕": {
+   "vn": "màn hình (điện thoại, máy tính, tivi — chuẩn Đài Loan)",
+   "ng": [
+    "(danh từ) màn hình hiển thị của điện thoại, máy tính, tivi, rạp chiếu phim (電腦螢幕 màn hình máy tính, 手機螢幕 màn hình điện thoại, 觸控螢幕 màn hình cảm ứng)"
+   ],
+   "us": "Từ chuẩn 100% tại Đài Loan! (Đại Lục dùng 屏幕; ở Đài Loan luôn nói và viết 螢幕). Lượng từ: 個 hoặc 塊 (一塊螢幕).",
+   "co": [
+    "電腦螢幕|màn hình máy tính",
+    "手機螢幕|màn hình điện thoại",
+    "觸控螢幕|màn hình cảm ứng",
+    "螢幕截圖|chụp ảnh màn hình"
+   ],
+   "sy": [
+    "屏幕|màn hình (cách gọi ở Đại Lục)",
+    "銀幕|màn bạc rạp chiếu phim"
+   ],
+   "cf": [
+    "螢幕 vs 銀幕|螢幕 dùng cho thiết bị điện tử (điện thoại, laptop, TV); 銀幕 (chữ 銀 = bạc) chỉ riêng màn chiếu lớn trong rạp phim (大銀幕)."
+   ],
+   "lt": "個, 台 (一台外接螢幕 một màn hình rời).",
+   "mk": "Ở Đài Loan dùng 螢幕 (yíngmù), đừng dùng 屏幕 của Đại Lục!",
+   "tw": "Ở Đài Loan chụp ảnh màn hình gọi 螢幕截圖 (hoặc nói tắt 截圖); chia sẻ màn hình họp online gọi 分享螢幕.",
+   "mh": "Huỳnh Mạc → yíngmù. ĐỌC: 'huỳnh' → yíng (h- → y- ở chữ này, thanh 2); 'mạc' → mù (thanh 4). NGHĨA: 螢 ánh sáng phát quang + 幕 tấm màn → màn hình phát sáng.",
+   "vd": [
+    {
+     "t": "Sức khỏe",
+     "zh": "長時間盯著電腦螢幕容易造成眼睛乾澀疲勞，建議每看三十分鐘就起身遠眺放鬆。",
+     "vn": "Nhìn chằm chằm màn hình máy tính lâu dễ gây khô mỏi mắt, nên cứ ba mươi phút lại đứng dậy nhìn xa thư giãn."
+    },
+    {
+     "t": "Công việc",
+     "zh": "線上會議輪到我報告時，我點擊分享螢幕把簡報畫面切換給大家看。",
+     "vn": "Khi họp trực tuyến đến lượt tôi trình bày, tôi bấm chia sẻ màn hình để chuyển slide cho mọi người xem."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "他的手機昨天不小心掉在地上，還好有貼玻璃保護貼，螢幕完全沒有裂開。",
+     "vn": "Điện thoại anh ấy hôm qua lỡ rơi xuống đất, may có dán kính cường lực nên màn hình hoàn toàn không bị nứt."
+    }
+   ]
+  },
+  "轉賬": {
+   "vn": "chuyển khoản (ngân hàng; Đài Loan thường viết 轉帳)",
+   "ng": [
+    "(động từ ly hợp) chuyển tiền từ tài khoản ngân hàng này sang tài khoản khác (網路轉賬/轉帳 chuyển khoản online, 跨行轉賬/轉帳 chuyển khoản khác ngân hàng)"
+   ],
+   "us": "Đồng nghĩa hoàn toàn với 轉帳 (cách viết chuẩn tại Đài Loan dùng 帳 bộ 巾; 轉賬 bộ 貝 hay gặp trong từ điển CC-CEDICT và văn bản Đại Lục/Hồng Kông). Khi viết tay hoặc giao dịch ở Đài Loan ưu tiên viết 轉帳.",
+   "co": [
+    "網路轉帳/轉賬|chuyển khoản qua ngân hàng trực tuyến",
+    "跨行轉帳/轉賬|chuyển khoản khác ngân hàng",
+    "ATM轉帳/轉賬|chuyển khoản qua máy ATM",
+    "轉帳手續費|phí chuyển khoản"
+   ],
+   "sy": [
+    "轉帳|chuyển khoản (cách viết chuẩn Đài Loan)",
+    "匯款|chuyển tiền (trang trọng, số tiền lớn hoặc tại quầy)"
+   ],
+   "cf": [
+    "轉帳/轉賬 vs 匯款|轉帳 dùng hàng ngày nhất cho chuyển qua app ngân hàng/ATM; 匯款 trang trọng hơn, dùng cho chuyển tiền tại quầy (臨櫃匯款), thanh toán hợp đồng hoặc chuyển tiền quốc tế."
+   ],
+   "lt": "筆 (一筆轉帳). Phí chuyển liên ngân hàng ở Đài Loan là 手續費 15 Đài tệ.",
+   "mk": "Lưu ý chính tả Đài Loan: dùng 轉帳 (bộ 巾), nhưng hiểu 轉賬 (bộ 貝) là cùng một từ khi gặp trong tài liệu/từ điển.",
+   "tw": "Ở Đài Loan khi chuyển khoản mua hàng online xong, người mua hay báo shop 帳號後五碼 (5 số cuối tài khoản) để người bán đối soát.",
+   "mh": "Chuyển Trướng → zhuǎnzhàng. ĐỌC: 'chuyển' → zhuǎn (ch- → zh-, thanh 3); 'trướng' → zhàng (tr- → zh-, thanh 4). NGHĨA: 轉 chuyển sang + 賬/帳 sổ sách tài khoản → chuyển khoản.",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "今天聚餐先由你幫忙墊付，待會兒我用手機網路轉賬把我的那一份轉給你。",
+     "vn": "Bữa ăn hôm nay nhờ bạn trả trước giúp, lát nữa tôi dùng app ngân hàng chuyển khoản phần của tôi cho bạn."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "完成銀行轉賬後，請私訊告知您的帳號後五碼，方便客服人員為您對帳出貨。",
+     "vn": "Sau khi chuyển khoản ngân hàng xong, vui lòng nhắn tin báo 5 số cuối tài khoản để nhân viên đối soát và gửi hàng."
+    },
+    {
+     "t": "Ngân hàng",
+     "zh": "在輸入轉賬金額與收款帳號前務必核對兩次，避免一時手誤把錢轉錯帳戶。",
+     "vn": "Trước khi nhập số tiền chuyển khoản và số tài khoản nhận nhớ kiểm tra hai lần kẻo bấm nhầm chuyển sang tài khoản khác."
+    }
+   ]
+  },
+  "過境": {
+   "vn": "quá cảnh; đi qua lãnh thổ",
+   "ng": [
+    "(động từ) quá cảnh tại sân bay/quốc gia trung gian trên hành trình bay quốc tế (過境轉機 quá cảnh nối chuyến, 過境免簽 miễn thị thực quá cảnh)",
+    "(động từ khí tượng) bão hoặc khối không khí đi ngang qua một vùng (颱風過境 bão quét qua)"
+   ],
+   "us": "Dùng trong cả du lịch hàng không (過境香港 quá cảnh Hồng Kông, 過境旅館 khách sạn quá cảnh) lẫn tin tức thời tiết (鋒面過境 khối không khí lạnh đi qua).",
+   "co": [
+    "過境轉機|quá cảnh nối chuyến",
+    "過境簽證|thị thực quá cảnh",
+    "過境旅館|khách sạn quá cảnh",
+    "颱風過境|bão đi qua"
+   ],
+   "sy": [
+    "轉機|nối chuyến bay (chỉ việc đổi máy bay)"
+   ],
+   "cf": [
+    "過境 vs 轉機|轉機 nhấn mạnh hành động đổi từ máy bay này sang máy bay khác; 過境 nhấn mạnh đi ngang qua lãnh thổ/cửa khẩu một nước trung gian (có thể phải xin 過境簽證 nếu ra khỏi sân bay)."
+   ],
+   "lt": "Động từ.",
+   "mk": "Khi đặt vé nối chuyến ở nước thứ ba, luôn kiểm tra xem nước đó có yêu cầu 過境簽證 (visa quá cảnh) không.",
+   "tw": "Sân bay Đào Viên Đài Loan có chương trình 過境半日遊 (tour nửa ngày miễn phí cho khách quá cảnh chờ nối chuyến lâu).",
+   "mh": "Quá Cảnh → guòjìng. ĐỌC: 'quá' → guò (qu- → g-, thanh 4); 'cảnh' → jìng (c- trước i → j-, thanh 4). NGHĨA: 過 đi qua + 境 biên giới lãnh thổ → quá cảnh.",
+   "vd": [
+    {
+     "t": "Hàng không",
+     "zh": "這趟飛往歐洲的航班會在新加坡過境停留四個小時，剛好可以逛逛機場商店街。",
+     "vn": "Chuyến bay đi châu Âu này sẽ quá cảnh ở Singapore bốn tiếng, vừa khéo có thể dạo khu mua sắm trong sân bay."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "桃園機場針對長時間過境的國際旅客提供免費的台北半日文化導覽行程。",
+     "vn": "Sân bay Đào Viên cung cấp tour tham quan văn hóa Đài Bắc nửa ngày miễn phí cho hành khách quốc tế quá cảnh dài giờ."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "強烈颱風過境之後，山區土石依然鬆軟，民眾這幾天應暫時避免上山活動。",
+     "vn": "Sau khi cơn bão mạnh đi qua, đất đá vùng núi vẫn còn yếu, người dân mấy ngày này nên tạm tránh lên núi."
+    }
+   ]
+  },
+  "門鎖": {
+   "vn": "khóa cửa; ổ khóa cửa",
+   "ng": [
+    "(danh từ) ổ khóa lắp trên cửa nhà, cửa phòng (電子門鎖 khóa cửa điện tử, 換門鎖 thay khóa cửa, 門鎖壞了 khóa cửa hỏng rồi)"
+   ],
+   "us": "Từ sinh hoạt thiết yếu khi thuê trọ (租屋) hoặc sửa chữa nhà cửa tại Đài Loan. Lượng từ: 把 hoặc 個 (一把門鎖).",
+   "co": [
+    "換門鎖|thay ổ khóa cửa",
+    "電子門鎖|khóa cửa điện tử / thông minh",
+    "指紋門鎖|khóa cửa vân tay",
+    "檢查門鎖|kiểm tra khóa cửa"
+   ],
+   "sy": [
+    "鎖頭|ổ khóa (khẩu ngữ)"
+   ],
+   "cf": [
+    "門鎖 vs 鑰匙|門鎖 là ổ khóa gắn trên cửa; 鑰匙 là chiếc chìa khóa cầm tay để mở ổ khóa."
+   ],
+   "lt": "把, 個 (一把門鎖).",
+   "mk": "Khi chuyển vào phòng trọ mới ở Đài Loan, nhiều người thuê nhà sẽ thương lượng với chủ nhà (房東) xin đổi 門鎖 hoặc đổi mật khẩu khóa điện tử cho an toàn.",
+   "tw": "Ở Đài Loan chung cư mới hay dùng 電子門鎖 (mở bằng 悠遊卡 thẻ EasyCard, mật khẩu hoặc vân tay), rất tiện không sợ quên chìa khóa.",
+   "mh": "Môn Tỏa → ménsuǒ. ĐỌC: 'môn' → mén (thanh 2); 'tỏa' → suǒ (t- → s-, thanh 3). NGHĨA: 門 cánh cửa + 鎖 ổ khóa → khóa cửa.",
+   "vd": [
+    {
+     "t": "Thuê nhà",
+     "zh": "搬進新租的套房之前，房東貼心地幫我換了一把全新的安全門鎖。",
+     "vn": "Trước khi dọn vào phòng trọ mới thuê, chủ nhà chu đáo thay giúp tôi một ổ khóa cửa an toàn mới tinh."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "改裝指紋與密碼雙用的電子門鎖以後，下樓倒垃圾再也不用擔心忘帶鑰匙被反鎖。",
+     "vn": "Sau khi lắp khóa cửa điện tử dùng cả vân tay lẫn mật khẩu, xuống lầu đổ rác không còn lo quên chìa bị khóa ngoài."
+    },
+    {
+     "t": "An toàn",
+     "zh": "晚上睡覺前和出遠門時，都要養成隨手確認門鎖是否確實上鎖的好習慣。",
+     "vn": "Trước khi đi ngủ buổi tối và khi đi xa đều nên giữ thói quen kiểm tra xem khóa cửa đã khóa chắc chắn chưa."
+    }
+   ]
+  },
+  "協議": {
+   "vn": "hiệp nghị; thỏa thuận, giao thức",
+   "ng": [
+    "(danh từ) văn bản thỏa thuận chính thức giữa hai hay nhiều bên (簽署協議 ký kết thỏa thuận, 達成協議 đạt được thỏa thuận, 保密協議 thỏa thuận bảo mật NDA)",
+    "(động từ) cùng nhau thương lượng thỏa thuận (雙方協議 hai bên thỏa thuận)"
+   ],
+   "us": "Từ cực kỳ quan trọng ở TOCFL Band C và môi trường công sở/pháp lý: 達成協議 (đạt thỏa thuận), 簽訂協議書 (ký văn bản thỏa thuận), 離婚協議書, 貿易協議.",
+   "co": [
+    "達成協議|đạt được thỏa thuận",
+    "簽署協議|ký kết hiệp nghị/thỏa thuận",
+    "保密協議|thỏa thuận bảo mật (NDA)",
+    "協議書|văn bản thỏa thuận"
+   ],
+   "sy": [
+    "協定|hiệp định (thường giữa các quốc gia/chính phủ)",
+    "合約|hợp đồng (thương mại, thuê nhà, lao động)"
+   ],
+   "cf": [
+    "協議 vs 合約|合約 là hợp đồng thương mại/lao động có điều khoản chi tiết ràng buộc pháp lý chặt; 協議 rộng hơn, chỉ sự thống nhất ý kiến giữa các bên (có thể bằng miệng hoặc văn bản 協議書)."
+   ],
+   "lt": "項, 份 (一份協議書).",
+   "mk": "Chú ý chữ 協 (hiệp lực, bộ 十) khác 脅 (uy hiếp).",
+   "tw": "Ở Đài Loan vào công ty công nghệ làm việc thường ký 保密協議 (NDA); thương lượng bồi thường tai nạn giao thông xong ký 和解協議書.",
+   "mh": "Hiệp Nghị → xiéyì. ĐỌC: 'hiệp' → xié (h- → x-, thanh 2); 'nghị' → yì (ng- mất, thanh 4). NGHĨA: 協 cùng hợp tác + 議 bàn bạc → thỏa thuận chung, hiệp nghị.",
+   "vd": [
+    {
+     "t": "Kinh doanh",
+     "zh": "經過長達兩個月的密集談判，兩家企業終於就技術授權條件達成正式協議。",
+     "vn": "Sau hai tháng đàm phán dày đặc, hai doanh nghiệp cuối cùng đã đạt được thỏa thuận chính thức về điều kiện chuyển giao công nghệ."
+    },
+    {
+     "t": "Công việc",
+     "zh": "新進工程師在報到當天必須簽署保密協議，承諾不外洩公司內部的研發資料。",
+     "vn": "Kỹ sư mới vào ngày nhận việc phải ký thỏa thuận bảo mật, cam kết không tiết lộ dữ liệu nghiên cứu nội bộ của công ty."
+    },
+    {
+     "t": "Pháp lý",
+     "zh": "雙方在調解委員見證下簽訂和解協議書，讓這起糾紛得以和平落幕。",
+     "vn": "Hai bên ký văn bản thỏa thuận hòa giải trước sự chứng kiến của hòa giải viên, giúp tranh chấp khép lại trong êm đẹp."
+    }
+   ]
+  }
+ }
+}

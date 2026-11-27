@@ -1,256 +1,1156 @@
-{"tu": {
-"針": {"vn": "kim; mũi tiêm; châm cứu", "ng": ["(danh từ) cây kim (kim khâu, kim đồng hồ, kim chỉ nam)", "(danh từ) mũi tiêm, ống tiêm (y tế)", "(danh từ) kim châm cứu; vật nhọn hình kim (lá thông)"],
- "us": "Dùng với lượng từ 根 hoặc 支 (一根針). Trong y tế hay gặp 打針 (tiêm), 打預防針 (tiêm vắc-xin), 縫幾針 (khâu mấy mũi).", "co": ["打針|tiêm thuốc", "針灸|châm cứu", "時針|kim giờ", "方針|phương châm"],
- "sy": ["注射|tiêm, chích"],
- "cf": ["釘|đinh (to hơn kim)"],
- "mh": "Châm → zhēn. ĐỌC: 'châm' → zhēn (thanh 1). NGHĨA: 釒 (kim loại) + 十 (hình cây kim nhọn) → cây kim bằng kim loại.",
- "lt": "Lượng từ là 根 hoặc 支. Phân biệt 打針 (tiêm thuốc) và 抽血 (lấy máu).",
- "tw": "Ở Đài Loan đi khám bệnh, bác sĩ hay hỏi 要不要打一針 (có muốn tiêm một mũi không); người sợ tiêm hay nói 我怕打針.",
- "vd": [{"t": "Phòng khám", "zh": "護理師幫小朋友打預防針的時候，他哭得好大聲。", "vn": "Lúc điều dưỡng tiêm vắc-xin cho em bé, bé khóc rất to."},
-  {"t": "May vá", "zh": "這件襯衫的鈕扣掉了，我拿針線幫你縫一下。", "vn": "Chiếc áo sơ mi này bị rơi cúc rồi, tôi lấy kim chỉ khâu giúp bạn một chút."},
-  {"t": "Đồng hồ", "zh": "這個舊鬧鐘的秒針好像卡住了，都不會動。", "vn": "Kim giây của chiếc đồng hồ báo thức cũ này hình như bị kẹt rồi, không chạy nữa."}]},
-"震動": {"vn": "chấn động; rung động; làm rung chuyển", "ng": ["(động từ) rung động, rung lắc (đất đai, điện thoại, vật thể)", "(động từ) chấn động, làm kinh động mạnh (tinh thần, xã hội)", "(danh từ) sự rung chuyển, sự chấn động"],
- "us": "Dùng cho vật lý (地震引起的震動, 手機開震動) hoặc nghĩa bóng (震動全國的消息).", "co": ["手機震動|điện thoại rung", "強烈震動|rung lắc mạnh", "地震震動|rung chấn động đất"],
- "sy": ["搖晃|lắc lư", "轟動|gây chấn động (dư luận)"],
- "cf": ["感動|cảm động (tích cực, về tình cảm)", "震撼|chấn động, choáng ngợp"],
- "mh": "Chấn Động → zhèndòng. ĐỌC: 'chấn' → zhèn; 'động' → dòng. NGHĨA: 震 (雨 mưa sấm + 辰 rung động) + 動 (重 nặng + 力 sức) → sức mạnh làm rung chuyển.",
- "lt": "Bẫy Hán Việt: muốn nói 'rung cảm, xúc động' dùng 感動, đừng dùng 震動; 震動 là rung lắc vật lý hoặc gây sốc lớn.",
- "tw": "Ở Đài Loan hay có động đất và cảnh báo trên điện thoại, người Đài thường bật chế độ 震動 (chế độ rung) khi họp hoặc đi học.",
- "vd": [{"t": "Công sở", "zh": "開會的時候請把手機調成震動或靜音。", "vn": "Khi họp xin vui lòng chuyển điện thoại sang chế độ rung hoặc im lặng."},
-  {"t": "Động đất", "zh": "剛才花蓮發生地震，連台北都感覺到明顯的震動。", "vn": "Vừa nãy Hoa Liên xảy ra động đất, ngay cả Đài Bắc cũng cảm nhận được sự rung lắc rõ rệt."},
-  {"t": "Tin tức", "zh": "這起食品安全事件震動了整個社會。", "vn": "Vụ việc an toàn thực phẩm này đã gây chấn động toàn xã hội."}]},
-"針對": {"vn": "nhằm vào; nhắm vào; đối với", "ng": ["(giới từ) nhằm vào, đối với (vấn đề, đối tượng cụ thể)", "(động từ) chĩa mũi nhọn vào, nhắm vào (ai đó)"],
- "us": "Cấu trúc rất hay dùng: 針對 + [vấn đề/đối tượng] + 提出/進行/做出 + [biện pháp]. Có thể làm vị ngữ: 你不要老是針對我 (Đừng lúc nào cũng nhắm vào tôi).", "co": ["針對這個問題|nhằm vào vấn đề này", "針對性|tính nhắm trúng đích", "針對不同年齡|dành riêng cho các độ tuổi khác nhau"],
- "sy": ["對準|nhắm thẳng vào", "關於|về việc"],
- "mh": "Châm Đối → zhēnduì. ĐỌC: 'châm' → zhēn; 'đối' → duì. NGHĨA: 針 (cây kim nhọn) + 對 (寸 tay hướng về đối diện) → chĩa mũi kim thẳng vào một điểm.",
- "mk": "Khi dùng làm giới từ, cụm '針對...' đứng trước động từ chính (針對這件事做調查), không đặt sau động từ.",
- "vd": [{"t": "Hội thảo", "zh": "市政府針對老舊社區的都更問題提出了新的方案。", "vn": "Chính quyền thành phố đã đưa ra phương án mới nhằm giải quyết vấn đề chỉnh trang các khu dân cư cũ."},
-  {"t": "Giao tiếp", "zh": "我只是就事論事，並不是故意針對你。", "vn": "Tôi chỉ bàn đúng vào sự việc thôi, hoàn toàn không cố ý nhắm vào bạn."},
-  {"t": "Tiếp thị", "zh": "這家飲料店針對上班族推出了買一送一的優惠。", "vn": "Quán đồ uống này tung ra ưu đãi mua một tặng một nhắm vào giới văn phòng."}]},
-"爭": {"vn": "tranh; giành; tranh cãi; cố gắng", "ng": ["(động từ) tranh giành, ganh đua để có được", "(động từ) tranh luận, cãi nhau"],
- "us": "Thường đi kèm tân ngữ (爭一口氣, 爭第一) hoặc trong cụm tách hợp 爭什麼 (tranh cãi cái gì). Hay kết hợp thành 爭取, 競爭, 爭吵.", "co": ["爭一口氣|cố gắng chứng tỏ bản thân", "爭第一|tranh hạng nhất", "爭吵|cãi vã", "爭先恐後|tranh nhau đi trước sợ tụt lại"],
- "sy": ["搶|giành giật", "奪|đoạt lấy"],
- "an": ["讓|nhường"],
- "mh": "Tranh → zhēng. ĐỌC: 'tranh' → zhēng (thanh 1). NGHĨA: 爫 (bàn tay trên) + 彐 (bàn tay dưới) + 亅 (vật ở giữa) → hai tay giằng co giành một vật.",
- "vd": [{"t": "Thể thao", "zh": "兩支隊伍為了爭總冠軍，在場上拚盡了全力。", "vn": "Để tranh chức vô địch chung cuộc, hai đội đã dốc toàn lực trên sân."},
-  {"t": "Gia đình", "zh": "兄妹倆常為了一點小事就爭個不停。", "vn": "Hai anh em thường cãi nhau không dứt chỉ vì chút chuyện nhỏ."},
-  {"t": "Động lực", "zh": "他出國留學就是想為自己爭一口氣。", "vn": "Anh ấy đi du học nước ngoài chính là muốn tự khẳng định bản thân một phen."}]},
-"睜": {"vn": "mở (mắt)", "ng": ["(động từ) mở (mắt)"],
- "us": "Chỉ dùng cho mắt: 睜開眼睛 (mở mắt ra), 睜大眼睛 (mở to mắt), 睜一隻眼閉一隻眼 (nhắm một mắt mở một mắt = làm ngơ). Không dùng để mở cửa hay mở hộp.", "co": ["睜開眼睛|mở mắt ra", "睜大眼睛|mở to mắt", "睜一隻眼閉一隻眼|mắt nhắm mắt mở, làm ngơ"],
- "an": ["閉|nhắm (mắt)", "合|khép lại"],
- "cf": ["開|mở (cửa, đèn, xe...)"],
- "mh": "Tĩnh → zhēng. ĐỌC: Hán Việt 'tĩnh' nhưng đọc zhēng theo thanh phù 爭 (cùng âm với 爭). NGHĨA: 目 (mắt) + 爭 (kéo mở ra) → mở to mí mắt.",
- "mk": "Người Việt hay dịch 'mở mắt' thành *開眼睛 — sai! Phải nói 睜開眼睛 hoặc 張開眼睛.",
- "vd": [{"t": "Buổi sáng", "zh": "每天早上鬧鐘一響，我都捨不得睜開眼睛。", "vn": "Mỗi sáng hễ chuông báo thức reo, tôi đều không nỡ mở mắt ra."},
-  {"t": "Bất ngờ", "zh": "聽到這個好消息，他驚訝得睜大了雙眼。", "vn": "Nghe thấy tin vui này, anh ấy kinh ngạc đến mức mở to hai mắt."},
-  {"t": "Quản lý", "zh": "有時候主管對小錯也會睜一隻眼閉一隻眼。", "vn": "Đôi khi cấp trên cũng nhắm mắt làm ngơ trước những lỗi nhỏ."}]},
-"政策": {"vn": "chính sách", "ng": ["(danh từ) chính sách (của nhà nước, chính phủ, công ty)"],
- "us": "Thường đi với 制定 (đề ra), 推行 / 實施 (triển khai/thực thi), 調整 (điều chỉnh), 符合 (phù hợp).", "co": ["政府政策|chính sách chính phủ", "實施政策|thực thi chính sách", "環保政策|chính sách bảo vệ môi trường", "優惠政策|chính sách ưu đãi"],
- "sy": ["方針|phương châm", "措施|biện pháp"],
- "mh": "Chính Sách → zhèngcè. ĐỌC: 'chính' → zhèng; 'sách' → cè. NGHĨA: 政 (正 ngay thẳng + 攵 chỉnh đốn) + 策 (⺮ thẻ tre + 朿 → thẻ tre ghi kế sách) → đường lối trị nước.",
- "tw": "Ở Đài Loan hay bàn về 少子化政策 (chính sách đối phó tỷ lệ sinh thấp), 育兒津貼政策 (chính sách trợ cấp nuôi con).",
- "vd": [{"t": "Đời sống", "zh": "政府最近推出新的租屋補助政策，減輕年輕人的負擔。", "vn": "Chính phủ gần đây tung ra chính sách trợ cấp thuê nhà mới, giảm nhẹ gánh nặng cho người trẻ."},
-  {"t": "Môi trường", "zh": "為了配合環保政策，超商不再免費提供塑膠袋。", "vn": "Để phối hợp với chính sách bảo vệ môi trường, cửa hàng tiện lợi không còn phát túi ni-lông miễn phí nữa."},
-  {"t": "Doanh nghiệp", "zh": "這家公司的休假政策相當有彈性。", "vn": "Chính sách nghỉ phép của công ty này khá linh hoạt."}]},
-"政黨": {"vn": "chính đảng; đảng chính trị", "ng": ["(danh từ) chính đảng, đảng phái chính trị"],
- "us": "Dùng trong ngữ cảnh chính trị, bầu cử. Lượng từ 個.", "co": ["政黨輪替|luân phiên nắm quyền giữa các chính đảng", "在野黨|đảng đối lập", "執政黨|đảng cầm quyền"],
- "sy": ["黨派|đảng phái"],
- "mh": "Chính Đảng → zhèngdǎng. ĐỌC: 'chính' → zhèng; 'đảng' → dǎng (thanh 3). NGHĨA: 政 (正 + 攵 việc công) + 黨 (尚 thanh phù + 黑 → nhóm người tụ họp) → tổ chức chính trị.",
- "tw": "Trong bầu cử ở Đài Loan, các kênh tin tức rất hay nhắc đến cụm 政黨輪替 (đảng phái thay phiên cầm quyền) và 政黨票 (phiếu bầu cho chính đảng).",
- "vd": [{"t": "Tin tức", "zh": "每到選舉前夕，各個政黨都會舉辦大型造勢晚會。", "vn": "Cứ đến trước thềm bầu cử, các chính đảng đều tổ chức đêm vận động quy mô lớn."},
-  {"t": "Xã hội", "zh": "民主國家的特色之一就是允許不同政黨公平競爭。", "vn": "Một trong những đặc trưng của quốc gia dân chủ là cho phép các chính đảng khác nhau cạnh tranh công bằng."},
-  {"t": "Thảo luận", "zh": "台灣實施民主選舉後，已經經歷過幾次政黨輪替。", "vn": "Sau khi Đài Loan thực hiện bầu cử dân chủ, đã trải qua vài lần luân phiên nắm quyền giữa các chính đảng."}]},
-"正方形": {"vn": "hình vuông", "ng": ["(danh từ) hình vuông"],
- "us": "Dùng làm danh từ hoặc bổ nghĩa (正方形的桌子). Có thể nói gọn là 正方.", "co": ["正方形的盒子|cái hộp hình vuông", "畫一個正方形|vẽ một hình vuông"],
- "sy": ["四方形|hình tứ giác vuông vức"],
- "an": ["長方形|hình chữ nhật", "圓形|hình tròn"],
- "mh": "Chính Phương Hình → zhèngfāngxíng. ĐỌC: 'chính' → zhèng; 'phương' → fāng; 'hình' → xíng. NGHĨA: 正 (ngay ngắn bằng nhau) + 方 (vuông vắn) + 形 (开 khung + 彡 nét vẽ → hình dạng) → hình bốn cạnh đều vuông góc.",
- "vd": [{"t": "Toán học", "zh": "老師教學生怎麼計算正方形的面積和周長。", "vn": "Giáo viên dạy học sinh cách tính diện tích và chu vi của hình vuông."},
-  {"t": "Mua sắm", "zh": "我比較喜歡正方形的餐桌，擺在客廳剛剛好。", "vn": "Tôi thích bàn ăn hình vuông hơn, đặt ở phòng khách vừa vặn luôn."},
-  {"t": "Thủ công", "zh": "折紙鶴之前，要先準備一張正方形的色紙。", "vn": "Trước khi gấp hạc giấy, phải chuẩn bị sẵn một tờ giấy màu hình vuông."}]},
-"政府": {"vn": "chính phủ", "ng": ["(danh từ) chính phủ, nhà nước, cơ quan hành chính công"],
- "us": "Dùng cho cấp trung ương (中央政府) lẫn địa phương (市政府, 縣政府). Lượng từ 個.", "co": ["中央政府|chính phủ trung ương", "市政府|chính quyền thành phố", "政府部門|cơ quan chính phủ", "政府補助|trợ cấp của chính phủ"],
- "sy": ["官方|phía chính quyền, nhà nước"],
- "an": ["民間|dân gian, tư nhân"],
- "mh": "Chính Phủ → zhèngfǔ. ĐỌC: 'chính' → zhèng; 'phủ' → fǔ. NGHĨA: 政 (việc trị nước) + 府 (广 mái nhà lớn + 付 → phủ đường làm việc) → cơ quan điều hành đất nước.",
- "tw": "Ở Đài Loan hay gọi chính quyền thành phố là 市政府 (ví dụ 台北市政府) và gọi công chức là 公務員 hoặc 政府員工.",
- "vd": [{"t": "Hành chính", "zh": "我們今天要去市政府辦理居留證的相關手續。", "vn": "Hôm nay chúng tôi phải đến chính quyền thành phố làm thủ tục liên quan đến thẻ cư trú."},
-  {"t": "Kinh tế", "zh": "政府希望透過減稅來吸引更多外資來台投資。", "vn": "Chính phủ hy vọng thông qua giảm thuế để thu hút thêm vốn ngoại đến Đài Loan đầu tư."},
-  {"t": "Khẩn cấp", "zh": "颱風過後，政府派出了許多人力協助清理街道。", "vn": "Sau cơn bão, chính phủ đã điều động rất nhiều nhân lực hỗ trợ dọn dẹp đường phố."}]},
-"正規": {"vn": "chính quy; đúng quy chuẩn", "ng": ["(tính từ) chính quy, bài bản, đúng quy trình và tiêu chuẩn"],
- "us": "Thường làm định ngữ đứng trước danh từ (正規管道, 正規教育, 正規訓練). Ít đứng một mình làm vị ngữ với 很.", "co": ["正規管道|kênh chính thống", "正規訓練|huấn luyện bài bản", "正規教育|giáo dục chính quy", "正規軍|quân chính quy"],
- "sy": ["正式|chính thức", "合法|hợp pháp"],
- "an": ["非正規|phi chính quy", "山寨|hàng nhái, không chính thống"],
- "mh": "Chính Quy → zhèngguī. ĐỌC: 'chính' → zhèng; 'quy' → guī. NGHĨA: 正 (ngay ngắn) + 規 (夫 thước + 見 nhìn → khuôn phép, chuẩn mực) → đúng theo quy chuẩn.",
- "tw": "Khi chuyển tiền hay mua vé ở Đài Loan, cơ quan chức năng (và đường dây chống lừa đảo 165) luôn nhắc dùng 正規管道 (kênh chính thống) để tránh bị lừa.",
- "vd": [{"t": "An toàn", "zh": "買演唱會門票一定要透過正規管道，才不會被詐騙。", "vn": "Mua vé concert nhất định phải qua kênh chính thống thì mới không bị lừa đảo."},
-  {"t": "Nghề nghiệp", "zh": "這批救援犬都受過非常嚴格的正規訓練。", "vn": "Lứa chó cứu hộ này đều đã trải qua khóa huấn luyện chính quy vô cùng nghiêm ngặt."},
-  {"t": "Học tập", "zh": "他雖然沒有受過正規的音樂教育，卻很有創作天分。", "vn": "Tuy anh ấy chưa từng được đào tạo âm nhạc chính quy, nhưng lại rất có năng khiếu sáng tác."}]},
-"證件": {"vn": "giấy tờ (tùy thân, chứng nhận)", "ng": ["(danh từ) giấy tờ tùy thân, chứng minh thư, giấy chứng nhận"],
- "us": "Từ gọi chung cho các loại thẻ/giấy tờ như 身分證 (CCCD), 居留證 (thẻ cư trú), 護照 (hộ chiếu), 健保卡 (thẻ BHYT), 駕照 (bằng lái). Lượng từ 張 hoặc 個.", "co": ["身分證件|giấy tờ tùy thân", "帶證件|mang theo giấy tờ", "出示證件|xuất trình giấy tờ", "補辦證件|làm lại giấy tờ"],
- "sy": ["證書|chứng chỉ, văn bằng"],
- "mh": "Chứng Kiện → zhèngjiàn. ĐỌC: 'chứng' → zhèng; 'kiện' → jiàn. NGHĨA: 證 (言 lời nói xác nhận + 登) + 件 (亻 người + 牛 → từng món riêng) → giấy tờ dùng để chứng minh danh tính.",
- "tw": "Ở Đài Loan làm thủ tục ngân hàng, bưu điện hay nhận hàng ở siêu thị tiện lợi đều thường phải 帶雙證件 (mang hai loại giấy tờ, ví dụ 居留證 + 護照 hoặc 健保卡).",
- "vd": [{"t": "Ngân hàng", "zh": "去銀行開戶記得要帶齊雙證件和印章。", "vn": "Đi ngân hàng mở tài khoản nhớ mang đủ hai loại giấy tờ tùy thân và con dấu."},
-  {"t": "Nhận hàng", "zh": "在超商取貨如果不用付款，店員會請你出示證件。", "vn": "Nhận hàng tại cửa hàng tiện lợi nếu không cần thanh toán, nhân viên sẽ yêu cầu bạn xuất trình giấy tờ."},
-  {"t": "Du lịch", "zh": "出國前一定要再三檢查護照和相關證件有沒有帶好。", "vn": "Trước khi ra nước ngoài nhất định phải kiểm tra kỹ xem hộ chiếu và giấy tờ liên quan đã mang đủ chưa."}]},
-"整潔": {"vn": "gọn gàng sạch sẽ; chỉnh tề", "ng": ["(tính từ) gọn gàng và sạch sẽ, ngăn nắp (phòng ốc, quần áo, môi trường)"],
- "us": "Dùng cho không gian, trang phục, bài viết; có thể kết hợp 保持整潔 (giữ gìn sạch sẽ gọn gàng) hoặc làm vị ngữ 很整潔.", "co": ["保持整潔|giữ gìn sạch sẽ gọn gàng", "環境整潔|môi trường sạch sẽ", "儀容整潔|diện mạo chỉnh tề", "整潔比賽|thi đua vệ sinh lớp học"],
- "sy": ["乾淨|sạch sẽ", "整齊|ngăn nắp"],
- "an": ["雜亂|bừa bộn", "髒亂|bẩn thỉu lộn xộn"],
- "mh": "Chỉnh Khiết → zhěngjié. ĐỌC: 'chỉnh' → zhěng (thanh 3); 'khiết' → jié (thanh 2). NGHĨA: 整 (chỉnh đốn ngay ngắn) + 潔 (氵 nước rửa tinh khiết) → vừa ngay ngắn vừa sạch sẽ.",
- "tw": "Trong trường học ở Đài Loan, mỗi tuần đều có 整潔比賽 (cuộc thi giữ gìn vệ sinh gọn gàng giữa các lớp).",
- "vd": [{"t": "Thuê nhà", "zh": "這間套房雖然不大，但是採光很好，看起來非常整潔。", "vn": "Căn phòng khép kín này tuy không lớn nhưng ánh sáng rất tốt, trông vô cùng gọn gàng sạch sẽ."},
-  {"t": "Phỏng vấn", "zh": "面試的時候，穿著整潔大方能給人留下好印象。", "vn": "Khi đi phỏng vấn, ăn mặc chỉnh tề lịch sự có thể để lại ấn tượng tốt cho người khác."},
-  {"t": "Công cộng", "zh": "維持捷運車廂的整潔需要每位乘客一起配合。", "vn": "Duy trì sự sạch sẽ của toa tàu điện ngầm cần mỗi hành khách cùng hợp tác."}]},
-"正經": {"vn": "đứng đắn; nghiêm túc; đoan chính", "ng": ["(tính từ) đứng đắn, nghiêm túc, đàng hoàng (thái độ, lời nói, công việc)", "(phó từ) một cách nghiêm túc, đàng hoàng (thường dùng với 沒個正經, 正經八百)"],
- "us": "Thường dùng ở dạng phủ định 不正經 (không đứng đắn, cợt nhả), 沒個正經 (chẳng nghiêm túc gì cả), hoặc 開玩笑 vs 正經說.", "co": ["不正經|không đứng đắn, cợt nhả", "一本正經|vẻ mặt vô cùng nghiêm túc", "正經事|chuyện nghiêm túc, việc chính đáng", "正經八百|nghiêm túc thái quá"],
- "sy": ["嚴肅|nghiêm túc", "認真|chăm chỉ, nghiêm túc"],
- "an": ["輕浮|khinh suất, lả lơi", "不正經|không đứng đắn"],
- "mh": "Chính Kinh → zhèngjīng. ĐỌC: 'chính' → zhèng; 'kinh' → jīng (không đọc thanh nhẹ trong từ này ở Đài Loan chuẩn, đôi khi nói nhanh thành zhèngjing). NGHĨA: 正 (ngay thẳng) + 經 (糹 tơ + 巠 khung dệt dọc → sợi dọc chuẩn mực) → ngay thẳng đúng mực.",
- "lt": "Bẫy Hán Việt: 正經 không có nghĩa là 'kinh điển' mà là 'đứng đắn, nghiêm túc'.",
- "vd": [{"t": "Bạn bè", "zh": "他平常愛開玩笑，但談到正經事的時候非常可靠。", "vn": "Bình thường anh ấy thích đùa, nhưng lúc bàn đến việc nghiêm túc thì rất đáng tin cậy."},
-  {"t": "Hài hước", "zh": "你別老是沒個正經，趕快把這份報告寫完吧！", "vn": "Bạn đừng có lúc nào cũng cợt nhả thế, mau viết xong bản báo cáo này đi!"},
-  {"t": "Biểu cảm", "zh": "他一本正經地講了一個冷笑話，害大家都忍俊不禁。", "vn": "Anh ấy giữ vẻ mặt cực kỳ nghiêm túc kể một câu chuyện cười nhạt, làm mọi người đều không nhịn được cười."}]},
-"證據": {"vn": "chứng cứ; bằng chứng", "ng": ["(danh từ) chứng cứ, bằng chứng (pháp lý, khoa học, đời sống)"],
- "us": "Hay đi với 找 / 蒐集 (thu thập), 提出 / 出示 (đưa ra), 缺乏 (thiếu), 確鑿 (xác đáng). Lượng từ 項 hoặc 份.", "co": ["收集證據|thu thập bằng chứng", "提出證據|đưa ra chứng cứ", "缺乏證據|thiếu bằng chứng", "有力證據|bằng chứng thuyết phục"],
- "sy": ["憑證|chứng từ", "線索|manh mối"],
- "mh": "Chứng Cứ → zhèngjù. ĐỌC: 'chứng' → zhèng; 'cứ' → jù. NGHĨA: 證 (言 lời nói xác chứng) + 據 (扌 tay nắm giữ căn cứ) → vật hoặc lời nói nắm được để làm bằng chứng.",
- "tw": "Khi gặp lừa đảo hoặc tai nạn giao thông ở Đài Loan, cảnh sát (110) và đường dây 165 luôn dặn phải 保留證據 (giữ lại bằng chứng như ảnh chụp màn hình, hóa đơn chuyển khoản).",
- "vd": [{"t": "Pháp luật", "zh": "警方經過幾個月的調查，終於掌握了關鍵證據。", "vn": "Sau mấy tháng điều tra, cảnh sát cuối cùng đã nắm được chứng cứ then chốt."},
-  {"t": "Tranh cãi", "zh": "說話要講究證據，不能隨便懷疑別人。", "vn": "Nói chuyện phải có bằng chứng đàng hoàng, không thể tùy tiện nghi ngờ người khác."},
-  {"t": "An toàn mạng", "zh": "如果遇到網路詐騙，請務必截圖保存證據再報警。", "vn": "Nếu gặp lừa đảo qua mạng, xin nhất định chụp màn hình lưu giữ bằng chứng rồi báo cảnh sát."}]},
-"爭論": {"vn": "tranh luận; cãi nhau; cuộc tranh luận", "ng": ["(động từ) tranh luận, tranh cãi về một vấn đề", "(danh từ) cuộc tranh luận, sự tranh cãi"],
- "us": "Thường dùng với 為 + [vấn đề] + 爭論 hoặc 引起爭論 (gây ra tranh luận). Lượng từ 場 hoặc 次.", "co": ["引起爭論|gây ra tranh luận", "激烈爭論|tranh luận gay gắt", "爭論不休|tranh luận không dứt", "無謂的爭論|tranh cãi vô ích"],
- "sy": ["辯論|tranh biện (trang trọng, có quy tắc)", "爭執|tranh chấp, đôi co"],
- "an": ["共識|đồng thuận", "妥協|thỏa hiệp"],
- "mh": "Tranh Luận → zhēnglùn. ĐỌC: 'tranh' → zhēng; 'luận' → lùn. NGHĨA: 爭 (hai tay giằng co) + 論 (言 lời nói + 侖 lý lẽ) → dùng lý lẽ giằng co với nhau.",
- "vd": [{"t": "Văn phòng", "zh": "大家針對這個企劃案的預算爭論了一個下午，還是沒有結論。", "vn": "Mọi người tranh luận cả buổi chiều về ngân sách của bản kế hoạch này mà vẫn chưa có kết luận."},
-  {"t": "Xã hội", "zh": "這項新規定一公布，立刻在網路上引起熱烈的爭論。", "vn": "Quy định mới này vừa công bố đã lập tức gây ra cuộc tranh luận sôi nổi trên mạng."},
-  {"t": "Học thuật", "zh": "歷史學者對這段史料的真實性一直有所爭論。", "vn": "Các nhà sử học xưa nay vẫn có sự tranh luận về tính xác thực của đoạn sử liệu này."}]},
-"正面": {"vn": "mặt trước; mặt chính; tích cực; trực diện", "ng": ["(danh từ) mặt trước, mặt chính, mặt phải (của vật, tòa nhà, tờ giấy)", "(tính từ) tích cực, mang tính xây dựng (thái độ, ảnh hưởng)", "(phó từ/tính từ) trực diện, đối mặt thẳng thắn"],
- "us": "Nghĩa bóng (tích cực) rất hay dùng ở B2: 正面思考 (suy nghĩ tích cực), 正面影響 (ảnh hưởng tích cực), 正面回應 (phản hồi trực diện).", "co": ["正面思考|tư duy tích cực", "正面影響|ảnh hưởng tích cực", "正面回應|phản hồi trực diện", "正反兩面|hai mặt trái phải"],
- "sy": ["積極|tích cực", "表面|bề mặt"],
- "an": ["反面|mặt trái, phản diện", "負面|tiêu cực"],
- "mh": "Chính Diện → zhèngmiàn. ĐỌC: 'chính' → zhèng; 'diện' → miàn. NGHĨA: 正 (ngay ngắn, đúng) + 面 (khuôn mặt, bề mặt) → mặt hướng thẳng ra phía trước.",
- "vd": [{"t": "Thủ tục", "zh": "請在申請表的正面簽名，背面不用寫。", "vn": "Vui lòng ký tên ở mặt trước của đơn đăng ký, mặt sau không cần viết."},
-  {"t": "Tâm lý", "zh": "遇到挫折時，保持正面的態度能幫助我們更快走出來。", "vn": "Khi gặp trắc trở, giữ thái độ tích cực có thể giúp chúng ta vượt qua nhanh hơn."},
-  {"t": "Truyền thông", "zh": "面對記者的提問，部長並沒有正面回答。", "vn": "Đối mặt với câu hỏi của phóng viên, bộ trưởng đã không trả lời trực diện."}]},
-"徵求": {"vn": "trưng cầu; xin (ý kiến); kêu gọi / tuyển", "ng": ["(động từ) trưng cầu, hỏi xin (ý kiến, sự đồng ý)", "(động từ) kêu gọi đóng góp, tìm kiếm, tuyển dụng (nhân tài, bài viết, người tình nguyện)"],
- "us": "Thường đi với tân ngữ trừu tượng hoặc người: 徵求意見 (xin ý kiến), 徵求同意 (xin sự đồng ý), 徵求志工 (tuyển tình nguyện viên).", "co": ["徵求意見|trưng cầu ý kiến", "徵求同意|xin sự đồng ý", "徵求志工|tuyển tình nguyện viên", "徵求建議|lắng nghe góp ý"],
- "sy": ["尋求|tìm kiếm", "招募|chiêu mộ, tuyển"],
- "cf": ["要求|yêu cầu (mạnh hơn, mang tính bắt buộc)"],
- "mh": "Trưng Cầu → zhēngqiú. ĐỌC: 'trưng' → zhēng; 'cầu' → qiú. NGHĨA: 徵 (彳 bước đi trưng gọi) + 求 (tìm kiếm, cầu xin) → đi tìm và mời gọi/xin ý kiến.",
- "vd": [{"t": "Gia đình", "zh": "做這個重大決定之前，我得先徵求家人的同意。", "vn": "Trước khi đưa ra quyết định quan trọng này, tôi phải xin ý kiến đồng ý của người nhà trước đã."},
-  {"t": "Cộng đồng", "zh": "動物之家正在徵求週末幫忙遛狗的志工。", "vn": "Trạm cứu hộ động vật đang tuyển tình nguyện viên giúp dắt chó đi dạo vào cuối tuần."},
-  {"t": "Thiết kế", "zh": "這家餐廳在網路上徵求新菜單的創意點子。", "vn": "Nhà hàng này đang kêu gọi các ý tưởng sáng tạo cho thực đơn mới trên mạng."}]},
-"爭取": {"vn": "tranh thủ; nỗ lực giành lấy; phấn đấu đạt được", "ng": ["(động từ) đấu tranh, nỗ lực để giành lấy hoặc đạt được (cơ hội, quyền lợi, thời gian, thắng lợi)", "(động từ) lôi kéo, tranh thủ sự ủng hộ của ai đó"],
- "us": "Theo sau là mục tiêu cần nỗ lực đạt được: 爭取機會 (giành cơ hội), 爭取權益 (đấu tranh quyền lợi), 爭取時間 (tranh thủ thời gian để cứu vãn/chuẩn bị), 爭取選票 (vận động phiếu bầu).", "co": ["爭取機會|giành lấy cơ hội", "爭取時間|tranh thủ thời gian", "爭取權益|đấu tranh cho quyền lợi", "爭取支持|tranh thủ sự ủng hộ"],
- "sy": ["力爭|cố sức giành lấy", "奮鬥|phấn đấu"],
- "an": ["放棄|từ bỏ"],
- "mh": "Tranh Thủ → zhēngqǔ. ĐỌC: 'tranh' → zhēng; 'thủ' → qǔ. NGHĨA: 爭 (giằng co nỗ lực) + 取 (又 tay + 耳 → nắm lấy) → ra sức nỗ lực để giành lấy.",
- "lt": "Bẫy Hán Việt: tiếng Việt hay nói 'tranh thủ đi siêu thị / tranh thủ ngủ chút' (= tận dụng lúc rảnh), nhưng tiếng Hoa không dùng 爭取 cho việc tận dụng thời gian rảnh mà dùng 趁空檔 / 利用時間. 爭取時間 là 'cố kéo dài/giành giật từng giây phút' (ví dụ cấp cứu).",
- "mk": "Tránh nói *爭取去買東西 khi muốn nói 'tranh thủ đi mua đồ'; hãy nói 趁空去買東西.",
- "vd": [{"t": "Học bổng", "zh": "她為了爭取這筆獎學金，這學期特別用功讀書。", "vn": "Để giành được suất học bổng này, học kỳ này cô ấy học hành đặc biệt chăm chỉ."},
-  {"t": "Công việc", "zh": "工會代表正努力替員工爭取更好的加班福利。", "vn": "Đại diện công đoàn đang nỗ lực đấu tranh giành phúc lợi tăng ca tốt hơn cho nhân viên."},
-  {"t": "Y tế", "zh": "學會基本的急救知識，能在救護車到達前為傷患爭取寶貴的時間。", "vn": "Học kiến thức sơ cứu cơ bản có thể giúp giành giật thời gian quý báu cho người bị nạn trước khi xe cứu thương tới."}]},
-"證實": {"vn": "chứng thực; xác nhận (là thật)", "ng": ["(động từ) chứng thực, xác nhận, kiểm chứng (tin tức, giả thuyết, sự việc là có thật)"],
- "us": "Dùng trong văn viết, báo chí, nghiên cứu: 已經證實 (đã xác nhận), 獲得證實 (được xác thực), 證實了這個傳聞 (xác nhận tin đồn này).", "co": ["獲得證實|được xác thực", "經證實|qua kiểm chứng xác nhận", "科學證實|khoa học chứng minh", "官方證實|phía chính quyền xác nhận"],
- "sy": ["確認|xác nhận", "證明|chứng minh"],
- "an": ["否認|phủ nhận", "闢謠|bác bỏ tin đồn"],
- "mh": "Chứng Thực → zhèngshí. ĐỌC: 'chứng' → zhèng; 'thực' → shí. NGHĨA: 證 (言 lời xác chứng) + 實 (宀 nhà + 貫 xâu tiền → thực chất chắc chắn) → xác nhận là sự thật.",
- "cf": ["證明|chứng minh (bằng lý lẽ/giấy tờ)", "確認|xác nhận (kiểm tra lại thông tin/lịch hẹn)"],
- "vd": [{"t": "Tin tức", "zh": "這項消息目前還沒有得到官方的證實，大家先別急著轉傳。", "vn": "Tin tức này hiện vẫn chưa được phía chính thức xác nhận, mọi người khoan vội chia sẻ lại."},
-  {"t": "Nghiên cứu", "zh": "最新的醫學研究證實，規律運動確實有助於改善睡眠。", "vn": "Nghiên cứu y học mới nhất đã chứng thực rằng vận động đều đặn quả thực giúp cải thiện giấc ngủ."},
-  {"t": "Thí nghiệm", "zh": "實驗結果證實了我們當初的推測是正確的。", "vn": "Kết quả thí nghiệm đã xác nhận suy đoán ban đầu của chúng tôi là chính xác."}]},
-"整數": {"vn": "số nguyên; số tròn", "ng": ["(danh từ) số nguyên (trong toán học, không có phần thập phân hay phân số)", "(danh từ) con số tròn (chẵn chục, trăm, nghìn...)"],
- "us": "Thường đối lập với 小數 (số thập phân) hoặc 分數 (phân số). Trong mua bán hay nói 湊個整數 (làm tròn số cho chẵn).", "co": ["正整數|số nguyên dương", "湊整數|làm tròn cho chẵn số", "給個整數|tính giá tròn số"],
- "an": ["小數|số thập phân", "分數|phân số", "零頭|tiền lẻ, phần lẻ"],
- "mh": "Chỉnh Số → zhěngshù. ĐỌC: 'chỉnh' → zhěng; 'số' → shù (thanh 4, danh từ 'con số'; không đọc shǔ 'đếm'). NGHĨA: 整 (trọn vẹn không lẻ) + 數 (con số) → con số nguyên vẹn.",
- "vd": [{"t": "Chợ đêm", "zh": "老闆人很好，把零頭去掉，只收我一個整數。", "vn": "Ông chủ rất tốt bụng, bỏ phần tiền lẻ đi, chỉ lấy tôi một con số tròn."},
-  {"t": "Toán học", "zh": "老師在黑板上舉例說明什麼是整數、什麼是小數。", "vn": "Giáo viên viết ví dụ trên bảng để giải thích thế nào là số nguyên, thế nào là số thập phân."},
-  {"t": "Kế toán", "zh": "為了方便統計，請把報表裡的金額四捨五入取整數。", "vn": "Để tiện thống kê, xin hãy làm tròn các khoản tiền trong báo cáo thành số nguyên."}]},
-"整體": {"vn": "tổng thể; toàn thể; chỉnh thể", "ng": ["(danh từ) chỉnh thể, tổng thể, toàn bộ một hệ thống hoặc tập thể", "(tính từ/phó từ) mang tính tổng thể, nhìn chung (整體來說, 整體表現)"],
- "us": "Rất hay dùng cụm 整體而言 / 整體來說 (nhìn chung mà nói) ở đầu câu để tổng kết đánh giá.", "co": ["整體來說|nhìn chung mà nói", "整體表現|biểu hiện tổng thể", "整體規劃|quy hoạch tổng thể", "整體環境|môi trường chung"],
- "sy": ["全體|toàn thể (thường chỉ người)", "全部|toàn bộ"],
- "an": ["局部|cục bộ", "個別|cá biệt, riêng lẻ"],
- "mh": "Chỉnh Thể → zhěngtǐ. ĐỌC: 'chỉnh' → zhěng; 'thể' → tǐ. NGHĨA: 整 (nguyên vẹn) + 體 (骨 xương + 豊 → thân thể) → toàn bộ một cơ thể/hệ thống thống nhất.",
- "vd": [{"t": "Đánh giá", "zh": "這部電影雖然節奏有點慢，但整體來說還是很感人。", "vn": "Bộ phim này tuy tiết tấu hơi chậm, nhưng nhìn chung vẫn rất cảm động."},
-  {"t": "Kinh doanh", "zh": "裝潢重新設計之後，店裡的整體氣氛變得溫暖多了。", "vn": "Sau khi thiết kế lại nội thất, bầu không khí tổng thể trong quán trở nên ấm áp hơn hẳn."},
-  {"t": "Đội nhóm", "zh": "教練強調，籃球比賽講究的是團隊的整體配合。", "vn": "Huấn luyện viên nhấn mạnh rằng thi đấu bóng rổ coi trọng sự phối hợp tổng thể của cả đội."}]},
-"正月": {"vn": "tháng Giêng (tháng 1 âm lịch)", "ng": ["(danh từ) tháng Giêng, tháng đầu tiên trong năm âm lịch"],
- "us": "Dùng khi nói về Tết Nguyên đán, phong tục đầu năm âm lịch (ví dụ 正月初一 mùng 1 Tết, 正月十五 Rằm tháng Giêng / 元宵節).", "co": ["正月初一|mùng một tháng Giêng", "正月十五|rằm tháng Giêng", "農曆正月|tháng Giêng âm lịch"],
- "sy": ["一月|tháng Một (thường chỉ dương lịch)"],
- "mh": "Chính Nguyệt → Zhēngyuè. ĐỌC: Chú ý đa âm! 正 ở đây đọc zhēng (thanh 1), KHÔNG đọc zhèng; 月 → yuè. NGHĨA: 正 (đứng đầu/đầu năm) + 月 (mặt trăng → tháng) → tháng đầu tiên của năm âm lịch.",
- "lt": "Quy tắc đa âm: 正 đọc zhēng trong 正月 (tháng Giêng); các từ khác như 正常, 正在, 正確 đều đọc zhèng.",
- "mk": "Đừng đọc nhầm 正月 thành *zhèngyuè; người Đài Loan đọc rõ là zhēngyuè.",
- "tw": "Ở Đài Loan từ 正月初一 đến 正月初五 là dịp năm mới nhiều gia đình đi chùa cầu bình an (走春) và về nhà ngoại (初二回娘家).",
- "vd": [{"t": "Tết", "zh": "傳統習俗上，正月十五元宵節這天大家會吃湯圓、賞花燈。", "vn": "Theo phong tục truyền thống, ngày Rằm tháng Giêng Tết Nguyên tiêu mọi người sẽ ăn chè trôi nước và ngắm đèn lồng."},
-  {"t": "Phong tục", "zh": "很多台灣家庭在正月初二會回娘家吃團圓飯。", "vn": "Nhiều gia đình Đài Loan vào mùng hai tháng Giêng sẽ về nhà ngoại ăn bữa cơm sum họp."},
-  {"t": "Lịch âm", "zh": "農曆正月剛過，各地的廟會活動還是非常熱鬧。", "vn": "Tháng Giêng âm lịch vừa qua, các hoạt động lễ hội đền chùa ở khắp nơi vẫn vô cùng náo nhiệt."}]},
-"症狀": {"vn": "triệu chứng (bệnh)", "ng": ["(danh từ) triệu chứng (biểu hiện của bệnh tật)"],
- "us": "Thường đi với 出現 (xuất hiện), 減輕 / 緩解 (giảm nhẹ), 改善 (cải thiện), 類似 (tương tự). Lượng từ 種.", "co": ["感冒症狀|triệu chứng cảm cúm", "緩解症狀|giảm nhẹ triệu chứng", "出現症狀|xuất hiện triệu chứng", "輕微症狀|triệu chứng nhẹ"],
- "sy": ["病徵|dấu hiệu bệnh", "現象|hiện tượng"],
- "mh": "Chứng Trạng → zhèngzhuàng. ĐỌC: 'chứng' → zhèng; 'trạng' → zhuàng. NGHĨA: 症 (疒 bệnh tật + 正) + 狀 (爿 + 犬 → hình dáng, tình trạng) → biểu hiện tình trạng của bệnh.",
- "tw": "Khi đi khám ở phòng khám Đài Loan (診所), bác sĩ thường hỏi: 你最近有什麼症狀？ (Gần đây bạn có triệu chứng gì?).",
- "vd": [{"t": "Phòng khám", "zh": "醫生問我發燒、咳嗽這些症狀持續幾天了。", "vn": "Bác sĩ hỏi tôi những triệu chứng như sốt, ho này đã kéo dài mấy ngày rồi."},
-  {"t": "Sức khỏe", "zh": "吃藥主要是為了緩解過敏症狀，還是要找出過敏原才行。", "vn": "Uống thuốc chủ yếu là để giảm nhẹ triệu chứng dị ứng, vẫn phải tìm ra tác nhân gây dị ứng mới được."},
-  {"t": "Dịch bệnh", "zh": "如果出現發燒或喉嚨痛等症狀，建議戴上口罩並多休息。", "vn": "Nếu xuất hiện các triệu chứng như sốt hoặc đau họng, khuyên bạn nên đeo khẩu trang và nghỉ ngơi nhiều hơn."}]},
-"偵探": {"vn": "thám tử; trinh thám", "ng": ["(danh từ) thám tử, người chuyên điều tra vụ án hoặc tìm kiếm thông tin bí mật", "(tính từ/định ngữ) mang tính trinh thám (偵探小說, 偵探片)"],
- "us": "Thường dùng với 私人偵探 (thám tử tư) hoặc thể loại sách phim 偵探小說 (tiểu thuyết trinh thám). Lượng từ 位 hoặc 名.", "co": ["私人偵探|thám tử tư", "偵探小說|tiểu thuyết trinh thám", "名偵探|thám tử lừng danh"],
- "sy": ["調查員|điều tra viên"],
- "mh": "Trinh Thám → zhēntàn. ĐỌC: 'trinh' → zhēn (thanh 1); 'thám' → tàn (thanh 4). NGHĨA: 偵 (亻 người + 貞 → người đi dò xét) + 探 (扌 tay dò tìm vào chỗ sâu) → người điều tra tìm manh mối.",
- "tw": "Ở Đài Loan giới trẻ và trẻ em rất quen thuộc với bộ truyện/phim 名偵探柯南 (Thám tử lừng danh Conan).",
- "vd": [{"t": "Đọc sách", "zh": "我從小就非常喜歡看偵探小說，常常跟著主角一起推理。", "vn": "Tôi từ nhỏ đã rất thích đọc tiểu thuyết trinh thám, thường suy luận theo nhân vật chính."},
-  {"t": "Phim ảnh", "zh": "這部偵探電影的結局出乎意料，網路上討論度超高。", "vn": "Cái kết của bộ phim trinh thám này ngoài sức tưởng tượng, độ thảo luận trên mạng cực kỳ cao."},
-  {"t": "Nghề nghiệp", "zh": "電影裡的私人偵探只憑一張舊照片就順利查出關鍵人物。", "vn": "Thám tử tư trong phim chỉ dựa vào một tấm ảnh cũ đã thuận lợi tra ra được nhân vật then chốt."}]},
-"珍惜": {"vn": "trân trọng; quý trọng; nâng niu", "ng": ["(động từ) trân trọng, quý trọng, nâng niu (thời gian, tình cảm, cơ hội, tài nguyên)"],
- "us": "Thường theo sau là danh từ trừu tượng: 珍惜時間, 珍惜機會, 珍惜彼此, 珍惜生命. Có thể thêm phó từ mức độ: 很珍惜, 好好珍惜.", "co": ["珍惜時間|trân trọng thời gian", "珍惜機會|trân trọng cơ hội", "珍惜眼前人|trân trọng người trước mắt", "珍惜資源|tiết kiệm quý trọng tài nguyên"],
- "sy": ["愛惜|yêu quý, giữ gìn", "珍重|trân trọng"],
- "an": ["浪費|lãng phí", "糟蹋|phí hoài, phá hỏng"],
- "mh": "Trân Tích → zhēnxí. ĐỌC: 'trân' → zhēn; 'tích' → xí (thanh 2 theo chuẩn Đài Loan, đại lục hay đọc xī). NGHĨA: 珍 (王 ngọc quý + 彡) + 惜 (忄 lòng + 昔 → lòng luyến tiếc giữ gìn) → coi như ngọc quý mà giữ gìn.",
- "tw": "Phát âm chuẩn ở Đài Loan (教育部國語辭典) là zhēnxí (惜 thanh 2), khác với đại lục đọc zhēnxī (thanh 1).",
- "vd": [{"t": "Tình cảm", "zh": "經歷過那場意外後，他更加珍惜和家人相聚的時光。", "vn": "Sau khi trải qua tai nạn đó, anh ấy càng trân trọng hơn khoảng thời gian sum vầy bên gia đình."},
-  {"t": "Công việc", "zh": "這份工作機會很難得，你一定要好好珍惜。", "vn": "Cơ hội việc làm này rất khó có được, bạn nhất định phải trân trọng cho tốt."},
-  {"t": "Tài nguyên", "zh": "台灣雖然常下雨，但大家還是要養成珍惜水資源的習慣。", "vn": "Đài Loan tuy hay mưa, nhưng mọi người vẫn phải tập thói quen trân trọng nguồn nước."}]},
-"珍珠": {"vn": "trân châu; ngọc trai", "ng": ["(danh từ) ngọc trai, hạt trân châu tự nhiên", "(danh từ) hạt trân châu (làm từ bột sắn trong trà sữa Đài Loan)"],
- "us": "Nghĩa ngọc trai dùng lượng từ 顆 hoặc 串 (一串珍珠項鍊). Ở Đài Loan nghĩa phổ biến hằng ngày nhất là trân châu trong trà sữa (珍珠奶茶, viết tắt 珍奶).", "co": ["珍珠奶茶|trà sữa trân châu", "珍珠項鍊|vòng cổ ngọc trai", "黑糖珍珠|trân châu đường đen", "養殖珍珠|ngọc trai nuôi cấy"],
- "mh": "Trân Châu → zhēnzhū. ĐỌC: 'trân' → zhēn; 'châu' → zhū. NGHĨA: 珍 (王 ngọc quý) + 珠 (王 ngọc + 朱 → hạt ngọc tròn) → hạt ngọc trai quý giá.",
- "tw": "Ở tiệm trà sữa Đài Loan, hạt trân châu to thường gọi là 波霸 (boba) còn hạt nhỏ hơn gọi là 珍珠 (zhēnzhū); ngoài ra 珍珠奶茶 còn gọi tắt là 珍奶.",
- "vd": [{"t": "Đồ uống", "zh": "來台灣玩的外國朋友，幾乎每天都要喝一杯珍珠奶茶。", "vn": "Bạn bè nước ngoài đến Đài Loan chơi hầu như ngày nào cũng phải uống một ly trà sữa trân châu."},
-  {"t": "Trang sức", "zh": "媽媽把那條珍珠項鍊收在盒子裡，只有重要場合才戴。", "vn": "Mẹ cất chiếc vòng cổ ngọc trai đó trong hộp, chỉ dịp quan trọng mới đeo."},
-  {"t": "Quán trà", "zh": "老闆，我要一杯半糖少冰的紅茶拿鐵加珍珠。", "vn": "Ông chủ ơi, cho tôi một ly hồng trà latte ít đường ít đá thêm trân châu."}]},
-"陣子": {"vn": "một dạo; khoảng thời gian; một lúc", "ng": ["(danh từ) khoảng thời gian, một dạo (thường dùng với 一陣子, 這陣子, 前一陣子, 那陣子)"],
- "us": "Ít khi đứng một mình; hầu như luôn đi với định từ: 一陣子 (một thời gian, một dạo), 這陣子 (dạo này), 前陣子 (dạo trước), 好一陣子 (một thời gian khá lâu).", "co": ["這陣子|dạo này", "前一陣子|dạo trước", "過一陣子|qua một thời gian nữa", "好一陣子|một dạo khá lâu"],
- "sy": ["一段時間|một khoảng thời gian", "最近|gần đây"],
- "mh": "Trận Tử → zhènzi. ĐỌC: 'trận' → zhèn; 'tử' → zi (thanh nhẹ). NGHĨA: 陣 (阝 đồi/thành + 車 chiến xa → một đợt/một trận) + 子 (hậu tố danh từ) → một đợt thời gian.",
- "tw": "Trong khẩu ngữ Đài Loan, người ta rất hay dùng 這陣子 (dạo này) và 前陣子 (dạo trước) thay cho 最近 nghe rất tự nhiên.",
- "vd": [{"t": "Hỏi thăm", "zh": "這陣子天氣變化大，出門記得多帶一件外套。", "vn": "Dạo này thời tiết thay đổi nhiều, ra ngoài nhớ mang thêm một chiếc áo khoác."},
-  {"t": "Công việc", "zh": "前一陣子我忙著準備考試，幾乎沒時間跟朋友見面。", "vn": "Dạo trước tôi bận ôn thi, hầu như không có thời gian gặp mặt bạn bè."},
-  {"t": "Kế hoạch", "zh": "我剛換新工作，等過一陣子穩定了再約你吃飯。", "vn": "Tôi vừa đổi việc mới, đợi qua một thời gian nữa ổn định rồi hẹn bạn đi ăn sau nhé."}]},
-"止": {"vn": "dừng; ngừng; đến mức", "ng": ["(động từ) dừng lại, ngừng, chấm dứt (止步, 止血, 止痛)", "(động từ) ngăn chặn, cấm (禁止, 制止)", "(giới từ/phó từ) đến, cho đến (到此為止, 不止)"],
- "us": "Thường xuất hiện trong từ ghép hai âm tiết như 停止, 禁止, 制止, 止痛藥, 到此為止 (dừng lại tại đây).", "co": ["到此為止|dừng lại ở đây", "止痛藥|thuốc giảm đau", "止血|cầm máu", "不止一次|không chỉ một lần"],
- "sy": ["停|dừng", "禁|cấm"],
- "cf": ["只|chỉ (phó từ: chỉ có, không phải dừng lại)"],
- "mh": "Chỉ → zhǐ. ĐỌC: 'chỉ' → zhǐ (thanh 3). NGHĨA: chữ tượng hình bàn chân đặt xuống đất → dừng bước tại chỗ.",
- "lt": "Phân biệt 不止 (không dừng lại ở mức đó / không chỉ) và 不只 (không chỉ có - thường đi với 而且).",
- "vd": [{"t": "Hiệu thuốc", "zh": "我頭痛得受不了，先去藥局買一盒止痛藥吧。", "vn": "Tôi đau đầu chịu không nổi, đi hiệu thuốc mua một hộp thuốc giảm đau trước đi."},
-  {"t": "Cảnh báo", "zh": "這個施工區域非工作人員止步，請繞道而行。", "vn": "Khu vực thi công này người không phận sự miễn vào, xin vui lòng đi đường vòng."},
-  {"t": "Họp hành", "zh": "今天的討論就到此為止，剩下的問題我們明天再繼續。", "vn": "Cuộc thảo luận hôm nay xin dừng lại tại đây, các vấn đề còn lại ngày mai chúng ta tiếp tục."}]},
-"值": {"vn": "đáng; giá trị; trực ban; đúng dịp", "ng": ["(động từ) đáng giá, xứng đáng (值得, 不值一提)", "(danh từ) giá trị, trị số (價值, 數值)", "(động từ) trực ban, trực nhật (值班, 值日生)", "(động từ) gặp đúng lúc, đúng dịp (正值)"],
- "us": "Đứng một mình nghĩa 'đáng tiền/xứng đáng' (這件衣服不值這個價) hoặc 'trực ban' (今晚我值班). Trong giao tiếp B2 rất hay gặp 值得 (đáng) và 值班 (trực ca).", "co": ["值班|trực ca, trực ban", "值多少錢|đáng giá bao nhiêu tiền", "不值一提|không đáng nhắc tới", "正值夏季|đúng vào mùa hè"],
- "sy": ["值得|đáng", "輪值|luân phiên trực"],
- "mh": "Trị → zhí. ĐỌC: 'trị' → zhí (thanh 2). NGHĨA: 亻 (người) + 直 (ngay thẳng, ngang bằng) → người định giá công bằng, đối chiếu giá trị.",
- "tw": "Ở bệnh viện, công xưởng hay cửa hàng tiện lợi 24h tại Đài Loan, người làm ca đêm gọi là 值大夜班 (trực ca đêm khuya).",
- "vd": [{"t": "Công việc", "zh": "護理人員過年期間還要輪流值班，真的非常辛苦。", "vn": "Nhân viên điều dưỡng dịp Tết vẫn còn phải thay phiên nhau trực ca, thật sự vô cùng vất vả."},
-  {"t": "Mua sắm", "zh": "這家二手店把東西賣得太貴了，根本不值這個價錢。", "vn": "Tiệm đồ cũ này bán đồ đắt quá, hoàn toàn không đáng mức giá này."},
-  {"t": "Thời tiết", "zh": "現在正值梅雨季節，出門千萬別忘了帶傘。", "vn": "Hiện tại đúng vào mùa mưa phùn, ra ngoài tuyệt đối đừng quên mang ô."}]},
-"擲": {"vn": "ném; quăng; gieo (xí ngầu, quẻ)", "ng": ["(động từ) ném, quăng, liệng, thả (xí ngầu, vật thể, tiền xu)"],
- "us": "Ít dùng đơn lẻ trong khẩu ngữ thường ngày (thường nói 丟 hoặc 扔), nhưng hay dùng trong các cụm cố định như 擲骰子 (gieo xí ngầu), 擲筊 (gieo keo/quẻ gỗ ở chùa), 投擲 (ném/phóng).", "co": ["擲骰子|gieo xí ngầu", "擲筊|gieo quẻ âm dương ở miếu", "拋擲|ném đi", "孤注一擲|được ăn cả ngã về không"],
- "sy": ["丟|ném, vứt", "扔|quăng, ném", "投|ném, tung"],
- "mh": "Trịch → zhí. ĐỌC: 'trịch' → zhí (thanh 2 theo chuẩn Đài Loan; đại lục đọc zhì thanh 4). NGHĨA: 扌 (bàn tay) + 鄭 (thanh phù) → dùng tay ném vật ra xa.",
- "tw": "Chuẩn phát âm ở Đài Loan là thanh 2 (zhí), như trong 擲筊 (gieo quẻ gỗ hình trăng khuyết ở đền miếu Đài Loan, người Đài hay đọc theo tiếng Đài là bó-bue hoặc đọc phổ thông zhíjiǎo) và 擲骰子 (zhí shǎizi, chơi đổ xí ngầu ăn xúc xích nướng ở chợ đêm).",
- "vd": [{"t": "Văn hóa Đài", "zh": "去台灣的廟宇拜拜時，信徒常會擲筊請示神明。", "py": "Qù Táiwān de miàoyǔ bàibài shí, xìntú cháng huì zhíjiǎo qǐngshì shénmíng.", "vn": "Khi đi lễ ở các đền miếu Đài Loan, tín đồ thường gieo quẻ âm dương để thỉnh ý thần linh."},
-  {"t": "Chợ đêm", "zh": "以前台灣夜市的香腸攤常常可以看到客人跟老闆擲骰子比大小。", "py": "Yǐqián Táiwān yèshì de xiāngcháng tān chángcháng kěyǐ kàndào kèrén gēn lǎobǎn zhí shǎizi bǐ dàxiǎo.", "vn": "Trước đây ở các sạp xúc xích chợ đêm Đài Loan thường thấy khách và chủ quán tung xí ngầu so điểm lớn nhỏ."},
-  {"t": "Thể thao", "zh": "體育課時，老師指導大家如何正確投擲鉛球。", "py": "Tǐyùkè shí, lǎoshī zhǐdǎo dàjiā rúhé zhèngquè tóuzhí qiānqiú.", "vn": "Trong giờ thể dục, thầy giáo hướng dẫn mọi người cách đẩy/ném tạ cho đúng kỹ thuật."}]}
-}}
+{
+ "tu": {
+  "針": {
+   "vn": "kim; mũi tiêm; châm cứu",
+   "ng": [
+    "(danh từ) cây kim (kim khâu, kim đồng hồ, kim chỉ nam)",
+    "(danh từ) mũi tiêm, ống tiêm (y tế)",
+    "(danh từ) kim châm cứu; vật nhọn hình kim (lá thông)"
+   ],
+   "us": "Dùng với lượng từ 根 hoặc 支 (一根針). Trong y tế hay gặp 打針 (tiêm), 打預防針 (tiêm vắc-xin), 縫幾針 (khâu mấy mũi).",
+   "co": [
+    "打針|tiêm thuốc",
+    "針灸|châm cứu",
+    "時針|kim giờ",
+    "方針|phương châm"
+   ],
+   "sy": [
+    "注射|tiêm, chích"
+   ],
+   "cf": [
+    "釘|đinh (to hơn kim)"
+   ],
+   "mh": "Châm → zhēn. ĐỌC: 'châm' → zhēn (thanh 1). NGHĨA: 釒 (kim loại) + 十 (hình cây kim nhọn) → cây kim bằng kim loại.",
+   "lt": "Lượng từ là 根 hoặc 支. Phân biệt 打針 (tiêm thuốc) và 抽血 (lấy máu).",
+   "tw": "Ở Đài Loan đi khám bệnh, bác sĩ hay hỏi 要不要打一針 (có muốn tiêm một mũi không); người sợ tiêm hay nói 我怕打針.",
+   "vd": [
+    {
+     "t": "Phòng khám",
+     "zh": "護理師幫小朋友打預防針的時候，他哭得好大聲。",
+     "vn": "Lúc điều dưỡng tiêm vắc-xin cho em bé, bé khóc rất to."
+    },
+    {
+     "t": "May vá",
+     "zh": "這件襯衫的鈕扣掉了，我拿針線幫你縫一下。",
+     "vn": "Chiếc áo sơ mi này bị rơi cúc rồi, tôi lấy kim chỉ khâu giúp bạn một chút."
+    },
+    {
+     "t": "Đồng hồ",
+     "zh": "這個舊鬧鐘的秒針好像卡住了，都不會動。",
+     "vn": "Kim giây của chiếc đồng hồ báo thức cũ này hình như bị kẹt rồi, không chạy nữa."
+    }
+   ]
+  },
+  "震動": {
+   "vn": "chấn động; rung động; làm rung chuyển",
+   "ng": [
+    "(động từ) rung động, rung lắc (đất đai, điện thoại, vật thể)",
+    "(động từ) chấn động, làm kinh động mạnh (tinh thần, xã hội)",
+    "(danh từ) sự rung chuyển, sự chấn động"
+   ],
+   "us": "Dùng cho vật lý (地震引起的震動, 手機開震動) hoặc nghĩa bóng (震動全國的消息).",
+   "co": [
+    "手機震動|điện thoại rung",
+    "強烈震動|rung lắc mạnh",
+    "地震震動|rung chấn động đất"
+   ],
+   "sy": [
+    "搖晃|lắc lư",
+    "轟動|gây chấn động (dư luận)"
+   ],
+   "cf": [
+    "感動|cảm động (tích cực, về tình cảm)",
+    "震撼|chấn động, choáng ngợp"
+   ],
+   "mh": "Chấn Động → zhèndòng. ĐỌC: 'chấn' → zhèn; 'động' → dòng. NGHĨA: 震 (雨 mưa sấm + 辰 rung động) + 動 (重 nặng + 力 sức) → sức mạnh làm rung chuyển.",
+   "lt": "Bẫy Hán Việt: muốn nói 'rung cảm, xúc động' dùng 感動, đừng dùng 震動; 震動 là rung lắc vật lý hoặc gây sốc lớn.",
+   "tw": "Ở Đài Loan hay có động đất và cảnh báo trên điện thoại, người Đài thường bật chế độ 震動 (chế độ rung) khi họp hoặc đi học.",
+   "vd": [
+    {
+     "t": "Công sở",
+     "zh": "開會的時候請把手機調成震動或靜音。",
+     "vn": "Khi họp xin vui lòng chuyển điện thoại sang chế độ rung hoặc im lặng."
+    },
+    {
+     "t": "Động đất",
+     "zh": "剛才花蓮發生地震，連台北都感覺到明顯的震動。",
+     "vn": "Vừa nãy Hoa Liên xảy ra động đất, ngay cả Đài Bắc cũng cảm nhận được sự rung lắc rõ rệt."
+    },
+    {
+     "t": "Tin tức",
+     "zh": "這起食品安全事件震動了整個社會。",
+     "vn": "Vụ việc an toàn thực phẩm này đã gây chấn động toàn xã hội."
+    }
+   ]
+  },
+  "針對": {
+   "vn": "nhằm vào; nhắm vào; đối với",
+   "ng": [
+    "(giới từ) nhằm vào, đối với (vấn đề, đối tượng cụ thể)",
+    "(động từ) chĩa mũi nhọn vào, nhắm vào (ai đó)"
+   ],
+   "us": "Cấu trúc rất hay dùng: 針對 + [vấn đề/đối tượng] + 提出/進行/做出 + [biện pháp]. Có thể làm vị ngữ: 你不要老是針對我 (Đừng lúc nào cũng nhắm vào tôi).",
+   "co": [
+    "針對這個問題|nhằm vào vấn đề này",
+    "針對性|tính nhắm trúng đích",
+    "針對不同年齡|dành riêng cho các độ tuổi khác nhau"
+   ],
+   "sy": [
+    "對準|nhắm thẳng vào",
+    "關於|về việc"
+   ],
+   "mh": "Châm Đối → zhēnduì. ĐỌC: 'châm' → zhēn; 'đối' → duì. NGHĨA: 針 (cây kim nhọn) + 對 (寸 tay hướng về đối diện) → chĩa mũi kim thẳng vào một điểm.",
+   "mk": "Khi dùng làm giới từ, cụm '針對...' đứng trước động từ chính (針對這件事做調查), không đặt sau động từ.",
+   "vd": [
+    {
+     "t": "Hội thảo",
+     "zh": "市政府針對老舊社區的都更問題提出了新的方案。",
+     "vn": "Chính quyền thành phố đã đưa ra phương án mới nhằm giải quyết vấn đề chỉnh trang các khu dân cư cũ."
+    },
+    {
+     "t": "Giao tiếp",
+     "zh": "我只是就事論事，並不是故意針對你。",
+     "vn": "Tôi chỉ bàn đúng vào sự việc thôi, hoàn toàn không cố ý nhắm vào bạn."
+    },
+    {
+     "t": "Tiếp thị",
+     "zh": "這家飲料店針對上班族推出了買一送一的優惠。",
+     "vn": "Quán đồ uống này tung ra ưu đãi mua một tặng một nhắm vào giới văn phòng."
+    }
+   ]
+  },
+  "爭": {
+   "vn": "tranh; giành; tranh cãi; cố gắng",
+   "ng": [
+    "(động từ) tranh giành, ganh đua để có được",
+    "(động từ) tranh luận, cãi nhau"
+   ],
+   "us": "Thường đi kèm tân ngữ (爭一口氣, 爭第一) hoặc trong cụm tách hợp 爭什麼 (tranh cãi cái gì). Hay kết hợp thành 爭取, 競爭, 爭吵.",
+   "co": [
+    "爭一口氣|cố gắng chứng tỏ bản thân",
+    "爭第一|tranh hạng nhất",
+    "爭吵|cãi vã",
+    "爭先恐後|tranh nhau đi trước sợ tụt lại"
+   ],
+   "sy": [
+    "搶|giành giật",
+    "奪|đoạt lấy"
+   ],
+   "an": [
+    "讓|nhường"
+   ],
+   "mh": "Tranh → zhēng. ĐỌC: 'tranh' → zhēng (thanh 1). NGHĨA: 爫 (bàn tay trên) + 彐 (bàn tay dưới) + 亅 (vật ở giữa) → hai tay giằng co giành một vật.",
+   "vd": [
+    {
+     "t": "Thể thao",
+     "zh": "兩支隊伍為了爭總冠軍，在場上拚盡了全力。",
+     "vn": "Để tranh chức vô địch chung cuộc, hai đội đã dốc toàn lực trên sân."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "兄妹倆常為了一點小事就爭個不停。",
+     "vn": "Hai anh em thường cãi nhau không dứt chỉ vì chút chuyện nhỏ."
+    },
+    {
+     "t": "Động lực",
+     "zh": "他出國留學就是想為自己爭一口氣。",
+     "vn": "Anh ấy đi du học nước ngoài chính là muốn tự khẳng định bản thân một phen."
+    }
+   ]
+  },
+  "睜": {
+   "vn": "mở (mắt)",
+   "ng": [
+    "(động từ) mở (mắt)"
+   ],
+   "us": "Chỉ dùng cho mắt: 睜開眼睛 (mở mắt ra), 睜大眼睛 (mở to mắt), 睜一隻眼閉一隻眼 (nhắm một mắt mở một mắt = làm ngơ). Không dùng để mở cửa hay mở hộp.",
+   "co": [
+    "睜開眼睛|mở mắt ra",
+    "睜大眼睛|mở to mắt",
+    "睜一隻眼閉一隻眼|mắt nhắm mắt mở, làm ngơ"
+   ],
+   "an": [
+    "閉|nhắm (mắt)",
+    "合|khép lại"
+   ],
+   "cf": [
+    "開|mở (cửa, đèn, xe...)"
+   ],
+   "mh": "Tĩnh → zhēng. ĐỌC: Hán Việt 'tĩnh' nhưng đọc zhēng theo thanh phù 爭 (cùng âm với 爭). NGHĨA: 目 (mắt) + 爭 (kéo mở ra) → mở to mí mắt.",
+   "mk": "Người Việt hay dịch 'mở mắt' thành *開眼睛 — sai! Phải nói 睜開眼睛 hoặc 張開眼睛.",
+   "vd": [
+    {
+     "t": "Buổi sáng",
+     "zh": "每天早上鬧鐘一響，我都捨不得睜開眼睛。",
+     "vn": "Mỗi sáng hễ chuông báo thức reo, tôi đều không nỡ mở mắt ra."
+    },
+    {
+     "t": "Bất ngờ",
+     "zh": "聽到這個好消息，他驚訝得睜大了雙眼。",
+     "vn": "Nghe thấy tin vui này, anh ấy kinh ngạc đến mức mở to hai mắt."
+    },
+    {
+     "t": "Quản lý",
+     "zh": "有時候主管對小錯也會睜一隻眼閉一隻眼。",
+     "vn": "Đôi khi cấp trên cũng nhắm mắt làm ngơ trước những lỗi nhỏ."
+    }
+   ]
+  },
+  "政策": {
+   "vn": "chính sách",
+   "ng": [
+    "(danh từ) chính sách (của nhà nước, chính phủ, công ty)"
+   ],
+   "us": "Thường đi với 制定 (đề ra), 推行 / 實施 (triển khai/thực thi), 調整 (điều chỉnh), 符合 (phù hợp).",
+   "co": [
+    "政府政策|chính sách chính phủ",
+    "實施政策|thực thi chính sách",
+    "環保政策|chính sách bảo vệ môi trường",
+    "優惠政策|chính sách ưu đãi"
+   ],
+   "sy": [
+    "方針|phương châm",
+    "措施|biện pháp"
+   ],
+   "mh": "Chính Sách → zhèngcè. ĐỌC: 'chính' → zhèng; 'sách' → cè. NGHĨA: 政 (正 ngay thẳng + 攵 chỉnh đốn) + 策 (⺮ thẻ tre + 朿 → thẻ tre ghi kế sách) → đường lối trị nước.",
+   "tw": "Ở Đài Loan hay bàn về 少子化政策 (chính sách đối phó tỷ lệ sinh thấp), 育兒津貼政策 (chính sách trợ cấp nuôi con).",
+   "vd": [
+    {
+     "t": "Đời sống",
+     "zh": "政府最近推出新的租屋補助政策，減輕年輕人的負擔。",
+     "vn": "Chính phủ gần đây tung ra chính sách trợ cấp thuê nhà mới, giảm nhẹ gánh nặng cho người trẻ."
+    },
+    {
+     "t": "Môi trường",
+     "zh": "為了配合環保政策，超商不再免費提供塑膠袋。",
+     "vn": "Để phối hợp với chính sách bảo vệ môi trường, cửa hàng tiện lợi không còn phát túi ni-lông miễn phí nữa."
+    },
+    {
+     "t": "Doanh nghiệp",
+     "zh": "這家公司的休假政策相當有彈性。",
+     "vn": "Chính sách nghỉ phép của công ty này khá linh hoạt."
+    }
+   ]
+  },
+  "政黨": {
+   "vn": "chính đảng; đảng chính trị",
+   "ng": [
+    "(danh từ) chính đảng, đảng phái chính trị"
+   ],
+   "us": "Dùng trong ngữ cảnh chính trị, bầu cử. Lượng từ 個.",
+   "co": [
+    "政黨輪替|luân phiên nắm quyền giữa các chính đảng",
+    "在野黨|đảng đối lập",
+    "執政黨|đảng cầm quyền"
+   ],
+   "sy": [
+    "黨派|đảng phái"
+   ],
+   "mh": "Chính Đảng → zhèngdǎng. ĐỌC: 'chính' → zhèng; 'đảng' → dǎng (thanh 3). NGHĨA: 政 (正 + 攵 việc công) + 黨 (尚 thanh phù + 黑 → nhóm người tụ họp) → tổ chức chính trị.",
+   "tw": "Trong bầu cử ở Đài Loan, các kênh tin tức rất hay nhắc đến cụm 政黨輪替 (đảng phái thay phiên cầm quyền) và 政黨票 (phiếu bầu cho chính đảng).",
+   "vd": [
+    {
+     "t": "Tin tức",
+     "zh": "每到選舉前夕，各個政黨都會舉辦大型造勢晚會。",
+     "vn": "Cứ đến trước thềm bầu cử, các chính đảng đều tổ chức đêm vận động quy mô lớn."
+    },
+    {
+     "t": "Xã hội",
+     "zh": "民主國家的特色之一就是允許不同政黨公平競爭。",
+     "vn": "Một trong những đặc trưng của quốc gia dân chủ là cho phép các chính đảng khác nhau cạnh tranh công bằng."
+    },
+    {
+     "t": "Thảo luận",
+     "zh": "台灣實施民主選舉後，已經經歷過幾次政黨輪替。",
+     "vn": "Sau khi Đài Loan thực hiện bầu cử dân chủ, đã trải qua vài lần luân phiên nắm quyền giữa các chính đảng."
+    }
+   ]
+  },
+  "正方形": {
+   "vn": "hình vuông",
+   "ng": [
+    "(danh từ) hình vuông"
+   ],
+   "us": "Dùng làm danh từ hoặc bổ nghĩa (正方形的桌子). Có thể nói gọn là 正方.",
+   "co": [
+    "正方形的盒子|cái hộp hình vuông",
+    "畫一個正方形|vẽ một hình vuông"
+   ],
+   "sy": [
+    "四方形|hình tứ giác vuông vức"
+   ],
+   "an": [
+    "長方形|hình chữ nhật",
+    "圓形|hình tròn"
+   ],
+   "mh": "Chính Phương Hình → zhèngfāngxíng. ĐỌC: 'chính' → zhèng; 'phương' → fāng; 'hình' → xíng. NGHĨA: 正 (ngay ngắn bằng nhau) + 方 (vuông vắn) + 形 (开 khung + 彡 nét vẽ → hình dạng) → hình bốn cạnh đều vuông góc.",
+   "vd": [
+    {
+     "t": "Toán học",
+     "zh": "老師教學生怎麼計算正方形的面積和周長。",
+     "vn": "Giáo viên dạy học sinh cách tính diện tích và chu vi của hình vuông."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "我比較喜歡正方形的餐桌，擺在客廳剛剛好。",
+     "vn": "Tôi thích bàn ăn hình vuông hơn, đặt ở phòng khách vừa vặn luôn."
+    },
+    {
+     "t": "Thủ công",
+     "zh": "折紙鶴之前，要先準備一張正方形的色紙。",
+     "vn": "Trước khi gấp hạc giấy, phải chuẩn bị sẵn một tờ giấy màu hình vuông."
+    }
+   ]
+  },
+  "政府": {
+   "vn": "chính phủ",
+   "ng": [
+    "(danh từ) chính phủ, nhà nước, cơ quan hành chính công"
+   ],
+   "us": "Dùng cho cấp trung ương (中央政府) lẫn địa phương (市政府, 縣政府). Lượng từ 個.",
+   "co": [
+    "中央政府|chính phủ trung ương",
+    "市政府|chính quyền thành phố",
+    "政府部門|cơ quan chính phủ",
+    "政府補助|trợ cấp của chính phủ"
+   ],
+   "sy": [
+    "官方|phía chính quyền, nhà nước"
+   ],
+   "an": [
+    "民間|dân gian, tư nhân"
+   ],
+   "mh": "Chính Phủ → zhèngfǔ. ĐỌC: 'chính' → zhèng; 'phủ' → fǔ. NGHĨA: 政 (việc trị nước) + 府 (广 mái nhà lớn + 付 → phủ đường làm việc) → cơ quan điều hành đất nước.",
+   "tw": "Ở Đài Loan hay gọi chính quyền thành phố là 市政府 (ví dụ 台北市政府) và gọi công chức là 公務員 hoặc 政府員工.",
+   "vd": [
+    {
+     "t": "Hành chính",
+     "zh": "我們今天要去市政府辦理居留證的相關手續。",
+     "vn": "Hôm nay chúng tôi phải đến chính quyền thành phố làm thủ tục liên quan đến thẻ cư trú."
+    },
+    {
+     "t": "Kinh tế",
+     "zh": "政府希望透過減稅來吸引更多外資來台投資。",
+     "vn": "Chính phủ hy vọng thông qua giảm thuế để thu hút thêm vốn ngoại đến Đài Loan đầu tư."
+    },
+    {
+     "t": "Khẩn cấp",
+     "zh": "颱風過後，政府派出了許多人力協助清理街道。",
+     "vn": "Sau cơn bão, chính phủ đã điều động rất nhiều nhân lực hỗ trợ dọn dẹp đường phố."
+    }
+   ]
+  },
+  "正規": {
+   "vn": "chính quy; đúng quy chuẩn",
+   "ng": [
+    "(tính từ) chính quy, bài bản, đúng quy trình và tiêu chuẩn"
+   ],
+   "us": "Thường làm định ngữ đứng trước danh từ (正規管道, 正規教育, 正規訓練). Ít đứng một mình làm vị ngữ với 很.",
+   "co": [
+    "正規管道|kênh chính thống",
+    "正規訓練|huấn luyện bài bản",
+    "正規教育|giáo dục chính quy",
+    "正規軍|quân chính quy"
+   ],
+   "sy": [
+    "正式|chính thức",
+    "合法|hợp pháp"
+   ],
+   "an": [
+    "非正規|phi chính quy",
+    "山寨|hàng nhái, không chính thống"
+   ],
+   "mh": "Chính Quy → zhèngguī. ĐỌC: 'chính' → zhèng; 'quy' → guī. NGHĨA: 正 (ngay ngắn) + 規 (夫 thước + 見 nhìn → khuôn phép, chuẩn mực) → đúng theo quy chuẩn.",
+   "tw": "Khi chuyển tiền hay mua vé ở Đài Loan, cơ quan chức năng (và đường dây chống lừa đảo 165) luôn nhắc dùng 正規管道 (kênh chính thống) để tránh bị lừa.",
+   "vd": [
+    {
+     "t": "An toàn",
+     "zh": "買演唱會門票一定要透過正規管道，才不會被詐騙。",
+     "vn": "Mua vé concert nhất định phải qua kênh chính thống thì mới không bị lừa đảo."
+    },
+    {
+     "t": "Nghề nghiệp",
+     "zh": "這批救援犬都受過非常嚴格的正規訓練。",
+     "vn": "Lứa chó cứu hộ này đều đã trải qua khóa huấn luyện chính quy vô cùng nghiêm ngặt."
+    },
+    {
+     "t": "Học tập",
+     "zh": "他雖然沒有受過正規的音樂教育，卻很有創作天分。",
+     "vn": "Tuy anh ấy chưa từng được đào tạo âm nhạc chính quy, nhưng lại rất có năng khiếu sáng tác."
+    }
+   ]
+  },
+  "證件": {
+   "vn": "giấy tờ (tùy thân, chứng nhận)",
+   "ng": [
+    "(danh từ) giấy tờ tùy thân, chứng minh thư, giấy chứng nhận"
+   ],
+   "us": "Từ gọi chung cho các loại thẻ/giấy tờ như 身分證 (CCCD), 居留證 (thẻ cư trú), 護照 (hộ chiếu), 健保卡 (thẻ BHYT), 駕照 (bằng lái). Lượng từ 張 hoặc 個.",
+   "co": [
+    "身分證件|giấy tờ tùy thân",
+    "帶證件|mang theo giấy tờ",
+    "出示證件|xuất trình giấy tờ",
+    "補辦證件|làm lại giấy tờ"
+   ],
+   "sy": [
+    "證書|chứng chỉ, văn bằng"
+   ],
+   "mh": "Chứng Kiện → zhèngjiàn. ĐỌC: 'chứng' → zhèng; 'kiện' → jiàn. NGHĨA: 證 (言 lời nói xác nhận + 登) + 件 (亻 người + 牛 → từng món riêng) → giấy tờ dùng để chứng minh danh tính.",
+   "tw": "Ở Đài Loan làm thủ tục ngân hàng, bưu điện hay nhận hàng ở siêu thị tiện lợi đều thường phải 帶雙證件 (mang hai loại giấy tờ, ví dụ 居留證 + 護照 hoặc 健保卡).",
+   "vd": [
+    {
+     "t": "Ngân hàng",
+     "zh": "去銀行開戶記得要帶齊雙證件和印章。",
+     "vn": "Đi ngân hàng mở tài khoản nhớ mang đủ hai loại giấy tờ tùy thân và con dấu."
+    },
+    {
+     "t": "Nhận hàng",
+     "zh": "在超商取貨如果不用付款，店員會請你出示證件。",
+     "vn": "Nhận hàng tại cửa hàng tiện lợi nếu không cần thanh toán, nhân viên sẽ yêu cầu bạn xuất trình giấy tờ."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "出國前一定要再三檢查護照和相關證件有沒有帶好。",
+     "vn": "Trước khi ra nước ngoài nhất định phải kiểm tra kỹ xem hộ chiếu và giấy tờ liên quan đã mang đủ chưa."
+    }
+   ]
+  },
+  "整潔": {
+   "vn": "gọn gàng sạch sẽ; chỉnh tề",
+   "ng": [
+    "(tính từ) gọn gàng và sạch sẽ, ngăn nắp (phòng ốc, quần áo, môi trường)"
+   ],
+   "us": "Dùng cho không gian, trang phục, bài viết; có thể kết hợp 保持整潔 (giữ gìn sạch sẽ gọn gàng) hoặc làm vị ngữ 很整潔.",
+   "co": [
+    "保持整潔|giữ gìn sạch sẽ gọn gàng",
+    "環境整潔|môi trường sạch sẽ",
+    "儀容整潔|diện mạo chỉnh tề",
+    "整潔比賽|thi đua vệ sinh lớp học"
+   ],
+   "sy": [
+    "乾淨|sạch sẽ",
+    "整齊|ngăn nắp"
+   ],
+   "an": [
+    "雜亂|bừa bộn",
+    "髒亂|bẩn thỉu lộn xộn"
+   ],
+   "mh": "Chỉnh Khiết → zhěngjié. ĐỌC: 'chỉnh' → zhěng (thanh 3); 'khiết' → jié (thanh 2). NGHĨA: 整 (chỉnh đốn ngay ngắn) + 潔 (氵 nước rửa tinh khiết) → vừa ngay ngắn vừa sạch sẽ.",
+   "tw": "Trong trường học ở Đài Loan, mỗi tuần đều có 整潔比賽 (cuộc thi giữ gìn vệ sinh gọn gàng giữa các lớp).",
+   "vd": [
+    {
+     "t": "Thuê nhà",
+     "zh": "這間套房雖然不大，但是採光很好，看起來非常整潔。",
+     "vn": "Căn phòng khép kín này tuy không lớn nhưng ánh sáng rất tốt, trông vô cùng gọn gàng sạch sẽ."
+    },
+    {
+     "t": "Phỏng vấn",
+     "zh": "面試的時候，穿著整潔大方能給人留下好印象。",
+     "vn": "Khi đi phỏng vấn, ăn mặc chỉnh tề lịch sự có thể để lại ấn tượng tốt cho người khác."
+    },
+    {
+     "t": "Công cộng",
+     "zh": "維持捷運車廂的整潔需要每位乘客一起配合。",
+     "vn": "Duy trì sự sạch sẽ của toa tàu điện ngầm cần mỗi hành khách cùng hợp tác."
+    }
+   ]
+  },
+  "正經": {
+   "vn": "đứng đắn; nghiêm túc; đoan chính",
+   "ng": [
+    "(tính từ) đứng đắn, nghiêm túc, đàng hoàng (thái độ, lời nói, công việc)",
+    "(phó từ) một cách nghiêm túc, đàng hoàng (thường dùng với 沒個正經, 正經八百)"
+   ],
+   "us": "Thường dùng ở dạng phủ định 不正經 (không đứng đắn, cợt nhả), 沒個正經 (chẳng nghiêm túc gì cả), hoặc 開玩笑 vs 正經說.",
+   "co": [
+    "不正經|không đứng đắn, cợt nhả",
+    "一本正經|vẻ mặt vô cùng nghiêm túc",
+    "正經事|chuyện nghiêm túc, việc chính đáng",
+    "正經八百|nghiêm túc thái quá"
+   ],
+   "sy": [
+    "嚴肅|nghiêm túc",
+    "認真|chăm chỉ, nghiêm túc"
+   ],
+   "an": [
+    "輕浮|khinh suất, lả lơi",
+    "不正經|không đứng đắn"
+   ],
+   "mh": "Chính Kinh → zhèngjīng. ĐỌC: 'chính' → zhèng; 'kinh' → jīng (không đọc thanh nhẹ trong từ này ở Đài Loan chuẩn, đôi khi nói nhanh thành zhèngjing). NGHĨA: 正 (ngay thẳng) + 經 (糹 tơ + 巠 khung dệt dọc → sợi dọc chuẩn mực) → ngay thẳng đúng mực.",
+   "lt": "Bẫy Hán Việt: 正經 không có nghĩa là 'kinh điển' mà là 'đứng đắn, nghiêm túc'.",
+   "vd": [
+    {
+     "t": "Bạn bè",
+     "zh": "他平常愛開玩笑，但談到正經事的時候非常可靠。",
+     "vn": "Bình thường anh ấy thích đùa, nhưng lúc bàn đến việc nghiêm túc thì rất đáng tin cậy."
+    },
+    {
+     "t": "Hài hước",
+     "zh": "你別老是沒個正經，趕快把這份報告寫完吧！",
+     "vn": "Bạn đừng có lúc nào cũng cợt nhả thế, mau viết xong bản báo cáo này đi!"
+    },
+    {
+     "t": "Biểu cảm",
+     "zh": "他一本正經地講了一個冷笑話，害大家都忍俊不禁。",
+     "vn": "Anh ấy giữ vẻ mặt cực kỳ nghiêm túc kể một câu chuyện cười nhạt, làm mọi người đều không nhịn được cười."
+    }
+   ]
+  },
+  "證據": {
+   "vn": "chứng cứ; bằng chứng",
+   "ng": [
+    "(danh từ) chứng cứ, bằng chứng (pháp lý, khoa học, đời sống)"
+   ],
+   "us": "Hay đi với 找 / 蒐集 (thu thập), 提出 / 出示 (đưa ra), 缺乏 (thiếu), 確鑿 (xác đáng). Lượng từ 項 hoặc 份.",
+   "co": [
+    "收集證據|thu thập bằng chứng",
+    "提出證據|đưa ra chứng cứ",
+    "缺乏證據|thiếu bằng chứng",
+    "有力證據|bằng chứng thuyết phục"
+   ],
+   "sy": [
+    "憑證|chứng từ",
+    "線索|manh mối"
+   ],
+   "mh": "Chứng Cứ → zhèngjù. ĐỌC: 'chứng' → zhèng; 'cứ' → jù. NGHĨA: 證 (言 lời nói xác chứng) + 據 (扌 tay nắm giữ căn cứ) → vật hoặc lời nói nắm được để làm bằng chứng.",
+   "tw": "Khi gặp lừa đảo hoặc tai nạn giao thông ở Đài Loan, cảnh sát (110) và đường dây 165 luôn dặn phải 保留證據 (giữ lại bằng chứng như ảnh chụp màn hình, hóa đơn chuyển khoản).",
+   "vd": [
+    {
+     "t": "Pháp luật",
+     "zh": "警方經過幾個月的調查，終於掌握了關鍵證據。",
+     "vn": "Sau mấy tháng điều tra, cảnh sát cuối cùng đã nắm được chứng cứ then chốt."
+    },
+    {
+     "t": "Tranh cãi",
+     "zh": "說話要講究證據，不能隨便懷疑別人。",
+     "vn": "Nói chuyện phải có bằng chứng đàng hoàng, không thể tùy tiện nghi ngờ người khác."
+    },
+    {
+     "t": "An toàn mạng",
+     "zh": "如果遇到網路詐騙，請務必截圖保存證據再報警。",
+     "vn": "Nếu gặp lừa đảo qua mạng, xin nhất định chụp màn hình lưu giữ bằng chứng rồi báo cảnh sát."
+    }
+   ]
+  },
+  "爭論": {
+   "vn": "tranh luận; cãi nhau; cuộc tranh luận",
+   "ng": [
+    "(động từ) tranh luận, tranh cãi về một vấn đề",
+    "(danh từ) cuộc tranh luận, sự tranh cãi"
+   ],
+   "us": "Thường dùng với 為 + [vấn đề] + 爭論 hoặc 引起爭論 (gây ra tranh luận). Lượng từ 場 hoặc 次.",
+   "co": [
+    "引起爭論|gây ra tranh luận",
+    "激烈爭論|tranh luận gay gắt",
+    "爭論不休|tranh luận không dứt",
+    "無謂的爭論|tranh cãi vô ích"
+   ],
+   "sy": [
+    "辯論|tranh biện (trang trọng, có quy tắc)",
+    "爭執|tranh chấp, đôi co"
+   ],
+   "an": [
+    "共識|đồng thuận",
+    "妥協|thỏa hiệp"
+   ],
+   "mh": "Tranh Luận → zhēnglùn. ĐỌC: 'tranh' → zhēng; 'luận' → lùn. NGHĨA: 爭 (hai tay giằng co) + 論 (言 lời nói + 侖 lý lẽ) → dùng lý lẽ giằng co với nhau.",
+   "vd": [
+    {
+     "t": "Văn phòng",
+     "zh": "大家針對這個企劃案的預算爭論了一個下午，還是沒有結論。",
+     "vn": "Mọi người tranh luận cả buổi chiều về ngân sách của bản kế hoạch này mà vẫn chưa có kết luận."
+    },
+    {
+     "t": "Xã hội",
+     "zh": "這項新規定一公布，立刻在網路上引起熱烈的爭論。",
+     "vn": "Quy định mới này vừa công bố đã lập tức gây ra cuộc tranh luận sôi nổi trên mạng."
+    },
+    {
+     "t": "Học thuật",
+     "zh": "歷史學者對這段史料的真實性一直有所爭論。",
+     "vn": "Các nhà sử học xưa nay vẫn có sự tranh luận về tính xác thực của đoạn sử liệu này."
+    }
+   ]
+  },
+  "正面": {
+   "vn": "mặt trước; mặt chính; tích cực; trực diện",
+   "ng": [
+    "(danh từ) mặt trước, mặt chính, mặt phải (của vật, tòa nhà, tờ giấy)",
+    "(tính từ) tích cực, mang tính xây dựng (thái độ, ảnh hưởng)",
+    "(phó từ/tính từ) trực diện, đối mặt thẳng thắn"
+   ],
+   "us": "Nghĩa bóng (tích cực) rất hay dùng ở B2: 正面思考 (suy nghĩ tích cực), 正面影響 (ảnh hưởng tích cực), 正面回應 (phản hồi trực diện).",
+   "co": [
+    "正面思考|tư duy tích cực",
+    "正面影響|ảnh hưởng tích cực",
+    "正面回應|phản hồi trực diện",
+    "正反兩面|hai mặt trái phải"
+   ],
+   "sy": [
+    "積極|tích cực",
+    "表面|bề mặt"
+   ],
+   "an": [
+    "反面|mặt trái, phản diện",
+    "負面|tiêu cực"
+   ],
+   "mh": "Chính Diện → zhèngmiàn. ĐỌC: 'chính' → zhèng; 'diện' → miàn. NGHĨA: 正 (ngay ngắn, đúng) + 面 (khuôn mặt, bề mặt) → mặt hướng thẳng ra phía trước.",
+   "vd": [
+    {
+     "t": "Thủ tục",
+     "zh": "請在申請表的正面簽名，背面不用寫。",
+     "vn": "Vui lòng ký tên ở mặt trước của đơn đăng ký, mặt sau không cần viết."
+    },
+    {
+     "t": "Tâm lý",
+     "zh": "遇到挫折時，保持正面的態度能幫助我們更快走出來。",
+     "vn": "Khi gặp trắc trở, giữ thái độ tích cực có thể giúp chúng ta vượt qua nhanh hơn."
+    },
+    {
+     "t": "Truyền thông",
+     "zh": "面對記者的提問，部長並沒有正面回答。",
+     "vn": "Đối mặt với câu hỏi của phóng viên, bộ trưởng đã không trả lời trực diện."
+    }
+   ]
+  },
+  "徵求": {
+   "vn": "trưng cầu; xin (ý kiến); kêu gọi / tuyển",
+   "ng": [
+    "(động từ) trưng cầu, hỏi xin (ý kiến, sự đồng ý)",
+    "(động từ) kêu gọi đóng góp, tìm kiếm, tuyển dụng (nhân tài, bài viết, người tình nguyện)"
+   ],
+   "us": "Thường đi với tân ngữ trừu tượng hoặc người: 徵求意見 (xin ý kiến), 徵求同意 (xin sự đồng ý), 徵求志工 (tuyển tình nguyện viên).",
+   "co": [
+    "徵求意見|trưng cầu ý kiến",
+    "徵求同意|xin sự đồng ý",
+    "徵求志工|tuyển tình nguyện viên",
+    "徵求建議|lắng nghe góp ý"
+   ],
+   "sy": [
+    "尋求|tìm kiếm",
+    "招募|chiêu mộ, tuyển"
+   ],
+   "cf": [
+    "要求|yêu cầu (mạnh hơn, mang tính bắt buộc)"
+   ],
+   "mh": "Trưng Cầu → zhēngqiú. ĐỌC: 'trưng' → zhēng; 'cầu' → qiú. NGHĨA: 徵 (彳 bước đi trưng gọi) + 求 (tìm kiếm, cầu xin) → đi tìm và mời gọi/xin ý kiến.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "做這個重大決定之前，我得先徵求家人的同意。",
+     "vn": "Trước khi đưa ra quyết định quan trọng này, tôi phải xin ý kiến đồng ý của người nhà trước đã."
+    },
+    {
+     "t": "Cộng đồng",
+     "zh": "動物之家正在徵求週末幫忙遛狗的志工。",
+     "vn": "Trạm cứu hộ động vật đang tuyển tình nguyện viên giúp dắt chó đi dạo vào cuối tuần."
+    },
+    {
+     "t": "Thiết kế",
+     "zh": "這家餐廳在網路上徵求新菜單的創意點子。",
+     "vn": "Nhà hàng này đang kêu gọi các ý tưởng sáng tạo cho thực đơn mới trên mạng."
+    }
+   ]
+  },
+  "爭取": {
+   "vn": "tranh thủ; nỗ lực giành lấy; phấn đấu đạt được",
+   "ng": [
+    "(động từ) đấu tranh, nỗ lực để giành lấy hoặc đạt được (cơ hội, quyền lợi, thời gian, thắng lợi)",
+    "(động từ) lôi kéo, tranh thủ sự ủng hộ của ai đó"
+   ],
+   "us": "Theo sau là mục tiêu cần nỗ lực đạt được: 爭取機會 (giành cơ hội), 爭取權益 (đấu tranh quyền lợi), 爭取時間 (tranh thủ thời gian để cứu vãn/chuẩn bị), 爭取選票 (vận động phiếu bầu).",
+   "co": [
+    "爭取機會|giành lấy cơ hội",
+    "爭取時間|tranh thủ thời gian",
+    "爭取權益|đấu tranh cho quyền lợi",
+    "爭取支持|tranh thủ sự ủng hộ"
+   ],
+   "sy": [
+    "力爭|cố sức giành lấy",
+    "奮鬥|phấn đấu"
+   ],
+   "an": [
+    "放棄|từ bỏ"
+   ],
+   "mh": "Tranh Thủ → zhēngqǔ. ĐỌC: 'tranh' → zhēng; 'thủ' → qǔ. NGHĨA: 爭 (giằng co nỗ lực) + 取 (又 tay + 耳 → nắm lấy) → ra sức nỗ lực để giành lấy.",
+   "lt": "Bẫy Hán Việt: tiếng Việt hay nói 'tranh thủ đi siêu thị / tranh thủ ngủ chút' (= tận dụng lúc rảnh), nhưng tiếng Hoa không dùng 爭取 cho việc tận dụng thời gian rảnh mà dùng 趁空檔 / 利用時間. 爭取時間 là 'cố kéo dài/giành giật từng giây phút' (ví dụ cấp cứu).",
+   "mk": "Tránh nói *爭取去買東西 khi muốn nói 'tranh thủ đi mua đồ'; hãy nói 趁空去買東西.",
+   "vd": [
+    {
+     "t": "Học bổng",
+     "zh": "她為了爭取這筆獎學金，這學期特別用功讀書。",
+     "vn": "Để giành được suất học bổng này, học kỳ này cô ấy học hành đặc biệt chăm chỉ."
+    },
+    {
+     "t": "Công việc",
+     "zh": "工會代表正努力替員工爭取更好的加班福利。",
+     "vn": "Đại diện công đoàn đang nỗ lực đấu tranh giành phúc lợi tăng ca tốt hơn cho nhân viên."
+    },
+    {
+     "t": "Y tế",
+     "zh": "學會基本的急救知識，能在救護車到達前為傷患爭取寶貴的時間。",
+     "vn": "Học kiến thức sơ cứu cơ bản có thể giúp giành giật thời gian quý báu cho người bị nạn trước khi xe cứu thương tới."
+    }
+   ],
+   "cf": [
+    "爭取 vs 競爭|爭取 là nỗ lực chủ động giành lấy mục tiêu/quyền lợi (爭取機會, 爭取預算); 競爭 là cạnh tranh giữa các đối thủ (市場競爭)."
+   ],
+   "tw": "Ở Đài Loan trong tuyển dụng và đàm phán rất hay dùng 積極爭取 (tích cực tìm kiếm/giành lấy cơ hội) và 爭取時間."
+  },
+  "證實": {
+   "vn": "chứng thực; xác nhận (là thật)",
+   "ng": [
+    "(động từ) chứng thực, xác nhận, kiểm chứng (tin tức, giả thuyết, sự việc là có thật)"
+   ],
+   "us": "Dùng trong văn viết, báo chí, nghiên cứu: 已經證實 (đã xác nhận), 獲得證實 (được xác thực), 證實了這個傳聞 (xác nhận tin đồn này).",
+   "co": [
+    "獲得證實|được xác thực",
+    "經證實|qua kiểm chứng xác nhận",
+    "科學證實|khoa học chứng minh",
+    "官方證實|phía chính quyền xác nhận"
+   ],
+   "sy": [
+    "確認|xác nhận",
+    "證明|chứng minh"
+   ],
+   "an": [
+    "否認|phủ nhận",
+    "闢謠|bác bỏ tin đồn"
+   ],
+   "mh": "Chứng Thực → zhèngshí. ĐỌC: 'chứng' → zhèng; 'thực' → shí. NGHĨA: 證 (言 lời xác chứng) + 實 (宀 nhà + 貫 xâu tiền → thực chất chắc chắn) → xác nhận là sự thật.",
+   "cf": [
+    "證明|chứng minh (bằng lý lẽ/giấy tờ)",
+    "確認|xác nhận (kiểm tra lại thông tin/lịch hẹn)"
+   ],
+   "vd": [
+    {
+     "t": "Tin tức",
+     "zh": "這項消息目前還沒有得到官方的證實，大家先別急著轉傳。",
+     "vn": "Tin tức này hiện vẫn chưa được phía chính thức xác nhận, mọi người khoan vội chia sẻ lại."
+    },
+    {
+     "t": "Nghiên cứu",
+     "zh": "最新的醫學研究證實，規律運動確實有助於改善睡眠。",
+     "vn": "Nghiên cứu y học mới nhất đã chứng thực rằng vận động đều đặn quả thực giúp cải thiện giấc ngủ."
+    },
+    {
+     "t": "Thí nghiệm",
+     "zh": "實驗結果證實了我們當初的推測是正確的。",
+     "vn": "Kết quả thí nghiệm đã xác nhận suy đoán ban đầu của chúng tôi là chính xác."
+    }
+   ]
+  },
+  "整數": {
+   "vn": "số nguyên; số tròn",
+   "ng": [
+    "(danh từ) số nguyên (trong toán học, không có phần thập phân hay phân số)",
+    "(danh từ) con số tròn (chẵn chục, trăm, nghìn...)"
+   ],
+   "us": "Thường đối lập với 小數 (số thập phân) hoặc 分數 (phân số). Trong mua bán hay nói 湊個整數 (làm tròn số cho chẵn).",
+   "co": [
+    "正整數|số nguyên dương",
+    "湊整數|làm tròn cho chẵn số",
+    "給個整數|tính giá tròn số"
+   ],
+   "an": [
+    "小數|số thập phân",
+    "分數|phân số",
+    "零頭|tiền lẻ, phần lẻ"
+   ],
+   "mh": "Chỉnh Số → zhěngshù. ĐỌC: 'chỉnh' → zhěng; 'số' → shù (thanh 4, danh từ 'con số'; không đọc shǔ 'đếm'). NGHĨA: 整 (trọn vẹn không lẻ) + 數 (con số) → con số nguyên vẹn.",
+   "vd": [
+    {
+     "t": "Chợ đêm",
+     "zh": "老闆人很好，把零頭去掉，只收我一個整數。",
+     "vn": "Ông chủ rất tốt bụng, bỏ phần tiền lẻ đi, chỉ lấy tôi một con số tròn."
+    },
+    {
+     "t": "Toán học",
+     "zh": "老師在黑板上舉例說明什麼是整數、什麼是小數。",
+     "vn": "Giáo viên viết ví dụ trên bảng để giải thích thế nào là số nguyên, thế nào là số thập phân."
+    },
+    {
+     "t": "Kế toán",
+     "zh": "為了方便統計，請把報表裡的金額四捨五入取整數。",
+     "vn": "Để tiện thống kê, xin hãy làm tròn các khoản tiền trong báo cáo thành số nguyên."
+    }
+   ]
+  },
+  "整體": {
+   "vn": "tổng thể; toàn thể; chỉnh thể",
+   "ng": [
+    "(danh từ) chỉnh thể, tổng thể, toàn bộ một hệ thống hoặc tập thể",
+    "(tính từ/phó từ) mang tính tổng thể, nhìn chung (整體來說, 整體表現)"
+   ],
+   "us": "Rất hay dùng cụm 整體而言 / 整體來說 (nhìn chung mà nói) ở đầu câu để tổng kết đánh giá.",
+   "co": [
+    "整體來說|nhìn chung mà nói",
+    "整體表現|biểu hiện tổng thể",
+    "整體規劃|quy hoạch tổng thể",
+    "整體環境|môi trường chung"
+   ],
+   "sy": [
+    "全體|toàn thể (thường chỉ người)",
+    "全部|toàn bộ"
+   ],
+   "an": [
+    "局部|cục bộ",
+    "個別|cá biệt, riêng lẻ"
+   ],
+   "mh": "Chỉnh Thể → zhěngtǐ. ĐỌC: 'chỉnh' → zhěng; 'thể' → tǐ. NGHĨA: 整 (nguyên vẹn) + 體 (骨 xương + 豊 → thân thể) → toàn bộ một cơ thể/hệ thống thống nhất.",
+   "vd": [
+    {
+     "t": "Đánh giá",
+     "zh": "這部電影雖然節奏有點慢，但整體來說還是很感人。",
+     "vn": "Bộ phim này tuy tiết tấu hơi chậm, nhưng nhìn chung vẫn rất cảm động."
+    },
+    {
+     "t": "Kinh doanh",
+     "zh": "裝潢重新設計之後，店裡的整體氣氛變得溫暖多了。",
+     "vn": "Sau khi thiết kế lại nội thất, bầu không khí tổng thể trong quán trở nên ấm áp hơn hẳn."
+    },
+    {
+     "t": "Đội nhóm",
+     "zh": "教練強調，籃球比賽講究的是團隊的整體配合。",
+     "vn": "Huấn luyện viên nhấn mạnh rằng thi đấu bóng rổ coi trọng sự phối hợp tổng thể của cả đội."
+    }
+   ]
+  },
+  "正月": {
+   "vn": "tháng Giêng (tháng 1 âm lịch)",
+   "ng": [
+    "(danh từ) tháng Giêng, tháng đầu tiên trong năm âm lịch"
+   ],
+   "us": "Dùng khi nói về Tết Nguyên đán, phong tục đầu năm âm lịch (ví dụ 正月初一 mùng 1 Tết, 正月十五 Rằm tháng Giêng / 元宵節).",
+   "co": [
+    "正月初一|mùng một tháng Giêng",
+    "正月十五|rằm tháng Giêng",
+    "農曆正月|tháng Giêng âm lịch"
+   ],
+   "sy": [
+    "一月|tháng Một (thường chỉ dương lịch)"
+   ],
+   "mh": "Chính Nguyệt → Zhēngyuè. ĐỌC: Chú ý đa âm! 正 ở đây đọc zhēng (thanh 1), KHÔNG đọc zhèng; 月 → yuè. NGHĨA: 正 (đứng đầu/đầu năm) + 月 (mặt trăng → tháng) → tháng đầu tiên của năm âm lịch.",
+   "lt": "Quy tắc đa âm: 正 đọc zhēng trong 正月 (tháng Giêng); các từ khác như 正常, 正在, 正確 đều đọc zhèng.",
+   "mk": "Đừng đọc nhầm 正月 thành *zhèngyuè; người Đài Loan đọc rõ là zhēngyuè.",
+   "tw": "Ở Đài Loan từ 正月初一 đến 正月初五 là dịp năm mới nhiều gia đình đi chùa cầu bình an (走春) và về nhà ngoại (初二回娘家).",
+   "vd": [
+    {
+     "t": "Tết",
+     "zh": "傳統習俗上，正月十五元宵節這天大家會吃湯圓、賞花燈。",
+     "vn": "Theo phong tục truyền thống, ngày Rằm tháng Giêng Tết Nguyên tiêu mọi người sẽ ăn chè trôi nước và ngắm đèn lồng."
+    },
+    {
+     "t": "Phong tục",
+     "zh": "很多台灣家庭在正月初二會回娘家吃團圓飯。",
+     "vn": "Nhiều gia đình Đài Loan vào mùng hai tháng Giêng sẽ về nhà ngoại ăn bữa cơm sum họp."
+    },
+    {
+     "t": "Lịch âm",
+     "zh": "農曆正月剛過，各地的廟會活動還是非常熱鬧。",
+     "vn": "Tháng Giêng âm lịch vừa qua, các hoạt động lễ hội đền chùa ở khắp nơi vẫn vô cùng náo nhiệt."
+    }
+   ]
+  },
+  "症狀": {
+   "vn": "triệu chứng (bệnh)",
+   "ng": [
+    "(danh từ) triệu chứng (biểu hiện của bệnh tật)"
+   ],
+   "us": "Thường đi với 出現 (xuất hiện), 減輕 / 緩解 (giảm nhẹ), 改善 (cải thiện), 類似 (tương tự). Lượng từ 種.",
+   "co": [
+    "感冒症狀|triệu chứng cảm cúm",
+    "緩解症狀|giảm nhẹ triệu chứng",
+    "出現症狀|xuất hiện triệu chứng",
+    "輕微症狀|triệu chứng nhẹ"
+   ],
+   "sy": [
+    "病徵|dấu hiệu bệnh",
+    "現象|hiện tượng"
+   ],
+   "mh": "Chứng Trạng → zhèngzhuàng. ĐỌC: 'chứng' → zhèng; 'trạng' → zhuàng. NGHĨA: 症 (疒 bệnh tật + 正) + 狀 (爿 + 犬 → hình dáng, tình trạng) → biểu hiện tình trạng của bệnh.",
+   "tw": "Khi đi khám ở phòng khám Đài Loan (診所), bác sĩ thường hỏi: 你最近有什麼症狀？ (Gần đây bạn có triệu chứng gì?).",
+   "vd": [
+    {
+     "t": "Phòng khám",
+     "zh": "醫生問我發燒、咳嗽這些症狀持續幾天了。",
+     "vn": "Bác sĩ hỏi tôi những triệu chứng như sốt, ho này đã kéo dài mấy ngày rồi."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "吃藥主要是為了緩解過敏症狀，還是要找出過敏原才行。",
+     "vn": "Uống thuốc chủ yếu là để giảm nhẹ triệu chứng dị ứng, vẫn phải tìm ra tác nhân gây dị ứng mới được."
+    },
+    {
+     "t": "Dịch bệnh",
+     "zh": "如果出現發燒或喉嚨痛等症狀，建議戴上口罩並多休息。",
+     "vn": "Nếu xuất hiện các triệu chứng như sốt hoặc đau họng, khuyên bạn nên đeo khẩu trang và nghỉ ngơi nhiều hơn."
+    }
+   ]
+  },
+  "偵探": {
+   "vn": "thám tử; trinh thám",
+   "ng": [
+    "(danh từ) thám tử, người chuyên điều tra vụ án hoặc tìm kiếm thông tin bí mật",
+    "(tính từ/định ngữ) mang tính trinh thám (偵探小說, 偵探片)"
+   ],
+   "us": "Thường dùng với 私人偵探 (thám tử tư) hoặc thể loại sách phim 偵探小說 (tiểu thuyết trinh thám). Lượng từ 位 hoặc 名.",
+   "co": [
+    "私人偵探|thám tử tư",
+    "偵探小說|tiểu thuyết trinh thám",
+    "名偵探|thám tử lừng danh"
+   ],
+   "sy": [
+    "調查員|điều tra viên"
+   ],
+   "mh": "Trinh Thám → zhēntàn. ĐỌC: 'trinh' → zhēn (thanh 1); 'thám' → tàn (thanh 4). NGHĨA: 偵 (亻 người + 貞 → người đi dò xét) + 探 (扌 tay dò tìm vào chỗ sâu) → người điều tra tìm manh mối.",
+   "tw": "Ở Đài Loan giới trẻ và trẻ em rất quen thuộc với bộ truyện/phim 名偵探柯南 (Thám tử lừng danh Conan).",
+   "vd": [
+    {
+     "t": "Đọc sách",
+     "zh": "我從小就非常喜歡看偵探小說，常常跟著主角一起推理。",
+     "vn": "Tôi từ nhỏ đã rất thích đọc tiểu thuyết trinh thám, thường suy luận theo nhân vật chính."
+    },
+    {
+     "t": "Phim ảnh",
+     "zh": "這部偵探電影的結局出乎意料，網路上討論度超高。",
+     "vn": "Cái kết của bộ phim trinh thám này ngoài sức tưởng tượng, độ thảo luận trên mạng cực kỳ cao."
+    },
+    {
+     "t": "Nghề nghiệp",
+     "zh": "電影裡的私人偵探只憑一張舊照片就順利查出關鍵人物。",
+     "vn": "Thám tử tư trong phim chỉ dựa vào một tấm ảnh cũ đã thuận lợi tra ra được nhân vật then chốt."
+    }
+   ]
+  },
+  "珍惜": {
+   "vn": "trân trọng; quý trọng; nâng niu",
+   "ng": [
+    "(động từ) trân trọng, quý trọng, nâng niu (thời gian, tình cảm, cơ hội, tài nguyên)"
+   ],
+   "us": "Thường theo sau là danh từ trừu tượng: 珍惜時間, 珍惜機會, 珍惜彼此, 珍惜生命. Có thể thêm phó từ mức độ: 很珍惜, 好好珍惜.",
+   "co": [
+    "珍惜時間|trân trọng thời gian",
+    "珍惜機會|trân trọng cơ hội",
+    "珍惜眼前人|trân trọng người trước mắt",
+    "珍惜資源|tiết kiệm quý trọng tài nguyên"
+   ],
+   "sy": [
+    "愛惜|yêu quý, giữ gìn",
+    "珍重|trân trọng"
+   ],
+   "an": [
+    "浪費|lãng phí",
+    "糟蹋|phí hoài, phá hỏng"
+   ],
+   "mh": "Trân Tích → zhēnxí. ĐỌC: 'trân' → zhēn; 'tích' → xí (thanh 2 theo chuẩn Đài Loan, đại lục hay đọc xī). NGHĨA: 珍 (王 ngọc quý + 彡) + 惜 (忄 lòng + 昔 → lòng luyến tiếc giữ gìn) → coi như ngọc quý mà giữ gìn.",
+   "tw": "Phát âm chuẩn ở Đài Loan (教育部國語辭典) là zhēnxí (惜 thanh 2), khác với đại lục đọc zhēnxī (thanh 1).",
+   "vd": [
+    {
+     "t": "Tình cảm",
+     "zh": "經歷過那場意外後，他更加珍惜和家人相聚的時光。",
+     "vn": "Sau khi trải qua tai nạn đó, anh ấy càng trân trọng hơn khoảng thời gian sum vầy bên gia đình."
+    },
+    {
+     "t": "Công việc",
+     "zh": "這份工作機會很難得，你一定要好好珍惜。",
+     "vn": "Cơ hội việc làm này rất khó có được, bạn nhất định phải trân trọng cho tốt."
+    },
+    {
+     "t": "Tài nguyên",
+     "zh": "台灣雖然常下雨，但大家還是要養成珍惜水資源的習慣。",
+     "vn": "Đài Loan tuy hay mưa, nhưng mọi người vẫn phải tập thói quen trân trọng nguồn nước."
+    }
+   ]
+  },
+  "珍珠": {
+   "vn": "trân châu; ngọc trai",
+   "ng": [
+    "(danh từ) ngọc trai, hạt trân châu tự nhiên",
+    "(danh từ) hạt trân châu (làm từ bột sắn trong trà sữa Đài Loan)"
+   ],
+   "us": "Nghĩa ngọc trai dùng lượng từ 顆 hoặc 串 (一串珍珠項鍊). Ở Đài Loan nghĩa phổ biến hằng ngày nhất là trân châu trong trà sữa (珍珠奶茶, viết tắt 珍奶).",
+   "co": [
+    "珍珠奶茶|trà sữa trân châu",
+    "珍珠項鍊|vòng cổ ngọc trai",
+    "黑糖珍珠|trân châu đường đen",
+    "養殖珍珠|ngọc trai nuôi cấy"
+   ],
+   "mh": "Trân Châu → zhēnzhū. ĐỌC: 'trân' → zhēn; 'châu' → zhū. NGHĨA: 珍 (王 ngọc quý) + 珠 (王 ngọc + 朱 → hạt ngọc tròn) → hạt ngọc trai quý giá.",
+   "tw": "Ở tiệm trà sữa Đài Loan, hạt trân châu to thường gọi là 波霸 (boba) còn hạt nhỏ hơn gọi là 珍珠 (zhēnzhū); ngoài ra 珍珠奶茶 còn gọi tắt là 珍奶.",
+   "vd": [
+    {
+     "t": "Đồ uống",
+     "zh": "來台灣玩的外國朋友，幾乎每天都要喝一杯珍珠奶茶。",
+     "vn": "Bạn bè nước ngoài đến Đài Loan chơi hầu như ngày nào cũng phải uống một ly trà sữa trân châu."
+    },
+    {
+     "t": "Trang sức",
+     "zh": "媽媽把那條珍珠項鍊收在盒子裡，只有重要場合才戴。",
+     "vn": "Mẹ cất chiếc vòng cổ ngọc trai đó trong hộp, chỉ dịp quan trọng mới đeo."
+    },
+    {
+     "t": "Quán trà",
+     "zh": "老闆，我要一杯半糖少冰的紅茶拿鐵加珍珠。",
+     "vn": "Ông chủ ơi, cho tôi một ly hồng trà latte ít đường ít đá thêm trân châu."
+    }
+   ]
+  },
+  "陣子": {
+   "vn": "một dạo; khoảng thời gian; một lúc",
+   "ng": [
+    "(danh từ) khoảng thời gian, một dạo (thường dùng với 一陣子, 這陣子, 前一陣子, 那陣子)"
+   ],
+   "us": "Ít khi đứng một mình; hầu như luôn đi với định từ: 一陣子 (một thời gian, một dạo), 這陣子 (dạo này), 前陣子 (dạo trước), 好一陣子 (một thời gian khá lâu).",
+   "co": [
+    "這陣子|dạo này",
+    "前一陣子|dạo trước",
+    "過一陣子|qua một thời gian nữa",
+    "好一陣子|một dạo khá lâu"
+   ],
+   "sy": [
+    "一段時間|một khoảng thời gian",
+    "最近|gần đây"
+   ],
+   "mh": "Trận Tử → zhènzi. ĐỌC: 'trận' → zhèn; 'tử' → zi (thanh nhẹ). NGHĨA: 陣 (阝 đồi/thành + 車 chiến xa → một đợt/một trận) + 子 (hậu tố danh từ) → một đợt thời gian.",
+   "tw": "Trong khẩu ngữ Đài Loan, người ta rất hay dùng 這陣子 (dạo này) và 前陣子 (dạo trước) thay cho 最近 nghe rất tự nhiên.",
+   "vd": [
+    {
+     "t": "Hỏi thăm",
+     "zh": "這陣子天氣變化大，出門記得多帶一件外套。",
+     "vn": "Dạo này thời tiết thay đổi nhiều, ra ngoài nhớ mang thêm một chiếc áo khoác."
+    },
+    {
+     "t": "Công việc",
+     "zh": "前一陣子我忙著準備考試，幾乎沒時間跟朋友見面。",
+     "vn": "Dạo trước tôi bận ôn thi, hầu như không có thời gian gặp mặt bạn bè."
+    },
+    {
+     "t": "Kế hoạch",
+     "zh": "我剛換新工作，等過一陣子穩定了再約你吃飯。",
+     "vn": "Tôi vừa đổi việc mới, đợi qua một thời gian nữa ổn định rồi hẹn bạn đi ăn sau nhé."
+    }
+   ]
+  },
+  "止": {
+   "vn": "dừng; ngừng; đến mức",
+   "ng": [
+    "(động từ) dừng lại, ngừng, chấm dứt (止步, 止血, 止痛)",
+    "(động từ) ngăn chặn, cấm (禁止, 制止)",
+    "(giới từ/phó từ) đến, cho đến (到此為止, 不止)"
+   ],
+   "us": "Thường xuất hiện trong từ ghép hai âm tiết như 停止, 禁止, 制止, 止痛藥, 到此為止 (dừng lại tại đây).",
+   "co": [
+    "到此為止|dừng lại ở đây",
+    "止痛藥|thuốc giảm đau",
+    "止血|cầm máu",
+    "不止一次|không chỉ một lần"
+   ],
+   "sy": [
+    "停|dừng",
+    "禁|cấm"
+   ],
+   "cf": [
+    "只|chỉ (phó từ: chỉ có, không phải dừng lại)"
+   ],
+   "mh": "Chỉ → zhǐ. ĐỌC: 'chỉ' → zhǐ (thanh 3). NGHĨA: chữ tượng hình bàn chân đặt xuống đất → dừng bước tại chỗ.",
+   "lt": "Phân biệt 不止 (không dừng lại ở mức đó / không chỉ) và 不只 (không chỉ có - thường đi với 而且).",
+   "vd": [
+    {
+     "t": "Hiệu thuốc",
+     "zh": "我頭痛得受不了，先去藥局買一盒止痛藥吧。",
+     "vn": "Tôi đau đầu chịu không nổi, đi hiệu thuốc mua một hộp thuốc giảm đau trước đi."
+    },
+    {
+     "t": "Cảnh báo",
+     "zh": "這個施工區域非工作人員止步，請繞道而行。",
+     "vn": "Khu vực thi công này người không phận sự miễn vào, xin vui lòng đi đường vòng."
+    },
+    {
+     "t": "Họp hành",
+     "zh": "今天的討論就到此為止，剩下的問題我們明天再繼續。",
+     "vn": "Cuộc thảo luận hôm nay xin dừng lại tại đây, các vấn đề còn lại ngày mai chúng ta tiếp tục."
+    }
+   ]
+  },
+  "值": {
+   "vn": "đáng; giá trị; trực ban; đúng dịp",
+   "ng": [
+    "(động từ) đáng giá, xứng đáng (值得, 不值一提)",
+    "(danh từ) giá trị, trị số (價值, 數值)",
+    "(động từ) trực ban, trực nhật (值班, 值日生)",
+    "(động từ) gặp đúng lúc, đúng dịp (正值)"
+   ],
+   "us": "Đứng một mình nghĩa 'đáng tiền/xứng đáng' (這件衣服不值這個價) hoặc 'trực ban' (今晚我值班). Trong giao tiếp B2 rất hay gặp 值得 (đáng) và 值班 (trực ca).",
+   "co": [
+    "值班|trực ca, trực ban",
+    "值多少錢|đáng giá bao nhiêu tiền",
+    "不值一提|không đáng nhắc tới",
+    "正值夏季|đúng vào mùa hè"
+   ],
+   "sy": [
+    "值得|đáng",
+    "輪值|luân phiên trực"
+   ],
+   "mh": "Trị → zhí. ĐỌC: 'trị' → zhí (thanh 2). NGHĨA: 亻 (người) + 直 (ngay thẳng, ngang bằng) → người định giá công bằng, đối chiếu giá trị.",
+   "tw": "Ở bệnh viện, công xưởng hay cửa hàng tiện lợi 24h tại Đài Loan, người làm ca đêm gọi là 值大夜班 (trực ca đêm khuya).",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "護理人員過年期間還要輪流值班，真的非常辛苦。",
+     "vn": "Nhân viên điều dưỡng dịp Tết vẫn còn phải thay phiên nhau trực ca, thật sự vô cùng vất vả."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這家二手店把東西賣得太貴了，根本不值這個價錢。",
+     "vn": "Tiệm đồ cũ này bán đồ đắt quá, hoàn toàn không đáng mức giá này."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "現在正值梅雨季節，出門千萬別忘了帶傘。",
+     "vn": "Hiện tại đúng vào mùa mưa phùn, ra ngoài tuyệt đối đừng quên mang ô."
+    }
+   ]
+  },
+  "擲": {
+   "vn": "ném; quăng; gieo (xí ngầu, quẻ)",
+   "ng": [
+    "(động từ) ném, quăng, liệng, thả (xí ngầu, vật thể, tiền xu)"
+   ],
+   "us": "Ít dùng đơn lẻ trong khẩu ngữ thường ngày (thường nói 丟 hoặc 扔), nhưng hay dùng trong các cụm cố định như 擲骰子 (gieo xí ngầu), 擲筊 (gieo keo/quẻ gỗ ở chùa), 投擲 (ném/phóng).",
+   "co": [
+    "擲骰子|gieo xí ngầu",
+    "擲筊|gieo quẻ âm dương ở miếu",
+    "拋擲|ném đi",
+    "孤注一擲|được ăn cả ngã về không"
+   ],
+   "sy": [
+    "丟|ném, vứt",
+    "扔|quăng, ném",
+    "投|ném, tung"
+   ],
+   "mh": "Trịch → zhí. ĐỌC: 'trịch' → zhí (thanh 2 theo chuẩn Đài Loan; đại lục đọc zhì thanh 4). NGHĨA: 扌 (bàn tay) + 鄭 (thanh phù) → dùng tay ném vật ra xa.",
+   "tw": "Chuẩn phát âm ở Đài Loan là thanh 2 (zhí), như trong 擲筊 (gieo quẻ gỗ hình trăng khuyết ở đền miếu Đài Loan, người Đài hay đọc theo tiếng Đài là bó-bue hoặc đọc phổ thông zhíjiǎo) và 擲骰子 (zhí shǎizi, chơi đổ xí ngầu ăn xúc xích nướng ở chợ đêm).",
+   "vd": [
+    {
+     "t": "Văn hóa Đài",
+     "zh": "去台灣的廟宇拜拜時，信徒常會擲筊請示神明。",
+     "py": "Qù Táiwān de miàoyǔ bàibài shí, xìntú cháng huì zhíjiǎo qǐngshì shénmíng.",
+     "vn": "Khi đi lễ ở các đền miếu Đài Loan, tín đồ thường gieo quẻ âm dương để thỉnh ý thần linh."
+    },
+    {
+     "t": "Chợ đêm",
+     "zh": "以前台灣夜市的香腸攤常常可以看到客人跟老闆擲骰子比大小。",
+     "py": "Yǐqián Táiwān yèshì de xiāngcháng tān chángcháng kěyǐ kàndào kèrén gēn lǎobǎn zhí shǎizi bǐ dàxiǎo.",
+     "vn": "Trước đây ở các sạp xúc xích chợ đêm Đài Loan thường thấy khách và chủ quán tung xí ngầu so điểm lớn nhỏ."
+    },
+    {
+     "t": "Thể thao",
+     "zh": "體育課時，老師指導大家如何正確投擲鉛球。",
+     "py": "Tǐyùkè shí, lǎoshī zhǐdǎo dàjiā rúhé zhèngquè tóuzhí qiānqiú.",
+     "vn": "Trong giờ thể dục, thầy giáo hướng dẫn mọi người cách đẩy/ném tạ cho đúng kỹ thuật."
+    }
+   ]
+  }
+ }
+}

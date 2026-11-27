@@ -1,233 +1,1094 @@
-{"tu": {
-"模樣": {"vn": "dáng vẻ; diện mạo; hình dáng", "ng": ["(danh từ) dáng vẻ, diện mạo, bộ dạng (thường chỉ vẻ ngoài của người hoặc vật)"],
- "us": "Thường đi với tính từ hoặc định ngữ phía trước: 可愛的模樣 / 這副模樣 / 看他那模樣.", "co": ["可愛的模樣|dáng vẻ đáng yêu", "這副模樣|bộ dạng này", "原來的模樣|hình dáng ban đầu"],
- "sy": ["樣子|dáng vẻ (khẩu ngữ hơn)", "容貌|dung mạo"],
- "mh": "Mô Dạng → mó yàng. ĐỌC: 'mô' → mó; 'dạng' → yàng. NGHĨA: 模 (bộ mộc 木 + âm Mạc 莫 → khuôn gỗ) + 樣 (bộ mộc 木 + âm Dạng 羕 → kiểu dáng) → hình dáng, diện mạo như đúc từ khuôn.",
- "tw": "Chuẩn Bộ Giáo dục Đài Loan đọc là móyàng (thanh 2), trong khi Đại lục đọc là múyàng.",
- "lt": "Lượng từ thường dùng cho bộ dạng là 副 (這副模樣) hoặc 個.",
- "vd": [{"t": "Trẻ nhỏ", "zh": "看到小寶寶睡覺的模樣，大家都覺得好可愛。", "vn": "Nhìn thấy dáng vẻ lúc ngủ của em bé, ai cũng thấy thật đáng yêu."},
-  {"t": "Thay đổi", "zh": "過了十年，這條老街依然保持著原來的模樣。", "vn": "Đã qua mười năm, con phố cổ này vẫn giữ nguyên diện mạo ban đầu."},
-  {"t": "Ngạc nhiên", "zh": "你怎麼淋雨淋成這副模樣？快去換件衣服吧！", "vn": "Sao bạn lại dầm mưa thành bộ dạng thế này? Mau đi thay bộ đồ đi!"}]},
-"目標": {"vn": "mục tiêu; đích nhắm", "ng": ["(danh từ) mục tiêu phấn đấu, đích đến", "(danh từ) đối tượng, mục tiêu nhắm tới"],
- "us": "設定目標 / 達成目標 / 實現目標 / 以…為目標.", "co": ["設定目標|đặt mục tiêu", "達成目標|đạt được mục tiêu", "人生目標|mục tiêu cuộc đời", "明確的目標|mục tiêu rõ ràng"],
- "sy": ["目的|mục đích"], "cf": ["目的|chỉ ý định/lý do làm việc gì; 目標 chỉ đích ngắm cụ thể, cột mốc cần đạt tới"],
- "mh": "Mục Tiêu → mù biāo. ĐỌC: 'mục' → mù; 'tiêu' → biāo. NGHĨA: 目 (con mắt) + 標 (bộ mộc 木 + âm Phiếu 票 → cọc gỗ làm dấu) → cái cọc tiêu mà mắt nhắm tới.",
- "lt": "Lượng từ: 個 (一個目標).",
- "vd": [{"t": "Học tập", "zh": "我今年的目標是通過華語文能力測驗流利級。", "vn": "Mục tiêu năm nay của tôi là thi đậu kỳ thi năng lực Hoa ngữ TOCFL cấp Lưu loát."},
-  {"t": "Công việc", "zh": "只要大家同心協力，一定能達成業績目標。", "vn": "Chỉ cần mọi người đồng tâm hiệp lực, nhất định có thể đạt được mục tiêu doanh số."},
-  {"t": "Định hướng", "zh": "有了明確的目標，讀書才會有動力。", "vn": "Có mục tiêu rõ ràng thì việc học mới có động lực."}]},
-"目的地": {"vn": "điểm đến; đích đến", "ng": ["(danh từ) điểm đến cuối cùng của chuyến đi hoặc hành trình"],
- "us": "到達目的地 / 前往目的地. Chỉ dùng cho địa điểm không gian cụ thể, không dùng cho mục tiêu trừu tượng.", "co": ["到達目的地|đến điểm đích", "抵達目的地|tới điểm đến", "旅遊目的地|điểm đến du lịch"],
- "sy": ["終點|điểm cuối"], "an": ["出發地|điểm xuất phát", "起點|điểm khởi đầu"],
- "mh": "Mục Đích Địa → mù dì dì. ĐỌC: 'mục' → mù; 的 ở đây đọc dì (thanh 4, nghĩa là hồng tâm bia bắn); 'địa' → dì. NGHĨA: 目 (mắt) + 的 (tâm bia) + 地 (đất, nơi chốn) → vùng đất nơi mình nhắm tới.",
- "mk": "Trong 目的地, chữ 的 phải đọc là dì (thanh 4), người học rất hay đọc nhầm thành âm nhẹ de.",
- "vd": [{"t": "Du lịch", "zh": "搭高鐵只要一個半小時就能抵達目的地。", "vn": "Đi tàu cao tốc chỉ mất một tiếng rưỡi là có thể tới điểm đến."},
-  {"t": "Chỉ đường", "zh": "請在導航軟體裡輸入我們的目的地。", "vn": "Xin hãy nhập điểm đến của chúng ta vào phần mềm dẫn đường."},
-  {"t": "Hành trình", "zh": "這趟環島旅行的最後一個目的地是花蓮。", "py": "Zhè tàng huándǎo lǚxíng de zuìhòu yī ge mùdìdì shì Huālián.", "vn": "Điểm đến cuối cùng của chuyến du lịch vòng quanh đảo lần này là Hoa Liên."}]},
-"目錄": {"vn": "mục lục; danh mục", "ng": ["(danh từ) mục lục sách báo", "(danh từ) danh mục sản phẩm, thư mục máy tính"],
- "us": "看目錄 / 商品目錄 / 翻開目錄.", "co": ["書籍目錄|mục lục sách", "商品目錄|danh mục hàng hóa (catalog)", "看目錄|xem mục lục"],
- "mh": "Mục Lục → mù lù. ĐỌC: 'mục' → mù; 'lục' → lù. NGHĨA: 目 (con mắt, đề mục) + 錄 (bộ kim 釒 + 彔 → khắc chép lại) → bản ghi chép các đề mục để tra cứu.",
- "lt": "Lượng từ: 份 (一份商品目錄), 本 (一本目錄).",
- "vd": [{"t": "Đọc sách", "zh": "買書之前，我習慣先翻一下目錄。", "vn": "Trước khi mua sách, tôi có thói quen lật xem mục lục trước."},
-  {"t": "Mua sắm", "zh": "這本商品目錄裡有很多最新的家電產品。", "vn": "Trong cuốn danh mục sản phẩm này có rất nhiều đồ điện gia dụng mới nhất."},
-  {"t": "Luận văn", "zh": "請幫我檢查報告的目錄頁碼有沒有對齊。", "vn": "Làm ơn giúp tôi kiểm tra số trang ở mục lục báo cáo đã căn thẳng hàng chưa."}]},
-"奶粉": {"vn": "sữa bột", "ng": ["(danh từ) sữa bột"],
- "us": "泡奶粉 (pha sữa bột) / 嬰兒奶粉. Lượng từ: 罐 (lon, hộp), 包 (gói), 匙 (muỗng).", "co": ["泡奶粉|pha sữa bột", "嬰兒奶粉|sữa bột trẻ em", "一罐奶粉|một lon sữa bột"],
- "cf": ["鮮奶|sữa tươi", "豆漿|sữa đậu nành"],
- "mh": "Nãi Phấn → nǎi fěn. ĐỌC: 'nãi' → nǎi; 'phấn' → fěn. NGHĨA: 奶 (bộ nữ 女 + âm Nãi 乃 → sữa) + 粉 (bộ mễ 米 + âm Phân 分 → bột mịn) → sữa dạng bột.",
- "mk": "Ở Đài Loan 'pha sữa bột' dùng động từ 泡 (泡奶粉 / 泡牛奶), không nói 沖奶粉 như một số vùng khác.",
- "vd": [{"t": "Chăm con", "zh": "半夜小寶寶哭了，爸爸趕快起來泡奶粉。", "vn": "Nửa đêm em bé khóc, bố vội vàng dậy pha sữa bột."},
-  {"t": "Siêu thị", "zh": "我去藥局買了兩罐嬰兒奶粉。", "vn": "Tôi đến hiệu thuốc mua hai lon sữa bột trẻ em."},
-  {"t": "Làm bánh", "zh": "做這款麵包需要加一點奶粉，味道會更香。", "vn": "Làm loại bánh mì này cần cho thêm một chút sữa bột, mùi vị sẽ thơm hơn."}]},
-"耐用": {"vn": "bền; dùng được lâu", "ng": ["(tính từ) bền, chịu được sự sử dụng lâu dài"],
- "us": "很耐用 / 堅固耐用. Thường làm vị ngữ hoặc định ngữ mô tả đồ dùng, thiết bị.", "co": ["堅固耐用|chắc chắn và bền", "非常耐用|rất bền", "耐用的產品|sản phẩm bền"],
- "sy": ["結實|chắc chắn"],
- "mh": "Nại Dụng → nài yòng. ĐỌC: 'nại' → nài; 'dụng' → yòng. NGHĨA: 耐 (chịu đựng được lâu, nhẫn nại) + 用 (sử dụng) → chịu được việc sử dụng lâu dài → bền.",
- "lt": "Tiền tố 耐 (nài) ghép với động từ chỉ khả năng chịu đựng tốt: 耐用 (bền), 耐看 (nhìn lâu không chán), 耐穿 (mặc bền), 耐髒 (đỡ bẩn).",
- "vd": [{"t": "Đồ gia dụng", "zh": "這臺大同電鍋非常耐用，我們家已經用了二十年。", "vn": "Chiếc nồi điện Tatung này cực kỳ bền, nhà chúng tôi đã dùng hai mươi năm rồi."},
-  {"t": "Mua sắm", "zh": "雖然這個背包比較貴，但是材質很耐用。", "vn": "Tuy chiếc ba lô này hơi đắt, nhưng chất liệu rất bền."},
-  {"t": "Đánh giá", "zh": "消費者都喜歡購買品質好又耐用的商品。", "vn": "Người tiêu dùng đều thích mua hàng hóa chất lượng tốt mà lại bền."}]},
-"難道": {"vn": "chẳng lẽ; lẽ nào", "ng": ["(phó từ) chẳng lẽ, lẽ nào (dùng trong câu hỏi tu từ để nhấn mạnh sự ngạc nhiên hoặc khẳng định ý ngược lại)"],
- "us": "Đứng đầu câu hoặc sau chủ ngữ, cuối câu thường có 嗎 hoặc 不成: 難道…嗎？", "co": ["難道說|chẳng lẽ nói là", "難道不是嗎|chẳng lẽ không phải sao"],
- "sy": ["莫非|há chẳng phải, lẽ nào"],
- "mh": "Nan Đạo → nán dào. ĐỌC: 'nan' → nán (thanh 2); 'đạo' → dào. NGHĨA: 難 (khó) + 道 (nói) → khó mà nói rằng, chẳng lẽ lại là.",
- "mk": "難道 dùng để hỏi vặn (câu hỏi tu từ): '難道你不知道嗎？' nghĩa là 'Chẳng lẽ bạn không biết sao? (Lẽ ra bạn phải biết chứ)'.",
- "vd": [{"t": "Ngạc nhiên", "zh": "這麼重要的會議，難道你忘了嗎？", "vn": "Cuộc họp quan trọng như vậy, chẳng lẽ bạn quên rồi sao?"},
-  {"t": "Suy đoán", "zh": "他今天一直笑，難道是有什麼好消息？", "vn": "Hôm nay anh ấy cứ cười mãi, lẽ nào là có tin vui gì chăng?"},
-  {"t": "Phản bác", "zh": "大家都這麼辛苦，難道我不想早點下班嗎？", "vn": "Mọi người đều vất vả như vậy, chẳng lẽ tôi không muốn tan làm sớm sao?"}]},
-"難得": {"vn": "hiếm có; hiếm khi", "ng": ["(tính từ) hiếm có, quý giá, khó có được", "(phó từ) hiếm khi"],
- "us": "Làm tính từ: 難得的機會 (cơ hội hiếm có). Làm phó từ đứng đầu câu/trước động từ: 難得大家聚在一起 (hiếm khi mọi người tụ họp).", "co": ["難得的機會|cơ hội hiếm có", "難得一見|hiếm khi thấy được", "千載難逢|ngàn năm có một"],
- "sy": ["少見|hiếm thấy", "罕見|hiếm gặp"], "an": ["常見|thường thấy", "經常|thường xuyên"],
- "mh": "Nan Đắc → nán dé. ĐỌC: 'nan' → nán; 'đắc' → dé. NGHĨA: 難 (khó) + 得 (đạt được, có được) → khó mà có được → hiếm có.",
- "vd": [{"t": "Họp mặt", "zh": "難得今天大家都休假，我們一起去吃火鍋吧！", "vn": "Hiếm khi hôm nay mọi người đều được nghỉ, chúng ta cùng đi ăn lẩu nhé!"},
-  {"t": "Thời tiết", "zh": "臺北冬天難得有這麼好的陽光。", "vn": "Mùa đông ở Đài Bắc hiếm khi có nắng đẹp như thế này."},
-  {"t": "Cơ hội", "zh": "這是一個非常難得的出國留學機會，你要好好把握。", "vn": "Đây là một cơ hội đi du học nước ngoài vô cùng hiếm có, bạn phải nắm bắt thật tốt."}]},
-"難受": {"vn": "khó chịu; buồn bã, đau khổ", "ng": ["(tính từ) khó chịu, mệt mỏi trong người (thể chất)", "(tính từ) buồn bã, day dứt, đau lòng (tinh thần)"],
- "us": "身體很難受 / 心裡很難受. Dùng cho cả cảm giác cơ thể lẫn tâm trạng.", "co": ["心裡難受|trong lòng buồn bã, khó chịu", "身體難受|trong người khó chịu", "讓人難受|làm người ta khó chịu"],
- "sy": ["不舒服|không thoải mái, khó chịu", "難過|buồn bã"], "an": ["舒服|dễ chịu, thoải mái"],
- "cf": ["難過|thường thiên về buồn bã tinh thần; 難受 dùng phổ biến cho cả đau ốm thể xác lẫn day dứt tinh thần"],
- "mh": "Nan Thụ → nán shòu. ĐỌC: 'nan' → nán; 'thụ' → shòu. NGHĨA: 難 (khó) + 受 (chịu đựng, tiếp nhận) → khó mà chịu đựng nổi → khó chịu.",
- "vd": [{"t": "Sức khỏe", "zh": "我感冒了，喉嚨痛得非常難受。", "vn": "Tôi bị cảm rồi, cổ họng đau tới mức vô cùng khó chịu."},
-  {"t": "Tâm trạng", "zh": "聽到他要離職的消息，大家心裡都很難受。", "vn": "Nghe tin anh ấy sắp nghỉ việc, trong lòng mọi người đều rất buồn."},
-  {"t": "Thời tiết", "zh": "夏天的午後又悶又熱，真讓人難受。", "vn": "Buổi chiều mùa hè vừa oi vừa nóng, thật khiến người ta khó chịu."}]},
-"男性": {"vn": "nam giới; phái nam", "ng": ["(danh từ) nam giới, đàn ông, giới tính nam"],
- "us": "Từ trang trọng dùng trong văn viết, thống kê, y tế, xã hội: 男性朋友 / 男性消費者.", "co": ["男性消費者|người tiêu dùng nam giới", "成年男性|nam giới trưởng thành", "男性用品|đồ dùng nam giới"],
- "sy": ["男人|đàn ông (khẩu ngữ)", "男生|con trai, bạn nam (rất phổ biến ở Đài Loan)"], "an": ["女性|nữ giới"],
- "mh": "Nam Tính → nán xìng. ĐỌC: 'nam' → nán; 'tính' → xìng. NGHĨA: 男 (điền 田 + lực 力 → người bỏ sức cày ruộng → đàn ông) + 性 (tâm 忄 + sinh 生 → giới tính) → giới tính nam.",
- "tw": "Trong giao tiếp hằng ngày ở Đài Loan, người ta hay gọi chung nam giới ở mọi lứa tuổi là 男生; còn 男性 dùng trong tin tức, khảo sát hoặc văn cảnh lịch sự.",
- "lt": "Bẫy Hán Việt: 'nam tính' trong tiếng Việt là tính từ (vẻ nam tính = 男人味 / 陽剛), còn 男性 trong tiếng Hoa là danh từ chỉ 'nam giới / giới tính nam'.",
- "vd": [{"t": "Thị trường", "zh": "現在越來越多的男性開始注重皮膚保養。", "vn": "Hiện nay ngày càng nhiều nam giới bắt đầu chú trọng chăm sóc da."},
-  {"t": "Khảo sát", "zh": "這項調查顯示，超過六成的男性受訪者喜歡運動。", "vn": "Cuộc khảo sát này cho thấy hơn 60% người trả lời phỏng vấn là nam giới thích tập thể thao."},
-  {"t": "Thời trang", "zh": "百貨公司三樓主要是販售男性服飾。", "vn": "Tầng ba của trung tâm thương mại chủ yếu bán trang phục nam giới."}]},
-"難以": {"vn": "khó lòng; khó mà", "ng": ["(phó từ) khó mà, khó lòng (thường đứng trước động từ hai âm tiết mang sắc thái trang trọng)"],
- "us": "難以 + V (2 âm tiết): 難以想像 / 難以置信 / 難以接受 / 難以忘懷.", "co": ["難以想像|khó mà tưởng tượng", "難以置信|khó có thể tin được", "難以接受|khó lòng chấp nhận", "難以忘懷|khó lòng quên được"],
- "sy": ["很難|rất khó (khẩu ngữ)"],
- "mh": "Nan Dĩ → nán yǐ. ĐỌC: 'nan' → nán; 'dĩ' → yǐ. NGHĨA: 難 (khó) + 以 (lấy đó để làm...) → khó lòng mà làm được việc gì.",
- "mk": "Sau 難以 thường phải là động từ hai âm tiết (難以理解, 難以決定), không ghép với động từ một âm tiết (*難以做 → phải nói 很難做).",
- "vd": [{"t": "Cảm xúc", "zh": "這場比賽的結果真是令人難以置信！", "vn": "Kết quả của trận đấu này thật khiến người ta khó mà tin nổi!"},
-  {"t": "Kỷ niệm", "zh": "在臺灣留學的那段日子，讓我至今難以忘懷。", "vn": "Quãng thời gian du học ở Đài Loan khiến tôi đến nay vẫn khó lòng quên được."},
-  {"t": "Quyết định", "zh": "這兩個工作機會都很好，真是難以取捨。", "vn": "Hai cơ hội việc làm này đều rất tốt, thật khó mà chọn lựa bỏ cái nào."}]},
-"鬧": {"vn": "ồn ào, náo nhiệt; quấy, làm ầm ĩ; mắc phải, xảy ra", "ng": ["(tính từ) ồn ào, náo nhiệt", "(động từ) làm ầm ĩ, quấy rầy, giận dỗi, đùa giỡn", "(động từ) xảy ra chuyện không hay (đau bụng, mất đoàn kết, thiếu hụt)"],
- "us": "Từ đa năng: 鬧鐘 (đồng hồ báo thức) / 鬧脾氣 (dỗi, nổi cáu) / 鬧肚子 (đau bụng tiêu chảy) / 鬧笑話 (gây trò cười) / 別鬧了 (đừng đùa/quấy nữa).", "co": ["鬧脾氣|giận dỗi, nổi cáu", "鬧笑話|làm trò cười, gây chuyện tức cười", "別鬧了|đừng đùa nữa / đừng quấy nữa", "無理取鬧|vô cớ gây sự"],
- "sy": ["吵|ồn ào, cãi cọ"], "an": ["靜|yên tĩnh"],
- "mh": "Náo → nào. ĐỌC: 'náo' → nào. NGHĨA: 鬥 (đấu tranh, ồn ào) + 市 (chợ búa) → ồn ào, huyên náo như ngoài chợ.",
- "vd": [{"t": "Khuyên can", "zh": "好了，別鬧了，我們該開始專心工作了。", "vn": "Thôi được rồi, đừng đùa nữa, chúng ta nên bắt đầu tập trung làm việc thôi."},
-  {"t": "Trẻ nhỏ", "zh": "小孩子有時候沒睡飽就會鬧脾氣。", "vn": "Trẻ con đôi khi ngủ không đủ giấc là sẽ quấy khóc, dỗi hờn."},
-  {"t": "Hiểu lầm", "zh": "因為聽錯了對方的意思，結果鬧了一個大笑話。", "vn": "Vì nghe nhầm ý của đối phương nên kết quả là gây ra một chuyện dở khóc dở cười."}]},
-"腦袋": {"vn": "cái đầu; đầu óc, trí não", "ng": ["(danh từ) cái đầu (bộ phận cơ thể, khẩu ngữ)", "(danh từ) đầu óc, trí óc, khả năng suy nghĩ"],
- "us": "拍拍腦袋 / 腦袋很靈光 / 動動腦袋. Lượng từ: 顆, 個.", "co": ["腦袋靈光|đầu óc nhanh nhạy", "腦袋一片空白|đầu óc trống rỗng", "搖搖腦袋|lắc đầu"],
- "sy": ["頭|cái đầu", "頭腦|đầu óc", "腦筋|đầu óc, trí não"],
- "mh": "Não Đại → nǎo dài. ĐỌC: 'não' → nǎo; 'đại' → dài (Đài Loan đọc thanh 4 nǎodài, Đại lục đọc thanh nhẹ nǎodai). NGHĨA: 腦 (bộ nhục ⺼ + 囟 thóp đầu → bộ não) + 袋 (cái túi) → cái đầu chứa bộ não.",
- "tw": "Ở Đài Loan 腦袋 đọc rõ thanh 4 là nǎodài, và hay đi kèm tính từ 靈光 (腦袋很靈光 = đầu óc rất nhạy bén).",
- "vd": [{"t": "Căng thẳng", "zh": "上臺報告的時候，我緊張得腦袋一片空白。", "vn": "Lúc lên bục thuyết trình, tôi hồi hộp đến mức đầu óc trống rỗng."},
-  {"t": "Khen ngợi", "zh": "他的腦袋很靈光，學什麼新軟體都特別快。", "vn": "Đầu óc anh ấy rất nhạy bén, học phần mềm mới nào cũng cực kỳ nhanh."},
-  {"t": "Mệt mỏi", "zh": "連續開了三個小時的會，現在覺得腦袋昏昏沉沉的。", "vn": "Họp liên tục ba tiếng đồng hồ, bây giờ cảm thấy đầu óc cứ choáng váng nặng trĩu."}]},
-"腦筋": {"vn": "đầu óc; trí não; suy nghĩ", "ng": ["(danh từ) đầu óc, trí não, tư duy, cách suy nghĩ"],
- "us": "Thường đi với 動 hoặc 傷: 動腦筋 (động não, suy nghĩ) / 傷腦筋 (đau đầu, tốn chất xám) / 腦筋急轉彎 (câu đố mẹo).", "co": ["動腦筋|động não, suy nghĩ", "傷腦筋|nhức đầu, nan giải", "腦筋急轉彎|câu đố mẹo, xoay chuyển tư duy nhanh", "死腦筋|đầu óc cứng nhắc"],
- "sy": ["頭腦|đầu óc", "腦袋|đầu óc"],
- "mh": "Não Cân → nǎo jīn. ĐỌC: 'não' → nǎo; 'cân' → jīn. NGHĨA: 腦 (bộ não) + 筋 (bộ trúc ⺮ + lặc 肋 → gân cốt, dây thần kinh) → hệ thống suy nghĩ trong não → đầu óc.",
- "tw": "Người Đài Loan cực kỳ hay dùng cụm 傷腦筋 (shāng nǎojīn) để than thở khi gặp chuyện rắc rối, khó xử ('Thật là đau đầu quá đi!').",
- "vd": [{"t": "Rắc rối", "zh": "這件事情真的很傷腦筋，不知道該怎麼解決才好。", "vn": "Chuyện này thật sự rất đau đầu, không biết phải giải quyết thế nào mới ổn."},
-  {"t": "Học tập", "zh": "遇到難題時要多動腦筋，不要馬上放棄。", "vn": "Khi gặp bài toán khó thì phải chịu khó động não, đừng vội bỏ cuộc ngay."},
-  {"t": "Tính cách", "zh": "做生意要懂得變通，不能太死腦筋。", "vn": "Làm kinh doanh phải biết linh hoạt ứng biến, không thể quá cứng nhắc được."}]},
-"鬧區": {"vn": "khu trung tâm sầm uất; khu phố nhộn nhịp", "ng": ["(danh từ) khu vực trung tâm thương mại đông đúc, sầm uất trong thành phố"],
- "us": "位於鬧區 / 市中心鬧區. Từ đặc trưng của Đài Loan.", "co": ["市中心鬧區|khu trung tâm sầm uất", "位於鬧區|nằm ở khu sầm uất", "逛鬧區|dạo khu phố sầm uất"],
- "sy": ["市中心|trung tâm thành phố", "商圈|khu thương mại"], "an": ["郊區|vùng ngoại ô"],
- "mh": "Náo Khu → nào qū. ĐỌC: 'náo' → nào; 'khu' → qū. NGHĨA: 鬧 (náo nhiệt, đông đúc) + 區 (khu vực) → khu phố đông đúc sầm uất.",
- "tw": "鬧區 là từ vựng rất phổ biến ở Đài Loan (tương đương 鬧市區 ở Đại lục) để chỉ các khu mua sắm nhộn nhịp như 西門町 (Ximending) hay 東區 ở Đài Bắc.",
- "vd": [{"t": "Bất động sản", "zh": "這間公寓位於市中心的鬧區，交通非常方便。", "vn": "Căn hộ này nằm ở khu trung tâm sầm uất của thành phố, giao thông vô cùng thuận tiện."},
-  {"t": "Cuối tuần", "zh": "週末的鬧區到處都是逛街的人潮。", "vn": "Khu phố trung tâm vào cuối tuần đâu đâu cũng là dòng người đi dạo mua sắm."},
-  {"t": "Giao thông", "zh": "開車進鬧區很難找停車位，還是搭捷運去吧。", "vn": "Lái xe vào khu trung tâm sầm uất rất khó tìm chỗ đậu xe, thôi cứ đi tàu điện ngầm nhé."}]},
-"哪怕": {"vn": "dù cho; cho dù; dẫu cho", "ng": ["(liên từ) dù cho, cho dù (đưa ra giả thiết cực đoan, vế sau thường đi với 也 hoặc 還是)"],
- "us": "哪怕 + [giả thiết], 也/還是/都 + [kết quả]: 哪怕只有一絲希望，我們也不放棄.", "co": ["哪怕是|dù cho là", "哪怕只有|cho dù chỉ có"],
- "sy": ["即使|cho dù", "就算|dẫu cho", "縱使|dẫu cho"],
- "mh": "Na Phạ → nǎ pà. ĐỌC: 哪 đọc nǎ; 'phạ' → pà. NGHĨA: 哪 (đâu có, sao lại) + 怕 (sợ) → đâu có sợ chuyện gì → dù cho có thế nào đi nữa.",
- "mk": "哪怕 là liên từ nhượng bộ ('cho dù'), không dịch theo nghĩa đen là 'sợ ở đâu'. Vế sau luôn cần phó từ hô ứng như 也 hoặc 都.",
- "vd": [{"t": "Quyết tâm", "zh": "哪怕遇到再大的困難，我也要堅持到底。", "vn": "Dù cho có gặp khó khăn lớn đến mấy, tôi cũng sẽ kiên trì đến cùng."},
-  {"t": "Quan tâm", "zh": "出門在外，哪怕再忙也要常打電話回家報平安。", "vn": "Đi ra ngoài xa nhà, dù cho bận mấy cũng phải thường xuyên gọi điện về nhà báo bình an."},
-  {"t": "Cẩn thận", "zh": "這份合約非常重要，哪怕是一個小錯字都不能有。", "vn": "Bản hợp đồng này vô cùng quan trọng, dù chỉ là một lỗi chính tả nhỏ cũng không được phép có."}]},
-"內部": {"vn": "nội bộ; bên trong", "ng": ["(danh từ) phần bên trong của sự vật, kiến trúc", "(danh từ) nội bộ (trong một tổ chức, công ty)"],
- "us": "公司內部 / 內部結構 / 內部消息 / 內部裝潢.", "co": ["公司內部|nội bộ công ty", "內部消息|tin tức nội bộ", "內部結構|cấu trúc bên trong", "內部會議|cuộc họp nội bộ"],
- "sy": ["裡面|bên trong"], "an": ["外部|bên ngoài"],
- "mh": "Nội Bộ → nèi bù. ĐỌC: 'nội' → nèi; 'bộ' → bù. NGHĨA: 內 (người 入 bước vào trong khung cửa 冂 → bên trong) + 部 (phần, bộ phận) → phần bên trong, nội bộ.",
- "vd": [{"t": "Công sở", "zh": "這只是公司內部的討論，還沒有正式對外公布。", "vn": "Đây chỉ là thảo luận nội bộ của công ty, vẫn chưa chính thức công bố ra bên ngoài."},
-  {"t": "Kiến trúc", "zh": "這棟古蹟外觀看起來很舊，但內部重新裝潢得很現代。", "py": "Zhè dòng gǔjī wàiguān kànqǐlái hěn jiù, dàn nèibù chóngxīn zhuānghuáng de hěn xiàndài.", "vn": "Di tích cổ này bề ngoài trông rất cũ, nhưng bên trong được trang trí nội thất lại rất hiện đại."},
-  {"t": "Quản lý", "zh": "為了提升效率，主管決定調整部門內部的分工。", "vn": "Để nâng cao hiệu suất, sếp quyết định điều chỉnh sự phân công trong nội bộ phòng ban."}]},
-"內地": {"vn": "nội địa; vùng sâu trong đất liền", "ng": ["(danh từ) vùng đất liền nằm sâu bên trong, xa bờ biển hoặc biên giới", "(danh từ) Trung Quốc đại lục (cách gọi thường dùng ở Hồng Kông, Ma Cao)"],
- "us": "內地城市 / 深入內地. Chú ý sự khác biệt ngữ cảnh địa lý và chính trị.", "co": ["內地城市|thành phố sâu trong đất liền", "深入內地|đi sâu vào nội địa"],
- "an": ["沿海|ven biển"],
- "mh": "Nội Địa → nèi dì. ĐỌC: 'nội' → nèi; 'địa' → dì. NGHĨA: 內 (bên trong) + 地 (vùng đất) → vùng đất nằm sâu bên trong.",
- "tw": "Ở Đài Loan, người dân thường gọi Trung Quốc đại lục là 大陸 hoặc 中國大陸 (chứ ít gọi là 內地 như Hồng Kông). Đôi khi người Đài nói đùa「臺灣的內地是南投」(Nội địa của Đài Loan là Nam Đầu) vì Nam Đầu là huyện duy nhất ở Đài Loan không giáp biển.",
- "vd": [{"t": "Địa lý", "zh": "南投是臺灣唯一不靠海的縣市，所以有人開玩笑稱它為臺灣的內地。", "vn": "Nam Đầu là huyện thị duy nhất ở Đài Loan không giáp biển, nên có người nói đùa gọi đó là 'nội địa' của Đài Loan."},
-  {"t": "Kinh tế", "zh": "隨著高鐵開通，沿海與內地城市的交通變得更便利了。", "vn": "Cùng với việc thông tuyến tàu cao tốc, giao thông giữa vùng ven biển và các thành phố sâu trong đất liền đã trở nên thuận tiện hơn."},
-  {"t": "Ngôn ngữ", "zh": "香港人習慣把中國大陸稱為「內地」。", "vn": "Người Hồng Kông quen gọi Trung Quốc đại lục là 'nội địa'."}]},
-"內行": {"vn": "trong nghề; sành sỏi; chuyên gia", "ng": ["(tính từ) am hiểu, sành sỏi, rành nghề", "(danh từ) người trong nghề, chuyên gia"],
- "us": "很內行 / 內行人. Chú ý 行 đọc là háng (ngành nghề).", "co": ["內行人|người trong nghề, người sành sỏi", "看門道|nhìn ra cái tinh túy (內行看門道)"],
- "sy": ["專業|chuyên nghiệp", "在行|giỏi, rành về"], "an": ["外行|ngoài nghề, nghiệp dư"],
- "mh": "Nội Hàng → nèi háng. ĐỌC: 'nội' → nèi; 行 ở đây đọc háng ('hàng' = ngành nghề), không đọc xíng. NGHĨA: 內 (bên trong) + 行 (ngành nghề) → người ở trong ngành nghề đó → sành sỏi, chuyên gia.",
- "mk": "Cẩn thận đọc sai chữ 行 thành xíng; trong 內行, 外行, 行業, 銀行 chữ 行 đều đọc là háng.",
- "vd": [{"t": "Khen ngợi", "zh": "一聽你挑選茶葉的方法，就知道你是內行人。", "py": "Yī tīng nǐ tiāoxuǎn cháyè de fāngfǎ, jiù zhīdào nǐ shì nèihángrén.", "vn": "Vừa nghe cách bạn chọn trà là biết ngay bạn là người sành sỏi trong nghề."},
-  {"t": "Mua sắm", "zh": "買二手車最好找內行的朋友一起去看。", "vn": "Mua xe cũ tốt nhất nên nhờ bạn bè rành nghề đi xem cùng."},
-  {"t": "Tục ngữ", "zh": "俗話說「內行看門道，外行看熱鬧」，這幅畫的筆法非常講究。", "vn": "Tục ngữ có câu 'người trong nghề xem tinh túy, người ngoài nghề xem náo nhiệt', nét bút của bức tranh này vô cùng cầu kỳ."}]},
-"內科": {"vn": "nội khoa; khoa nội", "ng": ["(danh từ) khoa nội (chuyên khoa y học chẩn đoán và điều trị bệnh bên trong chủ yếu bằng thuốc, không phẫu thuật)"],
- "us": "看內科 / 內科醫生 / 內科門診.", "co": ["看內科|khám khoa nội", "內科醫師|bác sĩ nội khoa", "一般內科|nội khoa tổng quát"],
- "an": ["外科|ngoại khoa (phẫu thuật)"], "cf": ["小兒科|khoa nhi", "婦產科|khoa sản phụ", "皮膚科|khoa da liễu"],
- "mh": "Nội Khoa → nèi kē. ĐỌC: 'nội' → nèi; 'khoa' → kē. NGHĨA: 內 (bên trong cơ thể) + 科 (chuyên ngành, phân khoa) → khoa điều trị các bệnh lý bên trong cơ thể.",
- "tw": "Khi đi khám bệnh ở Đài Loan (看診 / 掛號), nếu bị cảm cúm, đau dạ dày hay bệnh nội tạng thông thường thì đăng ký 一般內科 hoặc 家醫科 (khoa y học gia đình).",
- "vd": [{"t": "Bệnh viện", "zh": "如果你一直胃痛，建議去醫院掛腸胃內科檢查一下。", "vn": "Nếu bạn cứ bị đau dạ dày mãi, khuyên bạn nên đến bệnh viện đăng ký khám khoa nội tiêu hóa kiểm tra xem."},
-  {"t": "Bác sĩ", "zh": "他的姊姊在臺大醫院擔任內科醫師。", "vn": "Chị gái của anh ấy làm bác sĩ nội khoa tại Bệnh viện Đại học Quốc gia Đài Loan."},
-  {"t": "Phân biệt", "zh": "一般來說，內科主要用藥物治療，外科則需要動手術。", "vn": "Nói chung, nội khoa chủ yếu điều trị bằng thuốc, còn ngoại khoa thì cần phẫu thuật."}]},
-"能幹": {"vn": "giỏi giang; tháo vát; có năng lực", "ng": ["(tính từ) có năng lực, giỏi giang, tháo vát trong công việc"],
- "us": "很能幹 / 精明能幹 / 能幹的員工.", "co": ["精明能幹|sắc sảo và tháo vát", "年輕能幹|trẻ tuổi tài năng", "能幹的主管|người quản lý giỏi giang"],
- "sy": ["有能力|có năng lực", "精明|sắc sảo, khôn khéo"], "an": ["無能|bất tài, vô năng"],
- "mh": "Năng Cán → néng gàn. ĐỌC: 'năng' → néng; 幹 đọc gàn (thanh 4, làm việc). NGHĨA: 能 (có khả năng) + 幹 (làm việc, thực hành) → biết làm việc giỏi → tháo vát, có năng lực.",
- "vd": [{"t": "Công sở", "zh": "新來的助理非常能幹，不到一個星期就熟悉了所有業務。", "vn": "Trợ lý mới tới rất tháo vát, chưa đầy một tuần đã nắm vững mọi nghiệp vụ."},
-  {"t": "Gia đình", "zh": "陳太太不但工作能幹，把家裡也照顧得井井有條。", "vn": "Bà Trần không những làm việc giỏi giang mà còn chăm sóc gia đình đâu ra đấy."},
-  {"t": "Tuyển dụng", "zh": "每個老闆都希望請到既聰明又能幹的員工。", "vn": "Ông chủ nào cũng hy vọng tuyển được nhân viên vừa thông minh vừa có năng lực."}]},
-"能源": {"vn": "năng lượng; nguồn năng lượng", "ng": ["(danh từ) nguồn năng lượng (như điện, dầu mỏ, năng lượng mặt trời, sức gió...)"],
- "us": "節約能源 / 再生能源 / 綠色能源 / 能源危機.", "co": ["節約能源|tiết kiệm năng lượng", "再生能源|năng lượng tái tạo", "綠色能源|năng lượng xanh", "能源危機|khủng hoảng năng lượng"],
- "cf": ["能量|năng lượng (vật lý, hoặc năng lượng tích cực của con người: 正能量)"],
- "mh": "Năng Nguyên → néng yuán. ĐỌC: 'năng' → néng; 'nguyên' → yuán. NGHĨA: 能 (năng lượng) + 源 (bộ thủy 氵 + âm Nguyên 原 → nguồn nước, nguồn gốc) → nguồn cung cấp năng lượng.",
- "mk": "Phân biệt 能源 và 能量: 能源 chỉ tài nguyên thiên nhiên tạo ra điện/nhiệt (dầu mỏ, gió, mặt trời); còn 能量 chỉ năng lượng vật lý/calo hoặc tinh thần (補充能量, 正能量).",
- "vd": [{"t": "Môi trường", "zh": "為了保護地球，我們在日常生活中應該節約能源。", "vn": "Để bảo vệ Trái Đất, chúng ta nên tiết kiệm năng lượng trong cuộc sống hằng ngày."},
-  {"t": "Chính sách", "zh": "近年來，臺灣積極發展太陽能和風力等再生能源。", "vn": "Những năm gần đây, Đài Loan tích cực phát triển các nguồn năng lượng tái tạo như điện mặt trời và điện gió."},
-  {"t": "Sinh hoạt", "zh": "隨手關燈、少開冷氣，都是節省能源的好習慣。", "vn": "Tắt đèn khi rời khỏi, hạn chế bật máy lạnh đều là những thói quen tốt giúp tiết kiệm năng lượng."}]},
-"泥": {"vn": "bùn; đất sét; nghiền nhuyễn", "ng": ["(danh từ) bùn, đất bùn", "(danh từ) thực phẩm nghiền nhuyễn như bùn (khoai tây nghiền, táo nghiền)"],
- "us": "水泥 (xi măng) / 泥巴 (bùn đất) / 芋泥 (khoai môn nghiền) / 馬鈴薯泥 (khoai tây nghiền).", "co": ["水泥|xi măng", "芋泥|khoai môn nghiền", "蒜泥|tỏi băm nhuyễn", "泥巴|bùn đất"],
- "mh": "Nê → ní. ĐỌC: 'nê' → ní (khi là động từ 'trát vữa' hoặc trong 拘泥 đọc là nì). NGHĨA: 氵 (bộ thủy - nước) + 尼 (âm Ni) → đất hòa với nước thành bùn nhão.",
- "tw": "Trong ẩm thực Đài Loan, chữ 泥 rất hay gặp ở tên món ăn để chỉ nguyên liệu xay/nghiền nhuyễn: 芋泥蛋糕 (bánh kem khoai môn nghiền), 蒜泥白肉 (thịt luộc sốt tỏi băm), 馬鈴薯泥 (khoai tây nghiền).",
- "vd": [{"t": "Ẩm thực", "zh": "這家麵包店的芋泥蛋糕非常有名，每天都大排長龍。", "vn": "Bánh kem khoai môn nghiền của tiệm bánh này rất nổi tiếng, ngày nào cũng có hàng dài người xếp hàng."},
-  {"t": "Sau mưa", "zh": "下過大雨後，山路上有許多泥巴，走路要小心。", "vn": "Sau trận mưa lớn, trên đường núi có rất nhiều bùn đất, đi bộ phải cẩn thận."},
-  {"t": "Trẻ em", "zh": "媽媽把蘋果磨成蘋果泥，餵給六個月大的寶寶吃。", "vn": "Mẹ mài táo thành táo nghiền để đút cho em bé sáu tháng tuổi ăn."}]},
-"膩": {"vn": "ngấy, ngán; chán ngấy", "ng": ["(tính từ) béo ngậy, ngấy (đồ ăn nhiều dầu mỡ hoặc quá ngọt)", "(tính từ) chán, ngán (vì lặp đi lặp lại quá nhiều)", "(động từ) quấn quýt không rời (膩在一起)"],
- "us": "油膩 (béo ngấy) / 吃膩了 (ăn ngán rồi) / 聽膩了 (nghe chán rồi) / 膩在一起 (dính lấy nhau).", "co": ["油膩|nhiều dầu mỡ, béo ngấy", "吃膩了|ăn ngán rồi", "看膩了|xem chán rồi", "細膩|tinh tế, tỉ mỉ"],
- "sy": ["厭煩|chán ghét"], "an": ["清爽|thanh đạm, mát lành (đồ ăn)"],
- "mh": "Nị → nì. ĐỌC: 'nị' → nì. NGHĨA: ⺼ (bộ nhục - thịt mỡ) + 貳 (âm Nhị) → thịt quá nhiều mỡ gây cảm giác ngấy, phát chán.",
- "vd": [{"t": "Ăn uống", "zh": "這道菜太油膩了，配一點清爽的綠茶比較好。", "vn": "Món ăn này ngấy dầu mỡ quá, dùng kèm một chút trà xanh thanh mát sẽ ngon hơn."},
-  {"t": "Thói quen", "zh": "我已經連續吃了一個禮拜的便當，真的吃膩了。", "vn": "Tôi đã ăn cơm hộp liên tục một tuần lễ rồi, thật sự ăn ngán tới tận cổ rồi."},
-  {"t": "Giải trí", "zh": "這首歌雖然好聽，但每天聽也會聽膩。", "vn": "Bài hát này tuy hay, nhưng ngày nào cũng nghe thì cũng sẽ nghe chán."}]},
-"黏/粘": {"vn": "dính; dẻo; dán", "ng": ["(tính từ) dính, dẻo, quánh (như keo, gạo nếp, mồ hôi)", "(động từ) dán, dính vào (dùng ở Đài Loan)", "(tính từ/động từ) bám dính, quấn lấy ai (nghĩa bóng)"],
- "us": "很黏 / 黏貼 / 把郵票黏上去 / 小孩很黏媽媽.", "co": ["黏貼|dán", "黏在一起|dính vào nhau", "黏踢踢|dính nhớp nháp / quấn quýt không rời (Đài Loan)", "黏人|hay bám người"],
- "mh": "Niêm → nián. ĐỌC: 'niêm' → nián. NGHĨA: 黍 (lúa nếp, hạt kê dẻo) + 占 (âm Chiếm) → chất dẻo và dính như lúa nếp.",
- "tw": "Ở Đài Loan dùng chữ chính thể là 黏 (nián) cho cả tính từ ('dính') lẫn động từ ('dán': 把紙黏起來). Ở Đại lục thường viết là 粘 và phân biệt: nián (tính từ: dính) và zhān (động từ: dán).",
- "vd": [{"t": "Thủ công", "zh": "請用膠水把這兩張紙黏在一起。", "vn": "Xin hãy dùng hồ dán hai tờ giấy này lại với nhau."},
-  {"t": "Thời tiết", "zh": "夏天流汗以後全身黏黏的，洗個澡會舒服很多。", "vn": "Mùa hè đổ mồ hôi xong khắp người dính nhớp nháp, tắm một cái sẽ dễ chịu hơn nhiều."},
-  {"t": "Gia đình", "zh": "他們家的小貓非常黏人，主人走到哪裡就跟到哪裡。", "vn": "Con mèo nhỏ nhà họ rất quấn người, chủ đi đến đâu là đi theo đến đó."}]},
-"尿": {"vn": "nước tiểu; đi tiểu", "ng": ["(danh từ) nước tiểu", "(động từ) đi tiểu, đái"],
- "us": "尿尿 (đi tiểu - khẩu ngữ, hay dùng với trẻ em) / 尿布 (tã, bỉm) / 驗尿 (xét nghiệm nước tiểu) / 糖尿病 (bệnh tiểu đường).", "co": ["驗尿|xét nghiệm nước tiểu", "尿布|tã lót, bỉm", "糖尿病|bệnh tiểu đường", "尿尿|đi tè (khẩu ngữ)"],
- "sy": ["小便|tiểu tiện (lịch sự hơn)"],
- "mh": "Niệu → niào. ĐỌC: 'niệu' → niào (văn đọc cổ hoặc phương ngữ có âm suī trong 尿泡, nhưng Đài Loan chuẩn đọc niào). NGHĨA: 尸 (hình người đang ngồi/cúi) + 水 (nước) → nước thải ra từ cơ thể.",
- "tw": "Trong giao tiếp lịch sự ở Đài Loan, khi muốn đi vệ sinh người ta nói 去洗手間 / 上廁所, trong y tế gọi là 小便 hoặc 排尿; còn 尿尿 thường dùng trong gia đình hoặc nói với trẻ nhỏ.",
- "vd": [{"t": "Y tế", "zh": "健康檢查的時候，通常需要抽血和驗尿。", "vn": "Khi khám sức khỏe tổng quát, thông thường cần phải lấy máu và xét nghiệm nước tiểu."},
-  {"t": "Chăm con", "zh": "出門帶小寶寶的時候，別忘了在包包裡多放幾片尿布。", "vn": "Khi đưa em bé ra ngoài, đừng quên để thêm vài miếng bỉm trong túi."},
-  {"t": "Sức khỏe", "zh": "少喝含糖飲料可以降低罹患糖尿病的風險。", "vn": "Uống ít đồ uống có đường có thể làm giảm nguy cơ mắc bệnh tiểu đường."}]},
-"捏": {"vn": "véo, bóp; nặn; bịa đặt", "ng": ["(động từ) dùng ngón cái và các ngón tay bóp, véo, nhéo", "(động từ) nặn (đất sét, sủi cảo, bánh bao)", "(động từ) bịa đặt, dựng chuyện (捏造)"],
- "us": "捏臉 (véo má) / 捏黏土 (nặn đất sét) / 捏水餃 (gói/nặn sủi cảo) / 捏造事實 (bịa đặt sự thật).", "co": ["捏造|bịa đặt, dựng chuyện", "捏黏土|nặn đất sét", "捏一把冷汗|toát mồ hôi lạnh (lo lắng thay)"],
- "mh": "Niết → niē. ĐỌC: 'niết' → niē. NGHĨA: 扌 (bộ thủ - bàn tay) + 圼 (đất sét lấp hố, âm Niết) → dùng ngón tay bóp, nặn đất sét.",
- "vd": [{"t": "Trò chơi", "zh": "小朋友最喜歡在美術課上用黏土捏出各種小動物。", "vn": "Các bé nhỏ thích nhất là dùng đất sét nặn ra đủ các con vật nhỏ trong giờ mỹ thuật."},
-  {"t": "Lo lắng", "zh": "看他在比賽最後一秒才投進球，大家都為他捏了一把冷汗。", "vn": "Nhìn anh ấy tới giây cuối cùng của trận đấu mới ném bóng vào rổ, mọi người đều toát mồ hôi lạnh lo thay cho anh ấy."},
-  {"t": "Pháp luật", "zh": "在網路上隨便捏造假消息是會觸犯法律的。", "py": "Zài wǎnglù shàng suíbiàn niēzào jiǎ xiāoxí shì huì chùfàn fǎlǜ de.", "vn": "Tùy tiện bịa đặt tin giả trên mạng là sẽ vi phạm pháp luật."}]},
-"寧可": {"vn": "thà... (còn hơn)", "ng": ["(phó từ/liên từ) thà rằng, đành chọn phương án ít tệ hơn giữa hai lựa chọn"],
- "us": "Cấu trúc: 寧可 A，也不要/也不 B (thà A chứ không B) hoặc 寧可 A，也要 B (thà chịu A để làm được B).", "co": ["寧可…也不要…|thà... chứ không...", "寧可…也要…|thà... cũng phải..."],
- "sy": ["寧願|thà rằng"],
- "mh": "Ninh Khả → níng kě. ĐỌC: 寧 ở Đài Loan đọc níng (thanh 2, 'ninh'), Đại lục đọc nìng (thanh 4); 'khả' → kě. NGHĨA: 寧 (an lòng, thà rằng) + 可 (chấp nhận được) → thà chấp nhận phương án này.",
- "tw": "Bộ Giáo dục Đài Loan quy định chữ 寧 trong 寧可 và 寧願 đọc là thanh 2 (níngkě, níngyuàn), khác với Đại lục đọc thanh 4 (nìngkě).",
- "vd": [{"t": "Thói quen", "zh": "我寧可早點出門等公車，也不要因為遲到而被扣薪水。", "vn": "Tôi thà ra khỏi nhà sớm một chút để đợi xe buýt, chứ không muốn vì đi muộn mà bị trừ lương."},
-  {"t": "Mua sắm", "zh": "買家電的時候，我寧可多花一點錢買品質好的品牌。", "vn": "Khi mua đồ điện gia dụng, tôi thà tốn thêm chút tiền để mua thương hiệu có chất lượng tốt."},
-  {"t": "Ẩm thực", "zh": "那家餐廳雖然很貴，但很多人寧可排隊也要去吃一次。", "vn": "Nhà hàng đó tuy rất đắt, nhưng nhiều người thà xếp hàng cũng phải đến ăn thử một lần."}]},
-"寧願": {"vn": "thà rằng; tình nguyện chọn", "ng": ["(trợ động từ/liên từ) thà rằng, muốn chọn A hơn là B"],
- "us": "寧願 A，也不/也不要 B. Khá giống 寧可 nhưng 寧願 nhấn mạnh ý muốn chủ quan của người nói hơn, có thể đứng một mình làm động từ chính trước mệnh đề.", "co": ["寧願…也不…|thà... chứ không...", "寧願選擇|thà chọn"],
- "sy": ["寧可|thà rằng"],
- "mh": "Ninh Nguyện → níng yuàn. ĐỌC: 'ninh' → níng (Đài Loan đọc thanh 2); 'nguyện' → yuàn. NGHĨA: 寧 (thà rằng) + 願 (mong muốn, tự nguyện) → tự nguyện chọn phương án này hơn.",
- "tw": "Chuẩn âm Đài Loan đọc là níngyuàn (thanh 2 + thanh 4).",
- "vd": [{"t": "Cuối tuần", "zh": "外面下這麼大的雨，我寧願待在家裡看電影，也不想出門。", "vn": "Bên ngoài mưa to thế này, tôi thà ở nhà xem phim chứ không muốn ra ngoài."},
-  {"t": "Sức khỏe", "zh": "為了健康，他現在寧願自己煮飯，也很少吃外食了。", "vn": "Vì sức khỏe, bây giờ anh ấy thà tự nấu cơm chứ rất ít khi ăn đồ bên ngoài nữa."},
-  {"t": "Giao thông", "zh": "上下班尖峰時間塞車很嚴重，我寧願搭捷運去上班。", "vn": "Giờ cao điểm đi làm và tan tầm kẹt xe rất nghiêm trọng, tôi thà đi tàu điện ngầm đi làm."}]},
-"泥土": {"vn": "đất; bùn đất", "ng": ["(danh từ) đất, bùn đất (dùng để trồng cây hoặc trên mặt đất tự nhiên)"],
- "us": "泥土的芬芳 / 鬆軟的泥土 / 挖泥土.", "co": ["泥土的香氣|mùi hương của đất", "鬆軟的泥土|lớp đất tơi xốp", "肥沃的泥土|đất đai màu mỡ"],
- "sy": ["土壤|đất trồng (trang trọng, khoa học)", "泥巴|bùn đất (khẩu ngữ)"],
- "mh": "Nê Thổ → ní tǔ. ĐỌC: 'nê' → ní; 'thổ' → tǔ. NGHĨA: 泥 (bùn) + 土 (đất) → đất đai, bùn đất.",
- "vd": [{"t": "Thiên nhiên", "zh": "下過雨的森林裡，空氣中充滿了泥土與青草的香氣。", "vn": "Trong khu rừng sau cơn mưa, không khí tràn ngập hương thơm của đất và cỏ xanh."},
-  {"t": "Trồng cây", "zh": "種花之前，要先把盆栽裡的泥土翻鬆。", "vn": "Trước khi trồng hoa, phải xới cho đất trong chậu tơi xốp lên trước."},
-  {"t": "Nông thôn", "zh": "孩子們在鄉下的田裡玩耍，鞋子上沾滿了泥土。", "vn": "Bọn trẻ vui đùa ngoài cánh đồng ở quê, trên giày bám đầy bùn đất."}]}
-}}
+{
+ "tu": {
+  "模樣": {
+   "vn": "dáng vẻ; diện mạo; hình dáng",
+   "ng": [
+    "(danh từ) dáng vẻ, diện mạo, bộ dạng (thường chỉ vẻ ngoài của người hoặc vật)"
+   ],
+   "us": "Thường đi với tính từ hoặc định ngữ phía trước: 可愛的模樣 / 這副模樣 / 看他那模樣.",
+   "co": [
+    "可愛的模樣|dáng vẻ đáng yêu",
+    "這副模樣|bộ dạng này",
+    "原來的模樣|hình dáng ban đầu"
+   ],
+   "sy": [
+    "樣子|dáng vẻ (khẩu ngữ hơn)",
+    "容貌|dung mạo"
+   ],
+   "mh": "Mô Dạng → mó yàng. ĐỌC: 'mô' → mó; 'dạng' → yàng. NGHĨA: 模 (bộ mộc 木 + âm Mạc 莫 → khuôn gỗ) + 樣 (bộ mộc 木 + âm Dạng 羕 → kiểu dáng) → hình dáng, diện mạo như đúc từ khuôn.",
+   "tw": "Chuẩn Bộ Giáo dục Đài Loan đọc là móyàng (thanh 2), trong khi Đại lục đọc là múyàng.",
+   "lt": "Lượng từ thường dùng cho bộ dạng là 副 (這副模樣) hoặc 個.",
+   "vd": [
+    {
+     "t": "Trẻ nhỏ",
+     "zh": "看到小寶寶睡覺的模樣，大家都覺得好可愛。",
+     "vn": "Nhìn thấy dáng vẻ lúc ngủ của em bé, ai cũng thấy thật đáng yêu."
+    },
+    {
+     "t": "Thay đổi",
+     "zh": "過了十年，這條老街依然保持著原來的模樣。",
+     "vn": "Đã qua mười năm, con phố cổ này vẫn giữ nguyên diện mạo ban đầu."
+    },
+    {
+     "t": "Ngạc nhiên",
+     "zh": "你怎麼淋雨淋成這副模樣？快去換件衣服吧！",
+     "vn": "Sao bạn lại dầm mưa thành bộ dạng thế này? Mau đi thay bộ đồ đi!"
+    }
+   ]
+  },
+  "目標": {
+   "vn": "mục tiêu; đích nhắm",
+   "ng": [
+    "(danh từ) mục tiêu phấn đấu, đích đến",
+    "(danh từ) đối tượng, mục tiêu nhắm tới"
+   ],
+   "us": "設定目標 / 達成目標 / 實現目標 / 以…為目標.",
+   "co": [
+    "設定目標|đặt mục tiêu",
+    "達成目標|đạt được mục tiêu",
+    "人生目標|mục tiêu cuộc đời",
+    "明確的目標|mục tiêu rõ ràng"
+   ],
+   "sy": [
+    "目的|mục đích"
+   ],
+   "cf": [
+    "目的|chỉ ý định/lý do làm việc gì; 目標 chỉ đích ngắm cụ thể, cột mốc cần đạt tới"
+   ],
+   "mh": "Mục Tiêu → mù biāo. ĐỌC: 'mục' → mù; 'tiêu' → biāo. NGHĨA: 目 (con mắt) + 標 (bộ mộc 木 + âm Phiếu 票 → cọc gỗ làm dấu) → cái cọc tiêu mà mắt nhắm tới.",
+   "lt": "Lượng từ: 個 (一個目標).",
+   "vd": [
+    {
+     "t": "Học tập",
+     "zh": "我今年的目標是通過華語文能力測驗流利級。",
+     "vn": "Mục tiêu năm nay của tôi là thi đậu kỳ thi năng lực Hoa ngữ TOCFL cấp Lưu loát."
+    },
+    {
+     "t": "Công việc",
+     "zh": "只要大家同心協力，一定能達成業績目標。",
+     "vn": "Chỉ cần mọi người đồng tâm hiệp lực, nhất định có thể đạt được mục tiêu doanh số."
+    },
+    {
+     "t": "Định hướng",
+     "zh": "有了明確的目標，讀書才會有動力。",
+     "vn": "Có mục tiêu rõ ràng thì việc học mới có động lực."
+    }
+   ]
+  },
+  "目的地": {
+   "vn": "điểm đến; đích đến",
+   "ng": [
+    "(danh từ) điểm đến cuối cùng của chuyến đi hoặc hành trình"
+   ],
+   "us": "到達目的地 / 前往目的地. Chỉ dùng cho địa điểm không gian cụ thể, không dùng cho mục tiêu trừu tượng.",
+   "co": [
+    "到達目的地|đến điểm đích",
+    "抵達目的地|tới điểm đến",
+    "旅遊目的地|điểm đến du lịch"
+   ],
+   "sy": [
+    "終點|điểm cuối"
+   ],
+   "an": [
+    "出發地|điểm xuất phát",
+    "起點|điểm khởi đầu"
+   ],
+   "mh": "Mục Đích Địa → mù dì dì. ĐỌC: 'mục' → mù; 的 ở đây đọc dì (thanh 4, nghĩa là hồng tâm bia bắn); 'địa' → dì. NGHĨA: 目 (mắt) + 的 (tâm bia) + 地 (đất, nơi chốn) → vùng đất nơi mình nhắm tới.",
+   "mk": "Trong 目的地, chữ 的 phải đọc là dì (thanh 4), người học rất hay đọc nhầm thành âm nhẹ de.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "搭高鐵只要一個半小時就能抵達目的地。",
+     "vn": "Đi tàu cao tốc chỉ mất một tiếng rưỡi là có thể tới điểm đến."
+    },
+    {
+     "t": "Chỉ đường",
+     "zh": "請在導航軟體裡輸入我們的目的地。",
+     "vn": "Xin hãy nhập điểm đến của chúng ta vào phần mềm dẫn đường."
+    },
+    {
+     "t": "Hành trình",
+     "zh": "這趟環島旅行的最後一個目的地是花蓮。",
+     "py": "Zhè tàng huándǎo lǚxíng de zuìhòu yī ge mùdìdì shì Huālián.",
+     "vn": "Điểm đến cuối cùng của chuyến du lịch vòng quanh đảo lần này là Hoa Liên."
+    }
+   ],
+   "cf": [
+    "目的地 vs 目標|目的地 chỉ địa điểm vật lý cuối cùng của chuyến đi (抵達目的地); 目標 chỉ mục tiêu trừu tượng muốn đạt được trong học tập, công việc."
+   ],
+   "lt": "個 (一個目的地). Chú ý chữ 的 đọc dì (mùdìdì), KHÔNG đọc de!",
+   "tw": "Trên ứng dụng bản đồ và định vị xe ở Đài Loan (Google Maps) luôn ghi 輸入目的地 (Nhập điểm đến)."
+  },
+  "目錄": {
+   "vn": "mục lục; danh mục",
+   "ng": [
+    "(danh từ) mục lục sách báo",
+    "(danh từ) danh mục sản phẩm, thư mục máy tính"
+   ],
+   "us": "看目錄 / 商品目錄 / 翻開目錄.",
+   "co": [
+    "書籍目錄|mục lục sách",
+    "商品目錄|danh mục hàng hóa (catalog)",
+    "看目錄|xem mục lục"
+   ],
+   "mh": "Mục Lục → mù lù. ĐỌC: 'mục' → mù; 'lục' → lù. NGHĨA: 目 (con mắt, đề mục) + 錄 (bộ kim 釒 + 彔 → khắc chép lại) → bản ghi chép các đề mục để tra cứu.",
+   "lt": "Lượng từ: 份 (一份商品目錄), 本 (一本目錄).",
+   "vd": [
+    {
+     "t": "Đọc sách",
+     "zh": "買書之前，我習慣先翻一下目錄。",
+     "vn": "Trước khi mua sách, tôi có thói quen lật xem mục lục trước."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這本商品目錄裡有很多最新的家電產品。",
+     "vn": "Trong cuốn danh mục sản phẩm này có rất nhiều đồ điện gia dụng mới nhất."
+    },
+    {
+     "t": "Luận văn",
+     "zh": "請幫我檢查報告的目錄頁碼有沒有對齊。",
+     "vn": "Làm ơn giúp tôi kiểm tra số trang ở mục lục báo cáo đã căn thẳng hàng chưa."
+    }
+   ]
+  },
+  "奶粉": {
+   "vn": "sữa bột",
+   "ng": [
+    "(danh từ) sữa bột"
+   ],
+   "us": "泡奶粉 (pha sữa bột) / 嬰兒奶粉. Lượng từ: 罐 (lon, hộp), 包 (gói), 匙 (muỗng).",
+   "co": [
+    "泡奶粉|pha sữa bột",
+    "嬰兒奶粉|sữa bột trẻ em",
+    "一罐奶粉|một lon sữa bột"
+   ],
+   "cf": [
+    "鮮奶|sữa tươi",
+    "豆漿|sữa đậu nành"
+   ],
+   "mh": "Nãi Phấn → nǎi fěn. ĐỌC: 'nãi' → nǎi; 'phấn' → fěn. NGHĨA: 奶 (bộ nữ 女 + âm Nãi 乃 → sữa) + 粉 (bộ mễ 米 + âm Phân 分 → bột mịn) → sữa dạng bột.",
+   "mk": "Ở Đài Loan 'pha sữa bột' dùng động từ 泡 (泡奶粉 / 泡牛奶), không nói 沖奶粉 như một số vùng khác.",
+   "vd": [
+    {
+     "t": "Chăm con",
+     "zh": "半夜小寶寶哭了，爸爸趕快起來泡奶粉。",
+     "vn": "Nửa đêm em bé khóc, bố vội vàng dậy pha sữa bột."
+    },
+    {
+     "t": "Siêu thị",
+     "zh": "我去藥局買了兩罐嬰兒奶粉。",
+     "vn": "Tôi đến hiệu thuốc mua hai lon sữa bột trẻ em."
+    },
+    {
+     "t": "Làm bánh",
+     "zh": "做這款麵包需要加一點奶粉，味道會更香。",
+     "vn": "Làm loại bánh mì này cần cho thêm một chút sữa bột, mùi vị sẽ thơm hơn."
+    }
+   ]
+  },
+  "耐用": {
+   "vn": "bền; dùng được lâu",
+   "ng": [
+    "(tính từ) bền, chịu được sự sử dụng lâu dài"
+   ],
+   "us": "很耐用 / 堅固耐用. Thường làm vị ngữ hoặc định ngữ mô tả đồ dùng, thiết bị.",
+   "co": [
+    "堅固耐用|chắc chắn và bền",
+    "非常耐用|rất bền",
+    "耐用的產品|sản phẩm bền"
+   ],
+   "sy": [
+    "結實|chắc chắn"
+   ],
+   "mh": "Nại Dụng → nài yòng. ĐỌC: 'nại' → nài; 'dụng' → yòng. NGHĨA: 耐 (chịu đựng được lâu, nhẫn nại) + 用 (sử dụng) → chịu được việc sử dụng lâu dài → bền.",
+   "lt": "Tiền tố 耐 (nài) ghép với động từ chỉ khả năng chịu đựng tốt: 耐用 (bền), 耐看 (nhìn lâu không chán), 耐穿 (mặc bền), 耐髒 (đỡ bẩn).",
+   "vd": [
+    {
+     "t": "Đồ gia dụng",
+     "zh": "這臺大同電鍋非常耐用，我們家已經用了二十年。",
+     "vn": "Chiếc nồi điện Tatung này cực kỳ bền, nhà chúng tôi đã dùng hai mươi năm rồi."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "雖然這個背包比較貴，但是材質很耐用。",
+     "vn": "Tuy chiếc ba lô này hơi đắt, nhưng chất liệu rất bền."
+    },
+    {
+     "t": "Đánh giá",
+     "zh": "消費者都喜歡購買品質好又耐用的商品。",
+     "vn": "Người tiêu dùng đều thích mua hàng hóa chất lượng tốt mà lại bền."
+    }
+   ]
+  },
+  "難道": {
+   "vn": "chẳng lẽ; lẽ nào",
+   "ng": [
+    "(phó từ) chẳng lẽ, lẽ nào (dùng trong câu hỏi tu từ để nhấn mạnh sự ngạc nhiên hoặc khẳng định ý ngược lại)"
+   ],
+   "us": "Đứng đầu câu hoặc sau chủ ngữ, cuối câu thường có 嗎 hoặc 不成: 難道…嗎？",
+   "co": [
+    "難道說|chẳng lẽ nói là",
+    "難道不是嗎|chẳng lẽ không phải sao"
+   ],
+   "sy": [
+    "莫非|há chẳng phải, lẽ nào"
+   ],
+   "mh": "Nan Đạo → nán dào. ĐỌC: 'nan' → nán (thanh 2); 'đạo' → dào. NGHĨA: 難 (khó) + 道 (nói) → khó mà nói rằng, chẳng lẽ lại là.",
+   "mk": "難道 dùng để hỏi vặn (câu hỏi tu từ): '難道你不知道嗎？' nghĩa là 'Chẳng lẽ bạn không biết sao? (Lẽ ra bạn phải biết chứ)'.",
+   "vd": [
+    {
+     "t": "Ngạc nhiên",
+     "zh": "這麼重要的會議，難道你忘了嗎？",
+     "vn": "Cuộc họp quan trọng như vậy, chẳng lẽ bạn quên rồi sao?"
+    },
+    {
+     "t": "Suy đoán",
+     "zh": "他今天一直笑，難道是有什麼好消息？",
+     "vn": "Hôm nay anh ấy cứ cười mãi, lẽ nào là có tin vui gì chăng?"
+    },
+    {
+     "t": "Phản bác",
+     "zh": "大家都這麼辛苦，難道我不想早點下班嗎？",
+     "vn": "Mọi người đều vất vả như vậy, chẳng lẽ tôi không muốn tan làm sớm sao?"
+    }
+   ]
+  },
+  "難得": {
+   "vn": "hiếm có; hiếm khi",
+   "ng": [
+    "(tính từ) hiếm có, quý giá, khó có được",
+    "(phó từ) hiếm khi"
+   ],
+   "us": "Làm tính từ: 難得的機會 (cơ hội hiếm có). Làm phó từ đứng đầu câu/trước động từ: 難得大家聚在一起 (hiếm khi mọi người tụ họp).",
+   "co": [
+    "難得的機會|cơ hội hiếm có",
+    "難得一見|hiếm khi thấy được",
+    "千載難逢|ngàn năm có một"
+   ],
+   "sy": [
+    "少見|hiếm thấy",
+    "罕見|hiếm gặp"
+   ],
+   "an": [
+    "常見|thường thấy",
+    "經常|thường xuyên"
+   ],
+   "mh": "Nan Đắc → nán dé. ĐỌC: 'nan' → nán; 'đắc' → dé. NGHĨA: 難 (khó) + 得 (đạt được, có được) → khó mà có được → hiếm có.",
+   "vd": [
+    {
+     "t": "Họp mặt",
+     "zh": "難得今天大家都休假，我們一起去吃火鍋吧！",
+     "vn": "Hiếm khi hôm nay mọi người đều được nghỉ, chúng ta cùng đi ăn lẩu nhé!"
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "臺北冬天難得有這麼好的陽光。",
+     "vn": "Mùa đông ở Đài Bắc hiếm khi có nắng đẹp như thế này."
+    },
+    {
+     "t": "Cơ hội",
+     "zh": "這是一個非常難得的出國留學機會，你要好好把握。",
+     "vn": "Đây là một cơ hội đi du học nước ngoài vô cùng hiếm có, bạn phải nắm bắt thật tốt."
+    }
+   ]
+  },
+  "難受": {
+   "vn": "khó chịu; buồn bã, đau khổ",
+   "ng": [
+    "(tính từ) khó chịu, mệt mỏi trong người (thể chất)",
+    "(tính từ) buồn bã, day dứt, đau lòng (tinh thần)"
+   ],
+   "us": "身體很難受 / 心裡很難受. Dùng cho cả cảm giác cơ thể lẫn tâm trạng.",
+   "co": [
+    "心裡難受|trong lòng buồn bã, khó chịu",
+    "身體難受|trong người khó chịu",
+    "讓人難受|làm người ta khó chịu"
+   ],
+   "sy": [
+    "不舒服|không thoải mái, khó chịu",
+    "難過|buồn bã"
+   ],
+   "an": [
+    "舒服|dễ chịu, thoải mái"
+   ],
+   "cf": [
+    "難過|thường thiên về buồn bã tinh thần; 難受 dùng phổ biến cho cả đau ốm thể xác lẫn day dứt tinh thần"
+   ],
+   "mh": "Nan Thụ → nán shòu. ĐỌC: 'nan' → nán; 'thụ' → shòu. NGHĨA: 難 (khó) + 受 (chịu đựng, tiếp nhận) → khó mà chịu đựng nổi → khó chịu.",
+   "vd": [
+    {
+     "t": "Sức khỏe",
+     "zh": "我感冒了，喉嚨痛得非常難受。",
+     "vn": "Tôi bị cảm rồi, cổ họng đau tới mức vô cùng khó chịu."
+    },
+    {
+     "t": "Tâm trạng",
+     "zh": "聽到他要離職的消息，大家心裡都很難受。",
+     "vn": "Nghe tin anh ấy sắp nghỉ việc, trong lòng mọi người đều rất buồn."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "夏天的午後又悶又熱，真讓人難受。",
+     "vn": "Buổi chiều mùa hè vừa oi vừa nóng, thật khiến người ta khó chịu."
+    }
+   ]
+  },
+  "男性": {
+   "vn": "nam giới; phái nam",
+   "ng": [
+    "(danh từ) nam giới, đàn ông, giới tính nam"
+   ],
+   "us": "Từ trang trọng dùng trong văn viết, thống kê, y tế, xã hội: 男性朋友 / 男性消費者.",
+   "co": [
+    "男性消費者|người tiêu dùng nam giới",
+    "成年男性|nam giới trưởng thành",
+    "男性用品|đồ dùng nam giới"
+   ],
+   "sy": [
+    "男人|đàn ông (khẩu ngữ)",
+    "男生|con trai, bạn nam (rất phổ biến ở Đài Loan)"
+   ],
+   "an": [
+    "女性|nữ giới"
+   ],
+   "mh": "Nam Tính → nán xìng. ĐỌC: 'nam' → nán; 'tính' → xìng. NGHĨA: 男 (điền 田 + lực 力 → người bỏ sức cày ruộng → đàn ông) + 性 (tâm 忄 + sinh 生 → giới tính) → giới tính nam.",
+   "tw": "Trong giao tiếp hằng ngày ở Đài Loan, người ta hay gọi chung nam giới ở mọi lứa tuổi là 男生; còn 男性 dùng trong tin tức, khảo sát hoặc văn cảnh lịch sự.",
+   "lt": "Bẫy Hán Việt: 'nam tính' trong tiếng Việt là tính từ (vẻ nam tính = 男人味 / 陽剛), còn 男性 trong tiếng Hoa là danh từ chỉ 'nam giới / giới tính nam'.",
+   "vd": [
+    {
+     "t": "Thị trường",
+     "zh": "現在越來越多的男性開始注重皮膚保養。",
+     "vn": "Hiện nay ngày càng nhiều nam giới bắt đầu chú trọng chăm sóc da."
+    },
+    {
+     "t": "Khảo sát",
+     "zh": "這項調查顯示，超過六成的男性受訪者喜歡運動。",
+     "vn": "Cuộc khảo sát này cho thấy hơn 60% người trả lời phỏng vấn là nam giới thích tập thể thao."
+    },
+    {
+     "t": "Thời trang",
+     "zh": "百貨公司三樓主要是販售男性服飾。",
+     "vn": "Tầng ba của trung tâm thương mại chủ yếu bán trang phục nam giới."
+    }
+   ]
+  },
+  "難以": {
+   "vn": "khó lòng; khó mà",
+   "ng": [
+    "(phó từ) khó mà, khó lòng (thường đứng trước động từ hai âm tiết mang sắc thái trang trọng)"
+   ],
+   "us": "難以 + V (2 âm tiết): 難以想像 / 難以置信 / 難以接受 / 難以忘懷.",
+   "co": [
+    "難以想像|khó mà tưởng tượng",
+    "難以置信|khó có thể tin được",
+    "難以接受|khó lòng chấp nhận",
+    "難以忘懷|khó lòng quên được"
+   ],
+   "sy": [
+    "很難|rất khó (khẩu ngữ)"
+   ],
+   "mh": "Nan Dĩ → nán yǐ. ĐỌC: 'nan' → nán; 'dĩ' → yǐ. NGHĨA: 難 (khó) + 以 (lấy đó để làm...) → khó lòng mà làm được việc gì.",
+   "mk": "Sau 難以 thường phải là động từ hai âm tiết (難以理解, 難以決定), không ghép với động từ một âm tiết (*難以做 → phải nói 很難做).",
+   "vd": [
+    {
+     "t": "Cảm xúc",
+     "zh": "這場比賽的結果真是令人難以置信！",
+     "vn": "Kết quả của trận đấu này thật khiến người ta khó mà tin nổi!"
+    },
+    {
+     "t": "Kỷ niệm",
+     "zh": "在臺灣留學的那段日子，讓我至今難以忘懷。",
+     "vn": "Quãng thời gian du học ở Đài Loan khiến tôi đến nay vẫn khó lòng quên được."
+    },
+    {
+     "t": "Quyết định",
+     "zh": "這兩個工作機會都很好，真是難以取捨。",
+     "vn": "Hai cơ hội việc làm này đều rất tốt, thật khó mà chọn lựa bỏ cái nào."
+    }
+   ]
+  },
+  "鬧": {
+   "vn": "ồn ào, náo nhiệt; quấy, làm ầm ĩ; mắc phải, xảy ra",
+   "ng": [
+    "(tính từ) ồn ào, náo nhiệt",
+    "(động từ) làm ầm ĩ, quấy rầy, giận dỗi, đùa giỡn",
+    "(động từ) xảy ra chuyện không hay (đau bụng, mất đoàn kết, thiếu hụt)"
+   ],
+   "us": "Từ đa năng: 鬧鐘 (đồng hồ báo thức) / 鬧脾氣 (dỗi, nổi cáu) / 鬧肚子 (đau bụng tiêu chảy) / 鬧笑話 (gây trò cười) / 別鬧了 (đừng đùa/quấy nữa).",
+   "co": [
+    "鬧脾氣|giận dỗi, nổi cáu",
+    "鬧笑話|làm trò cười, gây chuyện tức cười",
+    "別鬧了|đừng đùa nữa / đừng quấy nữa",
+    "無理取鬧|vô cớ gây sự"
+   ],
+   "sy": [
+    "吵|ồn ào, cãi cọ"
+   ],
+   "an": [
+    "靜|yên tĩnh"
+   ],
+   "mh": "Náo → nào. ĐỌC: 'náo' → nào. NGHĨA: 鬥 (đấu tranh, ồn ào) + 市 (chợ búa) → ồn ào, huyên náo như ngoài chợ.",
+   "vd": [
+    {
+     "t": "Khuyên can",
+     "zh": "好了，別鬧了，我們該開始專心工作了。",
+     "vn": "Thôi được rồi, đừng đùa nữa, chúng ta nên bắt đầu tập trung làm việc thôi."
+    },
+    {
+     "t": "Trẻ nhỏ",
+     "zh": "小孩子有時候沒睡飽就會鬧脾氣。",
+     "vn": "Trẻ con đôi khi ngủ không đủ giấc là sẽ quấy khóc, dỗi hờn."
+    },
+    {
+     "t": "Hiểu lầm",
+     "zh": "因為聽錯了對方的意思，結果鬧了一個大笑話。",
+     "vn": "Vì nghe nhầm ý của đối phương nên kết quả là gây ra một chuyện dở khóc dở cười."
+    }
+   ]
+  },
+  "腦袋": {
+   "vn": "cái đầu; đầu óc, trí não",
+   "ng": [
+    "(danh từ) cái đầu (bộ phận cơ thể, khẩu ngữ)",
+    "(danh từ) đầu óc, trí óc, khả năng suy nghĩ"
+   ],
+   "us": "拍拍腦袋 / 腦袋很靈光 / 動動腦袋. Lượng từ: 顆, 個.",
+   "co": [
+    "腦袋靈光|đầu óc nhanh nhạy",
+    "腦袋一片空白|đầu óc trống rỗng",
+    "搖搖腦袋|lắc đầu"
+   ],
+   "sy": [
+    "頭|cái đầu",
+    "頭腦|đầu óc",
+    "腦筋|đầu óc, trí não"
+   ],
+   "mh": "Não Đại → nǎo dài. ĐỌC: 'não' → nǎo; 'đại' → dài (Đài Loan đọc thanh 4 nǎodài, Đại lục đọc thanh nhẹ nǎodai). NGHĨA: 腦 (bộ nhục ⺼ + 囟 thóp đầu → bộ não) + 袋 (cái túi) → cái đầu chứa bộ não.",
+   "tw": "Ở Đài Loan 腦袋 đọc rõ thanh 4 là nǎodài, và hay đi kèm tính từ 靈光 (腦袋很靈光 = đầu óc rất nhạy bén).",
+   "vd": [
+    {
+     "t": "Căng thẳng",
+     "zh": "上臺報告的時候，我緊張得腦袋一片空白。",
+     "vn": "Lúc lên bục thuyết trình, tôi hồi hộp đến mức đầu óc trống rỗng."
+    },
+    {
+     "t": "Khen ngợi",
+     "zh": "他的腦袋很靈光，學什麼新軟體都特別快。",
+     "vn": "Đầu óc anh ấy rất nhạy bén, học phần mềm mới nào cũng cực kỳ nhanh."
+    },
+    {
+     "t": "Mệt mỏi",
+     "zh": "連續開了三個小時的會，現在覺得腦袋昏昏沉沉的。",
+     "vn": "Họp liên tục ba tiếng đồng hồ, bây giờ cảm thấy đầu óc cứ choáng váng nặng trĩu."
+    }
+   ]
+  },
+  "腦筋": {
+   "vn": "đầu óc; trí não; suy nghĩ",
+   "ng": [
+    "(danh từ) đầu óc, trí não, tư duy, cách suy nghĩ"
+   ],
+   "us": "Thường đi với 動 hoặc 傷: 動腦筋 (động não, suy nghĩ) / 傷腦筋 (đau đầu, tốn chất xám) / 腦筋急轉彎 (câu đố mẹo).",
+   "co": [
+    "動腦筋|động não, suy nghĩ",
+    "傷腦筋|nhức đầu, nan giải",
+    "腦筋急轉彎|câu đố mẹo, xoay chuyển tư duy nhanh",
+    "死腦筋|đầu óc cứng nhắc"
+   ],
+   "sy": [
+    "頭腦|đầu óc",
+    "腦袋|đầu óc"
+   ],
+   "mh": "Não Cân → nǎo jīn. ĐỌC: 'não' → nǎo; 'cân' → jīn. NGHĨA: 腦 (bộ não) + 筋 (bộ trúc ⺮ + lặc 肋 → gân cốt, dây thần kinh) → hệ thống suy nghĩ trong não → đầu óc.",
+   "tw": "Người Đài Loan cực kỳ hay dùng cụm 傷腦筋 (shāng nǎojīn) để than thở khi gặp chuyện rắc rối, khó xử ('Thật là đau đầu quá đi!').",
+   "vd": [
+    {
+     "t": "Rắc rối",
+     "zh": "這件事情真的很傷腦筋，不知道該怎麼解決才好。",
+     "vn": "Chuyện này thật sự rất đau đầu, không biết phải giải quyết thế nào mới ổn."
+    },
+    {
+     "t": "Học tập",
+     "zh": "遇到難題時要多動腦筋，不要馬上放棄。",
+     "vn": "Khi gặp bài toán khó thì phải chịu khó động não, đừng vội bỏ cuộc ngay."
+    },
+    {
+     "t": "Tính cách",
+     "zh": "做生意要懂得變通，不能太死腦筋。",
+     "vn": "Làm kinh doanh phải biết linh hoạt ứng biến, không thể quá cứng nhắc được."
+    }
+   ]
+  },
+  "鬧區": {
+   "vn": "khu trung tâm sầm uất; khu phố nhộn nhịp",
+   "ng": [
+    "(danh từ) khu vực trung tâm thương mại đông đúc, sầm uất trong thành phố"
+   ],
+   "us": "位於鬧區 / 市中心鬧區. Từ đặc trưng của Đài Loan.",
+   "co": [
+    "市中心鬧區|khu trung tâm sầm uất",
+    "位於鬧區|nằm ở khu sầm uất",
+    "逛鬧區|dạo khu phố sầm uất"
+   ],
+   "sy": [
+    "市中心|trung tâm thành phố",
+    "商圈|khu thương mại"
+   ],
+   "an": [
+    "郊區|vùng ngoại ô"
+   ],
+   "mh": "Náo Khu → nào qū. ĐỌC: 'náo' → nào; 'khu' → qū. NGHĨA: 鬧 (náo nhiệt, đông đúc) + 區 (khu vực) → khu phố đông đúc sầm uất.",
+   "tw": "鬧區 là từ vựng rất phổ biến ở Đài Loan (tương đương 鬧市區 ở Đại lục) để chỉ các khu mua sắm nhộn nhịp như 西門町 (Ximending) hay 東區 ở Đài Bắc.",
+   "vd": [
+    {
+     "t": "Bất động sản",
+     "zh": "這間公寓位於市中心的鬧區，交通非常方便。",
+     "vn": "Căn hộ này nằm ở khu trung tâm sầm uất của thành phố, giao thông vô cùng thuận tiện."
+    },
+    {
+     "t": "Cuối tuần",
+     "zh": "週末的鬧區到處都是逛街的人潮。",
+     "vn": "Khu phố trung tâm vào cuối tuần đâu đâu cũng là dòng người đi dạo mua sắm."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "開車進鬧區很難找停車位，還是搭捷運去吧。",
+     "vn": "Lái xe vào khu trung tâm sầm uất rất khó tìm chỗ đậu xe, thôi cứ đi tàu điện ngầm nhé."
+    }
+   ]
+  },
+  "哪怕": {
+   "vn": "dù cho; cho dù; dẫu cho",
+   "ng": [
+    "(liên từ) dù cho, cho dù (đưa ra giả thiết cực đoan, vế sau thường đi với 也 hoặc 還是)"
+   ],
+   "us": "哪怕 + [giả thiết], 也/還是/都 + [kết quả]: 哪怕只有一絲希望，我們也不放棄.",
+   "co": [
+    "哪怕是|dù cho là",
+    "哪怕只有|cho dù chỉ có"
+   ],
+   "sy": [
+    "即使|cho dù",
+    "就算|dẫu cho",
+    "縱使|dẫu cho"
+   ],
+   "mh": "Na Phạ → nǎ pà. ĐỌC: 哪 đọc nǎ; 'phạ' → pà. NGHĨA: 哪 (đâu có, sao lại) + 怕 (sợ) → đâu có sợ chuyện gì → dù cho có thế nào đi nữa.",
+   "mk": "哪怕 là liên từ nhượng bộ ('cho dù'), không dịch theo nghĩa đen là 'sợ ở đâu'. Vế sau luôn cần phó từ hô ứng như 也 hoặc 都.",
+   "vd": [
+    {
+     "t": "Quyết tâm",
+     "zh": "哪怕遇到再大的困難，我也要堅持到底。",
+     "vn": "Dù cho có gặp khó khăn lớn đến mấy, tôi cũng sẽ kiên trì đến cùng."
+    },
+    {
+     "t": "Quan tâm",
+     "zh": "出門在外，哪怕再忙也要常打電話回家報平安。",
+     "vn": "Đi ra ngoài xa nhà, dù cho bận mấy cũng phải thường xuyên gọi điện về nhà báo bình an."
+    },
+    {
+     "t": "Cẩn thận",
+     "zh": "這份合約非常重要，哪怕是一個小錯字都不能有。",
+     "vn": "Bản hợp đồng này vô cùng quan trọng, dù chỉ là một lỗi chính tả nhỏ cũng không được phép có."
+    }
+   ]
+  },
+  "內部": {
+   "vn": "nội bộ; bên trong",
+   "ng": [
+    "(danh từ) phần bên trong của sự vật, kiến trúc",
+    "(danh từ) nội bộ (trong một tổ chức, công ty)"
+   ],
+   "us": "公司內部 / 內部結構 / 內部消息 / 內部裝潢.",
+   "co": [
+    "公司內部|nội bộ công ty",
+    "內部消息|tin tức nội bộ",
+    "內部結構|cấu trúc bên trong",
+    "內部會議|cuộc họp nội bộ"
+   ],
+   "sy": [
+    "裡面|bên trong"
+   ],
+   "an": [
+    "外部|bên ngoài"
+   ],
+   "mh": "Nội Bộ → nèi bù. ĐỌC: 'nội' → nèi; 'bộ' → bù. NGHĨA: 內 (người 入 bước vào trong khung cửa 冂 → bên trong) + 部 (phần, bộ phận) → phần bên trong, nội bộ.",
+   "vd": [
+    {
+     "t": "Công sở",
+     "zh": "這只是公司內部的討論，還沒有正式對外公布。",
+     "vn": "Đây chỉ là thảo luận nội bộ của công ty, vẫn chưa chính thức công bố ra bên ngoài."
+    },
+    {
+     "t": "Kiến trúc",
+     "zh": "這棟古蹟外觀看起來很舊，但內部重新裝潢得很現代。",
+     "py": "Zhè dòng gǔjī wàiguān kànqǐlái hěn jiù, dàn nèibù chóngxīn zhuānghuáng de hěn xiàndài.",
+     "vn": "Di tích cổ này bề ngoài trông rất cũ, nhưng bên trong được trang trí nội thất lại rất hiện đại."
+    },
+    {
+     "t": "Quản lý",
+     "zh": "為了提升效率，主管決定調整部門內部的分工。",
+     "vn": "Để nâng cao hiệu suất, sếp quyết định điều chỉnh sự phân công trong nội bộ phòng ban."
+    }
+   ]
+  },
+  "內地": {
+   "vn": "nội địa; vùng sâu trong đất liền",
+   "ng": [
+    "(danh từ) vùng đất liền nằm sâu bên trong, xa bờ biển hoặc biên giới",
+    "(danh từ) Trung Quốc đại lục (cách gọi thường dùng ở Hồng Kông, Ma Cao)"
+   ],
+   "us": "內地城市 / 深入內地. Chú ý sự khác biệt ngữ cảnh địa lý và chính trị.",
+   "co": [
+    "內地城市|thành phố sâu trong đất liền",
+    "深入內地|đi sâu vào nội địa"
+   ],
+   "an": [
+    "沿海|ven biển"
+   ],
+   "mh": "Nội Địa → nèi dì. ĐỌC: 'nội' → nèi; 'địa' → dì. NGHĨA: 內 (bên trong) + 地 (vùng đất) → vùng đất nằm sâu bên trong.",
+   "tw": "Ở Đài Loan, người dân thường gọi Trung Quốc đại lục là 大陸 hoặc 中國大陸 (chứ ít gọi là 內地 như Hồng Kông). Đôi khi người Đài nói đùa「臺灣的內地是南投」(Nội địa của Đài Loan là Nam Đầu) vì Nam Đầu là huyện duy nhất ở Đài Loan không giáp biển.",
+   "vd": [
+    {
+     "t": "Địa lý",
+     "zh": "南投是臺灣唯一不靠海的縣市，所以有人開玩笑稱它為臺灣的內地。",
+     "vn": "Nam Đầu là huyện thị duy nhất ở Đài Loan không giáp biển, nên có người nói đùa gọi đó là 'nội địa' của Đài Loan."
+    },
+    {
+     "t": "Kinh tế",
+     "zh": "隨著高鐵開通，沿海與內地城市的交通變得更便利了。",
+     "vn": "Cùng với việc thông tuyến tàu cao tốc, giao thông giữa vùng ven biển và các thành phố sâu trong đất liền đã trở nên thuận tiện hơn."
+    },
+    {
+     "t": "Ngôn ngữ",
+     "zh": "香港人習慣把中國大陸稱為「內地」。",
+     "vn": "Người Hồng Kông quen gọi Trung Quốc đại lục là 'nội địa'."
+    }
+   ]
+  },
+  "內行": {
+   "vn": "trong nghề; sành sỏi; chuyên gia",
+   "ng": [
+    "(tính từ) am hiểu, sành sỏi, rành nghề",
+    "(danh từ) người trong nghề, chuyên gia"
+   ],
+   "us": "很內行 / 內行人. Chú ý 行 đọc là háng (ngành nghề).",
+   "co": [
+    "內行人|người trong nghề, người sành sỏi",
+    "看門道|nhìn ra cái tinh túy (內行看門道)"
+   ],
+   "sy": [
+    "專業|chuyên nghiệp",
+    "在行|giỏi, rành về"
+   ],
+   "an": [
+    "外行|ngoài nghề, nghiệp dư"
+   ],
+   "mh": "Nội Hàng → nèi háng. ĐỌC: 'nội' → nèi; 行 ở đây đọc háng ('hàng' = ngành nghề), không đọc xíng. NGHĨA: 內 (bên trong) + 行 (ngành nghề) → người ở trong ngành nghề đó → sành sỏi, chuyên gia.",
+   "mk": "Cẩn thận đọc sai chữ 行 thành xíng; trong 內行, 外行, 行業, 銀行 chữ 行 đều đọc là háng.",
+   "vd": [
+    {
+     "t": "Khen ngợi",
+     "zh": "一聽你挑選茶葉的方法，就知道你是內行人。",
+     "py": "Yī tīng nǐ tiāoxuǎn cháyè de fāngfǎ, jiù zhīdào nǐ shì nèihángrén.",
+     "vn": "Vừa nghe cách bạn chọn trà là biết ngay bạn là người sành sỏi trong nghề."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "買二手車最好找內行的朋友一起去看。",
+     "vn": "Mua xe cũ tốt nhất nên nhờ bạn bè rành nghề đi xem cùng."
+    },
+    {
+     "t": "Tục ngữ",
+     "zh": "俗話說「內行看門道，外行看熱鬧」，這幅畫的筆法非常講究。",
+     "vn": "Tục ngữ có câu 'người trong nghề xem tinh túy, người ngoài nghề xem náo nhiệt', nét bút của bức tranh này vô cùng cầu kỳ."
+    }
+   ]
+  },
+  "內科": {
+   "vn": "nội khoa; khoa nội",
+   "ng": [
+    "(danh từ) khoa nội (chuyên khoa y học chẩn đoán và điều trị bệnh bên trong chủ yếu bằng thuốc, không phẫu thuật)"
+   ],
+   "us": "看內科 / 內科醫生 / 內科門診.",
+   "co": [
+    "看內科|khám khoa nội",
+    "內科醫師|bác sĩ nội khoa",
+    "一般內科|nội khoa tổng quát"
+   ],
+   "an": [
+    "外科|ngoại khoa (phẫu thuật)"
+   ],
+   "cf": [
+    "小兒科|khoa nhi",
+    "婦產科|khoa sản phụ",
+    "皮膚科|khoa da liễu"
+   ],
+   "mh": "Nội Khoa → nèi kē. ĐỌC: 'nội' → nèi; 'khoa' → kē. NGHĨA: 內 (bên trong cơ thể) + 科 (chuyên ngành, phân khoa) → khoa điều trị các bệnh lý bên trong cơ thể.",
+   "tw": "Khi đi khám bệnh ở Đài Loan (看診 / 掛號), nếu bị cảm cúm, đau dạ dày hay bệnh nội tạng thông thường thì đăng ký 一般內科 hoặc 家醫科 (khoa y học gia đình).",
+   "vd": [
+    {
+     "t": "Bệnh viện",
+     "zh": "如果你一直胃痛，建議去醫院掛腸胃內科檢查一下。",
+     "vn": "Nếu bạn cứ bị đau dạ dày mãi, khuyên bạn nên đến bệnh viện đăng ký khám khoa nội tiêu hóa kiểm tra xem."
+    },
+    {
+     "t": "Bác sĩ",
+     "zh": "他的姊姊在臺大醫院擔任內科醫師。",
+     "vn": "Chị gái của anh ấy làm bác sĩ nội khoa tại Bệnh viện Đại học Quốc gia Đài Loan."
+    },
+    {
+     "t": "Phân biệt",
+     "zh": "一般來說，內科主要用藥物治療，外科則需要動手術。",
+     "vn": "Nói chung, nội khoa chủ yếu điều trị bằng thuốc, còn ngoại khoa thì cần phẫu thuật."
+    }
+   ]
+  },
+  "能幹": {
+   "vn": "giỏi giang; tháo vát; có năng lực",
+   "ng": [
+    "(tính từ) có năng lực, giỏi giang, tháo vát trong công việc"
+   ],
+   "us": "很能幹 / 精明能幹 / 能幹的員工.",
+   "co": [
+    "精明能幹|sắc sảo và tháo vát",
+    "年輕能幹|trẻ tuổi tài năng",
+    "能幹的主管|người quản lý giỏi giang"
+   ],
+   "sy": [
+    "有能力|có năng lực",
+    "精明|sắc sảo, khôn khéo"
+   ],
+   "an": [
+    "無能|bất tài, vô năng"
+   ],
+   "mh": "Năng Cán → néng gàn. ĐỌC: 'năng' → néng; 幹 đọc gàn (thanh 4, làm việc). NGHĨA: 能 (có khả năng) + 幹 (làm việc, thực hành) → biết làm việc giỏi → tháo vát, có năng lực.",
+   "vd": [
+    {
+     "t": "Công sở",
+     "zh": "新來的助理非常能幹，不到一個星期就熟悉了所有業務。",
+     "vn": "Trợ lý mới tới rất tháo vát, chưa đầy một tuần đã nắm vững mọi nghiệp vụ."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "陳太太不但工作能幹，把家裡也照顧得井井有條。",
+     "vn": "Bà Trần không những làm việc giỏi giang mà còn chăm sóc gia đình đâu ra đấy."
+    },
+    {
+     "t": "Tuyển dụng",
+     "zh": "每個老闆都希望請到既聰明又能幹的員工。",
+     "vn": "Ông chủ nào cũng hy vọng tuyển được nhân viên vừa thông minh vừa có năng lực."
+    }
+   ]
+  },
+  "能源": {
+   "vn": "năng lượng; nguồn năng lượng",
+   "ng": [
+    "(danh từ) nguồn năng lượng (như điện, dầu mỏ, năng lượng mặt trời, sức gió...)"
+   ],
+   "us": "節約能源 / 再生能源 / 綠色能源 / 能源危機.",
+   "co": [
+    "節約能源|tiết kiệm năng lượng",
+    "再生能源|năng lượng tái tạo",
+    "綠色能源|năng lượng xanh",
+    "能源危機|khủng hoảng năng lượng"
+   ],
+   "cf": [
+    "能量|năng lượng (vật lý, hoặc năng lượng tích cực của con người: 正能量)"
+   ],
+   "mh": "Năng Nguyên → néng yuán. ĐỌC: 'năng' → néng; 'nguyên' → yuán. NGHĨA: 能 (năng lượng) + 源 (bộ thủy 氵 + âm Nguyên 原 → nguồn nước, nguồn gốc) → nguồn cung cấp năng lượng.",
+   "mk": "Phân biệt 能源 và 能量: 能源 chỉ tài nguyên thiên nhiên tạo ra điện/nhiệt (dầu mỏ, gió, mặt trời); còn 能量 chỉ năng lượng vật lý/calo hoặc tinh thần (補充能量, 正能量).",
+   "vd": [
+    {
+     "t": "Môi trường",
+     "zh": "為了保護地球，我們在日常生活中應該節約能源。",
+     "vn": "Để bảo vệ Trái Đất, chúng ta nên tiết kiệm năng lượng trong cuộc sống hằng ngày."
+    },
+    {
+     "t": "Chính sách",
+     "zh": "近年來，臺灣積極發展太陽能和風力等再生能源。",
+     "vn": "Những năm gần đây, Đài Loan tích cực phát triển các nguồn năng lượng tái tạo như điện mặt trời và điện gió."
+    },
+    {
+     "t": "Sinh hoạt",
+     "zh": "隨手關燈、少開冷氣，都是節省能源的好習慣。",
+     "vn": "Tắt đèn khi rời khỏi, hạn chế bật máy lạnh đều là những thói quen tốt giúp tiết kiệm năng lượng."
+    }
+   ]
+  },
+  "泥": {
+   "vn": "bùn; đất sét; nghiền nhuyễn",
+   "ng": [
+    "(danh từ) bùn, đất bùn",
+    "(danh từ) thực phẩm nghiền nhuyễn như bùn (khoai tây nghiền, táo nghiền)"
+   ],
+   "us": "水泥 (xi măng) / 泥巴 (bùn đất) / 芋泥 (khoai môn nghiền) / 馬鈴薯泥 (khoai tây nghiền).",
+   "co": [
+    "水泥|xi măng",
+    "芋泥|khoai môn nghiền",
+    "蒜泥|tỏi băm nhuyễn",
+    "泥巴|bùn đất"
+   ],
+   "mh": "Nê → ní. ĐỌC: 'nê' → ní (khi là động từ 'trát vữa' hoặc trong 拘泥 đọc là nì). NGHĨA: 氵 (bộ thủy - nước) + 尼 (âm Ni) → đất hòa với nước thành bùn nhão.",
+   "tw": "Trong ẩm thực Đài Loan, chữ 泥 rất hay gặp ở tên món ăn để chỉ nguyên liệu xay/nghiền nhuyễn: 芋泥蛋糕 (bánh kem khoai môn nghiền), 蒜泥白肉 (thịt luộc sốt tỏi băm), 馬鈴薯泥 (khoai tây nghiền).",
+   "vd": [
+    {
+     "t": "Ẩm thực",
+     "zh": "這家麵包店的芋泥蛋糕非常有名，每天都大排長龍。",
+     "vn": "Bánh kem khoai môn nghiền của tiệm bánh này rất nổi tiếng, ngày nào cũng có hàng dài người xếp hàng."
+    },
+    {
+     "t": "Sau mưa",
+     "zh": "下過大雨後，山路上有許多泥巴，走路要小心。",
+     "vn": "Sau trận mưa lớn, trên đường núi có rất nhiều bùn đất, đi bộ phải cẩn thận."
+    },
+    {
+     "t": "Trẻ em",
+     "zh": "媽媽把蘋果磨成蘋果泥，餵給六個月大的寶寶吃。",
+     "vn": "Mẹ mài táo thành táo nghiền để đút cho em bé sáu tháng tuổi ăn."
+    }
+   ]
+  },
+  "膩": {
+   "vn": "ngấy, ngán; chán ngấy",
+   "ng": [
+    "(tính từ) béo ngậy, ngấy (đồ ăn nhiều dầu mỡ hoặc quá ngọt)",
+    "(tính từ) chán, ngán (vì lặp đi lặp lại quá nhiều)",
+    "(động từ) quấn quýt không rời (膩在一起)"
+   ],
+   "us": "油膩 (béo ngấy) / 吃膩了 (ăn ngán rồi) / 聽膩了 (nghe chán rồi) / 膩在一起 (dính lấy nhau).",
+   "co": [
+    "油膩|nhiều dầu mỡ, béo ngấy",
+    "吃膩了|ăn ngán rồi",
+    "看膩了|xem chán rồi",
+    "細膩|tinh tế, tỉ mỉ"
+   ],
+   "sy": [
+    "厭煩|chán ghét"
+   ],
+   "an": [
+    "清爽|thanh đạm, mát lành (đồ ăn)"
+   ],
+   "mh": "Nị → nì. ĐỌC: 'nị' → nì. NGHĨA: ⺼ (bộ nhục - thịt mỡ) + 貳 (âm Nhị) → thịt quá nhiều mỡ gây cảm giác ngấy, phát chán.",
+   "vd": [
+    {
+     "t": "Ăn uống",
+     "zh": "這道菜太油膩了，配一點清爽的綠茶比較好。",
+     "vn": "Món ăn này ngấy dầu mỡ quá, dùng kèm một chút trà xanh thanh mát sẽ ngon hơn."
+    },
+    {
+     "t": "Thói quen",
+     "zh": "我已經連續吃了一個禮拜的便當，真的吃膩了。",
+     "vn": "Tôi đã ăn cơm hộp liên tục một tuần lễ rồi, thật sự ăn ngán tới tận cổ rồi."
+    },
+    {
+     "t": "Giải trí",
+     "zh": "這首歌雖然好聽，但每天聽也會聽膩。",
+     "vn": "Bài hát này tuy hay, nhưng ngày nào cũng nghe thì cũng sẽ nghe chán."
+    }
+   ]
+  },
+  "黏/粘": {
+   "vn": "dính; dẻo; dán",
+   "ng": [
+    "(tính từ) dính, dẻo, quánh (như keo, gạo nếp, mồ hôi)",
+    "(động từ) dán, dính vào (dùng ở Đài Loan)",
+    "(tính từ/động từ) bám dính, quấn lấy ai (nghĩa bóng)"
+   ],
+   "us": "很黏 / 黏貼 / 把郵票黏上去 / 小孩很黏媽媽.",
+   "co": [
+    "黏貼|dán",
+    "黏在一起|dính vào nhau",
+    "黏踢踢|dính nhớp nháp / quấn quýt không rời (Đài Loan)",
+    "黏人|hay bám người"
+   ],
+   "mh": "Niêm → nián. ĐỌC: 'niêm' → nián. NGHĨA: 黍 (lúa nếp, hạt kê dẻo) + 占 (âm Chiếm) → chất dẻo và dính như lúa nếp.",
+   "tw": "Ở Đài Loan dùng chữ chính thể là 黏 (nián) cho cả tính từ ('dính') lẫn động từ ('dán': 把紙黏起來). Ở Đại lục thường viết là 粘 và phân biệt: nián (tính từ: dính) và zhān (động từ: dán).",
+   "vd": [
+    {
+     "t": "Thủ công",
+     "zh": "請用膠水把這兩張紙黏在一起。",
+     "vn": "Xin hãy dùng hồ dán hai tờ giấy này lại với nhau."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "夏天流汗以後全身黏黏的，洗個澡會舒服很多。",
+     "vn": "Mùa hè đổ mồ hôi xong khắp người dính nhớp nháp, tắm một cái sẽ dễ chịu hơn nhiều."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "他們家的小貓非常黏人，主人走到哪裡就跟到哪裡。",
+     "vn": "Con mèo nhỏ nhà họ rất quấn người, chủ đi đến đâu là đi theo đến đó."
+    }
+   ]
+  },
+  "尿": {
+   "vn": "nước tiểu; đi tiểu",
+   "ng": [
+    "(danh từ) nước tiểu",
+    "(động từ) đi tiểu, đái"
+   ],
+   "us": "尿尿 (đi tiểu - khẩu ngữ, hay dùng với trẻ em) / 尿布 (tã, bỉm) / 驗尿 (xét nghiệm nước tiểu) / 糖尿病 (bệnh tiểu đường).",
+   "co": [
+    "驗尿|xét nghiệm nước tiểu",
+    "尿布|tã lót, bỉm",
+    "糖尿病|bệnh tiểu đường",
+    "尿尿|đi tè (khẩu ngữ)"
+   ],
+   "sy": [
+    "小便|tiểu tiện (lịch sự hơn)"
+   ],
+   "mh": "Niệu → niào. ĐỌC: 'niệu' → niào (văn đọc cổ hoặc phương ngữ có âm suī trong 尿泡, nhưng Đài Loan chuẩn đọc niào). NGHĨA: 尸 (hình người đang ngồi/cúi) + 水 (nước) → nước thải ra từ cơ thể.",
+   "tw": "Trong giao tiếp lịch sự ở Đài Loan, khi muốn đi vệ sinh người ta nói 去洗手間 / 上廁所, trong y tế gọi là 小便 hoặc 排尿; còn 尿尿 thường dùng trong gia đình hoặc nói với trẻ nhỏ.",
+   "vd": [
+    {
+     "t": "Y tế",
+     "zh": "健康檢查的時候，通常需要抽血和驗尿。",
+     "vn": "Khi khám sức khỏe tổng quát, thông thường cần phải lấy máu và xét nghiệm nước tiểu."
+    },
+    {
+     "t": "Chăm con",
+     "zh": "出門帶小寶寶的時候，別忘了在包包裡多放幾片尿布。",
+     "vn": "Khi đưa em bé ra ngoài, đừng quên để thêm vài miếng bỉm trong túi."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "少喝含糖飲料可以降低罹患糖尿病的風險。",
+     "vn": "Uống ít đồ uống có đường có thể làm giảm nguy cơ mắc bệnh tiểu đường."
+    }
+   ]
+  },
+  "捏": {
+   "vn": "véo, bóp; nặn; bịa đặt",
+   "ng": [
+    "(động từ) dùng ngón cái và các ngón tay bóp, véo, nhéo",
+    "(động từ) nặn (đất sét, sủi cảo, bánh bao)",
+    "(động từ) bịa đặt, dựng chuyện (捏造)"
+   ],
+   "us": "捏臉 (véo má) / 捏黏土 (nặn đất sét) / 捏水餃 (gói/nặn sủi cảo) / 捏造事實 (bịa đặt sự thật).",
+   "co": [
+    "捏造|bịa đặt, dựng chuyện",
+    "捏黏土|nặn đất sét",
+    "捏一把冷汗|toát mồ hôi lạnh (lo lắng thay)"
+   ],
+   "mh": "Niết → niē. ĐỌC: 'niết' → niē. NGHĨA: 扌 (bộ thủ - bàn tay) + 圼 (đất sét lấp hố, âm Niết) → dùng ngón tay bóp, nặn đất sét.",
+   "vd": [
+    {
+     "t": "Trò chơi",
+     "zh": "小朋友最喜歡在美術課上用黏土捏出各種小動物。",
+     "vn": "Các bé nhỏ thích nhất là dùng đất sét nặn ra đủ các con vật nhỏ trong giờ mỹ thuật."
+    },
+    {
+     "t": "Lo lắng",
+     "zh": "看他在比賽最後一秒才投進球，大家都為他捏了一把冷汗。",
+     "vn": "Nhìn anh ấy tới giây cuối cùng của trận đấu mới ném bóng vào rổ, mọi người đều toát mồ hôi lạnh lo thay cho anh ấy."
+    },
+    {
+     "t": "Pháp luật",
+     "zh": "在網路上隨便捏造假消息是會觸犯法律的。",
+     "py": "Zài wǎnglù shàng suíbiàn niēzào jiǎ xiāoxí shì huì chùfàn fǎlǜ de.",
+     "vn": "Tùy tiện bịa đặt tin giả trên mạng là sẽ vi phạm pháp luật."
+    }
+   ]
+  },
+  "寧可": {
+   "vn": "thà... (còn hơn)",
+   "ng": [
+    "(phó từ/liên từ) thà rằng, đành chọn phương án ít tệ hơn giữa hai lựa chọn"
+   ],
+   "us": "Cấu trúc: 寧可 A，也不要/也不 B (thà A chứ không B) hoặc 寧可 A，也要 B (thà chịu A để làm được B).",
+   "co": [
+    "寧可…也不要…|thà... chứ không...",
+    "寧可…也要…|thà... cũng phải..."
+   ],
+   "sy": [
+    "寧願|thà rằng"
+   ],
+   "mh": "Ninh Khả → níng kě. ĐỌC: 寧 ở Đài Loan đọc níng (thanh 2, 'ninh'), Đại lục đọc nìng (thanh 4); 'khả' → kě. NGHĨA: 寧 (an lòng, thà rằng) + 可 (chấp nhận được) → thà chấp nhận phương án này.",
+   "tw": "Bộ Giáo dục Đài Loan quy định chữ 寧 trong 寧可 và 寧願 đọc là thanh 2 (níngkě, níngyuàn), khác với Đại lục đọc thanh 4 (nìngkě).",
+   "vd": [
+    {
+     "t": "Thói quen",
+     "zh": "我寧可早點出門等公車，也不要因為遲到而被扣薪水。",
+     "vn": "Tôi thà ra khỏi nhà sớm một chút để đợi xe buýt, chứ không muốn vì đi muộn mà bị trừ lương."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "買家電的時候，我寧可多花一點錢買品質好的品牌。",
+     "vn": "Khi mua đồ điện gia dụng, tôi thà tốn thêm chút tiền để mua thương hiệu có chất lượng tốt."
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "那家餐廳雖然很貴，但很多人寧可排隊也要去吃一次。",
+     "vn": "Nhà hàng đó tuy rất đắt, nhưng nhiều người thà xếp hàng cũng phải đến ăn thử một lần."
+    }
+   ]
+  },
+  "寧願": {
+   "vn": "thà rằng; tình nguyện chọn",
+   "ng": [
+    "(trợ động từ/liên từ) thà rằng, muốn chọn A hơn là B"
+   ],
+   "us": "寧願 A，也不/也不要 B. Khá giống 寧可 nhưng 寧願 nhấn mạnh ý muốn chủ quan của người nói hơn, có thể đứng một mình làm động từ chính trước mệnh đề.",
+   "co": [
+    "寧願…也不…|thà... chứ không...",
+    "寧願選擇|thà chọn"
+   ],
+   "sy": [
+    "寧可|thà rằng"
+   ],
+   "mh": "Ninh Nguyện → níng yuàn. ĐỌC: 'ninh' → níng (Đài Loan đọc thanh 2); 'nguyện' → yuàn. NGHĨA: 寧 (thà rằng) + 願 (mong muốn, tự nguyện) → tự nguyện chọn phương án này hơn.",
+   "tw": "Chuẩn âm Đài Loan đọc là níngyuàn (thanh 2 + thanh 4).",
+   "vd": [
+    {
+     "t": "Cuối tuần",
+     "zh": "外面下這麼大的雨，我寧願待在家裡看電影，也不想出門。",
+     "vn": "Bên ngoài mưa to thế này, tôi thà ở nhà xem phim chứ không muốn ra ngoài."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "為了健康，他現在寧願自己煮飯，也很少吃外食了。",
+     "vn": "Vì sức khỏe, bây giờ anh ấy thà tự nấu cơm chứ rất ít khi ăn đồ bên ngoài nữa."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "上下班尖峰時間塞車很嚴重，我寧願搭捷運去上班。",
+     "vn": "Giờ cao điểm đi làm và tan tầm kẹt xe rất nghiêm trọng, tôi thà đi tàu điện ngầm đi làm."
+    }
+   ]
+  },
+  "泥土": {
+   "vn": "đất; bùn đất",
+   "ng": [
+    "(danh từ) đất, bùn đất (dùng để trồng cây hoặc trên mặt đất tự nhiên)"
+   ],
+   "us": "泥土的芬芳 / 鬆軟的泥土 / 挖泥土.",
+   "co": [
+    "泥土的香氣|mùi hương của đất",
+    "鬆軟的泥土|lớp đất tơi xốp",
+    "肥沃的泥土|đất đai màu mỡ"
+   ],
+   "sy": [
+    "土壤|đất trồng (trang trọng, khoa học)",
+    "泥巴|bùn đất (khẩu ngữ)"
+   ],
+   "mh": "Nê Thổ → ní tǔ. ĐỌC: 'nê' → ní; 'thổ' → tǔ. NGHĨA: 泥 (bùn) + 土 (đất) → đất đai, bùn đất.",
+   "vd": [
+    {
+     "t": "Thiên nhiên",
+     "zh": "下過雨的森林裡，空氣中充滿了泥土與青草的香氣。",
+     "vn": "Trong khu rừng sau cơn mưa, không khí tràn ngập hương thơm của đất và cỏ xanh."
+    },
+    {
+     "t": "Trồng cây",
+     "zh": "種花之前，要先把盆栽裡的泥土翻鬆。",
+     "vn": "Trước khi trồng hoa, phải xới cho đất trong chậu tơi xốp lên trước."
+    },
+    {
+     "t": "Nông thôn",
+     "zh": "孩子們在鄉下的田裡玩耍，鞋子上沾滿了泥土。",
+     "vn": "Bọn trẻ vui đùa ngoài cánh đồng ở quê, trên giày bám đầy bùn đất."
+    }
+   ]
+  }
+ }
+}

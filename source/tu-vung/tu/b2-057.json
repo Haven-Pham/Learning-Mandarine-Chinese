@@ -1,292 +1,1144 @@
-{"tu": {
-"項目": {"vn": "hạng mục; mục; dự án; nội dung thi đấu", "ng": ["(danh từ) hạng mục, mục (trong danh sách, biểu mẫu, kế hoạch)", "(danh từ) dự án, hạng mục công trình hoặc đầu tư", "(danh từ) môn thi đấu, nội dung thi đấu (thể thao)"],
- "us": "Dùng rộng trong công việc, kế hoạch, biểu mẫu và thể thao. Lượng từ: 個/項. Ví dụ: 比賽項目, 研究項目, 檢查項目.",
- "co": ["比賽項目|nội dung thi đấu", "檢查項目|hạng mục kiểm tra", "合作項目|dự án hợp tác", "投資項目|dự án đầu tư"],
- "sy": ["計畫|kế hoạch", "專案|dự án chuyên đề"],
- "lt": "Ở Đài Loan, 'dự án công ty' thường gọi là 專案 (zhuān'àn) hoặc 計畫 (jìhuà); 項目 nghiêng về từng mục nhỏ, hạng mục chi tiết hoặc môn thi đấu.",
- "mh": "Hạng Mục → xiàng mù. ĐỌC: 'hạng' → xiàng; 'mục' → mù. NGHĨA: 項 (工 + 頁 cái gáy/đầu → đề mục lớn) + 目 (con mắt → mục nhỏ) → từng hạng mục phân loại rõ ràng.",
- "vd": [{"t": "Thể thao", "zh": "這屆奧運新增了好幾個比賽項目。", "vn": "Kỳ Olympic này có thêm mấy nội dung thi đấu mới."},
-  {"t": "Khám bệnh", "zh": "今年的健康檢查多了不少自費項目。", "vn": "Khám sức khỏe năm nay có thêm khá nhiều hạng mục tự trả phí."},
-  {"t": "Công việc", "zh": "經理正在確認各個項目的預算。", "vn": "Quản lý đang xác nhận ngân sách của từng hạng mục."}]},
-"想念": {"vn": "nhớ nhung; nhớ", "ng": ["(động từ) nhớ, nhớ nhung, mong nhớ (người thân, bạn bè, quê hương, khoảng thời gian đã qua)"],
- "us": "Động từ tâm lý (có thể đi với 很/非常/一直): 很想念家人. Mang sắc thái tình cảm ấm áp, trang trọng hơn 想 đơn lẻ.",
- "co": ["非常想念|vô cùng nhớ nhung", "想念家人|nhớ gia đình", "想念家鄉|nhớ quê hương"],
- "sy": ["懷念|hoài niệm (việc/người xưa)", "思念|tư niệm (văn viết)"],
- "an": ["忘記|quên"],
- "lt": "Bẫy Hán Việt: 'tưởng niệm' trong tiếng Việt dùng cho người đã khuất, còn 想念 trong tiếng Hoa đơn thuần là 'nhớ nhung' người đang sống (bạn bè, gia đình ở xa).",
- "mk": "Đừng dịch 想念 thành 'tưởng niệm' khi nói nhớ bố mẹ hay bạn bè; tiếng Việt dùng 'nhớ' là tự nhiên nhất.",
- "mh": "Tưởng Niệm → xiǎng niàn. ĐỌC: 'tưởng' → xiǎng; 'niệm' → niàn. NGHĨA: 想 (相 + 心 suy nghĩ trong lòng) + 念 (今 hiện tại + 心 lòng → giữ mãi trong tâm) → nhớ nhung khôn nguôi.",
- "vd": [{"t": "Du học", "zh": "來台灣留學以後，我常常想念媽媽煮的菜。", "vn": "Sau khi sang Đài Loan du học, tôi thường nhớ món mẹ nấu."},
-  {"t": "Bạn bè", "zh": "好久不見，大家都很想念你！", "vn": "Lâu quá không gặp, mọi người đều rất nhớ bạn!"},
-  {"t": "Quê hương", "zh": "每逢過年，在國外工作的人特別想念家鄉。", "vn": "Mỗi dịp Tết đến, người làm việc ở nước ngoài đặc biệt nhớ quê hương."}]},
-"相親": {"vn": "xem mắt (mai mối); gắn bó nhau", "ng": ["(động từ) đi xem mắt (gặp gỡ đối tượng kết hôn do người khác giới thiệu)", "(động từ) (đọc xiāngqīn, văn viết) gắn bó, yêu thương thân thiết với nhau"],
- "us": "Động từ ly hợp (V-sep): 去相親, 相過幾次親, 跟他相親, 相親對象. Không đặt tân ngữ trực tiếp phía sau.",
- "co": ["去相親|đi xem mắt", "相親對象|đối tượng xem mắt", "安排相親|sắp xếp xem mắt"],
- "cf": ["聯誼|giao lưu kết bạn tập thể"],
- "tw": "Ở Đài Loan đọc xiàngqīn (thanh 4) khi mang nghĩa 'xem mắt' (相 = xem xét, đánh giá); chỉ trong văn viết hoặc cụm 相親相愛 mới đọc xiāngqīn (thanh 1). Ở Đại lục thường đọc cả hai là xiāngqīn.",
- "mk": "相親 là động từ ly hợp, không thêm tân ngữ trực tiếp phía sau (*相親他 là sai; phải nói 跟他相親 hoặc 和他相親).",
- "mh": "Tương Thân → xiàng qīn / xiāng qīn. ĐỌC: ở Đài 'xem mắt' đọc 相 là xiàng (thanh 4), 'thân' qīn; nghĩa 'gắn bó nhau' đọc xiāng qīn. NGHĨA: 相 (目 nhìn + 木 cây → quan sát kỹ) + 親 (gần gũi) → gặp mặt quan sát đối tượng kết hôn.",
- "vd": [{"t": "Gia đình", "zh": "阿姨這個週末幫表姊安排了一場相親。", "vn": "Dì cuối tuần này sắp xếp cho chị họ một buổi xem mắt."},
-  {"t": "Kinh nghiệm", "zh": "她相過幾次親，但都沒有遇到合適的對象。", "vn": "Chị ấy đi xem mắt mấy lần rồi nhưng vẫn chưa gặp được người phù hợp."},
-  {"t": "Tâm sự", "zh": "現在不少年輕人不太喜歡傳統的相親方式。", "vn": "Hiện nay khá nhiều bạn trẻ không thích kiểu xem mắt truyền thống lắm."}]},
-"相親相愛": {"vn": "tương thân tương ái; yêu thương gắn bó", "ng": ["(thành ngữ/tính từ) yêu thương nhau, gắn bó mật thiết, hòa thuận (thường dùng cho vợ chồng, anh chị em, gia đình)"],
- "us": "Dùng làm vị ngữ hoặc định ngữ: 他們夫妻相親相愛 / 相親相愛的一家人. Cả hai chữ 相 đều đọc xiāng (thanh 1).",
- "co": ["相親相愛的一家人|gia đình yêu thương gắn bó", "夫妻相親相愛|vợ chồng yêu thương nhau"],
- "sy": ["恩愛|ân ái (vợ chồng)", "和睦|hòa thuận"],
- "an": ["反目成仇|trở mặt thành thù"],
- "lt": "Khác với 相親 (xem mắt, ở Đài đọc xiàngqīn), trong thành ngữ 相親相愛 cả hai chữ 相 đều đọc xiāng (thanh 1, nghĩa 'lẫn nhau').",
- "mh": "Tương Thân Tương Ái → xiāng qīn xiāng ài. ĐỌC: 'tương' → xiāng; 'thân' → qīn; 'ái' → ài. NGHĨA: 相 (lẫn nhau) + 親 (gần gũi) + 愛 (yêu thương) → gắn bó và yêu thương lẫn nhau.",
- "vd": [{"t": "Gia đình", "zh": "他們雖然只是普通家庭，但全家人相親相愛，過得很幸福。", "vn": "Tuy họ chỉ là gia đình bình thường nhưng cả nhà yêu thương nhau, sống rất hạnh phúc."},
-  {"t": "Anh em", "zh": "爸媽最希望看到兄妹倆長大後依然相親相愛。", "vn": "Bố mẹ mong nhất là thấy hai anh em lớn lên rồi vẫn yêu thương gắn bó với nhau."},
-  {"t": "Đám cưới", "zh": "祝你們新婚快樂，永遠相親相愛！", "vn": "Chúc hai bạn tân hôn hạnh phúc, mãi mãi yêu thương nhau!"}]},
-"享受": {"vn": "hưởng thụ; tận hưởng", "ng": ["(động từ) tận hưởng, hưởng thụ (cuộc sống, âm nhạc, kỳ nghỉ, quyền lợi)", "(danh từ) sự tận hưởng, niềm vui tinh thần hoặc vật chất"],
- "us": "Động từ có thể nhận 很/非常/懂得/好好: 享受生活, 享受陽光, 很享受一個人的時光. Cũng dùng làm danh từ: 是一種享受.",
- "co": ["享受生活|tận hưởng cuộc sống", "享受過程|tận hưởng quá trình", "享受美食|thưởng thức món ngon", "視覺享受|trải nghiệm thị giác tuyệt vời"],
- "sy": ["享用|thưởng thức (đồ ăn/tiện ích)", "體會|cảm nhận"],
- "lt": "Trong tiếng Việt 'hưởng thụ' đôi khi mang nghĩa tiêu cực (chỉ biết ăn chơi), nhưng trong tiếng Hoa 享受 rất tích cực và phổ biến (tận hưởng cuộc sống, quá trình làm việc, thiên nhiên).",
- "mh": "Hưởng Thụ → xiǎng shòu. ĐỌC: 'hưởng' → xiǎng; 'thụ' → shòu. NGHĨA: 享 (dâng lên/hưởng dùng) + 受 (hai tay truyền nhận 爫冖又) → đón nhận và tận hưởng những điều tốt đẹp.",
- "vd": [{"t": "Cuối tuần", "zh": "假日的時候，我喜歡泡杯咖啡，好好享受悠閒的下午。", "vn": "Ngày nghỉ tôi thích pha một ly cà phê, tận hưởng buổi chiều thảnh thơi."},
-  {"t": "Thể thao", "zh": "比賽不只是為了拿獎牌，更要懂得享受運動的過程。", "vn": "Thi đấu không chỉ để lấy huy chương, mà còn phải biết tận hưởng quá trình vận động."},
-  {"t": "Ẩm thực", "zh": "在花蓮看海吃美食，真是一大享受！", "vn": "Ở Hoa Liên vừa ngắm biển vừa ăn ngon đúng là một sự tận hưởng tuyệt vời!"}]},
-"相似": {"vn": "tương tự; giống nhau", "ng": ["(tính từ) tương tự, giống nhau về mặt nào đó (ngoại hình, tính cách, hoàn cảnh, nội dung)"],
- "us": "Thường dùng với A 跟/和 B 很相似 hoặc làm định ngữ: 相似的經驗, 相似的觀點. Không đặt tân ngữ trực tiếp sau 相似.",
- "co": ["極為相似|vô cùng giống nhau", "相似之處|điểm tương đồng", "背景相似|hoàn cảnh tương tự"],
- "sy": ["類似|tương tự (việc/loại)", "相像|giống nhau (diện mạo)"],
- "an": ["相反|trái ngược", "迥異|khác biệt hoàn toàn"],
- "cf": ["相同|giống hệt nhau (100%)", "類似|na ná, thuộc cùng loại"],
- "mk": "Không đặt danh từ/đại từ trực tiếp sau 相似 (*他相似爸爸 là sai); phải dùng cấu trúc A 跟 B 相似 hoặc A 和 B 相似.",
- "mh": "Tương Tự → xiāng sì. ĐỌC: 'tương' → xiāng; 'tự' → sì (không bật hơi). NGHĨA: 相 (lẫn nhau) + 似 (亻 người + 以 → giống như) → hai bên giống nhau.",
- "vd": [{"t": "Gia đình", "zh": "這對雙胞胎不只長相相似，連說話的語氣都一模一樣。", "vn": "Cặp song sinh này không chỉ ngoại hình giống nhau mà ngay cả giọng điệu nói chuyện cũng y hệt."},
-  {"t": "Kinh nghiệm", "zh": "我們有過相似的留學經驗，所以特別聊得來。", "vn": "Chúng tôi từng có trải nghiệm du học tương tự nhau nên nói chuyện rất hợp."},
-  {"t": "Thiết kế", "zh": "這兩家飲料店的標誌設計得太相似了，很容易看錯。", "vn": "Logo của hai tiệm trà sữa này thiết kế giống nhau quá, rất dễ nhìn nhầm."}]},
-"鮮花": {"vn": "hoa tươi", "ng": ["(danh từ) hoa tươi (còn tươi mới, đối lập với hoa khô hoặc hoa giả)"],
- "us": "Lượng từ: 束 (bó), 朵 (bông), 盆 (chậu), 籃 (giỏ). Ví dụ: 一束鮮花, 送鮮花.",
- "co": ["一束鮮花|một bó hoa tươi", "擺放鮮花|bày hoa tươi", "鮮花盛開|hoa tươi nở rộ"],
- "an": ["乾花|hoa khô", "假花|hoa giả"],
- "lt": "Lượng từ cho bó hoa là 束 (shù) hoặc 把 (bǎ), từng bông là 朵 (duǒ).",
- "mh": "Tiên Hoa → xiān huā. ĐỌC: 'tiên' → xiān; 'hoa' → huā. NGHĨA: 鮮 (魚 cá + 羊 dê → đồ tươi mới) + 花 (艹 thảo + 化 nở rộ) → hoa còn tươi mới.",
- "vd": [{"t": "Tốt nghiệp", "zh": "畢業典禮那天，朋友送了我一大束鮮花。", "vn": "Hôm lễ tốt nghiệp, bạn bè tặng tôi một bó hoa tươi rất to."},
-  {"t": "Trang trí", "zh": "客廳桌上擺了一瓶鮮花，整個家看起來更有生氣了。", "vn": "Trên bàn phòng khách đặt một bình hoa tươi, cả nhà trông có sức sống hơn hẳn."},
-  {"t": "Chợ hoa", "zh": "週末早上去建國花市可以買到又便宜又漂亮的鮮花。", "vn": "Sáng cuối tuần đi chợ hoa Kiến Quốc có thể mua được hoa tươi vừa rẻ vừa đẹp."}]},
-"現金": {"vn": "tiền mặt", "ng": ["(danh từ) tiền mặt (tiền giấy, tiền xu dùng thanh toán trực tiếp)"],
- "us": "Dùng trong giao dịch thanh toán: 付現金 (trả tiền mặt), 領現金 (rút tiền mặt), 只收現金 (chỉ nhận tiền mặt). Lượng từ: 筆 (khoản).",
- "co": ["付現金|trả tiền mặt", "只收現金|chỉ nhận tiền mặt", "領現金|rút tiền mặt", "現金回饋|hoàn tiền mặt (cashback)"],
- "sy": ["現款|tiền mặt (trang trọng)", "鈔票|tiền giấy"],
- "an": ["信用卡|thẻ tín dụng"],
- "tw": "Ở Đài Loan rất nhiều quán ăn nhỏ và quầy chợ đêm chỉ nhận tiền mặt (只收現金), còn siêu thị và cửa hàng tiện lợi có thể dùng 悠遊卡 hoặc 行動支付 (như LINE Pay).",
- "mh": "Hiện Kim → xiàn jīn. ĐỌC: 'hiện' → xiàn; 'kim' → jīn. NGHĨA: 現 (hiện có ngay trước mắt) + 金 (tiền bạc/kim loại) → tiền sẵn có trong tay.",
- "vd": [{"t": "Chợ đêm", "zh": "這家夜市攤位只收現金，不能刷卡喔！", "vn": "Quầy hàng chợ đêm này chỉ nhận tiền mặt, không quẹt thẻ được nhé!"},
-  {"t": "Ngân hàng", "zh": "出國旅遊前，我先去銀行換了一些當地現金。", "vn": "Trước khi đi du lịch nước ngoài, tôi ra ngân hàng đổi trước một ít tiền mặt địa phương."},
-  {"t": "Mua sắm", "zh": "這張信用卡在超商消費有百分之二的現金回饋。", "vn": "Thẻ tín dụng này chi tiêu ở cửa hàng tiện lợi được hoàn tiền 2%."}]},
-"先進": {"vn": "tiên tiến; hiện đại; bậc tiền bối", "ng": ["(tính từ) tiên tiến, hiện đại, phát triển vượt trội (công nghệ, thiết bị, tư tưởng, y tế)", "(danh từ) (Đài Loan) bậc tiền bối, người đi trước trong ngành (cách gọi kính trọng)"],
- "us": "Thường làm định ngữ hoặc vị ngữ: 先進的技術, 設備很先進, 先進國家.",
- "co": ["先進技術|công nghệ tiên tiến", "設備先進|thiết bị hiện đại", "先進國家|nước phát triển/tiên tiến", "業界先進|tiền bối trong ngành"],
- "sy": ["現代化|hiện đại hóa", "發達|phát triển"],
- "an": ["落後|lạc hậu"],
- "tw": "Ở Đài Loan, trong hội thảo hay công việc hay nghe 各位業界先進 (các vị tiền bối/chuyên gia đi trước trong ngành) — cách xưng hô rất lịch sự.",
- "mh": "Tiên Tiến → xiān jìn. ĐỌC: 'tiên' → xiān; 'tiến' → jìn. NGHĨA: 先 (đi trước) + 進 (tiến lên phía trước 辶 + 隹) → đi trước thời đại, phát triển vượt bậc.",
- "vd": [{"t": "Y tế", "zh": "台灣的醫療設備非常先進，就醫也很方便。", "vn": "Thiết bị y tế của Đài Loan vô cùng tiên tiến, việc khám chữa bệnh cũng rất thuận tiện."},
-  {"t": "Công nghệ", "zh": "這家公司引進了最先進的自動化生產線。", "vn": "Công ty này đã đưa vào dây chuyền sản xuất tự động hóa tiên tiến nhất."},
-  {"t": "Tư tưởng", "zh": "奶奶雖然年紀大了，但她的想法比很多年輕人還先進。", "vn": "Bà nội tuy lớn tuổi rồi nhưng suy nghĩ của bà còn tiến bộ hơn cả nhiều bạn trẻ."}]},
-"羨慕": {"vn": "ngưỡng mộ; ao ước", "ng": ["(động từ) ngưỡng mộ, ao ước, ghen tị nhẹ (thấy người khác có điều tốt và mong mình cũng có)"],
- "us": "Động từ tâm lý: 很羨慕他, 真羨慕你有這麼長的假期. Có thể đi kèm 令人羨慕 (khiến người ta ngưỡng mộ).",
- "co": ["令人羨慕|khiến người ta ngưỡng mộ", "真羨慕|ngưỡng mộ/ao ước quá", "羨慕不已|vô cùng ngưỡng mộ"],
- "cf": ["嫉妒|ghen tị, đố kỵ (mang ác ý)", "佩服|khâm phục (tài năng/phẩm chất)"],
- "lt": "Phân biệt 羨慕 (ước ao thiện chí: ước gì mình cũng được như bạn) vs 嫉妒 (ghen ghét, đố kỵ ác ý). Người Việt hay dịch 羨慕 là 'ghen tị', dễ gây hiểu nhầm sang 嫉妒.",
- "mk": "Đừng nhầm 羨慕 với 嫉妒 (jídù): khen bạn bè may mắn hãy nói 真羨慕你, tuyệt đối đừng nói 我好嫉妒你.",
- "mh": "Tiện Mộ → xiàn mù. ĐỌC: 'tiện' → xiàn; 'mộ' → mù. NGHĨA: 羨 (羊 dê + 㳄 thèm muốn) + 慕 (mơ ước trong lòng ⺗) → lòng ước ao được như người khác.",
- "vd": [{"t": "Du lịch", "zh": "看到你拍的環島照片，真讓人羨慕！", "vn": "Nhìn ảnh bạn chụp chuyến đi vòng quanh đảo thật khiến người ta ao ước!"},
-  {"t": "Công việc", "zh": "大家都羨慕他能準時下班，還有這麼高的薪水。", "vn": "Mọi người đều ngưỡng mộ anh ấy có thể tan làm đúng giờ mà lương lại cao như vậy."},
-  {"t": "Học tập", "zh": "我超羨慕會講三種語言的人。", "vn": "Tôi cực kỳ ngưỡng mộ những người biết nói ba thứ tiếng."}]},
-"鮮奶": {"vn": "sữa tươi", "ng": ["(danh từ) sữa tươi (sữa bò tươi dùng hằng ngày)"],
- "us": "Từ rất thông dụng ở Đài Loan khi mua sữa ở siêu thị hoặc gọi trà sữa: 鮮奶茶 (trà sữa làm bằng sữa tươi), 一瓶鮮奶, 低脂鮮奶.",
- "co": ["鮮奶茶|trà sữa sữa tươi", "全脂鮮奶|sữa tươi nguyên kem", "低脂鮮奶|sữa tươi ít béo", "喝鮮奶|uống sữa tươi"],
- "sy": ["鮮乳|sữa tươi (văn viết/bao bì)"],
- "cf": ["保久乳|sữa tiệt trùng để lâu", "奶粉|sữa bột"],
- "tw": "Ở tiệm trà Đài Loan, 奶茶 thường pha bột kem (奶精), còn 鮮奶茶 (hoặc 紅茶拿鐵) mới pha bằng sữa tươi (鮮奶). Trên vỏ hộp thường in 鮮乳.",
- "mh": "Tiên Nãi → xiān nǎi. ĐỌC: 'tiên' → xiān; 'nãi' → nǎi. NGHĨA: 鮮 (tươi mới) + 奶 (女 phụ nữ + 乃 → sữa) → sữa tươi.",
- "vd": [{"t": "Trà sữa", "zh": "老闆，我要一杯微糖去冰的紅茶鮮奶。", "vn": "Ông chủ ơi, cho tôi một ly hồng trà sữa tươi ít đường không đá."},
-  {"t": "Siêu thị", "zh": "這瓶鮮奶的保存期限只到明天，要趕快喝完。", "vn": "Chai sữa tươi này hạn sử dụng chỉ đến ngày mai thôi, phải uống hết nhanh."},
-  {"t": "Bữa sáng", "zh": "弟弟每天早上出門前都會喝一杯溫鮮奶。", "vn": "Em trai mỗi sáng trước khi ra khỏi nhà đều uống một ly sữa tươi ấm."}]},
-"顯然": {"vn": "hiển nhiên; rõ ràng là", "ng": ["(phó từ) rõ ràng, hiển nhiên, nhìn thấy ngay (dựa trên sự thật hoặc dấu hiệu rõ rệt)"],
- "us": "Đứng trước động từ/tính từ hoặc ở đầu câu làm trạng ngữ: 顯然他忘了, 這件事顯然有問題. Mang tính khách quan dựa vào chứng cứ.",
- "co": ["顯然不是|rõ ràng không phải", "顯然有誤|rõ ràng có sai sót", "很顯然|rất rõ ràng"],
- "sy": ["明顯|rõ rệt", "分明|rành rành"],
- "cf": ["當然|đương nhiên (hợp lý/lẽ phải)"],
- "lt": "Phân biệt 顯然 (rõ ràng theo sự thật thấy được: 他顯然沒準備 = rõ ràng anh ta chưa chuẩn bị) vs 當然 (đương nhiên theo lẽ thường).",
- "mh": "Hiển Nhiên → xiǎn rán. ĐỌC: 'hiển' → xiǎn; 'nhiên' → rán. NGHĨA: 顯 (rõ ràng hiện ra) + 然 (trạng thái như vậy) → rõ ràng là như thế.",
- "vd": [{"t": "Họp hành", "zh": "看他一臉迷茫的樣子，顯然沒有聽懂剛剛的簡報。", "vn": "Nhìn vẻ mặt ngơ ngác của anh ấy thì rõ ràng là không hiểu bài thuyết trình vừa rồi."},
-  {"t": "Thời tiết", "zh": "天色突然暗下來，顯然馬上就要下大雨了。", "vn": "Trời đột nhiên tối sầm lại, rõ ràng là sắp mưa to đến nơi rồi."},
-  {"t": "Điều tra", "zh": "這份數據顯然有誤，我們必須重新核對一次。", "vn": "Số liệu này hiển nhiên có sai sót, chúng ta phải đối chiếu lại một lần nữa."}]},
-"顯示": {"vn": "hiển thị; cho thấy", "ng": ["(động từ) hiển thị (trên màn hình, bảng điện tử)", "(động từ) cho thấy, thể hiện, chứng tỏ (kết quả nghiên cứu, số liệu, thái độ)"],
- "us": "Dùng rất nhiều trong báo cáo, tin tức và công nghệ: 報告顯示..., 螢幕顯示..., 研究結果顯示....",
- "co": ["報告顯示|báo cáo cho thấy", "螢幕顯示|màn hình hiển thị", "數據顯示|số liệu cho thấy", "顯示出|thể hiện ra"],
- "sy": ["表明|biểu thị, chứng tỏ", "呈現|thể hiện ra"],
- "an": ["隱藏|ẩn đi"],
- "mh": "Hiển Thị → xiǎn shì. ĐỌC: 'hiển' → xiǎn; 'thị' → shì. NGHĨA: 顯 (làm lộ rõ) + 示 (bàn thờ/bày tỏ ra) → bày ra cho thấy rõ.",
- "vd": [{"t": "Công nghệ", "zh": "手機螢幕上顯示電量只剩下百分之五了。", "vn": "Trên màn hình điện thoại hiển thị pin chỉ còn lại 5%."},
-  {"t": "Nghiên cứu", "zh": "最新的研究顯示，睡眠不足會影響記憶力。", "vn": "Nghiên cứu mới nhất cho thấy thiếu ngủ sẽ ảnh hưởng đến trí nhớ."},
-  {"t": "Giao thông", "zh": "捷運站的電子看板顯示下一班車還有兩分鐘進站。", "vn": "Bảng điện tử ở ga MRT hiển thị chuyến tàu tiếp theo còn hai phút nữa vào ga."}]},
-"鮮血": {"vn": "máu tươi", "ng": ["(danh từ) máu tươi (máu mới chảy ra, màu đỏ tươi)"],
- "us": "Thường dùng trong tình huống bị thương, tai nạn, tin tức: 流了滿地鮮血, 鮮血直流.",
- "co": ["鮮血直流|máu tươi chảy ròng ròng", "流滿鮮血|chảy đầy máu tươi", "沾滿鮮血|dính đầy máu tươi"],
- "sy": ["血液|máu (y học/tổng quát)"],
- "tw": "Ở Đài Loan: đứng một mình hoặc trong khẩu ngữ hay đọc xiě (流血 liúxiě, 鮮血 xiānxiě); trong từ ghép Hán Việt trang trọng hơn cũng có thể đọc xuè (xiānxuè).",
- "mh": "Tiên Huyết → xiān xiě / xiān xuè. ĐỌC: 'tiên' → xiān; 'huyết' → xiě (khẩu ngữ Đài Loan) hoặc xuè (văn đọc). NGHĨA: 鮮 (tươi mới) + 血 (chén 皿 đựng giọt máu 丿) → máu tươi mới chảy.",
- "vd": [{"t": "Sơ cứu", "zh": "他切菜時不小心割傷手指，鮮血立刻流了出來。", "vn": "Lúc thái rau anh ấy vô tình cắt trúng ngón tay, máu tươi lập tức chảy ra."},
-  {"t": "Tai nạn", "zh": "車禍現場地面上留有一灘鮮血，救護車很快趕到協助。", "vn": "Tại hiện trường tai nạn giao thông trên mặt đất có vết máu tươi, xe cấp cứu nhanh chóng đến hỗ trợ."},
-  {"t": "Điện ảnh", "zh": "這部電影拍出了戰爭的殘酷與無數人流下的鮮血。", "vn": "Bộ phim này đã quay lại sự tàn khốc của chiến tranh và máu tươi của bao người đã đổ xuống."}]},
-"顯著": {"vn": "hiển trứ; rõ rệt; đáng kể", "ng": ["(tính từ) rõ rệt, nổi bật, đáng kể (hiệu quả, tiến bộ, chênh lệch, ý nghĩa thống kê)"],
- "us": "Từ trang trọng, hay dùng trong học thuật, y tế, kinh tế: 效果顯著, 顯著的差異, 有顯著改善.",
- "co": ["效果顯著|hiệu quả rõ rệt", "顯著差異|sự khác biệt đáng kể", "顯著提升|nâng cao rõ rệt"],
- "sy": ["明顯|rõ ràng", "突出|nổi bật"],
- "an": ["微弱|yếu ớt, không đáng kể"],
- "lt": "Chữ 著 ở đây đọc zhù (thanh 4, nghĩa 'rõ rệt, trứ danh'), không đọc zhe hay zháo!",
- "mh": "Hiển Trứ → xiǎn zhù. ĐỌC: 'hiển' → xiǎn; 'trứ' → zhù (thanh 4, như 'trứ danh'). NGHĨA: 顯 (rõ ràng) + 著 (nổi bật) → hiện ra rất rõ nét, đáng chú ý.",
- "vd": [{"t": "Y học", "zh": "經過三個月的復健，他的行走能力有了顯著的進步。", "vn": "Sau ba tháng phục hồi chức năng, khả năng đi lại của anh ấy đã có tiến bộ rõ rệt."},
-  {"t": "Kinh tế", "zh": "這項新政策對促進觀光產業有顯著的效果。", "vn": "Chính sách mới này có hiệu quả rõ rệt trong việc thúc đẩy ngành du lịch."},
-  {"t": "Nghiên cứu", "zh": "兩組實驗結果之間存在顯著差異。", "vn": "Giữa kết quả của hai nhóm thí nghiệm tồn tại sự khác biệt đáng kể."}]},
-"消": {"vn": "tiêu; tan biến; giảm bớt; tiêu tốn", "ng": ["(động từ) tan, giảm bớt, lắng xuống (cơn giận, sưng tấy, mây mù)", "(động từ) tiêu tốn, cần đến (thường sau 不/只/何)", "(động từ) tiêu khiển, giết (thời gian)"],
- "us": "Thường dùng trong các cụm cố định 消腫 (tan sưng), 消氣 (hết giận), 消暑 (giải nhiệt), 消食 (tiêu cơm), hoặc 不消說 (không cần nói cũng biết).",
- "co": ["消腫|giảm sưng", "消氣|hết giận", "消暑|giải nhiệt mùa hè", "不消說|không cần nói"],
- "sy": ["退|rút, giảm", "散|tan"],
- "an": ["漲|tăng lên, phồng lên"],
- "lt": "Trong khẩu ngữ Đài Loan khi bị sưng hoặc giận: 還沒消 (vẫn chưa xẹp/chưa hết sưng), 氣消了嗎？ (hết giận chưa?).",
- "mh": "Tiêu → xiāo. ĐỌC: 'tiêu' → xiāo (âm 't' Hán Việt thường sang x/j). NGHĨA: 氵 (nước) + 肖 (nhỏ dần) → như nước rút nhỏ dần rồi tan biến.",
- "vd": [{"t": "Chăm sóc", "zh": "扭傷腳踝後先冰敷，這樣比較容易消腫。", "vn": "Sau khi bị trật mắt cá chân hãy chườm đá trước, như vậy dễ giảm sưng hơn."},
-  {"t": "Làm lành", "zh": "他還在生氣，你等他消了氣再去跟他解釋吧。", "vn": "Anh ấy vẫn đang giận đấy, bạn đợi anh ấy nguôi giận rồi hãy đi giải thích nhé."},
-  {"t": "Mùa hè", "zh": "大熱天喝一碗冰綠豆湯最消暑了。", "vn": "Trời nắng nóng uống một bát chè đậu xanh đá là giải nhiệt nhất."}]},
-"小便": {"vn": "tiểu tiện; đi tiểu; nước tiểu", "ng": ["(động từ) đi tiểu, tiểu tiện", "(danh từ) nước tiểu"],
- "us": "Dùng khá trung tính trong y tế, bảng chỉ dẫn hoặc giao tiếp thông thường (lịch sự hơn 尿尿). Danh từ: 驗小便 (xét nghiệm nước tiểu). Động từ: 去小便.",
- "co": ["驗小便|xét nghiệm nước tiểu", "去小便|đi tiểu", "小便失禁|tiểu không tự chủ"],
- "sy": ["尿尿|đi tè (khẩu ngữ)", "小解|đi tiểu (lịch sự)"],
- "an": ["大便|đi đại tiện / phân"],
- "lt": "Chữ 便 ở đây đọc biàn (thanh 4, nghĩa 'tiện lợi/tiểu đại tiện'), không đọc pián (便宜 piányi).",
- "tw": "Ở Đài Loan trong bệnh viện hay nói 留小便檢體 (lấy mẫu nước tiểu); nói chuyện hàng ngày thân mật hoặc với trẻ con thường nói 上廁所 hoặc 尿尿 (niàoniào).",
- "mh": "Tiểu Tiện → xiǎo biàn. ĐỌC: 'tiểu' → xiǎo; 'tiện' → biàn (thanh 4). NGHĨA: 小 (nhỏ) + 便 (đi vệ sinh/tiện) → đi vệ sinh nhẹ (tiểu tiện), đối với 大便.",
- "vd": [{"t": "Khám bệnh", "zh": "醫生說做健康檢查前要先去驗小便。", "vn": "Bác sĩ nói trước khi khám sức khỏe phải đi xét nghiệm nước tiểu trước."},
-  {"t": "Sức khỏe", "zh": "多喝水可以讓小便顏色變淡，對腎臟也比較好。", "vn": "Uống nhiều nước giúp màu nước tiểu nhạt đi và cũng tốt cho thận hơn."},
-  {"t": "Chăm sóc", "zh": "爸爸剛動完手術，起身去小便時需要有人扶著。", "vn": "Bố vừa phẫu thuật xong, lúc đứng dậy đi tiểu cần có người dìu."}]},
-"校車": {"vn": "xe đưa đón của trường; xe buýt trường", "ng": ["(danh từ) xe đưa đón học sinh/sinh viên, xe buýt của trường học"],
- "us": "Dùng với động từ 搭 / 坐 (đi), 等 (đợi), 開 (lái). Lượng từ: 輛 / 台 (Đài Loan hay dùng 台).",
- "co": ["搭校車|đi xe buýt trường", "等校車|đợi xe trường", "校車路線|tuyến xe buýt trường"],
- "cf": ["公車|xe buýt công cộng", "娃娃車|xe đưa đón trẻ mầm non"],
- "lt": "Chữ 校 ở đây đọc xiào (thanh 4, 'trường học'), không đọc jiào (校對 jiàoduì = hiệu đính).",
- "tw": "Ở Đài Loan, xe đưa đón trẻ mẫu giáo còn gọi thân mật là 娃娃車 (wáwachē); xe buýt giữa các cơ sở đại học hoặc trường cấp 2-3 gọi là 校車.",
- "mh": "Giáo Xa → xiào chē. ĐỌC: 'hiệu' (trường học) → xiào; 'xa' → chē. NGHĨA: 校 (trường học) + 車 (xe cộ) → xe của trường học.",
- "vd": [{"t": "Đi học", "zh": "弟弟每天早上七點在巷口等校車上學。", "vn": "Em trai mỗi sáng 7 giờ đợi xe đưa đón của trường ở đầu hẻm để đi học."},
-  {"t": "Đại học", "zh": "這所大學兩個校區之間有免費校車可以搭。", "vn": "Giữa hai cơ sở của trường đại học này có xe buýt miễn phí của trường để đi."},
-  {"t": "An toàn", "zh": "學校規定學生搭校車時一定要繫上安全帶。", "vn": "Nhà trường quy định học sinh khi đi xe đưa đón của trường nhất định phải thắt dây an toàn."}]},
-"消除": {"vn": "tiêu trừ; xóa bỏ; loại bỏ", "ng": ["(động từ) loại bỏ, xóa bỏ hoàn toàn (hiểu lầm, căng thẳng, mệt mỏi, mối nguy, mùi hôi)"],
- "us": "Thường đi với tân ngữ trừu tượng hoặc tình trạng xấu: 消除誤會, 消除疲勞, 消除緊張, 消除異味.",
- "co": ["消除誤會|xóa bỏ hiểu lầm", "消除疲勞|xóa tan mệt mỏi", "消除緊張|giải tỏa căng thẳng", "消除異味|khử mùi hôi"],
- "sy": ["去除|loại bỏ", "解除|giải trừ"],
- "an": ["產生|sinh ra", "增加|tăng thêm"],
- "cf": ["消滅|tiêu diệt (dùng cho kẻ thù, dịch bệnh, sâu bọ)", "消除|xóa bỏ (hiểu lầm, mệt mỏi, lo âu)"],
- "mh": "Tiêu Trừ → xiāo chú. ĐỌC: 'tiêu' → xiāo; 'trừ' → chú. NGHĨA: 消 (tan biến) + 除 (bỏ đi) → làm tan biến và loại bỏ hẳn.",
- "vd": [{"t": "Giao tiếp", "zh": "我們坐下來好好談一談，把彼此的誤會消除吧。", "vn": "Chúng ta ngồi xuống nói chuyện thẳng thắn với nhau, xóa bỏ hiểu lầm giữa hai bên đi."},
-  {"t": "Thư giãn", "zh": "泡個熱水澡可以幫助消除一整天的疲勞。", "vn": "Ngâm bồn nước nóng có thể giúp xua tan mệt mỏi cả ngày dài."},
-  {"t": "Nhà cửa", "zh": "冰箱裡放一點檸檬片，能有效消除異味。", "vn": "Để vài lát chanh trong tủ lạnh có thể khử mùi hôi hiệu quả."}]},
-"曉得": {"vn": "biết; hiểu rõ (khẩu ngữ)", "ng": ["(động từ) biết, hay biết (giống 知道 nhưng mang sắc thái khẩu ngữ, thân mật)"],
- "us": "Thường dùng trong văn nói, nhất là câu phủ định hoặc nghi vấn: 我不曉得, 你曉得嗎？, 誰曉得？. Không dùng với nghĩa 'quen biết' (*曉得他 là sai, phải dùng 認識).",
- "co": ["不曉得|không biết", "你曉得嗎|bạn có biết không", "誰曉得|ai mà biết được"],
- "sy": ["知道|biết", "了解|hiểu rõ"],
- "tw": "Ở Đài Loan rất hay dùng 不曉得 (bù xiǎode) xen kẽ với 不知道 trong giao tiếp hằng ngày, nghe mềm mại và tự nhiên.",
- "mk": "Chữ 得 ở đây đọc thanh nhẹ (de), không đọc dé hay děi.",
- "mh": "Hiểu Đắc → xiǎo de. ĐỌC: 'hiểu' → xiǎo; 'đắc' → de (thanh nhẹ). NGHĨA: 曉 (日 mặt trời + 堯 cao → trời sáng tỏ, hiểu rõ) + 得 (đạt được) → biết rõ.",
- "vd": [{"t": "Hỏi đường", "zh": "不好意思，請問你曉得最近的捷運站在哪裡嗎？", "vn": "Xin lỗi, cho hỏi bạn có biết trạm MRT gần nhất ở đâu không?"},
-  {"t": "Trò chuyện", "zh": "我也不曉得他今天為什麼沒來上班。", "vn": "Tôi cũng không biết hôm nay sao anh ấy không đi làm."},
-  {"t": "Thời tiết", "zh": "誰曉得下午突然下起大雨，我忘記帶傘了。", "vn": "Ai mà ngờ chiều tự dưng mưa to thế, tôi quên mang ô mất rồi."}]},
-"小販": {"vn": "người bán hàng rong; tiểu thương", "ng": ["(danh từ) người bán hàng rong, tiểu thương bán lẻ ngoài đường hoặc chợ"],
- "us": "Thường dùng với 流動小販 (người bán rong di động), 夜市小販 (tiểu thương chợ đêm), 路邊小販 (người bán hàng ven đường).",
- "co": ["流動小販|người bán hàng rong", "路邊小販|người bán ven đường", "夜市小販|tiểu thương chợ đêm"],
- "sy": ["攤販|người bán hàng sạp/quầy"],
- "tw": "Ở Đài Loan từ 攤販 (tānfàn) và 小販 đều phổ biến; 攤販 chỉ người bán có sạp/xe đẩy ở chợ hoặc chợ đêm.",
- "mh": "Tiểu Phiến → xiǎo fàn. ĐỌC: 'tiểu' → xiǎo; 'phiến' → fàn. NGHĨA: 小 (nhỏ) + 販 (貝 tiền + 反 → buôn bán qua lại) → người buôn bán nhỏ lẻ.",
- "vd": [{"t": "Chợ đêm", "zh": "一到傍晚，夜市的道路兩旁就擠滿了各式各樣的小販。", "vn": "Hễ đến xẩm tối, hai bên đường chợ đêm lại ken đặc đủ loại tiểu thương bán hàng."},
-  {"t": "Đời sống", "zh": "以前巷口常有推著車賣豆花的小販經過。", "vn": "Trước đây đầu hẻm thường có người bán tào phớ đẩy xe đi ngang qua."},
-  {"t": "Đô thị", "zh": "警察有時會來勸導佔用人行道的流動小販。", "vn": "Cảnh sát đôi khi sẽ đến nhắc nhở những người bán hàng rong chiếm dụng vỉa hè."}]},
-"消化": {"vn": "tiêu hóa; tiếp thu, xử lý", "ng": ["(động từ) tiêu hóa (thức ăn trong dạ dày)", "(động từ) (nghĩa bóng) tiếp thu, ngẫm cho thấu (kiến thức, thông tin, cảm xúc); tiêu thụ hết (hàng tồn kho)"],
- "us": "Dùng cả nghĩa đen và nghĩa bóng: 幫助消化 (giúp tiêu hóa), 消化不良 (khó tiêu), 消化這些資訊 (tiếp thu/xử lý lượng thông tin này).",
- "co": ["幫助消化|giúp tiêu hóa", "消化不良|tiêu hóa kém, khó tiêu", "消化系統|hệ tiêu hóa", "消化知識|tiếp thu kiến thức"],
- "sy": ["吸收|hấp thu"],
- "mh": "Tiêu Hóa → xiāo huà. ĐỌC: 'tiêu' → xiāo; 'hóa' → huà. NGHĨA: 消 (tan ra) + 化 (biến đổi) → làm thức ăn (hoặc thông tin) tan ra và biến đổi để hấp thu.",
- "vd": [{"t": "Ăn uống", "zh": "吃飽飯後去散散步，有助於腸胃消化。", "vn": "Ăn no xong đi dạo một chút sẽ giúp dạ dày tiêu hóa tốt hơn."},
-  {"t": "Sức khỏe", "zh": "最近工作壓力太大，我常常覺得胃脹、消化不良。", "vn": "Gần đây áp lực công việc lớn quá, tôi thường thấy đầy bụng, khó tiêu."},
-  {"t": "Học tập", "zh": "這堂課的內容很多，我需要一點時間慢慢消化。", "vn": "Nội dung buổi học này nhiều quá, tôi cần chút thời gian để tiếp thu từ từ."}]},
-"消極": {"vn": "tiêu cực; thụ động; bi quan", "ng": ["(tính từ) tiêu cực, thụ động, thiếu chủ động tích cực (thái độ, suy nghĩ, phản ứng)"],
- "us": "Dùng để miêu tả thái độ, cách làm việc hoặc ảnh hưởng: 態度消極, 消極面對, 消極的影響.",
- "co": ["態度消極|thái độ tiêu cực/thụ động", "消極面對|đối mặt một cách thụ động", "消極想法|suy nghĩ tiêu cực"],
- "sy": ["悲觀|bi quan", "被動|bị động"],
- "an": ["積極|tích cực"],
- "mh": "Tiêu Cực → xiāo jí. ĐỌC: 'tiêu' → xiāo; 'cực' → jí. NGHĨA: 消 (giảm sút, thụt lùi) + 極 (mức độ tột cùng) → thái độ tụt giảm, không chủ động vươn lên (đối lập với 積極).",
- "vd": [{"t": "Công việc", "zh": "他最近工作態度很消極，常常拖到最後一刻才交報告。", "vn": "Gần đây thái độ làm việc của anh ấy rất thụ động, thường trì hoãn đến phút chót mới nộp báo cáo."},
-  {"t": "Khuyên nhủ", "zh": "遇到挫折時不要太消極，換個角度想也許會有轉機。", "vn": "Lúc gặp trắc trở đừng quá tiêu cực, đổi góc nhìn khác biết đâu sẽ có cơ hội chuyển biến."},
-  {"t": "Học tập", "zh": "與其消極抱怨考題太難，不如趕快把錯題弄懂。", "vn": "Thay vì than vãn tiêu cực là đề thi quá khó, chi bằng mau chóng hiểu kỹ những câu làm sai."}]},
-"銷路": {"vn": "tiêu lộ; đầu ra; sức tiêu thụ", "ng": ["(danh từ) đầu ra tiêu thụ, tình hình bán chạy hay không của hàng hóa"],
- "us": "Thường đi với 好/不好, 打開, 拓展: 銷路很好 (bán rất chạy, đầu ra tốt), 打開銷路 (mở rộng thị trường tiêu thụ).",
- "co": ["打開銷路|mở rộng đầu ra", "銷路很好|bán chạy, đầu ra tốt", "沒有銷路|không có đầu ra, ế ẩm"],
- "sy": ["市場|thị trường", "銷量|sản lượng bán ra"],
- "mh": "Tiêu Lộ → xiāo lù. ĐỌC: 'tiêu' → xiāo; 'lộ' → lù. NGHĨA: 銷 (tiêu thụ, bán ra) + 路 (con đường) → con đường tiêu thụ hàng hóa ra thị trường.",
- "vd": [{"t": "Kinh doanh", "zh": "這家果園改用網路銷售後，農產品的銷路變得更好了。", "vn": "Sau khi vườn trái cây này chuyển sang bán qua mạng, đầu ra nông sản trở nên tốt hơn hẳn."},
-  {"t": "Sản phẩm", "zh": "這批商品因為定價太高，在市場上一直沒有什麼銷路。", "vn": "Lô hàng này vì định giá quá cao nên trên thị trường mãi không tiêu thụ được mấy."},
-  {"t": "Thương mại", "zh": "廠商正積極參加國際展覽，希望能為新產品打開海外銷路。", "vn": "Doanh nghiệp đang tích cực tham gia triển lãm quốc tế, hy vọng mở được đầu ra nước ngoài cho sản phẩm mới."}]},
-"小麥": {"vn": "tiểu mạch; lúa mì", "ng": ["(danh từ) cây lúa mì, hạt lúa mì"],
- "us": "Danh từ nông nghiệp/thực phẩm; lượng từ 粒 (hạt), 株 (cây). Các sản phẩm từ 小麥: 麵粉 (bột mì), 小麥胚芽 (mầm lúa mì).",
- "co": ["小麥粉|bột lúa mì", "種植小麥|trồng lúa mì", "小麥過敏|dị ứng lúa mì"],
- "cf": ["大麥|lúa mạch", "稻米|lúa gạo"],
- "mh": "Tiểu Mạch → xiǎo mài. ĐỌC: 'tiểu' → xiǎo; 'mạch' → mài. NGHĨA: 小 (nhỏ) + 麥 (cây lúa 來 chín đợi thu hoạch 夂) → cây lúa mì (phân biệt với 大麥 lúa mạch).",
- "vd": [{"t": "Ẩm thực", "zh": "我們平常吃的麵包和麵條，大多是用小麥磨成的麵粉做的。", "vn": "Bánh mì và mì sợi chúng ta thường ăn đa số làm từ bột xay từ lúa mì."},
-  {"t": "Nông nghiệp", "zh": "這片農場除了種玉米，也種了不少小麥。", "vn": "Nông trại này ngoài trồng ngô ra còn trồng khá nhiều lúa mì."},
-  {"t": "Sức khỏe", "zh": "妹妹對小麥製品過敏，不能吃一般的餅乾。", "vn": "Em gái bị dị ứng với các sản phẩm từ lúa mì nên không ăn được bánh quy thông thường."}]},
-"消滅": {"vn": "tiêu diệt; diệt trừ", "ng": ["(động từ) tiêu diệt, diệt trừ tận gốc (kẻ thù, dịch bệnh, sâu bọ, tệ nạn)", "(động từ) diệt vong, mất hẳn"],
- "us": "Mạnh hơn 消除, dùng cho đối tượng cụ thể hoặc mối họa cần diệt sạch: 消滅蚊蟲, 消滅病毒, 消滅貧窮.",
- "co": ["消滅蚊蟲|tiêu diệt muỗi/côn trùng", "消滅病毒|tiêu diệt vi-rút", "消滅貧窮|xóa bỏ đói nghèo"],
- "sy": ["剷除|trừ khử", "清除|dọn sạch"],
- "an": ["保存|bảo tồn", "滋生|sinh sôi"],
- "cf": ["消除|xóa bỏ (hiểu lầm, căng thẳng)", "消滅|tiêu diệt (côn trùng, mầm bệnh, kẻ thù)"],
- "mk": "Không dùng 消滅 cho hiểu lầm hay mệt mỏi (*消滅誤會 là sai, phải dùng 消除誤會).",
- "mh": "Tiêu Diệt → xiāo miè. ĐỌC: 'tiêu' → xiāo; 'diệt' → miè. NGHĨA: 消 (tan biến) + 滅 (氵 nước dập tắt lửa 烕) → dập tắt và làm biến mất hoàn toàn.",
- "vd": [{"t": "Vệ sinh", "zh": "清理積水容器可以有效消滅登革熱病媒蚊。", "vn": "Dọn sạch các vật chứa nước đọng có thể tiêu diệt hiệu quả muỗi truyền bệnh sốt xuất huyết."},
-  {"t": "Đời sống", "zh": "媽媽買了新藥，希望能徹底消滅廚房裡的蟑螂。", "vn": "Mẹ mua thuốc mới, hy vọng có thể diệt tận gốc gián trong bếp."},
-  {"t": "Xã hội", "zh": "許多國際組織長期致力於消滅世界上的貧窮與飢餓。", "vn": "Nhiều tổ chức quốc tế lâu nay dốc sức xóa bỏ nghèo đói trên thế giới."}]},
-"小氣": {"vn": "keo kiệt; bủn xỉn; nhỏ mọn", "ng": ["(tính từ) keo kiệt, bủn xỉn (tiền bạc, vật chất)", "(tính từ) nhỏ mọn, hẹp hòi, hay để bụng chuyện vặt"],
- "us": "Thường dùng mô tả tính cách: 他很小氣, 別那麼小氣, 小氣鬼 (đồ keo kiệt/nhỏ mọn).",
- "co": ["小氣鬼|đồ keo kiệt", "別那麼小氣|đừng keo kiệt/nhỏ mọn thế", "小氣巴拉|keo kiệt bủn xỉn (khẩu ngữ)"],
- "sy": ["吝嗇|lận đận, keo kiệt (văn viết)", "計較|so đo"],
- "an": ["大方|hào phóng, rộng rãi"],
- "tw": "Ở Đài Loan hay nói 真小氣 (keo kiệt/nhỏ mọn quá), 小氣鬼, hoặc 小氣巴拉 (xiǎoqì bālā - rất khẩu ngữ).",
- "mh": "Tiểu Khí → xiǎo qì. ĐỌC: 'tiểu' → xiǎo; 'khí' → qì. NGHĨA: 小 (nhỏ bé) + 氣 (khí lượng, tấm lòng) → khí lượng hẹp hòi, keo kiệt.",
- "vd": [{"t": "Bạn bè", "zh": "他對朋友很大方，請客從來不小氣。", "vn": "Anh ấy rất hào phóng với bạn bè, mời khách chưa bao giờ keo kiệt."},
-  {"t": "Trẻ con", "zh": "妹妹連一顆糖都不肯分給哥哥，大家都笑她是小氣鬼。", "vn": "Em gái đến một viên kẹo cũng không chịu chia cho anh trai, mọi người đều trêu bé là đồ keo kiệt."},
-  {"t": "Tình cảm", "zh": "別為了這麼一點小事就生氣，這樣顯得太小氣了。", "vn": "Đừng vì chút chuyện nhỏ thế này mà giận dỗi, như vậy trông nhỏ mọn quá."}]},
-"笑容": {"vn": "tiếu dung; nụ cười", "ng": ["(danh từ) nụ cười, vẻ mặt tươi cười rạng rỡ"],
- "us": "Thường dùng với động từ 露出 (nở/lộ ra), 帶著 (mang theo), 保持 (giữ). Lượng từ: 抹 (một thoáng), 絲 (một nét), 臉 (gương mặt).",
- "co": ["露出笑容|nở nụ cười", "滿臉笑容|nét mặt rạng rỡ nụ cười", "燦爛的笑容|nụ cười rạng rỡ", "保持笑容|giữ nụ cười"],
- "sy": ["微笑|nụ cười mỉm"],
- "an": ["愁容|vẻ mặt âu sầu"],
- "mh": "Tiếu Dung → xiào róng. ĐỌC: 'tiếu' → xiào; 'dung' → róng. NGHĨA: 笑 (cười) + 容 (diện mạo, sắc mặt) → vẻ mặt đang nở nụ cười.",
- "vd": [{"t": "Dịch vụ", "zh": "那家早餐店的老闆每天都帶著親切的笑容招呼客人。", "vn": "Ông chủ tiệm ăn sáng đó ngày nào cũng nở nụ cười thân thiện chào hỏi khách hàng."},
-  {"t": "Gặp gỡ", "zh": "看到久違的朋友，她臉上立刻露出了燦爛的笑容。", "vn": "Nhìn thấy người bạn lâu ngày mới gặp, trên mặt cô ấy lập tức nở nụ cười rạng rỡ."},
-  {"t": "Gia đình", "zh": "收到孩子親手寫的卡片，爸爸露出了欣慰的笑容。", "vn": "Nhận được tấm thiệp do chính tay con viết, bố nở nụ cười mãn nguyện."}]},
-"消失": {"vn": "tiêu thất; biến mất", "ng": ["(động từ) biến mất, không còn nhìn thấy hoặc tồn tại nữa (người, vật, cảm giác, âm thanh, nghề truyền thống)"],
- "us": "Nội động từ (không mang tân ngữ phía sau): 突然消失, 消失得無影無蹤, 慢慢消失. Đừng đặt danh từ phía sau (*消失了他 là sai).",
- "co": ["突然消失|đột nhiên biến mất", "慢慢消失|dần dần biến mất", "消失不見|biến mất tăm", "消失無蹤|biến mất không dấu vết"],
- "sy": ["不見|không thấy nữa"],
- "an": ["出現|xuất hiện", "存在|tồn tại"],
- "mk": "消失 là nội động từ, không dùng với tân ngữ trực tiếp (không nói *他消失了那個問題, phải nói 那個問題消失了).",
- "mh": "Tiêu Thất → xiāo shī. ĐỌC: 'tiêu' → xiāo; 'thất' → shī. NGHĨA: 消 (tan biến) + 失 (rơi mất) → tan biến và mất hút.",
- "vd": [{"t": "Thời tiết", "zh": "太陽出來以後，山上的濃霧很快就消失了。", "vn": "Sau khi mặt trời lên, sương mù dày đặc trên núi rất nhanh đã tan biến."},
-  {"t": "Văn hóa", "zh": "隨著時代改變，許多傳統手工藝正在慢慢消失。", "vn": "Theo sự thay đổi của thời đại, nhiều nghề thủ công truyền thống đang dần biến mất."},
-  {"t": "Sức khỏe", "zh": "休息了兩天，他身上的痠痛感終於消失了。", "vn": "Nghỉ ngơi hai ngày, cảm giác đau nhức trên người anh ấy cuối cùng cũng biến mất."}]},
-"小腿": {"vn": "cẳng chân; bắp chân dưới", "ng": ["(danh từ) cẳng chân, phần chân từ đầu gối đến mắt cá chân"],
- "us": "Đối với 大腿 (đùi). Thường dùng: 小腿抽筋 (chuột rút bắp chân), 抬高小腿, 小腿痠痛. Lượng từ: 條 / 隻.",
- "co": ["小腿抽筋|chuột rút bắp chân", "小腿痠痛|đau mỏi bắp chân", "拉傷小腿|căng cơ bắp chân"],
- "an": ["大腿|đùi"],
- "cf": ["小臂|cẳng tay"],
- "lt": "Tiếng Việt hay gọi cả phần này là 'bắp chân', nhưng trong tiếng Hoa phần bắp thịt phía sau gọi cụ thể là 小腿肚 (xiǎotuǐ dù), còn toàn bộ cẳng chân dưới gối gọi là 小腿.",
- "mh": "Tiểu Thối → xiǎo tuǐ. ĐỌC: 'tiểu' → xiǎo; 'thối' → tuǐ. NGHĨA: 小 (nhỏ) + 腿 (⺼ thịt + 退 → chân) → phần chân nhỏ phía dưới (cẳng chân), đối với 大腿 (đùi).",
- "vd": [{"t": "Thể thao", "zh": "跑步前如果沒有先熱身，小腿很容易抽筋。", "vn": "Trước khi chạy bộ nếu không khởi động trước thì bắp chân rất dễ bị chuột rút."},
-  {"t": "Du lịch", "zh": "今天逛街走了一整天，回到飯店小腿又痠又脹。", "vn": "Hôm nay đi dạo phố suốt cả ngày, về đến khách sạn cẳng chân vừa mỏi vừa căng tức."},
-  {"t": "Chăm sóc", "zh": "睡前抬高小腿十五分鐘，可以減少水腫。", "vn": "Trước khi ngủ kê cao cẳng chân 15 phút có thể giảm phù nề."}]}
-}}
+{
+ "tu": {
+  "項目": {
+   "vn": "hạng mục; mục; dự án; nội dung thi đấu",
+   "ng": [
+    "(danh từ) hạng mục, mục (trong danh sách, biểu mẫu, kế hoạch)",
+    "(danh từ) dự án, hạng mục công trình hoặc đầu tư",
+    "(danh từ) môn thi đấu, nội dung thi đấu (thể thao)"
+   ],
+   "us": "Dùng rộng trong công việc, kế hoạch, biểu mẫu và thể thao. Lượng từ: 個/項. Ví dụ: 比賽項目, 研究項目, 檢查項目.",
+   "co": [
+    "比賽項目|nội dung thi đấu",
+    "檢查項目|hạng mục kiểm tra",
+    "合作項目|dự án hợp tác",
+    "投資項目|dự án đầu tư"
+   ],
+   "sy": [
+    "計畫|kế hoạch",
+    "專案|dự án chuyên đề"
+   ],
+   "lt": "Ở Đài Loan, 'dự án công ty' thường gọi là 專案 (zhuān'àn) hoặc 計畫 (jìhuà); 項目 nghiêng về từng mục nhỏ, hạng mục chi tiết hoặc môn thi đấu.",
+   "mh": "Hạng Mục → xiàng mù. ĐỌC: 'hạng' → xiàng; 'mục' → mù. NGHĨA: 項 (工 + 頁 cái gáy/đầu → đề mục lớn) + 目 (con mắt → mục nhỏ) → từng hạng mục phân loại rõ ràng.",
+   "vd": [
+    {
+     "t": "Thể thao",
+     "zh": "這屆奧運新增了好幾個比賽項目。",
+     "vn": "Kỳ Olympic này có thêm mấy nội dung thi đấu mới."
+    },
+    {
+     "t": "Khám bệnh",
+     "zh": "今年的健康檢查多了不少自費項目。",
+     "vn": "Khám sức khỏe năm nay có thêm khá nhiều hạng mục tự trả phí."
+    },
+    {
+     "t": "Công việc",
+     "zh": "經理正在確認各個項目的預算。",
+     "vn": "Quản lý đang xác nhận ngân sách của từng hạng mục."
+    }
+   ]
+  },
+  "想念": {
+   "vn": "nhớ nhung; nhớ",
+   "ng": [
+    "(động từ) nhớ, nhớ nhung, mong nhớ (người thân, bạn bè, quê hương, khoảng thời gian đã qua)"
+   ],
+   "us": "Động từ tâm lý (có thể đi với 很/非常/一直): 很想念家人. Mang sắc thái tình cảm ấm áp, trang trọng hơn 想 đơn lẻ.",
+   "co": [
+    "非常想念|vô cùng nhớ nhung",
+    "想念家人|nhớ gia đình",
+    "想念家鄉|nhớ quê hương"
+   ],
+   "sy": [
+    "懷念|hoài niệm (việc/người xưa)",
+    "思念|tư niệm (văn viết)"
+   ],
+   "an": [
+    "忘記|quên"
+   ],
+   "lt": "Bẫy Hán Việt: 'tưởng niệm' trong tiếng Việt dùng cho người đã khuất, còn 想念 trong tiếng Hoa đơn thuần là 'nhớ nhung' người đang sống (bạn bè, gia đình ở xa).",
+   "mk": "Đừng dịch 想念 thành 'tưởng niệm' khi nói nhớ bố mẹ hay bạn bè; tiếng Việt dùng 'nhớ' là tự nhiên nhất.",
+   "mh": "Tưởng Niệm → xiǎng niàn. ĐỌC: 'tưởng' → xiǎng; 'niệm' → niàn. NGHĨA: 想 (相 + 心 suy nghĩ trong lòng) + 念 (今 hiện tại + 心 lòng → giữ mãi trong tâm) → nhớ nhung khôn nguôi.",
+   "vd": [
+    {
+     "t": "Du học",
+     "zh": "來台灣留學以後，我常常想念媽媽煮的菜。",
+     "vn": "Sau khi sang Đài Loan du học, tôi thường nhớ món mẹ nấu."
+    },
+    {
+     "t": "Bạn bè",
+     "zh": "好久不見，大家都很想念你！",
+     "vn": "Lâu quá không gặp, mọi người đều rất nhớ bạn!"
+    },
+    {
+     "t": "Quê hương",
+     "zh": "每逢過年，在國外工作的人特別想念家鄉。",
+     "vn": "Mỗi dịp Tết đến, người làm việc ở nước ngoài đặc biệt nhớ quê hương."
+    }
+   ]
+  },
+  "相親": {
+   "vn": "xem mắt (mai mối); gắn bó nhau",
+   "ng": [
+    "(động từ) đi xem mắt (gặp gỡ đối tượng kết hôn do người khác giới thiệu)",
+    "(động từ) (đọc xiāngqīn, văn viết) gắn bó, yêu thương thân thiết với nhau"
+   ],
+   "us": "Động từ ly hợp (V-sep): 去相親, 相過幾次親, 跟他相親, 相親對象. Không đặt tân ngữ trực tiếp phía sau.",
+   "co": [
+    "去相親|đi xem mắt",
+    "相親對象|đối tượng xem mắt",
+    "安排相親|sắp xếp xem mắt"
+   ],
+   "cf": [
+    "聯誼|giao lưu kết bạn tập thể"
+   ],
+   "tw": "Ở Đài Loan đọc xiàngqīn (thanh 4) khi mang nghĩa 'xem mắt' (相 = xem xét, đánh giá); chỉ trong văn viết hoặc cụm 相親相愛 mới đọc xiāngqīn (thanh 1). Ở Đại lục thường đọc cả hai là xiāngqīn.",
+   "mk": "相親 là động từ ly hợp, không thêm tân ngữ trực tiếp phía sau (*相親他 là sai; phải nói 跟他相親 hoặc 和他相親).",
+   "mh": "Tương Thân → xiàng qīn / xiāng qīn. ĐỌC: ở Đài 'xem mắt' đọc 相 là xiàng (thanh 4), 'thân' qīn; nghĩa 'gắn bó nhau' đọc xiāng qīn. NGHĨA: 相 (目 nhìn + 木 cây → quan sát kỹ) + 親 (gần gũi) → gặp mặt quan sát đối tượng kết hôn.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "阿姨這個週末幫表姊安排了一場相親。",
+     "vn": "Dì cuối tuần này sắp xếp cho chị họ một buổi xem mắt."
+    },
+    {
+     "t": "Kinh nghiệm",
+     "zh": "她相過幾次親，但都沒有遇到合適的對象。",
+     "vn": "Chị ấy đi xem mắt mấy lần rồi nhưng vẫn chưa gặp được người phù hợp."
+    },
+    {
+     "t": "Tâm sự",
+     "zh": "現在不少年輕人不太喜歡傳統的相親方式。",
+     "vn": "Hiện nay khá nhiều bạn trẻ không thích kiểu xem mắt truyền thống lắm."
+    }
+   ]
+  },
+  "相親相愛": {
+   "vn": "tương thân tương ái; yêu thương gắn bó",
+   "ng": [
+    "(thành ngữ/tính từ) yêu thương nhau, gắn bó mật thiết, hòa thuận (thường dùng cho vợ chồng, anh chị em, gia đình)"
+   ],
+   "us": "Dùng làm vị ngữ hoặc định ngữ: 他們夫妻相親相愛 / 相親相愛的一家人. Cả hai chữ 相 đều đọc xiāng (thanh 1).",
+   "co": [
+    "相親相愛的一家人|gia đình yêu thương gắn bó",
+    "夫妻相親相愛|vợ chồng yêu thương nhau"
+   ],
+   "sy": [
+    "恩愛|ân ái (vợ chồng)",
+    "和睦|hòa thuận"
+   ],
+   "an": [
+    "反目成仇|trở mặt thành thù"
+   ],
+   "lt": "Khác với 相親 (xem mắt, ở Đài đọc xiàngqīn), trong thành ngữ 相親相愛 cả hai chữ 相 đều đọc xiāng (thanh 1, nghĩa 'lẫn nhau').",
+   "mh": "Tương Thân Tương Ái → xiāng qīn xiāng ài. ĐỌC: 'tương' → xiāng; 'thân' → qīn; 'ái' → ài. NGHĨA: 相 (lẫn nhau) + 親 (gần gũi) + 愛 (yêu thương) → gắn bó và yêu thương lẫn nhau.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "他們雖然只是普通家庭，但全家人相親相愛，過得很幸福。",
+     "vn": "Tuy họ chỉ là gia đình bình thường nhưng cả nhà yêu thương nhau, sống rất hạnh phúc."
+    },
+    {
+     "t": "Anh em",
+     "zh": "爸媽最希望看到兄妹倆長大後依然相親相愛。",
+     "vn": "Bố mẹ mong nhất là thấy hai anh em lớn lên rồi vẫn yêu thương gắn bó với nhau."
+    },
+    {
+     "t": "Đám cưới",
+     "zh": "祝你們新婚快樂，永遠相親相愛！",
+     "vn": "Chúc hai bạn tân hôn hạnh phúc, mãi mãi yêu thương nhau!"
+    }
+   ]
+  },
+  "享受": {
+   "vn": "hưởng thụ; tận hưởng",
+   "ng": [
+    "(động từ) tận hưởng, hưởng thụ (cuộc sống, âm nhạc, kỳ nghỉ, quyền lợi)",
+    "(danh từ) sự tận hưởng, niềm vui tinh thần hoặc vật chất"
+   ],
+   "us": "Động từ có thể nhận 很/非常/懂得/好好: 享受生活, 享受陽光, 很享受一個人的時光. Cũng dùng làm danh từ: 是一種享受.",
+   "co": [
+    "享受生活|tận hưởng cuộc sống",
+    "享受過程|tận hưởng quá trình",
+    "享受美食|thưởng thức món ngon",
+    "視覺享受|trải nghiệm thị giác tuyệt vời"
+   ],
+   "sy": [
+    "享用|thưởng thức (đồ ăn/tiện ích)",
+    "體會|cảm nhận"
+   ],
+   "lt": "Trong tiếng Việt 'hưởng thụ' đôi khi mang nghĩa tiêu cực (chỉ biết ăn chơi), nhưng trong tiếng Hoa 享受 rất tích cực và phổ biến (tận hưởng cuộc sống, quá trình làm việc, thiên nhiên).",
+   "mh": "Hưởng Thụ → xiǎng shòu. ĐỌC: 'hưởng' → xiǎng; 'thụ' → shòu. NGHĨA: 享 (dâng lên/hưởng dùng) + 受 (hai tay truyền nhận 爫冖又) → đón nhận và tận hưởng những điều tốt đẹp.",
+   "vd": [
+    {
+     "t": "Cuối tuần",
+     "zh": "假日的時候，我喜歡泡杯咖啡，好好享受悠閒的下午。",
+     "vn": "Ngày nghỉ tôi thích pha một ly cà phê, tận hưởng buổi chiều thảnh thơi."
+    },
+    {
+     "t": "Thể thao",
+     "zh": "比賽不只是為了拿獎牌，更要懂得享受運動的過程。",
+     "vn": "Thi đấu không chỉ để lấy huy chương, mà còn phải biết tận hưởng quá trình vận động."
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "在花蓮看海吃美食，真是一大享受！",
+     "vn": "Ở Hoa Liên vừa ngắm biển vừa ăn ngon đúng là một sự tận hưởng tuyệt vời!"
+    }
+   ]
+  },
+  "相似": {
+   "vn": "tương tự; giống nhau",
+   "ng": [
+    "(tính từ) tương tự, giống nhau về mặt nào đó (ngoại hình, tính cách, hoàn cảnh, nội dung)"
+   ],
+   "us": "Thường dùng với A 跟/和 B 很相似 hoặc làm định ngữ: 相似的經驗, 相似的觀點. Không đặt tân ngữ trực tiếp sau 相似.",
+   "co": [
+    "極為相似|vô cùng giống nhau",
+    "相似之處|điểm tương đồng",
+    "背景相似|hoàn cảnh tương tự"
+   ],
+   "sy": [
+    "類似|tương tự (việc/loại)",
+    "相像|giống nhau (diện mạo)"
+   ],
+   "an": [
+    "相反|trái ngược",
+    "迥異|khác biệt hoàn toàn"
+   ],
+   "cf": [
+    "相同|giống hệt nhau (100%)",
+    "類似|na ná, thuộc cùng loại"
+   ],
+   "mk": "Không đặt danh từ/đại từ trực tiếp sau 相似 (*他相似爸爸 là sai); phải dùng cấu trúc A 跟 B 相似 hoặc A 和 B 相似.",
+   "mh": "Tương Tự → xiāng sì. ĐỌC: 'tương' → xiāng; 'tự' → sì (không bật hơi). NGHĨA: 相 (lẫn nhau) + 似 (亻 người + 以 → giống như) → hai bên giống nhau.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "這對雙胞胎不只長相相似，連說話的語氣都一模一樣。",
+     "vn": "Cặp song sinh này không chỉ ngoại hình giống nhau mà ngay cả giọng điệu nói chuyện cũng y hệt."
+    },
+    {
+     "t": "Kinh nghiệm",
+     "zh": "我們有過相似的留學經驗，所以特別聊得來。",
+     "vn": "Chúng tôi từng có trải nghiệm du học tương tự nhau nên nói chuyện rất hợp."
+    },
+    {
+     "t": "Thiết kế",
+     "zh": "這兩家飲料店的標誌設計得太相似了，很容易看錯。",
+     "vn": "Logo của hai tiệm trà sữa này thiết kế giống nhau quá, rất dễ nhìn nhầm."
+    }
+   ]
+  },
+  "鮮花": {
+   "vn": "hoa tươi",
+   "ng": [
+    "(danh từ) hoa tươi (còn tươi mới, đối lập với hoa khô hoặc hoa giả)"
+   ],
+   "us": "Lượng từ: 束 (bó), 朵 (bông), 盆 (chậu), 籃 (giỏ). Ví dụ: 一束鮮花, 送鮮花.",
+   "co": [
+    "一束鮮花|một bó hoa tươi",
+    "擺放鮮花|bày hoa tươi",
+    "鮮花盛開|hoa tươi nở rộ"
+   ],
+   "an": [
+    "乾花|hoa khô",
+    "假花|hoa giả"
+   ],
+   "lt": "Lượng từ cho bó hoa là 束 (shù) hoặc 把 (bǎ), từng bông là 朵 (duǒ).",
+   "mh": "Tiên Hoa → xiān huā. ĐỌC: 'tiên' → xiān; 'hoa' → huā. NGHĨA: 鮮 (魚 cá + 羊 dê → đồ tươi mới) + 花 (艹 thảo + 化 nở rộ) → hoa còn tươi mới.",
+   "vd": [
+    {
+     "t": "Tốt nghiệp",
+     "zh": "畢業典禮那天，朋友送了我一大束鮮花。",
+     "vn": "Hôm lễ tốt nghiệp, bạn bè tặng tôi một bó hoa tươi rất to."
+    },
+    {
+     "t": "Trang trí",
+     "zh": "客廳桌上擺了一瓶鮮花，整個家看起來更有生氣了。",
+     "vn": "Trên bàn phòng khách đặt một bình hoa tươi, cả nhà trông có sức sống hơn hẳn."
+    },
+    {
+     "t": "Chợ hoa",
+     "zh": "週末早上去建國花市可以買到又便宜又漂亮的鮮花。",
+     "vn": "Sáng cuối tuần đi chợ hoa Kiến Quốc có thể mua được hoa tươi vừa rẻ vừa đẹp."
+    }
+   ]
+  },
+  "現金": {
+   "vn": "tiền mặt",
+   "ng": [
+    "(danh từ) tiền mặt (tiền giấy, tiền xu dùng thanh toán trực tiếp)"
+   ],
+   "us": "Dùng trong giao dịch thanh toán: 付現金 (trả tiền mặt), 領現金 (rút tiền mặt), 只收現金 (chỉ nhận tiền mặt). Lượng từ: 筆 (khoản).",
+   "co": [
+    "付現金|trả tiền mặt",
+    "只收現金|chỉ nhận tiền mặt",
+    "領現金|rút tiền mặt",
+    "現金回饋|hoàn tiền mặt (cashback)"
+   ],
+   "sy": [
+    "現款|tiền mặt (trang trọng)",
+    "鈔票|tiền giấy"
+   ],
+   "an": [
+    "信用卡|thẻ tín dụng"
+   ],
+   "tw": "Ở Đài Loan rất nhiều quán ăn nhỏ và quầy chợ đêm chỉ nhận tiền mặt (只收現金), còn siêu thị và cửa hàng tiện lợi có thể dùng 悠遊卡 hoặc 行動支付 (như LINE Pay).",
+   "mh": "Hiện Kim → xiàn jīn. ĐỌC: 'hiện' → xiàn; 'kim' → jīn. NGHĨA: 現 (hiện có ngay trước mắt) + 金 (tiền bạc/kim loại) → tiền sẵn có trong tay.",
+   "vd": [
+    {
+     "t": "Chợ đêm",
+     "zh": "這家夜市攤位只收現金，不能刷卡喔！",
+     "vn": "Quầy hàng chợ đêm này chỉ nhận tiền mặt, không quẹt thẻ được nhé!"
+    },
+    {
+     "t": "Ngân hàng",
+     "zh": "出國旅遊前，我先去銀行換了一些當地現金。",
+     "vn": "Trước khi đi du lịch nước ngoài, tôi ra ngân hàng đổi trước một ít tiền mặt địa phương."
+    },
+    {
+     "t": "Mua sắm",
+     "zh": "這張信用卡在超商消費有百分之二的現金回饋。",
+     "vn": "Thẻ tín dụng này chi tiêu ở cửa hàng tiện lợi được hoàn tiền 2%."
+    }
+   ]
+  },
+  "先進": {
+   "vn": "tiên tiến; hiện đại; bậc tiền bối",
+   "ng": [
+    "(tính từ) tiên tiến, hiện đại, phát triển vượt trội (công nghệ, thiết bị, tư tưởng, y tế)",
+    "(danh từ) (Đài Loan) bậc tiền bối, người đi trước trong ngành (cách gọi kính trọng)"
+   ],
+   "us": "Thường làm định ngữ hoặc vị ngữ: 先進的技術, 設備很先進, 先進國家.",
+   "co": [
+    "先進技術|công nghệ tiên tiến",
+    "設備先進|thiết bị hiện đại",
+    "先進國家|nước phát triển/tiên tiến",
+    "業界先進|tiền bối trong ngành"
+   ],
+   "sy": [
+    "現代化|hiện đại hóa",
+    "發達|phát triển"
+   ],
+   "an": [
+    "落後|lạc hậu"
+   ],
+   "tw": "Ở Đài Loan, trong hội thảo hay công việc hay nghe 各位業界先進 (các vị tiền bối/chuyên gia đi trước trong ngành) — cách xưng hô rất lịch sự.",
+   "mh": "Tiên Tiến → xiān jìn. ĐỌC: 'tiên' → xiān; 'tiến' → jìn. NGHĨA: 先 (đi trước) + 進 (tiến lên phía trước 辶 + 隹) → đi trước thời đại, phát triển vượt bậc.",
+   "vd": [
+    {
+     "t": "Y tế",
+     "zh": "台灣的醫療設備非常先進，就醫也很方便。",
+     "vn": "Thiết bị y tế của Đài Loan vô cùng tiên tiến, việc khám chữa bệnh cũng rất thuận tiện."
+    },
+    {
+     "t": "Công nghệ",
+     "zh": "這家公司引進了最先進的自動化生產線。",
+     "vn": "Công ty này đã đưa vào dây chuyền sản xuất tự động hóa tiên tiến nhất."
+    },
+    {
+     "t": "Tư tưởng",
+     "zh": "奶奶雖然年紀大了，但她的想法比很多年輕人還先進。",
+     "vn": "Bà nội tuy lớn tuổi rồi nhưng suy nghĩ của bà còn tiến bộ hơn cả nhiều bạn trẻ."
+    }
+   ]
+  },
+  "羨慕": {
+   "vn": "ngưỡng mộ; ao ước",
+   "ng": [
+    "(động từ) ngưỡng mộ, ao ước, ghen tị nhẹ (thấy người khác có điều tốt và mong mình cũng có)"
+   ],
+   "us": "Động từ tâm lý: 很羨慕他, 真羨慕你有這麼長的假期. Có thể đi kèm 令人羨慕 (khiến người ta ngưỡng mộ).",
+   "co": [
+    "令人羨慕|khiến người ta ngưỡng mộ",
+    "真羨慕|ngưỡng mộ/ao ước quá",
+    "羨慕不已|vô cùng ngưỡng mộ"
+   ],
+   "cf": [
+    "嫉妒|ghen tị, đố kỵ (mang ác ý)",
+    "佩服|khâm phục (tài năng/phẩm chất)"
+   ],
+   "lt": "Phân biệt 羨慕 (ước ao thiện chí: ước gì mình cũng được như bạn) vs 嫉妒 (ghen ghét, đố kỵ ác ý). Người Việt hay dịch 羨慕 là 'ghen tị', dễ gây hiểu nhầm sang 嫉妒.",
+   "mk": "Đừng nhầm 羨慕 với 嫉妒 (jídù): khen bạn bè may mắn hãy nói 真羨慕你, tuyệt đối đừng nói 我好嫉妒你.",
+   "mh": "Tiện Mộ → xiàn mù. ĐỌC: 'tiện' → xiàn; 'mộ' → mù. NGHĨA: 羨 (羊 dê + 㳄 thèm muốn) + 慕 (mơ ước trong lòng ⺗) → lòng ước ao được như người khác.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "看到你拍的環島照片，真讓人羨慕！",
+     "vn": "Nhìn ảnh bạn chụp chuyến đi vòng quanh đảo thật khiến người ta ao ước!"
+    },
+    {
+     "t": "Công việc",
+     "zh": "大家都羨慕他能準時下班，還有這麼高的薪水。",
+     "vn": "Mọi người đều ngưỡng mộ anh ấy có thể tan làm đúng giờ mà lương lại cao như vậy."
+    },
+    {
+     "t": "Học tập",
+     "zh": "我超羨慕會講三種語言的人。",
+     "vn": "Tôi cực kỳ ngưỡng mộ những người biết nói ba thứ tiếng."
+    }
+   ]
+  },
+  "鮮奶": {
+   "vn": "sữa tươi",
+   "ng": [
+    "(danh từ) sữa tươi (sữa bò tươi dùng hằng ngày)"
+   ],
+   "us": "Từ rất thông dụng ở Đài Loan khi mua sữa ở siêu thị hoặc gọi trà sữa: 鮮奶茶 (trà sữa làm bằng sữa tươi), 一瓶鮮奶, 低脂鮮奶.",
+   "co": [
+    "鮮奶茶|trà sữa sữa tươi",
+    "全脂鮮奶|sữa tươi nguyên kem",
+    "低脂鮮奶|sữa tươi ít béo",
+    "喝鮮奶|uống sữa tươi"
+   ],
+   "sy": [
+    "鮮乳|sữa tươi (văn viết/bao bì)"
+   ],
+   "cf": [
+    "保久乳|sữa tiệt trùng để lâu",
+    "奶粉|sữa bột"
+   ],
+   "tw": "Ở tiệm trà Đài Loan, 奶茶 thường pha bột kem (奶精), còn 鮮奶茶 (hoặc 紅茶拿鐵) mới pha bằng sữa tươi (鮮奶). Trên vỏ hộp thường in 鮮乳.",
+   "mh": "Tiên Nãi → xiān nǎi. ĐỌC: 'tiên' → xiān; 'nãi' → nǎi. NGHĨA: 鮮 (tươi mới) + 奶 (女 phụ nữ + 乃 → sữa) → sữa tươi.",
+   "vd": [
+    {
+     "t": "Trà sữa",
+     "zh": "老闆，我要一杯微糖去冰的紅茶鮮奶。",
+     "vn": "Ông chủ ơi, cho tôi một ly hồng trà sữa tươi ít đường không đá."
+    },
+    {
+     "t": "Siêu thị",
+     "zh": "這瓶鮮奶的保存期限只到明天，要趕快喝完。",
+     "vn": "Chai sữa tươi này hạn sử dụng chỉ đến ngày mai thôi, phải uống hết nhanh."
+    },
+    {
+     "t": "Bữa sáng",
+     "zh": "弟弟每天早上出門前都會喝一杯溫鮮奶。",
+     "vn": "Em trai mỗi sáng trước khi ra khỏi nhà đều uống một ly sữa tươi ấm."
+    }
+   ]
+  },
+  "顯然": {
+   "vn": "hiển nhiên; rõ ràng là",
+   "ng": [
+    "(phó từ) rõ ràng, hiển nhiên, nhìn thấy ngay (dựa trên sự thật hoặc dấu hiệu rõ rệt)"
+   ],
+   "us": "Đứng trước động từ/tính từ hoặc ở đầu câu làm trạng ngữ: 顯然他忘了, 這件事顯然有問題. Mang tính khách quan dựa vào chứng cứ.",
+   "co": [
+    "顯然不是|rõ ràng không phải",
+    "顯然有誤|rõ ràng có sai sót",
+    "很顯然|rất rõ ràng"
+   ],
+   "sy": [
+    "明顯|rõ rệt",
+    "分明|rành rành"
+   ],
+   "cf": [
+    "當然|đương nhiên (hợp lý/lẽ phải)"
+   ],
+   "lt": "Phân biệt 顯然 (rõ ràng theo sự thật thấy được: 他顯然沒準備 = rõ ràng anh ta chưa chuẩn bị) vs 當然 (đương nhiên theo lẽ thường).",
+   "mh": "Hiển Nhiên → xiǎn rán. ĐỌC: 'hiển' → xiǎn; 'nhiên' → rán. NGHĨA: 顯 (rõ ràng hiện ra) + 然 (trạng thái như vậy) → rõ ràng là như thế.",
+   "vd": [
+    {
+     "t": "Họp hành",
+     "zh": "看他一臉迷茫的樣子，顯然沒有聽懂剛剛的簡報。",
+     "vn": "Nhìn vẻ mặt ngơ ngác của anh ấy thì rõ ràng là không hiểu bài thuyết trình vừa rồi."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "天色突然暗下來，顯然馬上就要下大雨了。",
+     "vn": "Trời đột nhiên tối sầm lại, rõ ràng là sắp mưa to đến nơi rồi."
+    },
+    {
+     "t": "Điều tra",
+     "zh": "這份數據顯然有誤，我們必須重新核對一次。",
+     "vn": "Số liệu này hiển nhiên có sai sót, chúng ta phải đối chiếu lại một lần nữa."
+    }
+   ]
+  },
+  "顯示": {
+   "vn": "hiển thị; cho thấy",
+   "ng": [
+    "(động từ) hiển thị (trên màn hình, bảng điện tử)",
+    "(động từ) cho thấy, thể hiện, chứng tỏ (kết quả nghiên cứu, số liệu, thái độ)"
+   ],
+   "us": "Dùng rất nhiều trong báo cáo, tin tức và công nghệ: 報告顯示..., 螢幕顯示..., 研究結果顯示....",
+   "co": [
+    "報告顯示|báo cáo cho thấy",
+    "螢幕顯示|màn hình hiển thị",
+    "數據顯示|số liệu cho thấy",
+    "顯示出|thể hiện ra"
+   ],
+   "sy": [
+    "表明|biểu thị, chứng tỏ",
+    "呈現|thể hiện ra"
+   ],
+   "an": [
+    "隱藏|ẩn đi"
+   ],
+   "mh": "Hiển Thị → xiǎn shì. ĐỌC: 'hiển' → xiǎn; 'thị' → shì. NGHĨA: 顯 (làm lộ rõ) + 示 (bàn thờ/bày tỏ ra) → bày ra cho thấy rõ.",
+   "vd": [
+    {
+     "t": "Công nghệ",
+     "zh": "手機螢幕上顯示電量只剩下百分之五了。",
+     "vn": "Trên màn hình điện thoại hiển thị pin chỉ còn lại 5%."
+    },
+    {
+     "t": "Nghiên cứu",
+     "zh": "最新的研究顯示，睡眠不足會影響記憶力。",
+     "vn": "Nghiên cứu mới nhất cho thấy thiếu ngủ sẽ ảnh hưởng đến trí nhớ."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "捷運站的電子看板顯示下一班車還有兩分鐘進站。",
+     "vn": "Bảng điện tử ở ga MRT hiển thị chuyến tàu tiếp theo còn hai phút nữa vào ga."
+    }
+   ],
+   "cf": [
+    "顯示 vs 表示|顯示 nhấn mạnh hiện rõ ra trên màn hình, số liệu, kết quả khảo sát (螢幕顯示, 研究顯示); 表示 nhấn mạnh chủ thể con người bày tỏ thái độ hoặc ý nghĩa ký hiệu."
+   ],
+   "lt": "Động từ.",
+   "mk": "Khi trích dẫn báo cáo/thống kê, dùng 數據顯示 (số liệu cho thấy) chuẩn hơn 數據表示.",
+   "tw": "Ở Đài Loan dùng hàng ngày cho cả màn hình điện thoại (螢幕顯示電量不足) lẫn báo cáo (根據最新調查顯示)."
+  },
+  "鮮血": {
+   "vn": "máu tươi",
+   "ng": [
+    "(danh từ) máu tươi (máu mới chảy ra, màu đỏ tươi)"
+   ],
+   "us": "Thường dùng trong tình huống bị thương, tai nạn, tin tức: 流了滿地鮮血, 鮮血直流.",
+   "co": [
+    "鮮血直流|máu tươi chảy ròng ròng",
+    "流滿鮮血|chảy đầy máu tươi",
+    "沾滿鮮血|dính đầy máu tươi"
+   ],
+   "sy": [
+    "血液|máu (y học/tổng quát)"
+   ],
+   "tw": "Ở Đài Loan: đứng một mình hoặc trong khẩu ngữ hay đọc xiě (流血 liúxiě, 鮮血 xiānxiě); trong từ ghép Hán Việt trang trọng hơn cũng có thể đọc xuè (xiānxuè).",
+   "mh": "Tiên Huyết → xiān xiě / xiān xuè. ĐỌC: 'tiên' → xiān; 'huyết' → xiě (khẩu ngữ Đài Loan) hoặc xuè (văn đọc). NGHĨA: 鮮 (tươi mới) + 血 (chén 皿 đựng giọt máu 丿) → máu tươi mới chảy.",
+   "vd": [
+    {
+     "t": "Sơ cứu",
+     "zh": "他切菜時不小心割傷手指，鮮血立刻流了出來。",
+     "vn": "Lúc thái rau anh ấy vô tình cắt trúng ngón tay, máu tươi lập tức chảy ra."
+    },
+    {
+     "t": "Tai nạn",
+     "zh": "車禍現場地面上留有一灘鮮血，救護車很快趕到協助。",
+     "vn": "Tại hiện trường tai nạn giao thông trên mặt đất có vết máu tươi, xe cấp cứu nhanh chóng đến hỗ trợ."
+    },
+    {
+     "t": "Điện ảnh",
+     "zh": "這部電影拍出了戰爭的殘酷與無數人流下的鮮血。",
+     "vn": "Bộ phim này đã quay lại sự tàn khốc của chiến tranh và máu tươi của bao người đã đổ xuống."
+    }
+   ]
+  },
+  "顯著": {
+   "vn": "hiển trứ; rõ rệt; đáng kể",
+   "ng": [
+    "(tính từ) rõ rệt, nổi bật, đáng kể (hiệu quả, tiến bộ, chênh lệch, ý nghĩa thống kê)"
+   ],
+   "us": "Từ trang trọng, hay dùng trong học thuật, y tế, kinh tế: 效果顯著, 顯著的差異, 有顯著改善.",
+   "co": [
+    "效果顯著|hiệu quả rõ rệt",
+    "顯著差異|sự khác biệt đáng kể",
+    "顯著提升|nâng cao rõ rệt"
+   ],
+   "sy": [
+    "明顯|rõ ràng",
+    "突出|nổi bật"
+   ],
+   "an": [
+    "微弱|yếu ớt, không đáng kể"
+   ],
+   "lt": "Chữ 著 ở đây đọc zhù (thanh 4, nghĩa 'rõ rệt, trứ danh'), không đọc zhe hay zháo!",
+   "mh": "Hiển Trứ → xiǎn zhù. ĐỌC: 'hiển' → xiǎn; 'trứ' → zhù (thanh 4, như 'trứ danh'). NGHĨA: 顯 (rõ ràng) + 著 (nổi bật) → hiện ra rất rõ nét, đáng chú ý.",
+   "vd": [
+    {
+     "t": "Y học",
+     "zh": "經過三個月的復健，他的行走能力有了顯著的進步。",
+     "vn": "Sau ba tháng phục hồi chức năng, khả năng đi lại của anh ấy đã có tiến bộ rõ rệt."
+    },
+    {
+     "t": "Kinh tế",
+     "zh": "這項新政策對促進觀光產業有顯著的效果。",
+     "vn": "Chính sách mới này có hiệu quả rõ rệt trong việc thúc đẩy ngành du lịch."
+    },
+    {
+     "t": "Nghiên cứu",
+     "zh": "兩組實驗結果之間存在顯著差異。",
+     "vn": "Giữa kết quả của hai nhóm thí nghiệm tồn tại sự khác biệt đáng kể."
+    }
+   ]
+  },
+  "消": {
+   "vn": "tiêu; tan biến; giảm bớt; tiêu tốn",
+   "ng": [
+    "(động từ) tan, giảm bớt, lắng xuống (cơn giận, sưng tấy, mây mù)",
+    "(động từ) tiêu tốn, cần đến (thường sau 不/只/何)",
+    "(động từ) tiêu khiển, giết (thời gian)"
+   ],
+   "us": "Thường dùng trong các cụm cố định 消腫 (tan sưng), 消氣 (hết giận), 消暑 (giải nhiệt), 消食 (tiêu cơm), hoặc 不消說 (không cần nói cũng biết).",
+   "co": [
+    "消腫|giảm sưng",
+    "消氣|hết giận",
+    "消暑|giải nhiệt mùa hè",
+    "不消說|không cần nói"
+   ],
+   "sy": [
+    "退|rút, giảm",
+    "散|tan"
+   ],
+   "an": [
+    "漲|tăng lên, phồng lên"
+   ],
+   "lt": "Trong khẩu ngữ Đài Loan khi bị sưng hoặc giận: 還沒消 (vẫn chưa xẹp/chưa hết sưng), 氣消了嗎？ (hết giận chưa?).",
+   "mh": "Tiêu → xiāo. ĐỌC: 'tiêu' → xiāo (âm 't' Hán Việt thường sang x/j). NGHĨA: 氵 (nước) + 肖 (nhỏ dần) → như nước rút nhỏ dần rồi tan biến.",
+   "vd": [
+    {
+     "t": "Chăm sóc",
+     "zh": "扭傷腳踝後先冰敷，這樣比較容易消腫。",
+     "vn": "Sau khi bị trật mắt cá chân hãy chườm đá trước, như vậy dễ giảm sưng hơn."
+    },
+    {
+     "t": "Làm lành",
+     "zh": "他還在生氣，你等他消了氣再去跟他解釋吧。",
+     "vn": "Anh ấy vẫn đang giận đấy, bạn đợi anh ấy nguôi giận rồi hãy đi giải thích nhé."
+    },
+    {
+     "t": "Mùa hè",
+     "zh": "大熱天喝一碗冰綠豆湯最消暑了。",
+     "vn": "Trời nắng nóng uống một bát chè đậu xanh đá là giải nhiệt nhất."
+    }
+   ]
+  },
+  "小便": {
+   "vn": "tiểu tiện; đi tiểu; nước tiểu",
+   "ng": [
+    "(động từ) đi tiểu, tiểu tiện",
+    "(danh từ) nước tiểu"
+   ],
+   "us": "Dùng khá trung tính trong y tế, bảng chỉ dẫn hoặc giao tiếp thông thường (lịch sự hơn 尿尿). Danh từ: 驗小便 (xét nghiệm nước tiểu). Động từ: 去小便.",
+   "co": [
+    "驗小便|xét nghiệm nước tiểu",
+    "去小便|đi tiểu",
+    "小便失禁|tiểu không tự chủ"
+   ],
+   "sy": [
+    "尿尿|đi tè (khẩu ngữ)",
+    "小解|đi tiểu (lịch sự)"
+   ],
+   "an": [
+    "大便|đi đại tiện / phân"
+   ],
+   "lt": "Chữ 便 ở đây đọc biàn (thanh 4, nghĩa 'tiện lợi/tiểu đại tiện'), không đọc pián (便宜 piányi).",
+   "tw": "Ở Đài Loan trong bệnh viện hay nói 留小便檢體 (lấy mẫu nước tiểu); nói chuyện hàng ngày thân mật hoặc với trẻ con thường nói 上廁所 hoặc 尿尿 (niàoniào).",
+   "mh": "Tiểu Tiện → xiǎo biàn. ĐỌC: 'tiểu' → xiǎo; 'tiện' → biàn (thanh 4). NGHĨA: 小 (nhỏ) + 便 (đi vệ sinh/tiện) → đi vệ sinh nhẹ (tiểu tiện), đối với 大便.",
+   "vd": [
+    {
+     "t": "Khám bệnh",
+     "zh": "醫生說做健康檢查前要先去驗小便。",
+     "vn": "Bác sĩ nói trước khi khám sức khỏe phải đi xét nghiệm nước tiểu trước."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "多喝水可以讓小便顏色變淡，對腎臟也比較好。",
+     "vn": "Uống nhiều nước giúp màu nước tiểu nhạt đi và cũng tốt cho thận hơn."
+    },
+    {
+     "t": "Chăm sóc",
+     "zh": "爸爸剛動完手術，起身去小便時需要有人扶著。",
+     "vn": "Bố vừa phẫu thuật xong, lúc đứng dậy đi tiểu cần có người dìu."
+    }
+   ]
+  },
+  "校車": {
+   "vn": "xe đưa đón của trường; xe buýt trường",
+   "ng": [
+    "(danh từ) xe đưa đón học sinh/sinh viên, xe buýt của trường học"
+   ],
+   "us": "Dùng với động từ 搭 / 坐 (đi), 等 (đợi), 開 (lái). Lượng từ: 輛 / 台 (Đài Loan hay dùng 台).",
+   "co": [
+    "搭校車|đi xe buýt trường",
+    "等校車|đợi xe trường",
+    "校車路線|tuyến xe buýt trường"
+   ],
+   "cf": [
+    "公車|xe buýt công cộng",
+    "娃娃車|xe đưa đón trẻ mầm non"
+   ],
+   "lt": "Chữ 校 ở đây đọc xiào (thanh 4, 'trường học'), không đọc jiào (校對 jiàoduì = hiệu đính).",
+   "tw": "Ở Đài Loan, xe đưa đón trẻ mẫu giáo còn gọi thân mật là 娃娃車 (wáwachē); xe buýt giữa các cơ sở đại học hoặc trường cấp 2-3 gọi là 校車.",
+   "mh": "Giáo Xa → xiào chē. ĐỌC: 'hiệu' (trường học) → xiào; 'xa' → chē. NGHĨA: 校 (trường học) + 車 (xe cộ) → xe của trường học.",
+   "vd": [
+    {
+     "t": "Đi học",
+     "zh": "弟弟每天早上七點在巷口等校車上學。",
+     "vn": "Em trai mỗi sáng 7 giờ đợi xe đưa đón của trường ở đầu hẻm để đi học."
+    },
+    {
+     "t": "Đại học",
+     "zh": "這所大學兩個校區之間有免費校車可以搭。",
+     "vn": "Giữa hai cơ sở của trường đại học này có xe buýt miễn phí của trường để đi."
+    },
+    {
+     "t": "An toàn",
+     "zh": "學校規定學生搭校車時一定要繫上安全帶。",
+     "vn": "Nhà trường quy định học sinh khi đi xe đưa đón của trường nhất định phải thắt dây an toàn."
+    }
+   ]
+  },
+  "消除": {
+   "vn": "tiêu trừ; xóa bỏ; loại bỏ",
+   "ng": [
+    "(động từ) loại bỏ, xóa bỏ hoàn toàn (hiểu lầm, căng thẳng, mệt mỏi, mối nguy, mùi hôi)"
+   ],
+   "us": "Thường đi với tân ngữ trừu tượng hoặc tình trạng xấu: 消除誤會, 消除疲勞, 消除緊張, 消除異味.",
+   "co": [
+    "消除誤會|xóa bỏ hiểu lầm",
+    "消除疲勞|xóa tan mệt mỏi",
+    "消除緊張|giải tỏa căng thẳng",
+    "消除異味|khử mùi hôi"
+   ],
+   "sy": [
+    "去除|loại bỏ",
+    "解除|giải trừ"
+   ],
+   "an": [
+    "產生|sinh ra",
+    "增加|tăng thêm"
+   ],
+   "cf": [
+    "消滅|tiêu diệt (dùng cho kẻ thù, dịch bệnh, sâu bọ)",
+    "消除|xóa bỏ (hiểu lầm, mệt mỏi, lo âu)"
+   ],
+   "mh": "Tiêu Trừ → xiāo chú. ĐỌC: 'tiêu' → xiāo; 'trừ' → chú. NGHĨA: 消 (tan biến) + 除 (bỏ đi) → làm tan biến và loại bỏ hẳn.",
+   "vd": [
+    {
+     "t": "Giao tiếp",
+     "zh": "我們坐下來好好談一談，把彼此的誤會消除吧。",
+     "vn": "Chúng ta ngồi xuống nói chuyện thẳng thắn với nhau, xóa bỏ hiểu lầm giữa hai bên đi."
+    },
+    {
+     "t": "Thư giãn",
+     "zh": "泡個熱水澡可以幫助消除一整天的疲勞。",
+     "vn": "Ngâm bồn nước nóng có thể giúp xua tan mệt mỏi cả ngày dài."
+    },
+    {
+     "t": "Nhà cửa",
+     "zh": "冰箱裡放一點檸檬片，能有效消除異味。",
+     "vn": "Để vài lát chanh trong tủ lạnh có thể khử mùi hôi hiệu quả."
+    }
+   ]
+  },
+  "曉得": {
+   "vn": "biết; hiểu rõ (khẩu ngữ)",
+   "ng": [
+    "(động từ) biết, hay biết (giống 知道 nhưng mang sắc thái khẩu ngữ, thân mật)"
+   ],
+   "us": "Thường dùng trong văn nói, nhất là câu phủ định hoặc nghi vấn: 我不曉得, 你曉得嗎？, 誰曉得？. Không dùng với nghĩa 'quen biết' (*曉得他 là sai, phải dùng 認識).",
+   "co": [
+    "不曉得|không biết",
+    "你曉得嗎|bạn có biết không",
+    "誰曉得|ai mà biết được"
+   ],
+   "sy": [
+    "知道|biết",
+    "了解|hiểu rõ"
+   ],
+   "tw": "Ở Đài Loan rất hay dùng 不曉得 (bù xiǎode) xen kẽ với 不知道 trong giao tiếp hằng ngày, nghe mềm mại và tự nhiên.",
+   "mk": "Chữ 得 ở đây đọc thanh nhẹ (de), không đọc dé hay děi.",
+   "mh": "Hiểu Đắc → xiǎo de. ĐỌC: 'hiểu' → xiǎo; 'đắc' → de (thanh nhẹ). NGHĨA: 曉 (日 mặt trời + 堯 cao → trời sáng tỏ, hiểu rõ) + 得 (đạt được) → biết rõ.",
+   "vd": [
+    {
+     "t": "Hỏi đường",
+     "zh": "不好意思，請問你曉得最近的捷運站在哪裡嗎？",
+     "vn": "Xin lỗi, cho hỏi bạn có biết trạm MRT gần nhất ở đâu không?"
+    },
+    {
+     "t": "Trò chuyện",
+     "zh": "我也不曉得他今天為什麼沒來上班。",
+     "vn": "Tôi cũng không biết hôm nay sao anh ấy không đi làm."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "誰曉得下午突然下起大雨，我忘記帶傘了。",
+     "vn": "Ai mà ngờ chiều tự dưng mưa to thế, tôi quên mang ô mất rồi."
+    }
+   ]
+  },
+  "小販": {
+   "vn": "người bán hàng rong; tiểu thương",
+   "ng": [
+    "(danh từ) người bán hàng rong, tiểu thương bán lẻ ngoài đường hoặc chợ"
+   ],
+   "us": "Thường dùng với 流動小販 (người bán rong di động), 夜市小販 (tiểu thương chợ đêm), 路邊小販 (người bán hàng ven đường).",
+   "co": [
+    "流動小販|người bán hàng rong",
+    "路邊小販|người bán ven đường",
+    "夜市小販|tiểu thương chợ đêm"
+   ],
+   "sy": [
+    "攤販|người bán hàng sạp/quầy"
+   ],
+   "tw": "Ở Đài Loan từ 攤販 (tānfàn) và 小販 đều phổ biến; 攤販 chỉ người bán có sạp/xe đẩy ở chợ hoặc chợ đêm.",
+   "mh": "Tiểu Phiến → xiǎo fàn. ĐỌC: 'tiểu' → xiǎo; 'phiến' → fàn. NGHĨA: 小 (nhỏ) + 販 (貝 tiền + 反 → buôn bán qua lại) → người buôn bán nhỏ lẻ.",
+   "vd": [
+    {
+     "t": "Chợ đêm",
+     "zh": "一到傍晚，夜市的道路兩旁就擠滿了各式各樣的小販。",
+     "vn": "Hễ đến xẩm tối, hai bên đường chợ đêm lại ken đặc đủ loại tiểu thương bán hàng."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "以前巷口常有推著車賣豆花的小販經過。",
+     "vn": "Trước đây đầu hẻm thường có người bán tào phớ đẩy xe đi ngang qua."
+    },
+    {
+     "t": "Đô thị",
+     "zh": "警察有時會來勸導佔用人行道的流動小販。",
+     "vn": "Cảnh sát đôi khi sẽ đến nhắc nhở những người bán hàng rong chiếm dụng vỉa hè."
+    }
+   ]
+  },
+  "消化": {
+   "vn": "tiêu hóa; tiếp thu, xử lý",
+   "ng": [
+    "(động từ) tiêu hóa (thức ăn trong dạ dày)",
+    "(động từ) (nghĩa bóng) tiếp thu, ngẫm cho thấu (kiến thức, thông tin, cảm xúc); tiêu thụ hết (hàng tồn kho)"
+   ],
+   "us": "Dùng cả nghĩa đen và nghĩa bóng: 幫助消化 (giúp tiêu hóa), 消化不良 (khó tiêu), 消化這些資訊 (tiếp thu/xử lý lượng thông tin này).",
+   "co": [
+    "幫助消化|giúp tiêu hóa",
+    "消化不良|tiêu hóa kém, khó tiêu",
+    "消化系統|hệ tiêu hóa",
+    "消化知識|tiếp thu kiến thức"
+   ],
+   "sy": [
+    "吸收|hấp thu"
+   ],
+   "mh": "Tiêu Hóa → xiāo huà. ĐỌC: 'tiêu' → xiāo; 'hóa' → huà. NGHĨA: 消 (tan ra) + 化 (biến đổi) → làm thức ăn (hoặc thông tin) tan ra và biến đổi để hấp thu.",
+   "vd": [
+    {
+     "t": "Ăn uống",
+     "zh": "吃飽飯後去散散步，有助於腸胃消化。",
+     "vn": "Ăn no xong đi dạo một chút sẽ giúp dạ dày tiêu hóa tốt hơn."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "最近工作壓力太大，我常常覺得胃脹、消化不良。",
+     "vn": "Gần đây áp lực công việc lớn quá, tôi thường thấy đầy bụng, khó tiêu."
+    },
+    {
+     "t": "Học tập",
+     "zh": "這堂課的內容很多，我需要一點時間慢慢消化。",
+     "vn": "Nội dung buổi học này nhiều quá, tôi cần chút thời gian để tiếp thu từ từ."
+    }
+   ]
+  },
+  "消極": {
+   "vn": "tiêu cực; thụ động; bi quan",
+   "ng": [
+    "(tính từ) tiêu cực, thụ động, thiếu chủ động tích cực (thái độ, suy nghĩ, phản ứng)"
+   ],
+   "us": "Dùng để miêu tả thái độ, cách làm việc hoặc ảnh hưởng: 態度消極, 消極面對, 消極的影響.",
+   "co": [
+    "態度消極|thái độ tiêu cực/thụ động",
+    "消極面對|đối mặt một cách thụ động",
+    "消極想法|suy nghĩ tiêu cực"
+   ],
+   "sy": [
+    "悲觀|bi quan",
+    "被動|bị động"
+   ],
+   "an": [
+    "積極|tích cực"
+   ],
+   "mh": "Tiêu Cực → xiāo jí. ĐỌC: 'tiêu' → xiāo; 'cực' → jí. NGHĨA: 消 (giảm sút, thụt lùi) + 極 (mức độ tột cùng) → thái độ tụt giảm, không chủ động vươn lên (đối lập với 積極).",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "他最近工作態度很消極，常常拖到最後一刻才交報告。",
+     "vn": "Gần đây thái độ làm việc của anh ấy rất thụ động, thường trì hoãn đến phút chót mới nộp báo cáo."
+    },
+    {
+     "t": "Khuyên nhủ",
+     "zh": "遇到挫折時不要太消極，換個角度想也許會有轉機。",
+     "vn": "Lúc gặp trắc trở đừng quá tiêu cực, đổi góc nhìn khác biết đâu sẽ có cơ hội chuyển biến."
+    },
+    {
+     "t": "Học tập",
+     "zh": "與其消極抱怨考題太難，不如趕快把錯題弄懂。",
+     "vn": "Thay vì than vãn tiêu cực là đề thi quá khó, chi bằng mau chóng hiểu kỹ những câu làm sai."
+    }
+   ]
+  },
+  "銷路": {
+   "vn": "tiêu lộ; đầu ra; sức tiêu thụ",
+   "ng": [
+    "(danh từ) đầu ra tiêu thụ, tình hình bán chạy hay không của hàng hóa"
+   ],
+   "us": "Thường đi với 好/不好, 打開, 拓展: 銷路很好 (bán rất chạy, đầu ra tốt), 打開銷路 (mở rộng thị trường tiêu thụ).",
+   "co": [
+    "打開銷路|mở rộng đầu ra",
+    "銷路很好|bán chạy, đầu ra tốt",
+    "沒有銷路|không có đầu ra, ế ẩm"
+   ],
+   "sy": [
+    "市場|thị trường",
+    "銷量|sản lượng bán ra"
+   ],
+   "mh": "Tiêu Lộ → xiāo lù. ĐỌC: 'tiêu' → xiāo; 'lộ' → lù. NGHĨA: 銷 (tiêu thụ, bán ra) + 路 (con đường) → con đường tiêu thụ hàng hóa ra thị trường.",
+   "vd": [
+    {
+     "t": "Kinh doanh",
+     "zh": "這家果園改用網路銷售後，農產品的銷路變得更好了。",
+     "vn": "Sau khi vườn trái cây này chuyển sang bán qua mạng, đầu ra nông sản trở nên tốt hơn hẳn."
+    },
+    {
+     "t": "Sản phẩm",
+     "zh": "這批商品因為定價太高，在市場上一直沒有什麼銷路。",
+     "vn": "Lô hàng này vì định giá quá cao nên trên thị trường mãi không tiêu thụ được mấy."
+    },
+    {
+     "t": "Thương mại",
+     "zh": "廠商正積極參加國際展覽，希望能為新產品打開海外銷路。",
+     "vn": "Doanh nghiệp đang tích cực tham gia triển lãm quốc tế, hy vọng mở được đầu ra nước ngoài cho sản phẩm mới."
+    }
+   ]
+  },
+  "小麥": {
+   "vn": "tiểu mạch; lúa mì",
+   "ng": [
+    "(danh từ) cây lúa mì, hạt lúa mì"
+   ],
+   "us": "Danh từ nông nghiệp/thực phẩm; lượng từ 粒 (hạt), 株 (cây). Các sản phẩm từ 小麥: 麵粉 (bột mì), 小麥胚芽 (mầm lúa mì).",
+   "co": [
+    "小麥粉|bột lúa mì",
+    "種植小麥|trồng lúa mì",
+    "小麥過敏|dị ứng lúa mì"
+   ],
+   "cf": [
+    "大麥|lúa mạch",
+    "稻米|lúa gạo"
+   ],
+   "mh": "Tiểu Mạch → xiǎo mài. ĐỌC: 'tiểu' → xiǎo; 'mạch' → mài. NGHĨA: 小 (nhỏ) + 麥 (cây lúa 來 chín đợi thu hoạch 夂) → cây lúa mì (phân biệt với 大麥 lúa mạch).",
+   "vd": [
+    {
+     "t": "Ẩm thực",
+     "zh": "我們平常吃的麵包和麵條，大多是用小麥磨成的麵粉做的。",
+     "vn": "Bánh mì và mì sợi chúng ta thường ăn đa số làm từ bột xay từ lúa mì."
+    },
+    {
+     "t": "Nông nghiệp",
+     "zh": "這片農場除了種玉米，也種了不少小麥。",
+     "vn": "Nông trại này ngoài trồng ngô ra còn trồng khá nhiều lúa mì."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "妹妹對小麥製品過敏，不能吃一般的餅乾。",
+     "vn": "Em gái bị dị ứng với các sản phẩm từ lúa mì nên không ăn được bánh quy thông thường."
+    }
+   ]
+  },
+  "消滅": {
+   "vn": "tiêu diệt; diệt trừ",
+   "ng": [
+    "(động từ) tiêu diệt, diệt trừ tận gốc (kẻ thù, dịch bệnh, sâu bọ, tệ nạn)",
+    "(động từ) diệt vong, mất hẳn"
+   ],
+   "us": "Mạnh hơn 消除, dùng cho đối tượng cụ thể hoặc mối họa cần diệt sạch: 消滅蚊蟲, 消滅病毒, 消滅貧窮.",
+   "co": [
+    "消滅蚊蟲|tiêu diệt muỗi/côn trùng",
+    "消滅病毒|tiêu diệt vi-rút",
+    "消滅貧窮|xóa bỏ đói nghèo"
+   ],
+   "sy": [
+    "剷除|trừ khử",
+    "清除|dọn sạch"
+   ],
+   "an": [
+    "保存|bảo tồn",
+    "滋生|sinh sôi"
+   ],
+   "cf": [
+    "消除|xóa bỏ (hiểu lầm, căng thẳng)",
+    "消滅|tiêu diệt (côn trùng, mầm bệnh, kẻ thù)"
+   ],
+   "mk": "Không dùng 消滅 cho hiểu lầm hay mệt mỏi (*消滅誤會 là sai, phải dùng 消除誤會).",
+   "mh": "Tiêu Diệt → xiāo miè. ĐỌC: 'tiêu' → xiāo; 'diệt' → miè. NGHĨA: 消 (tan biến) + 滅 (氵 nước dập tắt lửa 烕) → dập tắt và làm biến mất hoàn toàn.",
+   "vd": [
+    {
+     "t": "Vệ sinh",
+     "zh": "清理積水容器可以有效消滅登革熱病媒蚊。",
+     "vn": "Dọn sạch các vật chứa nước đọng có thể tiêu diệt hiệu quả muỗi truyền bệnh sốt xuất huyết."
+    },
+    {
+     "t": "Đời sống",
+     "zh": "媽媽買了新藥，希望能徹底消滅廚房裡的蟑螂。",
+     "vn": "Mẹ mua thuốc mới, hy vọng có thể diệt tận gốc gián trong bếp."
+    },
+    {
+     "t": "Xã hội",
+     "zh": "許多國際組織長期致力於消滅世界上的貧窮與飢餓。",
+     "vn": "Nhiều tổ chức quốc tế lâu nay dốc sức xóa bỏ nghèo đói trên thế giới."
+    }
+   ]
+  },
+  "小氣": {
+   "vn": "keo kiệt; bủn xỉn; nhỏ mọn",
+   "ng": [
+    "(tính từ) keo kiệt, bủn xỉn (tiền bạc, vật chất)",
+    "(tính từ) nhỏ mọn, hẹp hòi, hay để bụng chuyện vặt"
+   ],
+   "us": "Thường dùng mô tả tính cách: 他很小氣, 別那麼小氣, 小氣鬼 (đồ keo kiệt/nhỏ mọn).",
+   "co": [
+    "小氣鬼|đồ keo kiệt",
+    "別那麼小氣|đừng keo kiệt/nhỏ mọn thế",
+    "小氣巴拉|keo kiệt bủn xỉn (khẩu ngữ)"
+   ],
+   "sy": [
+    "吝嗇|lận đận, keo kiệt (văn viết)",
+    "計較|so đo"
+   ],
+   "an": [
+    "大方|hào phóng, rộng rãi"
+   ],
+   "tw": "Ở Đài Loan hay nói 真小氣 (keo kiệt/nhỏ mọn quá), 小氣鬼, hoặc 小氣巴拉 (xiǎoqì bālā - rất khẩu ngữ).",
+   "mh": "Tiểu Khí → xiǎo qì. ĐỌC: 'tiểu' → xiǎo; 'khí' → qì. NGHĨA: 小 (nhỏ bé) + 氣 (khí lượng, tấm lòng) → khí lượng hẹp hòi, keo kiệt.",
+   "vd": [
+    {
+     "t": "Bạn bè",
+     "zh": "他對朋友很大方，請客從來不小氣。",
+     "vn": "Anh ấy rất hào phóng với bạn bè, mời khách chưa bao giờ keo kiệt."
+    },
+    {
+     "t": "Trẻ con",
+     "zh": "妹妹連一顆糖都不肯分給哥哥，大家都笑她是小氣鬼。",
+     "vn": "Em gái đến một viên kẹo cũng không chịu chia cho anh trai, mọi người đều trêu bé là đồ keo kiệt."
+    },
+    {
+     "t": "Tình cảm",
+     "zh": "別為了這麼一點小事就生氣，這樣顯得太小氣了。",
+     "vn": "Đừng vì chút chuyện nhỏ thế này mà giận dỗi, như vậy trông nhỏ mọn quá."
+    }
+   ]
+  },
+  "笑容": {
+   "vn": "tiếu dung; nụ cười",
+   "ng": [
+    "(danh từ) nụ cười, vẻ mặt tươi cười rạng rỡ"
+   ],
+   "us": "Thường dùng với động từ 露出 (nở/lộ ra), 帶著 (mang theo), 保持 (giữ). Lượng từ: 抹 (một thoáng), 絲 (một nét), 臉 (gương mặt).",
+   "co": [
+    "露出笑容|nở nụ cười",
+    "滿臉笑容|nét mặt rạng rỡ nụ cười",
+    "燦爛的笑容|nụ cười rạng rỡ",
+    "保持笑容|giữ nụ cười"
+   ],
+   "sy": [
+    "微笑|nụ cười mỉm"
+   ],
+   "an": [
+    "愁容|vẻ mặt âu sầu"
+   ],
+   "mh": "Tiếu Dung → xiào róng. ĐỌC: 'tiếu' → xiào; 'dung' → róng. NGHĨA: 笑 (cười) + 容 (diện mạo, sắc mặt) → vẻ mặt đang nở nụ cười.",
+   "vd": [
+    {
+     "t": "Dịch vụ",
+     "zh": "那家早餐店的老闆每天都帶著親切的笑容招呼客人。",
+     "vn": "Ông chủ tiệm ăn sáng đó ngày nào cũng nở nụ cười thân thiện chào hỏi khách hàng."
+    },
+    {
+     "t": "Gặp gỡ",
+     "zh": "看到久違的朋友，她臉上立刻露出了燦爛的笑容。",
+     "vn": "Nhìn thấy người bạn lâu ngày mới gặp, trên mặt cô ấy lập tức nở nụ cười rạng rỡ."
+    },
+    {
+     "t": "Gia đình",
+     "zh": "收到孩子親手寫的卡片，爸爸露出了欣慰的笑容。",
+     "vn": "Nhận được tấm thiệp do chính tay con viết, bố nở nụ cười mãn nguyện."
+    }
+   ]
+  },
+  "消失": {
+   "vn": "tiêu thất; biến mất",
+   "ng": [
+    "(động từ) biến mất, không còn nhìn thấy hoặc tồn tại nữa (người, vật, cảm giác, âm thanh, nghề truyền thống)"
+   ],
+   "us": "Nội động từ (không mang tân ngữ phía sau): 突然消失, 消失得無影無蹤, 慢慢消失. Đừng đặt danh từ phía sau (*消失了他 là sai).",
+   "co": [
+    "突然消失|đột nhiên biến mất",
+    "慢慢消失|dần dần biến mất",
+    "消失不見|biến mất tăm",
+    "消失無蹤|biến mất không dấu vết"
+   ],
+   "sy": [
+    "不見|không thấy nữa"
+   ],
+   "an": [
+    "出現|xuất hiện",
+    "存在|tồn tại"
+   ],
+   "mk": "消失 là nội động từ, không dùng với tân ngữ trực tiếp (không nói *他消失了那個問題, phải nói 那個問題消失了).",
+   "mh": "Tiêu Thất → xiāo shī. ĐỌC: 'tiêu' → xiāo; 'thất' → shī. NGHĨA: 消 (tan biến) + 失 (rơi mất) → tan biến và mất hút.",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "太陽出來以後，山上的濃霧很快就消失了。",
+     "vn": "Sau khi mặt trời lên, sương mù dày đặc trên núi rất nhanh đã tan biến."
+    },
+    {
+     "t": "Văn hóa",
+     "zh": "隨著時代改變，許多傳統手工藝正在慢慢消失。",
+     "vn": "Theo sự thay đổi của thời đại, nhiều nghề thủ công truyền thống đang dần biến mất."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "休息了兩天，他身上的痠痛感終於消失了。",
+     "vn": "Nghỉ ngơi hai ngày, cảm giác đau nhức trên người anh ấy cuối cùng cũng biến mất."
+    }
+   ]
+  },
+  "小腿": {
+   "vn": "cẳng chân; bắp chân dưới",
+   "ng": [
+    "(danh từ) cẳng chân, phần chân từ đầu gối đến mắt cá chân"
+   ],
+   "us": "Đối với 大腿 (đùi). Thường dùng: 小腿抽筋 (chuột rút bắp chân), 抬高小腿, 小腿痠痛. Lượng từ: 條 / 隻.",
+   "co": [
+    "小腿抽筋|chuột rút bắp chân",
+    "小腿痠痛|đau mỏi bắp chân",
+    "拉傷小腿|căng cơ bắp chân"
+   ],
+   "an": [
+    "大腿|đùi"
+   ],
+   "cf": [
+    "小臂|cẳng tay"
+   ],
+   "lt": "Tiếng Việt hay gọi cả phần này là 'bắp chân', nhưng trong tiếng Hoa phần bắp thịt phía sau gọi cụ thể là 小腿肚 (xiǎotuǐ dù), còn toàn bộ cẳng chân dưới gối gọi là 小腿.",
+   "mh": "Tiểu Thối → xiǎo tuǐ. ĐỌC: 'tiểu' → xiǎo; 'thối' → tuǐ. NGHĨA: 小 (nhỏ) + 腿 (⺼ thịt + 退 → chân) → phần chân nhỏ phía dưới (cẳng chân), đối với 大腿 (đùi).",
+   "vd": [
+    {
+     "t": "Thể thao",
+     "zh": "跑步前如果沒有先熱身，小腿很容易抽筋。",
+     "vn": "Trước khi chạy bộ nếu không khởi động trước thì bắp chân rất dễ bị chuột rút."
+    },
+    {
+     "t": "Du lịch",
+     "zh": "今天逛街走了一整天，回到飯店小腿又痠又脹。",
+     "vn": "Hôm nay đi dạo phố suốt cả ngày, về đến khách sạn cẳng chân vừa mỏi vừa căng tức."
+    },
+    {
+     "t": "Chăm sóc",
+     "zh": "睡前抬高小腿十五分鐘，可以減少水腫。",
+     "vn": "Trước khi ngủ kê cao cẳng chân 15 phút có thể giảm phù nề."
+    }
+   ]
+  }
+ }
+}

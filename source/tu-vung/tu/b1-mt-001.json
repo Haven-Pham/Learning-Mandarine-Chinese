@@ -1,250 +1,1191 @@
-{"tu": {
-"醜": {"vn": "xấu (xí)", "ng": ["(tính từ) xấu xí"],
- "us": "很醜 / 醜死了. Nói về ngoại hình, đồ vật.", "co": ["醜死了|xấu kinh khủng", "出醜|làm trò cười"],
- "sy": ["難看|khó coi"], "an": ["漂亮|đẹp", "好看|đẹp"],
- "mh": "Xú → chǒu. ĐỌC: 'xú' → chǒu (x→ch, thanh 3). NGHĨA: 酉 + 鬼 (ma) → xấu như ma. Khác 臭 chòu (thối) — cùng âm 'xú' tiếng Việt!",
- "vd": [{"t": "Chê", "zh": "這件衣服好醜，不要買。", "vn": "Áo này xấu quá, đừng mua."},
-  {"t": "Ảnh", "zh": "這張照片把我拍得很醜。", "vn": "Bức ảnh này chụp tôi xấu quá."},
-  {"t": "Thú cưng", "zh": "這隻狗長得醜醜的，可是很可愛。", "vn": "Con chó này trông xấu xấu nhưng rất đáng yêu."}]},
-"獨特": {"vn": "độc đáo; đặc biệt", "ng": ["(tính từ) độc đáo, riêng biệt"],
- "us": "很獨特 / 獨特的風格.", "co": ["獨特的風格|phong cách độc đáo", "獨特的味道|hương vị đặc biệt"],
- "sy": ["特別|đặc biệt"],
- "mh": "Độc Đặc → dú tè. ĐỌC: 'độc' → dú (đ→d); 'đặc' → tè (đ→t, thanh 4). NGHĨA: 'độc' (một mình) + 'đặc' (đặc biệt).",
- "vd": [{"t": "Ẩm thực", "zh": "臭豆腐有一種獨特的味道。", "vn": "Đậu phụ thối có một mùi vị đặc biệt."},
-  {"t": "Thời trang", "zh": "她穿衣服的風格很獨特。", "vn": "Phong cách ăn mặc của cô ấy rất độc đáo."},
-  {"t": "Con người", "zh": "每個人都是獨特的。", "vn": "Mỗi người đều là duy nhất."}]},
-"豐富": {"vn": "phong phú; dồi dào", "ng": ["(tính từ) phong phú", "(động từ) làm phong phú"],
- "us": "經驗豐富 / 內容豐富 / 豐富生活.", "co": ["經驗豐富|giàu kinh nghiệm", "內容豐富|nội dung phong phú"],
- "an": ["貧乏|nghèo nàn"],
- "mh": "Phong Phú → fēng fù. ĐỌC: 'phong' → fēng; 'phú' → fù. Cả hai ph→f! NGHĨA: giống tiếng Việt.",
- "vd": [{"t": "Công việc", "zh": "王老師的教學經驗很豐富。", "vn": "Cô Vương có kinh nghiệm giảng dạy dồi dào."},
-  {"t": "Ăn", "zh": "這家早餐店的選擇很豐富。", "vn": "Quán ăn sáng này có nhiều lựa chọn."},
-  {"t": "Cuộc sống", "zh": "旅行讓我的生活更豐富。", "vn": "Du lịch làm cuộc sống tôi phong phú hơn."}]},
-"黑": {"vn": "đen; tối", "ng": ["(tính từ) đen", "(tính từ) tối"],
- "us": "黑色 / 天黑了 (trời tối) / 晒黑 (rám đen).", "co": ["天黑|trời tối", "黑色|màu đen", "黑白|đen trắng"],
- "an": ["白|trắng", "亮|sáng"],
- "mh": "Hắc → hēi. ĐỌC: 'hắc' → hēi (thanh 1). NGHĨA: giống 'hắc' (hắc ám, hắc ín).",
- "vd": [{"t": "Thời gian", "zh": "天黑了，我們回家吧。", "vn": "Trời tối rồi, mình về thôi."},
-  {"t": "Màu", "zh": "我喜歡黑色的衣服。", "vn": "Tôi thích quần áo màu đen."},
-  {"t": "Đi biển", "zh": "去海邊玩了一天，我晒黑了。", "vn": "Đi biển chơi một ngày, tôi đen đi."}]},
-"紅": {"vn": "đỏ; nổi tiếng", "ng": ["(tính từ) đỏ", "(tính từ) nổi tiếng, hot"],
- "us": "紅色 / 臉紅 (đỏ mặt) / 很紅 (rất nổi).", "co": ["紅色|màu đỏ", "臉紅|đỏ mặt", "走紅|nổi tiếng lên"],
- "mh": "Hồng → hóng. ĐỌC: 'hồng' → hóng (thanh 2). NGHĨA: giống 'hồng' (hồng hào). Nghĩa bóng: 'nổi đỏ' = nổi tiếng.",
- "vd": [{"t": "Màu", "zh": "過年的時候大家喜歡穿紅色。", "vn": "Dịp Tết mọi người thích mặc màu đỏ."},
-  {"t": "Ngại", "zh": "他一說話就臉紅。", "vn": "Cậu ấy cứ nói là đỏ mặt."},
-  {"t": "Nổi tiếng", "zh": "這首歌現在很紅。", "vn": "Bài hát này bây giờ rất hot."}]},
-"厚": {"vn": "dày; hậu", "ng": ["(tính từ) dày", "(tính từ) (tình cảm) sâu, hậu"],
- "us": "很厚 / 厚外套 / 臉皮厚 (mặt dày).", "co": ["厚外套|áo khoác dày", "臉皮厚|mặt dày"],
- "an": ["薄|mỏng"],
- "mh": "Hậu → hòu. ĐỌC: 'hậu' → hòu. NGHĨA: giống 'hậu' (nhân hậu, hậu hĩnh = dày dặn).",
- "vd": [{"t": "Sách", "zh": "這本字典好厚。", "vn": "Cuốn từ điển này dày quá."},
-  {"t": "Mùa đông", "zh": "天冷了，穿厚一點的外套。", "vn": "Trời lạnh rồi, mặc áo khoác dày một chút."},
-  {"t": "Chê", "zh": "他臉皮真厚，又來借錢。", "vn": "Anh ta mặt dày thật, lại đến mượn tiền."}]},
-"黃": {"vn": "vàng (màu)", "ng": ["(tính từ) màu vàng"],
- "us": "黃色 / 黃金 / 變黃.", "co": ["黃色|màu vàng", "黃金|vàng (kim loại)", "黃燈|đèn vàng"],
- "mh": "Hoàng → huáng. ĐỌC: 'hoàng' → huáng (thanh 2). NGHĨA: giống 'hoàng' (màu vàng, như 'Hoàng Hà').",
- "lt": "黃色 trong một số ngữ cảnh còn mang nghĩa 'đồi trụy' (黃色笑話).",
- "vd": [{"t": "Màu", "zh": "香蕉是黃色的。", "vn": "Chuối có màu vàng."},
-  {"t": "Mùa thu", "zh": "秋天葉子變黃了。", "vn": "Mùa thu lá chuyển vàng."},
-  {"t": "Giao thông", "zh": "黃燈的時候要慢下來。", "vn": "Khi đèn vàng phải giảm tốc."}]},
-"激烈": {"vn": "kịch liệt; gay gắt", "ng": ["(tính từ) kịch liệt, gay gắt"],
- "us": "競爭很激烈 / 激烈的比賽 / 激烈討論.", "co": ["競爭激烈|cạnh tranh gay gắt", "激烈的比賽|trận đấu kịch tính"],
- "mh": "Kích Liệt → jī liè. ĐỌC: 'kích' → jī (k→j); 'liệt' → liè. NGHĨA: giống 'kịch liệt' tiếng Việt.",
- "vd": [{"t": "Công việc", "zh": "這個行業的競爭很激烈。", "vn": "Cạnh tranh trong ngành này rất gay gắt."},
-  {"t": "Thể thao", "zh": "這場比賽非常激烈。", "vn": "Trận đấu này vô cùng kịch tính."},
-  {"t": "Họp", "zh": "大家討論得很激烈。", "vn": "Mọi người thảo luận rất sôi nổi."}]},
-"假": {"vn": "giả; kỳ nghỉ", "ng": ["(tính từ) giả (jiǎ)", "(danh từ) kỳ nghỉ (jià)"],
- "us": "假的 = đồ giả. 放假 (fàngjià) = nghỉ. 請假 = xin nghỉ.", "co": ["假的|giả", "放假|nghỉ lễ", "暑假|nghỉ hè"],
- "an": ["真|thật"],
- "mh": "Giả → jiǎ / jià. ĐỌC: 'giả' → jiǎ (gi→j) khi là 'giả'; jià (thanh 4) khi là 'kỳ nghỉ'. NGHĨA: giống 'giả' (giả mạo).",
- "lt": "假 = jiǎ (giả) / jià (kỳ nghỉ: 放假, 請假).",
- "vd": [{"t": "Mua sắm", "zh": "這個包包是假的。", "vn": "Cái túi này là hàng giả."},
-  {"t": "Nghỉ lễ", "zh": "明天放假，不用上班。", "vn": "Mai được nghỉ, không phải đi làm."},
-  {"t": "Nghi ngờ", "zh": "你說的是真的還是假的？", "vn": "Bạn nói thật hay giả vậy?"}]},
-"緊": {"vn": "chặt; căng; gấp", "ng": ["(tính từ) chặt, chật", "(tính từ) căng thẳng, gấp", "(tính từ) eo hẹp (tiền)"],
- "us": "太緊了 (chật quá) / 抓緊 / 時間很緊 / 手頭緊 (túng tiền).", "co": ["抓緊|nắm chặt; tranh thủ", "時間很緊|thời gian gấp", "緊張|căng thẳng"],
- "an": ["鬆|lỏng"],
- "mh": "Khẩn → jǐn. ĐỌC: 'khẩn' → jǐn (kh→j). NGHĨA: giống 'khẩn' (khẩn cấp, khẩn trương).",
- "vd": [{"t": "Quần áo", "zh": "這條褲子太緊了。", "vn": "Chiếc quần này chật quá."},
-  {"t": "Thời gian", "zh": "時間很緊，我們快一點。", "vn": "Thời gian gấp, mình nhanh lên."},
-  {"t": "An toàn", "zh": "坐車要抓緊扶手。", "vn": "Đi xe phải nắm chặt tay vịn."}]},
-"寬": {"vn": "rộng", "ng": ["(tính từ) rộng (chiều ngang)", "(tính từ) rộng lượng"],
- "us": "很寬 / 寬度 / 心寬 (rộng lượng).", "co": ["寬度|chiều rộng", "寬鬆|rộng rãi (quần áo)"],
- "an": ["窄|hẹp"],
- "mh": "Khoan → kuān. ĐỌC: 'khoan' → kuān (kh→k). NGHĨA: giống 'khoan' (khoan dung = rộng lượng).",
- "vd": [{"t": "Đường", "zh": "這條路很寬，車很多。", "vn": "Con đường này rất rộng, xe rất nhiều."},
-  {"t": "Quần áo", "zh": "我喜歡穿寬一點的衣服。", "vn": "Tôi thích mặc đồ rộng một chút."},
-  {"t": "Đo", "zh": "這張桌子寬八十公分。", "vn": "Cái bàn này rộng 80 cm."}]},
-"藍": {"vn": "xanh dương; xanh lam", "ng": ["(tính từ) xanh lam"],
- "us": "藍色 / 藍天 (trời xanh).", "co": ["藍色|màu xanh dương", "藍天|trời xanh"],
- "cf": ["綠|xanh lá", "青|xanh (lam/lục)"],
- "mh": "Lam → lán. ĐỌC: 'lam' → lán (-am→-an, thanh 2). NGHĨA: giống 'lam' (xanh lam).",
- "vd": [{"t": "Thời tiết", "zh": "今天的天空好藍。", "vn": "Bầu trời hôm nay xanh quá."},
-  {"t": "Màu", "zh": "我想買一件藍色的襯衫。", "vn": "Tôi muốn mua một chiếc sơ mi màu xanh dương."},
-  {"t": "Biển", "zh": "墾丁的海又藍又清。", "vn": "Biển Khẩn Đinh vừa xanh vừa trong."}]},
-"亮": {"vn": "sáng", "ng": ["(tính từ) sáng", "(động từ) sáng lên"],
- "us": "天亮了 / 很亮 / 燈亮了.", "co": ["天亮|trời sáng", "漂亮|đẹp", "月亮|mặt trăng"],
- "an": ["暗|tối", "黑|tối"],
- "mh": "Lượng → liàng. ĐỌC: 'lượng' → liàng (-ương→-iang). NGHĨA: 'lượng' = sáng (như 'minh lượng'). Có trong 漂亮 (đẹp), 月亮 (trăng).",
- "vd": [{"t": "Buổi sáng", "zh": "天亮了，起床吧。", "vn": "Trời sáng rồi, dậy thôi."},
-  {"t": "Phòng", "zh": "這個房間很亮。", "vn": "Phòng này rất sáng."},
-  {"t": "Đèn", "zh": "燈怎麼不亮了？", "vn": "Sao đèn không sáng nữa?"}]},
-"良好": {"vn": "tốt đẹp", "ng": ["(tính từ) tốt (trang trọng)"],
- "us": "Văn viết: 良好的關係, 狀況良好.", "co": ["良好的習慣|thói quen tốt", "表現良好|biểu hiện tốt"],
- "sy": ["好|tốt"],
- "mh": "Lương Hảo → liáng hǎo. ĐỌC: 'lương' → liáng (-ương→-iang); 'hảo' → hǎo. NGHĨA: 'lương' (lương thiện) + 'hảo' → tốt.",
- "vd": [{"t": "Thói quen", "zh": "從小要養成良好的習慣。", "vn": "Từ nhỏ phải tập thói quen tốt."},
-  {"t": "Quan hệ", "zh": "兩家公司保持良好的關係。", "vn": "Hai công ty duy trì quan hệ tốt đẹp."},
-  {"t": "Sức khỏe", "zh": "病人的情況良好。", "vn": "Tình trạng bệnh nhân tốt."}]},
-"綠": {"vn": "xanh lá", "ng": ["(tính từ) xanh lá cây"],
- "us": "綠色 / 綠燈 / 綠茶.", "co": ["綠燈|đèn xanh", "綠茶|trà xanh", "綠色|màu xanh lá"],
- "cf": ["藍|xanh dương"],
- "mh": "Lục → lǜ. ĐỌC: 'lục' → lǜ (thanh 4, chú ý ü). NGHĨA: giống 'lục' (xanh lục).",
- "lt": "Đèn giao thông 'xanh' là 綠燈, không phải 藍燈.",
- "vd": [{"t": "Giao thông", "zh": "綠燈了，可以走了。", "vn": "Đèn xanh rồi, đi được rồi."},
-  {"t": "Đồ uống", "zh": "我要一杯無糖綠茶。", "vn": "Cho tôi một ly trà xanh không đường."},
-  {"t": "Thiên nhiên", "zh": "春天的山都變綠了。", "vn": "Mùa xuân núi đồi đều xanh."}]},
-"美好": {"vn": "tốt đẹp", "ng": ["(tính từ) tốt đẹp (cuộc sống, kỷ niệm)"],
- "us": "美好的回憶 / 美好的未來.", "co": ["美好的回憶|kỷ niệm đẹp", "美好的未來|tương lai tươi đẹp"],
- "mh": "Mỹ Hảo → měi hǎo. ĐỌC: 'mỹ' → měi; 'hảo' → hǎo. Hai thanh 3 → méi hǎo. NGHĨA: 'đẹp và tốt'.",
- "vd": [{"t": "Kỷ niệm", "zh": "在台灣的日子是我最美好的回憶。", "vn": "Những ngày ở Đài Loan là kỷ niệm đẹp nhất của tôi."},
-  {"t": "Chúc", "zh": "祝你有美好的一天！", "vn": "Chúc bạn một ngày tốt đẹp!"},
-  {"t": "Tương lai", "zh": "我相信未來會更美好。", "vn": "Tôi tin tương lai sẽ tốt đẹp hơn."}]},
-"迷人": {"vn": "mê hoặc; quyến rũ", "ng": ["(tính từ) quyến rũ, làm say mê"],
- "us": "很迷人 / 迷人的風景.", "co": ["迷人的笑容|nụ cười quyến rũ", "迷人的夜景|cảnh đêm mê hồn"],
- "sy": ["吸引人|hấp dẫn"],
- "mh": "Mê Nhân → mí rén. ĐỌC: 'mê' → mí; 'nhân' → rén. NGHĨA: 'làm người ta mê'.",
- "vd": [{"t": "Du lịch", "zh": "淡水的夕陽非常迷人。", "vn": "Hoàng hôn ở Đạm Thủy vô cùng mê hồn."},
-  {"t": "Con người", "zh": "她的笑容很迷人。", "vn": "Nụ cười của cô ấy rất quyến rũ."},
-  {"t": "Thành phố", "zh": "台北的夜景很迷人。", "vn": "Cảnh đêm Đài Bắc rất cuốn hút."}]},
-"明顯": {"vn": "rõ ràng; rõ rệt", "ng": ["(tính từ) rõ ràng, rõ rệt"],
- "us": "很明顯 / 明顯的進步.", "co": ["很明顯|rất rõ", "明顯進步|tiến bộ rõ rệt"],
- "sy": ["清楚|rõ ràng"],
- "mh": "Minh Hiển → míng xiǎn. ĐỌC: 'minh' → míng; 'hiển' → xiǎn (h→x). NGHĨA: 'minh' sáng + 'hiển' hiện rõ.",
- "vd": [{"t": "Học", "zh": "你的中文有明顯的進步。", "vn": "Tiếng Hoa của bạn có tiến bộ rõ rệt."},
-  {"t": "Nhận xét", "zh": "很明顯，他不想去。", "vn": "Rõ ràng là anh ấy không muốn đi."},
-  {"t": "Thời tiết", "zh": "這幾天氣溫明顯下降了。", "vn": "Mấy hôm nay nhiệt độ giảm rõ rệt."}]},
-"難看": {"vn": "khó coi; xấu", "ng": ["(tính từ) xấu, khó coi", "(tính từ) (sắc mặt) khó chịu"],
- "us": "很難看 / 臉色難看.", "co": ["臉色難看|sắc mặt khó coi", "很難看|rất xấu"],
- "sy": ["醜|xấu"], "an": ["好看|đẹp"],
- "mh": "Nan Khán → nán kàn. ĐỌC: 'nan' → nán; 'khán' → kàn (kh→k). NGHĨA: 'khó (nan) nhìn (khán)'.",
- "vd": [{"t": "Thời trang", "zh": "這個顏色很難看。", "vn": "Màu này rất khó coi."},
-  {"t": "Sức khỏe", "zh": "你臉色很難看，生病了嗎？", "vn": "Sắc mặt bạn tệ quá, ốm à?"},
-  {"t": "Phim", "zh": "這部電影真難看。", "vn": "Bộ phim này dở thật."}]},
-"平": {"vn": "bằng phẳng; bình", "ng": ["(tính từ) bằng phẳng", "(tính từ) hòa, ngang (tỷ số)"],
- "us": "路很平 / 平手 (hòa) / 平安.", "co": ["平手|hòa", "平地|đất bằng", "平常|bình thường"],
- "mh": "Bình → píng. ĐỌC: 'bình' → píng (b→p). NGHĨA: giống 'bình' (bình an, bình đẳng, hòa bình).",
- "vd": [{"t": "Đường", "zh": "這條路不平，騎車要小心。", "vn": "Đường này không bằng phẳng, đi xe cẩn thận."},
-  {"t": "Thể thao", "zh": "兩隊打成平手。", "vn": "Hai đội hòa nhau."},
-  {"t": "Bàn", "zh": "桌子放平一點。", "vn": "Đặt bàn cho phẳng một chút."}]},
-"普遍": {"vn": "phổ biến", "ng": ["(tính từ) phổ biến"],
- "us": "很普遍 / 普遍的現象.", "co": ["普遍的現象|hiện tượng phổ biến", "普遍認為|thường cho rằng"],
- "sy": ["常見|thường thấy"],
- "mh": "Phổ Biến → pǔ biàn. ĐỌC: 'phổ' → pǔ (ph→p); 'biến' → biàn. NGHĨA: giống tiếng Việt.",
- "vd": [{"t": "Xã hội", "zh": "在台灣，騎機車很普遍。", "vn": "Ở Đài Loan, đi xe máy rất phổ biến."},
-  {"t": "Công nghệ", "zh": "手機付款越來越普遍。", "vn": "Thanh toán bằng điện thoại ngày càng phổ biến."},
-  {"t": "Ý kiến", "zh": "大家普遍認為這個方法比較好。", "vn": "Mọi người thường cho rằng cách này tốt hơn."}]},
-"清": {"vn": "trong; rõ", "ng": ["(tính từ) trong (nước)", "(tính từ) rõ ràng (清楚)", "(động từ) thanh toán hết (還清)"],
- "us": "水很清 / 說清楚 / 還清 (trả hết nợ).", "co": ["清楚|rõ ràng", "還清|trả hết", "清水|nước trong"],
- "an": ["混|đục"],
- "mh": "Thanh → qīng. ĐỌC: 'thanh' → qīng (th→q, -anh→-ing). NGHĨA: giống 'thanh' (thanh khiết, trong).",
- "vd": [{"t": "Thiên nhiên", "zh": "這條河的水很清。", "vn": "Nước con sông này rất trong."},
-  {"t": "Nói", "zh": "請你說清楚一點。", "vn": "Bạn nói rõ hơn một chút."},
-  {"t": "Nợ", "zh": "我終於把錢還清了。", "vn": "Cuối cùng tôi đã trả hết tiền."}]},
-"弱": {"vn": "yếu", "ng": ["(tính từ) yếu"],
- "us": "身體很弱 / 弱點 (điểm yếu) / 訊號弱 (sóng yếu).", "co": ["弱點|điểm yếu", "訊號很弱|sóng yếu"],
- "an": ["強|mạnh"],
- "mh": "Nhược → ruò. ĐỌC: 'nhược' → ruò (nh→r). NGHĨA: giống 'nhược' (nhược điểm, suy nhược).",
- "vd": [{"t": "Sức khỏe", "zh": "她身體比較弱，常常感冒。", "vn": "Cô ấy thể trạng yếu, hay bị cảm."},
-  {"t": "Điện thoại", "zh": "這裡的訊號很弱。", "vn": "Sóng ở đây rất yếu."},
-  {"t": "Học", "zh": "我的弱點是聽力。", "vn": "Điểm yếu của tôi là kỹ năng nghe."}]},
-"生動": {"vn": "sinh động", "ng": ["(tính từ) sinh động"],
- "us": "很生動 / 生動的描寫.", "co": ["生動有趣|sinh động thú vị"],
- "mh": "Sinh Động → shēng dòng. ĐỌC: 'sinh' → shēng; 'động' → dòng. NGHĨA: giống tiếng Việt.",
- "vd": [{"t": "Lớp học", "zh": "老師上課很生動。", "vn": "Thầy giảng bài rất sinh động."},
-  {"t": "Văn học", "zh": "這本小說寫得很生動。", "vn": "Cuốn tiểu thuyết này viết rất sinh động."},
-  {"t": "Kể chuyện", "zh": "他說故事說得非常生動。", "vn": "Anh ấy kể chuyện vô cùng sinh động."}]},
-"特色": {"vn": "đặc sắc; nét riêng", "ng": ["(danh từ) nét đặc trưng, đặc sắc"],
- "us": "有特色 / 地方特色 / 特色菜.", "co": ["特色菜|món đặc trưng", "很有特色|rất đặc sắc"],
- "sy": ["特點|đặc điểm"],
- "mh": "Đặc Sắc → tè sè. ĐỌC: 'đặc' → tè (đ→t); 'sắc' → sè. NGHĨA: giống tiếng Việt.",
- "vd": [{"t": "Du lịch", "zh": "每個夜市都有自己的特色。", "vn": "Mỗi chợ đêm đều có nét riêng."},
-  {"t": "Nhà hàng", "zh": "這是我們店的特色菜。", "vn": "Đây là món đặc trưng của quán chúng tôi."},
-  {"t": "Kiến trúc", "zh": "這棟房子很有台灣特色。", "vn": "Ngôi nhà này rất mang nét Đài Loan."}]},
-"特殊": {"vn": "đặc thù; đặc biệt", "ng": ["(tính từ) đặc biệt, khác thường"],
- "us": "特殊情況 / 特殊需要.", "co": ["特殊情況|trường hợp đặc biệt", "特殊需求|nhu cầu đặc biệt"],
- "sy": ["特別|đặc biệt"], "an": ["普通|bình thường"],
- "mh": "Đặc Thù → tè shū. ĐỌC: 'đặc' → tè; 'thù' → shū (th→sh). NGHĨA: giống 'đặc thù'.",
- "vd": [{"t": "Quy định", "zh": "除非有特殊情況，不能請假。", "vn": "Trừ trường hợp đặc biệt, không được xin nghỉ."},
-  {"t": "Ăn uống", "zh": "您有特殊的飲食需求嗎？", "vn": "Quý khách có yêu cầu ăn uống đặc biệt không?"},
-  {"t": "Ý nghĩa", "zh": "這個日子對我來說很特殊。", "vn": "Ngày này với tôi rất đặc biệt."}]},
-"偉大": {"vn": "vĩ đại", "ng": ["(tính từ) vĩ đại"],
- "us": "偉大的人 / 母愛很偉大.", "co": ["偉大的發明|phát minh vĩ đại", "母愛偉大|tình mẹ vĩ đại"],
- "mh": "Vĩ Đại → wěi dà. ĐỌC: 'vĩ' → wěi (v→w); 'đại' → dà. NGHĨA: giống tiếng Việt.",
- "vd": [{"t": "Gia đình", "zh": "母親的愛是最偉大的。", "vn": "Tình yêu của mẹ là vĩ đại nhất."},
-  {"t": "Lịch sử", "zh": "他是一位偉大的科學家。", "vn": "Ông là một nhà khoa học vĩ đại."},
-  {"t": "Công nghệ", "zh": "電是很偉大的發明。", "vn": "Điện là một phát minh vĩ đại."}]},
-"穩定": {"vn": "ổn định", "ng": ["(tính từ) ổn định", "(động từ) làm ổn định"],
- "us": "工作穩定 / 情況穩定 / 收入穩定.", "co": ["收入穩定|thu nhập ổn định", "穩定的工作|công việc ổn định"],
- "an": ["不穩|bấp bênh"],
- "mh": "Ổn Định → wěn dìng. ĐỌC: 'ổn' → wěn; 'định' → dìng. NGHĨA: giống tiếng Việt.",
- "vd": [{"t": "Công việc", "zh": "我想找一份穩定的工作。", "vn": "Tôi muốn tìm một công việc ổn định."},
-  {"t": "Bệnh viện", "zh": "病人的情況已經穩定了。", "vn": "Tình trạng bệnh nhân đã ổn định."},
-  {"t": "Mạng", "zh": "這裡的網路不太穩定。", "vn": "Mạng ở đây không ổn định lắm."}]},
-"細": {"vn": "mảnh; nhỏ; tỉ mỉ", "ng": ["(tính từ) mảnh, nhỏ", "(tính từ) tỉ mỉ, kỹ"],
- "us": "很細 / 細心 / 仔細.", "co": ["細心|tỉ mỉ", "仔細|kỹ lưỡng", "細節|chi tiết"],
- "an": ["粗|thô, to"],
- "mh": "Tế → xì. ĐỌC: 'tế' → xì (t→x). NGHĨA: giống 'tế' (tinh tế, tế bào = vật nhỏ).",
- "vd": [{"t": "Ăn", "zh": "這種麵很細。", "vn": "Loại mì này sợi rất mảnh."},
-  {"t": "Công việc", "zh": "做這個工作要注意細節。", "vn": "Làm việc này phải chú ý chi tiết."},
-  {"t": "Ngoại hình", "zh": "她的手指又細又長。", "vn": "Ngón tay cô ấy vừa mảnh vừa dài."}]},
-"詳細": {"vn": "chi tiết; tường tận", "ng": ["(tính từ) chi tiết, cặn kẽ"],
- "us": "詳細說明 / 詳細資料.", "co": ["詳細說明|giải thích chi tiết", "詳細地址|địa chỉ cụ thể"],
- "sy": ["仔細|kỹ lưỡng"],
- "mh": "Tường Tế → xiáng xì. ĐỌC: 'tường' → xiáng (t→x); 'tế' → xì. NGHĨA: 'tường tận và tinh tế'.",
- "vd": [{"t": "Công việc", "zh": "請詳細說明一下計畫。", "vn": "Vui lòng giải thích chi tiết kế hoạch."},
-  {"t": "Giao hàng", "zh": "請給我詳細的地址。", "vn": "Cho tôi địa chỉ cụ thể."},
-  {"t": "Thông tin", "zh": "詳細資料請看網站。", "vn": "Thông tin chi tiết xin xem trên website."}]},
-"圓": {"vn": "tròn; viên mãn", "ng": ["(tính từ) tròn", "(danh từ) hình tròn", "(động từ) làm tròn (圓夢 thực hiện ước mơ)"],
- "us": "圓形 / 圓圓的 / 團圓 (đoàn viên).", "co": ["圓形|hình tròn", "團圓|đoàn viên", "圓夢|thực hiện ước mơ"],
- "an": ["方|vuông"],
- "mh": "Viên → yuán. ĐỌC: 'viên' → yuán (v→y). NGHĨA: giống 'viên' (viên mãn, tròn trịa); trăng rằm 月圓.",
- "vd": [{"t": "Trung thu", "zh": "中秋節的月亮又大又圓。", "vn": "Trăng Trung thu vừa to vừa tròn."},
-  {"t": "Hình", "zh": "這張桌子是圓的。", "vn": "Cái bàn này hình tròn."},
-  {"t": "Ước mơ", "zh": "他終於圓了出國留學的夢。", "vn": "Anh ấy cuối cùng đã thực hiện ước mơ du học."}]},
-"珍貴": {"vn": "quý giá", "ng": ["(tính từ) quý giá, quý báu"],
- "us": "很珍貴 / 珍貴的回憶.", "co": ["珍貴的回憶|kỷ niệm quý giá", "珍貴的禮物|món quà quý"],
- "sy": ["寶貴|quý báu"],
- "mh": "Trân Quý → zhēn guì. ĐỌC: 'trân' → zhēn (tr→zh); 'quý' → guì. NGHĨA: giống 'trân quý'.",
- "vd": [{"t": "Kỷ niệm", "zh": "這張照片對我來說很珍貴。", "vn": "Bức ảnh này với tôi rất quý giá."},
-  {"t": "Thời gian", "zh": "時間是最珍貴的。", "vn": "Thời gian là thứ quý giá nhất."},
-  {"t": "Bảo tàng", "zh": "博物館裡有很多珍貴的古董。", "vn": "Bảo tàng có nhiều đồ cổ quý giá."}]},
-"真實": {"vn": "chân thật; có thật", "ng": ["(tính từ) thật, chân thực"],
- "us": "真實的故事 / 真實的想法.", "co": ["真實的故事|câu chuyện có thật", "真實姓名|tên thật"],
- "sy": ["真|thật"], "an": ["虛假|giả dối"],
- "mh": "Chân Thực → zhēn shí. ĐỌC: 'chân' → zhēn; 'thực' → shí. NGHĨA: giống 'chân thực'.",
- "vd": [{"t": "Phim", "zh": "這部電影是根據真實的故事改編的。", "vn": "Bộ phim chuyển thể từ câu chuyện có thật."},
-  {"t": "Thật lòng", "zh": "說出你真實的想法吧。", "vn": "Nói ra suy nghĩ thật của bạn đi."},
-  {"t": "Mạng", "zh": "網路上的消息不一定真實。", "vn": "Tin trên mạng chưa chắc đã thật."}]},
-"整齊": {"vn": "ngăn nắp; gọn gàng", "ng": ["(tính từ) ngay ngắn, gọn gàng"],
- "us": "很整齊 / 排得很整齊.", "co": ["排整齊|xếp ngay ngắn", "整整齊齊|ngăn nắp"],
- "an": ["亂|bừa bộn"],
- "mh": "Chỉnh Tề → zhěng qí. ĐỌC: 'chỉnh' → zhěng; 'tề' → qí (t→q). NGHĨA: giống 'chỉnh tề'.",
- "vd": [{"t": "Phòng", "zh": "她的房間總是很整齊。", "vn": "Phòng cô ấy lúc nào cũng gọn gàng."},
-  {"t": "Xếp hàng", "zh": "大家排隊排得很整齊。", "vn": "Mọi người xếp hàng rất ngay ngắn."},
-  {"t": "Ăn mặc", "zh": "面試要穿得整齊一點。", "vn": "Đi phỏng vấn phải ăn mặc chỉnh tề."}]},
-"著名": {"vn": "nổi tiếng; trứ danh", "ng": ["(tính từ) nổi tiếng (văn viết)"],
- "us": "Văn viết của 有名: 著名的景點.", "co": ["著名景點|thắng cảnh nổi tiếng", "著名作家|nhà văn nổi tiếng"],
- "sy": ["有名|nổi tiếng"],
- "mh": "Trứ Danh → zhù míng. ĐỌC: 'trứ' → zhù (tr→zh); 'danh' → míng. NGHĨA: giống 'trứ danh'.",
- "vd": [{"t": "Du lịch", "zh": "日月潭是台灣著名的景點。", "vn": "Nhật Nguyệt Đàm là thắng cảnh nổi tiếng của Đài Loan."},
-  {"t": "Văn học", "zh": "他是一位著名的作家。", "vn": "Ông là một nhà văn nổi tiếng."},
-  {"t": "Ẩm thực", "zh": "這家店的牛肉麵很著名。", "vn": "Mì bò quán này rất nổi tiếng."}]},
-"最佳": {"vn": "tốt nhất; xuất sắc nhất", "ng": ["(tính từ) tốt nhất (văn viết)"],
- "us": "最佳選擇 / 最佳男主角 (nam chính xuất sắc nhất).", "co": ["最佳選擇|lựa chọn tốt nhất", "最佳時間|thời điểm tốt nhất"],
- "sy": ["最好|tốt nhất"],
- "mh": "Tối Giai → zuì jiā. ĐỌC: 'tối' → zuì; 'giai' → jiā (gi→j). NGHĨA: 'giai' = đẹp, tốt (như 'giai nhân') → tốt nhất.",
- "vd": [{"t": "Du lịch", "zh": "秋天是去日本的最佳時間。", "vn": "Mùa thu là thời điểm tốt nhất để đi Nhật."},
-  {"t": "Giải thưởng", "zh": "他得了最佳男主角獎。", "vn": "Anh ấy đoạt giải nam chính xuất sắc nhất."},
-  {"t": "Lựa chọn", "zh": "這是最佳的選擇。", "vn": "Đây là lựa chọn tốt nhất."}]}
-}}
+{
+ "tu": {
+  "醜": {
+   "vn": "xấu (xí)",
+   "ng": [
+    "(tính từ) xấu xí"
+   ],
+   "us": "很醜 / 醜死了. Nói về ngoại hình, đồ vật.",
+   "co": [
+    "醜死了|xấu kinh khủng",
+    "出醜|làm trò cười"
+   ],
+   "sy": [
+    "難看|khó coi"
+   ],
+   "an": [
+    "漂亮|đẹp",
+    "好看|đẹp"
+   ],
+   "mh": "Xú → chǒu. ĐỌC: 'xú' → chǒu (x→ch, thanh 3). NGHĨA: 酉 + 鬼 (ma) → xấu như ma. Khác 臭 chòu (thối) — cùng âm 'xú' tiếng Việt!",
+   "vd": [
+    {
+     "t": "Chê",
+     "zh": "這件衣服好醜，不要買。",
+     "vn": "Áo này xấu quá, đừng mua."
+    },
+    {
+     "t": "Ảnh",
+     "zh": "這張照片把我拍得很醜。",
+     "vn": "Bức ảnh này chụp tôi xấu quá."
+    },
+    {
+     "t": "Thú cưng",
+     "zh": "這隻狗長得醜醜的，可是很可愛。",
+     "vn": "Con chó này trông xấu xấu nhưng rất đáng yêu."
+    }
+   ]
+  },
+  "獨特": {
+   "vn": "độc đáo; đặc biệt",
+   "ng": [
+    "(tính từ) độc đáo, riêng biệt"
+   ],
+   "us": "很獨特 / 獨特的風格.",
+   "co": [
+    "獨特的風格|phong cách độc đáo",
+    "獨特的味道|hương vị đặc biệt"
+   ],
+   "sy": [
+    "特別|đặc biệt"
+   ],
+   "mh": "Độc Đặc → dú tè. ĐỌC: 'độc' → dú (đ→d); 'đặc' → tè (đ→t, thanh 4). NGHĨA: 'độc' (một mình) + 'đặc' (đặc biệt).",
+   "vd": [
+    {
+     "t": "Ẩm thực",
+     "zh": "臭豆腐有一種獨特的味道。",
+     "vn": "Đậu phụ thối có một mùi vị đặc biệt."
+    },
+    {
+     "t": "Thời trang",
+     "zh": "她穿衣服的風格很獨特。",
+     "vn": "Phong cách ăn mặc của cô ấy rất độc đáo."
+    },
+    {
+     "t": "Con người",
+     "zh": "每個人都是獨特的。",
+     "vn": "Mỗi người đều là duy nhất."
+    }
+   ]
+  },
+  "豐富": {
+   "vn": "phong phú; dồi dào",
+   "ng": [
+    "(tính từ) phong phú",
+    "(động từ) làm phong phú"
+   ],
+   "us": "經驗豐富 / 內容豐富 / 豐富生活.",
+   "co": [
+    "經驗豐富|giàu kinh nghiệm",
+    "內容豐富|nội dung phong phú"
+   ],
+   "an": [
+    "貧乏|nghèo nàn"
+   ],
+   "mh": "Phong Phú → fēng fù. ĐỌC: 'phong' → fēng; 'phú' → fù. Cả hai ph→f! NGHĨA: giống tiếng Việt.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "王老師的教學經驗很豐富。",
+     "vn": "Cô Vương có kinh nghiệm giảng dạy dồi dào."
+    },
+    {
+     "t": "Ăn",
+     "zh": "這家早餐店的選擇很豐富。",
+     "vn": "Quán ăn sáng này có nhiều lựa chọn."
+    },
+    {
+     "t": "Cuộc sống",
+     "zh": "旅行讓我的生活更豐富。",
+     "vn": "Du lịch làm cuộc sống tôi phong phú hơn."
+    }
+   ]
+  },
+  "黑": {
+   "vn": "đen; tối",
+   "ng": [
+    "(tính từ) đen",
+    "(tính từ) tối"
+   ],
+   "us": "黑色 / 天黑了 (trời tối) / 晒黑 (rám đen).",
+   "co": [
+    "天黑|trời tối",
+    "黑色|màu đen",
+    "黑白|đen trắng"
+   ],
+   "an": [
+    "白|trắng",
+    "亮|sáng"
+   ],
+   "mh": "Hắc → hēi. ĐỌC: 'hắc' → hēi (thanh 1). NGHĨA: giống 'hắc' (hắc ám, hắc ín).",
+   "vd": [
+    {
+     "t": "Thời gian",
+     "zh": "天黑了，我們回家吧。",
+     "vn": "Trời tối rồi, mình về thôi."
+    },
+    {
+     "t": "Màu",
+     "zh": "我喜歡黑色的衣服。",
+     "vn": "Tôi thích quần áo màu đen."
+    },
+    {
+     "t": "Đi biển",
+     "zh": "去海邊玩了一天，我晒黑了。",
+     "vn": "Đi biển chơi một ngày, tôi đen đi."
+    }
+   ]
+  },
+  "紅": {
+   "vn": "đỏ; nổi tiếng",
+   "ng": [
+    "(tính từ) đỏ",
+    "(tính từ) nổi tiếng, hot"
+   ],
+   "us": "紅色 / 臉紅 (đỏ mặt) / 很紅 (rất nổi).",
+   "co": [
+    "紅色|màu đỏ",
+    "臉紅|đỏ mặt",
+    "走紅|nổi tiếng lên"
+   ],
+   "mh": "Hồng → hóng. ĐỌC: 'hồng' → hóng (thanh 2). NGHĨA: giống 'hồng' (hồng hào). Nghĩa bóng: 'nổi đỏ' = nổi tiếng.",
+   "vd": [
+    {
+     "t": "Màu",
+     "zh": "過年的時候大家喜歡穿紅色。",
+     "vn": "Dịp Tết mọi người thích mặc màu đỏ."
+    },
+    {
+     "t": "Ngại",
+     "zh": "他一說話就臉紅。",
+     "vn": "Cậu ấy cứ nói là đỏ mặt."
+    },
+    {
+     "t": "Nổi tiếng",
+     "zh": "這首歌現在很紅。",
+     "vn": "Bài hát này bây giờ rất hot."
+    }
+   ]
+  },
+  "厚": {
+   "vn": "dày; hậu",
+   "ng": [
+    "(tính từ) dày",
+    "(tính từ) (tình cảm) sâu, hậu"
+   ],
+   "us": "很厚 / 厚外套 / 臉皮厚 (mặt dày).",
+   "co": [
+    "厚外套|áo khoác dày",
+    "臉皮厚|mặt dày"
+   ],
+   "an": [
+    "薄|mỏng"
+   ],
+   "mh": "Hậu → hòu. ĐỌC: 'hậu' → hòu. NGHĨA: giống 'hậu' (nhân hậu, hậu hĩnh = dày dặn).",
+   "vd": [
+    {
+     "t": "Sách",
+     "zh": "這本字典好厚。",
+     "vn": "Cuốn từ điển này dày quá."
+    },
+    {
+     "t": "Mùa đông",
+     "zh": "天冷了，穿厚一點的外套。",
+     "vn": "Trời lạnh rồi, mặc áo khoác dày một chút."
+    },
+    {
+     "t": "Chê",
+     "zh": "他臉皮真厚，又來借錢。",
+     "vn": "Anh ta mặt dày thật, lại đến mượn tiền."
+    }
+   ]
+  },
+  "黃": {
+   "vn": "vàng (màu)",
+   "ng": [
+    "(tính từ) màu vàng"
+   ],
+   "us": "黃色 / 黃金 / 變黃.",
+   "co": [
+    "黃色|màu vàng",
+    "黃金|vàng (kim loại)",
+    "黃燈|đèn vàng"
+   ],
+   "mh": "Hoàng → huáng. ĐỌC: 'hoàng' → huáng (thanh 2). NGHĨA: giống 'hoàng' (màu vàng, như 'Hoàng Hà').",
+   "lt": "黃色 trong một số ngữ cảnh còn mang nghĩa 'đồi trụy' (黃色笑話).",
+   "vd": [
+    {
+     "t": "Màu",
+     "zh": "香蕉是黃色的。",
+     "vn": "Chuối có màu vàng."
+    },
+    {
+     "t": "Mùa thu",
+     "zh": "秋天葉子變黃了。",
+     "vn": "Mùa thu lá chuyển vàng."
+    },
+    {
+     "t": "Giao thông",
+     "zh": "黃燈的時候要慢下來。",
+     "vn": "Khi đèn vàng phải giảm tốc."
+    }
+   ]
+  },
+  "激烈": {
+   "vn": "kịch liệt; gay gắt",
+   "ng": [
+    "(tính từ) kịch liệt, gay gắt"
+   ],
+   "us": "競爭很激烈 / 激烈的比賽 / 激烈討論.",
+   "co": [
+    "競爭激烈|cạnh tranh gay gắt",
+    "激烈的比賽|trận đấu kịch tính"
+   ],
+   "mh": "Kích Liệt → jī liè. ĐỌC: 'kích' → jī (k→j); 'liệt' → liè. NGHĨA: giống 'kịch liệt' tiếng Việt.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "這個行業的競爭很激烈。",
+     "vn": "Cạnh tranh trong ngành này rất gay gắt."
+    },
+    {
+     "t": "Thể thao",
+     "zh": "這場比賽非常激烈。",
+     "vn": "Trận đấu này vô cùng kịch tính."
+    },
+    {
+     "t": "Họp",
+     "zh": "大家討論得很激烈。",
+     "vn": "Mọi người thảo luận rất sôi nổi."
+    }
+   ]
+  },
+  "假": {
+   "vn": "giả; kỳ nghỉ",
+   "ng": [
+    "(tính từ) giả (jiǎ)",
+    "(danh từ) kỳ nghỉ (jià)"
+   ],
+   "us": "假的 = đồ giả. 放假 (fàngjià) = nghỉ. 請假 = xin nghỉ.",
+   "co": [
+    "假的|giả",
+    "放假|nghỉ lễ",
+    "暑假|nghỉ hè"
+   ],
+   "an": [
+    "真|thật"
+   ],
+   "mh": "Giả → jiǎ / jià. ĐỌC: 'giả' → jiǎ (gi→j) khi là 'giả'; jià (thanh 4) khi là 'kỳ nghỉ'. NGHĨA: giống 'giả' (giả mạo).",
+   "lt": "假 = jiǎ (giả) / jià (kỳ nghỉ: 放假, 請假).",
+   "vd": [
+    {
+     "t": "Mua sắm",
+     "zh": "這個包包是假的。",
+     "vn": "Cái túi này là hàng giả."
+    },
+    {
+     "t": "Nghỉ lễ",
+     "zh": "明天放假，不用上班。",
+     "vn": "Mai được nghỉ, không phải đi làm."
+    },
+    {
+     "t": "Nghi ngờ",
+     "zh": "你說的是真的還是假的？",
+     "vn": "Bạn nói thật hay giả vậy?"
+    }
+   ]
+  },
+  "緊": {
+   "vn": "chặt; căng; gấp",
+   "ng": [
+    "(tính từ) chặt, chật",
+    "(tính từ) căng thẳng, gấp",
+    "(tính từ) eo hẹp (tiền)"
+   ],
+   "us": "太緊了 (chật quá) / 抓緊 / 時間很緊 / 手頭緊 (túng tiền).",
+   "co": [
+    "抓緊|nắm chặt; tranh thủ",
+    "時間很緊|thời gian gấp",
+    "緊張|căng thẳng"
+   ],
+   "an": [
+    "鬆|lỏng"
+   ],
+   "mh": "Khẩn → jǐn. ĐỌC: 'khẩn' → jǐn (kh→j). NGHĨA: giống 'khẩn' (khẩn cấp, khẩn trương).",
+   "vd": [
+    {
+     "t": "Quần áo",
+     "zh": "這條褲子太緊了。",
+     "vn": "Chiếc quần này chật quá."
+    },
+    {
+     "t": "Thời gian",
+     "zh": "時間很緊，我們快一點。",
+     "vn": "Thời gian gấp, mình nhanh lên."
+    },
+    {
+     "t": "An toàn",
+     "zh": "坐車要抓緊扶手。",
+     "vn": "Đi xe phải nắm chặt tay vịn."
+    }
+   ]
+  },
+  "寬": {
+   "vn": "rộng",
+   "ng": [
+    "(tính từ) rộng (chiều ngang)",
+    "(tính từ) rộng lượng"
+   ],
+   "us": "很寬 / 寬度 / 心寬 (rộng lượng).",
+   "co": [
+    "寬度|chiều rộng",
+    "寬鬆|rộng rãi (quần áo)"
+   ],
+   "an": [
+    "窄|hẹp"
+   ],
+   "mh": "Khoan → kuān. ĐỌC: 'khoan' → kuān (kh→k). NGHĨA: giống 'khoan' (khoan dung = rộng lượng).",
+   "vd": [
+    {
+     "t": "Đường",
+     "zh": "這條路很寬，車很多。",
+     "vn": "Con đường này rất rộng, xe rất nhiều."
+    },
+    {
+     "t": "Quần áo",
+     "zh": "我喜歡穿寬一點的衣服。",
+     "vn": "Tôi thích mặc đồ rộng một chút."
+    },
+    {
+     "t": "Đo",
+     "zh": "這張桌子寬八十公分。",
+     "vn": "Cái bàn này rộng 80 cm."
+    }
+   ]
+  },
+  "藍": {
+   "vn": "xanh dương; xanh lam",
+   "ng": [
+    "(tính từ) xanh lam"
+   ],
+   "us": "藍色 / 藍天 (trời xanh).",
+   "co": [
+    "藍色|màu xanh dương",
+    "藍天|trời xanh"
+   ],
+   "cf": [
+    "綠|xanh lá",
+    "青|xanh (lam/lục)"
+   ],
+   "mh": "Lam → lán. ĐỌC: 'lam' → lán (-am→-an, thanh 2). NGHĨA: giống 'lam' (xanh lam).",
+   "vd": [
+    {
+     "t": "Thời tiết",
+     "zh": "今天的天空好藍。",
+     "vn": "Bầu trời hôm nay xanh quá."
+    },
+    {
+     "t": "Màu",
+     "zh": "我想買一件藍色的襯衫。",
+     "vn": "Tôi muốn mua một chiếc sơ mi màu xanh dương."
+    },
+    {
+     "t": "Biển",
+     "zh": "墾丁的海又藍又清。",
+     "vn": "Biển Khẩn Đinh vừa xanh vừa trong."
+    }
+   ]
+  },
+  "亮": {
+   "vn": "sáng",
+   "ng": [
+    "(tính từ) sáng",
+    "(động từ) sáng lên"
+   ],
+   "us": "天亮了 / 很亮 / 燈亮了.",
+   "co": [
+    "天亮|trời sáng",
+    "漂亮|đẹp",
+    "月亮|mặt trăng"
+   ],
+   "an": [
+    "暗|tối",
+    "黑|tối"
+   ],
+   "mh": "Lượng → liàng. ĐỌC: 'lượng' → liàng (-ương→-iang). NGHĨA: 'lượng' = sáng (như 'minh lượng'). Có trong 漂亮 (đẹp), 月亮 (trăng).",
+   "vd": [
+    {
+     "t": "Buổi sáng",
+     "zh": "天亮了，起床吧。",
+     "vn": "Trời sáng rồi, dậy thôi."
+    },
+    {
+     "t": "Phòng",
+     "zh": "這個房間很亮。",
+     "vn": "Phòng này rất sáng."
+    },
+    {
+     "t": "Đèn",
+     "zh": "燈怎麼不亮了？",
+     "vn": "Sao đèn không sáng nữa?"
+    }
+   ]
+  },
+  "良好": {
+   "vn": "tốt đẹp",
+   "ng": [
+    "(tính từ) tốt (trang trọng)"
+   ],
+   "us": "Văn viết: 良好的關係, 狀況良好.",
+   "co": [
+    "良好的習慣|thói quen tốt",
+    "表現良好|biểu hiện tốt"
+   ],
+   "sy": [
+    "好|tốt"
+   ],
+   "mh": "Lương Hảo → liáng hǎo. ĐỌC: 'lương' → liáng (-ương→-iang); 'hảo' → hǎo. NGHĨA: 'lương' (lương thiện) + 'hảo' → tốt.",
+   "vd": [
+    {
+     "t": "Thói quen",
+     "zh": "從小要養成良好的習慣。",
+     "vn": "Từ nhỏ phải tập thói quen tốt."
+    },
+    {
+     "t": "Quan hệ",
+     "zh": "兩家公司保持良好的關係。",
+     "vn": "Hai công ty duy trì quan hệ tốt đẹp."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "病人的情況良好。",
+     "vn": "Tình trạng bệnh nhân tốt."
+    }
+   ]
+  },
+  "綠": {
+   "vn": "xanh lá",
+   "ng": [
+    "(tính từ) xanh lá cây"
+   ],
+   "us": "綠色 / 綠燈 / 綠茶.",
+   "co": [
+    "綠燈|đèn xanh",
+    "綠茶|trà xanh",
+    "綠色|màu xanh lá"
+   ],
+   "cf": [
+    "藍|xanh dương"
+   ],
+   "mh": "Lục → lǜ. ĐỌC: 'lục' → lǜ (thanh 4, chú ý ü). NGHĨA: giống 'lục' (xanh lục).",
+   "lt": "Đèn giao thông 'xanh' là 綠燈, không phải 藍燈.",
+   "vd": [
+    {
+     "t": "Giao thông",
+     "zh": "綠燈了，可以走了。",
+     "vn": "Đèn xanh rồi, đi được rồi."
+    },
+    {
+     "t": "Đồ uống",
+     "zh": "我要一杯無糖綠茶。",
+     "vn": "Cho tôi một ly trà xanh không đường."
+    },
+    {
+     "t": "Thiên nhiên",
+     "zh": "春天的山都變綠了。",
+     "vn": "Mùa xuân núi đồi đều xanh."
+    }
+   ]
+  },
+  "美好": {
+   "vn": "tốt đẹp",
+   "ng": [
+    "(tính từ) tốt đẹp (cuộc sống, kỷ niệm)"
+   ],
+   "us": "美好的回憶 / 美好的未來.",
+   "co": [
+    "美好的回憶|kỷ niệm đẹp",
+    "美好的未來|tương lai tươi đẹp"
+   ],
+   "mh": "Mỹ Hảo → měi hǎo. ĐỌC: 'mỹ' → měi; 'hảo' → hǎo. Hai thanh 3 → méi hǎo. NGHĨA: 'đẹp và tốt'.",
+   "vd": [
+    {
+     "t": "Kỷ niệm",
+     "zh": "在台灣的日子是我最美好的回憶。",
+     "vn": "Những ngày ở Đài Loan là kỷ niệm đẹp nhất của tôi."
+    },
+    {
+     "t": "Chúc",
+     "zh": "祝你有美好的一天！",
+     "vn": "Chúc bạn một ngày tốt đẹp!"
+    },
+    {
+     "t": "Tương lai",
+     "zh": "我相信未來會更美好。",
+     "vn": "Tôi tin tương lai sẽ tốt đẹp hơn."
+    }
+   ]
+  },
+  "迷人": {
+   "vn": "mê hoặc; quyến rũ",
+   "ng": [
+    "(tính từ) quyến rũ, làm say mê"
+   ],
+   "us": "很迷人 / 迷人的風景.",
+   "co": [
+    "迷人的笑容|nụ cười quyến rũ",
+    "迷人的夜景|cảnh đêm mê hồn"
+   ],
+   "sy": [
+    "吸引人|hấp dẫn"
+   ],
+   "mh": "Mê Nhân → mí rén. ĐỌC: 'mê' → mí; 'nhân' → rén. NGHĨA: 'làm người ta mê'.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "淡水的夕陽非常迷人。",
+     "vn": "Hoàng hôn ở Đạm Thủy vô cùng mê hồn."
+    },
+    {
+     "t": "Con người",
+     "zh": "她的笑容很迷人。",
+     "vn": "Nụ cười của cô ấy rất quyến rũ."
+    },
+    {
+     "t": "Thành phố",
+     "zh": "台北的夜景很迷人。",
+     "vn": "Cảnh đêm Đài Bắc rất cuốn hút."
+    }
+   ]
+  },
+  "明顯": {
+   "vn": "rõ ràng; rõ rệt",
+   "ng": [
+    "(tính từ) rõ ràng, rõ rệt"
+   ],
+   "us": "很明顯 / 明顯的進步.",
+   "co": [
+    "很明顯|rất rõ",
+    "明顯進步|tiến bộ rõ rệt"
+   ],
+   "sy": [
+    "清楚|rõ ràng"
+   ],
+   "mh": "Minh Hiển → míng xiǎn. ĐỌC: 'minh' → míng; 'hiển' → xiǎn (h→x). NGHĨA: 'minh' sáng + 'hiển' hiện rõ.",
+   "vd": [
+    {
+     "t": "Học",
+     "zh": "你的中文有明顯的進步。",
+     "vn": "Tiếng Hoa của bạn có tiến bộ rõ rệt."
+    },
+    {
+     "t": "Nhận xét",
+     "zh": "很明顯，他不想去。",
+     "vn": "Rõ ràng là anh ấy không muốn đi."
+    },
+    {
+     "t": "Thời tiết",
+     "zh": "這幾天氣溫明顯下降了。",
+     "vn": "Mấy hôm nay nhiệt độ giảm rõ rệt."
+    }
+   ]
+  },
+  "難看": {
+   "vn": "khó coi; xấu",
+   "ng": [
+    "(tính từ) xấu, khó coi",
+    "(tính từ) (sắc mặt) khó chịu"
+   ],
+   "us": "很難看 / 臉色難看.",
+   "co": [
+    "臉色難看|sắc mặt khó coi",
+    "很難看|rất xấu"
+   ],
+   "sy": [
+    "醜|xấu"
+   ],
+   "an": [
+    "好看|đẹp"
+   ],
+   "mh": "Nan Khán → nán kàn. ĐỌC: 'nan' → nán; 'khán' → kàn (kh→k). NGHĨA: 'khó (nan) nhìn (khán)'.",
+   "vd": [
+    {
+     "t": "Thời trang",
+     "zh": "這個顏色很難看。",
+     "vn": "Màu này rất khó coi."
+    },
+    {
+     "t": "Sức khỏe",
+     "zh": "你臉色很難看，生病了嗎？",
+     "vn": "Sắc mặt bạn tệ quá, ốm à?"
+    },
+    {
+     "t": "Phim",
+     "zh": "這部電影真難看。",
+     "vn": "Bộ phim này dở thật."
+    }
+   ]
+  },
+  "平": {
+   "vn": "bằng phẳng; bình",
+   "ng": [
+    "(tính từ) bằng phẳng",
+    "(tính từ) hòa, ngang (tỷ số)"
+   ],
+   "us": "路很平 / 平手 (hòa) / 平安.",
+   "co": [
+    "平手|hòa",
+    "平地|đất bằng",
+    "平常|bình thường"
+   ],
+   "mh": "Bình → píng. ĐỌC: 'bình' → píng (b→p). NGHĨA: giống 'bình' (bình an, bình đẳng, hòa bình).",
+   "vd": [
+    {
+     "t": "Đường",
+     "zh": "這條路不平，騎車要小心。",
+     "vn": "Đường này không bằng phẳng, đi xe cẩn thận."
+    },
+    {
+     "t": "Thể thao",
+     "zh": "兩隊打成平手。",
+     "vn": "Hai đội hòa nhau."
+    },
+    {
+     "t": "Bàn",
+     "zh": "桌子放平一點。",
+     "vn": "Đặt bàn cho phẳng một chút."
+    }
+   ]
+  },
+  "普遍": {
+   "vn": "phổ biến",
+   "ng": [
+    "(tính từ) phổ biến"
+   ],
+   "us": "很普遍 / 普遍的現象.",
+   "co": [
+    "普遍的現象|hiện tượng phổ biến",
+    "普遍認為|thường cho rằng"
+   ],
+   "sy": [
+    "常見|thường thấy"
+   ],
+   "mh": "Phổ Biến → pǔ biàn. ĐỌC: 'phổ' → pǔ (ph→p); 'biến' → biàn. NGHĨA: giống tiếng Việt.",
+   "vd": [
+    {
+     "t": "Xã hội",
+     "zh": "在台灣，騎機車很普遍。",
+     "vn": "Ở Đài Loan, đi xe máy rất phổ biến."
+    },
+    {
+     "t": "Công nghệ",
+     "zh": "手機付款越來越普遍。",
+     "vn": "Thanh toán bằng điện thoại ngày càng phổ biến."
+    },
+    {
+     "t": "Ý kiến",
+     "zh": "大家普遍認為這個方法比較好。",
+     "vn": "Mọi người thường cho rằng cách này tốt hơn."
+    }
+   ]
+  },
+  "清": {
+   "vn": "trong; rõ",
+   "ng": [
+    "(tính từ) trong (nước)",
+    "(tính từ) rõ ràng (清楚)",
+    "(động từ) thanh toán hết (還清)"
+   ],
+   "us": "水很清 / 說清楚 / 還清 (trả hết nợ).",
+   "co": [
+    "清楚|rõ ràng",
+    "還清|trả hết",
+    "清水|nước trong"
+   ],
+   "an": [
+    "混|đục"
+   ],
+   "mh": "Thanh → qīng. ĐỌC: 'thanh' → qīng (th→q, -anh→-ing). NGHĨA: giống 'thanh' (thanh khiết, trong).",
+   "vd": [
+    {
+     "t": "Thiên nhiên",
+     "zh": "這條河的水很清。",
+     "vn": "Nước con sông này rất trong."
+    },
+    {
+     "t": "Nói",
+     "zh": "請你說清楚一點。",
+     "vn": "Bạn nói rõ hơn một chút."
+    },
+    {
+     "t": "Nợ",
+     "zh": "我終於把錢還清了。",
+     "vn": "Cuối cùng tôi đã trả hết tiền."
+    }
+   ]
+  },
+  "弱": {
+   "vn": "yếu",
+   "ng": [
+    "(tính từ) yếu"
+   ],
+   "us": "身體很弱 / 弱點 (điểm yếu) / 訊號弱 (sóng yếu).",
+   "co": [
+    "弱點|điểm yếu",
+    "訊號很弱|sóng yếu"
+   ],
+   "an": [
+    "強|mạnh"
+   ],
+   "mh": "Nhược → ruò. ĐỌC: 'nhược' → ruò (nh→r). NGHĨA: giống 'nhược' (nhược điểm, suy nhược).",
+   "vd": [
+    {
+     "t": "Sức khỏe",
+     "zh": "她身體比較弱，常常感冒。",
+     "vn": "Cô ấy thể trạng yếu, hay bị cảm."
+    },
+    {
+     "t": "Điện thoại",
+     "zh": "這裡的訊號很弱。",
+     "vn": "Sóng ở đây rất yếu."
+    },
+    {
+     "t": "Học",
+     "zh": "我的弱點是聽力。",
+     "vn": "Điểm yếu của tôi là kỹ năng nghe."
+    }
+   ]
+  },
+  "生動": {
+   "vn": "sinh động",
+   "ng": [
+    "(tính từ) sinh động"
+   ],
+   "us": "很生動 / 生動的描寫.",
+   "co": [
+    "生動有趣|sinh động thú vị"
+   ],
+   "mh": "Sinh Động → shēng dòng. ĐỌC: 'sinh' → shēng; 'động' → dòng. NGHĨA: giống tiếng Việt.",
+   "vd": [
+    {
+     "t": "Lớp học",
+     "zh": "老師上課很生動。",
+     "vn": "Thầy giảng bài rất sinh động."
+    },
+    {
+     "t": "Văn học",
+     "zh": "這本小說寫得很生動。",
+     "vn": "Cuốn tiểu thuyết này viết rất sinh động."
+    },
+    {
+     "t": "Kể chuyện",
+     "zh": "他說故事說得非常生動。",
+     "vn": "Anh ấy kể chuyện vô cùng sinh động."
+    }
+   ]
+  },
+  "特色": {
+   "vn": "đặc sắc; nét riêng",
+   "ng": [
+    "(danh từ) nét đặc trưng, đặc sắc"
+   ],
+   "us": "有特色 / 地方特色 / 特色菜.",
+   "co": [
+    "特色菜|món đặc trưng",
+    "很有特色|rất đặc sắc"
+   ],
+   "sy": [
+    "特點|đặc điểm"
+   ],
+   "mh": "Đặc Sắc → tè sè. ĐỌC: 'đặc' → tè (đ→t); 'sắc' → sè. NGHĨA: giống tiếng Việt.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "每個夜市都有自己的特色。",
+     "vn": "Mỗi chợ đêm đều có nét riêng."
+    },
+    {
+     "t": "Nhà hàng",
+     "zh": "這是我們店的特色菜。",
+     "vn": "Đây là món đặc trưng của quán chúng tôi."
+    },
+    {
+     "t": "Kiến trúc",
+     "zh": "這棟房子很有台灣特色。",
+     "vn": "Ngôi nhà này rất mang nét Đài Loan."
+    }
+   ]
+  },
+  "特殊": {
+   "vn": "đặc thù; đặc biệt",
+   "ng": [
+    "(tính từ) đặc biệt, khác thường"
+   ],
+   "us": "特殊情況 / 特殊需要.",
+   "co": [
+    "特殊情況|trường hợp đặc biệt",
+    "特殊需求|nhu cầu đặc biệt"
+   ],
+   "sy": [
+    "特別|đặc biệt"
+   ],
+   "an": [
+    "普通|bình thường"
+   ],
+   "mh": "Đặc Thù → tè shū. ĐỌC: 'đặc' → tè; 'thù' → shū (th→sh). NGHĨA: giống 'đặc thù'.",
+   "vd": [
+    {
+     "t": "Quy định",
+     "zh": "除非有特殊情況，不能請假。",
+     "vn": "Trừ trường hợp đặc biệt, không được xin nghỉ."
+    },
+    {
+     "t": "Ăn uống",
+     "zh": "您有特殊的飲食需求嗎？",
+     "vn": "Quý khách có yêu cầu ăn uống đặc biệt không?"
+    },
+    {
+     "t": "Ý nghĩa",
+     "zh": "這個日子對我來說很特殊。",
+     "vn": "Ngày này với tôi rất đặc biệt."
+    }
+   ]
+  },
+  "偉大": {
+   "vn": "vĩ đại",
+   "ng": [
+    "(tính từ) vĩ đại"
+   ],
+   "us": "偉大的人 / 母愛很偉大.",
+   "co": [
+    "偉大的發明|phát minh vĩ đại",
+    "母愛偉大|tình mẹ vĩ đại"
+   ],
+   "mh": "Vĩ Đại → wěi dà. ĐỌC: 'vĩ' → wěi (v→w); 'đại' → dà. NGHĨA: giống tiếng Việt.",
+   "vd": [
+    {
+     "t": "Gia đình",
+     "zh": "母親的愛是最偉大的。",
+     "vn": "Tình yêu của mẹ là vĩ đại nhất."
+    },
+    {
+     "t": "Lịch sử",
+     "zh": "他是一位偉大的科學家。",
+     "vn": "Ông là một nhà khoa học vĩ đại."
+    },
+    {
+     "t": "Công nghệ",
+     "zh": "電是很偉大的發明。",
+     "vn": "Điện là một phát minh vĩ đại."
+    }
+   ]
+  },
+  "穩定": {
+   "vn": "ổn định",
+   "ng": [
+    "(tính từ) ổn định",
+    "(động từ) làm ổn định"
+   ],
+   "us": "工作穩定 / 情況穩定 / 收入穩定.",
+   "co": [
+    "收入穩定|thu nhập ổn định",
+    "穩定的工作|công việc ổn định"
+   ],
+   "an": [
+    "不穩|bấp bênh"
+   ],
+   "mh": "Ổn Định → wěn dìng. ĐỌC: 'ổn' → wěn; 'định' → dìng. NGHĨA: giống tiếng Việt.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "我想找一份穩定的工作。",
+     "vn": "Tôi muốn tìm một công việc ổn định."
+    },
+    {
+     "t": "Bệnh viện",
+     "zh": "病人的情況已經穩定了。",
+     "vn": "Tình trạng bệnh nhân đã ổn định."
+    },
+    {
+     "t": "Mạng",
+     "zh": "這裡的網路不太穩定。",
+     "vn": "Mạng ở đây không ổn định lắm."
+    }
+   ],
+   "sy": [
+    "平穩|bình ổn, êm ả",
+    "安定|an định (thiên về cuộc sống, xã hội)"
+   ],
+   "cf": [
+    "穩定 vs 固定|穩定 nhấn mạnh trạng thái vững vàng ít dao động (收入穩定, 網路穩定, 情緒穩定); 固定 nhấn mạnh ấn định không đổi lịch/vị trí (固定每週三開會)."
+   ],
+   "lt": "Tính từ / Động từ (穩定下來 ổn định trở lại).",
+   "mk": "Chú ý 穩定 dùng được cả làm động từ: 穩定情緒 (ổn định cảm xúc), 穩定物價 (bình ổn giá cả).",
+   "tw": "Ở Đài Loan tìm việc hay nói 找一份穩定的工作 (tìm một công việc ổn định) và 穩定交往中 (đang hẹn hò nghiêm túc ổn định)."
+  },
+  "細": {
+   "vn": "mảnh; nhỏ; tỉ mỉ",
+   "ng": [
+    "(tính từ) mảnh, nhỏ",
+    "(tính từ) tỉ mỉ, kỹ"
+   ],
+   "us": "很細 / 細心 / 仔細.",
+   "co": [
+    "細心|tỉ mỉ",
+    "仔細|kỹ lưỡng",
+    "細節|chi tiết"
+   ],
+   "an": [
+    "粗|thô, to"
+   ],
+   "mh": "Tế → xì. ĐỌC: 'tế' → xì (t→x). NGHĨA: giống 'tế' (tinh tế, tế bào = vật nhỏ).",
+   "vd": [
+    {
+     "t": "Ăn",
+     "zh": "這種麵很細。",
+     "vn": "Loại mì này sợi rất mảnh."
+    },
+    {
+     "t": "Công việc",
+     "zh": "做這個工作要注意細節。",
+     "vn": "Làm việc này phải chú ý chi tiết."
+    },
+    {
+     "t": "Ngoại hình",
+     "zh": "她的手指又細又長。",
+     "vn": "Ngón tay cô ấy vừa mảnh vừa dài."
+    }
+   ]
+  },
+  "詳細": {
+   "vn": "chi tiết; tường tận",
+   "ng": [
+    "(tính từ) chi tiết, cặn kẽ"
+   ],
+   "us": "詳細說明 / 詳細資料.",
+   "co": [
+    "詳細說明|giải thích chi tiết",
+    "詳細地址|địa chỉ cụ thể"
+   ],
+   "sy": [
+    "仔細|kỹ lưỡng"
+   ],
+   "mh": "Tường Tế → xiáng xì. ĐỌC: 'tường' → xiáng (t→x); 'tế' → xì. NGHĨA: 'tường tận và tinh tế'.",
+   "vd": [
+    {
+     "t": "Công việc",
+     "zh": "請詳細說明一下計畫。",
+     "vn": "Vui lòng giải thích chi tiết kế hoạch."
+    },
+    {
+     "t": "Giao hàng",
+     "zh": "請給我詳細的地址。",
+     "vn": "Cho tôi địa chỉ cụ thể."
+    },
+    {
+     "t": "Thông tin",
+     "zh": "詳細資料請看網站。",
+     "vn": "Thông tin chi tiết xin xem trên website."
+    }
+   ]
+  },
+  "圓": {
+   "vn": "tròn; viên mãn",
+   "ng": [
+    "(tính từ) tròn",
+    "(danh từ) hình tròn",
+    "(động từ) làm tròn (圓夢 thực hiện ước mơ)"
+   ],
+   "us": "圓形 / 圓圓的 / 團圓 (đoàn viên).",
+   "co": [
+    "圓形|hình tròn",
+    "團圓|đoàn viên",
+    "圓夢|thực hiện ước mơ"
+   ],
+   "an": [
+    "方|vuông"
+   ],
+   "mh": "Viên → yuán. ĐỌC: 'viên' → yuán (v→y). NGHĨA: giống 'viên' (viên mãn, tròn trịa); trăng rằm 月圓.",
+   "vd": [
+    {
+     "t": "Trung thu",
+     "zh": "中秋節的月亮又大又圓。",
+     "vn": "Trăng Trung thu vừa to vừa tròn."
+    },
+    {
+     "t": "Hình",
+     "zh": "這張桌子是圓的。",
+     "vn": "Cái bàn này hình tròn."
+    },
+    {
+     "t": "Ước mơ",
+     "zh": "他終於圓了出國留學的夢。",
+     "vn": "Anh ấy cuối cùng đã thực hiện ước mơ du học."
+    }
+   ]
+  },
+  "珍貴": {
+   "vn": "quý giá",
+   "ng": [
+    "(tính từ) quý giá, quý báu"
+   ],
+   "us": "很珍貴 / 珍貴的回憶.",
+   "co": [
+    "珍貴的回憶|kỷ niệm quý giá",
+    "珍貴的禮物|món quà quý"
+   ],
+   "sy": [
+    "寶貴|quý báu"
+   ],
+   "mh": "Trân Quý → zhēn guì. ĐỌC: 'trân' → zhēn (tr→zh); 'quý' → guì. NGHĨA: giống 'trân quý'.",
+   "vd": [
+    {
+     "t": "Kỷ niệm",
+     "zh": "這張照片對我來說很珍貴。",
+     "vn": "Bức ảnh này với tôi rất quý giá."
+    },
+    {
+     "t": "Thời gian",
+     "zh": "時間是最珍貴的。",
+     "vn": "Thời gian là thứ quý giá nhất."
+    },
+    {
+     "t": "Bảo tàng",
+     "zh": "博物館裡有很多珍貴的古董。",
+     "vn": "Bảo tàng có nhiều đồ cổ quý giá."
+    }
+   ]
+  },
+  "真實": {
+   "vn": "chân thật; có thật",
+   "ng": [
+    "(tính từ) thật, chân thực"
+   ],
+   "us": "真實的故事 / 真實的想法.",
+   "co": [
+    "真實的故事|câu chuyện có thật",
+    "真實姓名|tên thật"
+   ],
+   "sy": [
+    "真|thật"
+   ],
+   "an": [
+    "虛假|giả dối"
+   ],
+   "mh": "Chân Thực → zhēn shí. ĐỌC: 'chân' → zhēn; 'thực' → shí. NGHĨA: giống 'chân thực'.",
+   "vd": [
+    {
+     "t": "Phim",
+     "zh": "這部電影是根據真實的故事改編的。",
+     "vn": "Bộ phim chuyển thể từ câu chuyện có thật."
+    },
+    {
+     "t": "Thật lòng",
+     "zh": "說出你真實的想法吧。",
+     "vn": "Nói ra suy nghĩ thật của bạn đi."
+    },
+    {
+     "t": "Mạng",
+     "zh": "網路上的消息不一定真實。",
+     "vn": "Tin trên mạng chưa chắc đã thật."
+    }
+   ]
+  },
+  "整齊": {
+   "vn": "ngăn nắp; gọn gàng",
+   "ng": [
+    "(tính từ) ngay ngắn, gọn gàng"
+   ],
+   "us": "很整齊 / 排得很整齊.",
+   "co": [
+    "排整齊|xếp ngay ngắn",
+    "整整齊齊|ngăn nắp"
+   ],
+   "an": [
+    "亂|bừa bộn"
+   ],
+   "mh": "Chỉnh Tề → zhěng qí. ĐỌC: 'chỉnh' → zhěng; 'tề' → qí (t→q). NGHĨA: giống 'chỉnh tề'.",
+   "vd": [
+    {
+     "t": "Phòng",
+     "zh": "她的房間總是很整齊。",
+     "vn": "Phòng cô ấy lúc nào cũng gọn gàng."
+    },
+    {
+     "t": "Xếp hàng",
+     "zh": "大家排隊排得很整齊。",
+     "vn": "Mọi người xếp hàng rất ngay ngắn."
+    },
+    {
+     "t": "Ăn mặc",
+     "zh": "面試要穿得整齊一點。",
+     "vn": "Đi phỏng vấn phải ăn mặc chỉnh tề."
+    }
+   ]
+  },
+  "著名": {
+   "vn": "nổi tiếng; trứ danh",
+   "ng": [
+    "(tính từ) nổi tiếng (văn viết)"
+   ],
+   "us": "Văn viết của 有名: 著名的景點.",
+   "co": [
+    "著名景點|thắng cảnh nổi tiếng",
+    "著名作家|nhà văn nổi tiếng"
+   ],
+   "sy": [
+    "有名|nổi tiếng"
+   ],
+   "mh": "Trứ Danh → zhù míng. ĐỌC: 'trứ' → zhù (tr→zh); 'danh' → míng. NGHĨA: giống 'trứ danh'.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "日月潭是台灣著名的景點。",
+     "vn": "Nhật Nguyệt Đàm là thắng cảnh nổi tiếng của Đài Loan."
+    },
+    {
+     "t": "Văn học",
+     "zh": "他是一位著名的作家。",
+     "vn": "Ông là một nhà văn nổi tiếng."
+    },
+    {
+     "t": "Ẩm thực",
+     "zh": "這家店的牛肉麵很著名。",
+     "vn": "Mì bò quán này rất nổi tiếng."
+    }
+   ]
+  },
+  "最佳": {
+   "vn": "tốt nhất; xuất sắc nhất",
+   "ng": [
+    "(tính từ) tốt nhất (văn viết)"
+   ],
+   "us": "最佳選擇 / 最佳男主角 (nam chính xuất sắc nhất).",
+   "co": [
+    "最佳選擇|lựa chọn tốt nhất",
+    "最佳時間|thời điểm tốt nhất"
+   ],
+   "sy": [
+    "最好|tốt nhất"
+   ],
+   "mh": "Tối Giai → zuì jiā. ĐỌC: 'tối' → zuì; 'giai' → jiā (gi→j). NGHĨA: 'giai' = đẹp, tốt (như 'giai nhân') → tốt nhất.",
+   "vd": [
+    {
+     "t": "Du lịch",
+     "zh": "秋天是去日本的最佳時間。",
+     "vn": "Mùa thu là thời điểm tốt nhất để đi Nhật."
+    },
+    {
+     "t": "Giải thưởng",
+     "zh": "他得了最佳男主角獎。",
+     "vn": "Anh ấy đoạt giải nam chính xuất sắc nhất."
+    },
+    {
+     "t": "Lựa chọn",
+     "zh": "這是最佳的選擇。",
+     "vn": "Đây là lựa chọn tốt nhất."
+    }
+   ]
+  }
+ }
+}
