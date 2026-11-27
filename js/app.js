@@ -3627,7 +3627,7 @@ function ensureRadicalNotes() {
     kind: "vocab",
     badge: "Khang Hy • 部首",
     emoji: "🧩",
-    sub: "60 bộ thủ chữ Hán Phồn thể cốt lõi giúp nhớ nhanh cấu trúc và đoán nghĩa từ vựng TOCFL.",
+    sub: `${KANGXI_RADICALS.length} bộ thủ chữ Hán Phồn thể cốt lõi giúp nhớ nhanh cấu trúc và đoán nghĩa từ vựng TOCFL.`,
     items: KANGXI_RADICALS.map((rad) => ({
       w: rad.r,
       py: rad.py,
@@ -4092,10 +4092,25 @@ VIEWS["thu-muc"] = (id) => {
   const vocab = S.notes.filter((n) => n.kind === "vocab");
   const c = todayCounts();
 
+  const isGroupRoute = Boolean(id && String(id).startsWith("nhom/"));
+  const activeGroup = isGroupRoute ? String(id).slice(5) : null;
+
+  const parentGroupOfFolder = (fid) => {
+    if (!fid) return null;
+    if (fid === "bo-thu") return { id: "radicals", label: "Bộ thủ chữ Hán" };
+    if (S.bands.includes(fid)) return { id: "bands", label: "Cấp độ TOCFL" };
+    if (String(fid).startsWith("lop-")) return { id: "lop", label: "Lớp học" };
+    const dk = (S.decks || []).find((d) => d.id === fid);
+    if (String(fid).startsWith("cd-") || (dk && (dk.category === "topic" || dk.id.startsWith("band-")))) {
+      return { id: "topics", label: "Từ vựng theo Chủ đề" };
+    }
+    return { id: "personal", label: "Của tôi" };
+  };
+
   // -------------------------------------------------------------
   // TRƯỜNG HỢP 1: XEM CHI TIẾT MỘT THƯ MỤC CỤ THỂ (id)
   // -------------------------------------------------------------
-  if (id) {
+  if (id && !isGroupRoute) {
     if (id === "bo-thu") {
       setView(`<div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg">${renderRadicalsSectionHTML(true)}</div>`);
       bindRadicalsSectionEvents(document);
@@ -4105,11 +4120,13 @@ VIEWS["thu-muc"] = (id) => {
       const weakNotes = vocab.filter((n) => noteLapses(n) > 0 || noteLevel(n) === 1);
       setView(`
         <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
-          <div class="flex items-center gap-2">
-            <a href="#thu-muc" class="text-primary hover:underline text-sm font-semibold flex items-center gap-1 no-underline">
+          <div class="flex items-center gap-1.5 flex-wrap text-sm">
+            <a href="#thu-muc" class="text-primary hover:underline font-semibold inline-flex items-center gap-1 no-underline">
               <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-              <span>Trung tâm Từ vựng</span>
+              <span>Thư mục mẹ</span>
             </a>
+            <span class="text-outline">/</span>
+            <a href="#thu-muc/nhom/personal" class="text-on-surface-variant hover:text-primary hover:underline font-medium no-underline">Của tôi</a>
           </div>
           <div class="bg-paper-card rounded-2xl p-4 sm:p-space-lg border border-border-subtle shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md">
             <div>
@@ -4187,10 +4204,14 @@ VIEWS["thu-muc"] = (id) => {
         <div class="w-full max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-md md:py-space-lg flex flex-col gap-space-md min-w-0">
           <!-- Back navigation -->
           <div class="flex items-center justify-between gap-2 flex-wrap">
-            <a href="#thu-muc" class="text-secondary hover:underline text-sm font-semibold flex items-center gap-1.5 transition-colors no-underline">
-              <span class="material-symbols-outlined text-[20px]">arrow_back</span>
-              <span>Tất cả thư mục</span>
-            </a>
+            <div class="flex items-center gap-1.5 flex-wrap text-sm">
+              <a href="#thu-muc" class="text-secondary hover:underline font-semibold inline-flex items-center gap-1 transition-colors no-underline">
+                <span class="material-symbols-outlined text-[20px]">arrow_back</span>
+                <span>Thư mục mẹ</span>
+              </a>
+              <span class="text-outline">/</span>
+              <a href="#thu-muc/nhom/topics" class="text-on-surface-variant hover:text-secondary hover:underline font-medium no-underline">Từ vựng theo Chủ đề</a>
+            </div>
             <span class="text-xs text-outline font-code">Chủ đề chuẩn TOCFL 2024</span>
           </div>
 
@@ -4352,13 +4373,15 @@ VIEWS["thu-muc"] = (id) => {
     const PAGE_SIZE = 90;
     let shownLimit = PAGE_SIZE;
 
+    const parentGrp = parentGroupOfFolder(id);
     setView(`
       <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
-        <div class="flex items-center gap-2">
-          <a href="#thu-muc" class="text-primary hover:underline text-sm font-semibold flex items-center gap-1 no-underline">
+        <div class="flex items-center gap-1.5 flex-wrap text-sm">
+          <a href="#thu-muc" class="text-primary hover:underline font-semibold inline-flex items-center gap-1 no-underline">
             <span class="material-symbols-outlined text-[18px]">arrow_back</span>
-            <span>Tất cả thư mục</span>
+            <span>Thư mục mẹ</span>
           </a>
+          ${parentGrp ? `<span class="text-outline">/</span><a href="#thu-muc/nhom/${encodeURIComponent(parentGrp.id)}" class="text-on-surface-variant hover:text-primary hover:underline font-medium no-underline">${esc(parentGrp.label)}</a>` : ""}
         </div>
         <div class="bg-paper-card rounded-2xl p-space-md sm:p-space-lg border border-border-subtle shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md">
           <div class="flex flex-col gap-1 min-w-0">
@@ -4499,7 +4522,7 @@ VIEWS["thu-muc"] = (id) => {
   }
 
   // -------------------------------------------------------------
-  // TRƯỜNG HỢP 2: TRANG TỔNG QUAN TỪ VỰNG (đơn giản: Tra nhanh | Thư mục + Tiến độ)
+  // TRƯỜNG HỢP 2: TRANG TỔNG QUAN TỪ VỰNG (Nhóm theo Thư mục mẹ | Tra nhanh + Tiến độ)
   // -------------------------------------------------------------
   const lvAll = [0, 0, 0, 0, 0, 0];
   vocab.forEach((n) => lvAll[noteLevel(n)]++);
@@ -4509,28 +4532,57 @@ VIEWS["thu-muc"] = (id) => {
     const l = ns.filter((n) => noteLevel(n) > 0).length;
     return { learned: l, total: ns.length, pct: ns.length ? Math.round((l / ns.length) * 100) : 0 };
   };
-  const mkFolder = (id, cat, iconText, title, sub, ns) => ({ id, cat, iconText, title, sub, ...folderStat(ns), isBand: S.bands.includes(id), isLearning: folderOn(id) });
+  const mkFolder = (fid, cat, iconText, title, sub, ns) => ({
+    id: fid, cat, iconText, title, sub, ...folderStat(ns), _notes: ns, isBand: S.bands.includes(fid), isLearning: folderOn(fid)
+  });
   const decks = S.decks || [];
   const lopDecks = decks.filter((d) => d.id.startsWith("lop-"));
   const ownDecks = decks.filter((d) => !d.id.startsWith("lop-") && d.category !== "topic" && !d.id.startsWith("band-") && d.id !== "tu-viet-tat");
   const topicDecks = decks.filter((d) => d.category === "topic" || d.id.startsWith("band-"));
   const allFolderItems = [
     mkFolder("cua-toi", "personal", "我", "Thư mục của tôi", "Tất cả từ có giải thích đầy đủ, từ tự thêm và từ trong hộp nhận.", folderNotes("cua-toi")),
-    ...lopDecks.map((d) => mkFolder(d.id, "lop", d.kind === "grammar" ? "法" : "課", d.name, d.kind === "grammar" ? "Ngữ pháp chép trong vở lớp học." : "Từ chép trong vở lớp học.", folderNotes(d.id))),
+    mkFolder("hay-quen", "personal", "忘", "Sổ tay từ hay quên", "Các từ từng trả lời sai hoặc đang ở mức Mới học (Cấp 1).", folderNotes("hay-quen")),
     ...ownDecks.map((d) => mkFolder(d.id, "personal", "冊", d.name, d.sub || "Bộ từ đã nhập.", folderNotes(d.id))),
     mkFolder("viet-tat", "personal", "臺", "Khẩu ngữ & từ viết tắt Đài Loan", "北車, 健保, 高鐵… (nguồn 萌典)", folderNotes("viet-tat")),
+    ...lopDecks.map((d) => mkFolder(d.id, "lop", d.kind === "grammar" ? "法" : "課", d.name, d.kind === "grammar" ? "Ngữ pháp chép trong vở lớp học." : "Từ chép trong vở lớp học.", folderNotes(d.id))),
     ...(S.topics || []).map((tp) => mkFolder(tp.id, "topics", tp.icon || "題", tp.vn, `${tp.zh} · ${fmt(tp.words.length)} từ, từ Novice đến C`, folderNotes(tp.id))),
     ...topicDecks.map((d) => mkFolder(d.id, "topics", d.emoji || "題", d.name, d.sub || "Từ theo chủ đề.", folderNotes(d.id))),
     ...S.bands.map((b) => mkFolder(b, "bands", b.replace("Novice ", "N"), `TOCFL ${b}`, BAND_INFO[b] || "", vocab.filter((n) => inBand(n, b)))),
     mkFolder("bo-thu", "radicals", "部", "Bộ thủ chữ Hán", "Bộ thủ cốt lõi và biến thể (氵, 忄, 扌, 艹, 辶…), tập viết và trắc nghiệm.", folderNotes("bo-thu"))
   ];
-  const CATS = [
-    ["all", "Tất cả"], ["personal", "Của tôi"], ["lop", "Lớp học"], ["topics", "Chủ đề"], ["bands", "TOCFL"], ["radicals", "Bộ thủ"]
+
+  const PARENT_GROUP_DEFS = [
+    { id: "personal", shortLabel: "Của tôi", unitLabel: "từ", iconText: "我", title: "Của tôi", sub: "Thư mục cá nhân, từ hay quên, bộ từ đã nhập và khẩu ngữ Đài Loan." },
+    { id: "lop", shortLabel: "Lớp học", unitLabel: "mục", iconText: "課", title: "Lớp học", sub: "Từ vựng và ngữ pháp ghi chép từ vở lớp học." },
+    { id: "topics", shortLabel: "Chủ đề", unitLabel: "từ", iconText: "題", title: "Từ vựng theo Chủ đề", sub: "Từ vựng thực tế phân nhóm theo chủ đề đời sống, công việc và thi cử." },
+    { id: "bands", shortLabel: "TOCFL", unitLabel: "từ", iconText: "級", title: "Cấp độ TOCFL", sub: "Lộ trình chuẩn 7 cấp TOCFL từ Novice 1 đến Band C." },
+    { id: "radicals", shortLabel: "Bộ thủ", unitLabel: "bộ thủ", iconText: "部", title: "Bộ thủ chữ Hán", sub: `${KANGXI_RADICALS.length} bộ thủ Khang Hy cốt lõi và biến thể (氵, 忄, 扌…), tập viết & trắc nghiệm.`, directId: "bo-thu" }
   ];
-  const catCount = (k) => k === "all" ? allFolderItems.length : allFolderItems.filter((f) => f.cat === k).length;
+
+  const parentGroups = PARENT_GROUP_DEFS.map((g) => {
+    const children = allFolderItems.filter((f) => f.cat === g.id);
+    const uniqueMap = new Map();
+    for (const ch of children) {
+      if (ch.id === "hay-quen") continue; // virtual smart filter spans all bands; exclude from personal aggregate
+      for (const n of (ch._notes || [])) uniqueMap.set(n.key, n);
+    }
+    const st = folderStat([...uniqueMap.values()]);
+    return { ...g, children, childCount: children.length, ...st };
+  }).filter((g) => g.childCount > 0);
+
+  const parentById = new Map(parentGroups.map((g) => [g.id, g]));
+  const currentGroupKey = activeGroup === "all"
+    ? "all"
+    : (activeGroup && parentById.has(activeGroup) ? activeGroup : null);
+  const currentParent = (currentGroupKey && currentGroupKey !== "all") ? parentById.get(currentGroupKey) : null;
+  if (currentParent && currentParent.directId) {
+    VIEWS["thu-muc"](currentParent.directId);
+    return;
+  }
+
   const pillCls = (on) => on
-    ? "px-3 py-1 rounded-full bg-primary-container text-on-primary text-label-sm font-label-sm font-semibold shadow-sm"
-    : "px-3 py-1 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted text-label-sm font-label-sm border border-border-subtle/70 transition-colors";
+    ? "px-3 py-1 rounded-full bg-primary-container text-on-primary text-label-sm font-label-sm font-semibold shadow-sm no-underline whitespace-nowrap"
+    : "px-3 py-1 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted text-label-sm font-label-sm border border-border-subtle/70 transition-colors no-underline whitespace-nowrap";
 
   const bandRows = S.bands.map((b) => {
     const s = folderStat(vocab.filter((n) => inBand(n, b)));
@@ -4550,7 +4602,7 @@ VIEWS["thu-muc"] = (id) => {
       <section class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md pb-space-md border-b border-border-subtle/70">
         <div>
           <h1 class="font-display text-display text-on-surface tracking-tight font-semibold m-0">Từ vựng <span class="text-outline font-normal text-2xl">詞彙</span></h1>
-          <p class="font-body-md text-body-md text-on-surface-variant m-0 mt-1">Tra từ, chọn thư mục để học, xem tiến độ.</p>
+          <p class="font-body-md text-body-md text-on-surface-variant m-0 mt-1">Tra từ, mở thư mục mẹ để học theo nhóm, xem tiến độ.</p>
         </div>
         <div class="flex flex-wrap items-center gap-space-sm">
           <a href="#nhap" class="min-h-[42px] px-space-md py-2 rounded-lg bg-paper-card border border-border-subtle text-on-surface hover:bg-paper-muted text-label-md font-label-md shadow-sm flex items-center gap-1.5 no-underline">
@@ -4561,7 +4613,7 @@ VIEWS["thu-muc"] = (id) => {
               <span class="material-symbols-outlined text-[18px]">play_circle</span>
               <span class="font-semibold">Học hôm nay</span>
             </span>
-            <span class="px-2 py-0.5 rounded-full bg-on-primary/20 font-code text-xs whitespace-nowrap num">${fmt(c.total)} thẻ · ${fmt(c.due)} ôn · ${fmt(c.fresh)} mới</span>
+            <span id="tv-today-counts" class="px-2 py-0.5 rounded-full bg-on-primary/20 font-code text-xs whitespace-nowrap num">${fmt(c.total)} thẻ · ${fmt(c.due)} ôn · ${fmt(c.fresh)} mới</span>
           </a>
         </div>
       </section>
@@ -4587,15 +4639,49 @@ VIEWS["thu-muc"] = (id) => {
           </div>
         </aside>
 
-        <!-- Cột phải (desktop) / Trên cùng (mobile): Thư mục + Tiến độ -->
+        <!-- Cột phải (desktop) / Trên cùng (mobile): Thư mục mẹ / Thư mục con + Tiến độ -->
         <div class="order-1 lg:order-2 lg:col-span-8 xl:col-span-9 flex flex-col gap-space-lg">
           <section class="flex flex-col gap-space-md">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
               <div class="flex items-center gap-1.5 flex-wrap" id="folderTabs">
-                ${CATS.filter(([k]) => catCount(k)).map(([k, t]) => `<button type="button" class="${pillCls(k === "all")}" data-tab="${k}">${t} (${catCount(k)})</button>`).join("")}
+                <a href="#thu-muc" class="${pillCls(!currentGroupKey)}" data-group-tab="root">Thư mục mẹ (${parentGroups.length})</a>
+                ${parentGroups.map((g) => `<a href="${g.directId ? `#thu-muc/${encodeURIComponent(g.directId)}` : `#thu-muc/nhom/${encodeURIComponent(g.id)}`}" class="${pillCls(currentGroupKey === g.id)}" data-group-tab="${esc(g.id)}">${esc(g.shortLabel)} (${g.childCount})</a>`).join("")}
+                <a href="#thu-muc/nhom/all" class="${pillCls(currentGroupKey === "all")}" data-group-tab="all">Tất cả (${allFolderItems.length})</a>
               </div>
-              <input id="folderSearchInput" class="w-full md:w-60 px-3 py-1.5 rounded-xl bg-paper-card border border-border-subtle focus:border-primary-container text-body-sm text-on-surface outline-none" placeholder="Tìm thư mục…" type="search"/>
+              <input id="folderSearchInput" class="w-full md:w-64 px-3 py-1.5 rounded-xl bg-paper-card border border-border-subtle focus:border-primary-container text-body-sm text-on-surface outline-none" placeholder="${currentParent ? `Tìm trong ${esc(currentParent.title)}…` : `Tìm nhanh ${allFolderItems.length} thư mục…`}" type="search"/>
             </div>
+
+            ${currentParent ? `
+              <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div class="flex items-start gap-3 min-w-0">
+                  <div class="w-11 h-11 shrink-0 rounded-xl bg-surface-container text-on-surface flex items-center justify-center font-headline-md text-xl font-bold">${esc(currentParent.iconText)}</div>
+                  <div class="min-w-0">
+                    <div class="flex items-center gap-2 flex-wrap">
+                      <h2 class="font-headline-md text-lg font-bold text-on-surface m-0">${esc(currentParent.title)}</h2>
+                      <span class="px-2 py-0.5 rounded-md bg-paper-muted text-on-surface-variant border border-border-subtle font-code text-[11px] font-semibold">${currentParent.childCount} thư mục</span>
+                    </div>
+                    <p class="text-xs text-on-surface-variant m-0 mt-0.5">${esc(currentParent.sub)}</p>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between sm:justify-end gap-3 flex-wrap sm:flex-nowrap shrink-0">
+                  <div class="text-left sm:text-right">
+                    <div class="font-code text-xs font-semibold text-on-surface">${fmt(currentParent.learned)} / ${fmt(currentParent.total)} ${esc(currentParent.unitLabel || "từ")} (${currentParent.pct}%)</div>
+                    <div class="w-full max-w-[160px] sm:w-32 sm:ml-auto h-1.5 rounded-full bg-surface-container overflow-hidden mt-1"><div class="h-full rounded-full bg-secondary" style="width:${currentParent.pct}%"></div></div>
+                  </div>
+                  <a href="#thu-muc" class="min-h-[36px] px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold inline-flex items-center gap-1 no-underline whitespace-nowrap">
+                    <span class="material-symbols-outlined text-[16px]">arrow_back</span><span>Quay lại</span>
+                  </a>
+                </div>
+              </div>
+            ` : (currentGroupKey === "all" ? `
+              <div class="flex items-center justify-between gap-2 flex-wrap text-xs text-on-surface-variant">
+                <span>Đang hiển thị toàn bộ <strong class="text-on-surface">${allFolderItems.length} thư mục con</strong>.</span>
+                <a href="#thu-muc" class="text-primary hover:underline font-semibold inline-flex items-center gap-1 no-underline">
+                  <span class="material-symbols-outlined text-[15px]">arrow_back</span>Thu gọn về ${parentGroups.length} thư mục mẹ
+                </a>
+              </div>
+            ` : "")}
+
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-space-md" id="stitch-folders-grid"></div>
           </section>
 
@@ -4682,35 +4768,100 @@ VIEWS["thu-muc"] = (id) => {
     box.querySelectorAll("[data-study]").forEach((b) => { b.onclick = () => startStudyWord(b.dataset.study); });
   };
 
-  // Lưới thư mục
-  let curCat = "all";
-  const renderFolderCards = () => {
-    const q = fold($("#folderSearchInput")?.value || "");
-    const grid = $("#stitch-folders-grid");
-    if (!grid) return;
-    const filtered = allFolderItems.filter((f) => (curCat === "all" || f.cat === curCat) && (!q || fold(f.title).includes(q) || fold(f.sub).includes(q)));
-    grid.innerHTML = filtered.map((f) => `
-      <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_8px_rgba(44,42,41,0.03)] hover:shadow-md transition-shadow flex flex-col gap-space-sm group">
+  // Thẻ thư mục con (dùng khi mở thư mục mẹ, xem tất cả, hoặc gõ tìm kiếm)
+  const renderChildCardHTML = (f, showParentTag) => {
+    const pGrp = showParentTag ? parentById.get(f.cat) : null;
+    const isWeakFolder = f.id === "hay-quen";
+    return `
+      <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_8px_rgba(44,42,41,0.03)] hover:shadow-md hover:border-primary/35 transition-all flex flex-col gap-space-sm group">
         <div class="flex items-start gap-space-sm">
           <a href="#thu-muc/${encodeURIComponent(f.id)}" class="w-10 h-10 shrink-0 rounded-xl bg-surface-container text-on-surface flex items-center justify-center no-underline font-headline-md font-bold">${esc(f.iconText)}</a>
           <div class="min-w-0 flex-1">
             <a href="#thu-muc/${encodeURIComponent(f.id)}" class="no-underline"><h3 class="font-semibold text-on-surface group-hover:text-primary leading-snug m-0">${esc(f.title)}</h3></a>
             <p class="text-xs text-on-surface-variant line-clamp-2 m-0 mt-0.5">${esc(f.sub)}</p>
           </div>
-          ${f.isBand ? `<button type="button" class="shrink-0 min-h-[30px] px-2.5 py-0.5 rounded-lg text-[11px] font-semibold border transition-colors ${f.isLearning ? "bg-jade-subtle text-secondary border-secondary/30" : "bg-paper-muted text-outline border-border-subtle hover:text-on-surface"}" data-toggle-band="${esc(f.id)}">${f.isLearning ? "Đang học" : "+ Bật"}</button>` : ""}
+          ${f.isBand
+            ? `<button type="button" class="shrink-0 min-h-[30px] px-2.5 py-0.5 rounded-lg text-[11px] font-semibold border transition-colors ${f.isLearning ? "bg-jade-subtle text-secondary border-secondary/30" : "bg-paper-muted text-outline border-border-subtle hover:text-on-surface"}" data-toggle-band="${esc(f.id)}">${f.isLearning ? "Đang học" : "+ Bật"}</button>`
+            : (pGrp ? `<span class="shrink-0 px-2 py-0.5 rounded-md bg-paper-muted text-outline border border-border-subtle text-[10px] font-semibold">${esc(pGrp.shortLabel)}</span>` : "")}
         </div>
         <div class="mt-auto">
-          <div class="flex justify-between text-xs mb-1"><span class="text-outline">Đã học</span><span class="font-code text-on-surface font-semibold">${fmt(f.learned)} / ${fmt(f.total)} (${f.pct}%)</span></div>
-          <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full rounded-full bg-secondary" style="width:${f.pct}%"></div></div>
+          ${isWeakFolder ? `
+            <div class="flex justify-between text-xs mb-1"><span class="text-outline">Cần ôn lại</span><span class="font-code text-on-surface font-semibold">${fmt(f.total)} từ</span></div>
+            <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full rounded-full ${f.total ? "bg-tertiary" : "bg-secondary"}" style="width:${f.total ? 100 : 0}%"></div></div>
+          ` : `
+            <div class="flex justify-between text-xs mb-1"><span class="text-outline">Đã học</span><span class="font-code text-on-surface font-semibold">${fmt(f.learned)} / ${fmt(f.total)} (${f.pct}%)</span></div>
+            <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full rounded-full bg-secondary" style="width:${f.pct}%"></div></div>
+          `}
         </div>
         <div class="flex items-center justify-between pt-space-xs border-t border-border-subtle/50">
-          <a href="#thu-muc/${encodeURIComponent(f.id)}" class="text-xs text-primary hover:underline font-semibold no-underline">Xem từ →</a>
-          <button type="button" class="min-h-[34px] px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-label-sm font-semibold hover:bg-primary-container hover:text-on-primary transition-colors flex items-center gap-1" data-study-folder="${esc(f.id)}">
-            <span class="material-symbols-outlined text-[16px]">play_arrow</span><span>Học</span>
-          </button>
+          <a href="#thu-muc/${encodeURIComponent(f.id)}" class="text-xs text-primary hover:underline font-semibold no-underline">${f.id === "bo-thu" ? "Xem bộ thủ →" : "Xem từ →"}</a>
+          ${isWeakFolder && f.total === 0
+            ? `<span class="text-xs text-outline font-medium">Chưa có từ yếu</span>`
+            : `<button type="button" class="min-h-[34px] px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-label-sm font-semibold hover:bg-primary-container hover:text-on-primary transition-colors flex items-center gap-1" data-study-folder="${esc(f.id)}"><span class="material-symbols-outlined text-[16px]">play_arrow</span><span>${isWeakFolder ? "Ôn ngay" : "Học"}</span></button>`}
         </div>
       </div>
-    `).join("") || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Không tìm thấy thư mục nào khớp.</div>`;
+    `;
+  };
+
+  // Thẻ thư mục mẹ (kiểu dáng đồng nhất hoàn toàn với thẻ thư mục hiện tại)
+  const renderParentCardHTML = (g) => {
+    const targetHref = g.directId ? `#thu-muc/${encodeURIComponent(g.directId)}` : `#thu-muc/nhom/${encodeURIComponent(g.id)}`;
+    const badgeLabel = g.directId ? `${fmt(g.total)} bộ thủ` : `${g.childCount} thư mục`;
+    return `
+      <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_8px_rgba(44,42,41,0.03)] hover:shadow-md hover:border-primary/35 transition-all flex flex-col gap-space-sm group" data-parent-folder="${esc(g.id)}">
+        <div class="flex items-start gap-space-sm">
+          <a href="${targetHref}" class="w-10 h-10 shrink-0 rounded-xl bg-surface-container text-on-surface flex items-center justify-center no-underline font-headline-md font-bold">${esc(g.iconText)}</a>
+          <div class="min-w-0 flex-1">
+            <a href="${targetHref}" class="no-underline"><h3 class="font-semibold text-on-surface group-hover:text-primary leading-snug m-0">${esc(g.title)}</h3></a>
+            <p class="text-xs text-on-surface-variant line-clamp-2 m-0 mt-0.5">${esc(g.sub)}</p>
+          </div>
+          <span class="shrink-0 px-2.5 py-0.5 rounded-lg text-[11px] font-semibold font-code bg-paper-muted text-on-surface-variant border border-border-subtle">${esc(badgeLabel)}</span>
+        </div>
+        <div class="mt-auto">
+          <div class="flex justify-between text-xs mb-1"><span class="text-outline">Đã học</span><span class="font-code text-on-surface font-semibold">${fmt(g.learned)} / ${fmt(g.total)} (${g.pct}%)</span></div>
+          <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full rounded-full bg-secondary" style="width:${g.pct}%"></div></div>
+        </div>
+        <div class="flex items-center justify-between pt-space-xs border-t border-border-subtle/50">
+          <a href="${targetHref}" class="text-xs text-primary hover:underline font-semibold no-underline">${g.directId ? "Xem bộ thủ →" : "Mở thư mục →"}</a>
+          ${g.directId
+            ? `<button type="button" class="min-h-[34px] px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-label-sm font-semibold hover:bg-primary-container hover:text-on-primary transition-colors flex items-center gap-1" data-study-folder="${esc(g.directId)}"><span class="material-symbols-outlined text-[16px]">play_arrow</span><span>Học</span></button>`
+            : `<a href="${targetHref}" class="min-h-[34px] px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-label-sm font-semibold hover:bg-primary-container hover:text-on-primary transition-colors flex items-center gap-1 no-underline"><span class="material-symbols-outlined text-[16px]">folder_open</span><span>Mở (${g.childCount})</span></a>`}
+        </div>
+      </div>
+    `;
+  };
+
+  // Chuẩn hóa tìm kiếm thư mục giữ nguyên chữ số (A1, B2, Novice 1, đợt 2, 15 từ...)
+  const foldFolderQ = (s) => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[đĐ]/g, "d").toLowerCase().replace(/[\s'’·\-]+/g, "");
+
+  // Lưới thư mục (mặc định hiển thị 5 thư mục mẹ; mở nhóm hoặc gõ tìm kiếm hiển thị thư mục con)
+  const renderFolderCards = () => {
+    const rawQ = ($("#folderSearchInput")?.value || "").trim();
+    const q = foldFolderQ(rawQ);
+    const grid = $("#stitch-folders-grid");
+    if (!grid) return;
+
+    if (!currentGroupKey && !rawQ) {
+      grid.innerHTML = parentGroups.map(renderParentCardHTML).join("");
+    } else {
+      const pool = currentParent ? currentParent.children : allFolderItems;
+      const filtered = pool.filter((f) => {
+        if (!rawQ) return true;
+        if (!q) return false;
+        const pg = parentById.get(f.cat);
+        return foldFolderQ(f.title).includes(q)
+          || foldFolderQ(f.sub).includes(q)
+          || foldFolderQ(f.id).includes(q)
+          || (pg && (foldFolderQ(pg.title).includes(q) || foldFolderQ(pg.shortLabel).includes(q)));
+      });
+      const showParentTag = !currentParent;
+      grid.innerHTML = filtered.map((f) => renderChildCardHTML(f, showParentTag)).join("") || `
+        <div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle flex flex-col items-center gap-3">
+          <span>Không tìm thấy thư mục nào khớp${rawQ ? ` với "${esc(rawQ)}"` : ""}.</span>
+          ${currentParent && rawQ ? `<a href="#thu-muc/nhom/all" class="px-3.5 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-xs font-semibold no-underline hover:bg-primary-container hover:text-on-primary transition-colors">Xem toàn bộ ${allFolderItems.length} thư mục →</a>` : ""}
+        </div>`;
+    }
+
     grid.querySelectorAll("[data-study-folder]").forEach((b) => { b.onclick = () => startStudyFolder(b.dataset.studyFolder); });
     grid.querySelectorAll("[data-toggle-band]").forEach((btn) => {
       btn.onclick = async (e) => {
@@ -4723,6 +4874,11 @@ VIEWS["thu-muc"] = (id) => {
         if (target) target.isLearning = !!S.settings.bands[b];
         await saveSettings();
         updateBadge();
+        const tcEl = $("#tv-today-counts");
+        if (tcEl) {
+          const nc = todayCounts();
+          tcEl.textContent = `${fmt(nc.total)} thẻ · ${fmt(nc.due)} ôn · ${fmt(nc.fresh)} mới`;
+        }
         renderFolderCards();
       };
     });
@@ -4737,18 +4893,14 @@ VIEWS["thu-muc"] = (id) => {
   const qClear = $("#btn-clear-quick-search");
   if (qClear) qClear.onclick = () => { if (qInput) { qInput.value = ""; qInput.focus(); renderQuickLookup(); } };
   const fSearch = $("#folderSearchInput");
-  if (fSearch) fSearch.oninput = renderFolderCards;
-  document.querySelectorAll("#folderTabs button").forEach((btn) => {
-    btn.onclick = () => {
-      curCat = btn.dataset.tab || "all";
-      document.querySelectorAll("#folderTabs button").forEach((b) => { b.className = pillCls(b.dataset.tab === curCat); });
-      renderFolderCards();
-    };
-  });
+  if (fSearch) {
+    fSearch.oninput = renderFolderCards;
+    fSearch.onsearch = renderFolderCards;
+  }
 
   // Alt + D: đưa con trỏ vào ô Tra từ nhanh
   window.onkeydown = (e) => {
-    if (!location.hash.startsWith("#thu-muc") && location.hash !== "#tu-vung") return;
+    if (!location.hash.startsWith("#thu-muc") && !location.hash.startsWith("#tu-vung")) return;
     if (e.altKey && (e.key === "d" || e.key === "D")) {
       e.preventDefault();
       const inp = $("#quick-search-input");
