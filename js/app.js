@@ -8022,7 +8022,7 @@ function playDialogueAudio(input, speed = 0.9, onDone) {
 }
 
 // Save word directly to user's notebook / flashcards
-window.saveWordToNotebook = async function saveWordToNotebook(word, py, vn, band) {
+window.saveWordToNotebook = async function saveWordToNotebook(word, py, vn, band, opts = {}) {
   if (!word) return;
   if (!S.settings.extra) S.settings.extra = {};
   S.settings.extra[word] = true;
@@ -8057,12 +8057,15 @@ window.saveWordToNotebook = async function saveWordToNotebook(word, py, vn, band
     try { await Store.put("inbox", key, entry); } catch (e) {}
   }
 
-  if (typeof applyCardLevel === "function") {
+  if (typeof applyCardLevel === "function" && (typeof noteLevel !== "function" || noteLevel(note) === 0)) {
     await applyCardLevel(note, typesOf(note)[0][0], 1, false);
   }
-  try { await saveSettings(); } catch (e) {}
-
-  showToast(`Đã lưu "${word}" vào Sổ từ & Hàng đợi Flashcards!`);
+  if (!opts.skipSave) {
+    try { await saveSettings(); } catch (e) {}
+  }
+  if (!opts.silent) {
+    showToast(`Đã lưu "${word}" vào Sổ từ & Hàng đợi Flashcards!`);
+  }
 };
 
 function showToast(msg) {
@@ -8087,11 +8090,13 @@ function showToast(msg) {
 // 6. VIEW CHÉP CHÍNH TẢ (DICTATION)
 // =========================================================================
 VIEWS["chinh-ta"] = async () => {
+  const renderSeq = (window._dictRenderSeq = (window._dictRenderSeq || 0) + 1);
   const d = S.dict = Object.assign({
     mode: "han",
     speed: 1.0,
     bandFilter: "all",
     topicCategory: "all",
+    searchQuery: "",
     passageId: "dia_copier_repair",
     sentenceIdx: 0,
     score: { ok: 0, total: 0 },
@@ -8099,7 +8104,6 @@ VIEWS["chinh-ta"] = async () => {
     showDetails: true,
     checked: false,
     viewMode: "dictation",
-    explorerOpen: true,
     _lastPlayedKey: ""
   }, S.dict || {});
   if (!d.doneMap) d.doneMap = {};
@@ -8112,7 +8116,7 @@ VIEWS["chinh-ta"] = async () => {
   else if (d.doneMap !== saved.doneMap) { for (const [k, v] of Object.entries(d.doneMap)) saved.doneMap[k] = Object.assign({}, saved.doneMap[k], v); d.doneMap = saved.doneMap; }
   const resumeIdx = (t) => {   // the saved position, or the first sentence not yet done
     const done = saved.doneMap[t.id] || {}, n = (t.sentences || []).length;
-    if (Number.isInteger(saved.pos[t.id]) && saved.pos[t.id] < n) return saved.pos[t.id];
+    if (Number.isInteger(saved.pos[t.id]) && saved.pos[t.id] >= 0 && saved.pos[t.id] < n) return saved.pos[t.id];
     for (let i = 0; i < n; i++) if (!done[i]) return i;
     return 0;
   };
@@ -8123,15 +8127,29 @@ VIEWS["chinh-ta"] = async () => {
   };
 
   const allTopics = await getDictationTopics();
-  let decodedHash = location.hash || "";
+  const curH = location.hash || "";
+  if (window._dictRenderSeq !== renderSeq) return;
+  if (curH !== "#chinh-ta" && !curH.startsWith("#chinh-ta/") && curH !== "#chep-chinh-ta" && !curH.startsWith("#chep-chinh-ta/")) return;
+
+  let decodedHash = curH;
   try { decodedHash = decodeURIComponent(decodedHash); } catch (e) {}
   const selId = decodedHash.startsWith("#chinh-ta/")
     ? decodedHash.slice("#chinh-ta/".length)
     : decodedHash.startsWith("#chep-chinh-ta/")
       ? decodedHash.slice("#chep-chinh-ta/".length)
       : "";
-  if (selId && (selId !== d.passageId || !d._resumed) && allTopics.some(t => t.id === selId)) { d.passageId = selId; d.sentenceIdx = resumeIdx(allTopics.find(t => t.id === selId)); d.checked = false; d._lastPlayedKey = ""; d._resumed = true; }
-  const inLesson = !!selId;
+  const matchedTopic = selId ? allTopics.find(t => t.id === selId) : null;
+  if (matchedTopic && (selId !== d.passageId || !d._resumed)) {
+    if (selId !== d.passageId) d.viewMode = "dictation";
+    d.passageId = selId;
+    d.sentenceIdx = resumeIdx(matchedTopic);
+    d.checked = false;
+    d._lastPlayedKey = "";
+    d._resumed = true;
+  }
+  const inLesson = Boolean(matchedTopic);
+  if (!inLesson) d._lastPlayedKey = "";
+
   const topicBandOf = (t) => {
     const b = String(t.band || "");
     if (b.includes("A1") || b.includes("A2") || b.includes("Band A")) return "A";
@@ -8140,9 +8158,17 @@ VIEWS["chinh-ta"] = async () => {
     if (b.includes("C")) return "C";
     return "B1";
   };
+  const BAND_META = {
+    A:  { label: "Band A · Cơ bản (A1–A2)",  tier: "tier-a",      img: "img/home-band-a.jpg" },
+    B1: { label: "Band B · Trung cấp (B1)",  tier: "tier-b",      img: "img/home-band-b.jpg" },
+    B2: { label: "Band B · Cao cấp (B2)",    tier: "tier-indigo", img: "img/vocab-class.jpg" },
+    C:  { label: "Band C · Lưu loát (C1–C2)", tier: "tier-c",     img: "img/home-band-c.jpg" }
+  };
 
   const curTopic = allTopics.find(t => t.id === d.passageId) || allTopics[0];
   d.curTopic = curTopic;
+  const curBandKey = topicBandOf(curTopic);
+  const curMeta = BAND_META[curBandKey] || BAND_META.B1;
   if (!d.doneMap[curTopic.id]) d.doneMap[curTopic.id] = {};
   const topicDone = d.doneMap[curTopic.id];
   const topicOkCount = () => Object.values(topicDone).filter((v) => v === "ok").length;
@@ -8152,24 +8178,18 @@ VIEWS["chinh-ta"] = async () => {
   const curSent = curTopic.sentences[d.sentenceIdx] || { zh: "", py: "", vn: "", speaker: "" };
   d.cur = curSent;
 
-  const filteredTopics = allTopics.filter(t => {
-    if (d.bandFilter !== "all" && topicBandOf(t) !== d.bandFilter) return false;
-    if (d.topicCategory !== "all" && t.category !== d.topicCategory) return false;
-    return true;
-  });
-
-  const BAND_GROUPS = [
-    { key: "A", label: "Band A · Cơ bản (A1–A2)" },
-    { key: "B1", label: "Band B · Trung cấp (B1)" },
-    { key: "B2", label: "Band B · Cao cấp (B2)" },
-    { key: "C", label: "Band C · Lưu loát" }
-  ].map(g => ({ ...g, items: filteredTopics.filter(t => topicBandOf(t) === g.key) }))
-   .filter(g => g.items.length > 0);
+  // Overall progress across all 23 topics
+  const totalSentencesAll = allTopics.reduce((sum, t) => sum + ((t.sentences && t.sentences.length) || 0), 0);
+  const totalDoneAll = allTopics.reduce((sum, t) => {
+    const m = d.doneMap[t.id] || {};
+    return sum + Object.values(m).filter((v) => v === "ok").length;
+  }, 0);
+  const totalDonePct = totalSentencesAll ? Math.round((totalDoneAll / totalSentencesAll) * 100) : 0;
 
   const availBands = ["A", "B1", "B2", "C"].filter(k => allTopics.some(t => topicBandOf(t) === k));
   const pillCls = (on) => on
-    ? "px-3 py-1.5 rounded-full bg-primary-container text-on-primary text-xs font-semibold shadow-sm transition-colors"
-    : "px-3 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted text-xs font-medium border border-border-subtle transition-colors";
+    ? "min-h-[36px] inline-flex items-center px-3 py-1.5 rounded-full bg-primary-container text-on-primary text-xs font-semibold shadow-sm transition-colors whitespace-nowrap"
+    : "min-h-[36px] inline-flex items-center px-3 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted text-xs font-medium border border-border-subtle transition-colors whitespace-nowrap";
 
   function diffMarks(target, typed) {
     const cleanTarget = clean(target);
@@ -8200,156 +8220,258 @@ VIEWS["chinh-ta"] = async () => {
     }).join("");
   }
 
-  const doneCountInTopic = topicTotalCount();
+  const okCountInTopic = topicOkCount();
+  const topicPct = curTopic.sentences.length ? Math.round((okCountInTopic / curTopic.sentences.length) * 100) : 0;
   const hasVocab = Array.isArray(curTopic.vocab) && curTopic.vocab.length > 0;
+  const isFirstSent = d.sentenceIdx <= 0;
+  const isLastSent = d.sentenceIdx >= curTopic.sentences.length - 1;
+  const resumeSentNum = resumeIdx(curTopic) + 1;
+
+  function renderTopicGroupsHTML() {
+    const qRaw = String(d.searchQuery || "").trim();
+    const qTrad = typeof toTraditionalTw === "function" ? toTraditionalTw(qRaw) : qRaw;
+    const qFold = typeof foldGramQ === "function" ? foldGramQ(qRaw) : qRaw.toLowerCase();
+    const qTradFold = typeof foldGramQ === "function" ? foldGramQ(qTrad) : qTrad.toLowerCase();
+
+    const filtered = allTopics.filter(t => {
+      if (d.bandFilter !== "all" && topicBandOf(t) !== d.bandFilter) return false;
+      if (d.topicCategory !== "all" && t.category !== d.topicCategory) return false;
+      if (qRaw) {
+        const vocabStr = Array.isArray(t.vocab) ? t.vocab.map(v => `${v.w} ${v.vn}`).join(" ") : "";
+        const hay = `${t.title || ""} ${t.band || ""} ${t.categoryName || ""} ${vocabStr}`;
+        const hayFold = typeof foldGramQ === "function" ? foldGramQ(hay) : hay.toLowerCase();
+        const hit = hay.includes(qRaw) || hay.includes(qTrad) || (qFold && hayFold.includes(qFold)) || (qTradFold && hayFold.includes(qTradFold));
+        if (!hit) return false;
+      }
+      return true;
+    });
+
+    const groups = ["A", "B1", "B2", "C"]
+      .map((key) => ({ key, ...BAND_META[key], items: filtered.filter((t) => topicBandOf(t) === key) }))
+      .filter((g) => g.items.length > 0);
+
+    if (!groups.length) {
+      return `
+        <div class="text-center py-8 px-4 text-on-surface-variant bg-paper-base rounded-2xl border border-border-subtle flex flex-col items-center gap-2">
+          <span class="material-symbols-outlined text-[30px] text-outline" aria-hidden="true">search_off</span>
+          <p class="text-sm m-0">Không có bài nghe nào khớp với bộ lọc hiện tại.</p>
+          <button type="button" id="btn-reset-dict-filters" class="min-h-[36px] mt-1 px-3.5 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-xs font-semibold hover:bg-primary-container hover:text-on-primary transition-colors">
+            Đặt lại bộ lọc
+          </button>
+        </div>
+      `;
+    }
+
+    return groups.map((grp) => `
+      <div class="flex flex-col gap-3">
+        <div class="flex items-center justify-between gap-2 flex-wrap">
+          <div class="flex items-center gap-2">
+            <img src="${grp.img}" alt="" width="28" height="28" loading="lazy" class="w-7 h-7 rounded-lg object-cover border border-border-subtle shrink-0" onerror="this.onerror=null;this.src='img/icon-192.png'">
+            <span class="text-xs font-bold text-on-surface uppercase tracking-wide">${esc(grp.label)}</span>
+          </div>
+          <span class="font-code text-xs text-outline">${fmt(grp.items.length)} bài</span>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+          ${grp.items.map((top) => {
+            const active = top.id === curTopic.id;
+            const tMap = d.doneMap[top.id] || {};
+            const okN = Object.values(tMap).filter((v) => v === "ok").length;
+            const totN = (top.sentences && top.sentences.length) || 0;
+            const pct = totN ? Math.round((okN / totN) * 100) : 0;
+            const isComplete = totN > 0 && okN >= totN;
+            return `
+              <button type="button" class="dicta-topic-card ${grp.tier}${active ? " is-active" : ""}" data-select-topic="${esc(top.id)}">
+                <div class="flex flex-col gap-1.5 min-w-0 w-full">
+                  <div class="flex items-center justify-between gap-1.5 flex-wrap">
+                    <span class="home-band-tier-pill">${esc(top.categoryName || "Hội thoại")}</span>
+                    ${isComplete
+                      ? `<span class="home-band-status-pill bg-jade-subtle text-secondary">✓ Hoàn thành</span>`
+                      : (okN > 0
+                        ? `<span class="home-band-status-pill bg-amber-subtle text-tertiary font-code">${okN}/${totN} câu</span>`
+                        : `<span class="text-[11px] font-code text-outline">${totN} câu</span>`)}
+                  </div>
+                  <div class="text-sm font-semibold dicta-topic-title font-serif leading-snug line-clamp-2 break-words">${esc(top.title)}</div>
+                </div>
+                <div class="flex flex-col gap-2 w-full mt-auto pt-1">
+                  <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+                    <div class="h-full rounded-full dicta-prog-fill" style="width:${pct}%"></div>
+                  </div>
+                  <div class="flex items-center justify-between text-xs">
+                    <span class="text-outline font-code">${pct}% hoàn thành</span>
+                    <span class="font-semibold text-primary">${active ? "Đang học →" : (okN > 0 ? "Tiếp tục →" : "Luyện ngay →")}</span>
+                  </div>
+                </div>
+              </button>
+            `;
+          }).join("")}
+        </div>
+      </div>
+    `).join("");
+  }
 
   setView(`
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg w-full">
-      <!-- Compact Header -->
-      <section class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-space-md border-b border-border-subtle">
-        <div>
-          <h1 class="font-display text-2xl md:text-3xl text-on-surface font-semibold tracking-tight font-serif m-0">
-            Chép chính tả <span class="text-outline font-normal text-xl" lang="zh-Hant">聽寫</span>
-          </h1>
-          <p class="font-body-sm text-sm text-on-surface-variant mt-1 mb-0">
-            Luyện nghe giọng Nam/Nữ Đài Loan xen kẽ, gõ bàn phím hoặc viết tay chữ Hán offline.${inLesson ? `<span class="hidden sm:inline"> Nhấn <kbd class="px-1.5 py-0.5 rounded bg-surface-container font-code text-xs font-bold text-primary">Shift</kbd> để nghe lại.</span>` : ""}
-          </p>
-        </div>
-        <div class="${inLesson ? 'flex' : 'hidden'} items-center gap-2 self-start sm:self-auto flex-wrap">
-        <a href="#chinh-ta" class="min-h-[40px] px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-sm font-semibold flex items-center gap-1 no-underline"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Danh sách bài</a>
-        <div class="flex items-center gap-1 bg-surface-container p-1 rounded-xl">
-          <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 ${d.viewMode === 'dictation' ? 'bg-paper-card text-primary shadow-sm' : 'text-on-surface-variant hover:text-on-surface'}" id="tab-mode-dictation">
-            <span class="material-symbols-outlined text-[16px]">draw</span> Luyện chép
-          </button>
-          <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 ${d.viewMode === 'transcript' ? 'bg-paper-card text-primary shadow-sm' : 'text-on-surface-variant hover:text-on-surface'}" id="tab-mode-transcript">
-            <span class="material-symbols-outlined text-[16px]">segment</span> Transcript
-          </button>
-        </div>
-        </div>
-      </section>
+      ${!inLesson ? `
+        <!-- Cohesive Panda Landing Banner -->
+        <section class="home-band-card vocab-parent-banner tier-b !flex-col md:!flex-row md:items-center !justify-between !gap-4">
+          <span class="home-band-watermark" aria-hidden="true" lang="zh-Hant">聽</span>
+          <div class="flex items-start gap-3.5 min-w-0 relative z-10">
+            <img src="img/home-dictation.jpg" alt="" width="56" height="56" loading="lazy" class="home-band-avatar shrink-0" onerror="this.onerror=null;this.src='img/icon-192.png'">
+            <div class="min-w-0 flex flex-col gap-1">
+              <div class="flex items-center gap-2 flex-wrap">
+                <span class="home-band-tier-pill">${fmt(allTopics.length)} bài nghe · ${fmt(totalSentencesAll)} câu</span>
+                <span class="home-band-status-pill bg-jade-subtle text-secondary font-code">Đúng ${fmt(totalDoneAll)}/${fmt(totalSentencesAll)} (${totalDonePct}%)</span>
+              </div>
+              <h1 class="font-display text-2xl md:text-3xl text-on-surface font-semibold tracking-tight font-serif m-0 leading-tight">
+                Chép chính tả <span class="text-outline font-normal text-xl" lang="zh-Hant">聽寫</span>
+              </h1>
+              <p class="font-body-sm text-xs sm:text-sm text-on-surface-variant m-0 leading-relaxed max-w-2xl">
+                Luyện nghe giọng Nam/Nữ Đài Loan xen kẽ theo từng Band TOCFL, gõ bàn phím hoặc viết tay chữ Hán offline 100%.
+              </p>
+            </div>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap shrink-0 relative z-10">
+            <a href="#chinh-ta/${encodeURIComponent(curTopic.id)}" id="btn-resume-dictation" class="min-h-[42px] px-4 py-2 rounded-xl bg-primary-container hover:bg-primary text-on-primary text-xs font-semibold shadow-sm inline-flex items-center gap-1.5 no-underline transition-colors max-w-full">
+              <span class="material-symbols-outlined text-[18px] shrink-0" aria-hidden="true">play_arrow</span>
+              <span class="truncate max-w-[200px] sm:max-w-[220px]">Tiếp tục: ${esc(curTopic.title)}</span>
+              <span class="px-1.5 py-0.5 rounded bg-white/20 font-code text-[11px] shrink-0">${resumeSentNum}/${curTopic.sentences.length}</span>
+            </a>
+          </div>
+        </section>
+      ` : `
+        <!-- Compact Lesson Top Bar -->
+        <section class="dicta-tier-scope ${curMeta.tier} flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-border-subtle">
+          <div class="flex items-center gap-2 flex-wrap min-w-0">
+            <a href="#chinh-ta" class="min-h-[40px] px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-xs sm:text-sm font-semibold inline-flex items-center gap-1 no-underline whitespace-nowrap transition-colors">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_back</span>
+              <span>Danh sách bài</span>
+            </a>
+            <span class="hidden sm:inline text-outline">/</span>
+            <span class="hidden sm:inline-flex home-band-tier-pill">${esc(curTopic.band)}</span>
+            <span class="hidden md:inline text-xs text-on-surface-variant">Nhấn <kbd class="px-1.5 py-0.5 rounded bg-surface-container font-code text-xs font-bold text-primary">Shift</kbd> để nghe lại</span>
+          </div>
+          <div class="grid grid-cols-2 sm:inline-flex items-center gap-1 bg-surface-container p-1 rounded-xl shrink-0">
+            <button type="button" class="min-h-[38px] px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all inline-flex items-center justify-center gap-1.5 whitespace-nowrap ${d.viewMode === 'dictation' ? 'bg-paper-card text-primary shadow-sm' : 'text-on-surface-variant hover:text-on-surface'}" id="tab-mode-dictation" aria-pressed="${d.viewMode === 'dictation'}">
+              <span class="material-symbols-outlined text-[16px]" aria-hidden="true">draw</span>
+              <span>Luyện chép</span>
+            </button>
+            <button type="button" class="min-h-[38px] px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all inline-flex items-center justify-center gap-1.5 whitespace-nowrap ${d.viewMode === 'transcript' ? 'bg-paper-card text-primary shadow-sm' : 'text-on-surface-variant hover:text-on-surface'}" id="tab-mode-transcript" aria-pressed="${d.viewMode === 'transcript'}">
+              <span class="material-symbols-outlined text-[16px]" aria-hidden="true">segment</span>
+              <span>Transcript</span>
+            </button>
+          </div>
+        </section>
+      `}
 
-      <!-- Simplified Band & Topic Selector (Always open on landing screen) -->
+      <!-- Band & Topic Explorer (Always open on landing screen) -->
       <section id="section-topic-explorer" class="${inLesson ? 'hidden' : ''} bg-paper-card rounded-2xl border border-border-subtle shadow-sm">
-        <div class="px-4 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-border-subtle">
-          <span class="font-headline-md text-sm font-semibold text-on-surface flex items-center gap-2">
-            <span class="material-symbols-outlined text-primary text-[18px]">folder_open</span>
-            Chọn bài để luyện
-          </span>
-          <span class="text-xs text-outline font-code">${allTopics.length} bài</span>
-        </div>
-        <div class="p-4 flex flex-col gap-4">
-          <div class="flex flex-wrap items-center justify-between gap-3">
+        <div class="p-4 flex flex-col gap-3.5 border-b border-border-subtle">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <span class="font-headline-md text-sm font-semibold text-on-surface flex items-center gap-2">
+              <span class="material-symbols-outlined text-primary text-[18px]" aria-hidden="true">folder_open</span>
+              <span>Chọn bài luyện nghe</span>
+            </span>
+            <div class="dict-search-box relative flex items-center w-full sm:w-72 px-3">
+              <span class="material-symbols-outlined text-[18px] text-outline mr-1.5 shrink-0" aria-hidden="true">search</span>
+              <input id="dictTopicSearch" type="search" value="${esc(d.searchQuery || "")}" placeholder="Tìm bài nghe, chủ đề, từ khóa..." class="w-full min-w-0 h-10 bg-transparent text-xs sm:text-sm text-on-surface placeholder:text-outline focus:outline-none" autocomplete="off">
+            </div>
+          </div>
+          <div class="flex flex-wrap items-center justify-between gap-2.5">
             <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="text-xs font-bold text-outline uppercase mr-1">Band:</span>
+              <span class="text-xs font-bold text-outline uppercase mr-0.5">Band:</span>
               <button type="button" class="${pillCls(d.bandFilter === 'all')}" data-dict-band="all">Tất cả (${allTopics.length})</button>
               ${availBands.map(b => `<button type="button" class="${pillCls(d.bandFilter === b)}" data-dict-band="${b}">Band ${b} (${allTopics.filter(t => topicBandOf(t) === b).length})</button>`).join("")}
             </div>
             <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="text-xs font-bold text-outline uppercase mr-1">Chủ đề:</span>
+              <span class="text-xs font-bold text-outline uppercase mr-0.5">Chủ đề:</span>
               ${[["all","Tất cả"],["dialogue","Hội thoại"],["story","Câu chuyện"],["tocfl","TOCFL"],["news","Tin tức"]].map(([k, lbl]) => `<button type="button" class="${pillCls(d.topicCategory === k)}" data-topic-cat="${k}">${lbl}</button>`).join("")}
             </div>
           </div>
-
-          <div class="flex flex-col gap-4">
-            ${BAND_GROUPS.length ? BAND_GROUPS.map(grp => `
-              <div class="flex flex-col gap-2">
-                <div class="text-xs font-bold text-on-surface-variant uppercase tracking-wide flex items-center gap-1.5">
-                  <span class="w-1.5 h-3.5 rounded-full bg-secondary inline-block"></span>
-                  ${esc(grp.label)}
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
-                  ${grp.items.map(top => {
-                    const active = top.id === curTopic.id;
-                    const doneN = Object.keys(d.doneMap[top.id] || {}).length;
-                    return `
-                      <button type="button" class="text-left p-3 rounded-xl border transition-all flex items-center justify-between gap-2 ${active ? 'border-primary bg-cinnabar-subtle' : 'border-border-subtle bg-paper-base hover:bg-surface-container-low'}" data-select-topic="${esc(top.id)}">
-                        <div class="min-w-0 flex-1">
-                          <div class="text-sm font-semibold text-on-surface truncate">${esc(top.title)}</div>
-                          <div class="text-xs text-on-surface-variant truncate mt-0.5">${esc(top.categoryName || '')} · ${top.sentences.length} câu${doneN ? ` · xong ${doneN}` : ''}</div>
-                        </div>
-                        <span class="text-xs font-bold ${active ? 'text-primary' : 'text-outline'} shrink-0">${active ? '●' : '→'}</span>
-                      </button>
-                    `;
-                  }).join("")}
-                </div>
-              </div>
-            `).join("") : `<div class="text-xs text-outline text-center py-4">Không có bài nào khớp bộ lọc.</div>`}
-          </div>
+        </div>
+        <div class="p-4 flex flex-col gap-5" id="dictTopicGroupsHost">
+          ${renderTopicGroupsHTML()}
         </div>
       </section>
 
       <!-- Workspace (8 + 4) -->
       <div class="${inLesson ? 'grid' : 'hidden'} grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
-        <div class="lg:col-span-8 flex flex-col gap-space-md">
+        <div class="lg:col-span-8 flex flex-col gap-space-md min-w-0">
           <!-- Main Dictation Card -->
-          <div class="${d.viewMode === 'dictation' ? 'flex' : 'hidden'} bg-paper-card p-4 sm:p-space-lg rounded-2xl shadow-sm border border-border-subtle flex-col gap-space-md" id="dictationCard">
-            <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-border-subtle">
+          <div class="${d.viewMode === 'dictation' ? 'flex' : 'hidden'} dicta-lesson-card ${curMeta.tier} p-4 sm:p-space-lg flex-col gap-space-md" id="dictationCard">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-border-subtle">
               <div class="min-w-0">
                 <div class="flex items-center gap-1.5 flex-wrap text-xs">
-                  <span class="px-2 py-0.5 rounded bg-cinnabar-subtle text-primary font-bold">${esc(curTopic.band)}</span>
-                  <span class="text-secondary font-medium">${esc(curTopic.categoryName)}</span>
+                  <span class="home-band-tier-pill">${esc(curTopic.band)}</span>
+                  <span class="home-band-status-pill bg-jade-subtle text-secondary">${esc(curTopic.categoryName || "Hội thoại")}</span>
                 </div>
-                <h2 class="font-headline-md text-lg font-bold text-on-surface mt-1 mb-0">${esc(curTopic.title)}</h2>
+                <h1 class="font-headline-md text-lg sm:text-xl font-bold text-on-surface font-serif mt-1.5 mb-0 leading-snug break-words">${esc(curTopic.title)}</h1>
               </div>
               <div class="flex items-center gap-2 shrink-0 flex-wrap">
-                <button type="button" class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface" id="btn-prev-sentence" title="Câu trước" aria-label="Câu trước">
-                  <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+                <button type="button" class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface disabled:opacity-40 disabled:cursor-not-allowed transition-colors" id="btn-prev-sentence" title="Câu trước" aria-label="Câu trước"${isFirstSent ? " disabled" : ""}>
+                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true">chevron_left</span>
                 </button>
-                <span class="font-code text-sm font-bold text-primary" id="current-sentence-idx">${d.sentenceIdx + 1}/${curTopic.sentences.length}</span>
-                <button type="button" class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface" id="btn-next-sentence" title="Câu kế tiếp" aria-label="Câu kế tiếp">
-                  <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                <span class="font-code text-sm font-bold text-primary min-w-[42px] text-center" id="current-sentence-idx">${d.sentenceIdx + 1}/${curTopic.sentences.length}</span>
+                <button type="button" class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface disabled:opacity-40 disabled:cursor-not-allowed transition-colors" id="btn-next-sentence" title="Câu kế tiếp" aria-label="Câu kế tiếp"${isLastSent ? " disabled" : ""}>
+                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true">chevron_right</span>
                 </button>
-                <span class="px-2.5 py-1.5 rounded-lg bg-jade-subtle text-secondary font-code text-xs font-bold border border-border-subtle" id="dictScoreBadge">
-                  Đúng: <span id="dictOkCount">${topicOkCount()}</span>/<span id="dictTotalCount">${topicTotalCount()}</span>
+                <span class="px-2.5 py-1.5 rounded-lg bg-jade-subtle text-secondary font-code text-xs font-bold border border-secondary/20" id="dictScoreBadge">
+                  Đúng: <span id="dictOkCount">${okCountInTopic}</span>/<span id="dictTotalCount">${topicTotalCount()}</span>
                 </span>
               </div>
             </div>
 
-            <!-- Compact Audio Bar -->
-            <div class="bg-surface-container-low p-3 rounded-xl flex flex-wrap items-center justify-between gap-3 border border-border-subtle">
-              <div class="flex items-center gap-2">
-                <button type="button" class="w-11 h-11 rounded-full bg-primary-container hover:bg-primary text-on-primary flex items-center justify-center shadow-sm active:scale-95 transition-transform shrink-0" id="btn-play-pause" title="Nghe lại câu hiện tại (Shift)" aria-label="Nghe câu hiện tại">
-                  <span class="material-symbols-outlined text-[24px]" id="icon-play" style="font-variation-settings: 'FILL' 1;">volume_up</span>
+            <!-- Upgraded Audio Control Deck -->
+            <div class="dicta-audio-bar p-3.5 flex flex-wrap items-center justify-between gap-3">
+              <div class="flex items-center gap-2 flex-wrap">
+                <button type="button" class="w-12 h-12 rounded-full bg-primary-container hover:bg-primary text-on-primary flex items-center justify-center shadow-sm active:scale-95 transition-all shrink-0" id="btn-play-pause" title="Nghe lại câu hiện tại (Shift)" aria-label="Nghe câu hiện tại">
+                  <span class="material-symbols-outlined text-[24px]" id="icon-play" aria-hidden="true" style="font-variation-settings: 'FILL' 1;">volume_up</span>
                 </button>
-                <button type="button" class="min-h-[40px] px-3 py-1.5 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface text-xs font-semibold border border-border-subtle flex items-center gap-1 whitespace-nowrap" id="btn-play-full-topic" title="Nghe toàn bộ bài hội thoại">
-                  <span class="material-symbols-outlined text-[17px] text-secondary">playlist_play</span>
+                <button type="button" class="min-h-[40px] px-3 py-1.5 rounded-xl bg-paper-card hover:bg-surface-container text-on-surface text-xs font-semibold border border-border-subtle inline-flex items-center gap-1 whitespace-nowrap transition-colors" id="btn-play-full-topic" title="Nghe toàn bộ bài hội thoại">
+                  <span class="material-symbols-outlined text-[17px] text-secondary" aria-hidden="true">playlist_play</span>
                   <span>Nghe toàn bài</span>
                 </button>
+                <button type="button" class="min-h-[40px] px-2.5 py-1.5 rounded-xl bg-paper-card hover:bg-cinnabar-subtle text-on-surface-variant hover:text-primary text-xs font-semibold border border-border-subtle inline-flex items-center gap-1 whitespace-nowrap transition-colors" id="btn-stop-audio" title="Dừng âm thanh đang phát" aria-label="Dừng phát âm">
+                  <span class="material-symbols-outlined text-[17px]" aria-hidden="true">stop_circle</span>
+                  <span>Dừng</span>
+                </button>
               </div>
-              <div class="text-xs text-on-surface-variant">
-                Người nói: <strong class="text-on-surface">${esc(curSent.speaker || "Bản xứ Đài Loan")}</strong>
+              <div class="inline-flex items-center gap-1.5 text-xs text-on-surface-variant px-2.5 py-1 rounded-lg bg-paper-card border border-border-subtle">
+                <span class="material-symbols-outlined text-[15px] text-secondary" aria-hidden="true">record_voice_over</span>
+                <span>Người nói: <strong class="text-on-surface">${esc(curSent.speaker || "Bản xứ Đài Loan")}</strong></span>
               </div>
               <div class="flex items-center gap-1">
-                ${[0.75, 1.0, 1.25].map(sp => `<button type="button" class="speed-toggle min-h-[36px] px-2.5 py-1 rounded-lg font-code text-xs ${d.speed === sp ? 'bg-primary-container text-on-primary font-bold' : 'bg-paper-card text-on-surface-variant border border-border-subtle hover:bg-surface-container'}" data-speed="${sp}">${sp}x</button>`).join("")}
+                ${[0.75, 1.0, 1.25].map(sp => `<button type="button" class="speed-toggle min-h-[36px] px-2.5 py-1 rounded-lg font-code text-xs transition-colors ${d.speed === sp ? 'bg-primary-container text-on-primary font-bold shadow-sm' : 'bg-paper-card text-on-surface-variant border border-border-subtle hover:bg-surface-container'}" data-speed="${sp}" aria-pressed="${d.speed === sp}">${sp}x</button>`).join("")}
               </div>
             </div>
 
             <!-- Input -->
             <div class="flex flex-col gap-1.5">
-              <textarea class="w-full bg-paper-base rounded-xl p-3.5 text-xl md:text-2xl font-serif text-on-surface placeholder:text-outline focus:outline-none border border-border-subtle focus:border-primary transition-all resize-none leading-relaxed" id="dictation-input" placeholder="Gõ hoặc viết tay chữ Hán Phồn thể bạn nghe được..." rows="3"></textarea>
+              <textarea class="dicta-textarea w-full p-3.5 text-xl md:text-2xl font-serif text-on-surface placeholder:text-outline focus:outline-none resize-none leading-relaxed" id="dictation-input" placeholder="Gõ hoặc viết tay chữ Hán Phồn thể bạn nghe được..." rows="3"></textarea>
               <div class="flex items-center justify-between flex-wrap gap-2 text-xs text-on-surface-variant">
-                <span>${curTopic.vocab && curTopic.vocab[0] ? `Gợi ý: <strong class="text-tertiary font-code">${esc(curTopic.vocab[0].w)}</strong> (${esc(curTopic.vocab[0].vn)})` : ''}</span>
+                <span>${curTopic.vocab && curTopic.vocab[0] ? `Gợi ý từ khóa: <strong class="text-tertiary font-serif">${esc(curTopic.vocab[0].w)}</strong> (${esc(curTopic.vocab[0].vn)})` : ''}</span>
                 <span class="font-code" id="char-counter">0 ký tự</span>
               </div>
             </div>
 
             <!-- Action Row + Handwriting Pad Toggle -->
-            <div class="flex flex-wrap items-center justify-between gap-2">
+            <div class="flex flex-wrap items-center justify-between gap-2.5">
               <div class="flex items-center gap-2 flex-wrap">
-                <button type="button" class="min-h-[42px] px-4 py-2 rounded-xl bg-primary-container hover:bg-primary text-on-primary text-xs font-semibold shadow-sm flex items-center gap-1.5" id="btn-check-answer">
-                  <span class="material-symbols-outlined text-[18px]">check_circle</span> Kiểm tra
+                <button type="button" class="min-h-[42px] px-4 py-2 rounded-xl bg-primary-container hover:bg-primary text-on-primary text-xs font-semibold shadow-sm inline-flex items-center gap-1.5 transition-colors" id="btn-check-answer">
+                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">check_circle</span>
+                  <span>Kiểm tra</span>
                 </button>
-                <button type="button" class="min-h-[42px] px-3 py-2 rounded-xl bg-paper-muted hover:bg-surface-container-high text-on-surface border border-border-subtle text-xs font-semibold flex items-center gap-1.5" id="btn-toggle-dict-hw" aria-expanded="false" aria-controls="dictation-hw-drawer">
-                  <span class="material-symbols-outlined text-[18px] text-primary">draw</span> Viết tay 手寫
+                <button type="button" class="min-h-[42px] px-3.5 py-2 rounded-xl bg-paper-muted hover:bg-surface-container-high text-on-surface border border-border-subtle text-xs font-semibold inline-flex items-center gap-1.5 transition-colors" id="btn-toggle-dict-hw" aria-expanded="false" aria-controls="dictation-hw-drawer">
+                  <span class="material-symbols-outlined text-[18px] text-primary" aria-hidden="true">draw</span>
+                  <span>Viết tay 手寫</span>
                 </button>
-                <button type="button" class="min-h-[42px] px-3 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-xs font-medium border border-border-subtle" id="btn-skip-sentence">
+                <button type="button" class="min-h-[42px] px-3 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-xs font-medium border border-border-subtle transition-colors" id="btn-skip-sentence">
                   Xem đáp án
                 </button>
-                <button type="button" class="w-10 h-10 rounded-xl text-outline hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center border border-border-subtle" id="btn-clear-input" title="Xóa ô nhập" aria-label="Xóa ô nhập">
-                  <span class="material-symbols-outlined text-[18px]">refresh</span>
+                <button type="button" class="w-10 h-10 rounded-xl text-outline hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center border border-border-subtle transition-colors" id="btn-clear-input" title="Xóa ô nhập" aria-label="Xóa ô nhập">
+                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">refresh</span>
                 </button>
               </div>
-              <label class="flex items-center gap-1.5 cursor-pointer text-xs text-on-surface-variant">
+              <label class="min-h-[36px] inline-flex items-center gap-1.5 cursor-pointer text-xs text-on-surface-variant">
                 <input ${d.showDetails ? 'checked' : ''} class="w-4 h-4 rounded accent-primary" id="chk-auto-show" type="checkbox"/>
                 <span>Hiện Pinyin &amp; dịch</span>
               </label>
@@ -8359,107 +8481,123 @@ VIEWS["chinh-ta"] = async () => {
             <div id="dictation-hw-drawer" hidden></div>
 
             <!-- Feedback Panel -->
-            <div class="hidden flex-col gap-3 pt-3 bg-paper-base rounded-xl p-3.5 border border-border-subtle" id="feedback-panel">
+            <div class="hidden flex-col gap-3 bg-paper-base rounded-xl p-3.5 border border-border-subtle" id="feedback-panel" role="status">
               <div class="hidden flex-col gap-2.5" id="state-correct">
                 <div class="flex items-center justify-between gap-2 flex-wrap">
                   <span class="text-sm font-bold text-secondary flex items-center gap-1.5">
-                    <span class="material-symbols-outlined text-[20px]">check_circle</span> Chính xác! (正確)
+                    <span class="material-symbols-outlined text-[20px]" aria-hidden="true">check_circle</span> Chính xác! (正確)
                   </span>
                   <div class="flex items-center gap-1.5">
-                    <button type="button" class="min-h-[36px] px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface text-xs font-medium border border-border-subtle" id="btn-save-current-sentence">+ Sổ từ</button>
-                    <button type="button" class="min-h-[36px] px-3 py-1 rounded-lg bg-secondary text-white text-xs font-semibold" id="btn-next-action">Câu tiếp →</button>
+                    <button type="button" class="min-h-[36px] px-3 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface text-xs font-semibold border border-border-subtle transition-colors" id="btn-save-current-sentence">+ Sổ từ</button>
+                    <button type="button" class="min-h-[36px] px-3.5 py-1 rounded-lg bg-secondary hover:bg-secondary/90 text-white text-xs font-semibold transition-colors" id="btn-next-action">${isLastSent ? "✓ Hoàn thành bài" : "Câu tiếp →"}</button>
                   </div>
                 </div>
                 <div class="dict-detail-box grid grid-cols-1 md:grid-cols-2 gap-2 text-xs ${d.showDetails ? '' : 'hidden'}">
-                  <div class="bg-paper-card p-2.5 rounded-lg border border-border-subtle"><span class="text-outline block mb-0.5">Pinyin</span><span class="font-code text-primary">${esc(curSent.py)}</span></div>
-                  <div class="bg-paper-card p-2.5 rounded-lg border border-border-subtle"><span class="text-outline block mb-0.5">Dịch nghĩa</span><span class="text-on-surface font-medium">${esc(curSent.vn)}</span></div>
+                  <div class="bg-paper-card p-2.5 rounded-lg border border-border-subtle min-w-0 break-words"><span class="text-outline block mb-0.5">Pinyin</span><span class="font-code text-primary">${esc(curSent.py)}</span></div>
+                  <div class="bg-paper-card p-2.5 rounded-lg border border-border-subtle min-w-0 break-words"><span class="text-outline block mb-0.5">Dịch nghĩa</span><span class="text-on-surface font-medium">${esc(curSent.vn)}</span></div>
                 </div>
               </div>
 
               <div class="hidden flex-col gap-2.5" id="state-incorrect">
                 <div class="flex items-center justify-between gap-2 flex-wrap">
                   <span class="text-sm font-bold text-primary flex items-center gap-1.5">
-                    <span class="material-symbols-outlined text-[20px]">info</span> Đáp án &amp; đối chiếu (chữ đỏ chưa khớp)
+                    <span class="material-symbols-outlined text-[20px]" aria-hidden="true">info</span> Đáp án &amp; đối chiếu (chữ đỏ chưa khớp)
                   </span>
-                  <button type="button" class="min-h-[36px] px-3 py-1 rounded-lg bg-primary-container text-white text-xs font-semibold" id="btn-next-action-inc">Câu tiếp →</button>
+                  <button type="button" class="min-h-[36px] px-3.5 py-1 rounded-lg bg-primary-container hover:bg-primary text-white text-xs font-semibold transition-colors" id="btn-next-action-inc">${isLastSent ? "✓ Hoàn thành bài" : "Câu tiếp →"}</button>
                 </div>
-                <div class="p-3 bg-paper-card rounded-lg border border-border-subtle font-serif text-xl md:text-2xl leading-relaxed" id="diffComparison"></div>
+                <div class="hidden p-2.5 rounded-lg bg-amber-subtle border border-tertiary/30 text-xs text-tertiary font-medium" id="dictSimplifiedTip"></div>
+                <div class="p-3 bg-paper-card rounded-lg border border-border-subtle font-serif text-xl md:text-2xl leading-relaxed break-words" id="diffComparison" lang="zh-Hant"></div>
                 <div class="dict-detail-box grid grid-cols-1 md:grid-cols-2 gap-2 text-xs ${d.showDetails ? '' : 'hidden'}">
-                  <div class="bg-paper-card p-2.5 rounded-lg border border-border-subtle"><span class="text-outline block mb-0.5">Pinyin chuẩn</span><span class="font-code text-primary">${esc(curSent.py)}</span></div>
-                  <div class="bg-paper-card p-2.5 rounded-lg border border-border-subtle"><span class="text-outline block mb-0.5">Dịch nghĩa</span><span class="text-on-surface font-medium">${esc(curSent.vn)}</span></div>
+                  <div class="bg-paper-card p-2.5 rounded-lg border border-border-subtle min-w-0 break-words"><span class="text-outline block mb-0.5">Pinyin chuẩn</span><span class="font-code text-primary">${esc(curSent.py)}</span></div>
+                  <div class="bg-paper-card p-2.5 rounded-lg border border-border-subtle min-w-0 break-words"><span class="text-outline block mb-0.5">Dịch nghĩa</span><span class="text-on-surface font-medium">${esc(curSent.vn)}</span></div>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Transcript Container -->
-          <div class="${d.viewMode === 'transcript' ? 'flex' : 'hidden'} flex-col gap-3 bg-paper-card p-4 sm:p-space-lg rounded-2xl shadow-sm border border-border-subtle" id="transcript-container">
-            <div class="flex items-center justify-between border-b border-border-subtle pb-2">
-              <h3 class="font-headline-md text-base text-on-surface font-bold m-0">Toàn bộ Transcript · ${esc(curTopic.title)}</h3>
-              <span class="text-xs font-code text-outline">${curTopic.sentences.length} câu</span>
+          <div class="${d.viewMode === 'transcript' ? 'flex' : 'hidden'} dicta-lesson-card ${curMeta.tier} flex-col gap-3 p-4 sm:p-space-lg" id="transcript-container">
+            <div class="flex items-center justify-between gap-2 border-b border-border-subtle pb-2.5 flex-wrap">
+              <h2 class="font-headline-md text-base sm:text-lg text-on-surface font-bold font-serif m-0">Toàn bộ Transcript · ${esc(curTopic.title)}</h2>
+              <span class="home-band-tier-pill font-code">${curTopic.sentences.length} câu</span>
             </div>
-            <div class="flex flex-col gap-2 max-h-[520px] overflow-y-auto pr-1 custom-scrollbar">
-              ${curTopic.sentences.map((s, idx) => `
-                <div class="p-3 rounded-xl border transition-all text-xs flex items-start justify-between gap-3 cursor-pointer ${idx === d.sentenceIdx ? 'border-primary bg-cinnabar-subtle' : 'border-border-subtle bg-paper-base hover:bg-surface-container-low'}" data-jump-sentence="${idx}">
-                  <div class="flex items-start gap-2.5 min-w-0">
-                    <span class="w-6 h-6 rounded-full flex items-center justify-center font-code text-xs font-bold shrink-0 ${idx === d.sentenceIdx ? 'bg-primary-container text-white' : 'bg-surface-container text-on-surface-variant'}">${idx + 1}</span>
-                    <div class="flex flex-col gap-0.5 min-w-0">
-                      <span class="font-serif text-sm font-semibold text-on-surface">${s.speaker ? `<strong class="text-secondary">[${esc(s.speaker)}]</strong> ` : ''}${esc(s.zh)}</span>
-                      <span class="font-code text-outline text-xs">${esc(s.py)}</span>
-                      <span class="text-on-surface-variant text-xs">${esc(s.vn)}</span>
+            <div class="flex flex-col gap-2 max-h-[560px] overflow-y-auto pr-1 custom-scrollbar">
+              ${curTopic.sentences.map((s, idx) => {
+                const st = topicDone[idx];
+                const isCur = idx === d.sentenceIdx;
+                return `
+                  <div class="p-3 rounded-xl border transition-all text-xs flex items-start justify-between gap-3 cursor-pointer ${isCur ? 'border-primary bg-cinnabar-subtle' : 'border-border-subtle bg-paper-base hover:bg-surface-container-low'}" data-jump-sentence="${idx}" role="button" tabindex="0">
+                    <div class="flex items-start gap-2.5 min-w-0 flex-1">
+                      <span class="w-7 h-7 rounded-full flex items-center justify-center font-code text-xs font-bold shrink-0 ${isCur ? 'bg-primary-container text-white' : (st === 'ok' ? 'bg-jade-subtle text-secondary' : (st ? 'bg-amber-subtle text-tertiary' : 'bg-surface-container text-on-surface-variant'))}">${st === 'ok' && !isCur ? '✓' : idx + 1}</span>
+                      <div class="flex flex-col gap-0.5 min-w-0">
+                        <span class="font-serif text-sm font-semibold text-on-surface break-words" lang="zh-Hant">${s.speaker ? `<strong class="text-secondary font-sans text-xs">[${esc(s.speaker)}]</strong> ` : ''}${esc(s.zh)}</span>
+                        <span class="font-code text-outline text-xs break-words">${esc(s.py)}</span>
+                        <span class="text-on-surface-variant text-xs break-words">${esc(s.vn)}</span>
+                      </div>
                     </div>
+                    <button type="button" class="w-9 h-9 rounded-full bg-paper-card hover:bg-primary-container hover:text-white flex items-center justify-center text-on-surface-variant border border-border-subtle shrink-0 transition-colors" data-play-sent-idx="${idx}" title="Nghe câu này" aria-label="Nghe câu ${idx + 1}">
+                      <span class="material-symbols-outlined text-[18px]" aria-hidden="true">play_arrow</span>
+                    </button>
                   </div>
-                  <button type="button" class="w-9 h-9 rounded-full bg-paper-card hover:bg-primary-container hover:text-white flex items-center justify-center text-on-surface-variant border border-border-subtle shrink-0" data-play-sent-idx="${idx}" title="Nghe câu này" aria-label="Nghe câu ${idx + 1}">
-                    <span class="material-symbols-outlined text-[18px]">play_arrow</span>
-                  </button>
-                </div>
-              `).join("")}
+                `;
+              }).join("")}
             </div>
           </div>
         </div>
 
-        <!-- Compact Sidebar -->
-        <aside class="lg:col-span-4 flex flex-col gap-space-md">
-          <div class="bg-paper-card p-space-md rounded-2xl shadow-sm border border-border-subtle flex flex-col gap-3">
+        <!-- Sticky Sidebar -->
+        <aside class="lg:col-span-4 lg:sticky lg:top-24 flex flex-col gap-space-md min-w-0">
+          <div class="bg-paper-card p-4 sm:p-space-md rounded-2xl shadow-sm border border-border-subtle flex flex-col gap-3">
             <div class="flex items-center justify-between pb-2 border-b border-border-subtle">
-              <h3 class="font-label-md text-xs font-bold text-on-surface uppercase m-0" id="dictSidebarProg">Tiến độ bài (${doneCountInTopic}/${curTopic.sentences.length})</h3>
-              <span class="text-xs font-code text-primary font-bold">Câu ${d.sentenceIdx + 1}</span>
+              <h3 class="font-label-md text-xs font-bold text-on-surface uppercase m-0" id="dictSidebarProg">Tiến độ bài (${okCountInTopic}/${curTopic.sentences.length})</h3>
+              <span class="text-xs font-code text-primary font-bold" id="dictSidebarPct">${topicPct}%</span>
+            </div>
+            <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+              <div class="h-full rounded-full bg-secondary transition-all duration-300" id="dictSidebarBar" style="width:${topicPct}%"></div>
             </div>
             <div class="grid grid-cols-5 gap-1.5" id="dictSidebarGrid">
               ${curTopic.sentences.map((_, idx) => {
                 const status = topicDone[idx];
                 const isCurrent = idx === d.sentenceIdx;
-                let cls = "bg-surface-container-low hover:bg-surface-container text-on-surface-variant";
-                if (isCurrent) cls = "bg-primary-container text-white font-bold shadow-sm";
-                else if (status === "ok") cls = "bg-jade-subtle text-secondary font-bold border border-border-subtle";
-                else if (status === "skip" || status === "miss") cls = "bg-amber-subtle text-tertiary font-bold border border-border-subtle";
-                return `<button type="button" class="h-9 rounded-lg ${cls} font-code text-xs flex items-center justify-center transition-all" data-jump-sentence="${idx}">${status === "ok" && !isCurrent ? '✓' : idx + 1}</button>`;
+                let cls = "bg-surface-container-low hover:bg-surface-container text-on-surface-variant border border-transparent";
+                if (isCurrent) cls = "bg-primary-container text-white font-bold shadow-sm border border-primary";
+                else if (status === "ok") cls = "bg-jade-subtle text-secondary font-bold border border-secondary/30";
+                else if (status === "skip" || status === "miss") cls = "bg-amber-subtle text-tertiary font-bold border border-tertiary/30";
+                return `<button type="button" class="h-9 rounded-lg ${cls} font-code text-xs flex items-center justify-center transition-all" data-jump-sentence="${idx}" data-grid-idx="${idx}" title="Câu ${idx + 1}">${status === "ok" && !isCurrent ? '✓' : idx + 1}</button>`;
               }).join("")}
+            </div>
+            <div class="flex items-center justify-between gap-2 pt-2 border-t border-border-subtle/60 text-[11px] text-outline flex-wrap">
+              <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-jade-subtle border border-secondary/40 inline-block"></span>Đúng</span>
+              <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-amber-subtle border border-tertiary/40 inline-block"></span>Xem/Sai</span>
+              <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-primary-container inline-block"></span>Đang làm</span>
             </div>
           </div>
 
           ${hasVocab ? `
-          <div class="bg-paper-card p-space-md rounded-2xl shadow-sm border border-border-subtle flex flex-col gap-2.5">
+          <div class="bg-paper-card p-4 sm:p-space-md rounded-2xl shadow-sm border border-border-subtle flex flex-col gap-2.5">
             <div class="flex items-center justify-between pb-2 border-b border-border-subtle">
-              <h3 class="font-label-md text-xs font-bold text-on-surface uppercase m-0">Từ vựng trọng tâm</h3>
-              <button type="button" class="text-primary hover:underline text-xs font-semibold" id="btn-save-all-vocab">Lưu tất cả</button>
+              <h3 class="font-label-md text-xs font-bold text-on-surface uppercase m-0 flex items-center gap-1.5">
+                <span class="w-1.5 h-3.5 rounded-full bg-primary-container inline-block"></span>
+                Từ vựng trọng tâm (${curTopic.vocab.length})
+              </h3>
+              <button type="button" class="min-h-[36px] px-2.5 py-1 rounded-lg bg-cinnabar-subtle text-primary hover:bg-primary-container hover:text-on-primary text-xs font-semibold transition-colors" id="btn-save-all-vocab">Lưu tất cả</button>
             </div>
             <div class="flex flex-col gap-2">
               ${curTopic.vocab.map((v) => `
-                <div class="p-2.5 rounded-xl bg-paper-base border border-border-subtle flex items-center justify-between gap-2">
-                  <div class="min-w-0">
+                <div class="p-2.5 rounded-xl bg-paper-base border border-border-subtle flex items-center justify-between gap-2 min-w-0">
+                  <div class="min-w-0 flex-1">
                     <div class="flex items-center gap-1.5 flex-wrap">
-                      <a href="#tu/${encodeURIComponent(v.w)}" class="font-serif text-sm font-bold text-on-surface hover:text-primary no-underline">${esc(v.w)}</a>
+                      <a href="#tu/${encodeURIComponent(v.w)}" class="font-serif text-sm font-bold text-on-surface hover:text-primary no-underline" lang="zh-Hant">${esc(v.w)}</a>
                       <span class="font-code text-xs text-primary">${esc(v.py)}</span>
                     </div>
                     <span class="text-xs text-on-surface-variant block truncate">${esc(v.vn)}</span>
                   </div>
                   <div class="flex items-center gap-1.5 shrink-0">
-                    <button type="button" class="w-9 h-9 rounded-full bg-paper-card text-on-surface-variant hover:text-primary flex items-center justify-center border border-border-subtle" data-say-vocab="${esc(v.w)}" title="Phát âm" aria-label="Phát âm ${esc(v.w)}">
-                      <span class="material-symbols-outlined text-[17px]">volume_up</span>
+                    <button type="button" class="w-9 h-9 rounded-full bg-paper-card text-on-surface-variant hover:text-primary hover:bg-cinnabar-subtle flex items-center justify-center border border-border-subtle transition-colors" data-say-vocab="${esc(v.w)}" title="Phát âm" aria-label="Phát âm ${esc(v.w)}">
+                      <span class="material-symbols-outlined text-[17px]" aria-hidden="true">volume_up</span>
                     </button>
-                    <button type="button" class="w-9 h-9 rounded-full bg-paper-card text-on-surface-variant hover:text-secondary flex items-center justify-center border border-border-subtle" data-save-vocab="${esc(v.w)}" data-vocab-py="${esc(v.py)}" data-vocab-vn="${esc(v.vn)}" data-vocab-band="${esc(v.band || 'B1')}" title="Lưu vào sổ từ" aria-label="Lưu ${esc(v.w)} vào sổ từ">
-                      <span class="material-symbols-outlined text-[17px]">bookmark_add</span>
+                    <button type="button" class="w-9 h-9 rounded-full bg-paper-card text-on-surface-variant hover:text-secondary hover:bg-jade-subtle flex items-center justify-center border border-border-subtle transition-colors" data-save-vocab="${esc(v.w)}" data-vocab-py="${esc(v.py)}" data-vocab-vn="${esc(v.vn)}" data-vocab-band="${esc(v.band || curTopic.band || curBandKey || 'B1')}" title="Lưu vào sổ từ" aria-label="Lưu ${esc(v.w)} vào sổ từ">
+                      <span class="material-symbols-outlined text-[17px]" aria-hidden="true">bookmark_add</span>
                     </button>
                   </div>
                 </div>
@@ -8475,11 +8613,23 @@ VIEWS["chinh-ta"] = async () => {
   const charCounter = $("#char-counter");
   const btnPlayPause = $("#btn-play-pause");
   const btnPlayFull = $("#btn-play-full-topic");
+  const btnStopAudio = $("#btn-stop-audio");
 
   function speakerRole(s) {
     if (/林經理|小姐|女|房東|顧客|同學/.test(s.speaker || "")) return "female";
     if (/傑克|小陳|男|先生|記者|經理/.test(s.speaker || "")) return "male";
     return "narrator";
+  }
+
+  function stopDictationAudio() {
+    window._dialoguePlayId = (window._dialoguePlayId || 0) + 1;
+    if (window._dialogueTimer) {
+      clearTimeout(window._dialogueTimer);
+      window._dialogueTimer = null;
+    }
+    if ("speechSynthesis" in window) {
+      try { window.speechSynthesis.cancel(); } catch (e) {}
+    }
   }
 
   function playSentenceAudio(sent) {
@@ -8510,6 +8660,7 @@ VIEWS["chinh-ta"] = async () => {
 
   if (btnPlayFull) btnPlayFull.onclick = playFullDialogueAudio;
   if (btnPlayPause) btnPlayPause.onclick = playCurrentAudio;
+  if (btnStopAudio) btnStopAudio.onclick = stopDictationAudio;
 
   if (txtInput && charCounter) {
     txtInput.oninput = () => { charCounter.textContent = `${txtInput.value.length} ký tự`; };
@@ -8524,14 +8675,16 @@ VIEWS["chinh-ta"] = async () => {
   }
 
   const speedBtnCls = (isActive) => isActive
-    ? "speed-toggle min-h-[36px] px-2.5 py-1 rounded-lg font-code text-xs bg-primary-container text-on-primary font-bold"
-    : "speed-toggle min-h-[36px] px-2.5 py-1 rounded-lg font-code text-xs bg-paper-card text-on-surface-variant border border-border-subtle hover:bg-surface-container";
+    ? "speed-toggle min-h-[36px] px-2.5 py-1 rounded-lg font-code text-xs transition-colors bg-primary-container text-on-primary font-bold shadow-sm"
+    : "speed-toggle min-h-[36px] px-2.5 py-1 rounded-lg font-code text-xs transition-colors bg-paper-card text-on-surface-variant border border-border-subtle hover:bg-surface-container";
 
   document.querySelectorAll(".speed-toggle").forEach((btn) => {
     btn.onclick = () => {
       d.speed = Number(btn.dataset.speed || 1.0);
       document.querySelectorAll(".speed-toggle").forEach(b => {
-        b.className = speedBtnCls(Number(b.dataset.speed || 1.0) === d.speed);
+        const on = Number(b.dataset.speed || 1.0) === d.speed;
+        b.className = speedBtnCls(on);
+        b.setAttribute("aria-pressed", String(on));
       });
       playCurrentAudio();
     };
@@ -8544,7 +8697,7 @@ VIEWS["chinh-ta"] = async () => {
       saveDict();
       VIEWS["chinh-ta"]();
     } else {
-      showToast(`Hoàn thành bài "${curTopic.title}"! Bạn có thể chọn bài tiếp theo ở phía trên.`);
+      showToast(`Hoàn thành bài "${curTopic.title}"! Bạn có thể chọn bài tiếp theo trong Danh sách bài.`);
     }
   };
 
@@ -8564,32 +8717,68 @@ VIEWS["chinh-ta"] = async () => {
   });
 
   document.querySelectorAll("[data-jump-sentence]").forEach((el) => {
-    el.onclick = () => {
+    const activateJump = () => {
       d.sentenceIdx = Number(el.dataset.jumpSentence);
       d.checked = false;
       saveDict();
       d.viewMode = "dictation";
       VIEWS["chinh-ta"]();
     };
+    el.onclick = activateJump;
+    if (el.tagName !== "BUTTON") {
+      el.onkeydown = (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          activateJump();
+        }
+      };
+    }
   });
 
   function updateScoreDOM() {
     const ok = topicOkCount();
     const tot = topicTotalCount();
+    const pct = curTopic.sentences.length ? Math.round((ok / curTopic.sentences.length) * 100) : 0;
     const okEl = $("#dictOkCount");
     const totEl = $("#dictTotalCount");
     if (okEl) okEl.textContent = ok;
     if (totEl) totEl.textContent = tot;
     const progEl = $("#dictSidebarProg");
     if (progEl) progEl.textContent = `Tiến độ bài (${ok}/${curTopic.sentences.length})`;
+    const pctEl = $("#dictSidebarPct");
+    if (pctEl) pctEl.textContent = `${pct}%`;
+    const barEl = $("#dictSidebarBar");
+    if (barEl) barEl.style.width = `${pct}%`;
+
+    const curCell = document.querySelector(`#dictSidebarGrid [data-grid-idx="${d.sentenceIdx}"]`);
+    if (curCell) {
+      const st = topicDone[d.sentenceIdx];
+      if (st === "ok") {
+        curCell.textContent = "✓";
+        curCell.title = `Câu ${d.sentenceIdx + 1} · Đã đúng`;
+        curCell.setAttribute("aria-label", `Câu ${d.sentenceIdx + 1}, đã đúng`);
+        curCell.className = "h-9 rounded-lg bg-secondary text-white font-bold shadow-sm border border-secondary font-code text-xs flex items-center justify-center transition-all";
+      } else if (st === "skip" || st === "miss") {
+        curCell.textContent = String(d.sentenceIdx + 1);
+        curCell.title = `Câu ${d.sentenceIdx + 1} · Đã xem/chưa khớp`;
+        curCell.setAttribute("aria-label", `Câu ${d.sentenceIdx + 1}, chưa khớp`);
+      }
+    }
   }
 
   function handleCheck(isRevealOnly = false) {
     if (!txtInput) return;
     const typed = isRevealOnly ? "" : txtInput.value.trim();
     const cleanTyped = clean(typed);
+    if (!isRevealOnly && !cleanTyped) {
+      txtInput.focus();
+      showToast("Hãy nhập hoặc viết tay câu bạn nghe được, hoặc bấm Xem đáp án.");
+      return;
+    }
     const cleanTarget = clean(curSent.zh);
     const isExact = !isRevealOnly && cleanTyped === cleanTarget && cleanTarget.length > 0;
+    const tradTyped = typeof toTraditionalTw === "function" ? clean(toTraditionalTw(typed)) : cleanTyped;
+    const isSimplifiedMatch = !isRevealOnly && !isExact && cleanTyped.length > 0 && tradTyped === cleanTarget;
 
     d.checked = true;
     if (isExact) {
@@ -8617,6 +8806,16 @@ VIEWS["chinh-ta"] = async () => {
       stateCorrect.classList.remove("flex");
       stateIncorrect.classList.remove("hidden");
       stateIncorrect.classList.add("flex");
+      const simpTip = $("#dictSimplifiedTip");
+      if (simpTip) {
+        if (isSimplifiedMatch) {
+          simpTip.textContent = "Gần chính xác! Bạn đang gõ chữ Giản thể — hãy đối chiếu các chữ Phồn thể Đài Loan đánh dấu đỏ bên dưới.";
+          simpTip.classList.remove("hidden");
+        } else {
+          simpTip.textContent = "";
+          simpTip.classList.add("hidden");
+        }
+      }
       const diffEl = $("#diffComparison");
       if (diffEl) diffEl.innerHTML = diffMarks(curSent.zh, typed);
     }
@@ -8664,45 +8863,86 @@ VIEWS["chinh-ta"] = async () => {
   };
   if (dictHwBtn && dictHwDrawer) {
     dictHwBtn.onclick = () => setDictHwOpen(dictHwDrawer.hidden);
-    if (d.hwOpen) setDictHwOpen(true);
+    if (inLesson && d.viewMode === "dictation" && d.hwOpen) setDictHwOpen(true);
   }
   if ($("#btn-next-action")) $("#btn-next-action").onclick = goNextSentence;
   if ($("#btn-next-action-inc")) $("#btn-next-action-inc").onclick = goNextSentence;
 
   if ($("#btn-save-current-sentence")) {
-    $("#btn-save-current-sentence").onclick = () => saveWordToNotebook(curSent.zh, curSent.py, curSent.vn, curTopic.band || "B1");
+    $("#btn-save-current-sentence").onclick = () => saveWordToNotebook(curSent.zh, curSent.py, curSent.vn, curTopic.band || curBandKey || "B1");
   }
   document.querySelectorAll("[data-say-vocab]").forEach((btn) => {
-    btn.onclick = () => say(btn.dataset.sayVocab, 0.9);
+    btn.onclick = () => {
+      stopDictationAudio();
+      say(btn.dataset.sayVocab, 0.9);
+    };
   });
   document.querySelectorAll("[data-save-vocab]").forEach((btn) => {
     btn.onclick = () => saveWordToNotebook(btn.dataset.saveVocab, btn.dataset.vocabPy, btn.dataset.vocabVn, btn.dataset.vocabBand);
   });
-  if ($("#btn-save-all-vocab")) {
-    $("#btn-save-all-vocab").onclick = async () => {
-      for (const v of curTopic.vocab || []) await saveWordToNotebook(v.w, v.py, v.vn, v.band);
-      showToast(`Đã lưu toàn bộ từ vựng bài "${curTopic.title}" vào Sổ từ!`);
+  const btnSaveAllVocab = $("#btn-save-all-vocab");
+  if (btnSaveAllVocab) {
+    btnSaveAllVocab.onclick = async () => {
+      if (btnSaveAllVocab.disabled) return;
+      btnSaveAllVocab.disabled = true;
+      try {
+        const list = curTopic.vocab || [];
+        const fallbackBand = curTopic.band || curBandKey || "B1";
+        for (const v of list) {
+          await saveWordToNotebook(v.w, v.py, v.vn, v.band || fallbackBand, { silent: true, skipSave: true });
+        }
+        try { await saveSettings(); } catch (e) {}
+        if (typeof updateBadge === "function") updateBadge();
+        showToast(`Đã lưu toàn bộ ${list.length} từ vựng bài "${curTopic.title}" vào Sổ từ!`);
+      } finally {
+        btnSaveAllVocab.disabled = false;
+      }
     };
   }
 
-  const expDetails = $("#section-topic-explorer");
-  if (expDetails) expDetails.ontoggle = () => { d.explorerOpen = !!expDetails.open; };
+  // Bind landing topic card clicks & live topic search (preserves input focus!)
+  const bindTopicCardClicks = () => {
+    document.querySelectorAll("[data-select-topic]").forEach((card) => {
+      card.onclick = () => {
+        if (card.dataset.selectTopic !== d.passageId) { d._resumed = false; d.checked = false; d._lastPlayedKey = ""; }
+        d.passageId = card.dataset.selectTopic;
+        location.hash = "#chinh-ta/" + encodeURIComponent(card.dataset.selectTopic);
+      };
+    });
+    const resetBtn = $("#btn-reset-dict-filters");
+    if (resetBtn) {
+      resetBtn.onclick = () => {
+        d.bandFilter = "all";
+        d.topicCategory = "all";
+        d.searchQuery = "";
+        VIEWS["chinh-ta"]();
+      };
+    }
+  };
+  bindTopicCardClicks();
+
+  const topicSearch = $("#dictTopicSearch");
+  if (topicSearch) {
+    const refreshTopicList = () => {
+      d.searchQuery = topicSearch.value || "";
+      const host = $("#dictTopicGroupsHost");
+      if (host) {
+        host.innerHTML = renderTopicGroupsHTML();
+        bindTopicCardClicks();
+      }
+    };
+    topicSearch.oninput = refreshTopicList;
+    topicSearch.onsearch = refreshTopicList;
+  }
 
   if ($("#tab-mode-dictation")) $("#tab-mode-dictation").onclick = () => { d.viewMode = "dictation"; VIEWS["chinh-ta"](); };
   if ($("#tab-mode-transcript")) $("#tab-mode-transcript").onclick = () => { d.viewMode = "transcript"; VIEWS["chinh-ta"](); };
 
   document.querySelectorAll("[data-dict-band]").forEach((chip) => {
-    chip.onclick = () => { d.bandFilter = chip.dataset.dictBand; d.explorerOpen = true; VIEWS["chinh-ta"](); };
+    chip.onclick = () => { d.bandFilter = chip.dataset.dictBand; VIEWS["chinh-ta"](); };
   });
   document.querySelectorAll("[data-topic-cat]").forEach((chip) => {
-    chip.onclick = () => { d.topicCategory = chip.dataset.topicCat; d.explorerOpen = true; VIEWS["chinh-ta"](); };
-  });
-  document.querySelectorAll("[data-select-topic]").forEach((card) => {
-    card.onclick = () => {
-      if (card.dataset.selectTopic !== d.passageId) { d._resumed = false; d.checked = false; d._lastPlayedKey = ""; }
-      d.passageId = card.dataset.selectTopic;
-      location.hash = "#chinh-ta/" + encodeURIComponent(card.dataset.selectTopic);
-    };
+    chip.onclick = () => { d.topicCategory = chip.dataset.topicCat; VIEWS["chinh-ta"](); };
   });
 
   // KEYBOARD SHORTCUT: Standalone Shift tap replays audio; Enter checks answer (IME-safe!)
@@ -8729,14 +8969,41 @@ VIEWS["chinh-ta"] = async () => {
     };
   }
 
-  window.onkeydown = (e) => {
-    if (e.isComposing || e.keyCode === 229) return;
-    if (!location.hash.startsWith("#chinh-ta/") && !location.hash.startsWith("#chep-chinh-ta/")) return;
-    if (document.activeElement === txtInput) return;
-    if (e.key === "Shift" && !e.ctrlKey && !e.altKey && !e.metaKey) {
-      playCurrentAudio();
-    }
-  };
+  if (window._dictKeyDownHandler) window.removeEventListener("keydown", window._dictKeyDownHandler);
+  if (window._dictKeyUpHandler) window.removeEventListener("keyup", window._dictKeyUpHandler);
+  if (window._dictPtrHandler) window.removeEventListener("pointerdown", window._dictPtrHandler);
+  if (inLesson && d.viewMode === "dictation") {
+    let globalShiftSolo = false;
+    window._dictKeyDownHandler = (e) => {
+      if (e.isComposing || e.keyCode === 229) { globalShiftSolo = false; return; }
+      const tag = e.target && e.target.tagName;
+      if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT" || (e.target && e.target.isContentEditable)) {
+        globalShiftSolo = false;
+        return;
+      }
+      if (e.key === "Shift" && !e.ctrlKey && !e.altKey && !e.metaKey) {
+        globalShiftSolo = true;
+      } else {
+        globalShiftSolo = false;
+      }
+    };
+    window._dictKeyUpHandler = (e) => {
+      if (e.key === "Shift" && globalShiftSolo && !e.isComposing) {
+        globalShiftSolo = false;
+        if (location.hash.startsWith("#chinh-ta/") || location.hash.startsWith("#chep-chinh-ta/")) {
+          playCurrentAudio();
+        }
+      }
+    };
+    window._dictPtrHandler = () => { globalShiftSolo = false; };
+    window.addEventListener("keydown", window._dictKeyDownHandler);
+    window.addEventListener("keyup", window._dictKeyUpHandler);
+    window.addEventListener("pointerdown", window._dictPtrHandler);
+  } else {
+    window._dictKeyDownHandler = null;
+    window._dictKeyUpHandler = null;
+    window._dictPtrHandler = null;
+  }
 };
 
 // =========================================================================

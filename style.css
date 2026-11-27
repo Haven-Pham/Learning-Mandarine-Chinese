@@ -1849,6 +1849,132 @@ a.home-metric-card:hover {
   border-color: #e27d78 !important;
   box-shadow: 0 0 0 2px rgba(226, 125, 120, 0.22);
 }
+
+/* ---- Dictation Workspace & Topic Cards (Tier-Matched Light & Dark) ---- */
+.dicta-topic-card {
+  --tier-accent: #00685A;
+  --tier-tint: #EAF6F3;
+  --tier-tint-dark: #122924;
+  --tier-text: #00685A;
+  --tier-text-dark: #5eead4;
+  position: relative;
+  min-width: 0;
+  border-radius: 14px;
+  background: var(--paper-card);
+  border: 1px solid var(--border-subtle);
+  border-left: 3.5px solid var(--tier-accent);
+  padding: 0.9rem;
+  box-shadow: 0 1px 4px rgba(44, 42, 41, 0.04);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.6rem;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+}
+.dicta-lesson-card {
+  --tier-accent: #B86B11;
+  --tier-tint: #FDF5E6;
+  --tier-tint-dark: #2e2313;
+  --tier-text: #9A5509;
+  --tier-text-dark: #fbbf24;
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--paper-card);
+  border: 1px solid var(--border-subtle);
+  border-top: 4px solid var(--tier-accent);
+  box-shadow: 0 2px 10px rgba(44, 42, 41, 0.05);
+}
+.dicta-topic-card.tier-a, .dicta-lesson-card.tier-a, .dicta-tier-scope.tier-a {
+  --tier-accent: #00685A; --tier-tint: #EAF6F3; --tier-tint-dark: #122924; --tier-text: #00685A; --tier-text-dark: #5eead4;
+}
+.dicta-topic-card.tier-b, .dicta-lesson-card.tier-b, .dicta-tier-scope.tier-b {
+  --tier-accent: #B86B11; --tier-tint: #FDF5E6; --tier-tint-dark: #2e2313; --tier-text: #9A5509; --tier-text-dark: #fbbf24;
+}
+.dicta-topic-card.tier-indigo, .dicta-lesson-card.tier-indigo, .dicta-tier-scope.tier-indigo {
+  --tier-accent: #3B5998; --tier-tint: #EEF2FA; --tier-tint-dark: #192235; --tier-text: #2F4980; --tier-text-dark: #93c5fd;
+}
+.dicta-topic-card.tier-c, .dicta-lesson-card.tier-c, .dicta-tier-scope.tier-c {
+  --tier-accent: #A8261F; --tier-tint: #FDEEEB; --tier-tint-dark: #311816; --tier-text: #A8261F; --tier-text-dark: #f89b96;
+}
+.dicta-topic-card.is-active .home-band-tier-pill {
+  background: var(--paper-card);
+}
+.dicta-topic-card:hover {
+  border-color: var(--tier-accent);
+  box-shadow: 0 6px 14px rgba(44, 42, 41, 0.08);
+  transform: translateY(-1px);
+}
+.dicta-topic-card.is-active {
+  border-color: var(--tier-accent);
+  background: var(--tier-tint);
+  box-shadow: 0 4px 12px rgba(44, 42, 41, 0.08);
+}
+.dicta-topic-title {
+  color: var(--on-surface);
+  transition: color 0.15s ease;
+}
+.dicta-topic-card:hover .dicta-topic-title,
+.dicta-topic-card.is-active .dicta-topic-title {
+  color: var(--tier-text);
+}
+.dicta-prog-fill {
+  background: var(--tier-accent);
+  transition: width 0.25s ease;
+}
+.dicta-audio-bar {
+  background: var(--paper-base);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+}
+.dicta-textarea {
+  background: var(--paper-base);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 14px;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+}
+.dicta-textarea:focus {
+  border-color: var(--primary-container);
+  box-shadow: 0 0 0 3px rgba(168, 38, 31, 0.14);
+  background: var(--paper-card);
+}
+:root[data-theme="dark"] .dicta-topic-card {
+  border-left-color: var(--tier-text-dark);
+}
+:root[data-theme="dark"] .dicta-topic-card:hover {
+  border-color: var(--tier-text-dark);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+:root[data-theme="dark"] .dicta-topic-card.is-active {
+  border-color: var(--tier-text-dark);
+  background: var(--tier-tint-dark);
+}
+:root[data-theme="dark"] .dicta-topic-card:hover .dicta-topic-title,
+:root[data-theme="dark"] .dicta-topic-card.is-active .dicta-topic-title {
+  color: var(--tier-text-dark);
+}
+:root[data-theme="dark"] .dicta-lesson-card {
+  border-top-color: var(--tier-text-dark);
+}
+:root[data-theme="dark"] .dicta-prog-fill {
+  background: var(--tier-text-dark);
+}
+:root[data-theme="dark"] .dicta-audio-bar {
+  background: #1b1817;
+  border-color: var(--border-subtle);
+}
+:root[data-theme="dark"] .dicta-textarea {
+  background: #1b1817;
+  border-color: var(--border-subtle);
+}
+:root[data-theme="dark"] .dicta-textarea:focus {
+  border-color: #e27d78 !important;
+  box-shadow: 0 0 0 3px rgba(226, 125, 120, 0.2) !important;
+  background: #231f1d;
+}
 .home-band-card:hover {
   border-color: var(--tier-accent);
   box-shadow: 0 8px 18px rgba(44, 42, 41, 0.08);
@@ -1890,8 +2016,8 @@ a.home-metric-card:hover {
   font-size: 11.5px;
   line-height: 1.25;
   font-weight: 700;
-  background: var(--tier-tint);
-  color: var(--tier-text);
+  background: var(--tier-tint, var(--cinnabar-subtle));
+  color: var(--tier-text, var(--primary));
   border: 1px solid rgba(44, 42, 41, 0.07);
 }
 .home-band-status-pill {
@@ -1930,8 +2056,8 @@ a.home-metric-card:hover {
   border-color: rgba(255, 255, 255, 0.14);
 }
 :root[data-theme="dark"] .home-band-tier-pill {
-  background: var(--tier-tint-dark);
-  color: var(--tier-text-dark);
+  background: var(--tier-tint-dark, #311816);
+  color: var(--tier-text-dark, #f89b96);
   border-color: rgba(255, 255, 255, 0.1);
 }
 :root[data-theme="dark"] .home-band-title-link {

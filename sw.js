@@ -1,5 +1,5 @@
 // Offline support: app files are network-first (so updates arrive), data files are cache-first.
-const VERSION = "shtv-147";
+const VERSION = "shtv-148";
 const SHELL = ["./", "index.html", "style.css", "css/tw.css", "vendor/hanzi-writer.min.js", "vendor/hanzilookup.min.js", "vendor/ts-fsrs.umd.js", "vendor/pinyin-pro.js", "vendor/opencc-cn2t.js", "vendor/material-symbols-outlined.woff2", "js/handwriting.js", "js/app.js", "js/srs.js", "js/store.js", "js/sync.js", "manifest.webmanifest", "icon.svg", "img/icon-192.png", "img/apple-touch-icon.png", "img/trang-chu-dai-loan.jpg", "img/tra-tu.jpg", "img/home-weak.jpg", "img/home-dictation.jpg", "img/home-grammar.jpg", "img/home-exam.jpg", "img/home-personal.jpg", "img/home-band-novice.jpg", "img/home-band-a.jpg", "img/home-band-b.jpg", "img/home-band-c.jpg", "img/vocab-class.jpg", "img/vocab-topics.jpg"];
 
 const SHELL_PATHS = new Set(SHELL.map((path) => new URL(path, self.registration.scope).pathname));
