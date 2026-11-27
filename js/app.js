@@ -1037,8 +1037,10 @@ function route() {
   if (h === "tu-vung") h = "thu-muc";
   else if (h.startsWith("tu-vung/")) h = "thu-muc/" + h.slice("tu-vung/".length);
   if (h === "chep-chinh-ta") h = "chinh-ta";
+  else if (h.startsWith("chep-chinh-ta/")) h = "chinh-ta/" + h.slice("chep-chinh-ta/".length);
   const [name, ...rest] = h.split("/"); const arg = rest.join("/");
-  // Stop any lingering audio / dialogue queue / exam timer when changing routes
+  // Stop any lingering audio / dialogue queue / exam timer / keydown listener when changing routes
+  window.onkeydown = null;
   window._dialoguePlayId = (window._dialoguePlayId || 0) + 1;
   if (window._dialogueTimer) { clearTimeout(window._dialogueTimer); window._dialogueTimer = null; }
   if (name !== "thi-thu") {
@@ -1283,6 +1285,9 @@ function dailyDashboard(c, days) {
 
 
 function folderNotes(id) {
+  if (id === "hay-quen") {
+    return S.notes.filter((n) => n.kind === "vocab" && (noteLapses(n) > 0 || noteLevel(n) === 1));
+  }
   if (id === "bo-thu") {
     if (typeof ensureRadicalNotes === "function") ensureRadicalNotes();
     return S.notes.filter((n) => n.rich && n.deck && n.deck.id === "bo-thu");
@@ -1346,8 +1351,8 @@ function nextCard(now) {
     const usedWords = new Set();
     for (const [id, s] of S.srs) {
       if (!s || s.state === "new" || typeof s.state !== "string") continue;
-      // only weak cards (Mới học / Nhớ tạm) may be pulled early; Nhớ lâu, Thuộc lòng, Thông thạo wait for their date
-      if (cardLevel(s) > 2 && s.due > dayStart(now) + DAY) continue;
+      // only weak cards (Mới học / Nhớ tạm) may be pulled early unless studying "hay-quen"
+      if (cardLevel(s) > 2 && s.due > dayStart(now) + DAY && !(ss && ss.folderFilter === "hay-quen")) continue;
       const n = noteFromCard(id);
       if (!n || seenWords.has(n.key) || n.key === last || usedWords.has(n.w)) continue;
       if (filterSet && !filterSet.has(n.key)) continue;
@@ -2564,7 +2569,7 @@ VIEWS["muc-nho"] = (arg) => {
           <span>Trang chủ</span>
         </a>
       </div>
-      <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+      <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md">
         <div>
           <h1 class="font-headline-lg text-2xl font-bold text-on-surface">${esc(LEVELS[level])} · <span id="levelCount">${fmt(notes.length)}</span> từ</h1>
           <p class="text-xs text-on-surface-variant mt-0.5">Danh sách các từ vựng đang được xếp ở mức nhớ ${LEVELS[level]}.</p>
@@ -2581,7 +2586,7 @@ VIEWS["muc-nho"] = (arg) => {
           const it = itemOf(n);
           const searchText = [n.w, ...(n.forms || []), it.py, it.vn].map(fold).join("|");
           return `
-            <div class="p-space-md rounded-2xl bg-paper-card border border-border-subtle shadow-xs flex flex-col justify-between gap-2 level-row hover:border-primary/40 transition-all" data-search="${esc(searchText)}">
+            <div class="p-space-md rounded-2xl bg-paper-card border border-border-subtle shadow-sm flex flex-col justify-between gap-2 level-row hover:border-primary/40 transition-all" data-search="${esc(searchText)}">
               <div class="flex items-start justify-between">
                 <div>
                   <a class="font-headline-md text-2xl text-on-surface font-serif font-bold hover:text-primary" href="#tu/${encodeURIComponent(n.w)}">${esc(n.w)}</a>
@@ -2712,7 +2717,7 @@ VIEWS["hoc"] = () => {
 
     setView(`
       <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin py-space-xl flex flex-col gap-space-lg">
-        <section class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-xs flex flex-col gap-space-md">
+        <section class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-sm flex flex-col gap-space-md">
           <div class="flex items-center gap-2">
             <span class="w-1.5 h-5 rounded-full bg-primary-container"></span>
             <h1 class="font-headline-lg text-2xl md:text-3xl font-bold text-on-surface">Phiên học Flashcards hôm nay</h1>
@@ -2752,7 +2757,7 @@ VIEWS["hoc"] = () => {
               </button>
             ` : '')}
             ${c.due > 0 ? `
-              <button class="w-full sm:w-auto sm:flex-1 min-h-[48px] py-3 px-5 rounded-xl bg-amber-subtle text-tertiary border border-tertiary/30 font-semibold hover:bg-tertiary hover:text-white transition-all shadow-xs flex items-center justify-center gap-2 text-sm" id="startReview">
+              <button class="w-full sm:w-auto sm:flex-1 min-h-[48px] py-3 px-5 rounded-xl bg-amber-subtle text-tertiary border border-tertiary/30 font-semibold hover:bg-tertiary hover:text-white transition-all shadow-sm flex items-center justify-center gap-2 text-sm" id="startReview">
                 <span class="material-symbols-outlined text-[20px]">history_edu</span>
                 <span>Ôn thẻ đến hạn (${fmt(c.due)} thẻ)</span>
               </button>
@@ -2807,7 +2812,7 @@ function renderCard() {
     const stAfter = todayStats();
     setView(`
       <div class="max-w-xl mx-auto px-margin py-space-2xl text-center flex flex-col items-center gap-4">
-        <div class="w-16 h-16 rounded-2xl bg-jade-subtle text-secondary flex items-center justify-center shadow-xs">
+        <div class="w-16 h-16 rounded-2xl bg-jade-subtle text-secondary flex items-center justify-center shadow-sm">
           <span class="material-symbols-outlined text-[36px]">verified</span>
         </div>
         <h2 class="font-headline-lg text-2xl font-bold text-on-surface">Hoàn thành phiên học!</h2>
@@ -2816,7 +2821,7 @@ function renderCard() {
         </p>
         <div class="flex flex-wrap items-center justify-center gap-3 mt-4">
           ${cAfter.fresh > 0 ? `
-            <button type="button" id="btnContinueNew" class="px-5 py-2.5 rounded-xl bg-secondary text-white font-semibold hover:opacity-95 transition-colors shadow-xs text-sm">
+            <button type="button" id="btnContinueNew" class="px-5 py-2.5 rounded-xl bg-secondary text-white font-semibold hover:opacity-95 transition-colors shadow-sm text-sm">
               Học tiếp từ mới (${fmt(cAfter.fresh)})
             </button>
           ` : (cAfter.q.freshTotal > 0 ? `
@@ -2829,7 +2834,7 @@ function renderCard() {
               Ôn thẻ đến hạn (${fmt(cAfter.due)})
             </button>
           ` : ''}
-          <a href="#trang-chu" class="px-6 py-2.5 rounded-xl bg-primary-container text-on-primary font-semibold hover:bg-primary transition-colors shadow-xs text-sm">
+          <a href="#trang-chu" class="px-6 py-2.5 rounded-xl bg-primary-container text-on-primary font-semibold hover:bg-primary transition-colors shadow-sm text-sm">
             Về Trang chủ
           </a>
           <a href="#thu-muc" class="px-5 py-2.5 rounded-xl bg-paper-muted text-on-surface font-semibold hover:bg-surface-container transition-colors text-sm">
@@ -2896,7 +2901,7 @@ function renderCard() {
     const lvl = cardLevel(cState);
     const isCur = t === r.t;
     return `
-      <div class="px-2.5 py-1 rounded-xl border text-xs flex items-center gap-1.5 transition-all ${isCur ? 'border-secondary bg-jade-subtle text-secondary font-bold shadow-2xs ring-1 ring-secondary/30' : 'border-border-subtle bg-surface-container-low text-outline'}">
+      <div class="px-2.5 py-1 rounded-xl border text-xs flex items-center gap-1.5 transition-all ${isCur ? 'border-secondary bg-jade-subtle text-secondary font-bold shadow-sm ring-1 ring-secondary/30' : 'border-border-subtle bg-surface-container-low text-outline'}">
         <span>${label}:</span>
         <span class="${isCur ? 'text-secondary' : 'text-on-surface'}">${LEVELS[lvl]}</span>
       </div>
@@ -2955,20 +2960,20 @@ function renderCard() {
   } else if (r.t === "lis") {
     // LISTENING CARD: CHARACTER IS HIDDEN!
     frontContentHTML = `
-      <div class="w-20 h-20 rounded-full bg-jade-subtle text-secondary flex items-center justify-center text-4xl mb-3 shadow-xs">
+      <div class="w-20 h-20 rounded-full bg-jade-subtle text-secondary flex items-center justify-center text-4xl mb-3 shadow-sm">
         🎧
       </div>
       <div class="font-headline-md text-xl md:text-2xl font-bold text-on-surface mb-2">Nghe và đoán nghĩa</div>
-      <div class="text-sm text-outline max-w-md mb-4">Nói to nghĩa của từ và của câu ví dụ trong đầu trước khi lật thẻ.</div>
-      <div class="flex items-center gap-3">
-        <button type="button" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-jade-subtle hover:bg-secondary-fixed text-secondary font-semibold transition-all shadow-xs border border-secondary/20" onclick="say('${esc(it.w)}')">
+      <div class="text-sm text-on-surface-variant max-w-md mb-4">Nói to nghĩa của từ và của câu ví dụ trong đầu trước khi lật thẻ.</div>
+      <div class="flex flex-wrap items-center justify-center gap-3">
+        <button type="button" class="min-h-[44px] inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-jade-subtle hover:bg-secondary-fixed text-secondary font-semibold transition-all shadow-sm border border-border-subtle" data-say="${esc(it.w)}">
           <span class="material-symbols-outlined text-[20px]">volume_up</span>
-          <span>▶ Nghe lại phát âm từ</span>
+          <span>Nghe lại phát âm từ</span>
         </button>
         ${it.e1 ? `
-          <button type="button" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold transition-all shadow-xs border border-border-subtle" onclick="say('${esc(it.e1)}')">
+          <button type="button" class="min-h-[44px] inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold transition-all shadow-sm border border-border-subtle" data-say="${esc(it.e1)}">
             <span class="material-symbols-outlined text-[20px]">record_voice_over</span>
-            <span>▶ Nghe câu ví dụ</span>
+            <span>Nghe câu ví dụ</span>
           </button>
         ` : ''}
       </div>
@@ -2998,9 +3003,9 @@ function renderCard() {
     if (rawSentence.includes(it.w)) {
       const parts = rawSentence.split(it.w);
       if (r._isCorrect) {
-        sentenceDisplay = `${esc(parts[0])}<span class="inline-block px-3 py-1 rounded-xl bg-jade-subtle text-secondary font-bold border-2 border-secondary/40 text-2xl md:text-3xl shadow-xs transition-all">${esc(it.w)}</span>${esc(parts.slice(1).join(it.w))}`;
+        sentenceDisplay = `${esc(parts[0])}<span class="inline-block px-3 py-1 rounded-xl bg-jade-subtle text-secondary font-bold border-2 border-secondary/40 text-2xl md:text-3xl shadow-sm transition-all">${esc(it.w)}</span>${esc(parts.slice(1).join(it.w))}`;
       } else {
-        sentenceDisplay = `${esc(parts[0])}<span id="clozeBlank" class="inline-block px-4 py-1 rounded-xl bg-paper-card border-2 border-dashed border-primary text-primary font-bold min-w-[4rem] text-center tracking-widest text-xl shadow-2xs">${blankStr}</span>${esc(parts.slice(1).join(it.w))}`;
+        sentenceDisplay = `${esc(parts[0])}<span id="clozeBlank" class="inline-block px-4 py-1 rounded-xl bg-paper-card border-2 border-dashed border-primary text-primary font-bold min-w-[4rem] text-center tracking-widest text-xl shadow-sm">${blankStr}</span>${esc(parts.slice(1).join(it.w))}`;
       }
     } else {
       sentenceDisplay = r._isCorrect ? esc(it.w) : blankStr;
@@ -3085,25 +3090,25 @@ function renderCard() {
           ${esc(ex)}
         </div>
       ` : ''}
-      <div class="flex items-center justify-center gap-space-md my-space-xs">
-        <h1 class="font-headline-lg text-6xl md:text-8xl leading-tight text-on-surface tracking-wide select-all font-serif font-bold">
+      <div class="flex items-center justify-center gap-space-md my-space-xs max-w-full">
+        <h1 class="font-headline-lg text-5xl sm:text-7xl md:text-8xl leading-tight text-on-surface tracking-wide select-all font-serif font-bold break-words" lang="zh-Hant">
           ${esc(it.w)}
         </h1>
       </div>
-      <div class="mt-2 flex items-center gap-3">
-        <button type="button" class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-jade-subtle hover:bg-secondary-fixed text-secondary font-semibold transition-all shadow-xs border border-secondary/20" onclick="say('${esc(ex || it.w)}')">
+      <div class="mt-2 flex flex-wrap items-center justify-center gap-3">
+        <button type="button" class="min-h-[44px] inline-flex items-center gap-2 px-5 py-2 rounded-full bg-jade-subtle hover:bg-secondary-fixed text-secondary font-semibold transition-all shadow-sm border border-border-subtle" data-say="${esc(ex || it.w)}">
           <span class="material-symbols-outlined text-[18px]">volume_up</span>
-          <span>${ex ? '▶ Nghe câu ngữ cảnh' : '▶ Giọng Đài Loan (臺灣華語)'}</span>
+          <span>${ex ? 'Nghe câu ngữ cảnh' : 'Giọng Đài Loan (臺灣華語)'}</span>
         </button>
       </div>
-      <div class="text-xs text-outline mt-3">🎧 Nghe audio → 📖 Đọc chữ → 💡 Hiểu nghĩa</div>
+      <div class="text-xs text-on-surface-variant mt-3">🎧 Nghe audio → 📖 Đọc chữ → 💡 Hiểu nghĩa</div>
     `;
   }
 
   const html = `
     <div class="${ss.shown ? "study-wide" : "max-w-4xl"} mx-auto px-margin-mobile md:px-margin py-space-md md:py-space-lg flex flex-col gap-space-lg relative z-10">
       <!-- Top Session Dashboard -->
-      <section class="bg-paper-card rounded-2xl p-space-md md:p-space-lg border border-border-subtle shadow-xs flex flex-col gap-space-md">
+      <section class="bg-paper-card rounded-2xl p-space-md md:p-space-lg border border-border-subtle shadow-sm flex flex-col gap-space-md">
         <div class="flex flex-wrap items-center justify-between gap-space-sm">
           <div class="flex items-center gap-space-sm">
             <span class="inline-flex items-center justify-center px-2.5 py-1 rounded-lg bg-cinnabar-subtle text-primary font-code text-xs font-bold">${cardIndex}</span>
@@ -3149,8 +3154,8 @@ function renderCard() {
               ${ss.shown && it.hv ? `<span class="study-meta">Hán Việt: <strong>${esc(it.hv)}</strong></span>` : ''}
             </div>
             <div class="flex items-center gap-1.5">
-              <button aria-label="Xem nét viết" class="w-8 h-8 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-jade-subtle transition-colors" id="btnToggleStrokes" title="Xem thứ tự nét viết">
-                <span class="material-symbols-outlined text-[18px]">draw</span>
+              <button aria-label="Xem nét viết" class="w-10 h-10 rounded-lg bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-secondary hover:bg-jade-subtle transition-colors" id="btnToggleStrokes" title="Xem thứ tự nét viết">
+                <span class="material-symbols-outlined text-[20px]">draw</span>
               </button>
             </div>
           </div>
@@ -3163,7 +3168,7 @@ function renderCard() {
             </div>
             <div class="flex flex-wrap items-center justify-center gap-4 py-2" id="studyWriterBox">
               ${chars.map((c, k) => `
-                <div class="flex flex-col items-center gap-1 bg-paper-card p-2 rounded-xl border border-border-subtle shadow-2xs">
+                <div class="flex flex-col items-center gap-1 bg-paper-card p-2 rounded-xl border border-border-subtle shadow-sm">
                   <div id="studyHw${k}"></div>
                   <div class="flex gap-1 mt-1">
                     <button type="button" class="text-xs px-2 py-0.5 rounded bg-surface-container hover:bg-cinnabar-subtle text-primary font-medium" data-anim-k="${k}">Xem nét</button>
@@ -3198,7 +3203,7 @@ function renderCard() {
                 <div class="flex items-baseline gap-3 flex-wrap">
                   <span lang="zh-Hant" class="study-answer-hanzi">${esc(it.w)}</span>
                   <span class="study-answer-pinyin">${esc(it.py || '')}</span>
-                  <button type="button" class="text-secondary hover:text-primary transition-colors p-1" onclick="say('${esc(it.w)}')" title="Nghe lại phát âm">
+                  <button type="button" class="text-secondary hover:text-primary transition-colors p-1" data-say="${esc(it.w)}" title="Nghe lại phát âm">
                     <span class="material-symbols-outlined text-[20px]">volume_up</span>
                   </button>
                 </div>
@@ -3231,7 +3236,7 @@ function renderCard() {
                       <span class="material-symbols-outlined text-[16px]">format_quote</span>
                       Ví dụ ngữ cảnh Đài Loan ${!own && exZh ? '(TBCL)' : ''}
                     </span>
-                    ${exZh ? `<button type="button" class="text-secondary hover:text-primary p-1 transition-colors" onclick="say('${esc(exZh)}')" title="Nghe câu ví dụ"><span class="material-symbols-outlined text-[20px]">volume_up</span></button>` : ''}
+                    ${exZh ? `<button type="button" class="text-secondary hover:text-primary p-1 transition-colors" data-say="${esc(exZh)}" title="Nghe câu ví dụ"><span class="material-symbols-outlined text-[20px]">volume_up</span></button>` : ''}
                   </div>
                   ${exZh ? `<p class="font-headline-md text-lg md:text-xl text-on-surface font-serif font-medium leading-relaxed" lang="zh-Hant">${esc(exZh)}</p>` : ''}
                   ${exPy ? `<p class="font-code study-example-pinyin text-on-surface-variant">${esc(exPy)}</p>` : ''}
@@ -3315,13 +3320,8 @@ function renderCard() {
         ${ss.shown ? `
           <span>•</span>
           <div class="flex items-center gap-1">
-            <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">1 - 4</kbd>
-            <span>Đánh giá SRS</span>
-          </div>
-          <span>•</span>
-          <div class="flex items-center gap-1">
-            <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">5 / 0</kbd>
-            <span>Thuộc / Đặt lại</span>
+            <kbd class="font-code px-1.5 py-0.5 rounded bg-surface-container text-on-surface">0 - 5</kbd>
+            <span>Đặt mức nhớ (0: đặt lại · 5: thông thạo)</span>
           </div>
         ` : ''}
       </footer>
@@ -3367,12 +3367,14 @@ function renderCard() {
       strokeDrawer.classList.toggle("hidden");
       strokeDrawer.classList.toggle("flex");
       if (!strokeDrawer.classList.contains("hidden")) {
+        const hwColors = getHanziWriterColors();
         chars.forEach((c, k) => {
           const el = $("#studyHw" + k);
           if (el && el.children.length === 0 && window.HanziWriter) {
             const writer = HanziWriter.create(el, c, {
               width: 100, height: 100, padding: 4, showOutline: true,
-              strokeColor: "#86090a", outlineColor: "#EBE2D8", highlightColor: "#176b4b",
+              strokeColor: hwColors.strokeColor, outlineColor: hwColors.outlineColor,
+              highlightColor: hwColors.highlightColor, drawingColor: hwColors.drawingColor,
               charDataLoader: (ch, onLoad, onErr) => strokeData(ch).then(onLoad).catch(onErr)
             });
             const btnAnim = $(`[data-anim-k="${k}"]`);
@@ -3608,7 +3610,7 @@ const RADICAL_CATEGORIES = [
   { id: "all", label: "Tất cả bộ thủ", icon: "grid_view" },
   { id: "con-nguoi", label: "👤 Con người & Cơ thể", icon: "accessibility_new" },
   { id: "thien-nhien", label: "🌊 Thiên nhiên & Nguyên tố", icon: "landscape" },
-  { id: "dong-thuc-vat", label: "🌿 Động & Thực vật", icon: "Forest" },
+  { id: "dong-thuc-vat", label: "🌿 Động & Thực vật", icon: "forest" },
   { id: "do-vat-nha-cua", label: "🏠 Đồ vật & Đời sống", icon: "home_work" },
   { id: "hanh-dong", label: "🏃 Hành động & Di chuyển", icon: "directions_walk" }
 ];
@@ -3695,15 +3697,15 @@ function renderRadicalsSectionHTML(isStandalone = false) {
           </div>
         </div>
         <div class="flex items-center gap-2.5 flex-wrap shrink-0">
-          <button type="button" class="px-4 py-2.5 rounded-xl font-bold text-xs bg-white text-[#7c1d18] hover:bg-amber-50 transition-all shadow-sm flex items-center gap-1.5 cursor-pointer" onclick="startStudyFolder('bo-thu')">
+          <button type="button" class="hero-white-btn min-h-[42px] px-4 py-2 rounded-xl font-bold text-xs transition-all shadow-sm flex items-center gap-1.5 cursor-pointer" onclick="startStudyFolder('bo-thu')">
             <span class="material-symbols-outlined text-[18px]">play_circle</span>
             <span>Học Flashcard SRS Bộ Thủ</span>
           </button>
-          <button type="button" class="px-4 py-2.5 rounded-xl font-semibold text-xs bg-black/30 hover:bg-black/45 text-white border border-white/25 transition-all flex items-center gap-1.5 cursor-pointer" id="btn-toggle-rad-quiz">
+          <button type="button" class="min-h-[42px] px-4 py-2 rounded-xl font-semibold text-xs bg-black/30 hover:bg-black/45 text-white border border-white/25 transition-all flex items-center gap-1.5 cursor-pointer" id="btn-toggle-rad-quiz">
             <span class="material-symbols-outlined text-[18px]">quiz</span>
             <span>🎯 Trắc nghiệm nhớ nhanh</span>
           </button>
-          <button type="button" class="px-3.5 py-2.5 rounded-xl font-semibold text-xs ${isOn ? "bg-emerald-600/80 text-white" : "bg-white/15 hover:bg-white/25 text-white"} border border-white/20 transition-all cursor-pointer" id="btn-toggle-rad-deck">
+          <button type="button" class="min-h-[42px] px-3.5 py-2 rounded-xl font-semibold text-xs ${isOn ? "bg-emerald-600/80 text-white" : "bg-white/15 hover:bg-white/25 text-white"} border border-white/20 transition-all cursor-pointer" id="btn-toggle-rad-deck">
             ${isOn ? "✓ Đang bật trong lịch học" : "+ Đưa vào lịch học ngày"}
           </button>
         </div>
@@ -3716,11 +3718,11 @@ function renderRadicalsSectionHTML(isStandalone = false) {
       <div id="rad-writer-panel" class="${_radWriterChar ? "flex" : "hidden"} flex-col sm:flex-row items-center justify-between gap-4 bg-paper-card p-space-md rounded-2xl border border-secondary/40 shadow-sm"></div>
 
       <!-- BỘ LỌC NHÓM Ý NGHĨA, SỐ NÉT & TÌM KIẾM -->
-      <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle shadow-xs flex flex-col gap-3">
+      <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle shadow-sm flex flex-col gap-3">
         <div class="flex flex-wrap items-center justify-between gap-2">
           <div class="flex items-center gap-1.5 flex-wrap" id="rad-cat-tabs">
             ${RADICAL_CATEGORIES.map((c) => `
-              <button type="button" data-rad-cat="${c.id}" class="px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${_radFilterCat === c.id ? "bg-primary-container text-white shadow-xs" : "bg-surface-container-low text-on-surface-variant hover:bg-surface-container"}">
+              <button type="button" data-rad-cat="${c.id}" class="px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${_radFilterCat === c.id ? "bg-primary-container text-white shadow-sm" : "bg-surface-container-low text-on-surface-variant hover:bg-surface-container"}">
                 ${c.label}
               </button>
             `).join("")}
@@ -3734,7 +3736,7 @@ function renderRadicalsSectionHTML(isStandalone = false) {
               ["5-6", "5–6 nét"],
               ["7+", "7+ nét"]
             ].map(([val, lbl]) => `
-              <button type="button" data-rad-stk="${val}" class="px-2.5 py-1 rounded-lg text-[11px] font-code font-semibold transition-all cursor-pointer ${_radFilterStrokes === val ? "bg-secondary text-white" : "bg-paper-muted text-outline hover:text-on-surface"}">
+              <button type="button" data-rad-stk="${val}" class="px-2.5 py-1 rounded-lg text-xs font-code font-semibold transition-all cursor-pointer ${_radFilterStrokes === val ? "bg-secondary text-white" : "bg-paper-muted text-on-surface-variant hover:text-on-surface"}">
                 ${lbl}
               </button>
             `).join("")}
@@ -3742,7 +3744,7 @@ function renderRadicalsSectionHTML(isStandalone = false) {
         </div>
         <div class="relative w-full">
           <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
-          <input id="rad-search-input" value="${esc(_radSearch)}" class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface text-sm placeholder:text-outline border border-border-subtle/60 focus:outline-none focus:bg-white" placeholder="Tìm bộ thủ theo chữ Hán (水), biến thể (氵, 忄, 扌...), tên Hán Việt (Bộ Thủy, Tâm, Ngôn...) hoặc ý nghĩa...">
+          <input id="rad-search-input" value="${esc(_radSearch)}" class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface text-sm placeholder:text-outline border border-border-subtle focus:outline-none" placeholder="Tìm bộ thủ theo chữ Hán (水), biến thể (氵, 忄, 扌...), tên Hán Việt hoặc ý nghĩa...">
         </div>
       </div>
 
@@ -3770,38 +3772,40 @@ function bindRadicalsSectionEvents(rootEl = document) {
     panel.classList.remove("hidden");
     panel.classList.add("flex");
     panel.innerHTML = `
-      <div class="flex items-center gap-4">
-        <div class="flex flex-col items-center gap-1.5 bg-paper-base p-3 rounded-2xl border border-border-subtle shadow-2xs">
+      <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 w-full">
+        <div class="flex flex-col items-center gap-1.5 bg-paper-base p-3 rounded-2xl border border-border-subtle shadow-sm shrink-0">
           <div id="rad-hw-box" class="w-[110px] h-[110px] flex items-center justify-center"></div>
           <div class="flex gap-1.5">
             <button type="button" id="btn-rad-hw-anim" class="px-2.5 py-1 rounded-lg bg-cinnabar-subtle text-primary text-xs font-semibold cursor-pointer">▶ Xem nét</button>
             <button type="button" id="btn-rad-hw-quiz" class="px-2.5 py-1 rounded-lg bg-jade-subtle text-secondary text-xs font-semibold cursor-pointer">✍️ Viết thử</button>
           </div>
         </div>
-        <div class="flex flex-col gap-1">
-          <div class="flex items-center gap-2">
+        <div class="flex flex-col gap-1 min-w-0 flex-1">
+          <div class="flex items-center gap-2 flex-wrap">
             <span class="text-2xl font-serif font-bold text-primary">${esc(rad.r)}${rad.v ? ` (${esc(rad.v)})` : ""}</span>
             <span class="font-bold text-base text-on-surface">${esc(rad.hv)}</span>
             <span class="font-code text-xs text-tertiary">${esc(rad.py)} • ${rad.strokes} nét</span>
           </div>
-          <p class="text-sm text-on-surface font-medium">${esc(rad.vn)}</p>
-          <p class="text-xs text-outline">${esc(rad.posHint)}</p>
+          <p class="text-sm text-on-surface font-medium m-0">${esc(rad.vn)}</p>
+          <p class="text-xs text-on-surface-variant m-0">${esc(rad.posHint)}</p>
           ${matchingWords.length ? `
             <div class="flex items-center gap-1.5 flex-wrap mt-1">
-              <span class="text-[11px] text-outline font-semibold">Từ vựng trong kho:</span>
+              <span class="text-xs text-outline font-semibold">Từ vựng trong kho:</span>
               ${matchingWords.map((mw) => `<a href="#tu/${encodeURIComponent(mw.w)}" class="px-2 py-0.5 rounded bg-surface-container hover:bg-cinnabar-subtle text-xs font-serif font-semibold text-on-surface hover:text-primary no-underline">${esc(mw.w)} (${esc(meaningOf(mw).slice(0, 18))})</a>`).join("")}
             </div>
           ` : ""}
         </div>
       </div>
-      <button type="button" id="btn-close-rad-writer" class="px-3 py-1.5 rounded-lg bg-surface-container text-xs font-semibold text-outline hover:text-on-surface self-end sm:self-center cursor-pointer">Đóng ✕</button>
+      <button type="button" id="btn-close-rad-writer" class="min-h-[38px] px-3 py-1.5 rounded-lg bg-surface-container text-xs font-semibold text-on-surface-variant hover:text-on-surface self-end sm:self-center cursor-pointer shrink-0">Đóng ✕</button>
     `;
     const hwBox = $("#rad-hw-box", panel);
     if (hwBox && window.HanziWriter) {
+      const hwColors = getHanziWriterColors();
       hwBox.innerHTML = "";
       const writer = HanziWriter.create(hwBox, rad.r, {
         width: 108, height: 108, padding: 6, showOutline: true,
-        strokeColor: "#86090a", outlineColor: "#EBE2D8", highlightColor: "#176b4b",
+        strokeColor: hwColors.strokeColor, outlineColor: hwColors.outlineColor,
+        highlightColor: hwColors.highlightColor, drawingColor: hwColors.drawingColor,
         charDataLoader: (ch, onLoad, onErr) => strokeData(ch).then(onLoad).catch(onErr)
       });
       const bAnim = $("#btn-rad-hw-anim", panel);
@@ -3943,12 +3947,12 @@ function bindRadicalsSectionEvents(rootEl = document) {
       const n = noteByRad.get(rad.r);
       const lvl = n ? noteLevel(n) : 0;
       return `
-        <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle hover:border-primary/40 shadow-xs hover:shadow-md transition-all flex flex-col justify-between gap-3">
+        <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle hover:border-primary/40 shadow-sm hover:shadow-md transition-all flex flex-col justify-between gap-3">
           <div class="flex flex-col gap-2">
             <!-- Top Row: Radical Box + Title + Level Pill -->
             <div class="flex items-start justify-between gap-3">
               <div class="flex items-center gap-3">
-                <div class="w-14 h-14 rounded-2xl bg-cinnabar-subtle text-primary border border-primary/20 flex flex-col items-center justify-center shrink-0 shadow-2xs">
+                <div class="w-14 h-14 rounded-2xl bg-cinnabar-subtle text-primary border border-primary/20 flex flex-col items-center justify-center shrink-0 shadow-sm">
                   <span class="font-serif text-3xl font-bold leading-none">${esc(rad.r)}</span>
                   ${rad.v ? `<span class="text-[11px] font-serif font-semibold text-secondary mt-0.5">${esc(rad.v)}</span>` : ""}
                 </div>
@@ -4048,7 +4052,7 @@ function bindRadicalsSectionEvents(rootEl = document) {
       _radFilterCat = btn.dataset.radCat;
       rootEl.querySelectorAll("[data-rad-cat]").forEach((b) => {
         b.className = b.dataset.radCat === _radFilterCat
-          ? "px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer bg-primary-container text-white shadow-xs"
+          ? "px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer bg-primary-container text-white shadow-sm"
           : "px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer bg-surface-container-low text-on-surface-variant hover:bg-surface-container";
       });
       drawCards();
@@ -4060,8 +4064,8 @@ function bindRadicalsSectionEvents(rootEl = document) {
       _radFilterStrokes = btn.dataset.radStk;
       rootEl.querySelectorAll("[data-rad-stk]").forEach((b) => {
         b.className = b.dataset.radStk === _radFilterStrokes
-          ? "px-2.5 py-1 rounded-lg text-[11px] font-code font-semibold transition-all cursor-pointer bg-secondary text-white"
-          : "px-2.5 py-1 rounded-lg text-[11px] font-code font-semibold transition-all cursor-pointer bg-paper-muted text-outline hover:text-on-surface";
+          ? "px-2.5 py-1 rounded-lg text-xs font-code font-semibold transition-all cursor-pointer bg-secondary text-white"
+          : "px-2.5 py-1 rounded-lg text-xs font-code font-semibold transition-all cursor-pointer bg-paper-muted text-on-surface-variant hover:text-on-surface";
       });
       drawCards();
     };
@@ -4100,44 +4104,50 @@ VIEWS["thu-muc"] = (id) => {
     if (id === "hay-quen") {
       const weakNotes = vocab.filter((n) => noteLapses(n) > 0 || noteLevel(n) === 1);
       setView(`
-        <div class="max-w-7xl mx-auto px-margin py-space-lg flex flex-col gap-space-lg">
+        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
           <div class="flex items-center gap-2">
-            <a href="#thu-muc" class="text-primary hover:underline text-sm font-semibold flex items-center gap-1">
+            <a href="#thu-muc" class="text-primary hover:underline text-sm font-semibold flex items-center gap-1 no-underline">
               <span class="material-symbols-outlined text-[18px]">arrow_back</span>
               <span>Trung tâm Từ vựng</span>
             </a>
           </div>
-          <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+          <div class="bg-paper-card rounded-2xl p-4 sm:p-space-lg border border-border-subtle shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md">
             <div>
-              <h1 class="font-headline-lg text-2xl font-bold text-on-surface">Sổ tay từ hay quên (${fmt(weakNotes.length)} từ)</h1>
-              <p class="text-sm text-on-surface-variant">Các từ vựng bạn từng trả lời sai hoặc đang ở mức Mới học (Cấp 1).</p>
+              <h1 class="font-headline-lg text-2xl font-bold text-on-surface m-0">Sổ tay từ hay quên (${fmt(weakNotes.length)} từ)</h1>
+              <p class="text-sm text-on-surface-variant mt-1 mb-0">Các từ vựng bạn từng trả lời sai hoặc đang ở mức Mới học (Cấp 1).</p>
             </div>
-            <a href="#hoc" class="px-4 py-2.5 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary transition-colors no-underline">Ôn tập ngay</a>
+            ${weakNotes.length ? `<button type="button" id="btnStudyWeakAll" class="min-h-[42px] px-4 py-2 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary transition-colors shadow-sm self-start md:self-auto">Ôn tập ${fmt(weakNotes.length)} từ hay quên →</button>` : `<a href="#hoc" class="min-h-[42px] inline-flex items-center px-4 py-2 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary transition-colors no-underline self-start md:self-auto">Học phiên hôm nay</a>`}
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md">
             ${weakNotes.map((n) => {
               const it = itemOf(n);
               const lvl = noteLevel(n);
               return `
-                <div class="p-space-md rounded-2xl bg-paper-card border border-border-subtle shadow-xs flex flex-col justify-between gap-2">
-                  <div class="flex items-start justify-between">
-                    <div>
-                      <a href="#tu/${encodeURIComponent(it.w)}" class="font-headline-md text-2xl text-on-surface font-serif font-bold hover:text-primary">${esc(it.w)}</a>
+                <div class="p-space-md rounded-2xl bg-paper-card border border-border-subtle shadow-sm flex flex-col justify-between gap-2">
+                  <div class="flex items-start justify-between gap-2">
+                    <div class="min-w-0">
+                      <a href="#tu/${encodeURIComponent(it.w)}" class="font-headline-md text-2xl text-on-surface font-serif font-bold hover:text-primary no-underline">${esc(it.w)}</a>
                       <span class="font-code text-xs text-tertiary ml-2">${esc(it.py || "")}</span>
                     </div>
-                    <span class="pill lv-${lvl}">${esc(LEVELS[lvl])}</span>
+                    <span class="pill lv-${lvl} shrink-0">${esc(LEVELS[lvl])}</span>
                   </div>
                   <div class="text-xs text-on-surface-variant">${esc(meaningOf(n))}</div>
-                  <div class="pt-2 border-t border-border-subtle/50 flex justify-between text-xs">
+                  <div class="pt-2 border-t border-border-subtle flex justify-between text-xs">
                     <span class="text-outline">Quên: ${noteLapses(n)} lần</span>
                     <button type="button" class="text-secondary hover:underline font-semibold" onclick="startStudyWord('${esc(it.w)}')">Học từ này →</button>
                   </div>
                 </div>
               `;
-            }).join("") || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Tuyệt vời! Hiện chưa có từ nào trong danh sách hay quên.</div>`}
+            }).join("") || `<div class="col-span-full p-8 text-center text-sm text-on-surface-variant bg-paper-card rounded-2xl border border-border-subtle">Tuyệt vời! Hiện chưa có từ nào trong danh sách hay quên.</div>`}
           </div>
         </div>
       `);
+      const btnWeak = $("#btnStudyWeakAll");
+      if (btnWeak && weakNotes.length) {
+        btnWeak.onclick = () => {
+          startStudyFolder("hay-quen");
+        };
+      }
       return;
     }
 
@@ -4165,42 +4175,43 @@ VIEWS["thu-muc"] = (id) => {
 
     let filterLvl = -1;
 
-    // GIAO DIỆN CHỦ ĐỀ THEO BAND (Emerald Green Header + Dark 3-Column Grid)
+    // GIAO DIỆN CHỦ ĐỀ THEO BAND (Modern Oriental Scholarly — Jade Accent Banner + Warm Paper Cards)
     if (isTopic) {
       const badgeCode = deck.badge || `${deck.band || "Band A"} - ${deck.theme || "主題"}`;
       const emojiIcon = deck.emoji || "🌻";
+      const topicPillCls = (active) => active
+        ? "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border whitespace-nowrap bg-secondary text-white border-transparent shadow-sm"
+        : "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border whitespace-nowrap bg-paper-base text-on-surface-variant border-border-subtle hover:bg-surface-container hover:text-on-surface";
 
       setView(`
-        <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-md md:py-space-lg flex flex-col gap-space-md">
+        <div class="w-full max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-md md:py-space-lg flex flex-col gap-space-md min-w-0">
           <!-- Back navigation -->
-          <div class="flex items-center justify-between">
-            <a href="#thu-muc" class="text-secondary hover:underline text-sm font-semibold flex items-center gap-1.5 transition-colors">
+          <div class="flex items-center justify-between gap-2 flex-wrap">
+            <a href="#thu-muc" class="text-secondary hover:underline text-sm font-semibold flex items-center gap-1.5 transition-colors no-underline">
               <span class="material-symbols-outlined text-[20px]">arrow_back</span>
               <span>Tất cả thư mục</span>
             </a>
             <span class="text-xs text-outline font-code">Chủ đề chuẩn TOCFL 2024</span>
           </div>
 
-          <!-- EMERALD HEADER BANNER -->
-          <div class="bg-gradient-to-r from-[#0d6832] via-[#0f7638] to-[#14532d] text-white p-5 md:p-6 rounded-3xl shadow-md border border-[#1b7a3e]/50 flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div class="flex items-center gap-4">
-              <div class="w-14 h-14 md:w-16 md:h-16 rounded-full border-2 border-white/80 bg-[#094721] flex items-center justify-center text-3xl md:text-4xl shrink-0 shadow-inner">
+          <!-- JADE HEADER BANNER -->
+          <div class="bg-gradient-to-r from-[#00594d] via-[#00685a] to-[#0f5b4f] text-white p-5 md:p-6 rounded-3xl shadow-md border border-secondary/30 flex flex-col md:flex-row md:items-center justify-between gap-4 min-w-0">
+            <div class="flex items-center gap-4 min-w-0">
+              <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl border border-white/30 bg-black/15 flex items-center justify-center text-3xl md:text-4xl shrink-0 shadow-inner">
                 <span>${emojiIcon}</span>
               </div>
-              <div class="flex flex-col gap-1.5">
-                <div class="flex items-center gap-2">
-                  <h1 class="text-2xl md:text-3xl font-extrabold font-headline-lg tracking-wide text-white">
-                    ${esc(badgeCode)}
-                  </h1>
-                </div>
-                <div class="flex items-center gap-2.5 flex-wrap text-xs md:text-sm font-medium">
-                  <span class="inline-flex items-center gap-1.5 bg-black/25 px-3 py-1 rounded-full border border-white/15 text-emerald-100">
-                    <span class="material-symbols-outlined text-[16px] text-[#4ade80]">check_circle</span>
-                    <span><strong>${fmt(learnedCount)}/${fmt(ns.length)}</strong> 已學單字 (${ns.length ? Math.round((learnedCount / ns.length) * 100) : 0}%)</span>
+              <div class="flex flex-col gap-1.5 min-w-0">
+                <h1 class="text-xl sm:text-2xl md:text-3xl font-bold font-headline-lg tracking-wide text-white m-0 break-words">
+                  ${esc(badgeCode)}
+                </h1>
+                <div class="flex items-center gap-2 flex-wrap text-xs md:text-sm font-medium">
+                  <span class="inline-flex items-center gap-1.5 bg-black/20 px-3 py-1 rounded-full border border-white/15 text-white/95">
+                    <span class="material-symbols-outlined text-[16px] text-emerald-300">check_circle</span>
+                    <span><strong>${fmt(learnedCount)}/${fmt(ns.length)}</strong> từ đã học (${ns.length ? Math.round((learnedCount / ns.length) * 100) : 0}%)</span>
                   </span>
-                  <span class="inline-flex items-center gap-1.5 bg-black/25 px-3 py-1 rounded-full border border-white/15 text-amber-100">
+                  <span class="inline-flex items-center gap-1.5 bg-black/20 px-3 py-1 rounded-full border border-white/15 text-amber-100">
                     <span class="material-symbols-outlined text-[16px] text-amber-300">schedule</span>
-                    <span><strong>${fmt(needReviewCount)}</strong> 需複習</span>
+                    <span><strong>${fmt(needReviewCount)}</strong> cần ôn</span>
                   </span>
                   <span class="text-xs text-white/80 hidden lg:inline">
                     · ${esc(deck.sub || deck.name)}
@@ -4209,18 +4220,18 @@ VIEWS["thu-muc"] = (id) => {
               </div>
             </div>
 
-            <div class="flex items-center gap-2 flex-wrap md:justify-end">
-              <button type="button" class="px-5 py-2.5 rounded-xl font-bold text-xs bg-white text-[#0d6832] hover:bg-emerald-50 transition-all shadow-sm flex items-center gap-2 shrink-0 active:scale-95" id="btnStartStudyTopic">
-                <span class="material-symbols-outlined text-[20px]">play_circle</span>
+            <div class="flex items-center gap-2 flex-wrap md:justify-end min-w-0">
+              <button type="button" class="hero-white-btn hero-jade-btn min-h-[40px] px-4 py-2 rounded-xl font-bold text-xs bg-white text-[#00594d] hover:bg-emerald-50 transition-all shadow-sm flex items-center gap-1.5 shrink-0 active:scale-95" id="btnStartStudyTopic">
+                <span class="material-symbols-outlined text-[18px]">play_circle</span>
                 <span>Bắt đầu học chủ đề này</span>
               </button>
               ${unseen ? `
-                <a class="px-3.5 py-2.5 rounded-xl font-semibold text-xs bg-black/30 hover:bg-black/45 text-white border border-white/20 transition-all flex items-center gap-1.5 shadow-2xs" href="#loc-nhanh/${encodeURIComponent(id)}">
+                <a class="min-h-[40px] px-3.5 py-2 rounded-xl font-semibold text-xs bg-black/25 hover:bg-black/40 text-white border border-white/20 transition-all flex items-center gap-1.5 no-underline" href="#loc-nhanh/${encodeURIComponent(id)}">
                   <span class="material-symbols-outlined text-[17px]">filter_alt</span>
                   <span>Lọc ${fmt(unseen)} từ mới</span>
                 </a>
               ` : ""}
-              <button type="button" class="px-3.5 py-2.5 rounded-xl font-semibold text-xs border border-white/25 text-white hover:bg-white/10 transition-all flex items-center gap-1.5" id="toggleLearnTopic">
+              <button type="button" class="min-h-[40px] px-3.5 py-2 rounded-xl font-semibold text-xs border border-white/30 text-white hover:bg-white/10 transition-all flex items-center gap-1.5" id="toggleLearnTopic">
                 <span class="material-symbols-outlined text-[17px]">${on ? "pause" : "add"}</span>
                 <span>${on ? "Đang bật SRS" : "+ Thêm vào SRS"}</span>
               </button>
@@ -4228,34 +4239,34 @@ VIEWS["thu-muc"] = (id) => {
             </div>
           </div>
 
-          <!-- CONTROLS & FILTER BAR (Dark Theme Container) -->
-          <div class="bg-[#121614] p-4 md:p-5 rounded-3xl border border-[#232f28] shadow-sm flex flex-col gap-4">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3">
-              <div class="relative flex-1">
-                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-emerald-500/70 text-[20px]">search</span>
-                <input id="topicSearch" class="w-full pl-11 pr-4 py-2.5 rounded-xl bg-[#181d1a] text-zinc-100 placeholder:text-zinc-500 border border-[#2b3931] focus:border-[#4ade80] focus:outline-none text-sm transition-colors" placeholder="Tìm theo chữ Hán Phồn thể, pinyin hoặc nghĩa tiếng Việt, tiếng Anh...">
+          <!-- CONTROLS & FILTER BAR (Warm Scholarly Surface — Light & Dark Ready) -->
+          <div class="bg-paper-card p-4 md:p-5 rounded-3xl border border-border-subtle shadow-sm flex flex-col gap-4 min-w-0">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-3 min-w-0">
+              <div class="relative flex-1 min-w-0">
+                <span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-outline text-[20px]">search</span>
+                <input id="topicSearch" class="w-full pl-11 pr-4 py-2.5 rounded-xl bg-paper-base text-on-surface placeholder:text-outline border border-border-subtle focus:border-secondary focus:bg-paper-card focus:outline-none text-sm transition-colors" placeholder="Tìm theo chữ Hán Phồn thể, pinyin hoặc nghĩa tiếng Việt, tiếng Anh...">
               </div>
 
-              <div class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0" id="topicLevelFilter">
-                <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border whitespace-nowrap ${filterLvl === -1 ? 'bg-[#22c55e] text-zinc-950 border-transparent' : 'bg-[#181d1a] text-zinc-300 border-[#2b3931] hover:bg-[#202723]'}" data-lvl="-1">
+              <div class="flex items-center gap-1.5 flex-wrap min-w-0" id="topicLevelFilter">
+                <button type="button" class="${topicPillCls(filterLvl === -1)}" data-lvl="-1">
                   Tất cả (${ns.length})
                 </button>
                 ${LEVELS.map((label, lvlIdx) => (lvlIdx === 0 || lvlIdx === 2 || lvlIdx === 4 || lv[lvlIdx] > 0) ? `
-                  <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border whitespace-nowrap ${filterLvl === lvlIdx ? 'bg-[#22c55e] text-zinc-950 border-transparent' : 'bg-[#181d1a] text-zinc-300 border-[#2b3931] hover:bg-[#202723]'}" data-lvl="${lvlIdx}">
+                  <button type="button" class="${topicPillCls(filterLvl === lvlIdx)}" data-lvl="${lvlIdx}">
                     ${esc(label)} (${lv[lvlIdx]})
                   </button>
                 ` : '').join('')}
               </div>
             </div>
 
-            <!-- 3-COLUMN LUXURY EMERALD CARDS GRID -->
+            <!-- 3-COLUMN SCHOLARLY CARDS GRID -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4" id="topicCardsGrid"></div>
           </div>
         </div>
       `);
 
       const drawTopicCards = () => {
-        const q = fold($("#topicSearch").value);
+        const q = fold($("#topicSearch")?.value || "");
         const filtered = ns.filter((n) => {
           const it = itemOf(n);
           const lvl = noteLevel(n);
@@ -4264,52 +4275,56 @@ VIEWS["thu-muc"] = (id) => {
           return fold(it.w).includes(q) || fold(it.py || "").includes(q) || fold(meaningOf(n)).includes(q) || fold(it.hv || "").includes(q) || fold(it.en || "").includes(q);
         });
 
-        $("#topicCardsGrid").innerHTML = filtered.map((n) => {
+        const grid = $("#topicCardsGrid");
+        if (!grid) return;
+        grid.innerHTML = filtered.map((n) => {
           const it = itemOf(n);
           const lvl = noteLevel(n);
           return `
-            <div class="group relative bg-[#181d1a] hover:bg-[#1f2622] rounded-2xl p-4 border border-[#27352d] hover:border-[#4ade80]/60 transition-all shadow-xs flex items-center justify-between gap-3">
-              <div class="w-12 h-12 rounded-full border-2 border-[#22c55e] flex items-center justify-center shrink-0 bg-[#0d2a1a] shadow-xs">
-                <span class="text-2xl">${emojiIcon}</span>
+            <div class="group relative bg-paper-base hover:bg-surface-container-low rounded-2xl p-4 border border-border-subtle hover:border-secondary/50 transition-all shadow-sm flex items-center justify-between gap-3">
+              <div class="w-11 h-11 rounded-xl border border-secondary/25 flex items-center justify-center shrink-0 bg-jade-subtle">
+                <span class="text-xl">${emojiIcon}</span>
               </div>
 
               <div class="flex-1 min-w-0 flex flex-col justify-center">
                 <div class="flex items-baseline gap-2 flex-wrap">
-                  <a href="#tu/${encodeURIComponent(it.w)}" class="text-[#4ade80] font-bold text-xl md:text-2xl hover:underline font-serif tracking-wide truncate">
+                  <a href="#tu/${encodeURIComponent(it.w)}" class="text-on-surface group-hover:text-secondary font-bold text-xl md:text-2xl hover:underline font-serif tracking-wide truncate no-underline">
                     ${esc(it.w)}
                   </a>
-                  <span class="text-xs text-emerald-300/80 font-code">${esc(it.py || "")}</span>
-                  <span class="text-[10px] text-zinc-400 bg-white/5 px-1.5 py-0.5 rounded border border-white/10 font-code">${esc(it.band || "A0")}</span>
+                  <span class="text-xs text-tertiary font-code">${esc(it.py || "")}</span>
+                  <span class="pill lv-${lvl}">${esc(LEVELS[lvl])}</span>
                 </div>
-                <div class="text-xs text-zinc-300 mt-1 line-clamp-1">
-                  <span class="text-emerald-400/90 font-medium">${it.pos ? `(${esc(it.pos)}) ` : ""}</span>
+                <div class="text-xs text-on-surface-variant mt-1 line-clamp-1">
+                  <span class="text-secondary font-medium">${it.pos ? `(${esc(it.pos)}) ` : ""}</span>
                   <span>${esc(meaningOf(n))}</span>
-                  ${it.en ? `<span class="text-zinc-500 text-[11px] ml-1">· ${esc(it.en)}</span>` : ""}
+                  ${it.en ? `<span class="text-outline text-[11px] ml-1">· ${esc(it.en)}</span>` : ""}
                 </div>
-                ${it.hv ? `<div class="text-[11px] text-zinc-400 mt-0.5">Hán Việt: <span class="text-zinc-300 font-medium">${esc(it.hv)}</span></div>` : ""}
+                ${it.hv ? `<div class="text-[11px] text-outline mt-0.5">Hán Việt: <span class="text-on-surface font-medium">${esc(it.hv)}</span></div>` : ""}
               </div>
 
               <div class="flex flex-col items-center gap-1.5 shrink-0">
-                <button type="button" class="w-8 h-8 rounded-full bg-white/5 hover:bg-[#22c55e]/20 text-zinc-300 hover:text-[#4ade80] flex items-center justify-center transition-colors" title="Phát âm tiếng Đài Loan" onclick="event.stopPropagation(); say('${esc(it.w)}');">
+                <button type="button" class="w-9 h-9 rounded-full bg-paper-card border border-border-subtle hover:bg-jade-subtle text-on-surface-variant hover:text-secondary flex items-center justify-center transition-colors" title="Phát âm tiếng Đài Loan" data-say="${esc(it.w)}">
                   <span class="material-symbols-outlined text-[18px]">volume_up</span>
                 </button>
-                <button type="button" class="w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white flex items-center justify-center transition-colors" title="Học từ này ngay (Flashcard)" onclick="event.stopPropagation(); if(typeof startStudyWord==='function') startStudyWord('${esc(it.w)}');">
-                  <span class="material-symbols-outlined text-[18px] ${lvl > 0 ? "text-[#4ade80]" : "text-zinc-500"}">bookmark</span>
+                <button type="button" class="w-9 h-9 rounded-full bg-paper-card border border-border-subtle hover:bg-cinnabar-subtle text-on-surface-variant hover:text-primary flex items-center justify-center transition-colors" title="Học từ này ngay (Flashcard)" data-study="${esc(it.w)}">
+                  <span class="material-symbols-outlined text-[18px] ${lvl > 0 ? "text-secondary" : "text-outline"}">bookmark</span>
                 </button>
               </div>
             </div>
           `;
-        }).join("") || `<div class="col-span-full p-8 text-center text-sm text-zinc-400 bg-[#181d1a] rounded-2xl border border-[#27352d]">Không tìm thấy từ nào khớp với từ khóa tìm kiếm.</div>`;
+        }).join("") || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-base rounded-2xl border border-border-subtle">Không tìm thấy từ nào khớp với từ khóa tìm kiếm.</div>`;
+
+        grid.querySelectorAll("[data-say]").forEach((b) => { b.onclick = (e) => { e.stopPropagation(); say(b.dataset.say); }; });
+        grid.querySelectorAll("[data-study]").forEach((b) => { b.onclick = (e) => { e.stopPropagation(); startStudyWord(b.dataset.study); }; });
       };
 
-      $("#topicSearch").oninput = drawTopicCards;
+      let topicSearchTimer = 0;
+      $("#topicSearch").oninput = () => { clearTimeout(topicSearchTimer); topicSearchTimer = setTimeout(drawTopicCards, 100); };
       document.querySelectorAll("#topicLevelFilter button").forEach((btn) => {
         btn.onclick = () => {
           filterLvl = Number(btn.dataset.lvl);
           document.querySelectorAll("#topicLevelFilter button").forEach((b) => {
-            b.className = Number(b.dataset.lvl) === filterLvl
-              ? "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border bg-[#22c55e] text-zinc-950 border-transparent"
-              : "px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border bg-[#181d1a] text-zinc-300 border-[#2b3931] hover:bg-[#202723]";
+            b.className = topicPillCls(Number(b.dataset.lvl) === filterLvl);
           });
           drawTopicCards();
         };
@@ -4334,33 +4349,35 @@ VIEWS["thu-muc"] = (id) => {
     // GIAO DIỆN CHUẨN CHO BANDS TOCFL VÀ SỔ CÁ NHÂN
     const groups = id === "cua-toi" ? [["all", "Tất cả"], ...S.decks.filter((d) => !d.id.startsWith("band-")).map((d) => [d.id, d.name])] : null;
     let grp = "all";
+    const PAGE_SIZE = 90;
+    let shownLimit = PAGE_SIZE;
 
     setView(`
       <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
         <div class="flex items-center gap-2">
-          <a href="#thu-muc" class="text-primary hover:underline text-sm font-semibold flex items-center gap-1">
+          <a href="#thu-muc" class="text-primary hover:underline text-sm font-semibold flex items-center gap-1 no-underline">
             <span class="material-symbols-outlined text-[18px]">arrow_back</span>
             <span>Tất cả thư mục</span>
           </a>
         </div>
-        <div class="bg-paper-card rounded-2xl p-space-lg border border-border-subtle shadow-xs flex flex-col md:flex-row md:items-center justify-between gap-space-md">
-          <div class="flex flex-col gap-1">
-            <h1 class="font-headline-lg text-2xl font-bold text-on-surface">${esc(title)}</h1>
-            <p class="text-sm text-on-surface-variant">
+        <div class="bg-paper-card rounded-2xl p-space-md sm:p-space-lg border border-border-subtle shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-space-md">
+          <div class="flex flex-col gap-1 min-w-0">
+            <h1 class="font-headline-lg text-2xl font-bold text-on-surface m-0 break-words">${esc(title)}</h1>
+            <p class="text-sm text-on-surface-variant m-0">
               ${isBand ? esc(BAND_INFO[id]) + " · " : ""}Đã học <strong>${fmt(learnedCount)}</strong> / ${fmt(ns.length)} mục (${ns.length ? Math.round((learnedCount / ns.length) * 100) : 0}%)
               ${LEVELS.map((l, i) => (lv[i] ? ` · ${l}: ${lv[i]}` : "")).filter(Boolean).join("")}
             </p>
           </div>
           <div class="flex items-center gap-2 flex-wrap">
-            <button type="button" class="px-4 py-2 rounded-xl text-xs font-semibold shadow-xs transition-colors ${on ? "bg-surface-container text-on-surface hover:bg-surface-container-high" : "bg-primary-container text-white hover:bg-primary"}" id="toggleLearn">
+            <button type="button" class="min-h-[40px] px-4 py-2 rounded-xl text-xs font-semibold shadow-sm transition-colors ${on ? "bg-surface-container text-on-surface hover:bg-surface-container-high" : "bg-primary-container text-white hover:bg-primary"}" id="toggleLearn">
               ${on ? "Tạm dừng học thư mục này" : isBand ? "+ Đưa band này vào lịch học" : "+ Học thư mục này"}
             </button>
-            <button type="button" class="px-4 py-2 rounded-xl text-xs font-semibold bg-secondary text-white hover:bg-secondary-fixed transition-colors flex items-center gap-1 shadow-xs" onclick="startStudyFolder('${esc(id)}')">
+            <button type="button" class="min-h-[40px] px-4 py-2 rounded-xl text-xs font-semibold bg-secondary text-white hover:bg-secondary/90 transition-colors flex items-center gap-1 shadow-sm" id="btnStudyFolderNow">
               <span class="material-symbols-outlined text-[16px]">play_circle</span>
               <span>Học ngay thư mục này</span>
             </button>
             ${unseen ? `
-              <a class="px-4 py-2 rounded-xl text-xs font-semibold bg-jade-subtle text-secondary border border-secondary/30 hover:bg-secondary-fixed transition-colors flex items-center gap-1 shadow-xs" href="#loc-nhanh/${encodeURIComponent(id)}">
+              <a class="min-h-[40px] px-4 py-2 rounded-xl text-xs font-semibold bg-jade-subtle text-secondary border border-secondary/30 hover:bg-secondary/15 transition-colors flex items-center gap-1 shadow-sm no-underline" href="#loc-nhanh/${encodeURIComponent(id)}">
                 <span class="material-symbols-outlined text-[16px]">filter_alt</span>
                 <span>Lọc nhanh: ${fmt(unseen)} từ chưa học</span>
               </a>
@@ -4369,59 +4386,94 @@ VIEWS["thu-muc"] = (id) => {
           </div>
         </div>
 
-        <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle shadow-xs flex flex-col gap-3">
+        <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle shadow-sm flex flex-col gap-3">
           ${groups ? `
             <div class="flex items-center gap-2 flex-wrap" id="grp">
               ${groups.map(([v, t]) => `
-                <button type="button" class="px-3 py-1 rounded-lg text-xs font-semibold transition-colors border ${v === "all" ? "bg-primary-container text-white border-transparent" : "bg-paper-muted text-on-surface border-border-subtle hover:bg-surface-container"}" data-v="${esc(v)}">
+                <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors border ${v === "all" ? "bg-primary-container text-white border-transparent" : "bg-paper-muted text-on-surface border-border-subtle hover:bg-surface-container"}" data-v="${esc(v)}">
                   ${esc(t)}
                 </button>
               `).join("")}
             </div>
           ` : ""}
-          <div class="relative w-full">
-            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
-            <input id="fq" class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low text-on-surface text-sm placeholder:text-outline border border-border-subtle/50 focus:outline-none focus:bg-white" placeholder="Lọc theo chữ Hán, pinyin hoặc nghĩa tiếng Việt...">
+          <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+            <div class="relative flex-1">
+              <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-[18px]">search</span>
+              <input id="fq" class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-paper-base text-on-surface text-sm placeholder:text-outline border border-border-subtle focus:outline-none focus:bg-paper-card focus:border-primary" placeholder="Lọc theo chữ Hán, pinyin hoặc nghĩa tiếng Việt...">
+            </div>
+            <span id="flistCount" class="text-xs font-code text-outline shrink-0 px-1"></span>
           </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-md" id="flist"></div>
+        <div id="flistMoreWrap" class="flex justify-center hidden">
+          <button type="button" id="btnFlistMore" class="min-h-[44px] px-6 py-2.5 rounded-xl bg-paper-card border border-border-subtle hover:bg-surface-container text-on-surface text-sm font-semibold shadow-sm transition-colors">Xem thêm từ…</button>
+        </div>
       </div>
     `);
 
+    const btnStudyNow = $("#btnStudyFolderNow");
+    if (btnStudyNow) btnStudyNow.onclick = () => startStudyFolder(id);
+
     const draw = () => {
-      const f = fold($("#fq").value);
-      const filtered = ns.filter((n) => (grp === "all" || (n.rich && n.deck.id === grp)) && (!f || fold(itemOf(n).w).includes(f) || fold(itemOf(n).py).includes(f) || fold(meaningOf(n)).includes(f)));
-      $("#flist").innerHTML = filtered.map((n) => {
+      const f = fold($("#fq")?.value || "");
+      const filtered = ns.filter((n) => (grp === "all" || (n.rich && n.deck.id === grp)) && (!f || fold(itemOf(n).w).includes(f) || fold(itemOf(n).py || "").includes(f) || fold(meaningOf(n)).includes(f)));
+      const slice = filtered.slice(0, shownLimit);
+      const countEl = $("#flistCount");
+      if (countEl) {
+        countEl.textContent = filtered.length > slice.length
+          ? `Hiển thị ${fmt(slice.length)} / ${fmt(filtered.length)} mục`
+          : `${fmt(filtered.length)} mục`;
+      }
+      const listEl = $("#flist");
+      if (!listEl) return;
+      listEl.innerHTML = slice.map((n) => {
         const it = itemOf(n);
         const lvl = noteLevel(n);
         const ab = S.abbrS.get(n.w);
         return `
-          <div class="p-space-md rounded-2xl bg-paper-card border border-border-subtle shadow-xs hover:border-primary/40 hover:shadow-sm transition-all flex flex-col justify-between gap-2">
-            <div class="flex items-start justify-between">
-              <div>
-                <a href="#tu/${encodeURIComponent(it.w)}" class="font-headline-md text-2xl text-on-surface font-serif font-bold hover:text-primary">${esc(n.basic ? n.display : it.w)}</a>
+          <div class="p-space-md rounded-2xl bg-paper-card border border-border-subtle shadow-sm hover:border-primary/40 hover:shadow-md transition-all flex flex-col justify-between gap-2">
+            <div class="flex items-start justify-between gap-2">
+              <div class="min-w-0">
+                <a href="#tu/${encodeURIComponent(it.w)}" class="font-headline-md text-2xl text-on-surface font-serif font-bold hover:text-primary no-underline">${esc(n.basic ? n.display : it.w)}</a>
                 <span class="font-code text-xs text-tertiary ml-2">${esc(it.py || "")}</span>
               </div>
-              <span class="pill lv-${lvl}">${esc(LEVELS[lvl])}</span>
+              <span class="pill lv-${lvl} shrink-0">${esc(LEVELS[lvl])}</span>
             </div>
             <div class="text-xs text-on-surface-variant line-clamp-2">
               ${esc(meaningOf(n) || "…")}
             </div>
             ${ab ? `<div class="text-[11px] text-tertiary">Nói tắt của: <span class="font-serif font-semibold">${esc(ab.f)}</span></div>` : ""}
-            <div class="pt-2 border-t border-border-subtle/50 flex items-center justify-between text-xs">
-              <span class="text-outline">${n.kind === "grammar" ? "Ngữ pháp" : (it.pos || "Từ vựng")}</span>
-              <div class="flex items-center gap-2">
-                <button type="button" class="text-secondary hover:underline font-semibold" onclick="startStudyWord('${esc(it.w)}')">Học từ này →</button>
-                <a href="#tu/${encodeURIComponent(it.w)}" class="text-primary hover:underline font-semibold">Chi tiết</a>
+            <div class="pt-2 border-t border-border-subtle/50 flex items-center justify-between text-xs gap-2">
+              <span class="text-outline truncate">${n.kind === "grammar" ? "Ngữ pháp" : (it.pos || "Từ vựng")}</span>
+              <div class="flex items-center gap-3 shrink-0">
+                <button type="button" class="text-secondary hover:underline font-semibold" data-study="${esc(it.w)}">Học từ này →</button>
+                <a href="#tu/${encodeURIComponent(it.w)}" class="text-primary hover:underline font-semibold no-underline">Chi tiết</a>
               </div>
             </div>
           </div>
         `;
       }).join("") || `<div class="col-span-full p-8 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Không tìm thấy mục nào khớp.</div>`;
+
+      listEl.querySelectorAll("[data-study]").forEach((b) => { b.onclick = () => startStudyWord(b.dataset.study); });
+
+      const moreWrap = $("#flistMoreWrap");
+      const moreBtn = $("#btnFlistMore");
+      if (moreWrap && moreBtn) {
+        const remaining = filtered.length - slice.length;
+        moreWrap.classList.toggle("hidden", remaining <= 0);
+        if (remaining > 0) {
+          moreBtn.textContent = `Xem thêm ${fmt(Math.min(PAGE_SIZE, remaining))} từ (còn ${fmt(remaining)} từ)`;
+          moreBtn.onclick = () => { shownLimit += PAGE_SIZE; draw(); };
+        }
+      }
     };
 
-    $("#fq").oninput = draw;
+    let fqTimer = 0;
+    $("#fq").oninput = () => {
+      clearTimeout(fqTimer);
+      fqTimer = setTimeout(() => { shownLimit = PAGE_SIZE; draw(); }, 100);
+    };
     bindBulkLevel(id, () => VIEWS["thu-muc"](id));
     $("#toggleLearn").onclick = async () => {
       setFolderOn(id, !on);
@@ -4432,8 +4484,11 @@ VIEWS["thu-muc"] = (id) => {
       document.querySelectorAll("#grp button").forEach((b) => {
         b.onclick = () => {
           grp = b.dataset.v;
+          shownLimit = PAGE_SIZE;
           document.querySelectorAll("#grp button").forEach((btn) => {
-            btn.className = btn.dataset.v === grp ? "px-3 py-1 rounded-lg text-xs font-semibold bg-primary-container text-white border-transparent" : "px-3 py-1 rounded-lg text-xs font-semibold bg-paper-muted text-on-surface border-border-subtle hover:bg-surface-container";
+            btn.className = btn.dataset.v === grp
+              ? "px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors border bg-primary-container text-white border-transparent"
+              : "px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors border bg-paper-muted text-on-surface border-border-subtle hover:bg-surface-container";
           });
           draw();
         };
@@ -4488,20 +4543,20 @@ VIEWS["thu-muc"] = (id) => {
         <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden"><div class="h-full bg-secondary rounded-full" style="width:${s.pct}%"></div></div>
       </a>`;
   }).join("");
-  const lvColors = ["bg-outline/40", "bg-tertiary-fixed-dim", "bg-tertiary", "bg-secondary-fixed-dim", "bg-secondary", "bg-primary-container"];
+  const lvColors = ["bg-outline/35", "bg-primary/75", "bg-tertiary", "bg-tertiary-fixed-dim", "bg-secondary/75", "bg-secondary"];
 
   setView(`
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
       <section class="flex flex-col sm:flex-row sm:items-end justify-between gap-space-md pb-space-md border-b border-border-subtle/70">
         <div>
-          <h1 class="font-display text-display text-on-surface tracking-tight font-semibold">Từ vựng <span class="text-outline font-normal text-2xl">詞彙</span></h1>
-          <p class="font-body-md text-body-md text-on-surface-variant">Tra từ, chọn thư mục để học, xem tiến độ.</p>
+          <h1 class="font-display text-display text-on-surface tracking-tight font-semibold m-0">Từ vựng <span class="text-outline font-normal text-2xl">詞彙</span></h1>
+          <p class="font-body-md text-body-md text-on-surface-variant m-0 mt-1">Tra từ, chọn thư mục để học, xem tiến độ.</p>
         </div>
         <div class="flex flex-wrap items-center gap-space-sm">
-          <a href="#nhap" class="px-space-md py-2.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface hover:bg-paper-muted text-label-md font-label-md shadow-sm flex items-center gap-1.5 no-underline">
+          <a href="#nhap" class="min-h-[42px] px-space-md py-2 rounded-lg bg-paper-card border border-border-subtle text-on-surface hover:bg-paper-muted text-label-md font-label-md shadow-sm flex items-center gap-1.5 no-underline">
             <span class="material-symbols-outlined text-[18px] text-outline">file_upload</span><span>Nhập bộ từ</span>
           </a>
-          <a href="#hoc" class="px-4 sm:px-space-lg py-2.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary text-label-md font-label-md shadow-[0_2px_8px_rgba(168,38,31,0.25)] flex flex-wrap items-center justify-center gap-2 no-underline">
+          <a href="#hoc" class="min-h-[42px] px-4 sm:px-space-lg py-2 rounded-lg bg-primary-container text-on-primary hover:bg-primary text-label-md font-label-md shadow-[0_2px_8px_rgba(168,38,31,0.25)] flex flex-wrap items-center justify-center gap-2 no-underline">
             <span class="inline-flex items-center gap-1.5 whitespace-nowrap">
               <span class="material-symbols-outlined text-[18px]">play_circle</span>
               <span class="font-semibold">Học hôm nay</span>
@@ -4512,19 +4567,19 @@ VIEWS["thu-muc"] = (id) => {
       </section>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
-        <!-- Cột trái: Tra từ nhanh -->
-        <aside class="lg:col-span-4 xl:col-span-3 lg:sticky lg:top-24">
+        <!-- Cột trái (desktop) / Dưới thư mục (mobile): Tra từ nhanh -->
+        <aside class="order-2 lg:order-1 lg:col-span-4 xl:col-span-3 lg:sticky lg:top-24">
           <div class="bg-paper-card rounded-2xl p-space-md border border-border-subtle/70 shadow-[0_2px_12px_rgba(44,42,41,0.04)] flex flex-col gap-space-sm">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-1.5">
                 <span class="material-symbols-outlined text-[18px] text-tertiary">search</span>
                 <span class="font-headline-md text-on-surface font-semibold">Tra từ nhanh</span>
               </div>
-              <kbd class="px-1.5 py-0.5 rounded bg-surface-container text-outline font-code text-[10px]">Alt + D</kbd>
+              <kbd class="hidden lg:inline-block px-1.5 py-0.5 rounded bg-surface-container text-outline font-code text-[10px]">Alt + D</kbd>
             </div>
             <div class="relative">
-              <input class="w-full pl-3 pr-8 py-2 rounded-xl bg-paper-base border border-border-subtle focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 text-body-md text-on-surface outline-none" id="quick-search-input" placeholder="Chữ Hán, pinyin hoặc nghĩa…" type="search" autocomplete="off"/>
-              <button type="button" class="absolute right-2.5 top-2.5 text-outline hover:text-on-surface hidden" id="btn-clear-quick-search" title="Xóa">
+              <input class="w-full pl-3 pr-9 py-2 rounded-xl bg-paper-base border border-border-subtle focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 text-body-md text-on-surface outline-none" id="quick-search-input" placeholder="Chữ Hán, pinyin hoặc nghĩa…" type="search" autocomplete="off"/>
+              <button type="button" class="absolute right-1 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hidden" id="btn-clear-quick-search" title="Xóa" aria-label="Xóa ô tra từ nhanh">
                 <span class="material-symbols-outlined text-[16px]">cancel</span>
               </button>
             </div>
@@ -4532,8 +4587,8 @@ VIEWS["thu-muc"] = (id) => {
           </div>
         </aside>
 
-        <!-- Cột phải: Thư mục + Tiến độ -->
-        <div class="lg:col-span-8 xl:col-span-9 flex flex-col gap-space-lg">
+        <!-- Cột phải (desktop) / Trên cùng (mobile): Thư mục + Tiến độ -->
+        <div class="order-1 lg:order-2 lg:col-span-8 xl:col-span-9 flex flex-col gap-space-lg">
           <section class="flex flex-col gap-space-md">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-space-sm">
               <div class="flex items-center gap-1.5 flex-wrap" id="folderTabs">
@@ -4579,7 +4634,7 @@ VIEWS["thu-muc"] = (id) => {
     const clr = $("#btn-clear-quick-search");
     if (clr) clr.classList.toggle("hidden", !raw);
     if (!raw) {
-      box.innerHTML = `<p class="text-xs text-outline p-2 leading-relaxed">Gõ chữ Hán (考試), pinyin không dấu (kaoshi) hoặc nghĩa tiếng Việt (thi). Bấm vào từ để xem giải thích đầy đủ.</p>`;
+      box.innerHTML = `<p class="text-xs text-outline p-2 leading-relaxed m-0">Gõ chữ Hán (考試), pinyin không dấu (kaoshi) hoặc nghĩa tiếng Việt (thi). Bấm vào từ để xem giải thích đầy đủ.</p>`;
       return;
     }
     const q = fold(raw);
@@ -4601,7 +4656,7 @@ VIEWS["thu-muc"] = (id) => {
     scored.sort((a, b) => a[0] - b[0] || a[1] - b[1]);
     const top = scored.slice(0, 10).map((x) => x[2]);
     if (!top.length) {
-      box.innerHTML = `<div class="text-xs text-outline p-3 text-center">Không tìm thấy. <a href="#tu-dien" class="text-primary">Tra từ điển đầy đủ →</a></div>`;
+      box.innerHTML = `<div class="text-xs text-outline p-3 text-center">Không tìm thấy. <a href="#tu-dien" class="text-primary font-semibold">Tra từ điển đầy đủ →</a></div>`;
       return;
     }
     box.innerHTML = top.map((n) => {
@@ -4618,8 +4673,8 @@ VIEWS["thu-muc"] = (id) => {
             <div class="text-[10px] text-outline mt-0.5">${esc(it.band && S.bands.includes(it.band) ? `TOCFL ${it.band}` : (n.deck ? n.deck.name : (it.band || "Từ vựng")))} · ${esc(LEVELS[lvl])}</div>
           </a>
           <div class="flex flex-col gap-1 shrink-0">
-            <button type="button" class="p-1 rounded text-primary hover:bg-surface-container" data-say="${esc(n.w)}" title="Phát âm"><span class="material-symbols-outlined text-[16px]">volume_up</span></button>
-            <button type="button" class="p-1 rounded text-secondary hover:bg-surface-container" data-study="${esc(n.w)}" title="Học từ này"><span class="material-symbols-outlined text-[16px]">play_arrow</span></button>
+            <button type="button" class="w-8 h-8 rounded-lg flex items-center justify-center text-primary hover:bg-surface-container transition-colors" data-say="${esc(n.w)}" title="Phát âm"><span class="material-symbols-outlined text-[18px]">volume_up</span></button>
+            <button type="button" class="w-8 h-8 rounded-lg flex items-center justify-center text-secondary hover:bg-surface-container transition-colors" data-study="${esc(n.w)}" title="Học từ này"><span class="material-symbols-outlined text-[18px]">play_arrow</span></button>
           </div>
         </div>`;
     }).join("");
@@ -4639,10 +4694,10 @@ VIEWS["thu-muc"] = (id) => {
         <div class="flex items-start gap-space-sm">
           <a href="#thu-muc/${encodeURIComponent(f.id)}" class="w-10 h-10 shrink-0 rounded-xl bg-surface-container text-on-surface flex items-center justify-center no-underline font-headline-md font-bold">${esc(f.iconText)}</a>
           <div class="min-w-0 flex-1">
-            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="no-underline"><h3 class="font-semibold text-on-surface group-hover:text-primary leading-snug">${esc(f.title)}</h3></a>
-            <p class="text-xs text-on-surface-variant line-clamp-2">${esc(f.sub)}</p>
+            <a href="#thu-muc/${encodeURIComponent(f.id)}" class="no-underline"><h3 class="font-semibold text-on-surface group-hover:text-primary leading-snug m-0">${esc(f.title)}</h3></a>
+            <p class="text-xs text-on-surface-variant line-clamp-2 m-0 mt-0.5">${esc(f.sub)}</p>
           </div>
-          ${f.isBand ? `<button type="button" class="shrink-0 px-2 py-0.5 rounded text-[11px] font-semibold border ${f.isLearning ? "bg-jade-subtle text-secondary border-secondary/30" : "bg-paper-muted text-outline border-border-subtle"}" data-toggle-band="${esc(f.id)}">${f.isLearning ? "Đang học" : "+ Bật"}</button>` : ""}
+          ${f.isBand ? `<button type="button" class="shrink-0 min-h-[30px] px-2.5 py-0.5 rounded-lg text-[11px] font-semibold border transition-colors ${f.isLearning ? "bg-jade-subtle text-secondary border-secondary/30" : "bg-paper-muted text-outline border-border-subtle hover:text-on-surface"}" data-toggle-band="${esc(f.id)}">${f.isLearning ? "Đang học" : "+ Bật"}</button>` : ""}
         </div>
         <div class="mt-auto">
           <div class="flex justify-between text-xs mb-1"><span class="text-outline">Đã học</span><span class="font-code text-on-surface font-semibold">${fmt(f.learned)} / ${fmt(f.total)} (${f.pct}%)</span></div>
@@ -4650,7 +4705,7 @@ VIEWS["thu-muc"] = (id) => {
         </div>
         <div class="flex items-center justify-between pt-space-xs border-t border-border-subtle/50">
           <a href="#thu-muc/${encodeURIComponent(f.id)}" class="text-xs text-primary hover:underline font-semibold no-underline">Xem từ →</a>
-          <button type="button" class="px-3 py-1.5 rounded-lg bg-primary-container text-on-primary text-label-sm font-semibold hover:bg-primary flex items-center gap-1 shadow-sm" data-study-folder="${esc(f.id)}">
+          <button type="button" class="min-h-[34px] px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-label-sm font-semibold hover:bg-primary-container hover:text-on-primary transition-colors flex items-center gap-1" data-study-folder="${esc(f.id)}">
             <span class="material-symbols-outlined text-[16px]">play_arrow</span><span>Học</span>
           </button>
         </div>
@@ -4661,9 +4716,14 @@ VIEWS["thu-muc"] = (id) => {
       btn.onclick = async (e) => {
         e.preventDefault();
         const b = btn.dataset.toggleBand;
+        if (!S.settings) S.settings = {};
+        if (!S.settings.bands) S.settings.bands = {};
         S.settings.bands[b] = !S.settings.bands[b];
+        const target = allFolderItems.find((x) => x.id === b);
+        if (target) target.isLearning = !!S.settings.bands[b];
         await saveSettings();
-        VIEWS["thu-muc"]();
+        updateBadge();
+        renderFolderCards();
       };
     });
   };
@@ -4715,19 +4775,21 @@ function renderTri() {
 
   if (!n) {
     setView(`
-      <div class="max-w-xl mx-auto px-margin py-space-2xl text-center flex flex-col items-center gap-4">
-        <div class="w-16 h-16 rounded-2xl bg-jade-subtle text-secondary flex items-center justify-center shadow-xs">
+      <div class="max-w-xl mx-auto px-margin-mobile md:px-margin py-space-2xl text-center flex flex-col items-center gap-4">
+        <div class="w-16 h-16 rounded-2xl bg-jade-subtle text-secondary flex items-center justify-center shadow-sm">
           <span class="material-symbols-outlined text-[36px]">verified</span>
         </div>
-        <h2 class="font-headline-lg text-2xl font-bold text-on-surface">Hoàn tất lọc nhanh ${esc(name)}!</h2>
-        <p class="font-body-md text-sm text-on-surface-variant">${esc(tally)}.</p>
-        <p class="text-xs text-outline max-w-md">Từ "Đã thuộc" được xếp lịch ôn sau 21 ngày. Từ "Hơi nhớ" ôn sau 1 ngày. Từ "Chưa biết" sẽ đưa vào hàng đợi thẻ mới hôm nay.</p>
-        <div class="flex items-center gap-3 mt-4">
-          <button type="button" class="px-6 py-2.5 rounded-xl bg-secondary text-white font-semibold hover:bg-secondary-fixed transition-colors shadow-xs text-sm" onclick="startStudyFolder('${esc(T.id)}')">Học ngay thư mục</button>
-          <a href="#thu-muc/${encodeURIComponent(T.id)}" class="px-5 py-2.5 rounded-xl bg-paper-muted text-on-surface font-semibold hover:bg-surface-container transition-colors text-sm">Về thư mục</a>
+        <h2 class="font-headline-lg text-2xl font-bold text-on-surface m-0">Hoàn tất lọc nhanh ${esc(name)}!</h2>
+        <p class="font-body-md text-sm text-on-surface-variant m-0">${esc(tally)}.</p>
+        <p class="text-xs text-outline max-w-md m-0">Từ "Đã thuộc" được xếp lịch ôn sau 21 ngày. Từ "Hơi nhớ" ôn sau 1 ngày. Từ "Chưa biết" sẽ đưa vào hàng đợi thẻ mới hôm nay.</p>
+        <div class="flex flex-wrap items-center justify-center gap-3 mt-4">
+          <button type="button" class="min-h-[42px] px-6 py-2.5 rounded-xl bg-secondary text-white font-semibold hover:bg-secondary/90 transition-colors shadow-sm text-sm" id="btnTriStartFolder">Học ngay thư mục</button>
+          <a href="#thu-muc/${encodeURIComponent(T.id)}" class="min-h-[42px] inline-flex items-center px-5 py-2.5 rounded-xl bg-paper-muted text-on-surface font-semibold hover:bg-surface-container transition-colors text-sm no-underline">Về thư mục</a>
         </div>
       </div>
     `);
+    const stBtn = $("#btnTriStartFolder");
+    if (stBtn) stBtn.onclick = () => startStudyFolder(T.id);
     updateBadge();
     return;
   }
@@ -4737,7 +4799,7 @@ function renderTri() {
 
   setView(`
     <div class="max-w-3xl mx-auto px-margin-mobile md:px-margin py-space-md md:py-space-lg flex flex-col gap-space-lg">
-      <div class="flex items-center justify-between text-xs text-outline font-medium">
+      <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-outline font-medium">
         <span>Lọc nhanh · ${esc(name)} · ${T.i + 1} / ${T.list.length}</span>
         <span>${esc(tally)}</span>
       </div>
@@ -4745,40 +4807,40 @@ function renderTri() {
         <div class="h-full bg-primary rounded-full transition-all duration-300" style="width:${pct}%;"></div>
       </div>
 
-      <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle shadow-sm flex flex-col items-center text-center gap-space-md">
-        <div class="font-headline-lg text-6xl md:text-7xl font-serif font-bold text-on-surface my-space-sm select-all">
+      <div class="bg-paper-card rounded-2xl p-space-md sm:p-space-lg md:p-space-xl border border-border-subtle shadow-sm flex flex-col items-center text-center gap-space-md">
+        <div class="font-headline-lg text-5xl sm:text-6xl md:text-7xl font-serif font-bold text-on-surface my-space-sm select-all break-words max-w-full">
           ${esc(n.basic ? n.display : it.w)}
         </div>
 
         ${T.shown ? `
           <div class="flex flex-col items-center gap-2 pt-space-sm border-t border-border-subtle w-full max-w-md">
             <div class="font-code text-xl text-tertiary font-bold">${esc(it.py)}</div>
-            ${it.hv ? `<div class="text-xs text-outline">Hán Việt: <strong class="text-on-surface">${it.hv}</strong></div>` : ""}
+            ${it.hv ? `<div class="text-xs text-outline">Hán Việt: <strong class="text-on-surface">${esc(it.hv)}</strong></div>` : ""}
             <div class="text-base font-semibold text-on-surface">${esc(it.vn || it.en || "")}</div>
           </div>
         ` : `
-          <button type="button" class="px-6 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold text-sm transition-colors" id="btnTriReveal">
+          <button type="button" class="min-h-[44px] px-6 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold text-sm transition-colors" id="btnTriReveal">
             Xem đáp án (Phím cách)
           </button>
         `}
 
         <div class="grid grid-cols-3 gap-space-sm w-full max-w-md mt-space-md">
-          <button type="button" class="py-3 px-2 rounded-xl bg-jade-subtle text-secondary font-bold text-xs hover:bg-secondary-fixed transition-all border border-secondary/20 shadow-2xs" id="btnTri1">
+          <button type="button" class="min-h-[56px] py-3 px-2 rounded-xl bg-jade-subtle text-secondary font-bold text-xs hover:bg-secondary/15 transition-all border border-secondary/25 shadow-sm" id="btnTri1">
             <div>1. Đã thuộc</div>
             <div class="text-[10px] font-normal opacity-80 mt-0.5">Ôn sau 21 ngày</div>
           </button>
-          <button type="button" class="py-3 px-2 rounded-xl bg-amber-subtle text-tertiary font-bold text-xs hover:bg-amber-subtle/80 transition-all border border-amber-subtle shadow-2xs" id="btnTri2">
+          <button type="button" class="min-h-[56px] py-3 px-2 rounded-xl bg-amber-subtle text-tertiary font-bold text-xs hover:bg-tertiary/15 transition-all border border-tertiary/25 shadow-sm" id="btnTri2">
             <div>2. Hơi nhớ</div>
             <div class="text-[10px] font-normal opacity-80 mt-0.5">Ôn sau 1 ngày</div>
           </button>
-          <button type="button" class="py-3 px-2 rounded-xl bg-cinnabar-subtle text-primary font-bold text-xs hover:bg-cinnabar-subtle/80 transition-all border border-cinnabar-subtle shadow-2xs" id="btnTri3">
+          <button type="button" class="min-h-[56px] py-3 px-2 rounded-xl bg-cinnabar-subtle text-primary font-bold text-xs hover:bg-primary/15 transition-all border border-primary/25 shadow-sm" id="btnTri3">
             <div>3. Chưa biết</div>
             <div class="text-[10px] font-normal opacity-80 mt-0.5">Học như thẻ mới</div>
           </button>
         </div>
 
         <div class="flex items-center justify-between w-full max-w-md pt-2 text-xs text-outline">
-          <button type="button" class="hover:underline" id="btnTriUndo" ${T.hist.length ? "" : "disabled"}>↺ Hoàn tác (Z)</button>
+          <button type="button" class="hover:underline disabled:opacity-40" id="btnTriUndo" ${T.hist.length ? "" : "disabled"}>↺ Hoàn tác (Z)</button>
           <a href="#thu-muc/${encodeURIComponent(T.id)}" class="hover:underline">Dừng lọc</a>
         </div>
       </div>
@@ -4794,17 +4856,24 @@ function renderTri() {
   if (un) un.onclick = triUndo;
 }
 
+let _triBusy = false;
 async function triage(action) {
+  if (_triBusy) return;
   const T = S.tri;
   if (!T || !T.list[T.i]) return;
-  const n = T.list[T.i];
-  const lvl = action === "known" ? 4 : (action === "some" ? 2 : 0);
-  await applyWordLevel(n, lvl);
-  T.counts[action]++;
-  T.hist.push({ n, action, lvl });
-  T.i++;
-  T.shown = false;
-  renderTri();
+  _triBusy = true;
+  try {
+    const n = T.list[T.i];
+    const lvl = action === "known" ? 4 : (action === "some" ? 2 : 0);
+    await applyWordLevel(n, lvl);
+    T.counts[action]++;
+    T.hist.push({ n, action, lvl });
+    T.i++;
+    T.shown = false;
+    renderTri();
+  } finally {
+    _triBusy = false;
+  }
 }
 
 async function triUndo() {
@@ -5263,11 +5332,11 @@ window.checkPractice = function(choice) {
   const opt = current.quiz.opts.find(o => o.key === choice) || current.quiz.opts[0];
 
   if (opt.correct) {
-    resultDiv.className = "mt-space-sm p-space-sm rounded-lg font-body-sm text-body-sm bg-jade-subtle text-secondary block border border-secondary/20 shadow-xs";
+    resultDiv.className = "mt-space-sm p-space-sm rounded-lg font-body-sm text-body-sm bg-jade-subtle text-secondary block border border-secondary/20 shadow-sm";
     resultDiv.innerHTML = opt.explain;
     if (typeof playChime === "function") playChime(true);
   } else {
-    resultDiv.className = "mt-space-sm p-space-sm rounded-lg font-body-sm text-body-sm bg-cinnabar-subtle text-primary block border border-primary/20 shadow-xs";
+    resultDiv.className = "mt-space-sm p-space-sm rounded-lg font-body-sm text-body-sm bg-cinnabar-subtle text-primary block border border-primary/20 shadow-sm";
     resultDiv.innerHTML = opt.explain;
     if (typeof playChime === "function") playChime(false);
   }
@@ -5291,14 +5360,14 @@ window.filterGrammarTab = function(level, btnEl) {
   document.querySelectorAll(".grammar-tab-btn").forEach(b => {
     const isAct = (btnEl ? b === btnEl : b.dataset && b.dataset.gband === level);
     b.className = isAct
-      ? "grammar-tab-btn px-3 py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-xs font-semibold whitespace-nowrap shadow-xs transition-colors"
-      : "grammar-tab-btn px-3 py-1 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-sm text-xs font-medium whitespace-nowrap border border-border-subtle/70 transition-colors";
+      ? "grammar-tab-btn px-3 py-1.5 rounded-full bg-primary-container text-on-primary font-label-sm text-xs font-semibold whitespace-nowrap shadow-sm transition-colors"
+      : "grammar-tab-btn px-3 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-sm text-xs font-medium whitespace-nowrap border border-border-subtle transition-colors";
   });
   updateGrammarGrid();
 };
 
 window.filterGrammarSearch = function(query) {
-  window.GRAMMAR_SEARCH_QUERY = (query || "").trim().toLowerCase();
+  window.GRAMMAR_SEARCH_QUERY = (query || "").trim();
   updateGrammarGrid();
 };
 
@@ -5322,97 +5391,97 @@ window.toggleGrammarBookmark = function(id) {
   renderSidebarNotebook();
 };
 
-window.promptAddGrammarNote = function() {
-  const name = prompt("Nhập tên mẫu ngữ pháp hoặc cấu trúc câu cần lưu (ví dụ: 連...也/都...):");
-  if (!name || !name.trim()) return;
-  const formula = prompt("Nhập công thức hoặc mẫu câu (ví dụ: 連 + Danh từ + 也/都 + Vị ngữ):") || "";
-  const note = prompt("Ghi chú cách dùng hoặc lưu ý thi cử:") || "";
-
-  const customId = "custom_" + Date.now();
-  GRAMMAR_MASTER_LIST.push({
-    id: customId,
-    name: name.trim(),
-    zh: name.trim().charAt(0) || "語",
-    formula: formula.trim() || name.trim(),
-    band: "Cá nhân",
-    levelGroup: "Khẩu ngữ",
-    freq: "Tự tạo",
-    summary: note.trim() || "Mẫu ngữ pháp tự ghi chú vào sổ tay cá nhân.",
-    cond1: { title: "Ghi chú cá nhân", desc: note.trim() || "Cần ôn tập thường xuyên." },
-    cond2: { title: "Cấu trúc áp dụng", desc: formula.trim() || "Áp dụng trong bài đọc và hội thoại." },
-    wrong: { zh: "", py: "", reason: "Chưa ghi nhận lỗi sai." },
-    correct: { zh: name.trim(), py: "", reason: "Mẫu câu do bạn tự bổ sung." },
-    examples: [],
-    quiz: { q: name.trim(), opts: [{ key: "ok", label: "Đã thuộc", correct: true, explain: "Tuyệt vời!" }] }
-  });
+window.deleteCustomGrammarNote = function(id) {
+  const idx = GRAMMAR_MASTER_LIST.findIndex(g => g.id === id && String(g.id).startsWith("custom_"));
+  if (idx < 0) return;
+  if (!confirm("Bạn có chắc muốn xóa ghi chú ngữ pháp này?")) return;
+  GRAMMAR_MASTER_LIST.splice(idx, 1);
   saveCustomGrammarNotes();
-  window.GRAMMAR_BOOKMARKS.add(customId);
+  window.GRAMMAR_BOOKMARKS.delete(id);
   try {
     localStorage.setItem("bookmarked_grammar", JSON.stringify(Array.from(window.GRAMMAR_BOOKMARKS)));
   } catch (e) {}
-  const statSaved = document.getElementById("grammar-saved-stat");
-  if (statSaved) statSaved.textContent = fmt(window.GRAMMAR_BOOKMARKS.size);
-  selectGrammarSpotlight(customId);
-  renderSidebarNotebook();
+  if (location.hash === "#ngu-phap/" + encodeURIComponent(id)) {
+    location.hash = "#ngu-phap";
+  } else {
+    updateGrammarGrid();
+    renderSidebarNotebook();
+  }
+  showToast("Đã xóa ghi chú ngữ pháp.");
+};
+
+window.promptAddGrammarNote = function() {
+  const box = document.getElementById("grammarInlineAddBox");
+  if (box) {
+    box.hidden = !box.hidden;
+    if (!box.hidden) document.getElementById("gramAddName")?.focus();
+  }
 };
 
 function renderSpotlightContent(item) {
   const isBookmarked = window.GRAMMAR_BOOKMARKS.has(item.id);
+  const isCustom = String(item.id || "").startsWith("custom_");
   const exHtml = (item.examples || []).map(ex => `
-    <div class="p-3 rounded-xl bg-paper-base hover:bg-surface-container-low transition-colors flex items-start justify-between gap-3 border border-border-subtle/50">
+    <div class="p-3 rounded-xl bg-paper-base hover:bg-surface-container-low transition-colors flex items-start justify-between gap-3 border border-border-subtle">
       <div class="flex-1 min-w-0">
         <div class="flex items-baseline gap-2 flex-wrap">
-          <span class="font-headline-md text-base md:text-lg text-on-surface font-semibold font-serif">${esc(ex.zh)}</span>
-          ${ex.tag ? `<span class="font-label-sm text-[11px] font-medium px-2 py-0.5 rounded bg-${ex.tagColor || 'cinnabar-subtle'} ${ex.tagText || 'text-primary'}">${esc(ex.tag)}</span>` : ''}
+          <span class="font-headline-md text-base md:text-lg text-on-surface font-semibold font-serif" lang="zh-Hant">${esc(ex.zh)}</span>
+          ${ex.tag ? `<span class="font-label-sm text-xs font-medium px-2 py-0.5 rounded bg-${ex.tagColor || 'cinnabar-subtle'} ${ex.tagText || 'text-primary'}">${esc(ex.tag)}</span>` : ''}
         </div>
-        <div class="font-code text-xs text-outline mt-0.5">${esc(ex.py)}</div>
+        <div class="font-code text-xs text-on-surface-variant mt-0.5">${esc(ex.py)}</div>
         <div class="font-body-md text-sm text-on-surface-variant mt-0.5">${esc(ex.vn)}</div>
       </div>
-      <button type="button" class="w-9 h-9 rounded-full bg-paper-card text-on-surface-variant hover:text-primary shadow-xs flex items-center justify-center transition-colors shrink-0 border border-border-subtle/60" onclick="say('${esc(ex.zh).replace(/'/g, "\\\'")}')" title="Nghe phát âm chuẩn Đài Loan">
-        <span class="material-symbols-outlined text-[18px]">volume_up</span>
+      <button type="button" class="w-10 h-10 rounded-full bg-paper-card text-on-surface-variant hover:text-primary shadow-sm flex items-center justify-center transition-colors shrink-0 border border-border-subtle" data-say="${esc(ex.zh)}" title="Nghe phát âm chuẩn Đài Loan" aria-label="Nghe ví dụ">
+        <span class="material-symbols-outlined text-[19px]">volume_up</span>
       </button>
     </div>
   `).join("");
 
   const quizOptsHtml = (item.quiz && item.quiz.opts || []).map(opt => `
-    <button type="button" class="px-3.5 py-1.5 rounded-lg bg-surface-container hover:bg-cinnabar-subtle hover:text-primary font-body-md text-sm text-on-surface transition-colors" onclick="checkPractice('${opt.key}')">
+    <button type="button" class="min-h-[38px] px-3.5 py-1.5 rounded-lg bg-surface-container hover:bg-cinnabar-subtle hover:text-primary font-body-md text-sm text-on-surface transition-colors" onclick="checkPractice('${esc(opt.key)}')">
       ${esc(opt.label)}
     </button>
   `).join("");
 
   return `
-    <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-border-subtle/60">
+    <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-border-subtle">
       <div class="flex items-center gap-2 flex-wrap">
         <span class="px-2.5 py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-xs font-semibold">${esc(item.band)}</span>
-        <h2 class="font-headline-md text-lg md:text-xl text-on-surface font-semibold font-serif">${esc(item.name)}</h2>
+        <h2 class="font-headline-md text-lg md:text-xl text-on-surface font-semibold font-serif m-0">${esc(item.name)}</h2>
       </div>
-      <button type="button" class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg ${isBookmarked ? 'bg-amber-subtle text-tertiary' : 'bg-paper-base text-outline hover:text-primary'} font-label-sm text-xs font-semibold transition-colors border border-border-subtle/60" onclick="toggleGrammarBookmark('${item.id}')">
-        <span class="material-symbols-outlined text-[16px]">${isBookmarked ? 'bookmark' : 'bookmark_add'}</span>
-        <span>${isBookmarked ? 'Đã lưu sổ tay' : 'Lưu sổ tay'}</span>
-      </button>
+      <div class="flex items-center gap-1.5">
+        ${isCustom ? `<button type="button" class="min-h-[36px] inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-cinnabar-subtle text-primary text-xs font-semibold border border-border-subtle" onclick="deleteCustomGrammarNote('${esc(item.id)}')" title="Xóa ghi chú này"><span class="material-symbols-outlined text-[16px]">delete</span><span>Xóa</span></button>` : ""}
+        <button type="button" class="min-h-[36px] inline-flex items-center gap-1 px-2.5 py-1 rounded-lg ${isBookmarked ? 'bg-amber-subtle text-tertiary' : 'bg-paper-base text-on-surface-variant hover:text-primary'} font-label-sm text-xs font-semibold transition-colors border border-border-subtle" onclick="toggleGrammarBookmark('${esc(item.id)}')">
+          <span class="material-symbols-outlined text-[16px]">${isBookmarked ? 'bookmark' : 'bookmark_add'}</span>
+          <span>${isBookmarked ? 'Đã lưu sổ tay' : 'Lưu sổ tay'}</span>
+        </button>
+      </div>
     </div>
 
-    <div class="mt-3 p-3 rounded-xl bg-paper-base border border-border-subtle/70 font-code text-sm md:text-base text-primary font-bold">
+    <div class="mt-3 p-3 rounded-xl bg-paper-base border border-border-subtle font-code text-sm md:text-base text-primary font-bold">
       ${esc(item.formula)}
     </div>
     <p class="font-body-sm text-sm text-on-surface-variant mt-2 leading-relaxed">${esc(item.summary)}</p>
 
+    ${(item.cond1 || item.cond2) ? `
     <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-2.5">
-      <div class="p-3 rounded-lg bg-surface-container-low border border-border-subtle/50">
+      ${item.cond1 ? `
+      <div class="p-3 rounded-lg bg-surface-container-low border border-border-subtle">
         <div class="flex items-center gap-1 text-on-surface font-label-md text-xs font-semibold mb-1">
           <span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
-          ${esc(item.cond1.title)}
+          ${esc(item.cond1.title || "")}
         </div>
-        <p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">${esc(item.cond1.desc)}</p>
-      </div>
-      <div class="p-3 rounded-lg bg-surface-container-low border border-border-subtle/50">
+        <p class="font-body-sm text-xs text-on-surface-variant leading-relaxed m-0">${esc(item.cond1.desc || "")}</p>
+      </div>` : ""}
+      ${item.cond2 ? `
+      <div class="p-3 rounded-lg bg-surface-container-low border border-border-subtle">
         <div class="flex items-center gap-1 text-on-surface font-label-md text-xs font-semibold mb-1">
           <span class="material-symbols-outlined text-secondary text-[16px]">transform</span>
-          ${esc(item.cond2.title)}
+          ${esc(item.cond2.title || "")}
         </div>
-        <p class="font-body-sm text-xs text-on-surface-variant leading-relaxed">${esc(item.cond2.desc)}</p>
-      </div>
-    </div>
+        <p class="font-body-sm text-xs text-on-surface-variant leading-relaxed m-0">${esc(item.cond2.desc || "")}</p>
+      </div>` : ""}
+    </div>` : ""}
 
     ${(item.wrong && item.wrong.zh) || (item.correct && item.correct.zh) ? `
     <div class="mt-4">
@@ -5422,22 +5491,23 @@ function renderSpotlightContent(item) {
       </h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
         ${item.wrong && item.wrong.zh ? `
-        <div class="p-3 rounded-xl bg-cinnabar-subtle/60 border border-primary/20 flex flex-col justify-between gap-1.5">
+        <div class="p-3 rounded-xl bg-cinnabar-subtle border border-border-subtle flex flex-col justify-between gap-1.5">
           <div>
-            <div class="text-primary font-label-sm text-[11px] font-bold uppercase mb-0.5">✕ Sai ngữ pháp</div>
-            <div class="font-serif text-base text-on-surface line-through decoration-primary/60">${esc(item.wrong.zh)}</div>
-            <div class="font-code text-[11px] text-outline">${esc(item.wrong.py)}</div>
+            <div class="text-primary font-label-sm text-xs font-bold uppercase mb-0.5">✕ Sai ngữ pháp</div>
+            <div class="font-serif text-base text-on-surface line-through decoration-primary/60" lang="zh-Hant">${esc(item.wrong.zh)}</div>
+            <div class="font-code text-xs text-on-surface-variant">${esc(item.wrong.py || "")}</div>
           </div>
-          <p class="text-xs text-on-surface-variant bg-paper-card/80 p-2 rounded">${esc(item.wrong.reason)}</p>
+          <p class="text-xs text-on-surface-variant bg-paper-card p-2 rounded border border-border-subtle m-0">${esc(item.wrong.reason || "")}</p>
         </div>` : ''}
-        <div class="p-3 rounded-xl bg-jade-subtle border border-secondary/20 flex flex-col justify-between gap-1.5">
+        ${item.correct && item.correct.zh ? `
+        <div class="p-3 rounded-xl bg-jade-subtle border border-border-subtle flex flex-col justify-between gap-1.5">
           <div>
-            <div class="text-secondary font-label-sm text-[11px] font-bold uppercase mb-0.5">✓ Chuẩn Đài Loan</div>
-            <div class="font-serif text-base text-secondary font-semibold">${esc(item.correct.zh)}</div>
-            <div class="font-code text-[11px] text-on-secondary-container">${esc(item.correct.py)}</div>
+            <div class="text-secondary font-label-sm text-xs font-bold uppercase mb-0.5">✓ Chuẩn Đài Loan</div>
+            <div class="font-serif text-base text-secondary font-semibold" lang="zh-Hant">${esc(item.correct.zh)}</div>
+            <div class="font-code text-xs text-secondary">${esc(item.correct.py || "")}</div>
           </div>
-          <p class="text-xs text-on-surface-variant bg-paper-card/80 p-2 rounded">${esc(item.correct.reason)}</p>
-        </div>
+          <p class="text-xs text-on-surface-variant bg-paper-card p-2 rounded border border-border-subtle m-0">${esc(item.correct.reason || "")}</p>
+        </div>` : ''}
       </div>
     </div>` : ''}
 
@@ -5451,13 +5521,13 @@ function renderSpotlightContent(item) {
     </div>` : ''}
 
     ${item.quiz ? `
-    <div class="mt-4 p-3.5 rounded-xl bg-cinnabar-subtle/35 border border-primary/20">
+    <div class="mt-4 p-3.5 rounded-xl bg-cinnabar-subtle border border-border-subtle">
       <div class="font-label-md text-xs text-primary font-bold flex items-center gap-1.5 mb-2">
         <span class="material-symbols-outlined text-[16px]">quiz</span>
         Luyện tập nhanh
       </div>
-      <div class="bg-paper-card p-3 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-3 border border-border-subtle/50">
-        <div class="font-serif text-base text-on-surface font-medium">${esc(item.quiz.q)}</div>
+      <div class="bg-paper-card p-3 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-3 border border-border-subtle">
+        <div class="font-serif text-base text-on-surface font-medium" lang="zh-Hant">${esc(item.quiz.q)}</div>
         <div class="flex items-center gap-2 flex-wrap">${quizOptsHtml}</div>
       </div>
       <div class="hidden mt-2 p-2.5 rounded-lg font-body-sm text-xs" id="practice-result"></div>
@@ -5468,18 +5538,16 @@ function renderSpotlightContent(item) {
 function updateGrammarGrid() {
   const container = document.getElementById("grammar-cards-grid");
   if (!container) return;
-  const q = window.GRAMMAR_SEARCH_QUERY || "";
+  const qRaw = window.GRAMMAR_SEARCH_QUERY || "";
+  const qTrad = typeof toTraditionalTw === "function" ? toTraditionalTw(qRaw) : qRaw;
+  const qFold = fold(qRaw);
   const filter = window.ACTIVE_GRAMMAR_FILTER || "all";
 
   const filtered = GRAMMAR_MASTER_LIST.filter(g => {
     if (filter !== "all" && g.levelGroup !== filter) return false;
-    if (q) {
-      const match = g.name.toLowerCase().includes(q) ||
-                    g.zh.toLowerCase().includes(q) ||
-                    g.formula.toLowerCase().includes(q) ||
-                    g.summary.toLowerCase().includes(q) ||
-                    (g.wrong && g.wrong.zh.includes(q)) ||
-                    (g.correct && g.correct.zh.includes(q));
+    if (qRaw) {
+      const hay = [g.name, g.zh, g.formula, g.summary, g.wrong && g.wrong.zh, g.correct && g.correct.zh].filter(Boolean).join(" ");
+      const match = hay.includes(qRaw) || hay.includes(qTrad) || (qFold && fold(hay).includes(qFold));
       if (!match) return false;
     }
     return true;
@@ -5489,7 +5557,7 @@ function updateGrammarGrid() {
     container.innerHTML = `
       <div class="text-center py-8 text-on-surface-variant bg-paper-card rounded-xl border border-border-subtle">
         <span class="material-symbols-outlined text-[32px] text-outline mb-1">search_off</span>
-        <p class="text-sm">Không tìm thấy cấu trúc phù hợp với "${esc(q)}".</p>
+        <p class="text-sm">Không tìm thấy cấu trúc phù hợp với "${esc(qRaw)}".</p>
       </div>
     `;
     return;
@@ -5507,17 +5575,17 @@ function updateGrammarGrid() {
     const isBookmarked = window.GRAMMAR_BOOKMARKS.has(g.id);
     const isCurrent = g.id === window.ACTIVE_GRAMMAR_ID;
     return `
-      <div class="bg-paper-card rounded-xl p-3.5 transition-all cursor-pointer border ${isCurrent ? 'border-primary ring-2 ring-primary/15 shadow-sm' : 'border-border-subtle/80 hover:border-primary/40 hover:shadow-xs'} flex items-start justify-between gap-2.5" onclick="selectGrammarSpotlight('${g.id}')">
-        <div class="min-w-0 flex-1">
+      <div class="bg-paper-card rounded-xl p-3.5 transition-all border ${isCurrent ? 'border-primary shadow-sm' : 'border-border-subtle hover:border-primary/40 hover:shadow-sm'} flex items-start justify-between gap-2.5">
+        <a href="#ngu-phap/${encodeURIComponent(g.id)}" class="min-w-0 flex-1 no-underline text-inherit block">
           <div class="flex items-center gap-1.5 flex-wrap">
-            <span class="px-2 py-0.5 rounded ${badgeCls} font-label-sm text-[11px] font-semibold">${esc(g.band)}</span>
-            <h3 class="font-headline-md text-sm font-semibold text-on-surface font-serif truncate">${esc(g.name)}</h3>
+            <span class="px-2 py-0.5 rounded ${badgeCls} font-label-sm text-xs font-semibold">${esc(g.band)}</span>
+            <h3 class="font-headline-md text-sm font-semibold text-on-surface font-serif truncate m-0">${esc(g.name)}</h3>
           </div>
           <div class="font-code text-xs text-primary mt-1 truncate">${esc(g.formula)}</div>
-          <p class="font-body-sm text-xs text-on-surface-variant mt-1 line-clamp-1">${esc(g.summary)}</p>
-        </div>
-        <button type="button" class="w-8 h-8 rounded-lg shrink-0 ${isBookmarked ? 'text-tertiary bg-amber-subtle' : 'text-outline hover:text-primary hover:bg-cinnabar-subtle'} flex items-center justify-center transition-colors" onclick="event.stopPropagation(); toggleGrammarBookmark('${g.id}')" title="${isBookmarked ? 'Bỏ lưu sổ tay' : 'Lưu vào sổ tay'}">
-          <span class="material-symbols-outlined text-[18px]">${isBookmarked ? 'bookmark' : 'bookmark_border'}</span>
+          <p class="font-body-sm text-xs text-on-surface-variant mt-1 mb-0 line-clamp-1">${esc(g.summary)}</p>
+        </a>
+        <button type="button" class="w-9 h-9 rounded-lg shrink-0 ${isBookmarked ? 'text-tertiary bg-amber-subtle' : 'text-outline hover:text-primary hover:bg-cinnabar-subtle'} flex items-center justify-center transition-colors" onclick="toggleGrammarBookmark('${esc(g.id)}')" title="${isBookmarked ? 'Bỏ lưu sổ tay' : 'Lưu vào sổ tay'}" aria-label="${isBookmarked ? 'Bỏ lưu sổ tay' : 'Lưu vào sổ tay'}">
+          <span class="material-symbols-outlined text-[19px]">${isBookmarked ? 'bookmark' : 'bookmark_border'}</span>
         </button>
       </div>
     `;
@@ -5531,10 +5599,10 @@ function updateGrammarGrid() {
     <div class="flex flex-col gap-2">
       <div class="flex items-center justify-between">
         <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wide flex items-center gap-1.5">
-          <span class="w-1.5 h-3.5 rounded-full bg-primary inline-block"></span>
+          <span class="w-1.5 h-3.5 rounded-full bg-primary-container inline-block"></span>
           ${esc(grp.label)}
         </span>
-        <span class="font-code text-[11px] text-outline">${grp.items.length} mẫu</span>
+        <span class="font-code text-xs text-on-surface-variant">${grp.items.length} mẫu</span>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
         ${grp.items.map(g => renderCard(g, grp.badge)).join("")}
@@ -5552,26 +5620,27 @@ function renderSidebarNotebook() {
   const bookmarkedList = GRAMMAR_MASTER_LIST.filter(g => window.GRAMMAR_BOOKMARKS.has(g.id));
   if (bookmarkedList.length === 0) {
     container.innerHTML = `
-      <div class="p-3 text-center text-xs text-outline bg-paper-base rounded-lg border border-border-subtle/50">
+      <div class="p-3 text-center text-xs text-on-surface-variant bg-paper-base rounded-lg border border-border-subtle">
         Chưa có mẫu câu nào được ghim. Nhấn biểu tượng bookmark để lưu mẫu cần nhớ.
       </div>
     `;
     return;
   }
 
-  container.innerHTML = bookmarkedList.slice(0, 8).map(g => `
-    <div class="p-2.5 rounded-lg bg-paper-base hover:bg-surface-container transition-colors group cursor-pointer border border-border-subtle/40 flex items-center justify-between gap-2" onclick="selectGrammarSpotlight('${g.id}')">
+  container.innerHTML = bookmarkedList.map(g => `
+    <a href="#ngu-phap/${encodeURIComponent(g.id)}" class="p-2.5 rounded-lg bg-paper-base hover:bg-surface-container transition-colors group border border-border-subtle flex items-center justify-between gap-2 no-underline">
       <div class="flex flex-col min-w-0">
         <span class="font-headline-md text-xs text-on-surface font-semibold group-hover:text-primary font-serif truncate">${esc(g.name)}</span>
-        <span class="font-code text-[11px] text-outline truncate">${esc(g.formula)}</span>
+        <span class="font-code text-xs text-on-surface-variant truncate">${esc(g.formula)}</span>
       </div>
       <span class="material-symbols-outlined text-tertiary text-[16px] shrink-0">bookmark</span>
-    </div>
+    </a>
   `).join("");
 }
 
 function grammarStatsHTML() {
   const notes = S.notes.filter((n) => n.kind === "grammar");
+  const gramDeck = (S.decks || []).find((d) => d.kind === "grammar");
   const lv = notes.map(noteLevel);
   const learning = lv.filter((l) => l > 0).length;
   const end = dayStart(Date.now()) + DAY; let due = 0;
@@ -5582,10 +5651,10 @@ function grammarStatsHTML() {
       <span class="px-3 py-1.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface-variant">
         Bài giảng: <strong class="text-on-surface font-code">${fmt(GRAMMAR_MASTER_LIST.length)}</strong>
       </span>
-      ${notes.length ? `<a href="#thu-muc/lop-ngu-phap-dot1" class="px-3 py-1.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface-variant hover:border-primary no-underline">
+      ${notes.length && gramDeck ? `<a href="#thu-muc/${encodeURIComponent(gramDeck.id)}" class="px-3 py-1.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface-variant hover:border-primary no-underline">
         Thẻ ôn SRS: <strong class="text-on-surface font-code">${fmt(learning)}/${fmt(notes.length)}</strong>
       </a>` : ''}
-      ${due ? `<a href="#hoc" class="px-3 py-1.5 rounded-lg bg-cinnabar-subtle border border-primary/30 text-primary font-semibold no-underline">
+      ${due ? `<a href="#hoc" class="px-3 py-1.5 rounded-lg bg-cinnabar-subtle border border-border-subtle text-primary font-semibold no-underline">
         Đến hạn: <strong class="font-code">${fmt(due)}</strong> thẻ →
       </a>` : ''}
       <span class="px-3 py-1.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface-variant">
@@ -5632,13 +5701,13 @@ VIEWS["ngu-phap"] = (arg) => {
       setView(`
         <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-md w-full">
           <div class="flex items-center justify-between gap-2 flex-wrap">
-            <a href="#ngu-phap" class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-sm font-semibold flex items-center gap-1 no-underline"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Danh sách ngữ pháp</a>
-            <div class="flex items-center gap-2 text-sm">
-              ${prev ? `<a href="#ngu-phap/${encodeURIComponent(prev.id)}" class="px-3 py-1.5 rounded-lg border border-border-subtle hover:bg-surface-container no-underline text-on-surface">← ${esc(prev.name)}</a>` : ""}
-              ${next ? `<a href="#ngu-phap/${encodeURIComponent(next.id)}" class="px-3 py-1.5 rounded-lg border border-border-subtle hover:bg-surface-container no-underline text-on-surface">${esc(next.name)} →</a>` : ""}
+            <a href="#ngu-phap" class="min-h-[38px] px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-sm font-semibold flex items-center gap-1 no-underline whitespace-nowrap"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Danh sách ngữ pháp</a>
+            <div class="flex items-center gap-2 text-xs sm:text-sm max-w-full flex-wrap">
+              ${prev ? `<a href="#ngu-phap/${encodeURIComponent(prev.id)}" class="min-h-[38px] inline-flex items-center px-3 py-1.5 rounded-lg border border-border-subtle bg-paper-card hover:bg-surface-container no-underline text-on-surface max-w-[44vw] sm:max-w-[220px] truncate">← ${esc(prev.name)}</a>` : ""}
+              ${next ? `<a href="#ngu-phap/${encodeURIComponent(next.id)}" class="min-h-[38px] inline-flex items-center px-3 py-1.5 rounded-lg border border-border-subtle bg-paper-card hover:bg-surface-container no-underline text-on-surface max-w-[44vw] sm:max-w-[220px] truncate">${esc(next.name)} →</a>` : ""}
             </div>
           </div>
-          <article class="bg-paper-card rounded-2xl p-space-lg shadow-xs border border-border-subtle" id="grammar-spotlight-container">
+          <article class="bg-paper-card rounded-2xl p-4 sm:p-space-lg shadow-sm border border-border-subtle" id="grammar-spotlight-container">
             ${renderSpotlightContent(item)}
           </article>
         </div>
@@ -5649,8 +5718,8 @@ VIEWS["ngu-phap"] = (arg) => {
   const curFilter = window.ACTIVE_GRAMMAR_FILTER || "all";
   const countBy = (k) => k === "all" ? GRAMMAR_MASTER_LIST.length : GRAMMAR_MASTER_LIST.filter(g => g.levelGroup === k).length;
   const tabCls = (on) => on
-    ? "grammar-tab-btn px-3 py-1 rounded-full bg-primary-container text-on-primary font-label-sm text-xs font-semibold whitespace-nowrap shadow-xs transition-colors"
-    : "grammar-tab-btn px-3 py-1 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-sm text-xs font-medium whitespace-nowrap border border-border-subtle/70 transition-colors";
+    ? "grammar-tab-btn px-3 py-1.5 rounded-full bg-primary-container text-on-primary font-label-sm text-xs font-semibold whitespace-nowrap shadow-sm transition-colors"
+    : "grammar-tab-btn px-3 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-sm text-xs font-medium whitespace-nowrap border border-border-subtle transition-colors";
   const TABS = [
     ["all", "Tất cả"],
     ["A1/A2", "Band A · A1/A2"],
@@ -5663,18 +5732,18 @@ VIEWS["ngu-phap"] = (arg) => {
   setView(`
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg w-full">
       <!-- Compact Header -->
-      <section class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-md border-b border-border-subtle/70">
+      <section class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-md border-b border-border-subtle">
         <div>
-          <h1 class="font-display text-2xl md:text-3xl text-on-surface font-semibold tracking-tight font-serif">
-            Học Ngữ pháp tiếng Hoa Phồn thể <span class="text-outline font-normal text-xl">文法</span>
+          <h1 class="font-display text-2xl md:text-3xl text-on-surface font-semibold tracking-tight font-serif m-0">
+            Học Ngữ pháp tiếng Hoa Phồn thể <span class="text-outline font-normal text-xl" lang="zh-Hant">文法</span>
           </h1>
-          <p class="font-body-sm text-sm text-on-surface-variant mt-1">
-            Tổng hợp mẫu câu chia theo Band TOCFL (A1/A2, B1, B2) và khẩu ngữ Đài Loan.
+          <p class="font-body-sm text-sm text-on-surface-variant mt-1 mb-0">
+            Tổng hợp mẫu câu chia theo Band TOCFL (A1/A2, B1, B2, C) và khẩu ngữ Đài Loan.
           </p>
         </div>
         <div class="relative w-full md:w-72">
           <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-outline pointer-events-none">search</span>
-          <input class="w-full h-10 pl-9 pr-3 rounded-xl bg-paper-card text-on-surface text-sm placeholder:text-outline border border-border-subtle focus:outline-none focus:border-primary" placeholder="Tìm mẫu câu (把, 被, 與其...)" type="search" id="grammarSearchInput" value="${esc(window.GRAMMAR_SEARCH_QUERY || "")}" oninput="filterGrammarSearch(this.value)"/>
+          <input class="w-full h-11 pl-9 pr-3 rounded-xl bg-paper-card text-on-surface text-sm placeholder:text-outline border border-border-subtle focus:outline-none focus:border-primary" placeholder="Tìm mẫu câu (把, 被, chu ba...)" type="search" id="grammarSearchInput" value="${esc(window.GRAMMAR_SEARCH_QUERY || "")}" oninput="filterGrammarSearch(this.value)"/>
         </div>
       </section>
 
@@ -5689,43 +5758,50 @@ VIEWS["ngu-phap"] = (arg) => {
       <!-- Main 2-Column Layout -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
         <div class="lg:col-span-8 flex flex-col gap-space-lg">
-          <!-- Band-grouped Grammar Directory -->
           <section class="flex flex-col gap-4" id="grammar-cards-grid"></section>
-
         </div>
 
         <!-- Compact Sidebar -->
         <aside class="lg:col-span-4 flex flex-col gap-space-md w-full">
-          <div class="bg-paper-card rounded-2xl p-space-md shadow-xs border border-border-subtle">
-            <div class="flex items-center justify-between pb-2 border-b border-border-subtle/60">
-              <h3 class="font-headline-md text-sm text-on-surface font-semibold font-serif flex items-center gap-1.5">
+          <div class="bg-paper-card rounded-2xl p-space-md shadow-sm border border-border-subtle">
+            <div class="flex items-center justify-between pb-2 border-b border-border-subtle">
+              <h3 class="font-headline-md text-sm text-on-surface font-semibold font-serif flex items-center gap-1.5 m-0">
                 <span class="material-symbols-outlined text-primary text-[18px]">stylus_note</span>
                 Sổ tay ngữ pháp của bạn
               </h3>
-              <span class="px-2 py-0.5 rounded-full bg-paper-base text-outline font-code text-xs font-semibold" id="sidebar-notebook-count">0 mục</span>
+              <span class="px-2 py-0.5 rounded-full bg-paper-base text-on-surface-variant font-code text-xs font-semibold" id="sidebar-notebook-count">0 mục</span>
             </div>
-            <div class="mt-2.5 space-y-1.5" id="sidebar-notebook-items"></div>
-            <button type="button" class="w-full mt-3 py-2 rounded-xl border border-dashed border-outline/40 hover:border-primary text-outline hover:text-primary font-label-md text-xs font-semibold transition-colors flex items-center justify-center gap-1" onclick="promptAddGrammarNote()">
+            <div class="mt-2.5 space-y-1.5 max-h-[340px] overflow-y-auto custom-scrollbar pr-0.5" id="sidebar-notebook-items"></div>
+            <button type="button" class="w-full min-h-[40px] mt-3 py-2 rounded-xl border border-dashed border-outline/50 hover:border-primary text-on-surface-variant hover:text-primary font-label-md text-xs font-semibold transition-colors flex items-center justify-center gap-1" onclick="promptAddGrammarNote()">
               <span class="material-symbols-outlined text-[16px]">edit_note</span>
               <span>Thêm ghi chú mới</span>
             </button>
+            <form id="grammarInlineAddBox" class="mt-3 p-3 rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-2" hidden>
+              <input type="text" id="gramAddName" required placeholder="Tên mẫu câu (vd: 連…也/都…)" class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-xs text-on-surface">
+              <input type="text" id="gramAddFormula" placeholder="Công thức (vd: 連 + N + 也/都 + V)" class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-xs font-code text-on-surface">
+              <textarea id="gramAddNote" rows="2" placeholder="Ghi chú cách dùng hoặc lưu ý thi cử..." class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-xs text-on-surface resize-y"></textarea>
+              <div class="flex items-center justify-end gap-2">
+                <button type="button" id="gramAddCancel" class="px-3 py-1.5 rounded-lg bg-surface-container text-xs text-on-surface-variant">Hủy</button>
+                <button type="submit" class="px-3.5 py-1.5 rounded-lg bg-primary-container hover:bg-primary text-white text-xs font-semibold">Lưu ghi chú</button>
+              </div>
+            </form>
           </div>
 
-          <details open class="bg-paper-card rounded-2xl p-space-md shadow-xs border border-border-subtle">
+          <details open class="bg-paper-card rounded-2xl p-space-md shadow-sm border border-border-subtle">
             <summary class="cursor-pointer select-none flex items-center gap-2 font-headline-md text-sm font-semibold text-on-surface font-serif">
               <span class="material-symbols-outlined text-primary text-[18px]">lightbulb</span>
               Mẹo thi TOCFL Band B
             </summary>
             <div class="mt-3 space-y-2 text-xs text-on-surface-variant leading-relaxed">
-              <div class="p-2.5 rounded-lg bg-paper-base border border-border-subtle/50">
+              <div class="p-2.5 rounded-lg bg-paper-base border border-border-subtle">
                 <strong class="text-primary block">1. Bẫy liên từ tương phản</strong>
                 Chú ý cặp <strong class="text-on-surface">儘管…卻/還是</strong> và <strong class="text-on-surface">固然…但是</strong>.
               </div>
-              <div class="p-2.5 rounded-lg bg-paper-base border border-border-subtle/50">
+              <div class="p-2.5 rounded-lg bg-paper-base border border-border-subtle">
                 <strong class="text-secondary block">2. Thời gian &amp; Địa điểm trước hành động</strong>
                 Cụm <strong class="text-on-surface">在 + Địa điểm</strong> luôn đứng trước động từ chính.
               </div>
-              <div class="p-2.5 rounded-lg bg-paper-base border border-border-subtle/50">
+              <div class="p-2.5 rounded-lg bg-paper-base border border-border-subtle">
                 <strong class="text-tertiary block">3. Bổ ngữ kết quả vs khả năng</strong>
                 Phân biệt <strong class="text-on-surface">看懂</strong> (đã hiểu) với <strong class="text-on-surface">看得懂 / 看不懂</strong> (có thể / không thể hiểu).
               </div>
@@ -5735,6 +5811,43 @@ VIEWS["ngu-phap"] = (arg) => {
       </div>
     </div>
   `);
+
+  const addForm = $("#grammarInlineAddBox");
+  const addCancel = $("#gramAddCancel");
+  if (addCancel && addForm) addCancel.onclick = () => { addForm.hidden = true; };
+  if (addForm) {
+    addForm.onsubmit = (e) => {
+      e.preventDefault();
+      const name = ($("#gramAddName")?.value || "").trim();
+      if (!name) return;
+      const formula = ($("#gramAddFormula")?.value || "").trim();
+      const note = ($("#gramAddNote")?.value || "").trim();
+      const customId = "custom_" + Date.now();
+      GRAMMAR_MASTER_LIST.push({
+        id: customId,
+        name,
+        zh: name.charAt(0) || "語",
+        formula: formula || name,
+        band: "Cá nhân",
+        levelGroup: "Khẩu ngữ",
+        freq: "Tự tạo",
+        summary: note || "Mẫu ngữ pháp tự ghi chú vào sổ tay cá nhân.",
+        cond1: { title: "Ghi chú cá nhân", desc: note || "Cần ôn tập thường xuyên." },
+        cond2: { title: "Cấu trúc áp dụng", desc: formula || "Áp dụng trong bài đọc và hội thoại." },
+        wrong: { zh: "", py: "", reason: "Chưa ghi nhận lỗi sai." },
+        correct: { zh: name, py: "", reason: "Mẫu câu do bạn tự bổ sung." },
+        examples: [],
+        quiz: { q: name, opts: [{ key: "ok", label: "Đã thuộc", correct: true, explain: "Tuyệt vời!" }] }
+      });
+      saveCustomGrammarNotes();
+      window.GRAMMAR_BOOKMARKS.add(customId);
+      try { localStorage.setItem("bookmarked_grammar", JSON.stringify(Array.from(window.GRAMMAR_BOOKMARKS))); } catch (err) {}
+      addForm.reset();
+      addForm.hidden = true;
+      VIEWS["ngu-phap"]();
+      showToast(`Đã thêm ghi chú "${name}" vào sổ tay!`);
+    };
+  }
 
   updateGrammarGrid();
   renderSidebarNotebook();
@@ -5844,8 +5957,8 @@ function buildStitchWordShowcaseHTML(w) {
             <div class="flex items-center gap-space-md flex-wrap justify-center">
               ${chars.map((c, k) => `
                 <div class="flex flex-col items-center gap-1.5">
-                  <div class="relative w-32 h-32 md:w-36 md:h-36 bg-[#FFFDF9] rounded-xl border border-border-subtle flex items-center justify-center shadow-inner overflow-hidden group cursor-pointer" data-anim-w="${k}" title="Nhấn để xem diễn hoạ bút thuận chữ ${esc(c)}">
-                    <svg class="absolute inset-0 w-full h-full text-surface-container-highest stroke-current pointer-events-none" stroke-dasharray="2,3" stroke-width="0.8" viewBox="0 0 100 100">
+                  <div class="mi-zi-ge relative w-32 h-32 md:w-36 md:h-36 rounded-xl border border-border-subtle flex items-center justify-center shadow-inner overflow-hidden group cursor-pointer" data-anim-w="${k}" title="Nhấn để xem diễn họa bút thuận chữ ${esc(c)}">
+                    <svg class="absolute inset-0 w-full h-full text-outline/30 stroke-current pointer-events-none" stroke-dasharray="2,3" stroke-width="0.8" viewBox="0 0 100 100">
                       <line x1="0" x2="100" y1="0" y2="100"></line>
                       <line x1="100" x2="0" y1="0" y2="100"></line>
                       <line x1="50" x2="50" y1="0" y2="100"></line>
@@ -5855,9 +5968,9 @@ function buildStitchWordShowcaseHTML(w) {
                       <span class="font-display text-[72px] md:text-[82px] text-on-surface select-none leading-none">${esc(c)}</span>
                     </div>
                   </div>
-                  <div class="flex gap-1">
-                    <button type="button" class="text-[11px] px-2 py-0.5 rounded bg-paper-base hover:bg-cinnabar-subtle text-primary border border-border-subtle" data-anim-w="${k}">Xem nét</button>
-                    <button type="button" class="text-[11px] px-2 py-0.5 rounded bg-paper-base hover:bg-jade-subtle text-secondary border border-border-subtle" data-quiz-w="${k}">Tập viết</button>
+                  <div class="flex gap-1.5">
+                    <button type="button" class="text-xs px-2.5 py-1 rounded-lg bg-paper-base hover:bg-cinnabar-subtle text-primary border border-border-subtle font-medium" data-anim-w="${k}">Xem nét</button>
+                    <button type="button" class="text-xs px-2.5 py-1 rounded-lg bg-paper-base hover:bg-jade-subtle text-secondary border border-border-subtle font-medium" data-quiz-w="${k}">Tập viết</button>
                   </div>
                 </div>
               `).join("")}
@@ -5868,8 +5981,8 @@ function buildStitchWordShowcaseHTML(w) {
               <div class="flex items-center justify-center sm:justify-start gap-space-sm flex-wrap">
                 <h2 class="font-headline-lg text-4xl md:text-5xl font-bold text-on-surface font-serif select-all mr-2">${esc(w)}</h2>
                 <span class="font-body-lg text-2xl md:text-3xl font-bold text-primary">${esc(it.py || "")}</span>
-                <button type="button" class="w-8 h-8 rounded-full bg-cinnabar-subtle hover:bg-primary-fixed text-primary flex items-center justify-center transition-transform active:scale-95 shadow-sm" onclick="say('${esc(w)}')" title="Phát âm chuẩn Đài Bắc (Quốc ngữ)">
-                  <span class="material-symbols-outlined text-[18px]">volume_up</span>
+                <button type="button" class="w-10 h-10 rounded-full bg-cinnabar-subtle hover:bg-primary-fixed text-primary flex items-center justify-center transition-transform active:scale-95 shadow-sm" data-say="${esc(w)}" title="Phát âm chuẩn Đài Bắc (Quốc ngữ)" aria-label="Phát âm ${esc(w)}">
+                  <span class="material-symbols-outlined text-[20px]">volume_up</span>
                 </button>
                 <span class="text-outline text-body-sm font-code">Đài Loan [Chuẩn]</span>
               </div>
@@ -5935,7 +6048,7 @@ function buildStitchWordShowcaseHTML(w) {
               <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" id="btnAutoFillTranslate">
                 Lấy bản dịch gợi ý
               </button>
-              <button type="button" class="px-4 py-2 rounded-xl text-xs font-bold bg-primary-container text-white hover:bg-primary transition-all shadow-2xs" id="btnSaveMeaning">
+              <button type="button" class="px-4 py-2 rounded-xl text-xs font-bold bg-primary-container text-white hover:bg-primary transition-all shadow-sm" id="btnSaveMeaning">
                 Lưu vào từ điển
               </button>
             </div>
@@ -6009,7 +6122,7 @@ function buildStitchWordShowcaseHTML(w) {
                   return `
                   <div class="flex items-center justify-between gap-2">
                     <p class="font-headline-md text-headline-md text-on-surface font-normal" lang="zh-Hant">${esc(exZh)}</p>
-                    <button type="button" class="p-1 rounded-full text-on-surface-variant hover:text-primary hover:bg-paper-card transition-colors shrink-0" onclick="say('${esc(exZh)}')" title="Nghe câu ví dụ">
+                    <button type="button" class="p-1 rounded-full text-on-surface-variant hover:text-primary hover:bg-paper-card transition-colors shrink-0" data-say="${esc(exZh)}" title="Nghe câu ví dụ">
                       <span class="material-symbols-outlined text-[18px]">volume_up</span>
                     </button>
                   </div>
@@ -6115,7 +6228,7 @@ function buildStitchWordShowcaseHTML(w) {
               ${e.map(([py, defs]) => `
                 <div class="p-2 rounded-lg bg-paper-base flex flex-col sm:flex-row sm:items-baseline gap-1.5">
                   <span class="font-code font-bold text-tertiary shrink-0">${esc(py)}</span>
-                  <span class="text-on-surface">${esc(defs.replace(/\\[[^\\]]*\\d\\]/g, "").split("/").join("; "))}</span>
+                  <span class="text-on-surface">${esc(defs.replace(/\[[^\]]*\d\]/g, "").split("/").join("; "))}</span>
                 </div>
               `).join("")}
             </div>
@@ -6126,9 +6239,35 @@ function buildStitchWordShowcaseHTML(w) {
   `;
 }
 
+function getHanziWriterColors() {
+  const dark = typeof getTheme === "function" && getTheme() === "dark";
+  return dark
+    ? { strokeColor: "#F5EFEB", outlineColor: "#4a403d", highlightColor: "#4ade80", drawingColor: "#e27d78" }
+    : { strokeColor: "#86090a", outlineColor: "#DCD2C7", highlightColor: "#176b4b", drawingColor: "#a8261f" };
+}
+
+function recordDictHistory(word) {
+  const w = clean(word);
+  if (!w || !isHan(w) || w.length > 12) return;
+  try {
+    const raw = JSON.parse(localStorage.getItem("shth-dict-hist") || "[]");
+    const list = [w, ...(Array.isArray(raw) ? raw.filter((x) => x !== w) : [])].slice(0, 6);
+    localStorage.setItem("shth-dict-hist", JSON.stringify(list));
+  } catch (e) {}
+}
+
+function getDictHistory() {
+  try {
+    const raw = JSON.parse(localStorage.getItem("shth-dict-hist") || "[]");
+    if (Array.isArray(raw) && raw.length) return raw.slice(0, 6);
+  } catch (e) {}
+  return ["璀璨", "蜘蛛", "謙虛", "學生"];
+}
+
 function renderStitchWordShowcase(w, containerSelector, onRefresh) {
   const host = $(containerSelector);
   if (!host) return;
+  recordDictHistory(w);
   const { n, it } = showcaseItemOf(w);
   const chars = [...new Set([...hanOnly(w)])];
   if (!chars.length && w) chars.push(w[0]);
@@ -6143,21 +6282,29 @@ function renderStitchWordShowcase(w, containerSelector, onRefresh) {
     }).catch(() => {});
   }
 
-  // Initialize Hanzi Writer inside the Mi-zi-ge boxes
+  // Initialize Hanzi Writer inside the Mi-zi-ge boxes (preserve fallback Hanzi if stroke data fails)
+  const hwColors = getHanziWriterColors();
   chars.forEach((c, k) => {
-    const el = $("#wordHw" + k);
+    const el = host.querySelector("#wordHw" + k);
     if (el && window.HanziWriter) {
-      el.innerHTML = "";
-      const writer = HanziWriter.create(el, c, {
-        width: 120, height: 120, padding: 4, showOutline: true,
-        strokeColor: "#86090a", outlineColor: "#EBE2D8", highlightColor: "#176b4b",
-        charDataLoader: (ch, onLoad, onErr) => strokeData(ch).then(onLoad).catch(onErr)
-      });
-      host.querySelectorAll(`[data-anim-w="${k}"]`).forEach((btn) => {
-        btn.onclick = () => writer.animateCharacter();
-      });
-      host.querySelectorAll(`[data-quiz-w="${k}"]`).forEach((btn) => {
-        btn.onclick = () => writer.quiz();
+      const fallbackHTML = el.innerHTML;
+      strokeData(c).then((data) => {
+        if (!document.contains(el) || host._showcaseWord !== w) return;
+        el.innerHTML = "";
+        const writer = HanziWriter.create(el, c, {
+          width: 120, height: 120, padding: 4, showOutline: true,
+          strokeColor: hwColors.strokeColor, outlineColor: hwColors.outlineColor,
+          highlightColor: hwColors.highlightColor, drawingColor: hwColors.drawingColor,
+          charDataLoader: (_ch, onLoad) => onLoad(data)
+        });
+        host.querySelectorAll(`[data-anim-w="${k}"]`).forEach((btn) => {
+          btn.onclick = () => writer.animateCharacter();
+        });
+        host.querySelectorAll(`[data-quiz-w="${k}"]`).forEach((btn) => {
+          btn.onclick = () => writer.quiz();
+        });
+      }).catch(() => {
+        if (document.contains(el)) el.innerHTML = fallbackHTML;
       });
     }
   });
@@ -6308,92 +6455,98 @@ function renderStitchWordShowcase(w, containerSelector, onRefresh) {
 // ---------------- VIEW: TRA & NHẬP TỪ (#tu-dien) ----------------
 VIEWS["tu-dien"] = (arg) => {
   const vocabCount = S.notes.filter((n) => n.kind === "vocab").length;
-  const initialWord = arg && isHan(arg) ? arg : "璀璨";
+  const histWords = getDictHistory();
+  const initialWord = arg && isHan(arg) ? arg : (histWords[0] || "璀璨");
 
   setView(`
-    <div class="relative w-full max-w-6xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-xl">
-      <!-- Top Workspace Header & Mode Switcher (Exact Stitch) -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
+    <div class="relative w-full max-w-6xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
+      <!-- Top Workspace Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
         <div class="flex flex-col gap-space-xs max-w-2xl">
-          <h1 class="font-display text-display text-on-surface font-semibold tracking-tight">
-            Tra cứu &amp; Nhập từ vựng <span class="text-outline font-normal text-2xl">詞典</span>
+          <h1 class="font-display text-display text-on-surface font-semibold tracking-tight m-0">
+            Tra cứu &amp; Nhập từ vựng <span class="text-outline font-normal text-2xl" lang="zh-Hant">詞典</span>
           </h1>
-          <p class="font-body-md text-body-md text-on-surface-variant">
-            Tra cứu chiết tự Khang Hy, chú âm Đài Loan hoặc phân giải nạp văn bản hàng loạt vào sổ học SRS.
+          <p class="font-body-md text-body-md text-on-surface-variant m-0">
+            Tra cứu Hán tự Phồn thể Đài Loan, viết tay nhận dạng chữ offline, xem bút thuận hoặc nạp từ hàng loạt vào SRS.
           </p>
         </div>
-        <!-- Quick Metrics & Notebook Pill -->
-        <div class="flex items-center gap-space-md bg-paper-card border border-border-subtle/70 p-space-sm rounded-xl shadow-sm self-start md:self-auto">
-          <div class="flex items-center gap-space-sm px-space-sm py-1 border-r border-surface-container-high">
+        <!-- Compact Real Metrics Pill -->
+        <div class="flex items-center gap-space-md bg-paper-card border border-border-subtle p-space-sm rounded-xl shadow-sm self-start md:self-auto">
+          <div class="flex items-center gap-space-sm px-space-sm py-1 border-r border-border-subtle">
             <span class="material-symbols-outlined text-primary text-[20px]">collections_bookmark</span>
             <div class="flex flex-col">
-              <span class="font-label-sm text-label-sm text-on-surface-variant">Sổ từ hiện tại</span>
-              <span class="font-headline-md text-label-md font-semibold text-on-surface">${fmt(vocabCount)} <span class="font-normal text-outline text-[11px]">từ</span></span>
+              <span class="font-label-sm text-xs text-on-surface-variant">Sổ từ TOCFL</span>
+              <span class="font-headline-md text-sm font-semibold text-on-surface font-code">${fmt(vocabCount)} từ</span>
             </div>
           </div>
           <div class="flex items-center gap-space-sm px-space-sm py-1">
-            <span class="material-symbols-outlined text-secondary text-[20px]">bolt</span>
+            <span class="material-symbols-outlined text-secondary text-[20px]">draw</span>
             <div class="flex flex-col">
-              <span class="font-label-sm text-label-sm text-on-surface-variant">Hanzii &amp; AI</span>
-              <span class="font-label-md text-label-md font-semibold text-secondary">Vô hạn (PRO)</span>
+              <span class="font-label-sm text-xs text-on-surface-variant">Viết tay &amp; Nét chữ</span>
+              <span class="font-label-md text-sm font-semibold text-secondary">Offline 100%</span>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Mode Navigation Tabs -->
-      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-sm p-1.5 bg-surface-container-low rounded-xl border border-border-subtle/60">
+      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-sm p-1.5 bg-surface-container-low rounded-xl border border-border-subtle">
         <div class="grid grid-cols-2 sm:inline-flex items-center gap-space-xs p-1 bg-surface-container rounded-lg">
-          <a href="#tu-dien" class="flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-lg font-label-md text-sm sm:text-label-md transition-all duration-200 bg-paper-card text-primary shadow-sm font-semibold no-underline whitespace-nowrap" id="tab-btn-lookup">
+          <a href="#tu-dien" class="flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-lg font-label-md text-sm transition-all duration-200 bg-paper-card text-primary shadow-sm font-semibold no-underline whitespace-nowrap" id="tab-btn-lookup">
             <span class="material-symbols-outlined text-[18px] shrink-0">menu_book</span>
             <span>Tra cứu từ điển</span>
           </a>
-          <a href="#nhap" class="flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-lg font-label-md text-sm sm:text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high no-underline whitespace-nowrap" id="tab-btn-import">
+          <a href="#nhap" class="flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-lg font-label-md text-sm transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high no-underline whitespace-nowrap" id="tab-btn-import">
             <span class="material-symbols-outlined text-[18px] shrink-0">post_add</span>
             <span>Nhập hàng loạt</span>
           </a>
         </div>
-        <div class="flex items-center gap-space-sm px-3 py-1 text-on-surface-variant font-label-sm text-label-sm">
+        <div class="flex items-center gap-space-sm px-3 py-1 text-on-surface-variant font-label-sm text-xs">
           <span class="material-symbols-outlined text-[16px] shrink-0">info</span>
-          <span>Hệ thống ký âm: <strong>Phiên âm Pinyin chuẩn &amp; Hán Việt</strong></span>
+          <span>Hỗ trợ gõ Phồn thể, Giản thể, Pinyin, nghĩa Việt hoặc <strong>vẽ chữ viết tay</strong></span>
         </div>
       </div>
 
-      <!-- ================= MODE 1: TRA CỨU TỪ ĐIỂN CHUYÊN SÂU (Exact Stitch) ================= -->
-      <div class="flex flex-col gap-space-xl" id="section-lookup">
-        <!-- Unified Universal Search Bar -->
-        <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
+      <!-- ================= MODE 1: TRA CỨU TỪ ĐIỂN ================= -->
+      <div class="flex flex-col gap-space-lg" id="section-lookup">
+        <!-- Unified Universal Search Bar + Offline Handwriting Toggle -->
+        <div class="bg-paper-card p-4 sm:p-space-md rounded-2xl border border-border-subtle shadow-sm flex flex-col gap-space-md">
           <div class="flex flex-col lg:flex-row items-stretch gap-space-sm">
-            <!-- Text input with integrated helper controls -->
-            <div class="relative flex-1 flex items-center bg-paper-base border border-border-subtle rounded-xl px-space-md">
-              <span class="material-symbols-outlined text-outline text-[22px] mr-2">search</span>
-              <input class="w-full bg-transparent py-3 text-on-surface font-body-lg text-body-lg focus:outline-none placeholder:text-outline/70" id="dq" placeholder="Nhập Hán tự, Pinyin, hoặc nghĩa tiếng Việt (vd: 璀璨, 蜘蛛, xuesheng, học sinh)..." type="text" value="${esc(arg || "")}" autocomplete="off">
-              <button type="button" class="text-outline hover:text-on-surface p-1 rounded-full hover:bg-surface-container" id="btn-clear-dq">
+            <div class="relative flex-1 flex items-center bg-paper-base border border-border-subtle rounded-xl px-3 sm:px-space-md">
+              <span class="material-symbols-outlined text-outline text-[22px] mr-2 shrink-0">search</span>
+              <input class="w-full min-w-0 bg-transparent py-3 text-on-surface font-body-lg text-body-lg focus:outline-none placeholder:text-outline" id="dq" placeholder="Nhập Hán tự, Pinyin, hoặc nghĩa tiếng Việt..." type="text" value="${esc(arg || "")}" autocomplete="off">
+              <button type="button" class="text-outline hover:text-on-surface p-2 rounded-full hover:bg-surface-container shrink-0" id="btn-clear-dq" aria-label="Xóa ô tìm kiếm">
                 <span class="material-symbols-outlined text-[18px]">cancel</span>
               </button>
             </div>
-            <!-- Auxiliary Tools Bar -->
-            <div class="flex items-center gap-space-xs overflow-x-auto pb-1 lg:pb-0">
-              <button type="button" class="px-space-xl py-2.5 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-all duration-200 shadow-sm flex items-center gap-1.5" id="btn-run-dq">
+            <div class="flex items-center gap-2">
+              <button type="button" class="flex-1 lg:flex-none min-h-[46px] px-4 py-2.5 rounded-xl bg-paper-muted hover:bg-surface-container-high text-on-surface border border-border-subtle font-label-md text-sm font-semibold transition-all flex items-center justify-center gap-1.5 whitespace-nowrap" id="btn-toggle-dict-hw" aria-expanded="false" aria-controls="dict-hw-drawer">
+                <span class="material-symbols-outlined text-[20px] text-primary">draw</span>
+                <span>Viết tay 手寫</span>
+              </button>
+              <button type="button" class="flex-1 lg:flex-none min-h-[46px] px-5 py-2.5 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-label-md text-sm font-semibold transition-all duration-200 shadow-sm flex items-center justify-center gap-1.5 whitespace-nowrap" id="btn-run-dq">
                 <span>Tìm kiếm</span>
               </button>
             </div>
           </div>
-          <!-- Radical & History Shortcuts -->
-          <div class="flex flex-wrap items-center gap-space-sm pt-space-xs font-label-sm text-label-sm text-on-surface-variant">
-            <span class="text-outline flex items-center gap-1">
-              <span class="material-symbols-outlined text-[14px]">history</span>
-              Đã tra gần đây:
+
+          <!-- Collapsible Offline Handwriting Pad (gugray/HanziLookupJS) -->
+          <div id="dict-hw-drawer" hidden></div>
+
+          <!-- Real Lookup History & Radical Shortcuts -->
+          <div class="flex flex-wrap items-center gap-2 pt-1 text-xs text-on-surface-variant">
+            <span class="text-outline flex items-center gap-1 font-medium">
+              <span class="material-symbols-outlined text-[15px]">history</span>
+              Gần đây:
             </span>
-            <button type="button" class="px-2 py-0.5 rounded-md bg-paper-base hover:bg-surface-container-high text-on-surface transition-colors" data-quick-q="璀璨">璀璨 <span class="text-outline text-[10px]">cuǐcàn</span></button>
-            <button type="button" class="px-2 py-0.5 rounded-md bg-paper-base hover:bg-surface-container-high text-on-surface transition-colors" data-quick-q="蜘蛛">蜘蛛 <span class="text-outline text-[10px]">zhīzhū</span></button>
-            <button type="button" class="px-2 py-0.5 rounded-md bg-paper-base hover:bg-surface-container-high text-on-surface transition-colors" data-quick-q="謙虛">謙虛 <span class="text-outline text-[10px]">qiānxū</span></button>
-            <button type="button" class="px-2 py-0.5 rounded-md bg-paper-base hover:bg-surface-container-high text-on-surface transition-colors" data-quick-q="學生">學生 <span class="text-outline text-[10px]">xuéshēng</span></button>
-            <span class="mx-1 text-surface-container-high">|</span>
-            <span class="text-outline">Gợi ý bộ:</span>
-            <button type="button" class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-display" data-quick-q="玉">玉 (Ngọc - 5 nét)</button>
-            <button type="button" class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-display" data-quick-q="言">言 (Ngôn - 7 nét)</button>
-            <button type="button" class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-display" data-quick-q="心">心 (Tâm - 4 nét)</button>
+            <span class="flex flex-wrap items-center gap-1.5" id="dictHistoryBar">
+              ${histWords.map((hw) => `<button type="button" class="px-2.5 py-1 rounded-lg bg-paper-muted hover:bg-surface-container-high text-on-surface border border-border-subtle font-serif font-semibold transition-colors" data-quick-q="${esc(hw)}">${esc(hw)}</button>`).join("")}
+            </span>
+            <span class="text-border-subtle hidden sm:inline">|</span>
+            <span class="text-outline font-medium">Bộ thủ:</span>
+            <button type="button" class="px-2 py-1 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-on-surface font-serif" data-quick-q="玉">玉 (Ngọc)</button>
+            <button type="button" class="px-2 py-1 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-on-surface font-serif" data-quick-q="言">言 (Ngôn)</button>
+            <button type="button" class="px-2 py-1 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-on-surface font-serif" data-quick-q="心">心 (Tâm)</button>
           </div>
         </div>
 
@@ -6403,8 +6556,8 @@ VIEWS["tu-dien"] = (arg) => {
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm" id="dres"></div>
         </div>
 
-        <!-- Master 7+5 Dictionary Showcase Card (Exact Stitch) -->
-        <div id="stitch-dict-showcase">${buildStitchWordShowcaseHTML(initialWord)}</div>
+        <!-- Master Dictionary Showcase Card -->
+        <div id="stitch-dict-showcase"></div>
       </div>
     </div>
   `);
@@ -6412,37 +6565,99 @@ VIEWS["tu-dien"] = (arg) => {
   const inp = $("#dq");
   const clearBtn = $("#btn-clear-dq");
   const runBtn = $("#btn-run-dq");
+  const hwBtn = $("#btn-toggle-dict-hw");
+  const hwDrawer = $("#dict-hw-drawer");
+  let hwPad = null;
+  let lastShownWord = "";
 
-  const refreshShowcase = (newW) => renderStitchWordShowcase(newW, "#stitch-dict-showcase", refreshShowcase);
-  const updateAll = (qVal) => {
-    const topMatch = searchDict(qVal);
-    const showcaseWord = topMatch || (isHan(clean(qVal)) ? clean(qVal) : initialWord);
-    refreshShowcase(showcaseWord);
+  const refreshHistoryBar = () => {
+    const bar = $("#dictHistoryBar");
+    if (!bar) return;
+    const list = getDictHistory();
+    const items = list.length ? list.slice(0, 6) : ["璀璨", "謙虛", "客氣"];
+    bar.innerHTML = items.map((hw) => `<button type="button" class="px-2.5 py-1 rounded-lg bg-paper-muted hover:bg-surface-container-high text-on-surface border border-border-subtle font-serif font-semibold transition-colors" data-quick-q="${esc(hw)}">${esc(hw)}</button>`).join("");
+    bar.querySelectorAll("[data-quick-q]").forEach((btn) => {
+      btn.onclick = () => {
+        inp.value = btn.dataset.quickQ;
+        runSearchAndShowcase(inp.value, true);
+      };
+    });
   };
 
-  let tmr = null;
+  const refreshShowcase = (newW) => {
+    if (!newW) return;
+    lastShownWord = newW;
+    renderStitchWordShowcase(newW, "#stitch-dict-showcase", refreshShowcase);
+    refreshHistoryBar();
+  };
+
+  let listTmr = null;
+  let showTmr = null;
+  const runSearchAndShowcase = (qVal, immediateShowcase = false) => {
+    const topMatch = searchDict(qVal);
+    const qClean = clean(qVal);
+    const showcaseWord = topMatch || (isHan(qClean) ? (typeof toTraditionalTw === "function" ? toTraditionalTw(qClean) : qClean) : initialWord);
+    clearTimeout(showTmr);
+    if (immediateShowcase) {
+      if (showcaseWord !== lastShownWord) refreshShowcase(showcaseWord);
+    } else {
+      showTmr = setTimeout(() => {
+        if (showcaseWord !== lastShownWord) refreshShowcase(showcaseWord);
+      }, 240);
+    }
+  };
+
   inp.oninput = () => {
-    clearTimeout(tmr);
-    tmr = setTimeout(() => updateAll(inp.value), 120);
+    clearTimeout(listTmr);
+    listTmr = setTimeout(() => runSearchAndShowcase(inp.value, false), 90);
+  };
+  inp.onkeydown = (e) => {
+    if (e.key === "Enter" && !e.isComposing) {
+      e.preventDefault();
+      clearTimeout(listTmr);
+      runSearchAndShowcase(inp.value, true);
+    }
   };
   if (clearBtn) {
     clearBtn.onclick = () => {
       inp.value = "";
       inp.focus();
-      updateAll("");
+      runSearchAndShowcase("", true);
     };
   }
   if (runBtn) {
-    runBtn.onclick = () => updateAll(inp.value);
+    runBtn.onclick = () => runSearchAndShowcase(inp.value, true);
+  }
+  if (hwBtn && hwDrawer) {
+    hwBtn.onclick = () => {
+      const opening = hwDrawer.hidden;
+      hwDrawer.hidden = !opening;
+      hwBtn.setAttribute("aria-expanded", String(opening));
+      hwBtn.classList.toggle("bg-paper-muted", !opening);
+      hwBtn.classList.toggle("bg-cinnabar-subtle", opening);
+      hwBtn.classList.toggle("border-border-subtle", !opening);
+      hwBtn.classList.toggle("border-primary", opening);
+      if (opening && !hwPad && window.HanziPad) {
+        hwPad = window.HanziPad.mount(hwDrawer, {
+          hint: "Vẽ từng chữ vào khung lưới, bấm vào chữ gợi ý để ghép vào ô tìm kiếm.",
+          onPick: (ch) => {
+            inp.value = (inp.value || "") + ch;
+            runSearchAndShowcase(inp.value, true);
+          }
+        });
+      } else if (opening && hwPad) {
+        hwPad.redraw();
+      }
+    };
   }
   document.querySelectorAll("[data-quick-q]").forEach((btn) => {
     btn.onclick = () => {
       inp.value = btn.dataset.quickQ;
-      updateAll(inp.value);
+      runSearchAndShowcase(inp.value, true);
     };
   });
 
-  updateAll(inp.value);
+  runSearchAndShowcase(inp.value, true);
 };
 
 function searchDict(raw) {
@@ -6498,7 +6713,7 @@ function searchDict(raw) {
     const m = n ? meaningOf(n) : enOf(w);
     const lvl = n ? noteLevel(n) : 0;
     return `
-      <a class="p-3 rounded-xl bg-paper-card border border-border-subtle shadow-xs hover:border-primary/40 hover:shadow-sm transition-all flex flex-col justify-between gap-1.5 no-underline" href="#tu/${encodeURIComponent(w)}">
+      <a class="p-3 rounded-xl bg-paper-card border border-border-subtle shadow-sm hover:border-primary/40 hover:shadow-sm transition-all flex flex-col justify-between gap-1.5 no-underline" href="#tu/${encodeURIComponent(w)}">
         <div class="flex items-start justify-between">
           <div>
             <span class="font-headline-md text-xl text-on-surface font-serif font-bold">${esc(w)}</span>
@@ -6531,7 +6746,7 @@ VIEWS["tu"] = (w) => {
         </a>
         <a href="#nhap" class="text-secondary hover:underline text-xs font-semibold no-underline">+ Nhập từ hàng loạt →</a>
       </div>
-      <div id="tu-detail-host">${buildStitchWordShowcaseHTML(w)}</div>
+      <div id="tu-detail-host"></div>
     </div>
   `);
   renderStitchWordShowcase(w, "#tu-detail-host", (newW) => VIEWS["tu"](newW));
@@ -7170,7 +7385,7 @@ function showToast(msg) {
   if (!t) {
     t = document.createElement("div");
     t.id = "app-toast";
-    t.className = "fixed bottom-6 right-6 z-[9999] px-4 py-2.5 rounded-xl bg-on-surface text-surface text-xs font-semibold shadow-2xl flex items-center gap-2 transition-all transform duration-200 pointer-events-none opacity-0 translate-y-2";
+    t.className = "fixed bottom-20 xl:bottom-6 right-4 sm:right-6 z-[9999] max-w-[calc(100vw-2rem)] px-4 py-2.5 rounded-xl bg-on-surface text-surface border border-border-subtle text-xs font-semibold shadow-2xl flex items-center gap-2 transition-all transform duration-200 pointer-events-none opacity-0 translate-y-2";
     if (document.body && document.body.appendChild) document.body.appendChild(t);
   }
   t.innerHTML = `<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span><span>${esc(msg)}</span>`;
@@ -7223,7 +7438,13 @@ VIEWS["chinh-ta"] = async () => {
   };
 
   const allTopics = await getDictationTopics();
-  const selId = decodeURIComponent(location.hash).startsWith("#chinh-ta/") ? decodeURIComponent(location.hash).slice("#chinh-ta/".length) : "";
+  let decodedHash = location.hash || "";
+  try { decodedHash = decodeURIComponent(decodedHash); } catch (e) {}
+  const selId = decodedHash.startsWith("#chinh-ta/")
+    ? decodedHash.slice("#chinh-ta/".length)
+    : decodedHash.startsWith("#chep-chinh-ta/")
+      ? decodedHash.slice("#chep-chinh-ta/".length)
+      : "";
   if (selId && (selId !== d.passageId || !d._resumed) && allTopics.some(t => t.id === selId)) { d.passageId = selId; d.sentenceIdx = resumeIdx(allTopics.find(t => t.id === selId)); d.checked = false; d._lastPlayedKey = ""; d._resumed = true; }
   const inLesson = !!selId;
   const topicBandOf = (t) => {
@@ -7239,6 +7460,8 @@ VIEWS["chinh-ta"] = async () => {
   d.curTopic = curTopic;
   if (!d.doneMap[curTopic.id]) d.doneMap[curTopic.id] = {};
   const topicDone = d.doneMap[curTopic.id];
+  const topicOkCount = () => Object.values(topicDone).filter((v) => v === "ok").length;
+  const topicTotalCount = () => Object.keys(topicDone).length;
 
   if (d.sentenceIdx >= curTopic.sentences.length) d.sentenceIdx = 0;
   const curSent = curTopic.sentences[d.sentenceIdx] || { zh: "", py: "", vn: "", speaker: "" };
@@ -7260,8 +7483,8 @@ VIEWS["chinh-ta"] = async () => {
 
   const availBands = ["A", "B1", "B2", "C"].filter(k => allTopics.some(t => topicBandOf(t) === k));
   const pillCls = (on) => on
-    ? "px-2.5 py-1 rounded-full bg-primary-container text-on-primary text-xs font-semibold shadow-xs transition-colors"
-    : "px-2.5 py-1 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted text-xs font-medium border border-border-subtle/70 transition-colors";
+    ? "px-3 py-1.5 rounded-full bg-primary-container text-on-primary text-xs font-semibold shadow-sm transition-colors"
+    : "px-3 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted text-xs font-medium border border-border-subtle transition-colors";
 
   function diffMarks(target, typed) {
     const cleanTarget = clean(target);
@@ -7292,71 +7515,72 @@ VIEWS["chinh-ta"] = async () => {
     }).join("");
   }
 
-  const doneCountInTopic = Object.keys(topicDone).length;
+  const doneCountInTopic = topicTotalCount();
+  const hasVocab = Array.isArray(curTopic.vocab) && curTopic.vocab.length > 0;
 
   setView(`
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg w-full">
       <!-- Compact Header -->
-      <section class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-space-md border-b border-border-subtle/70">
+      <section class="flex flex-col sm:flex-row sm:items-end justify-between gap-3 pb-space-md border-b border-border-subtle">
         <div>
-          <h1 class="font-display text-2xl md:text-3xl text-on-surface font-semibold tracking-tight font-serif">
-            Chép chính tả <span class="text-outline font-normal text-xl">聽寫</span>
+          <h1 class="font-display text-2xl md:text-3xl text-on-surface font-semibold tracking-tight font-serif m-0">
+            Chép chính tả <span class="text-outline font-normal text-xl" lang="zh-Hant">聽寫</span>
           </h1>
-          <p class="font-body-sm text-sm text-on-surface-variant mt-0.5">
-            Luyện nghe giọng Nam/Nữ Đài Loan xen kẽ theo chủ đề &amp; Band TOCFL. Nhấn <kbd class="px-1.5 py-0.5 rounded bg-surface-container font-code text-xs font-bold text-primary">Shift</kbd> để nghe lại.
+          <p class="font-body-sm text-sm text-on-surface-variant mt-1 mb-0">
+            Luyện nghe giọng Nam/Nữ Đài Loan xen kẽ, gõ bàn phím hoặc viết tay chữ Hán offline.${inLesson ? `<span class="hidden sm:inline"> Nhấn <kbd class="px-1.5 py-0.5 rounded bg-surface-container font-code text-xs font-bold text-primary">Shift</kbd> để nghe lại.</span>` : ""}
           </p>
         </div>
         <div class="${inLesson ? 'flex' : 'hidden'} items-center gap-2 self-start sm:self-auto flex-wrap">
-        <a href="#chinh-ta" class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-sm font-semibold flex items-center gap-1 no-underline"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Danh sách bài</a>
+        <a href="#chinh-ta" class="min-h-[40px] px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-sm font-semibold flex items-center gap-1 no-underline"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Danh sách bài</a>
         <div class="flex items-center gap-1 bg-surface-container p-1 rounded-xl">
-          <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 ${d.viewMode === 'dictation' ? 'bg-paper-card text-primary shadow-xs' : 'text-on-surface-variant hover:text-on-surface'}" id="tab-mode-dictation">
+          <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 ${d.viewMode === 'dictation' ? 'bg-paper-card text-primary shadow-sm' : 'text-on-surface-variant hover:text-on-surface'}" id="tab-mode-dictation">
             <span class="material-symbols-outlined text-[16px]">draw</span> Luyện chép
           </button>
-          <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 ${d.viewMode === 'transcript' ? 'bg-paper-card text-primary shadow-xs' : 'text-on-surface-variant hover:text-on-surface'}" id="tab-mode-transcript">
+          <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold transition-all flex items-center gap-1 ${d.viewMode === 'transcript' ? 'bg-paper-card text-primary shadow-sm' : 'text-on-surface-variant hover:text-on-surface'}" id="tab-mode-transcript">
             <span class="material-symbols-outlined text-[16px]">segment</span> Transcript
           </button>
         </div>
         </div>
       </section>
 
-      <!-- Simplified Band & Topic Selector -->
-      <details open id="section-topic-explorer" class="${inLesson ? 'hidden' : ''} bg-paper-card rounded-2xl border border-border-subtle/80 shadow-xs">
-        <summary class="cursor-pointer select-none px-4 py-3 flex flex-wrap items-center justify-between gap-2">
+      <!-- Simplified Band & Topic Selector (Always open on landing screen) -->
+      <section id="section-topic-explorer" class="${inLesson ? 'hidden' : ''} bg-paper-card rounded-2xl border border-border-subtle shadow-sm">
+        <div class="px-4 py-3 flex flex-wrap items-center justify-between gap-2 border-b border-border-subtle">
           <span class="font-headline-md text-sm font-semibold text-on-surface flex items-center gap-2">
             <span class="material-symbols-outlined text-primary text-[18px]">folder_open</span>
             Chọn bài để luyện
           </span>
           <span class="text-xs text-outline font-code">${allTopics.length} bài</span>
-        </summary>
-        <div class="px-4 pb-4 pt-1 flex flex-col gap-3 border-t border-border-subtle/50">
-          <div class="flex flex-wrap items-center justify-between gap-2 pt-2">
+        </div>
+        <div class="p-4 flex flex-col gap-4">
+          <div class="flex flex-wrap items-center justify-between gap-3">
             <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="text-[11px] font-bold text-outline uppercase mr-1">Band:</span>
+              <span class="text-xs font-bold text-outline uppercase mr-1">Band:</span>
               <button type="button" class="${pillCls(d.bandFilter === 'all')}" data-dict-band="all">Tất cả (${allTopics.length})</button>
               ${availBands.map(b => `<button type="button" class="${pillCls(d.bandFilter === b)}" data-dict-band="${b}">Band ${b} (${allTopics.filter(t => topicBandOf(t) === b).length})</button>`).join("")}
             </div>
             <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="text-[11px] font-bold text-outline uppercase mr-1">Chủ đề:</span>
+              <span class="text-xs font-bold text-outline uppercase mr-1">Chủ đề:</span>
               ${[["all","Tất cả"],["dialogue","Hội thoại"],["story","Câu chuyện"],["tocfl","TOCFL"],["news","Tin tức"]].map(([k, lbl]) => `<button type="button" class="${pillCls(d.topicCategory === k)}" data-topic-cat="${k}">${lbl}</button>`).join("")}
             </div>
           </div>
 
-          <div class="flex flex-col gap-3">
+          <div class="flex flex-col gap-4">
             ${BAND_GROUPS.length ? BAND_GROUPS.map(grp => `
-              <div class="flex flex-col gap-1.5">
-                <div class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wide flex items-center gap-1.5">
-                  <span class="w-1.5 h-3 rounded-full bg-secondary inline-block"></span>
+              <div class="flex flex-col gap-2">
+                <div class="text-xs font-bold text-on-surface-variant uppercase tracking-wide flex items-center gap-1.5">
+                  <span class="w-1.5 h-3.5 rounded-full bg-secondary inline-block"></span>
                   ${esc(grp.label)}
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
                   ${grp.items.map(top => {
                     const active = top.id === curTopic.id;
                     const doneN = Object.keys(d.doneMap[top.id] || {}).length;
                     return `
-                      <button type="button" class="text-left p-2.5 rounded-xl border transition-all flex items-center justify-between gap-2 ${active ? 'border-primary bg-cinnabar-subtle/50 ring-1 ring-primary/30' : 'border-border-subtle/70 bg-paper-base hover:bg-surface-container-low'}" data-select-topic="${esc(top.id)}">
+                      <button type="button" class="text-left p-3 rounded-xl border transition-all flex items-center justify-between gap-2 ${active ? 'border-primary bg-cinnabar-subtle' : 'border-border-subtle bg-paper-base hover:bg-surface-container-low'}" data-select-topic="${esc(top.id)}">
                         <div class="min-w-0 flex-1">
-                          <div class="text-xs font-semibold text-on-surface truncate">${esc(top.title)}</div>
-                          <div class="text-[11px] text-outline truncate mt-0.5">${esc(top.categoryName || '')} · ${top.sentences.length} câu${doneN ? ` · xong ${doneN}` : ''}</div>
+                          <div class="text-sm font-semibold text-on-surface truncate">${esc(top.title)}</div>
+                          <div class="text-xs text-on-surface-variant truncate mt-0.5">${esc(top.categoryName || '')} · ${top.sentences.length} câu${doneN ? ` · xong ${doneN}` : ''}</div>
                         </div>
                         <span class="text-xs font-bold ${active ? 'text-primary' : 'text-outline'} shrink-0">${active ? '●' : '→'}</span>
                       </button>
@@ -7367,73 +7591,76 @@ VIEWS["chinh-ta"] = async () => {
             `).join("") : `<div class="text-xs text-outline text-center py-4">Không có bài nào khớp bộ lọc.</div>`}
           </div>
         </div>
-      </details>
+      </section>
 
       <!-- Workspace (8 + 4) -->
       <div class="${inLesson ? 'grid' : 'hidden'} grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
         <div class="lg:col-span-8 flex flex-col gap-space-md">
           <!-- Main Dictation Card -->
-          <div class="${d.viewMode === 'dictation' ? 'flex' : 'hidden'} bg-paper-card p-space-lg rounded-2xl shadow-xs border border-border-subtle flex-col gap-space-md" id="dictationCard">
-            <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-border-subtle/60">
+          <div class="${d.viewMode === 'dictation' ? 'flex' : 'hidden'} bg-paper-card p-4 sm:p-space-lg rounded-2xl shadow-sm border border-border-subtle flex-col gap-space-md" id="dictationCard">
+            <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-border-subtle">
               <div class="min-w-0">
                 <div class="flex items-center gap-1.5 flex-wrap text-xs">
                   <span class="px-2 py-0.5 rounded bg-cinnabar-subtle text-primary font-bold">${esc(curTopic.band)}</span>
                   <span class="text-secondary font-medium">${esc(curTopic.categoryName)}</span>
                 </div>
-                <h2 class="font-headline-md text-lg font-bold text-on-surface mt-1">${esc(curTopic.title)}</h2>
+                <h2 class="font-headline-md text-lg font-bold text-on-surface mt-1 mb-0">${esc(curTopic.title)}</h2>
               </div>
-              <div class="flex items-center gap-2 shrink-0">
-                <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface" id="btn-prev-sentence" title="Câu trước">
-                  <span class="material-symbols-outlined text-[18px]">chevron_left</span>
+              <div class="flex items-center gap-2 shrink-0 flex-wrap">
+                <button type="button" class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface" id="btn-prev-sentence" title="Câu trước" aria-label="Câu trước">
+                  <span class="material-symbols-outlined text-[20px]">chevron_left</span>
                 </button>
                 <span class="font-code text-sm font-bold text-primary" id="current-sentence-idx">${d.sentenceIdx + 1}/${curTopic.sentences.length}</span>
-                <button type="button" class="w-8 h-8 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface" id="btn-next-sentence" title="Câu kế tiếp">
-                  <span class="material-symbols-outlined text-[18px]">chevron_right</span>
+                <button type="button" class="w-10 h-10 rounded-lg bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface" id="btn-next-sentence" title="Câu kế tiếp" aria-label="Câu kế tiếp">
+                  <span class="material-symbols-outlined text-[20px]">chevron_right</span>
                 </button>
-                <span class="px-2.5 py-1 rounded-lg bg-jade-subtle text-secondary font-code text-xs font-bold border border-secondary/20" id="dictScoreBadge">
-                  Đúng: <span id="dictOkCount">${d.score.ok}</span>/<span id="dictTotalCount">${d.score.total}</span>
+                <span class="px-2.5 py-1.5 rounded-lg bg-jade-subtle text-secondary font-code text-xs font-bold border border-border-subtle" id="dictScoreBadge">
+                  Đúng: <span id="dictOkCount">${topicOkCount()}</span>/<span id="dictTotalCount">${topicTotalCount()}</span>
                 </span>
               </div>
             </div>
 
             <!-- Compact Audio Bar -->
-            <div class="bg-surface-container-low p-3 rounded-xl flex flex-wrap items-center justify-between gap-3 border border-border-subtle/50">
+            <div class="bg-surface-container-low p-3 rounded-xl flex flex-wrap items-center justify-between gap-3 border border-border-subtle">
               <div class="flex items-center gap-2">
-                <button type="button" class="w-11 h-11 rounded-full bg-primary hover:bg-primary-container text-on-primary flex items-center justify-center shadow-sm active:scale-95 transition-transform" id="btn-play-pause" title="Nghe lại câu hiện tại (Shift)">
+                <button type="button" class="w-11 h-11 rounded-full bg-primary-container hover:bg-primary text-on-primary flex items-center justify-center shadow-sm active:scale-95 transition-transform shrink-0" id="btn-play-pause" title="Nghe lại câu hiện tại (Shift)" aria-label="Nghe câu hiện tại">
                   <span class="material-symbols-outlined text-[24px]" id="icon-play" style="font-variation-settings: 'FILL' 1;">volume_up</span>
                 </button>
-                <button type="button" class="px-3 py-1.5 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface text-xs font-semibold border border-border-subtle flex items-center gap-1" id="btn-play-full-topic" title="Nghe toàn bộ bài hội thoại">
-                  <span class="material-symbols-outlined text-[16px] text-secondary">playlist_play</span>
+                <button type="button" class="min-h-[40px] px-3 py-1.5 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface text-xs font-semibold border border-border-subtle flex items-center gap-1 whitespace-nowrap" id="btn-play-full-topic" title="Nghe toàn bộ bài hội thoại">
+                  <span class="material-symbols-outlined text-[17px] text-secondary">playlist_play</span>
                   <span>Nghe toàn bài</span>
                 </button>
               </div>
-              <div class="text-xs text-on-surface-variant flex-1 min-w-[140px]">
+              <div class="text-xs text-on-surface-variant">
                 Người nói: <strong class="text-on-surface">${esc(curSent.speaker || "Bản xứ Đài Loan")}</strong>
               </div>
               <div class="flex items-center gap-1">
-                ${[0.75, 1.0, 1.25].map(sp => `<button type="button" class="speed-toggle px-2 py-1 rounded font-code text-xs ${d.speed === sp ? 'bg-primary text-on-primary font-bold' : 'text-on-surface-variant hover:bg-surface-container'}" data-speed="${sp}">${sp}x</button>`).join("")}
+                ${[0.75, 1.0, 1.25].map(sp => `<button type="button" class="speed-toggle min-h-[36px] px-2.5 py-1 rounded-lg font-code text-xs ${d.speed === sp ? 'bg-primary-container text-on-primary font-bold' : 'bg-paper-card text-on-surface-variant border border-border-subtle hover:bg-surface-container'}" data-speed="${sp}">${sp}x</button>`).join("")}
               </div>
             </div>
 
             <!-- Input -->
             <div class="flex flex-col gap-1.5">
-              <textarea class="w-full bg-paper-base rounded-xl p-3.5 text-xl md:text-2xl font-serif text-on-surface placeholder:text-outline/60 focus:outline-none focus:bg-paper-card border border-border-subtle focus:border-primary transition-all resize-none leading-relaxed" id="dictation-input" placeholder="Gõ chữ Hán Phồn thể bạn nghe được... (Shift để nghe lại, Enter để kiểm tra)" rows="3"></textarea>
-              <div class="flex items-center justify-between text-xs text-outline">
+              <textarea class="w-full bg-paper-base rounded-xl p-3.5 text-xl md:text-2xl font-serif text-on-surface placeholder:text-outline focus:outline-none border border-border-subtle focus:border-primary transition-all resize-none leading-relaxed" id="dictation-input" placeholder="Gõ hoặc viết tay chữ Hán Phồn thể bạn nghe được..." rows="3"></textarea>
+              <div class="flex items-center justify-between flex-wrap gap-2 text-xs text-on-surface-variant">
                 <span>${curTopic.vocab && curTopic.vocab[0] ? `Gợi ý: <strong class="text-tertiary font-code">${esc(curTopic.vocab[0].w)}</strong> (${esc(curTopic.vocab[0].vn)})` : ''}</span>
                 <span class="font-code" id="char-counter">0 ký tự</span>
               </div>
             </div>
 
-            <!-- Action Row -->
+            <!-- Action Row + Handwriting Pad Toggle -->
             <div class="flex flex-wrap items-center justify-between gap-2">
-              <div class="flex items-center gap-2">
-                <button type="button" class="px-4 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary text-xs font-semibold shadow-xs flex items-center gap-1.5" id="btn-check-answer">
-                  <span class="material-symbols-outlined text-[18px]">check_circle</span> Kiểm tra (Enter)
+              <div class="flex items-center gap-2 flex-wrap">
+                <button type="button" class="min-h-[42px] px-4 py-2 rounded-xl bg-primary-container hover:bg-primary text-on-primary text-xs font-semibold shadow-sm flex items-center gap-1.5" id="btn-check-answer">
+                  <span class="material-symbols-outlined text-[18px]">check_circle</span> Kiểm tra
                 </button>
-                <button type="button" class="px-3 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-xs font-medium" id="btn-skip-sentence">
+                <button type="button" class="min-h-[42px] px-3 py-2 rounded-xl bg-paper-muted hover:bg-surface-container-high text-on-surface border border-border-subtle text-xs font-semibold flex items-center gap-1.5" id="btn-toggle-dict-hw" aria-expanded="false" aria-controls="dictation-hw-drawer">
+                  <span class="material-symbols-outlined text-[18px] text-primary">draw</span> Viết tay 手寫
+                </button>
+                <button type="button" class="min-h-[42px] px-3 py-2 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface-variant text-xs font-medium border border-border-subtle" id="btn-skip-sentence">
                   Xem đáp án
                 </button>
-                <button type="button" class="p-2 rounded-lg text-outline hover:text-on-surface hover:bg-surface-container-low" id="btn-clear-input" title="Xóa ô nhập">
+                <button type="button" class="w-10 h-10 rounded-xl text-outline hover:text-on-surface hover:bg-surface-container-low flex items-center justify-center border border-border-subtle" id="btn-clear-input" title="Xóa ô nhập" aria-label="Xóa ô nhập">
                   <span class="material-symbols-outlined text-[18px]">refresh</span>
                 </button>
               </div>
@@ -7443,6 +7670,9 @@ VIEWS["chinh-ta"] = async () => {
               </label>
             </div>
 
+            <!-- Collapsible Offline Handwriting Pad (gugray/HanziLookupJS) -->
+            <div id="dictation-hw-drawer" hidden></div>
+
             <!-- Feedback Panel -->
             <div class="hidden flex-col gap-3 pt-3 bg-paper-base rounded-xl p-3.5 border border-border-subtle" id="feedback-panel">
               <div class="hidden flex-col gap-2.5" id="state-correct">
@@ -7451,8 +7681,8 @@ VIEWS["chinh-ta"] = async () => {
                     <span class="material-symbols-outlined text-[20px]">check_circle</span> Chính xác! (正確)
                   </span>
                   <div class="flex items-center gap-1.5">
-                    <button type="button" class="px-2.5 py-1 rounded-md bg-paper-card hover:bg-surface-container text-on-surface text-xs font-medium border border-border-subtle" id="btn-save-current-sentence">+ Sổ từ</button>
-                    <button type="button" class="px-3 py-1 rounded-md bg-secondary text-white text-xs font-semibold" id="btn-next-action">Câu tiếp →</button>
+                    <button type="button" class="min-h-[36px] px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface text-xs font-medium border border-border-subtle" id="btn-save-current-sentence">+ Sổ từ</button>
+                    <button type="button" class="min-h-[36px] px-3 py-1 rounded-lg bg-secondary text-white text-xs font-semibold" id="btn-next-action">Câu tiếp →</button>
                   </div>
                 </div>
                 <div class="dict-detail-box grid grid-cols-1 md:grid-cols-2 gap-2 text-xs ${d.showDetails ? '' : 'hidden'}">
@@ -7466,7 +7696,7 @@ VIEWS["chinh-ta"] = async () => {
                   <span class="text-sm font-bold text-primary flex items-center gap-1.5">
                     <span class="material-symbols-outlined text-[20px]">info</span> Đáp án &amp; đối chiếu (chữ đỏ chưa khớp)
                   </span>
-                  <button type="button" class="px-3 py-1 rounded-md bg-primary text-white text-xs font-semibold" id="btn-next-action-inc">Câu tiếp →</button>
+                  <button type="button" class="min-h-[36px] px-3 py-1 rounded-lg bg-primary-container text-white text-xs font-semibold" id="btn-next-action-inc">Câu tiếp →</button>
                 </div>
                 <div class="p-3 bg-paper-card rounded-lg border border-border-subtle font-serif text-xl md:text-2xl leading-relaxed" id="diffComparison"></div>
                 <div class="dict-detail-box grid grid-cols-1 md:grid-cols-2 gap-2 text-xs ${d.showDetails ? '' : 'hidden'}">
@@ -7478,24 +7708,24 @@ VIEWS["chinh-ta"] = async () => {
           </div>
 
           <!-- Transcript Container -->
-          <div class="${d.viewMode === 'transcript' ? 'flex' : 'hidden'} flex-col gap-3 bg-paper-card p-space-lg rounded-2xl shadow-xs border border-border-subtle" id="transcript-container">
+          <div class="${d.viewMode === 'transcript' ? 'flex' : 'hidden'} flex-col gap-3 bg-paper-card p-4 sm:p-space-lg rounded-2xl shadow-sm border border-border-subtle" id="transcript-container">
             <div class="flex items-center justify-between border-b border-border-subtle pb-2">
-              <h3 class="font-headline-md text-base text-on-surface font-bold">Toàn bộ Transcript · ${esc(curTopic.title)}</h3>
+              <h3 class="font-headline-md text-base text-on-surface font-bold m-0">Toàn bộ Transcript · ${esc(curTopic.title)}</h3>
               <span class="text-xs font-code text-outline">${curTopic.sentences.length} câu</span>
             </div>
-            <div class="flex flex-col gap-2 max-h-[520px] overflow-y-auto pr-1">
+            <div class="flex flex-col gap-2 max-h-[520px] overflow-y-auto pr-1 custom-scrollbar">
               ${curTopic.sentences.map((s, idx) => `
-                <div class="p-3 rounded-xl border transition-all text-xs flex items-start justify-between gap-3 cursor-pointer ${idx === d.sentenceIdx ? 'border-primary bg-cinnabar-subtle/40' : 'border-border-subtle bg-paper-base hover:bg-surface-container-low'}" data-jump-sentence="${idx}">
+                <div class="p-3 rounded-xl border transition-all text-xs flex items-start justify-between gap-3 cursor-pointer ${idx === d.sentenceIdx ? 'border-primary bg-cinnabar-subtle' : 'border-border-subtle bg-paper-base hover:bg-surface-container-low'}" data-jump-sentence="${idx}">
                   <div class="flex items-start gap-2.5 min-w-0">
-                    <span class="w-6 h-6 rounded-full flex items-center justify-center font-code text-[11px] font-bold shrink-0 ${idx === d.sentenceIdx ? 'bg-primary text-white' : 'bg-surface-container text-outline'}">${idx + 1}</span>
-                    <div class="flex flex-col gap-0.5">
+                    <span class="w-6 h-6 rounded-full flex items-center justify-center font-code text-xs font-bold shrink-0 ${idx === d.sentenceIdx ? 'bg-primary-container text-white' : 'bg-surface-container text-on-surface-variant'}">${idx + 1}</span>
+                    <div class="flex flex-col gap-0.5 min-w-0">
                       <span class="font-serif text-sm font-semibold text-on-surface">${s.speaker ? `<strong class="text-secondary">[${esc(s.speaker)}]</strong> ` : ''}${esc(s.zh)}</span>
-                      <span class="font-code text-outline text-[11px]">${esc(s.py)}</span>
-                      <span class="text-on-surface-variant text-[11px]">${esc(s.vn)}</span>
+                      <span class="font-code text-outline text-xs">${esc(s.py)}</span>
+                      <span class="text-on-surface-variant text-xs">${esc(s.vn)}</span>
                     </div>
                   </div>
-                  <button type="button" class="w-7 h-7 rounded-full bg-paper-card hover:bg-primary hover:text-white flex items-center justify-center text-outline border border-border-subtle shrink-0" data-play-sent-idx="${idx}" title="Nghe câu này">
-                    <span class="material-symbols-outlined text-[16px]">play_arrow</span>
+                  <button type="button" class="w-9 h-9 rounded-full bg-paper-card hover:bg-primary-container hover:text-white flex items-center justify-center text-on-surface-variant border border-border-subtle shrink-0" data-play-sent-idx="${idx}" title="Nghe câu này" aria-label="Nghe câu ${idx + 1}">
+                    <span class="material-symbols-outlined text-[18px]">play_arrow</span>
                   </button>
                 </div>
               `).join("")}
@@ -7505,51 +7735,52 @@ VIEWS["chinh-ta"] = async () => {
 
         <!-- Compact Sidebar -->
         <aside class="lg:col-span-4 flex flex-col gap-space-md">
-          <div class="bg-paper-card p-space-md rounded-2xl shadow-xs border border-border-subtle flex flex-col gap-3">
-            <div class="flex items-center justify-between pb-2 border-b border-border-subtle/60">
-              <h3 class="font-label-md text-xs font-bold text-on-surface uppercase">Tiến độ bài (${doneCountInTopic}/${curTopic.sentences.length})</h3>
+          <div class="bg-paper-card p-space-md rounded-2xl shadow-sm border border-border-subtle flex flex-col gap-3">
+            <div class="flex items-center justify-between pb-2 border-b border-border-subtle">
+              <h3 class="font-label-md text-xs font-bold text-on-surface uppercase m-0" id="dictSidebarProg">Tiến độ bài (${doneCountInTopic}/${curTopic.sentences.length})</h3>
               <span class="text-xs font-code text-primary font-bold">Câu ${d.sentenceIdx + 1}</span>
             </div>
-            <div class="grid grid-cols-5 gap-1.5">
+            <div class="grid grid-cols-5 gap-1.5" id="dictSidebarGrid">
               ${curTopic.sentences.map((_, idx) => {
                 const status = topicDone[idx];
                 const isCurrent = idx === d.sentenceIdx;
                 let cls = "bg-surface-container-low hover:bg-surface-container text-on-surface-variant";
-                if (isCurrent) cls = "bg-primary text-white font-bold shadow-xs";
-                else if (status === "ok") cls = "bg-jade-subtle text-secondary font-bold border border-secondary/30";
-                else if (status === "skip" || status === "miss") cls = "bg-amber-subtle text-tertiary font-bold border border-tertiary/30";
-                return `<button type="button" class="h-8 rounded-lg ${cls} font-code text-xs flex items-center justify-center transition-all" data-jump-sentence="${idx}">${status === "ok" && !isCurrent ? '✓' : idx + 1}</button>`;
+                if (isCurrent) cls = "bg-primary-container text-white font-bold shadow-sm";
+                else if (status === "ok") cls = "bg-jade-subtle text-secondary font-bold border border-border-subtle";
+                else if (status === "skip" || status === "miss") cls = "bg-amber-subtle text-tertiary font-bold border border-border-subtle";
+                return `<button type="button" class="h-9 rounded-lg ${cls} font-code text-xs flex items-center justify-center transition-all" data-jump-sentence="${idx}">${status === "ok" && !isCurrent ? '✓' : idx + 1}</button>`;
               }).join("")}
             </div>
           </div>
 
-          <div class="bg-paper-card p-space-md rounded-2xl shadow-xs border border-border-subtle flex flex-col gap-2.5">
-            <div class="flex items-center justify-between pb-2 border-b border-border-subtle/60">
-              <h3 class="font-label-md text-xs font-bold text-on-surface uppercase">Từ vựng trọng tâm</h3>
+          ${hasVocab ? `
+          <div class="bg-paper-card p-space-md rounded-2xl shadow-sm border border-border-subtle flex flex-col gap-2.5">
+            <div class="flex items-center justify-between pb-2 border-b border-border-subtle">
+              <h3 class="font-label-md text-xs font-bold text-on-surface uppercase m-0">Từ vựng trọng tâm</h3>
               <button type="button" class="text-primary hover:underline text-xs font-semibold" id="btn-save-all-vocab">Lưu tất cả</button>
             </div>
             <div class="flex flex-col gap-2">
-              ${(curTopic.vocab || []).map((v) => `
-                <div class="p-2 rounded-lg bg-paper-base border border-border-subtle/60 flex items-center justify-between gap-2">
+              ${curTopic.vocab.map((v) => `
+                <div class="p-2.5 rounded-xl bg-paper-base border border-border-subtle flex items-center justify-between gap-2">
                   <div class="min-w-0">
-                    <div class="flex items-center gap-1.5">
-                      <span class="font-serif text-sm font-bold text-on-surface">${esc(v.w)}</span>
-                      <span class="font-code text-[11px] text-primary">${esc(v.py)}</span>
+                    <div class="flex items-center gap-1.5 flex-wrap">
+                      <a href="#tu/${encodeURIComponent(v.w)}" class="font-serif text-sm font-bold text-on-surface hover:text-primary no-underline">${esc(v.w)}</a>
+                      <span class="font-code text-xs text-primary">${esc(v.py)}</span>
                     </div>
                     <span class="text-xs text-on-surface-variant block truncate">${esc(v.vn)}</span>
                   </div>
-                  <div class="flex items-center gap-1 shrink-0">
-                    <button type="button" class="w-7 h-7 rounded-full bg-paper-card text-outline hover:text-primary flex items-center justify-center border border-border-subtle/50" data-say-vocab="${esc(v.w)}" title="Phát âm">
-                      <span class="material-symbols-outlined text-[15px]">volume_up</span>
+                  <div class="flex items-center gap-1.5 shrink-0">
+                    <button type="button" class="w-9 h-9 rounded-full bg-paper-card text-on-surface-variant hover:text-primary flex items-center justify-center border border-border-subtle" data-say-vocab="${esc(v.w)}" title="Phát âm" aria-label="Phát âm ${esc(v.w)}">
+                      <span class="material-symbols-outlined text-[17px]">volume_up</span>
                     </button>
-                    <button type="button" class="w-7 h-7 rounded-full bg-paper-card text-outline hover:text-secondary flex items-center justify-center border border-border-subtle/50" data-save-vocab="${esc(v.w)}" data-vocab-py="${esc(v.py)}" data-vocab-vn="${esc(v.vn)}" data-vocab-band="${esc(v.band || 'B1')}" title="Lưu vào sổ từ">
-                      <span class="material-symbols-outlined text-[15px]">bookmark_add</span>
+                    <button type="button" class="w-9 h-9 rounded-full bg-paper-card text-on-surface-variant hover:text-secondary flex items-center justify-center border border-border-subtle" data-save-vocab="${esc(v.w)}" data-vocab-py="${esc(v.py)}" data-vocab-vn="${esc(v.vn)}" data-vocab-band="${esc(v.band || 'B1')}" title="Lưu vào sổ từ" aria-label="Lưu ${esc(v.w)} vào sổ từ">
+                      <span class="material-symbols-outlined text-[17px]">bookmark_add</span>
                     </button>
                   </div>
                 </div>
               `).join("")}
             </div>
-          </div>
+          </div>` : ""}
         </aside>
       </div>
     </div>
@@ -7607,13 +7838,16 @@ VIEWS["chinh-ta"] = async () => {
     };
   }
 
+  const speedBtnCls = (isActive) => isActive
+    ? "speed-toggle min-h-[36px] px-2.5 py-1 rounded-lg font-code text-xs bg-primary-container text-on-primary font-bold"
+    : "speed-toggle min-h-[36px] px-2.5 py-1 rounded-lg font-code text-xs bg-paper-card text-on-surface-variant border border-border-subtle hover:bg-surface-container";
+
   document.querySelectorAll(".speed-toggle").forEach((btn) => {
     btn.onclick = () => {
       d.speed = Number(btn.dataset.speed || 1.0);
       document.querySelectorAll(".speed-toggle").forEach(b => {
-        b.className = "speed-toggle px-2 py-1 rounded font-code text-xs text-on-surface-variant hover:bg-surface-container";
+        b.className = speedBtnCls(Number(b.dataset.speed || 1.0) === d.speed);
       });
-      btn.className = "speed-toggle px-2 py-1 rounded font-code text-xs bg-primary text-on-primary font-bold";
       playCurrentAudio();
     };
   });
@@ -7655,10 +7889,14 @@ VIEWS["chinh-ta"] = async () => {
   });
 
   function updateScoreDOM() {
+    const ok = topicOkCount();
+    const tot = topicTotalCount();
     const okEl = $("#dictOkCount");
     const totEl = $("#dictTotalCount");
-    if (okEl) okEl.textContent = d.score.ok;
-    if (totEl) totEl.textContent = d.score.total;
+    if (okEl) okEl.textContent = ok;
+    if (totEl) totEl.textContent = tot;
+    const progEl = $("#dictSidebarProg");
+    if (progEl) progEl.textContent = `Tiến độ bài (${ok}/${curTopic.sentences.length})`;
   }
 
   function handleCheck(isRevealOnly = false) {
@@ -7667,23 +7905,14 @@ VIEWS["chinh-ta"] = async () => {
     const cleanTyped = clean(typed);
     const cleanTarget = clean(curSent.zh);
     const isExact = !isRevealOnly && cleanTyped === cleanTarget && cleanTarget.length > 0;
-    const alreadyCounted = !!topicDone[d.sentenceIdx];
 
     d.checked = true;
-    if (!alreadyCounted) {
-      d.score.total++;
-      if (isExact) {
-        d.score.ok++;
-        topicDone[d.sentenceIdx] = "ok";
-      } else {
-        topicDone[d.sentenceIdx] = isRevealOnly ? "skip" : "miss";
-      }
-      updateScoreDOM();
-    } else if (isExact && topicDone[d.sentenceIdx] !== "ok") {
+    if (isExact) {
       topicDone[d.sentenceIdx] = "ok";
-      d.score.ok++;
-      updateScoreDOM();
+    } else if (!topicDone[d.sentenceIdx]) {
+      topicDone[d.sentenceIdx] = isRevealOnly ? "skip" : "miss";
     }
+    updateScoreDOM();
     saveDict();
 
     const feedbackPanel = $("#feedback-panel");
@@ -7713,7 +7942,44 @@ VIEWS["chinh-ta"] = async () => {
   if ($("#btn-clear-input")) {
     $("#btn-clear-input").onclick = () => {
       if (txtInput) { txtInput.value = ""; if (charCounter) charCounter.textContent = "0 ký tự"; txtInput.focus(); }
+      const fp = $("#feedback-panel");
+      if (fp) { fp.classList.add("hidden"); fp.classList.remove("flex"); }
     };
+  }
+
+  // Offline Handwriting Pad toggle for Dictation (inserts at textarea cursor, persisted across sentences)
+  const dictHwBtn = $("#btn-toggle-dict-hw");
+  const dictHwDrawer = $("#dictation-hw-drawer");
+  let dictHwPad = null;
+  const setDictHwOpen = (opening) => {
+    if (!dictHwBtn || !dictHwDrawer) return;
+    d.hwOpen = !!opening;
+    dictHwDrawer.hidden = !opening;
+    dictHwBtn.setAttribute("aria-expanded", String(opening));
+    dictHwBtn.classList.toggle("bg-paper-muted", !opening);
+    dictHwBtn.classList.toggle("bg-cinnabar-subtle", opening);
+    dictHwBtn.classList.toggle("border-border-subtle", !opening);
+    dictHwBtn.classList.toggle("border-primary", opening);
+    if (opening && !dictHwPad && window.HanziPad) {
+      dictHwPad = window.HanziPad.mount(dictHwDrawer, {
+        hint: "Vẽ từng chữ bạn nghe được — bấm chữ gợi ý để chèn thẳng vào bài chép.",
+        onPick: (ch) => {
+          if (!txtInput) return;
+          const start = txtInput.selectionStart ?? txtInput.value.length;
+          const end = txtInput.selectionEnd ?? txtInput.value.length;
+          txtInput.value = txtInput.value.slice(0, start) + ch + txtInput.value.slice(end);
+          const pos = start + ch.length;
+          try { txtInput.setSelectionRange(pos, pos); } catch (e) {}
+          if (charCounter) charCounter.textContent = `${txtInput.value.length} ký tự`;
+        }
+      });
+    } else if (opening && dictHwPad) {
+      dictHwPad.redraw();
+    }
+  };
+  if (dictHwBtn && dictHwDrawer) {
+    dictHwBtn.onclick = () => setDictHwOpen(dictHwDrawer.hidden);
+    if (d.hwOpen) setDictHwOpen(true);
   }
   if ($("#btn-next-action")) $("#btn-next-action").onclick = goNextSentence;
   if ($("#btn-next-action-inc")) $("#btn-next-action-inc").onclick = goNextSentence;
@@ -7754,25 +8020,34 @@ VIEWS["chinh-ta"] = async () => {
     };
   });
 
-  // KEYBOARD SHORTCUT: Shift Replay (no double firing)
+  // KEYBOARD SHORTCUT: Standalone Shift tap replays audio; Enter checks answer (IME-safe!)
+  let shiftSolo = false;
   if (txtInput) {
     txtInput.onkeydown = (e) => {
+      if (e.isComposing || e.keyCode === 229) { shiftSolo = false; return; }
       if (e.key === "Shift" && !e.ctrlKey && !e.altKey && !e.metaKey) {
-        if (e.preventDefault) e.preventDefault();
-        if (e.stopPropagation) e.stopPropagation();
-        playCurrentAudio();
+        shiftSolo = true;
         return;
       }
+      shiftSolo = false;
       if (e.key === "Enter" && !e.shiftKey) {
         if (e.preventDefault) e.preventDefault();
         handleCheck(false);
         return;
       }
     };
+    txtInput.onkeyup = (e) => {
+      if (e.key === "Shift" && shiftSolo && !e.isComposing) {
+        shiftSolo = false;
+        playCurrentAudio();
+      }
+    };
   }
 
   window.onkeydown = (e) => {
-    if (!location.hash.startsWith("#chinh-ta/")) return;
+    if (e.isComposing || e.keyCode === 229) return;
+    if (!location.hash.startsWith("#chinh-ta/") && !location.hash.startsWith("#chep-chinh-ta/")) return;
+    if (document.activeElement === txtInput) return;
     if (e.key === "Shift" && !e.ctrlKey && !e.altKey && !e.metaKey) {
       playCurrentAudio();
     }
@@ -7867,12 +8142,19 @@ VIEWS["thi-thu"] = async () => {
   exam.flagged = tState.flagged;
   exam.revealedQs = tState.revealedQs;
   if (typeof tState.timerLeft === "number") exam.timerLeft = tState.timerLeft;
+  exam.isExamMode = tState.isExamMode !== false;
 
   try {
     const savedHist = await Store.get("kv", "tocfl_history");
     if (Array.isArray(savedHist)) exam.history = savedHist;
   } catch (e) {}
 
+  if (exam.pendingSection) {
+    const pSec = exam.pendingSection;
+    exam.pendingSection = null;
+    const firstR = curTest.questions.findIndex(q => q.section !== "listening");
+    exam.curQuestionIdx = (pSec === "reading" && firstR >= 0) ? firstR : 0;
+  }
   if (exam.curQuestionIdx < 0 || exam.curQuestionIdx >= curTest.questions.length) {
     exam.curQuestionIdx = 0;
   }
@@ -7902,7 +8184,9 @@ VIEWS["thi-thu"] = async () => {
 
   const audioFiles = Array.isArray(curQ.audioFiles) ? curQ.audioFiles : [];
   const hasTwoTracks = audioFiles.length >= 2;
-  const showAnswerBox = !exam.isExamMode || !!(exam.revealedQs && exam.revealedQs[curQ.id]);
+  const showAnswerBox = exam.isExamMode
+    ? !!(exam.revealedQs && exam.revealedQs[curQ.id])
+    : !(exam.revealedQs && exam.revealedQs[curQ.id] === false);
   const activeSheetSec = exam.sheetSection === "auto" ? (curQ.section === "listening" ? "listening" : "reading") : exam.sheetSection;
 
   function updateAudioPlayerDOM() {
@@ -8001,7 +8285,8 @@ VIEWS["thi-thu"] = async () => {
         if (n === qNum) {
           return `<span class="inline-flex items-center px-2 py-0.5 mx-0.5 rounded-md bg-primary text-white font-code font-bold text-sm">【 ${n} 】</span>`;
         }
-        const ansIdx = exam.answers[50 + n];
+        const refQ = readingQs.find((rq, idx) => (rq.qNum || (idx + 1)) === n);
+        const ansIdx = refQ ? exam.answers[refQ.id] : exam.answers[listeningQs.length + n];
         const filled = ansIdx !== undefined ? ` (${["A","B","C","D"][ansIdx]})` : "";
         return `<span class="inline-flex items-center px-1.5 py-0.5 mx-0.5 rounded bg-surface-container-high text-primary font-code font-semibold text-xs border border-primary/20">【${n}${filled}】</span>`;
       });
@@ -8016,7 +8301,7 @@ VIEWS["thi-thu"] = async () => {
     const isFlagged = exam.flagged && exam.flagged[q.id];
     const isCorrect = exam.answers[q.id] === q.ans;
     let cls = "bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest";
-    if (isCurrent) cls = isListen ? "bg-primary text-on-primary font-bold shadow-xs" : "bg-secondary text-white font-bold shadow-xs";
+    if (isCurrent) cls = isListen ? "bg-primary-container text-on-primary font-bold shadow-sm" : "bg-secondary text-white font-bold shadow-sm";
     else if (isFlagged) cls = "bg-amber-subtle text-tertiary-container font-bold";
     else if (hasAns) {
       cls = exam.isExamMode
@@ -8024,50 +8309,52 @@ VIEWS["thi-thu"] = async () => {
         : (isCorrect ? "bg-jade-subtle text-secondary font-bold border border-secondary/30" : "bg-cinnabar-subtle text-primary font-bold border border-primary/30");
     }
     const nLabel = q.qNum || (isListen ? q.id : (q.id > 50 ? q.id - 50 : q.id));
-    return `<button type="button" class="h-8 rounded ${cls} font-code text-xs flex items-center justify-center relative transition-all cursor-pointer" data-jump-q="${idx}" title="${isListen ? 'Nghe' : 'Đọc'} câu ${nLabel}">${nLabel < 10 ? "0" + nLabel : nLabel}${isFlagged ? '<span class="w-1.5 h-1.5 rounded-full bg-tertiary absolute top-0.5 right-0.5"></span>' : ''}</button>`;
+    return `<button type="button" class="h-9 rounded-lg ${cls} font-code text-xs flex items-center justify-center relative transition-all cursor-pointer" data-jump-q="${idx}" title="${isListen ? 'Nghe' : 'Đọc'} câu ${nLabel}">${nLabel < 10 ? "0" + nLabel : nLabel}${isFlagged ? '<span class="w-1.5 h-1.5 rounded-full bg-tertiary absolute top-0.5 right-0.5"></span>' : ''}</button>`;
   }).join("");
 
   const totalPct = Math.round((totalDone / Math.max(1, totalQ)) * 100);
+  const secTotal = curQ.section === "listening" ? listeningQs.length : readingQs.length;
+  const fontSizeCur = exam.fontSizeClass || "text-headline-md";
 
   setView(`
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-md w-full">
       <!-- Single Compact Exam Header (Band Level -> Đề 1..5 + Controls) -->
-      <header class="bg-paper-card rounded-2xl p-space-md border border-border-subtle shadow-xs flex flex-col gap-3">
+      <header class="bg-paper-card rounded-2xl p-space-md border border-border-subtle shadow-sm flex flex-col gap-3">
         <div class="flex flex-wrap items-center justify-between gap-3">
           <div class="flex items-center gap-2.5 flex-wrap">
-            <h1 class="font-display text-xl md:text-2xl font-bold text-on-surface font-serif">Thi thử TOCFL</h1>
-            <span class="px-2.5 py-0.5 rounded-full bg-primary text-on-primary font-code text-xs font-bold">Band B · B1–B2</span>
-            ${exam.subview === 'review' ? `<span class="px-2 py-0.5 rounded-full bg-amber-subtle text-tertiary-container font-code text-xs font-semibold flex items-center gap-1">
+            <h1 class="font-display text-xl md:text-2xl font-bold text-on-surface font-serif m-0">Thi thử TOCFL</h1>
+            <span class="px-2.5 py-0.5 rounded-full bg-primary-container text-on-primary font-code text-xs font-bold">Band B · B1–B2</span>
+            ${exam.subview === 'review' ? `<span class="px-2.5 py-0.5 rounded-full bg-amber-subtle text-tertiary-container font-code text-xs font-semibold flex items-center gap-1">
               <span class="material-symbols-outlined text-[14px]">timer</span>
               <span id="examTimerDisplay">${timerStr}</span>
             </span>` : ""}
           </div>
 
           <div class="flex flex-wrap items-center gap-1.5">
-            ${exam.subview === 'review' ? `<button type="button" class="px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-sm font-semibold flex items-center gap-1 cursor-pointer" id="tabOverviewBtn"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Danh sách đề</button>` : ""}
-            <button type="button" class="px-3 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-semibold border border-border-subtle flex items-center gap-1.5 cursor-pointer" id="btnOpenHistory">
+            ${exam.subview === 'review' ? `<button type="button" class="min-h-[38px] px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-sm font-semibold flex items-center gap-1 cursor-pointer" id="tabOverviewBtn"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Danh sách đề</button>` : ""}
+            <button type="button" class="min-h-[38px] px-3 py-1.5 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface text-xs font-semibold border border-border-subtle flex items-center gap-1.5 cursor-pointer" id="btnOpenHistory">
               <span class="material-symbols-outlined text-primary text-[18px]">history</span>
               <span>Lịch sử (${exam.history.length})</span>
             </button>
             ${exam.subview !== 'review' ? "" : exam.isExamMode ? `
-              <button type="button" class="px-3 py-1.5 rounded-lg bg-primary text-on-primary hover:bg-primary-container text-xs font-bold shadow-xs cursor-pointer" id="btnSubmitExam">Nộp bài</button>
+              <button type="button" class="min-h-[38px] px-3.5 py-1.5 rounded-lg bg-primary-container text-on-primary hover:bg-primary text-xs font-bold shadow-sm cursor-pointer" id="btnSubmitExam">Nộp bài</button>
             ` : `
-              <button type="button" class="px-3 py-1.5 rounded-lg bg-secondary text-white text-xs font-bold shadow-xs cursor-pointer" id="btnRetakeExam">Làm lại</button>
+              <button type="button" class="min-h-[38px] px-3.5 py-1.5 rounded-lg bg-secondary text-white text-xs font-bold shadow-sm cursor-pointer" id="btnRetakeExam">Làm lại</button>
             `}
           </div>
         </div>
 
         <!-- Inline Band B -> Đề 1..5 Pills -->
-        <div class="${exam.subview === 'review' ? 'flex' : 'hidden'} flex-wrap items-center justify-between gap-2 pt-2 border-t border-border-subtle/60">
+        <div class="${exam.subview === 'review' ? 'flex' : 'hidden'} flex-wrap items-center justify-between gap-2 pt-2 border-t border-border-subtle">
           <div class="flex items-center gap-1.5 flex-wrap">
-            <span class="text-xs font-semibold text-outline mr-1">Band B:</span>
+            <span class="text-xs font-semibold text-on-surface-variant mr-1">Band B:</span>
             ${displayTests.map((t, i) => `
-              <button type="button" class="px-3 py-1 rounded-full text-xs font-code font-semibold transition-all cursor-pointer ${t.id === curTest.id ? 'bg-primary-container text-on-primary shadow-xs' : 'bg-paper-base text-on-surface-variant hover:bg-surface-container border border-border-subtle/70'}" data-quick-test="${esc(t.id)}">
+              <button type="button" class="min-h-[34px] px-3 py-1 rounded-full text-xs font-code font-semibold transition-all cursor-pointer ${t.id === curTest.id ? 'bg-primary-container text-on-primary shadow-sm' : 'bg-paper-base text-on-surface-variant hover:bg-surface-container border border-border-subtle'}" data-quick-test="${esc(t.id)}">
                 Đề ${i + 1}
               </button>
             `).join("")}
           </div>
-          <span class="text-xs font-code text-outline">Đã chọn ${totalDone}/${totalQ} (${totalPct}%)</span>
+          <span class="text-xs font-code text-on-surface-variant">Đã chọn ${totalDone}/${totalQ} (${totalPct}%)</span>
         </div>
       </header>
 
@@ -8075,7 +8362,7 @@ VIEWS["thi-thu"] = async () => {
       <div class="${exam.subview === 'overview' ? 'flex' : 'hidden'} flex-col gap-4" id="viewOverview">
         <div class="flex items-center justify-between">
           <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wide flex items-center gap-1.5">
-            <span class="w-1.5 h-4 rounded-full bg-primary inline-block"></span>
+            <span class="w-1.5 h-4 rounded-full bg-primary-container inline-block"></span>
             Band B · 進階級 (B1) &amp; 高階級 (B2) — ${displayTests.length} đề chính thức Phồn thể
           </span>
         </div>
@@ -8088,19 +8375,19 @@ VIEWS["thi-thu"] = async () => {
             const lDone = lQs.filter(q => tAns[q.id] !== undefined).length;
             const rDone = rQs.filter(q => tAns[q.id] !== undefined).length;
             return `
-              <div class="bg-paper-card p-space-md rounded-2xl border ${t.id === curTest.id ? 'border-primary ring-1 ring-primary/30' : 'border-border-subtle'} shadow-xs flex flex-col justify-between gap-3">
+              <div class="bg-paper-card p-space-md rounded-2xl border ${t.id === curTest.id ? 'border-primary' : 'border-border-subtle'} shadow-sm flex flex-col justify-between gap-3">
                 <div>
                   <div class="flex items-center justify-between mb-1">
-                    <span class="px-2 py-0.5 rounded bg-cinnabar-subtle text-primary font-code text-[11px] font-bold">Band B · Đề ${idx + 1}</span>
-                    <span class="font-code text-[11px] text-outline">${lDone + rDone}/${t.questions.length} câu</span>
+                    <span class="px-2 py-0.5 rounded bg-cinnabar-subtle text-primary font-code text-xs font-bold">Band B · Đề ${idx + 1}</span>
+                    <span class="font-code text-xs text-on-surface-variant">${lDone + rDone}/${t.questions.length} câu</span>
                   </div>
-                  <h3 class="font-headline-md text-sm font-bold text-on-surface">${esc(t.title)}</h3>
+                  <h3 class="font-headline-md text-base font-bold text-on-surface m-0 mt-1">${esc(t.title)}</h3>
                   <div class="grid grid-cols-2 gap-2 mt-2.5 text-xs">
-                    <div class="p-2 rounded-lg bg-paper-base border border-border-subtle/60">
+                    <div class="p-2.5 rounded-lg bg-paper-base border border-border-subtle">
                       <span class="text-primary font-semibold block">Nghe hiểu</span>
                       <span class="font-code text-on-surface">${lDone}/${lQs.length} câu</span>
                     </div>
-                    <div class="p-2 rounded-lg bg-paper-base border border-border-subtle/60">
+                    <div class="p-2.5 rounded-lg bg-paper-base border border-border-subtle">
                       <span class="text-secondary font-semibold block">Đọc hiểu</span>
                       <span class="font-code text-on-surface">${rDone}/${rQs.length} câu</span>
                     </div>
@@ -8108,10 +8395,10 @@ VIEWS["thi-thu"] = async () => {
                 </div>
                 <div class="flex flex-col gap-2">
                   <div class="grid grid-cols-2 gap-2">
-                    <button type="button" class="py-2.5 px-3 rounded-lg bg-primary-container hover:bg-primary text-white text-xs font-semibold cursor-pointer transition-colors" data-start-exam="${esc(t.id)}" data-start-sec="listening">Phần Nghe</button>
-                    <button type="button" class="py-2.5 px-3 rounded-lg bg-secondary hover:opacity-95 text-white text-xs font-semibold cursor-pointer transition-opacity" data-start-exam="${esc(t.id)}" data-start-sec="reading">Phần Đọc</button>
+                    <button type="button" class="min-h-[42px] py-2 px-3 rounded-lg bg-cinnabar-subtle hover:bg-primary-container hover:text-white text-primary border border-border-subtle text-xs font-semibold cursor-pointer transition-colors" data-start-exam="${esc(t.id)}" data-start-sec="listening">Làm phần Nghe</button>
+                    <button type="button" class="min-h-[42px] py-2 px-3 rounded-lg bg-jade-subtle hover:bg-secondary hover:text-white text-secondary border border-border-subtle text-xs font-semibold cursor-pointer transition-colors" data-start-exam="${esc(t.id)}" data-start-sec="reading">Làm phần Đọc</button>
                   </div>
-                  <button type="button" class="w-full py-2.5 px-3 rounded-lg bg-paper-base hover:bg-surface-container text-on-surface-variant text-xs font-medium border border-border-subtle cursor-pointer transition-colors" data-review-exam="${esc(t.id)}">Xem đáp án &amp; lời thoại</button>
+                  <button type="button" class="w-full min-h-[40px] py-2 px-3 rounded-lg bg-paper-base hover:bg-surface-container text-on-surface-variant text-xs font-medium border border-border-subtle cursor-pointer transition-colors" data-review-exam="${esc(t.id)}">Xem đáp án &amp; lời thoại</button>
                 </div>
               </div>
             `;
@@ -8122,44 +8409,44 @@ VIEWS["thi-thu"] = async () => {
       <!-- SUBVIEW 2: EXAM WORKSTATION -->
       <div class="${exam.subview === 'review' ? 'flex' : 'hidden'} flex-col gap-space-md" id="viewReview">
         ${exam.lastResult && exam.lastResult.testId === curTest.id && !exam.isExamMode ? `
-          <div class="bg-paper-card p-space-md rounded-2xl border-2 border-secondary shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+          <div class="bg-paper-card p-space-md rounded-2xl border-2 border-secondary shadow-sm flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
             <div>
-              <span class="px-2 py-0.5 rounded-full bg-secondary text-white text-[11px] font-bold">KẾT QUẢ SC-TOP</span>
+              <span class="px-2 py-0.5 rounded-full bg-secondary text-white text-xs font-bold">KẾT QUẢ SC-TOP</span>
               <span class="font-headline-md text-sm font-bold text-on-surface ml-2">${esc(exam.lastResult.level)}</span>
-              <p class="text-xs text-on-surface-variant mt-1">
+              <p class="text-xs text-on-surface-variant mt-1 mb-0">
                 Đúng <strong>${exam.lastResult.score}/${exam.lastResult.total}</strong> (${exam.lastResult.pct}%) ·
-                Nghe: <strong>${exam.lastResult.listenScaled}/80</strong> (${exam.lastResult.listenCorrect}/50) ·
-                Đọc: <strong>${exam.lastResult.readScaled}/80</strong> (${exam.lastResult.readCorrect}/50)
+                Nghe: <strong>${exam.lastResult.listenScaled}/80</strong> (${exam.lastResult.listenCorrect}/${listeningQs.length}) ·
+                Đọc: <strong>${exam.lastResult.readScaled}/80</strong> (${exam.lastResult.readCorrect}/${readingQs.length})
               </p>
             </div>
-            <button type="button" class="px-3.5 py-1.5 rounded-lg bg-primary text-white text-xs font-bold cursor-pointer shrink-0" id="btnRetakeFromBanner">Làm lại đề này</button>
+            <button type="button" class="min-h-[38px] px-3.5 py-1.5 rounded-lg bg-primary-container hover:bg-primary text-white text-xs font-bold cursor-pointer shrink-0" id="btnRetakeFromBanner">Làm lại đề này</button>
           </div>
         ` : ''}
 
         <!-- Compact 2-Section Switcher (Nghe | Đọc) -->
-        <div class="grid grid-cols-2 gap-2">
-          <button type="button" id="btnSwitchListening" class="flex items-center justify-between px-3.5 py-2 rounded-xl border text-xs sm:text-sm font-semibold transition-all cursor-pointer ${curQ.section === 'listening' ? 'bg-cinnabar-subtle border-primary text-primary' : 'bg-paper-card border-border-subtle text-on-surface-variant hover:bg-surface-container-low'}">
-            <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">headphones</span> Phần 1: Nghe hiểu</span>
-            <span class="font-code text-xs">${doneListening}/${listeningQs.length}</span>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <button type="button" id="btnSwitchListening" class="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl border text-xs sm:text-sm font-semibold transition-all cursor-pointer ${curQ.section === 'listening' ? 'bg-cinnabar-subtle border-primary text-primary' : 'bg-paper-card border-border-subtle text-on-surface-variant hover:bg-surface-container-low'}">
+            <span class="flex items-center gap-1.5 whitespace-nowrap"><span class="material-symbols-outlined text-[18px]">headphones</span> Phần 1: Nghe hiểu</span>
+            <span class="font-code text-xs shrink-0">${doneListening}/${listeningQs.length}</span>
           </button>
-          <button type="button" id="btnSwitchReading" class="flex items-center justify-between px-3.5 py-2 rounded-xl border text-xs sm:text-sm font-semibold transition-all cursor-pointer ${curQ.section !== 'listening' ? 'bg-jade-subtle border-secondary text-secondary' : 'bg-paper-card border-border-subtle text-on-surface-variant hover:bg-surface-container-low'}">
-            <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-[18px]">menu_book</span> Phần 2: Đọc hiểu</span>
-            <span class="font-code text-xs">${doneReading}/${readingQs.length}</span>
+          <button type="button" id="btnSwitchReading" class="min-h-[44px] flex items-center justify-between px-3.5 py-2 rounded-xl border text-xs sm:text-sm font-semibold transition-all cursor-pointer ${curQ.section !== 'listening' ? 'bg-jade-subtle border-secondary text-secondary' : 'bg-paper-card border-border-subtle text-on-surface-variant hover:bg-surface-container-low'}">
+            <span class="flex items-center gap-1.5 whitespace-nowrap"><span class="material-symbols-outlined text-[18px]">menu_book</span> Phần 2: Đọc hiểu</span>
+            <span class="font-code text-xs shrink-0">${doneReading}/${readingQs.length}</span>
           </button>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-md items-start">
           <!-- LEFT COLUMN: Question & Audio/Reading -->
           <section class="lg:col-span-8 flex flex-col gap-space-md">
-            <div class="bg-paper-card rounded-2xl p-space-lg shadow-xs border border-border-subtle flex flex-col gap-space-md">
-              <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-border-subtle/60">
+            <div class="bg-paper-card rounded-2xl p-4 sm:p-space-lg shadow-sm border border-border-subtle flex flex-col gap-space-md">
+              <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-border-subtle">
                 <div class="flex items-center gap-2 flex-wrap">
                   <span class="px-2.5 py-0.5 rounded-full ${curQ.section === 'listening' ? 'bg-cinnabar-subtle text-primary' : 'bg-jade-subtle text-secondary'} font-code text-xs font-bold">
-                    ${curQ.section === 'listening' ? 'NGHE' : 'ĐỌC'} CÂU ${qNum} / 50
+                    ${curQ.section === 'listening' ? 'NGHE' : 'ĐỌC'} CÂU ${qNum} / ${secTotal}
                   </span>
-                  <span class="text-xs text-outline">${esc(curQ.part)}</span>
+                  <span class="text-xs text-on-surface-variant">${esc(curQ.part)}</span>
                 </div>
-                <button type="button" id="btnToggleRevealQ" class="px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors cursor-pointer flex items-center gap-1 ${showAnswerBox ? 'bg-jade-subtle border-secondary text-secondary' : 'bg-paper-base border-border-subtle text-on-surface-variant hover:text-on-surface'}">
+                <button type="button" id="btnToggleRevealQ" class="min-h-[36px] px-2.5 py-1 rounded-lg text-xs font-semibold border transition-colors cursor-pointer flex items-center gap-1 ${showAnswerBox ? 'bg-jade-subtle border-secondary text-secondary' : 'bg-paper-base border-border-subtle text-on-surface-variant hover:text-on-surface'}">
                   <span class="material-symbols-outlined text-[15px]">${showAnswerBox ? 'visibility_off' : 'visibility'}</span>
                   <span>${showAnswerBox ? 'Ẩn đáp án' : (curQ.section === 'listening' ? 'Đáp án &amp; Lời thoại' : 'Xem đáp án')}</span>
                 </button>
@@ -8167,42 +8454,42 @@ VIEWS["thi-thu"] = async () => {
 
               <!-- Listening MP3 Audio Box (click-speaker-only, zero auto-play) -->
               ${curQ.section === 'listening' ? `
-                <div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col gap-2.5 border border-border-subtle/70">
+                <div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col gap-2.5 border border-border-subtle">
                   <div class="flex items-center gap-3">
-                    <button type="button" class="w-11 h-11 rounded-full bg-primary text-on-primary flex items-center justify-center shadow-sm hover:bg-primary-container active:scale-95 shrink-0 cursor-pointer" id="btn-play-exam-audio" title="Ấn vào loa để phát / tạm dừng câu ${qNum}">
+                    <button type="button" class="w-11 h-11 rounded-full bg-primary-container text-on-primary flex items-center justify-center shadow-sm hover:bg-primary active:scale-95 shrink-0 cursor-pointer" id="btn-play-exam-audio" title="Ấn vào loa để phát / tạm dừng câu ${qNum}" aria-label="Phát audio câu ${qNum}">
                       <span class="material-symbols-outlined text-[24px]" id="exam-audio-icon">volume_up</span>
                     </button>
                     <div class="flex-1 flex flex-col gap-1 min-w-0">
-                      <div class="h-8 w-full flex items-center px-3 bg-paper-card rounded-lg overflow-hidden relative cursor-pointer border border-border-subtle/80" id="exam-audio-wave">
-                        <div class="absolute left-0 top-0 bottom-0 bg-cinnabar-subtle/80 transition-all duration-150" id="exam-audio-bar" style="width: 0%;"></div>
-                        <span class="relative z-10 text-xs font-medium text-on-surface truncate" id="exam-audio-status">Bấm vào cái loa để nghe câu ${qNum}</span>
+                      <div class="h-9 w-full flex items-center px-3 bg-paper-card rounded-lg overflow-hidden relative cursor-pointer border border-border-subtle" id="exam-audio-wave">
+                        <div class="absolute left-0 top-0 bottom-0 bg-cinnabar-subtle transition-all duration-150" id="exam-audio-bar" style="width: 0%;"></div>
+                        <span class="relative z-10 text-xs font-medium text-on-surface truncate" id="exam-audio-status">Bấm vào loa để nghe câu ${qNum}</span>
                       </div>
-                      <div class="flex justify-between text-[11px] font-code text-outline px-0.5">
-                        <span class="truncate">${esc(audioFiles.map(f => f.split('/').pop()).join(' + ') || 'Audio SC-TOP')}</span>
+                      <div class="flex justify-between text-xs font-code text-on-surface-variant px-0.5">
+                        <span class="truncate">Âm thanh chuẩn SC-TOP · Câu ${qNum}</span>
                         <span id="exam-audio-time" class="shrink-0">00:00 / --:--</span>
                       </div>
                     </div>
                   </div>
                   <div class="flex flex-wrap items-center gap-1.5">
                     ${hasTwoTracks ? `
-                      <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface text-xs font-medium border border-border-subtle cursor-pointer" data-play-track="0">1. Đoạn nói</button>
-                      <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface text-xs font-medium border border-border-subtle cursor-pointer" data-play-track="1">2. Câu hỏi ${qNum}</button>
+                      <button type="button" class="min-h-[36px] px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface text-xs font-medium border border-border-subtle cursor-pointer" data-play-track="0">1. Đoạn nói</button>
+                      <button type="button" class="min-h-[36px] px-2.5 py-1 rounded-lg bg-paper-card hover:bg-surface-container text-on-surface text-xs font-medium border border-border-subtle cursor-pointer" data-play-track="1">2. Câu hỏi ${qNum}</button>
                     ` : ''}
-                    <button type="button" class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant text-xs font-medium cursor-pointer" data-play-track="restart">Phát lại</button>
+                    <button type="button" class="min-h-[36px] px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface-variant text-xs font-medium cursor-pointer" data-play-track="restart">Phát lại</button>
                   </div>
                 </div>
               ` : ''}
 
-              <!-- Reading Passage / Graphic -->
+              <!-- Reading Passage / Graphic (preserves white paper backing for scanned diagrams in dark mode) -->
               ${curQ.section !== 'listening' && (curQ.image || curQ.context) ? `
                 <div class="bg-paper-base p-3.5 rounded-xl border border-border-subtle flex flex-col gap-3">
                   ${curQ.image ? `
-                    <div class="w-full overflow-x-auto bg-white rounded-lg p-2 border border-border-subtle">
+                    <div class="w-full overflow-x-auto exam-img-paper rounded-lg p-2 border border-border-subtle">
                       <img src="${esc(curQ.image)}" alt="Ngữ liệu câu ${qNum}" class="max-w-full h-auto mx-auto rounded" loading="eager">
                     </div>
                   ` : ''}
                   ${curQ.context && (!curQ.image || curQ.id === 86 || curQ.id === 87) ? `
-                    <div class="font-serif ${exam.fontSizeClass === 'text-headline-lg' ? 'text-xl leading-loose' : (exam.fontSizeClass === 'text-body-lg' ? 'text-sm leading-relaxed' : 'text-base leading-relaxed')} text-on-surface whitespace-pre-wrap">${formatReadingContextHTML(curQ)}</div>
+                    <div class="font-serif ${fontSizeCur === 'text-headline-lg' ? 'text-xl leading-loose' : (fontSizeCur === 'text-body-lg' ? 'text-sm leading-relaxed' : 'text-base leading-relaxed')} text-on-surface whitespace-pre-wrap">${formatReadingContextHTML(curQ)}</div>
                   ` : (curQ.context ? `
                     <details class="text-xs text-on-surface-variant">
                       <summary class="cursor-pointer font-semibold text-secondary hover:underline">Xem văn bản trích xuất (文字版)</summary>
@@ -8215,58 +8502,60 @@ VIEWS["thi-thu"] = async () => {
               <!-- Question Stem -->
               <div class="flex items-start gap-2">
                 <span class="font-code text-lg text-primary font-bold">${qNum}.</span>
-                <h2 class="font-serif ${exam.fontSizeClass === 'text-headline-lg' ? 'text-2xl' : (exam.fontSizeClass === 'text-body-lg' ? 'text-base' : 'text-xl')} text-on-surface font-bold leading-snug" id="target-question-text" lang="zh-Hant">${esc(curQ.q)}</h2>
+                <h2 class="font-serif ${fontSizeCur === 'text-headline-lg' ? 'text-2xl' : (fontSizeCur === 'text-body-lg' ? 'text-base' : 'text-xl')} text-on-surface font-bold leading-snug m-0" id="target-question-text" lang="zh-Hant">${esc(curQ.q)}</h2>
               </div>
 
-              <!-- 4 Options -->
-              <div class="flex flex-col gap-2" id="mcq-options-container">
+              <!-- 4 Keyboard-Accessible Options -->
+              <div class="flex flex-col gap-2" id="mcq-options-container" role="radiogroup" aria-label="Đáp án câu ${qNum}">
                 ${curQ.options.map((opt, optIdx) => {
                   const letter = ["A", "B", "C", "D"][optIdx];
                   const isSelected = exam.answers[curQ.id] === optIdx;
                   const isCorrect = curQ.ans === optIdx;
-                  let optClass = "bg-paper-base hover:bg-surface-container-low border-border-subtle/80 text-on-surface";
+                  let optClass = "bg-paper-base hover:bg-surface-container-low border-border-subtle text-on-surface";
                   if (!showAnswerBox) {
-                    if (isSelected) optClass = "bg-cinnabar-subtle border-primary text-on-surface font-semibold ring-1 ring-primary/30";
+                    if (isSelected) optClass = "bg-cinnabar-subtle border-primary text-on-surface font-semibold";
                   } else {
-                    if (isCorrect) optClass = "bg-jade-subtle border-secondary text-secondary font-bold ring-1 ring-secondary/40";
+                    if (isCorrect) optClass = "bg-jade-subtle border-secondary text-secondary font-bold";
                     else if (isSelected && !isCorrect) optClass = "bg-cinnabar-subtle border-primary text-primary font-bold";
                   }
                   return `
-                    <div class="flex items-start gap-3 p-3 rounded-xl border transition-all cursor-pointer ${optClass}" data-select-opt="${optIdx}">
-                      <input ${isSelected ? 'checked' : ''} class="mt-1 w-4 h-4 accent-primary pointer-events-none" type="radio" name="tocfl_q_${curQ.id}" value="${letter}">
-                      <span class="font-code font-bold ${isSelected ? 'text-primary' : 'text-outline'}">${letter}.</span>
+                    <button type="button" role="radio" aria-checked="${isSelected ? 'true' : 'false'}" class="w-full text-left flex items-start gap-3 p-3 rounded-xl border transition-all ${exam.isExamMode ? 'cursor-pointer' : 'cursor-default'} ${optClass}" data-select-opt="${optIdx}" ${!exam.isExamMode ? 'aria-disabled="true"' : ''}>
+                      <span class="mt-0.5 w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${isSelected ? 'border-primary bg-primary-container text-white' : 'border-outline'}">
+                        ${isSelected ? '<span class="w-2 h-2 rounded-full bg-white radio-dot-white"></span>' : ''}
+                      </span>
+                      <span class="font-code font-bold ${isSelected ? 'text-primary' : 'text-on-surface-variant'}">${letter}.</span>
                       <span class="font-serif text-base text-on-surface flex-1" lang="zh-Hant">${esc(opt)}</span>
-                      ${showAnswerBox && isCorrect ? '<span class="material-symbols-outlined text-secondary text-[18px]">check_circle</span>' : ''}
-                      ${showAnswerBox && isSelected && !isCorrect ? '<span class="material-symbols-outlined text-primary text-[18px]">cancel</span>' : ''}
-                    </div>
+                      ${showAnswerBox && isCorrect ? '<span class="material-symbols-outlined text-secondary text-[18px] shrink-0">check_circle</span>' : ''}
+                      ${showAnswerBox && isSelected && !isCorrect ? '<span class="material-symbols-outlined text-primary text-[18px] shrink-0">cancel</span>' : ''}
+                    </button>
                   `;
                 }).join("")}
               </div>
 
               <!-- Answer & Transcript -->
               ${showAnswerBox ? `
-                <div class="p-3.5 rounded-xl bg-jade-subtle border border-secondary/30 flex flex-col gap-1.5 text-xs">
+                <div class="p-3.5 rounded-xl bg-jade-subtle border border-border-subtle flex flex-col gap-1.5 text-xs">
                   <div class="text-secondary font-bold">Đáp án đúng: (${curQ.ansChar || ["A","B","C","D"][curQ.ans]}) ${esc(curQ.options[curQ.ans] || "")}</div>
-                  ${curQ.explain ? `<p class="text-on-surface leading-relaxed">${esc(curQ.explain)}</p>` : ''}
+                  ${curQ.explain ? `<p class="text-on-surface leading-relaxed m-0">${esc(curQ.explain)}</p>` : ''}
                   ${curQ.dialogue ? `
-                    <div class="mt-1.5 pt-1.5 border-t border-secondary/20">
+                    <div class="mt-1.5 pt-1.5 border-t border-border-subtle">
                       <span class="font-bold text-secondary block mb-1">Lời thoại (聽力文本):</span>
-                      <p class="font-serif text-sm text-on-surface whitespace-pre-wrap leading-relaxed" lang="zh-Hant">${esc(curQ.dialogue)}</p>
+                      <p class="font-serif text-sm text-on-surface whitespace-pre-wrap leading-relaxed m-0" lang="zh-Hant">${esc(curQ.dialogue)}</p>
                     </div>
                   ` : ''}
                 </div>
               ` : ''}
 
               <!-- Prev / Flag / Next -->
-              <div class="flex items-center justify-between gap-2 pt-3 border-t border-border-subtle">
-                <button type="button" class="px-3.5 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold flex items-center gap-1 cursor-pointer ${exam.curQuestionIdx === 0 ? 'opacity-40 cursor-not-allowed' : ''}" id="btnPrevQ" ${exam.curQuestionIdx === 0 ? 'disabled' : ''}>
+              <div class="flex items-center justify-between gap-2 pt-3 border-t border-border-subtle flex-wrap">
+                <button type="button" class="min-h-[40px] px-3.5 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold flex items-center gap-1 cursor-pointer ${exam.curQuestionIdx === 0 ? 'opacity-40 cursor-not-allowed' : ''}" id="btnPrevQ" ${exam.curQuestionIdx === 0 ? 'disabled' : ''}>
                   <span class="material-symbols-outlined text-[16px]">arrow_back</span> Câu trước
                 </button>
-                <button type="button" class="px-3 py-2 rounded-lg ${exam.flagged && exam.flagged[curQ.id] ? 'bg-amber-subtle text-tertiary-container font-semibold' : 'bg-surface-container text-on-surface'} text-xs flex items-center gap-1 cursor-pointer" id="flag-btn">
+                <button type="button" class="min-h-[40px] px-3 py-2 rounded-lg ${exam.flagged && exam.flagged[curQ.id] ? 'bg-amber-subtle text-tertiary-container font-semibold' : 'bg-surface-container text-on-surface'} text-xs flex items-center gap-1 cursor-pointer" id="flag-btn">
                   <span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' ${exam.flagged && exam.flagged[curQ.id] ? 1 : 0};">flag</span>
                   <span>${exam.flagged && exam.flagged[curQ.id] ? 'Đã đánh dấu' : 'Đánh dấu'}</span>
                 </button>
-                <button type="button" class="px-4 py-2 rounded-lg bg-primary hover:bg-primary-container text-on-primary text-xs font-semibold flex items-center gap-1 cursor-pointer ${exam.curQuestionIdx >= totalQ - 1 ? 'opacity-40 cursor-not-allowed' : ''}" id="btnNextQ" ${exam.curQuestionIdx >= totalQ - 1 ? 'disabled' : ''}>
+                <button type="button" class="min-h-[40px] px-4 py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-xs font-semibold flex items-center gap-1 cursor-pointer ${exam.curQuestionIdx >= totalQ - 1 ? 'opacity-40 cursor-not-allowed' : ''}" id="btnNextQ" ${exam.curQuestionIdx >= totalQ - 1 ? 'disabled' : ''}>
                   Câu tiếp <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
                 </button>
               </div>
@@ -8275,33 +8564,33 @@ VIEWS["thi-thu"] = async () => {
 
           <!-- RIGHT COLUMN: Compact Answer Sheet + Utilities -->
           <aside class="lg:col-span-4 flex flex-col gap-space-md">
-            <div class="bg-paper-card p-space-md rounded-2xl shadow-xs border border-border-subtle flex flex-col gap-3">
-              <div class="flex items-center justify-between">
-                <h3 class="font-headline-md text-sm font-bold text-on-surface">Phiếu trả lời (${totalDone}/${totalQ})</h3>
-                <div class="flex items-center gap-1 bg-surface-container p-0.5 rounded-lg text-[11px]">
-                  <button type="button" class="px-2 py-0.5 rounded font-semibold cursor-pointer ${activeSheetSec === 'listening' ? 'bg-paper-card text-primary shadow-2xs' : 'text-outline'}" data-sheet-sec="listening">Nghe (${doneListening}/50)</button>
-                  <button type="button" class="px-2 py-0.5 rounded font-semibold cursor-pointer ${activeSheetSec === 'reading' ? 'bg-paper-card text-secondary shadow-2xs' : 'text-outline'}" data-sheet-sec="reading">Đọc (${doneReading}/50)</button>
+            <div class="bg-paper-card p-space-md rounded-2xl shadow-sm border border-border-subtle flex flex-col gap-3">
+              <div class="flex items-center justify-between flex-wrap gap-2">
+                <h3 class="font-headline-md text-sm font-bold text-on-surface m-0">Phiếu trả lời (${totalDone}/${totalQ})</h3>
+                <div class="flex items-center gap-1 bg-surface-container p-0.5 rounded-lg text-xs">
+                  <button type="button" class="px-2 py-1 rounded font-semibold cursor-pointer ${activeSheetSec === 'listening' ? 'bg-paper-card text-primary shadow-sm' : 'text-on-surface-variant'}" data-sheet-sec="listening">Nghe (${doneListening}/${listeningQs.length})</button>
+                  <button type="button" class="px-2 py-1 rounded font-semibold cursor-pointer ${activeSheetSec === 'reading' ? 'bg-paper-card text-secondary shadow-sm' : 'text-on-surface-variant'}" data-sheet-sec="reading">Đọc (${doneReading}/${readingQs.length})</button>
                 </div>
               </div>
-              <div class="grid grid-cols-10 lg:grid-cols-5 gap-1.5">
+              <div class="grid grid-cols-5 sm:grid-cols-10 lg:grid-cols-5 gap-1.5">
                 ${activeSheetSec === 'listening' ? renderQGrid(listeningQs, true) : renderQGrid(readingQs, false)}
               </div>
-              <div class="flex items-center justify-between gap-2 pt-2 border-t border-border-subtle/60">
-                <button type="button" class="flex-1 py-1.5 px-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-medium cursor-pointer" id="btn-unanswered-filter">Câu chưa làm (${totalUnanswered})</button>
-                <button type="button" class="flex-1 py-1.5 px-2.5 rounded-lg bg-primary text-on-primary text-xs font-bold cursor-pointer" id="btn-final-submit">Nộp bài</button>
+              <div class="flex items-center justify-between gap-2 pt-2 border-t border-border-subtle">
+                <button type="button" class="min-h-[40px] flex-1 py-1.5 px-2.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-medium cursor-pointer" id="btn-unanswered-filter">Câu chưa làm (${totalUnanswered})</button>
+                ${exam.isExamMode ? `<button type="button" class="min-h-[40px] flex-1 py-1.5 px-2.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-xs font-bold cursor-pointer" id="btn-final-submit">Nộp bài</button>` : ""}
               </div>
             </div>
 
-            <div class="bg-paper-card p-space-md rounded-2xl shadow-xs border border-border-subtle flex flex-col gap-2.5 text-xs">
-              <div class="flex items-center justify-between">
+            <div class="bg-paper-card p-space-md rounded-2xl shadow-sm border border-border-subtle flex flex-col gap-2.5 text-xs">
+              <div class="flex items-center justify-between gap-2">
                 <span class="text-on-surface-variant font-medium">Cỡ chữ đề thi</span>
                 <div class="flex items-center gap-1">
-                  <button type="button" class="w-7 h-7 rounded bg-surface-container hover:bg-surface-container-high font-code font-bold cursor-pointer" id="font-decrease">A-</button>
-                  <button type="button" class="px-2 h-7 rounded bg-primary text-on-primary font-code font-semibold cursor-pointer" id="font-reset">Chuẩn</button>
-                  <button type="button" class="w-7 h-7 rounded bg-surface-container hover:bg-surface-container-high font-code font-bold cursor-pointer" id="font-increase">A+</button>
+                  <button type="button" class="w-9 h-9 rounded-lg font-code font-bold cursor-pointer ${fontSizeCur === 'text-body-lg' ? 'bg-primary-container text-on-primary' : 'bg-surface-container hover:bg-surface-container-high text-on-surface'}" id="font-decrease" aria-label="Thu nhỏ chữ">A-</button>
+                  <button type="button" class="px-2.5 h-9 rounded-lg font-code font-semibold cursor-pointer ${fontSizeCur === 'text-headline-md' ? 'bg-primary-container text-on-primary' : 'bg-surface-container hover:bg-surface-container-high text-on-surface'}" id="font-reset">Chuẩn</button>
+                  <button type="button" class="w-9 h-9 rounded-lg font-code font-bold cursor-pointer ${fontSizeCur === 'text-headline-lg' ? 'bg-primary-container text-on-primary' : 'bg-surface-container hover:bg-surface-container-high text-on-surface'}" id="font-increase" aria-label="Phóng to chữ">A+</button>
                 </div>
               </div>
-              <div class="pt-2 border-t border-border-subtle/60 text-on-surface-variant space-y-0.5">
+              <div class="pt-2 border-t border-border-subtle text-on-surface-variant space-y-0.5">
                 <div><strong>Chuẩn đạt Band B:</strong></div>
                 <div>• B1 (進階級): Nghe ≥ 46/80 · Đọc ≥ 48/80</div>
                 <div>• B2 (高階級): Nghe ≥ 61/80 · Đọc ≥ 64/80</div>
@@ -8312,39 +8601,39 @@ VIEWS["thi-thu"] = async () => {
       </div>
 
       <!-- SUBMIT CONFIRMATION MODAL -->
-      <div class="fixed inset-0 z-50 bg-black/40 backdrop-blur-xs flex items-center justify-center p-margin hidden" id="submit-modal">
+      <div class="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 hidden" id="submit-modal" role="dialog" aria-modal="true">
         <div class="bg-paper-card rounded-2xl max-w-md w-full p-space-lg shadow-2xl flex flex-col gap-4 border border-border-subtle">
           <div class="text-center">
-            <h3 class="font-headline-md text-lg text-on-surface font-bold">Xác nhận nộp bài ${esc(curTest.shortTitle || 'Band B')}?</h3>
-            <p class="text-xs text-on-surface-variant mt-1">Chấm điểm 50 câu Nghe &amp; 50 câu Đọc theo thang 80 điểm chuẩn SC-TOP.</p>
+            <h3 class="font-headline-md text-lg text-on-surface font-bold m-0">Xác nhận nộp bài ${esc(curTest.shortTitle || 'Band B')}?</h3>
+            <p class="text-xs text-on-surface-variant mt-1 mb-0">Chấm điểm ${listeningQs.length} câu Nghe &amp; ${readingQs.length} câu Đọc theo thang 80 điểm chuẩn SC-TOP.</p>
           </div>
           <div class="bg-surface-container-low p-3 rounded-xl flex justify-around text-center border border-border-subtle">
-            <div><span class="text-outline text-[11px] block">Đã làm</span><span class="font-code text-lg font-bold text-secondary" id="modalStatAns">${totalDone}</span></div>
-            <div><span class="text-outline text-[11px] block">Chưa làm</span><span class="font-code text-lg font-bold text-primary" id="modalStatUnans">${totalUnanswered}</span></div>
-            <div><span class="text-outline text-[11px] block">Đánh dấu</span><span class="font-code text-lg font-bold text-tertiary" id="modalStatFlag">${totalFlagged}</span></div>
+            <div><span class="text-on-surface-variant text-xs block">Đã làm</span><span class="font-code text-lg font-bold text-secondary" id="modalStatAns">${totalDone}</span></div>
+            <div><span class="text-on-surface-variant text-xs block">Chưa làm</span><span class="font-code text-lg font-bold text-primary" id="modalStatUnans">${totalUnanswered}</span></div>
+            <div><span class="text-on-surface-variant text-xs block">Đánh dấu</span><span class="font-code text-lg font-bold text-tertiary" id="modalStatFlag">${totalFlagged}</span></div>
           </div>
           <div class="flex items-center justify-end gap-2">
-            <button type="button" class="px-3.5 py-2 rounded-lg bg-surface-container text-on-surface text-xs font-medium cursor-pointer" id="modal-cancel-btn">Làm tiếp</button>
-            <button type="button" class="px-4 py-2 rounded-lg bg-primary text-on-primary text-xs font-bold cursor-pointer" id="modal-confirm-btn">Nộp bài ngay</button>
+            <button type="button" class="min-h-[40px] px-3.5 py-2 rounded-lg bg-surface-container text-on-surface text-xs font-medium cursor-pointer" id="modal-cancel-btn">Làm tiếp</button>
+            <button type="button" class="min-h-[40px] px-4 py-2 rounded-lg bg-primary-container hover:bg-primary text-on-primary text-xs font-bold cursor-pointer" id="modal-confirm-btn">Nộp bài ngay</button>
           </div>
         </div>
       </div>
 
       <!-- HISTORY MODAL -->
-      <div class="${exam.historyModalOpen ? 'flex' : 'hidden'} fixed inset-0 z-[100] bg-black/40 backdrop-blur-xs items-center justify-center p-4" id="historyModal">
+      <div class="${exam.historyModalOpen ? 'flex' : 'hidden'} fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm items-center justify-center p-4" id="historyModal" role="dialog" aria-modal="true">
         <div class="bg-paper-card w-full max-w-lg rounded-2xl p-space-lg shadow-2xl flex flex-col gap-3 border border-border-subtle">
           <div class="flex items-center justify-between border-b pb-2 border-border-subtle">
-            <h3 class="font-headline-md text-base text-on-surface font-bold">Lịch sử giải đề TOCFL Band B</h3>
-            <button type="button" class="w-8 h-8 rounded-lg hover:bg-surface-container flex items-center justify-center text-outline cursor-pointer" id="btnCloseHistory">
+            <h3 class="font-headline-md text-base text-on-surface font-bold m-0">Lịch sử giải đề TOCFL Band B</h3>
+            <button type="button" class="w-9 h-9 rounded-lg hover:bg-surface-container flex items-center justify-center text-on-surface-variant cursor-pointer" id="btnCloseHistory" aria-label="Đóng lịch sử">
               <span class="material-symbols-outlined text-[20px]">close</span>
             </button>
           </div>
-          <div class="max-h-[300px] overflow-y-auto flex flex-col gap-2">
-            ${exam.history.length === 0 ? `<div class="p-6 text-center text-xs text-outline">Chưa có lượt nộp bài nào.</div>` : exam.history.map((h) => `
+          <div class="max-h-[300px] overflow-y-auto flex flex-col gap-2 custom-scrollbar">
+            ${exam.history.length === 0 ? `<div class="p-6 text-center text-xs text-on-surface-variant">Chưa có lượt nộp bài nào.</div>` : exam.history.map((h) => `
               <div class="p-3 rounded-xl bg-surface-container-low border border-border-subtle flex items-center justify-between gap-3 text-xs">
                 <div>
                   <span class="font-bold text-on-surface">${esc(h.testTitle || "TOCFL Band B")}</span>
-                  <div class="text-[11px] text-outline mt-0.5">${esc(h.date)} · Đúng ${h.score}/${h.total}${h.detail ? ' · ' + esc(h.detail) : ''}</div>
+                  <div class="text-xs text-on-surface-variant mt-0.5">${esc(h.date)} · Đúng ${h.score}/${h.total}${h.detail ? ' · ' + esc(h.detail) : ''}</div>
                 </div>
                 <span class="px-2 py-0.5 rounded font-code font-bold shrink-0 ${h.pct >= 55 ? 'bg-jade-subtle text-secondary' : 'bg-cinnabar-subtle text-primary'}">${esc(h.level || '')}</span>
               </div>
@@ -8373,7 +8662,7 @@ VIEWS["thi-thu"] = async () => {
   if ($("#btnToggleRevealQ")) {
     $("#btnToggleRevealQ").onclick = () => {
       if (!exam.revealedQs) exam.revealedQs = {};
-      exam.revealedQs[curQ.id] = !exam.revealedQs[curQ.id];
+      exam.revealedQs[curQ.id] = !showAnswerBox;
       return VIEWS["thi-thu"]();
     };
   }
@@ -8414,6 +8703,7 @@ VIEWS["thi-thu"] = async () => {
 
   document.querySelectorAll("[data-select-opt]").forEach((card) => {
     card.onclick = () => {
+      if (!exam.isExamMode) return;
       exam.answers[curQ.id] = Number(card.dataset.selectOpt);
       return VIEWS["thi-thu"]();
     };
@@ -8438,8 +8728,15 @@ VIEWS["thi-thu"] = async () => {
   }
   if ($("#btn-unanswered-filter")) {
     $("#btn-unanswered-filter").onclick = () => {
-      const nextUnidx = curTest.questions.findIndex(q => exam.answers[q.id] === undefined);
+      const qs = curTest.questions;
+      const start = (exam.curQuestionIdx + 1) % qs.length;
+      let nextUnidx = -1;
+      for (let off = 0; off < qs.length; off++) {
+        const i = (start + off) % qs.length;
+        if (exam.answers[qs[i].id] === undefined) { nextUnidx = i; break; }
+      }
       if (nextUnidx !== -1) { stopExamAudio(); exam.curQuestionIdx = nextUnidx; exam.sheetSection = "auto"; return VIEWS["thi-thu"](); }
+      showToast("Bạn đã chọn đáp án cho tất cả các câu!");
     };
   }
 
@@ -8452,7 +8749,6 @@ VIEWS["thi-thu"] = async () => {
   });
 
   if ($("#tabOverviewBtn")) $("#tabOverviewBtn").onclick = () => { stopExamAudio(); location.hash = "#thi-thu"; };
-  if ($("#tabReviewBtn")) $("#tabReviewBtn").onclick = () => { examGo(true); VIEWS["thi-thu"](); };
 
   document.querySelectorAll("[data-start-exam]").forEach((btn) => {
     btn.onclick = () => {
@@ -8463,6 +8759,7 @@ VIEWS["thi-thu"] = async () => {
       examGo(true);
       exam.sheetSection = "auto";
       exam.isExamMode = true;
+      if (exam.byTest[tid]) exam.byTest[tid].isExamMode = true;
       const targetTest = displayTests.find(t => t.id === tid) || curTest;
       const rStart = targetTest.questions.findIndex(q => q.section !== "listening");
       exam.curQuestionIdx = (sec === "reading" && rStart >= 0) ? rStart : 0;
@@ -8473,10 +8770,18 @@ VIEWS["thi-thu"] = async () => {
   document.querySelectorAll("[data-review-exam]").forEach((btn) => {
     btn.onclick = () => {
       stopExamAudio();
-      exam.testId = btn.dataset.reviewExam;
+      const tid = btn.dataset.reviewExam;
+      exam.testId = tid;
       examGo(true);
       exam.sheetSection = "auto";
       exam.isExamMode = false;
+      if (!exam.byTest[tid]) {
+        const targetTest = displayTests.find(t => t.id === tid) || curTest;
+        const firstR = targetTest.questions.findIndex(q => q.section !== "listening");
+        exam.byTest[tid] = { answers: {}, flagged: {}, revealedQs: {}, lastListenIdx: 0, lastReadIdx: firstR >= 0 ? firstR : 50, timerLeft: 7200, isExamMode: false };
+      } else {
+        exam.byTest[tid].isExamMode = false;
+      }
       exam.curQuestionIdx = 0;
       VIEWS["thi-thu"]();
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -8518,7 +8823,7 @@ VIEWS["thi-thu"] = async () => {
       readScaled,
       listenBand,
       readBand,
-      detail: `Nghe ${listenScaled}/80 (${listenCorrect}/50) • Đọc ${readScaled}/80 (${readCorrect}/50)`,
+      detail: `Nghe ${listenScaled}/80 (${listenCorrect}/${listeningQs.length}) • Đọc ${readScaled}/80 (${readCorrect}/${readingQs.length})`,
       level
     };
 
@@ -8555,7 +8860,7 @@ VIEWS["thi-thu"] = async () => {
     clearInterval(window._tocflTimerInterval);
     window._tocflTimerInterval = null;
   }
-  if (exam.isExamMode && exam.timerLeft > 0) {
+  if (exam.subview === "review" && exam.isExamMode && exam.timerLeft > 0) {
     window._tocflTimerInterval = setInterval(() => {
       if (!location.hash.startsWith("#thi-thu/") || !exam.isExamMode) {
         clearInterval(window._tocflTimerInterval);
@@ -8576,6 +8881,9 @@ VIEWS["thi-thu"] = async () => {
   }
 
   const submitModal = $("#submit-modal");
+  const historyModal = $("#historyModal");
+  if (submitModal) submitModal.onclick = (e) => { if (e.target === submitModal) submitModal.classList.add("hidden"); };
+  if (historyModal) historyModal.onclick = (e) => { if (e.target === historyModal) { exam.historyModalOpen = false; VIEWS["thi-thu"](); } };
   if ($("#modal-cancel-btn")) $("#modal-cancel-btn").onclick = () => { if (submitModal) submitModal.classList.add("hidden"); };
   if ($("#modal-confirm-btn")) $("#modal-confirm-btn").onclick = () => { if (submitModal) submitModal.classList.add("hidden"); return doSubmitExam(); };
 
@@ -8591,6 +8899,10 @@ VIEWS["thi-thu"] = async () => {
   if ($("#btnSubmitExam")) $("#btnSubmitExam").onclick = promptSubmitModal;
 
   window.onkeydown = (e) => {
+    if (e.key === "Escape") {
+      if (submitModal && !submitModal.classList.contains("hidden")) { submitModal.classList.add("hidden"); return; }
+      if (exam.historyModalOpen) { exam.historyModalOpen = false; VIEWS["thi-thu"](); return; }
+    }
     if (!location.hash.startsWith("#thi-thu/")) return;
     if (e.key === "Shift" && !e.ctrlKey && !e.altKey && !e.metaKey) {
       playExamAudio();
@@ -8605,12 +8917,14 @@ function examGo(inExam) {
 }
 window.examQuickStart = (testId, section) => {
   stopExamAudio();
-  if (S.exam) {
-    S.exam.testId = testId;
-    examGo(true);
-    S.exam.isExamMode = true;
-    S.exam.curQuestionIdx = section === "reading" ? 50 : 0;
-  }
+  if (!S.exam) S.exam = { byTest: {} };
+  if (!S.exam.byTest) S.exam.byTest = {};
+  S.exam.testId = testId;
+  examGo(true);
+  S.exam.isExamMode = true;
+  if (S.exam.byTest[testId]) S.exam.byTest[testId].isExamMode = true;
+  S.exam.sheetSection = "auto";
+  S.exam.pendingSection = section || "listening";
   VIEWS["thi-thu"]();
 };
 
@@ -8669,66 +8983,36 @@ VIEWS["nhap"] = () => {
         </div>
       </div>
 
-      <!-- ================= STITCH BATCH IMPORT CENTER (Exact Stitch Mode 2) ================= -->
-      <div class="flex flex-col gap-space-xl" id="section-import">
-        <!-- Import Header Info Banner -->
-        <div class="bg-paper-card p-space-lg rounded-2xl border border-border-subtle/70 shadow-sm flex flex-col md:flex-row items-center justify-between gap-space-lg">
-          <div class="flex items-center gap-space-md">
-            <div class="w-12 h-12 rounded-xl bg-cinnabar-subtle text-primary flex items-center justify-center shrink-0">
-              <span class="material-symbols-outlined text-[26px]">library_add</span>
-            </div>
-            <div class="flex flex-col">
-              <h2 class="font-headline-md text-headline-md text-on-surface font-semibold">Trung tâm Nạp dữ liệu Học tập Thông minh</h2>
-              <p class="font-body-md text-body-md text-on-surface-variant">Nhập nhanh 1 từ hoặc dán danh sách nhiều từ để tự động trích xuất Pinyin, nghĩa tiếng Việt và đưa vào lịch học SRS.</p>
-            </div>
-          </div>
-          <div class="flex items-center gap-space-xs self-stretch md:self-auto">
-            <span class="px-space-md py-1.5 rounded-lg bg-surface-container text-on-surface font-label-sm text-label-sm flex items-center gap-1">
-              <span class="material-symbols-outlined text-[16px] text-secondary">verified</span>
-              Trợ lý Từ điển Phồn thể Đài Loan sẵn sàng
-            </span>
-          </div>
-        </div>
-
-        <!-- 4 Multiple Ingestion Pathways (Exact Stitch) -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-space-md">
-          <button type="button" class="p-space-md rounded-xl bg-paper-card text-left shadow-sm hover:shadow-md transition-all flex flex-col gap-space-xs border-2 border-primary" id="btn-path-paste">
-            <span class="material-symbols-outlined text-primary text-[24px]">content_paste</span>
-            <span class="font-label-md text-label-md font-semibold text-on-surface">Nhập nhanh &amp; Dán văn bản</span>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">Hán tự, Pinyin, hoặc nghĩa Việt tự do</span>
+      <!-- ================= BATCH & SINGLE IMPORT WORKSPACE ================= -->
+      <div class="flex flex-col gap-space-lg" id="section-import">
+        <!-- Compact Section Jump Pills -->
+        <div class="flex flex-wrap items-center gap-2 text-xs">
+          <button type="button" class="px-3 py-1.5 rounded-full bg-paper-card border border-border-subtle hover:border-primary text-on-surface font-semibold inline-flex items-center gap-1.5" onclick="$('#w')?.focus()">
+            <span class="material-symbols-outlined text-[16px] text-primary">add_task</span> Nhập nhanh 1 từ
           </button>
-          <button type="button" class="p-space-md rounded-xl bg-paper-card border border-border-subtle/70 text-left shadow-sm hover:shadow-md transition-all flex flex-col gap-space-xs opacity-85 hover:opacity-100" onclick="$('#batch-textarea')?.focus()">
-            <span class="material-symbols-outlined text-secondary text-[24px]">folder_zip</span>
-            <span class="font-label-md text-label-md font-semibold text-on-surface">Danh sách từ hàng loạt</span>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">Nạp nhiều từ cùng lúc vào sổ tay</span>
+          <button type="button" class="px-3 py-1.5 rounded-full bg-paper-card border border-border-subtle hover:border-primary text-on-surface font-semibold inline-flex items-center gap-1.5" onclick="$('#batch-textarea')?.focus()">
+            <span class="material-symbols-outlined text-[16px] text-secondary">content_paste</span> Dán danh sách nhiều từ
           </button>
-          <button type="button" class="p-space-md rounded-xl bg-paper-card border border-border-subtle/70 text-left shadow-sm hover:shadow-md transition-all flex flex-col gap-space-xs opacity-85 hover:opacity-100" onclick="$('#w')?.focus()">
-            <span class="material-symbols-outlined text-tertiary text-[24px]">add_task</span>
-            <span class="font-label-md text-label-md font-semibold text-on-surface">Ghi nhanh 1 từ mới</span>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">Kiểm tra trùng lặp TOCFL tức thì</span>
-          </button>
-          <button type="button" class="p-space-md rounded-xl bg-paper-card border border-border-subtle/70 text-left shadow-sm hover:shadow-md transition-all flex flex-col gap-space-xs opacity-85 hover:opacity-100" onclick="$('#ilist')?.scrollIntoView({behavior:'smooth'})">
-            <span class="material-symbols-outlined text-outline text-[24px]">inbox</span>
-            <span class="font-label-md text-label-md font-semibold text-on-surface">Hộp thư đã lưu (${S.inbox ? S.inbox.size : 0})</span>
-            <span class="font-body-sm text-body-sm text-on-surface-variant">Quản lý &amp; bấm Học ngay từng từ</span>
+          <button type="button" class="px-3 py-1.5 rounded-full bg-paper-card border border-border-subtle hover:border-primary text-on-surface font-semibold inline-flex items-center gap-1.5" onclick="$('#ilist')?.scrollIntoView({behavior:'smooth'})">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">inbox</span> Hộp thư đã lưu (${S.inbox ? S.inbox.size : 0})
           </button>
         </div>
 
         <!-- Quick Single-Word Input Card (Preserves #f, #w, #check, #where, #note, #save, #msg) -->
-        <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
+        <div class="bg-paper-card rounded-2xl p-4 sm:p-space-lg border border-border-subtle shadow-sm flex flex-col gap-space-md">
           <div class="flex items-center justify-between flex-wrap gap-2">
             <div class="flex items-center gap-2">
               <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
-              <h2 class="font-headline-md text-lg font-bold text-on-surface">Nhập nhanh từ mới &amp; Đồng bộ Lịch học</h2>
+              <h2 class="font-headline-md text-lg font-bold text-on-surface m-0">Nhập nhanh 1 từ mới</h2>
             </div>
-            <span class="text-xs px-2.5 py-0.5 rounded-full bg-jade-subtle text-secondary font-semibold">Tự động tạo thẻ Nhận diện · Nghe · Viết · Điền từ</span>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-jade-subtle text-secondary font-semibold">Tự động tạo thẻ SRS</span>
           </div>
 
           <form class="flex flex-col gap-space-md" id="f" autocomplete="off">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
               <label class="flex flex-col gap-1.5">
                 <span class="text-xs font-semibold text-on-surface-variant">Từ mới (chữ Phồn thể):</span>
-                <input id="w" class="w-full p-3 rounded-xl bg-paper-base border border-border-subtle text-xl font-serif text-on-surface focus:outline-none focus:bg-white focus:ring-2 focus:ring-primary/20" placeholder="Ví dụ：機會, 買單, 捷運..." maxlength="16">
+                <input id="w" class="w-full p-3 rounded-xl bg-paper-base border border-border-subtle text-xl font-serif text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Ví dụ：機會, 買單, 捷運..." maxlength="16">
               </label>
               <label class="flex flex-col gap-1.5">
                 <span class="text-xs font-semibold text-on-surface-variant">Gặp ở đâu (ngữ cảnh):</span>
@@ -8740,13 +9024,13 @@ VIEWS["nhap"] = () => {
               </label>
             </div>
 
-            <div class="p-3 rounded-xl bg-surface-container-low border border-border-subtle text-xs text-outline font-medium" id="check">
+            <div class="p-3 rounded-xl bg-surface-container-low border border-border-subtle text-xs text-on-surface-variant font-medium" id="check">
               Gõ một từ chữ Hán Phồn thể để kiểm tra với kho dữ liệu TOCFL &amp; Từ điển.
             </div>
 
             <div class="flex items-center justify-between pt-1 flex-wrap gap-2">
               <div class="text-xs font-semibold" id="msg"></div>
-              <button class="px-6 py-2.5 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary transition-colors shadow-xs disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5" id="save" type="submit" disabled>
+              <button class="min-h-[42px] px-5 py-2.5 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary transition-colors shadow-sm disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5" id="save" type="submit" disabled>
                 <span class="material-symbols-outlined text-[16px]">add_task</span>
                 <span>Lưu &amp; Đồng bộ vào Lịch học</span>
               </button>
@@ -8754,49 +9038,49 @@ VIEWS["nhap"] = () => {
           </form>
         </div>
 
-        <!-- Main Batch Ingestion Workspace (Exact Stitch 6+6 Cols) -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+        <!-- Main Batch Ingestion Workspace (6+6 Cols) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
           <!-- Left Editor Box (6 cols) -->
-          <div class="lg:col-span-6 flex flex-col gap-space-md bg-paper-card p-space-xl rounded-2xl border border-border-subtle/70 shadow-sm">
-            <div class="flex items-center justify-between">
+          <div class="lg:col-span-6 flex flex-col gap-space-md bg-paper-card p-4 sm:p-space-lg rounded-2xl border border-border-subtle shadow-sm">
+            <div class="flex items-center justify-between flex-wrap gap-2">
               <div class="flex items-center gap-space-xs">
-                <span class="w-1.5 h-3.5 rounded-full bg-primary"></span>
-                <span class="font-label-md text-label-md font-semibold text-on-surface">Khung nhập liệu văn bản hàng loạt</span>
+                <span class="w-1.5 h-3.5 rounded-full bg-primary-container"></span>
+                <span class="font-label-md text-label-md font-semibold text-on-surface">Nhập danh sách hàng loạt</span>
               </div>
-              <div class="flex items-center gap-space-xs">
-                <button type="button" class="text-primary hover:underline font-label-sm text-label-sm" id="btn-batch-sample">
+              <div class="flex items-center gap-2">
+                <button type="button" class="text-primary hover:underline font-label-sm text-xs font-semibold" id="btn-batch-sample">
                   Điền mẫu ví dụ
                 </button>
-                <span class="text-surface-container-high">•</span>
-                <button type="button" class="text-outline hover:text-on-surface font-label-sm text-label-sm" id="btn-batch-clear">
+                <span class="text-border-subtle">•</span>
+                <button type="button" class="text-on-surface-variant hover:text-on-surface font-label-sm text-xs" id="btn-batch-clear">
                   Xóa trắng
                 </button>
               </div>
             </div>
             <div class="relative flex-1">
-              <textarea class="w-full h-full min-h-[200px] p-space-md rounded-xl bg-paper-base border border-border-subtle text-on-surface font-body-md text-body-md focus:outline-none placeholder:text-outline/60 resize-y leading-relaxed" id="batch-textarea" rows="8" placeholder="Dán danh sách từ của bạn vào đây (mỗi dòng 1 từ)..."></textarea>
+              <textarea class="w-full h-full min-h-[180px] p-space-md rounded-xl bg-paper-base border border-border-subtle text-on-surface font-body-md text-body-md focus:outline-none placeholder:text-outline resize-y leading-relaxed" id="batch-textarea" rows="7" placeholder="Dán danh sách từ của bạn vào đây (mỗi dòng 1 từ)..."></textarea>
             </div>
-            <div class="flex items-center justify-between pt-space-xs">
-              <span class="font-body-sm text-body-sm text-outline" id="batch-detect-count">Đã phát hiện: <strong>4 mục từ hợp lệ</strong></span>
-              <button type="button" class="px-space-lg py-2.5 rounded-xl bg-primary hover:bg-primary-container text-on-primary font-label-md text-label-md font-semibold transition-all shadow-sm flex items-center gap-2" id="btn-batch-parse">
-                <span class="material-symbols-outlined text-[18px]">neurology</span>
+            <div class="flex items-center justify-between flex-wrap gap-2 pt-space-xs">
+              <span class="font-body-sm text-xs text-on-surface-variant" id="batch-detect-count">Đã phát hiện: <strong>0 mục từ</strong></span>
+              <button type="button" class="min-h-[42px] px-4 py-2 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-label-md text-xs font-semibold transition-all shadow-sm flex items-center gap-1.5" id="btn-batch-parse">
+                <span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
                 <span>Chuẩn hóa &amp; Xem trước</span>
               </button>
             </div>
           </div>
 
           <!-- Right Preview & Validation Table (6 cols) -->
-          <div class="lg:col-span-6 flex flex-col gap-space-md bg-paper-card p-space-xl rounded-2xl border border-border-subtle/70 shadow-sm">
+          <div class="lg:col-span-6 flex flex-col gap-space-md bg-paper-card p-4 sm:p-space-lg rounded-2xl border border-border-subtle shadow-sm">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-space-xs">
                 <span class="w-1.5 h-3.5 rounded-full bg-secondary"></span>
                 <span class="font-label-md text-label-md font-semibold text-on-surface" id="batch-preview-title">Kết quả chuẩn hóa</span>
               </div>
-              <span class="px-2 py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-label-sm font-medium">Sẵn sàng nhập sổ</span>
+              <span class="px-2 py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-xs font-medium">Sẵn sàng nhập sổ</span>
             </div>
-            <div class="overflow-x-auto rounded-xl bg-paper-base border border-border-subtle/60 flex-1">
+            <div class="overflow-x-auto rounded-xl bg-paper-base border border-border-subtle flex-1">
               <table class="w-full text-left font-body-sm text-body-sm">
-                <thead class="bg-surface-container font-label-sm text-label-sm text-on-surface-variant">
+                <thead class="bg-surface-container font-label-sm text-xs text-on-surface-variant">
                   <tr>
                     <th class="p-space-sm pl-space-md">Chữ Phồn thể</th>
                     <th class="p-space-sm">Phiên âm</th>
@@ -8804,15 +9088,15 @@ VIEWS["nhap"] = () => {
                     <th class="p-space-sm pr-space-md text-right">TOCFL</th>
                   </tr>
                 </thead>
-                <tbody class="divide-y divide-surface-container-high/40 text-on-surface" id="batch-preview-tbody"></tbody>
+                <tbody class="divide-y divide-border-subtle text-on-surface" id="batch-preview-tbody"></tbody>
               </table>
             </div>
             <div class="flex flex-col gap-space-sm pt-space-xs">
-              <div class="flex items-center justify-between text-body-sm">
-                <span class="text-on-surface-variant font-label-sm text-label-sm">Thư mục nhận dữ liệu:</span>
-                <span class="font-medium text-primary">Hộp thư &amp; Thư mục của tôi (Đồng bộ SRS)</span>
+              <div class="flex items-center justify-between text-xs flex-wrap gap-1">
+                <span class="text-on-surface-variant">Thư mục nhận dữ liệu:</span>
+                <span class="font-semibold text-primary">Hộp thư &amp; Thư mục của tôi (SRS)</span>
               </div>
-              <button type="button" class="w-full py-3 rounded-xl bg-secondary hover:bg-secondary/90 text-on-secondary font-label-md text-label-md font-semibold transition-all shadow-md flex items-center justify-center gap-2" id="btn-batch-commit">
+              <button type="button" class="w-full min-h-[44px] py-2.5 rounded-xl bg-secondary hover:bg-secondary/90 text-on-secondary font-label-md text-sm font-semibold transition-all shadow-sm disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2" id="btn-batch-commit" disabled>
                 <span class="material-symbols-outlined text-[20px]">archive</span>
                 <span id="btn-batch-commit-label">Xác nhận nạp tất cả vào sổ tay</span>
               </button>
@@ -8821,15 +9105,15 @@ VIEWS["nhap"] = () => {
         </div>
 
         <!-- Imported Words List in Inbox (#ilist) -->
-        <div class="bg-paper-card rounded-2xl p-space-lg md:p-space-xl border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
+        <div class="bg-paper-card rounded-2xl p-4 sm:p-space-lg border border-border-subtle shadow-sm flex flex-col gap-space-md">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div class="flex items-center gap-2 flex-wrap">
-              <h2 class="font-headline-lg text-lg font-bold text-on-surface">Từ đã nhập trong Hộp thư (<span id="inbox-count">${S.inbox ? S.inbox.size : 0}</span>)</h2>
-              <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-jade-subtle text-secondary border border-secondary/20">Hiển thị đầy đủ các nghĩa &amp; đồng bộ SRS</span>
+              <h2 class="font-headline-lg text-lg font-bold text-on-surface m-0">Từ đã nhập trong Hộp thư (<span id="inbox-count">${S.inbox ? S.inbox.size : 0}</span>)</h2>
+              <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-jade-subtle text-secondary">Đầy đủ nghĩa &amp; đồng bộ SRS</span>
             </div>
             <div class="flex items-center gap-2 flex-wrap">
               <span id="inboxEnrichStatus" class="text-xs text-secondary font-medium"></span>
-              <button type="button" id="btn-enrich-all-inbox" class="px-3 py-1.5 rounded-lg bg-jade-subtle hover:bg-secondary-container text-secondary border border-secondary/30 text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer">
+              <button type="button" id="btn-enrich-all-inbox" class="min-h-[38px] px-3 py-1.5 rounded-lg bg-jade-subtle hover:bg-secondary-container text-secondary border border-border-subtle text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer">
                 <span class="material-symbols-outlined text-[16px]">auto_fix_high</span>
                 <span>Cập nhật đầy đủ nghĩa tất cả</span>
               </button>
@@ -8989,18 +9273,9 @@ VIEWS["nhap"] = () => {
     if (!list) return;
     const entries = S.inbox ? [...S.inbox.entries()].sort((a, b) => (b[1].at || 0) - (a[1].at || 0)) : [];
     if (!entries.length) {
-      list.innerHTML = `<div class="col-span-full p-8 text-center text-xs text-outline bg-surface-container-low/50 rounded-2xl border border-dashed border-border-subtle">Chưa có từ nào trong Hộp thư. Nhập từ mới ở trên để vừa lưu, vừa học và đồng bộ ngay vào lịch ôn nhé.</div>`;
+      list.innerHTML = `<div class="col-span-full p-8 text-center text-xs text-on-surface-variant bg-surface-container-low rounded-2xl border border-dashed border-border-subtle">Chưa có từ nào trong Hộp thư. Nhập từ mới ở trên để vừa lưu, vừa học và đồng bộ ngay vào lịch ôn nhé.</div>`;
       return;
     }
-
-    const lvBadgeColors = [
-      "bg-surface-container text-outline border-border-subtle",
-      "bg-cinnabar-subtle text-primary border-cinnabar-subtle",
-      "bg-amber-subtle text-tertiary border-amber-subtle",
-      "bg-sky-50 text-sky-700 border-sky-200",
-      "bg-jade-subtle text-secondary border-jade-subtle",
-      "bg-purple-50 text-purple-700 border-purple-200"
-    ];
 
     list.innerHTML = entries.map(([key, it]) => {
       let n = S.noteByWord.get(it.w);
@@ -9020,19 +9295,19 @@ VIEWS["nhap"] = () => {
       const isEditing = editingInboxKey === key;
 
       return `
-        <div class="p-4 rounded-2xl bg-surface-container-low border border-border-subtle hover:border-primary/40 transition-all flex flex-col justify-between gap-3 shadow-xs">
+        <div class="p-4 rounded-2xl bg-surface-container-low border border-border-subtle hover:border-primary/40 transition-all flex flex-col justify-between gap-3 shadow-sm">
           <div class="flex items-start justify-between gap-2">
             <div class="flex flex-col min-w-0 flex-1">
               <div class="flex items-center gap-2 flex-wrap">
                 <a href="#tu/${encodeURIComponent(it.w)}" class="font-serif font-bold text-xl text-on-surface hover:text-primary transition-colors no-underline">${esc(it.w)}</a>
-                ${info.py ? `<span class="font-code text-xs text-tertiary font-medium bg-amber-subtle/50 px-2 py-0.5 rounded-md border border-amber-subtle/40">${esc(info.py)}</span>` : ""}
-                ${info.band ? `<span class="px-1.5 py-0.5 rounded bg-surface-container text-[10px] font-code font-semibold text-outline">${esc(info.band)}</span>` : ""}
-                <button type="button" class="text-secondary hover:text-primary transition-colors p-1 rounded-lg hover:bg-paper-card" onclick="say('${esc(it.w)}')" title="Nghe phát âm">
+                ${info.py ? `<span class="font-code text-xs text-tertiary font-medium bg-amber-subtle px-2 py-0.5 rounded-md border border-border-subtle">${esc(info.py)}</span>` : ""}
+                ${info.band ? `<span class="px-1.5 py-0.5 rounded bg-surface-container text-xs font-code font-semibold text-on-surface-variant">${esc(info.band)}</span>` : ""}
+                <button type="button" class="w-8 h-8 text-secondary hover:text-primary transition-colors rounded-lg hover:bg-paper-card flex items-center justify-center" data-say="${esc(it.w)}" title="Nghe phát âm" aria-label="Nghe ${esc(it.w)}">
                   <span class="material-symbols-outlined text-[18px]">volume_up</span>
                 </button>
               </div>
               ${info.hv || info.pos ? `
-                <div class="text-[11px] text-outline mt-1 flex items-center gap-2 flex-wrap">
+                <div class="text-xs text-outline mt-1 flex items-center gap-2 flex-wrap">
                   ${info.hv ? `<span>Hán Việt: <strong class="text-on-surface-variant">${esc(info.hv)}</strong></span>` : ""}
                   ${info.pos ? `<span>· ${esc(info.pos)}</span>` : ""}
                 </div>
@@ -9041,19 +9316,19 @@ VIEWS["nhap"] = () => {
                 <ul class="mt-1.5 space-y-1 text-xs text-on-surface leading-relaxed list-disc pl-4">
                   ${info.ng.map((sense) => `<li>${esc(sense)}</li>`).join("")}
                 </ul>
-              ` : (summaryMeaning ? `<div class="text-xs text-on-surface font-medium mt-1.5 leading-relaxed">${esc(summaryMeaning)}</div>` : `<div class="text-xs text-outline italic mt-1.5">Chưa có nghĩa tiếng Việt — bấm 🔄 để cập nhật tự động.</div>`)}
-              ${showUserNoteSeparately ? `<div class="text-[11px] text-tertiary mt-1 bg-amber-subtle/50 px-2 py-1 rounded-lg">Ghi chú của bạn: ${esc(info.userNote)}</div>` : ""}
-              ${it.where ? `<div class="text-[11px] text-outline mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[13px]">location_on</span><span>${esc(it.where)}</span></div>` : ""}
+              ` : (summaryMeaning ? `<div class="text-xs text-on-surface font-medium mt-1.5 leading-relaxed">${esc(summaryMeaning)}</div>` : `<div class="text-xs text-outline italic mt-1.5">Chưa có nghĩa tiếng Việt — bấm biểu tượng đồng bộ để cập nhật tự động.</div>`)}
+              ${showUserNoteSeparately ? `<div class="text-xs text-tertiary mt-1 bg-amber-subtle px-2 py-1 rounded-lg">Ghi chú của bạn: ${esc(info.userNote)}</div>` : ""}
+              ${it.where ? `<div class="text-xs text-outline mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">location_on</span><span>${esc(it.where)}</span></div>` : ""}
             </div>
-            <div class="flex items-center gap-0.5 shrink-0">
-              <button type="button" class="text-xs text-secondary hover:text-primary transition-colors p-1 rounded-lg hover:bg-paper-card" data-enrich-inbox="${esc(key)}" title="Cập nhật nghĩa đầy đủ tự động">
-                <span class="material-symbols-outlined text-[16px]">sync</span>
+            <div class="flex items-center gap-1 shrink-0">
+              <button type="button" class="w-8 h-8 text-secondary hover:text-primary transition-colors rounded-lg hover:bg-paper-card flex items-center justify-center" data-enrich-inbox="${esc(key)}" title="Cập nhật nghĩa đầy đủ tự động" aria-label="Cập nhật nghĩa">
+                <span class="material-symbols-outlined text-[18px]">sync</span>
               </button>
-              <button type="button" class="text-xs text-outline hover:text-primary transition-colors p-1 rounded-lg hover:bg-paper-card" data-edit-inbox="${esc(key)}" title="Sửa / thêm nghĩa cho từ này">
-                <span class="material-symbols-outlined text-[16px]">edit</span>
+              <button type="button" class="w-8 h-8 text-outline hover:text-primary transition-colors rounded-lg hover:bg-paper-card flex items-center justify-center" data-edit-inbox="${esc(key)}" title="Sửa / thêm nghĩa cho từ này" aria-label="Sửa nghĩa">
+                <span class="material-symbols-outlined text-[18px]">edit</span>
               </button>
-              <button type="button" class="text-xs text-outline hover:text-primary transition-colors p-1 rounded-lg hover:bg-paper-card" data-del-inbox="${esc(key)}" title="Xóa khỏi Hộp thư">
-                <span class="material-symbols-outlined text-[16px]">delete</span>
+              <button type="button" class="w-8 h-8 text-outline hover:text-primary transition-colors rounded-lg hover:bg-paper-card flex items-center justify-center" data-del-inbox="${esc(key)}" title="Xóa khỏi Hộp thư" aria-label="Xóa từ">
+                <span class="material-symbols-outlined text-[18px]">delete</span>
               </button>
             </div>
           </div>
@@ -9073,19 +9348,19 @@ VIEWS["nhap"] = () => {
             </div>
           ` : ""}
 
-          <div class="pt-2.5 border-t border-border-subtle/60 flex items-center justify-between gap-2 flex-wrap">
+          <div class="pt-2.5 border-t border-border-subtle flex items-center justify-between gap-2 flex-wrap">
             <div class="flex items-center gap-1.5 flex-wrap">
-              <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full border ${lvBadgeColors[lvl]}">
+              <span class="pill lv-${lvl}">
                 ${esc(LEVELS[lvl])}
               </span>
-              ${isDue ? `<span class="text-[10px] font-bold px-1.5 py-0.5 rounded-md bg-cinnabar-subtle text-primary border border-cinnabar-subtle">Đến hạn ôn</span>` : ""}
+              ${isDue ? `<span class="text-xs font-bold px-2 py-0.5 rounded-md bg-cinnabar-subtle text-primary">Đến hạn ôn</span>` : ""}
             </div>
 
             <div class="flex items-center gap-2">
-              <select class="text-[11px] font-medium bg-paper-card border border-border-subtle rounded-lg px-2 py-1 text-on-surface focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer" data-change-lvl="${esc(it.w)}" title="Đổi mức nhớ cho từ này">
+              <select class="text-xs font-medium bg-paper-card border border-border-subtle rounded-lg px-2 py-1.5 text-on-surface focus:outline-none focus:ring-1 focus:ring-primary cursor-pointer" data-change-lvl="${esc(it.w)}" title="Đổi mức nhớ cho từ này">
                 ${LEVELS.map((label, idx) => `<option value="${idx}"${lvl === idx ? " selected" : ""}>${esc(label)}</option>`).join("")}
               </select>
-              <button type="button" class="px-3 py-1 rounded-lg bg-primary-container text-white font-semibold text-xs hover:bg-primary transition-colors shadow-xs flex items-center gap-1" data-study-word="${esc(it.w)}" title="Bắt đầu học ngay với Flashcard của từ này">
+              <button type="button" class="min-h-[36px] px-3 py-1 rounded-lg bg-primary-container text-white font-semibold text-xs hover:bg-primary transition-colors shadow-sm flex items-center gap-1" data-study-word="${esc(it.w)}" title="Bắt đầu học ngay với Flashcard của từ này">
                 <span class="material-symbols-outlined text-[15px]">play_circle</span>
                 <span>Học ngay</span>
               </button>
@@ -9222,11 +9497,14 @@ VIEWS["nhap"] = () => {
     e.preventDefault();
     const c = check();
     if (!c) return;
-    const id = "inbox~" + Date.now();
     const twWord = typeof toTraditionalTw === "function" ? toTraditionalTw(c.w) : c.w;
+    if (!S.inbox) S.inbox = new Map();
+    let existingId = null;
+    for (const [k, v] of S.inbox) { if (v && v.w === twWord) { existingId = k; break; } }
+    const id = existingId || ("inbox~" + twWord);
     try { await Promise.all([ensureVi([twWord]), ensureRich([twWord])]); } catch (err) {}
     const info = resolveFullInfoForWord(twWord, null);
-    const typedNote = clean($("#note").value);
+    const typedNote = ($("#note").value || "").trim();
     const entry = {
       id,
       w: twWord,
@@ -9234,12 +9512,11 @@ VIEWS["nhap"] = () => {
       hv: info.hv || "",
       pos: info.pos || "",
       ng: info.ng.length ? info.ng : (typedNote ? typedNote.split(/;+/).map((x) => x.trim()).filter(Boolean) : []),
-      where: clean($("#where").value),
+      where: ($("#where").value || "").trim(),
       note: typedNote || info.dictVn || info.en || "",
       at: Date.now()
     };
     await Store.put("inbox", id, entry);
-    if (!S.inbox) S.inbox = new Map();
     S.inbox.set(id, entry);
 
     if (typeof syncInboxWordToLearning === "function") {
@@ -9287,7 +9564,9 @@ VIEWS["nhap"] = () => {
     const titleEl = $("#batch-preview-title");
     if (titleEl) titleEl.textContent = `Kết quả chuẩn hóa (${parsedBatch.length} mục)`;
     const btnLbl = $("#btn-batch-commit-label");
-    if (btnLbl) btnLbl.textContent = `Xác nhận nạp tất cả ${parsedBatch.length} từ vào sổ tay`;
+    if (btnLbl) btnLbl.textContent = parsedBatch.length ? `Xác nhận nạp ${parsedBatch.length} từ vào sổ tay` : `Nhập từ ở khung bên trái để nạp`;
+    const commitBtn = $("#btn-batch-commit");
+    if (commitBtn) commitBtn.disabled = parsedBatch.length === 0;
     const tbody = $("#batch-preview-tbody");
     if (tbody) {
       tbody.innerHTML = parsedBatch.map((it) => `
@@ -9341,34 +9620,42 @@ VIEWS["nhap"] = () => {
   const btnCommit = $("#btn-batch-commit");
   if (btnCommit) {
     btnCommit.onclick = async () => {
-      if (!parsedBatch.length) return;
-      if (!S.inbox) S.inbox = new Map();
-      const addedKeys = [];
-      for (const item of parsedBatch) {
-        const id = "inbox~" + item.w;
-        const entry = {
-          id,
-          w: item.w,
-          py: item.py,
-          hv: item.hv || "",
-          pos: item.pos || "",
-          ng: item.ng || [],
-          where: "Nhập hàng loạt",
-          note: item.vn || "",
-          at: Date.now()
-        };
-        S.inbox.set(id, entry);
-        addedKeys.push(id);
-        try { await Store.put("inbox", id, entry); } catch (err) {}
-        if (typeof syncInboxWordToLearning === "function") {
-          syncInboxWordToLearning(entry, true);
-        }
-      }
-      await enrichInboxKeys(addedKeys, true);
-      drawInbox();
-      if (typeof updateBadge === "function") updateBadge();
+      if (!parsedBatch.length || btnCommit.disabled) return;
+      btnCommit.disabled = true;
       const lbl = $("#btn-batch-commit-label");
-      if (lbl) lbl.textContent = `✓ Đã nạp & cập nhật nghĩa cho ${parsedBatch.length} từ vào Hộp thư & SRS!`;
+      if (lbl) lbl.textContent = "Đang nạp & cập nhật nghĩa…";
+      try {
+        if (!S.inbox) S.inbox = new Map();
+        const addedKeys = [];
+        for (const item of parsedBatch) {
+          let existingId = null;
+          for (const [k, v] of S.inbox) { if (v && v.w === item.w) { existingId = k; break; } }
+          const id = existingId || ("inbox~" + item.w);
+          const entry = {
+            id,
+            w: item.w,
+            py: item.py,
+            hv: item.hv || "",
+            pos: item.pos || "",
+            ng: item.ng || [],
+            where: "Nhập hàng loạt",
+            note: item.vn || "",
+            at: Date.now()
+          };
+          S.inbox.set(id, entry);
+          addedKeys.push(id);
+          try { await Store.put("inbox", id, entry); } catch (err) {}
+          if (typeof syncInboxWordToLearning === "function") {
+            syncInboxWordToLearning(entry, true);
+          }
+        }
+        await enrichInboxKeys(addedKeys, true);
+        drawInbox();
+        if (typeof updateBadge === "function") updateBadge();
+        if (lbl) lbl.textContent = `✓ Đã nạp & cập nhật nghĩa cho ${parsedBatch.length} từ vào Hộp thư & SRS!`;
+      } finally {
+        btnCommit.disabled = !parsedBatch.length;
+      }
     };
   }
 
@@ -9416,102 +9703,102 @@ VIEWS["cai-dat"] = () => {
   ];
 
   setView(`
-    <div class="w-full max-w-4xl mx-auto px-margin py-space-xl flex flex-col gap-space-xl">
-      <!-- Page Header & Overview Banner (Exact Stitch) -->
+    <div class="w-full max-w-4xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
+      <!-- Page Header & Overview Banner -->
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md pb-space-xs">
         <div class="flex flex-col gap-space-xs">
-          <h1 class="font-display text-display text-on-surface font-semibold tracking-tight">
+          <h1 class="font-display text-display text-on-surface font-semibold tracking-tight m-0">
             Cài đặt hệ thống &amp; Học tập
           </h1>
-          <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">
+          <p class="font-body-md text-body-md text-on-surface-variant max-w-2xl m-0">
             Quản lý đồng bộ dữ liệu đa thiết bị, mục tiêu thẻ nhớ hàng ngày và cá nhân hóa giọng đọc chuẩn Đài Loan (TOCFL).
           </p>
         </div>
         <!-- Quick Metrics Pill -->
-        <div class="flex items-center gap-space-sm bg-surface-container-low border border-border-subtle/60 p-space-sm rounded-xl">
-          <div class="w-9 h-9 rounded-lg bg-cinnabar-subtle flex items-center justify-center text-primary">
+        <div class="flex items-center gap-space-sm bg-surface-container-low border border-border-subtle p-space-sm rounded-xl self-start md:self-auto">
+          <div class="w-9 h-9 rounded-lg bg-cinnabar-subtle flex items-center justify-center text-primary shrink-0">
             <span class="material-symbols-outlined text-[20px]">style</span>
           </div>
           <div class="flex flex-col pr-space-sm">
-            <span class="font-label-sm text-label-sm text-on-surface-variant">Tổng thẻ lưu trữ</span>
-            <span class="font-headline-md text-headline-md text-on-surface font-bold">${fmt(vocab.length)} <span class="font-body-sm text-body-sm font-normal text-outline">từ</span></span>
+            <span class="font-label-sm text-xs text-on-surface-variant">Tổng thẻ lưu trữ</span>
+            <span class="font-headline-md text-headline-md text-on-surface font-bold font-code">${fmt(vocab.length)} <span class="font-body-sm text-body-sm font-normal text-outline">từ</span></span>
           </div>
         </div>
       </div>
 
-      <!-- SECTION 1: Đồng bộ giữa các máy (Exact Stitch) -->
-      <section id="sync-panel" class="bg-paper-card rounded-xl p-4 sm:p-space-lg border border-border-subtle/70 shadow-sm flex flex-col gap-space-lg">
+      <!-- SECTION 1: Đồng bộ giữa các máy -->
+      <section id="sync-panel" class="bg-paper-card rounded-xl p-4 sm:p-space-lg border border-border-subtle shadow-sm flex flex-col gap-space-lg">
         <div class="flex items-start justify-between gap-space-md">
           <div class="flex items-center gap-space-sm flex-wrap">
-            <span class="w-1 h-5 rounded-full bg-primary inline-block"></span>
-            <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
+            <span class="w-1 h-5 rounded-full bg-primary-container inline-block"></span>
+            <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight m-0">
               Đồng bộ giữa các máy
             </h2>
-            <span class="inline-flex items-center gap-1 px-space-xs py-0.5 rounded-full ${isConnected ? "bg-jade-subtle text-secondary" : "bg-surface-container-highest text-on-surface-variant"} font-label-sm text-label-sm font-medium" id="syncStatusBadge">
+            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full ${isConnected ? "bg-jade-subtle text-secondary" : "bg-surface-container text-on-surface-variant"} font-label-sm text-xs font-semibold" id="syncStatusBadge">
               <span class="w-1.5 h-1.5 rounded-full ${isConnected ? "bg-secondary" : "bg-outline"}"></span>
               ${isConnected ? "Đã kết nối Đám mây" : "Chưa kết nối"}
             </span>
           </div>
         </div>
-        <p class="font-body-md text-body-md text-on-surface-variant">
+        <p class="font-body-md text-body-md text-on-surface-variant m-0">
           Mặc định tiến độ chỉ lưu trong trình duyệt của từng máy. Để <strong class="text-on-surface font-medium">học trên điện thoại và máy tính luôn đồng bộ cùng tiến độ với nhau</strong>, bạn có thể chọn một trong hai cách dưới đây:
         </p>
 
         <!-- Sync Method 1: Cloud Sync (GitHub Gist) -->
-        <div class="bg-surface-container-low rounded-xl p-space-md md:p-space-lg border border-border-subtle/50 flex flex-col gap-space-md relative overflow-hidden">
+        <div class="bg-surface-container-low rounded-xl p-4 sm:p-space-lg border border-border-subtle flex flex-col gap-space-md relative overflow-hidden">
           <div class="flex flex-wrap items-center justify-between gap-space-xs">
             <div class="flex items-center gap-space-sm">
               <span class="material-symbols-outlined text-secondary text-[22px]">cloud_sync</span>
-              <span class="font-headline-md text-headline-md text-on-surface font-semibold">Cách 1: Tự động qua Đám mây (Khuyên dùng)</span>
+              <span class="font-headline-md text-lg text-on-surface font-semibold">Cách 1: Tự động qua Đám mây (Khuyên dùng)</span>
             </div>
-            <span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-xs font-semibold">
               Tự động 2 chiều
             </span>
           </div>
-          <p class="font-body-sm text-body-sm text-on-surface-variant">
+          <p class="font-body-sm text-body-sm text-on-surface-variant m-0">
             Tiến độ tự động đồng bộ ngầm lên GitHub Gist cá nhân của bạn mỗi khi học xong thẻ hoặc mở trang. Không bao giờ lo mất dữ liệu.
           </p>
           <!-- GitHub Token Input -->
           <div class="flex flex-col gap-space-xs">
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between flex-wrap gap-1">
               <label class="font-label-md text-label-md text-on-surface font-semibold" for="ghToken">GitHub Personal Access Token:</label>
-              <span class="font-label-sm text-label-sm text-secondary font-medium flex items-center gap-1">
+              <span class="font-label-sm text-xs text-secondary font-medium flex items-center gap-1">
                 <span class="material-symbols-outlined text-[14px]">shield</span> Chỉ lưu trên máy này
               </span>
             </div>
             <div class="relative flex items-center">
-              <input class="w-full bg-paper-card border border-border-subtle text-on-surface pl-space-md pr-11 py-2.5 rounded-lg font-code text-code placeholder:text-outline/60 focus:outline-none focus:bg-surface-bright transition-all" id="ghToken" placeholder="ghp_xxxxxxxxxxxx hoặc github_pat_xxxxxxxxxxxx" type="password" value="${esc(syncCfg.token || "")}">
-              <button class="absolute right-1.5 w-9 h-9 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" id="btnToggleTokenVis" title="Hiển thị token" aria-label="Hiển thị hoặc ẩn token" type="button">
-                <span class="material-symbols-outlined text-[18px]">visibility_off</span>
+              <input class="w-full bg-paper-card border border-border-subtle text-on-surface pl-space-md pr-12 py-2.5 rounded-lg font-code text-code placeholder:text-outline focus:outline-none transition-all" id="ghToken" placeholder="ghp_xxxxxxxxxxxx hoặc github_pat_xxxxxxxxxxxx" type="password" value="${esc(syncCfg.token || "")}">
+              <button class="absolute right-1.5 w-9 h-9 rounded-lg flex items-center justify-center text-outline hover:text-on-surface hover:bg-surface-container transition-colors" id="btnToggleTokenVis" title="Hiển thị token" aria-label="Hiển thị token" type="button">
+                <span class="material-symbols-outlined text-[18px]" id="tokenVisIcon">visibility_off</span>
               </button>
             </div>
-            <div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm pt-0.5 flex-wrap">
+            <div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-xs pt-0.5 flex-wrap">
               <span class="material-symbols-outlined text-[16px] text-tertiary">key</span>
-              <span>Bạn đã có tài khoản GitHub?</span>
+              <span>Chưa có token?</span>
               <a class="text-primary font-medium hover:underline inline-flex items-center gap-0.5" href="https://github.com/settings/tokens/new?scopes=gist&description=Hoc%20tieng%20Hoa%20dong%20bo" rel="noopener noreferrer" target="_blank">
-                Bấm vào đây để tạo Token nhanh trên GitHub
+                Tạo Token nhanh trên GitHub
                 <span class="material-symbols-outlined text-[13px]">open_in_new</span>
               </a>
-              <span class="text-outline font-body-sm text-body-sm">(chọn quyền <code class="font-code text-code px-1 py-0.5 bg-surface-container rounded text-primary">gist</code>, bấm Generate rồi dán vào đây).</span>
+              <span class="text-outline">(chọn quyền <code class="font-code px-1 py-0.5 bg-surface-container rounded text-primary">gist</code>, bấm Generate rồi dán vào đây).</span>
             </div>
           </div>
           <!-- Gist ID Input -->
           <div class="flex flex-col gap-space-xs">
             <label class="font-label-md text-label-md text-on-surface font-semibold" for="ghGistId">Gist ID đang dùng trên máy khác (nếu có):</label>
-            <input class="w-full bg-paper-card border border-border-subtle text-on-surface px-space-md py-2.5 rounded-lg font-code text-code placeholder:text-outline/60 focus:outline-none focus:bg-surface-bright transition-all" id="ghGistId" placeholder="Để trống nếu đây là máy đầu tiên cài đặt, hệ thống sẽ tự khởi tạo..." type="text" value="${esc(syncCfg.gistId || "")}">
+            <input class="w-full bg-paper-card border border-border-subtle text-on-surface px-space-md py-2.5 rounded-lg font-code text-code placeholder:text-outline focus:outline-none transition-all" id="ghGistId" placeholder="Để trống nếu đây là máy đầu tiên cài đặt, hệ thống sẽ tự khởi tạo..." type="text" value="${esc(syncCfg.gistId || "")}">
           </div>
           <div class="pt-space-xs flex items-center justify-between flex-wrap gap-2">
-            <span class="text-xs text-secondary font-semibold" id="gistMsg"></span>
+            <span class="text-xs text-secondary font-semibold" id="gistMsg" role="status"></span>
             <div class="flex items-center gap-2 flex-wrap">
               ${isConnected ? `
-                <button class="px-space-md py-2.5 rounded-lg bg-paper-card border border-border-subtle text-outline hover:text-primary font-label-md text-label-md font-semibold transition-all" id="btnDisconnectSync" type="button">
+                <button class="min-h-[42px] px-space-md py-2 rounded-lg bg-paper-card border border-border-subtle text-outline hover:text-primary font-label-md text-sm font-semibold transition-all" id="btnDisconnectSync" type="button">
                   Ngắt kết nối
                 </button>
               ` : ""}
-              <button class="px-space-md py-2.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface font-label-md text-label-md font-semibold hover:bg-surface-container transition-all" id="btnTestSync" type="button">
-                Kiểm tra kết nối
+              <button class="min-h-[42px] px-space-md py-2 rounded-lg bg-paper-card border border-border-subtle text-on-surface font-label-md text-sm font-semibold hover:bg-surface-container transition-all" id="btnTestSync" type="button">
+                Kiểm tra
               </button>
-              <button class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-all shadow-sm" id="btnSaveSync" type="button">
+              <button class="min-h-[42px] inline-flex items-center gap-space-xs px-space-lg py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-sm font-semibold hover:bg-primary transition-all shadow-sm" id="btnSaveSync" type="button">
                 <span class="material-symbols-outlined text-[18px]">cloud_upload</span>
                 <span>Kết nối đám mây</span>
               </button>
@@ -9520,132 +9807,135 @@ VIEWS["cai-dat"] = () => {
         </div>
 
         ${isConnected ? `
-        <div class="bg-jade-subtle/60 rounded-xl p-space-md md:p-space-lg border border-secondary/20 flex flex-col gap-space-sm" id="linkDevicePanel">
+        <div class="bg-jade-subtle rounded-xl p-4 sm:p-space-lg border border-border-subtle flex flex-col gap-space-sm" id="linkDevicePanel">
           <div class="flex items-center gap-space-sm">
             <span class="material-symbols-outlined text-secondary text-[22px]">devices</span>
-            <span class="font-headline-md text-headline-md text-on-surface font-semibold">Kết nối điện thoại / tablet</span>
+            <span class="font-headline-md text-lg text-on-surface font-semibold">Kết nối điện thoại / tablet</span>
           </div>
-          <p class="font-body-sm text-body-sm text-on-surface-variant">Bấm nút dưới, rồi dùng <b>camera</b> của điện thoại hoặc tablet quét mã QR. Máy đó mở trang web và tự kết nối vào cùng tiến độ, không cần gõ token. Làm lần lượt cho từng máy.</p>
+          <p class="font-body-sm text-body-sm text-on-surface-variant m-0">Bấm nút dưới, rồi dùng <b>camera</b> của điện thoại hoặc tablet quét mã QR. Máy đó mở trang web và tự kết nối vào cùng tiến độ, không cần gõ token.</p>
           <div class="flex flex-wrap gap-2">
-            <button type="button" id="btnShowLinkQR" class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-lg bg-secondary text-white font-label-md text-label-md font-semibold shadow-sm"><span class="material-symbols-outlined text-[18px]">qr_code_2</span><span>Hiện mã QR kết nối</span></button>
-            <button type="button" id="btnCopyLink" class="px-space-md py-2.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface font-label-md text-label-md font-semibold">Sao chép link (gửi qua Zalo cho chính mình)</button>
+            <button type="button" id="btnShowLinkQR" class="min-h-[42px] inline-flex items-center gap-space-xs px-4 py-2 rounded-lg bg-secondary text-white font-label-md text-sm font-semibold shadow-sm"><span class="material-symbols-outlined text-[18px]">qr_code_2</span><span>Hiện mã QR</span></button>
+            <button type="button" id="btnCopyLink" class="min-h-[42px] px-4 py-2 rounded-lg bg-paper-card border border-border-subtle text-on-surface font-label-md text-sm font-semibold hover:bg-surface-container">Sao chép link kết nối</button>
           </div>
           <div id="linkQRBox" class="hidden flex flex-col items-center gap-2 pt-2">
-            <div id="linkQR" class="bg-white p-3 rounded-xl"></div>
-            <span class="text-xs text-tertiary font-semibold text-center">⚠️ Mã này chứa chìa khóa đồng bộ của bạn: đừng chụp gửi cho người khác. Tự ẩn sau 2 phút.</span>
+            <div id="linkQR" class="qr-frame rounded-xl shadow-sm"></div>
+            <span class="text-xs text-tertiary font-semibold text-center">⚠️ Mã này chứa chìa khóa đồng bộ của bạn: đừng gửi cho người khác. Tự ẩn sau 2 phút.</span>
           </div>
-          <span class="text-xs text-secondary font-semibold" id="linkMsg"></span>
+          <span class="text-xs text-secondary font-semibold" id="linkMsg" role="status"></span>
         </div>` : ""}
 
         <!-- Sync Method 2: Quick Code Sync -->
-        <div class="bg-surface-container-low rounded-xl p-space-md md:p-space-lg border border-border-subtle/50 flex flex-col gap-space-md">
+        <div class="bg-surface-container-low rounded-xl p-4 sm:p-space-lg border border-border-subtle flex flex-col gap-space-md">
           <div class="flex flex-wrap items-center justify-between gap-space-xs">
             <div class="flex items-center gap-space-sm">
               <span class="material-symbols-outlined text-tertiary text-[22px]">swap_horiz</span>
-              <span class="font-headline-md text-headline-md text-on-surface font-semibold">Cách 2: Đồng bộ nhanh bằng Mã (Không cần tài khoản)</span>
+              <span class="font-headline-md text-lg text-on-surface font-semibold">Cách 2: Đồng bộ nhanh bằng Mã</span>
             </div>
-            <span class="inline-flex items-center px-space-sm py-0.5 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-medium">
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-surface-container text-on-surface-variant font-label-sm text-xs font-medium">
               Thủ công 1 lần
             </span>
           </div>
-          <p class="font-body-sm text-body-sm text-on-surface-variant">
+          <p class="font-body-sm text-body-sm text-on-surface-variant m-0">
             Sao chép mã tiến độ từ máy tính rồi gửi qua Zalo/Tin nhắn, dán vào điện thoại để cập nhật ngay tức thì.
           </p>
           <div class="flex flex-wrap items-center gap-space-sm">
-            <button class="inline-flex items-center gap-space-xs px-space-md py-2.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-highest transition-colors shadow-sm" id="btnCopyFastCode" type="button">
+            <button class="min-h-[42px] inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-paper-card border border-border-subtle text-on-surface font-label-md text-sm font-medium hover:bg-surface-container-high transition-colors shadow-sm" id="btnCopyFastCode" type="button">
               <span class="material-symbols-outlined text-[18px] text-primary">content_copy</span>
               <span>Sao chép mã tiến độ từ máy này</span>
             </button>
           </div>
           <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-space-sm">
             <div class="relative flex-1">
-              <input class="w-full bg-paper-card border border-border-subtle text-on-surface px-space-md py-2.5 rounded-lg font-code text-code placeholder:text-outline/60 focus:outline-none focus:bg-surface-bright transition-all" id="pasteFastCode" placeholder="Dán chuỗi mã tiến độ vào đây..." type="text">
+              <input class="w-full bg-paper-card border border-border-subtle text-on-surface px-space-md py-2.5 rounded-lg font-code text-code placeholder:text-outline focus:outline-none transition-all" id="pasteFastCode" placeholder="Dán chuỗi mã tiến độ vào đây..." type="text">
             </div>
-            <button class="px-space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-colors shadow-sm whitespace-nowrap" id="btnApplyFastCode" type="button">
+            <button class="min-h-[42px] px-space-lg py-2 rounded-lg bg-paper-card border border-border-subtle hover:border-primary text-primary font-label-md text-sm font-semibold transition-colors shadow-sm whitespace-nowrap" id="btnApplyFastCode" type="button">
               Áp dụng mã
             </button>
           </div>
-          <span class="text-xs text-secondary font-semibold" id="fastCodeMsg"></span>
+          <span class="text-xs text-secondary font-semibold" id="fastCodeMsg" role="status"></span>
         </div>
       </section>
 
-      <!-- SECTION 2: Học mỗi ngày (Exact Stitch Daily Targets & Directory Subsets) -->
-      <section class="bg-paper-card rounded-xl p-space-lg border border-border-subtle/70 shadow-sm flex flex-col gap-space-lg">
+      <!-- SECTION 2: Học mỗi ngày -->
+      <section class="bg-paper-card rounded-xl p-4 sm:p-space-lg border border-border-subtle shadow-sm flex flex-col gap-space-lg">
         <div class="flex items-center justify-between flex-wrap gap-2">
           <div class="flex items-center gap-space-sm">
-            <span class="w-1 h-5 rounded-full bg-primary inline-block"></span>
-            <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
+            <span class="w-1 h-5 rounded-full bg-primary-container inline-block"></span>
+            <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight m-0">
               Học mỗi ngày
             </h2>
           </div>
-          <button type="button" class="px-4 py-2 rounded-lg bg-primary-container text-white text-xs font-semibold hover:bg-primary shadow-xs" id="btnSaveGoals">
-            Lưu mục tiêu ngày
-          </button>
+          <div class="flex items-center gap-2">
+            <span class="text-xs text-secondary font-semibold" id="settingsGoalMsg" role="status"></span>
+            <button type="button" class="min-h-[40px] px-4 py-2 rounded-lg bg-primary-container text-white text-xs font-semibold hover:bg-primary shadow-sm" id="btnSaveGoals">
+              Lưu mục tiêu ngày
+            </button>
+          </div>
         </div>
 
-        <!-- Goal Presets Recommendation for Band B -->
+        <!-- Goal Presets Recommendation -->
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
-          <button type="button" class="btn-setting-preset p-3 rounded-xl border border-secondary/40 bg-jade-subtle text-secondary text-left text-xs font-medium hover:bg-secondary-fixed transition-all" data-preset-new="8" data-preset-rev="30">
+          <button type="button" class="btn-setting-preset p-3 rounded-xl border border-border-subtle bg-jade-subtle text-secondary text-left text-xs font-medium hover:bg-secondary-fixed transition-all" data-preset-new="8" data-preset-rev="30">
             <div class="font-bold">🎯 Band B Khuyến nghị</div>
-            <div class="text-[11px] opacity-85 mt-0.5">8 từ mới • 30 lượt ôn (15-25p/ngày)</div>
+            <div class="text-xs opacity-85 mt-0.5">8 từ mới • 30 lượt ôn (15–25p/ngày)</div>
           </button>
           <button type="button" class="btn-setting-preset p-3 rounded-xl border border-border-subtle bg-surface-container-low text-on-surface text-left text-xs font-medium hover:bg-surface-container transition-all" data-preset-new="5" data-preset-rev="20">
             <div class="font-bold">🌱 Nhẹ nhàng duy trì</div>
-            <div class="text-[11px] text-outline mt-0.5">5 từ mới • 20 lượt ôn (10-15p/ngày)</div>
+            <div class="text-xs text-on-surface-variant mt-0.5">5 từ mới • 20 lượt ôn (10–15p/ngày)</div>
           </button>
-          <button type="button" class="btn-setting-preset p-3 rounded-xl border border-primary/30 bg-cinnabar-subtle text-primary text-left text-xs font-medium hover:bg-primary-container hover:text-white transition-all" data-preset-new="20" data-preset-rev="50">
+          <button type="button" class="btn-setting-preset p-3 rounded-xl border border-border-subtle bg-cinnabar-subtle text-primary text-left text-xs font-medium hover:bg-primary-fixed transition-all" data-preset-new="20" data-preset-rev="50">
             <div class="font-bold">🚀 Tăng tốc chuẩn</div>
-            <div class="text-[11px] opacity-85 mt-0.5">20 từ mới • 50 lượt ôn (35-45p/ngày)</div>
+            <div class="text-xs opacity-85 mt-0.5">20 từ mới • 50 lượt ôn (35–45p/ngày)</div>
           </button>
         </div>
 
         <!-- Daily Quota Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-space-lg">
-          <div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-xl border border-border-subtle/50">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+          <div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-xl border border-border-subtle">
             <label class="font-label-md text-label-md text-on-surface font-semibold" for="setNewPerDay">Số thẻ mới mỗi ngày</label>
             <input type="number" id="setNewPerDay" min="1" max="200" value="${S.settings.newPerDay || 8}" class="w-full bg-paper-card border border-border-subtle text-on-surface font-code font-bold text-base py-2 px-space-md rounded-lg focus:outline-none">
-            <p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
-              Mỗi từ có 4 kỹ năng (Đọc, Nghe, Viết, Dùng trong câu). Ngày đầu gặp thẻ nhận diện, các thẻ còn lại mở dần theo SRS.
+            <p class="font-body-sm text-xs text-on-surface-variant pt-1 m-0">
+              Mỗi từ có tối đa 4 kỹ năng (Nhận diện, Nghe, Viết, Điền từ), mở dần theo thuật toán FSRS.
             </p>
           </div>
-          <div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-xl border border-border-subtle/50">
+          <div class="flex flex-col gap-space-xs bg-surface-container-low p-space-md rounded-xl border border-border-subtle">
             <label class="font-label-md text-label-md text-on-surface font-semibold" for="setRevPerDay">Số thẻ ôn mỗi ngày</label>
             <input type="number" id="setRevPerDay" min="5" max="500" value="${S.settings.reviewPerDay || 30}" class="w-full bg-paper-card border border-border-subtle text-on-surface font-code font-bold text-base py-2 px-space-md rounded-lg focus:outline-none">
-            <p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+            <p class="font-body-sm text-xs text-on-surface-variant pt-1 m-0">
               Mục tiêu số lượt ôn lại thẻ đã học trong ngày để tính tiến độ lộ trình chuẩn TOCFL.
             </p>
           </div>
         </div>
 
-        <!-- Categories & Folders List (Exact Stitch 3-col checkbox grid) -->
+        <!-- Categories & Folders List (Updates in-place without losing edits or scroll!) -->
         <div class="flex flex-col gap-space-md pt-space-xs">
-          <div class="flex items-center justify-between">
-            <span class="font-label-sm text-label-sm text-outline font-bold tracking-wider uppercase">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <span class="font-label-sm text-xs text-on-surface-variant font-bold tracking-wider uppercase">
               THƯ MỤC ĐANG HỌC
             </span>
-            <button class="font-label-sm text-label-sm text-primary font-semibold hover:underline" id="btnSelectAllBands" type="button">
+            <button class="font-label-sm text-xs text-primary font-semibold hover:underline" id="btnSelectAllBands" type="button">
               Bật tất cả TOCFL
             </button>
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-space-sm" id="settingsFolderGrid">
             ${deckCheckboxes.map((f) => `
-              <label class="flex items-center justify-between p-space-sm rounded-lg ${f.on ? "bg-cinnabar-subtle" : "bg-surface-container-low"} cursor-pointer hover:bg-surface-container transition-colors">
+              <label class="flex items-center justify-between p-2.5 rounded-lg border border-border-subtle ${f.on ? "bg-cinnabar-subtle" : "bg-surface-container-low"} cursor-pointer hover:bg-surface-container transition-colors" data-folder-row>
                 <div class="flex items-center gap-space-sm min-w-0">
                   <input ${f.on ? "checked" : ""} class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary shrink-0" type="checkbox" data-folder-chk="${esc(f.id)}" data-is-band="${f.isBand ? "1" : "0"}">
-                  <span class="font-body-md text-body-md ${f.on ? "text-on-surface font-medium" : "text-on-surface-variant"} truncate">${esc(f.label)}</span>
+                  <span class="font-body-md text-sm ${f.on ? "text-on-surface font-semibold" : "text-on-surface-variant"} truncate" data-folder-lbl>${esc(f.label)}</span>
                 </div>
-                <span class="font-code text-code ${f.on ? "text-primary font-semibold" : "text-outline"} ml-2">${fmt(f.count)}</span>
+                <span class="font-code text-xs ${f.on ? "text-primary font-semibold" : "text-outline"} ml-2 shrink-0" data-folder-cnt>${fmt(f.count)}</span>
               </label>
             `).join("")}
           </div>
         </div>
       </section>
 
-      <!-- SECTION 3: Giao diện & Hiển thị (Exact Stitch) -->
-      <section class="bg-paper-card rounded-xl p-space-lg border border-border-subtle/70 shadow-sm flex flex-col gap-space-lg">
+      <!-- SECTION 3: Giao diện & Hiển thị -->
+      <section class="bg-paper-card rounded-xl p-4 sm:p-space-lg border border-border-subtle shadow-sm flex flex-col gap-space-lg">
         <div class="flex items-center gap-space-sm">
-          <span class="w-1 h-5 rounded-full bg-primary inline-block"></span>
-          <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
+          <span class="w-1 h-5 rounded-full bg-primary-container inline-block"></span>
+          <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight m-0">
             Giao diện
           </h2>
         </div>
@@ -9661,99 +9951,96 @@ VIEWS["cai-dat"] = () => {
             </div>
           </div>
           <!-- Pinyin Display Toggle with Live Preview -->
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md p-space-md bg-surface-container-low rounded-xl border border-border-subtle/50">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-space-md p-space-md bg-surface-container-low rounded-xl border border-border-subtle">
             <label class="flex items-start sm:items-center gap-space-sm cursor-pointer select-none">
               <input type="checkbox" id="setRuby" ${S.settings.ruby !== false ? "checked" : ""} class="w-4 h-4 rounded text-primary focus:ring-0 accent-primary mt-1 sm:mt-0">
               <div class="flex flex-col">
                 <span class="font-body-md text-body-md text-on-surface font-medium">Hiện pinyin phía trên chữ Hán trong phần giải thích</span>
-                <span class="font-body-sm text-body-sm text-on-surface-variant">Hiển thị ngữ âm bính âm kèm theo thanh điệu cho các cụm ví dụ và phân tích</span>
+                <span class="font-body-sm text-xs text-on-surface-variant">Hiển thị ngữ âm bính âm kèm thanh điệu cho các cụm ví dụ và phân tích</span>
               </div>
             </label>
-            <!-- Elegant Hanzi Preview Pill -->
-            <div class="flex items-center gap-2 px-space-md py-2 rounded-lg bg-paper-card shadow-sm self-start sm:self-center">
-              <span class="font-label-sm text-label-sm text-outline">Ví dụ:</span>
+            <div class="flex items-center gap-2 px-space-md py-2 rounded-lg bg-paper-card border border-border-subtle shadow-sm self-start sm:self-center shrink-0">
+              <span class="font-label-sm text-xs text-outline">Ví dụ:</span>
               <ruby class="font-headline-md text-headline-md text-primary font-semibold">
-                學<rt class="font-code text-[10px] text-on-surface-variant font-normal tracking-tight">xué</rt>
-                習<rt class="font-code text-[10px] text-on-surface-variant font-normal tracking-tight">xí</rt>
-                本<rt class="font-code text-[10px] text-on-surface-variant font-normal tracking-tight">běn</rt>
+                學<rt class="font-code text-xs text-on-surface-variant font-normal">xué</rt>
+                習<rt class="font-code text-xs text-on-surface-variant font-normal">xí</rt>
+                本<rt class="font-code text-xs text-on-surface-variant font-normal">běn</rt>
               </ruby>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SECTION 4: Giọng đọc phát âm (Exact Stitch) -->
-      <section class="bg-paper-card rounded-xl p-space-lg border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
+      <!-- SECTION 4: Giọng đọc phát âm -->
+      <section class="bg-paper-card rounded-xl p-4 sm:p-space-lg border border-border-subtle shadow-sm flex flex-col gap-space-md">
         <div class="flex items-center gap-space-sm">
-          <span class="w-1 h-5 rounded-full bg-primary inline-block"></span>
-          <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
+          <span class="w-1 h-5 rounded-full bg-primary-container inline-block"></span>
+          <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight m-0">
             Giọng đọc
           </h2>
         </div>
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-space-md">
           <div class="flex items-start gap-space-sm max-w-2xl">
-            <span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">info</span>
-            <p class="font-body-md text-body-md text-on-surface-variant">
+            <span class="material-symbols-outlined text-secondary text-[20px] mt-0.5 shrink-0">info</span>
+            <p class="font-body-md text-body-md text-on-surface-variant m-0">
               Hệ thống ưu tiên giọng <strong class="text-primary font-semibold">中文 (台灣) — Quốc ngữ Đài Loan</strong> (xen kẽ giọng Nam &amp; Nữ cho hội thoại). Trên điện thoại, vào <span class="font-semibold text-on-surface">Cài đặt &gt; Chuyển văn bản thành giọng nói</span> để tải gói giọng Đài Loan chất lượng cao.
             </p>
           </div>
-          <button class="inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-jade-subtle text-secondary font-label-md text-label-md font-semibold hover:bg-secondary-container transition-colors whitespace-nowrap" type="button" onclick="say('歡迎來到臺灣學習華語')">
+          <button class="min-h-[42px] inline-flex items-center gap-space-xs px-space-md py-2 rounded-lg bg-jade-subtle text-secondary font-label-md text-sm font-semibold hover:bg-secondary-container transition-colors whitespace-nowrap shrink-0" type="button" data-say="歡迎來到臺灣學習華語">
             <span class="material-symbols-outlined text-[18px]">volume_up</span>
             <span>Nghe thử</span>
           </button>
         </div>
       </section>
 
-      <!-- SECTION 5: Sao lưu & Khôi phục (Exact Stitch) -->
-      <section class="bg-paper-card rounded-xl p-space-lg border border-border-subtle/70 shadow-sm flex flex-col gap-space-lg">
+      <!-- SECTION 5: Sao lưu & Khôi phục -->
+      <section class="bg-paper-card rounded-xl p-4 sm:p-space-lg border border-border-subtle shadow-sm flex flex-col gap-space-md">
         <div class="flex items-center gap-space-sm">
-          <span class="w-1 h-5 rounded-full bg-primary inline-block"></span>
-          <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
+          <span class="w-1 h-5 rounded-full bg-primary-container inline-block"></span>
+          <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight m-0">
             Sao lưu và khôi phục
           </h2>
         </div>
-        <p class="font-body-md text-body-md text-on-surface-variant">
+        <p class="font-body-md text-body-md text-on-surface-variant m-0">
           Tiến độ lưu trong trình duyệt của máy này. Sao lưu thường xuyên và cất file vào Google Drive (thư mục “10 Website học tiếng Hoa”). Đổi máy thì bấm Khôi phục và chọn file đó.
         </p>
         <div class="flex flex-wrap items-center gap-space-sm">
-          <button class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-lg bg-primary text-on-primary font-label-md text-label-md font-semibold hover:bg-primary-container transition-colors shadow-sm" id="btnExportJSON" type="button">
+          <button class="min-h-[42px] inline-flex items-center gap-space-xs px-space-lg py-2 rounded-lg bg-primary-container text-on-primary font-label-md text-sm font-semibold hover:bg-primary transition-colors shadow-sm" id="btnExportJSON" type="button">
             <span class="material-symbols-outlined text-[18px]">file_download</span>
             <span>Sao lưu ra file</span>
           </button>
-          <label class="inline-flex items-center gap-space-xs px-space-lg py-2.5 rounded-lg bg-surface-container text-on-surface font-label-md text-label-md font-medium hover:bg-surface-container-highest transition-colors cursor-pointer">
+          <label class="min-h-[42px] inline-flex items-center gap-space-xs px-space-lg py-2 rounded-lg bg-surface-container text-on-surface font-label-md text-sm font-medium hover:bg-surface-container-high transition-colors cursor-pointer">
             <span class="material-symbols-outlined text-[18px]">file_upload</span>
             <span>Khôi phục từ file</span>
             <input type="file" id="importFile" accept=".json,application/json" class="hidden">
           </label>
         </div>
-        <div class="flex flex-wrap items-center gap-space-xl pt-space-xs">
+        <div class="flex flex-wrap items-center gap-space-lg pt-space-xs">
           <label class="inline-flex items-center gap-space-xs cursor-pointer select-none">
             <input checked class="w-4 h-4 text-primary focus:ring-0 accent-primary" name="sync-strategy" type="radio" value="merge">
-            <span class="font-body-md text-body-md text-on-surface font-medium">Gộp: giữ kết quả mới hơn của từng thẻ</span>
+            <span class="font-body-md text-sm text-on-surface font-medium">Gộp: giữ kết quả mới hơn của từng thẻ</span>
           </label>
           <label class="inline-flex items-center gap-space-xs cursor-pointer select-none">
             <input class="w-4 h-4 text-primary focus:ring-0 accent-primary" name="sync-strategy" type="radio" value="replace">
-            <span class="font-body-md text-body-md text-on-surface-variant">Thay toàn bộ bằng file</span>
+            <span class="font-body-md text-sm text-on-surface-variant">Thay toàn bộ bằng file</span>
           </label>
         </div>
-        <div class="pt-space-md bg-surface-container-low/70 p-space-md rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
-          <div class="flex items-center gap-space-sm">
-            <button class="inline-flex items-center gap-1.5 px-space-md py-1.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface hover:text-primary font-label-sm text-label-sm font-semibold shadow-sm transition-colors" id="btnClearCache" type="button">
-              <span class="material-symbols-outlined text-[16px] text-tertiary">cached</span>
-              <span>Tải lại bản mới nhất (Xóa cache)</span>
-            </button>
-          </div>
-          <span class="font-body-sm text-body-sm text-outline">
+        <div class="bg-surface-container-low p-space-md rounded-xl border border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-space-sm">
+          <button class="min-h-[40px] inline-flex items-center gap-1.5 px-space-md py-1.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface hover:text-primary font-label-sm text-xs font-semibold shadow-sm transition-colors self-start sm:self-auto" id="btnClearCache" type="button">
+            <span class="material-symbols-outlined text-[16px] text-tertiary">cached</span>
+            <span>Tải lại bản mới nhất (Xóa cache)</span>
+          </button>
+          <span class="font-body-sm text-xs text-on-surface-variant">
             Bấm nút này nếu trình duyệt trên điện thoại chưa hiện giao diện mới nhất.
           </span>
         </div>
       </section>
 
-      <!-- SECTION 6: Nguồn dữ liệu & Học thuật (Exact Stitch) -->
-      <section class="bg-paper-card rounded-xl p-space-lg border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
+      <!-- SECTION 6: Nguồn dữ liệu & Học thuật -->
+      <section class="bg-paper-card rounded-xl p-4 sm:p-space-lg border border-border-subtle shadow-sm flex flex-col gap-space-md">
         <div class="flex items-center gap-space-sm">
-          <span class="w-1 h-5 rounded-full bg-primary inline-block"></span>
-          <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight">
+          <span class="w-1 h-5 rounded-full bg-primary-container inline-block"></span>
+          <h2 class="font-headline-md text-headline-md text-on-surface font-semibold tracking-tight m-0">
             Nguồn dữ liệu
           </h2>
         </div>
@@ -9772,7 +10059,7 @@ VIEWS["cai-dat"] = () => {
           </li>
           <li class="flex items-start gap-space-sm">
             <span class="w-1.5 h-1.5 rounded-full bg-outline mt-2 shrink-0"></span>
-            <span>Make Me a Hanzi &amp; Hanzi Writer (vẽ nét chữ Hán Phồn thể)</span>
+            <span>Make Me a Hanzi, Hanzi Writer (bút thuận) &amp; HanziLookupJS (nhận dạng chữ viết tay offline, GPLv3 / Arphic Public License)</span>
           </li>
           <li class="flex items-start gap-space-sm">
             <span class="w-1.5 h-1.5 rounded-full bg-outline mt-2 shrink-0"></span>
@@ -9783,12 +10070,18 @@ VIEWS["cai-dat"] = () => {
     </div>
   `);
 
-  // Toggle Token Visibility
+  // Toggle Token Visibility (updates both type & icon!)
   const btnVis = $("#btnToggleTokenVis");
   if (btnVis) {
     btnVis.onclick = () => {
       const inp = $("#ghToken");
-      if (inp) inp.type = inp.type === "password" ? "text" : "password";
+      const ic = $("#tokenVisIcon");
+      if (!inp) return;
+      const showing = inp.type === "password";
+      inp.type = showing ? "text" : "password";
+      if (ic) ic.textContent = showing ? "visibility" : "visibility_off";
+      btnVis.title = showing ? "Ẩn token" : "Hiển thị token";
+      btnVis.setAttribute("aria-label", btnVis.title);
     };
   }
 
@@ -9802,13 +10095,18 @@ VIEWS["cai-dat"] = () => {
     };
   });
 
-  // Save Goals & Preferences
+  // Save Goals & Preferences (toast + inline status, no blocking alert)
   $("#btnSaveGoals").onclick = async () => {
-    S.settings.newPerDay = Math.max(1, Math.min(200, Number($("#setNewPerDay").value) || 8));
-    S.settings.reviewPerDay = Math.max(5, Math.min(500, Number($("#setRevPerDay").value) || 30));
+    const rawN = Number($("#setNewPerDay").value);
+    const rawR = Number($("#setRevPerDay").value);
+    S.settings.newPerDay = Number.isFinite(rawN) ? Math.max(1, Math.min(200, Math.round(rawN))) : 8;
+    S.settings.reviewPerDay = Number.isFinite(rawR) ? Math.max(5, Math.min(500, Math.round(rawR))) : 30;
+    if ($("#setNewPerDay")) $("#setNewPerDay").value = S.settings.newPerDay;
+    if ($("#setRevPerDay")) $("#setRevPerDay").value = S.settings.reviewPerDay;
     S.settings.ruby = $("#setRuby").checked;
-    await saveSettings();
-    alert("✓ Đã lưu cài đặt thành công!");
+    try { await saveSettings(); } catch (e) {}
+    if ($("#settingsGoalMsg")) $("#settingsGoalMsg").textContent = "✓ Đã lưu!";
+    showToast("Đã lưu mục tiêu học tập hằng ngày!");
   };
 
   // Ruby checkbox instant save
@@ -9816,7 +10114,7 @@ VIEWS["cai-dat"] = () => {
   if (rubyChk) {
     rubyChk.onchange = async () => {
       S.settings.ruby = rubyChk.checked;
-      await saveSettings();
+      try { await saveSettings(); } catch (e) {}
     };
   }
 
@@ -9828,21 +10126,45 @@ VIEWS["cai-dat"] = () => {
     };
   }
 
-  // Folder checkboxes in Section 2
+  // Folder checkboxes in Section 2 (in-place visual update — preserves scroll & unsaved inputs!)
+  const updateFolderRowStyle = (chk) => {
+    const row = chk.closest("[data-folder-row]");
+    if (!row) return;
+    const on = !!chk.checked;
+    row.classList.toggle("bg-cinnabar-subtle", on);
+    row.classList.toggle("bg-surface-container-low", !on);
+    const lbl = row.querySelector("[data-folder-lbl]");
+    if (lbl) {
+      lbl.classList.toggle("text-on-surface", on);
+      lbl.classList.toggle("font-semibold", on);
+      lbl.classList.toggle("text-on-surface-variant", !on);
+    }
+    const cnt = row.querySelector("[data-folder-cnt]");
+    if (cnt) {
+      cnt.classList.toggle("text-primary", on);
+      cnt.classList.toggle("font-semibold", on);
+      cnt.classList.toggle("text-outline", !on);
+    }
+  };
   document.querySelectorAll("[data-folder-chk]").forEach((chk) => {
     chk.onchange = async () => {
       const id = chk.dataset.folderChk;
       setFolderOn(id, chk.checked);
-      await saveSettings();
-      VIEWS["cai-dat"]();
+      updateFolderRowStyle(chk);
+      try { await saveSettings(); } catch (e) {}
     };
   });
   const btnAllBands = $("#btnSelectAllBands");
   if (btnAllBands) {
     btnAllBands.onclick = async () => {
+      if (!S.settings.bands || typeof S.settings.bands !== "object") S.settings.bands = {};
       S.bands.forEach((b) => { S.settings.bands[b] = true; });
-      await saveSettings();
-      VIEWS["cai-dat"]();
+      document.querySelectorAll('[data-folder-chk][data-is-band="1"]').forEach((chk) => {
+        chk.checked = true;
+        updateFolderRowStyle(chk);
+      });
+      try { await saveSettings(); } catch (e) {}
+      showToast("Đã bật tất cả 7 cấp độ TOCFL!");
     };
   }
 
@@ -9850,40 +10172,43 @@ VIEWS["cai-dat"] = () => {
   $("#btnSaveSync").onclick = async () => {
     const token = $("#ghToken").value.trim();
     const gistId = $("#ghGistId").value.trim();
+    const msg = $("#gistMsg");
     if (!token) {
-      alert("Vui lòng nhập GitHub Token.");
+      if (msg) msg.textContent = "Vui lòng nhập GitHub Token trước khi kết nối.";
+      showToast("Vui lòng nhập GitHub Token.");
       return;
     }
-    const msg = $("#gistMsg");
-    if (msg) msg.textContent = "Đang kết nối GitHub và tạo/cập nhật kho đồng bộ...";
+    if (msg) msg.textContent = "Đang kết nối GitHub và đồng bộ...";
     try {
       const gid = await Sync.connectWithToken(token, gistId);
       if (msg) msg.textContent = "✓ Đồng bộ thành công!";
       const cfg = Sync.getConfig();
       $("#ghGistId").value = cfg.gistId || gid;
-      alert("🎉 Kết nối đồng bộ thành công! Tiến độ của bạn đã được kết nối với GitHub Gist.");
+      showToast("Kết nối đồng bộ GitHub Gist thành công!");
       VIEWS["cai-dat"]();
     } catch (err) {
       if (msg) msg.textContent = "Lỗi: " + err.message;
-      alert("Không kết nối được: " + err.message);
+      showToast("Không kết nối được: " + err.message);
     }
   };
 
   $("#btnTestSync").onclick = async () => {
     const token = $("#ghToken").value.trim();
     const gistId = $("#ghGistId").value.trim();
+    const msg = $("#gistMsg");
     if (!token) {
-      alert("Vui lòng nhập Token để kiểm tra.");
+      if (msg) msg.textContent = "Vui lòng nhập Token để kiểm tra.";
+      showToast("Vui lòng nhập Token để kiểm tra.");
       return;
     }
-    const msg = $("#gistMsg");
     if (msg) msg.textContent = "Đang kiểm tra kết nối GitHub...";
     try {
       await Sync.connectWithToken(token, gistId);
       if (msg) msg.textContent = "✓ Kết nối tốt và đã đồng bộ tiến độ!";
+      showToast("Kết nối GitHub Gist tốt!");
     } catch (e) {
       if (msg) msg.textContent = "Lỗi: " + e.message;
-      alert("Lỗi kiểm tra: " + e.message);
+      showToast("Lỗi kiểm tra: " + e.message);
     }
   };
 
@@ -9892,6 +10217,7 @@ VIEWS["cai-dat"] = () => {
     btnDisc.onclick = async () => {
       if (confirm("Bạn có chắc muốn ngắt kết nối đồng bộ trên máy này?")) {
         await Sync.disconnect();
+        showToast("Đã ngắt kết nối đồng bộ trên máy này.");
         VIEWS["cai-dat"]();
       }
     };
@@ -9925,8 +10251,8 @@ VIEWS["cai-dat"] = () => {
     try {
       const code = await Sync.generateFastCode();
       await navigator.clipboard.writeText(code);
-      if (msg) msg.textContent = `✓ Đã sao chép mã tiến độ (${code.length} ký tự) vào clipboard! Dán mã này sang thiết bị khác để đồng bộ.`;
-      alert("✓ Đã sao chép mã đồng bộ nhanh vào clipboard! Bạn có thể dán mã này vào điện thoại hoặc máy khác.");
+      if (msg) msg.textContent = `✓ Đã sao chép mã tiến độ (${code.length} ký tự) vào clipboard!`;
+      showToast("Đã sao chép mã đồng bộ nhanh vào clipboard!");
     } catch (err) {
       if (msg) msg.textContent = "Lỗi tạo mã: " + err.message;
     }
@@ -9936,18 +10262,19 @@ VIEWS["cai-dat"] = () => {
     const code = $("#pasteFastCode").value.trim();
     const msg = $("#fastCodeMsg");
     if (!code) {
-      alert("Vui lòng dán mã đồng bộ vào ô trước khi bấm áp dụng.");
+      if (msg) msg.textContent = "Vui lòng dán mã đồng bộ vào ô trước khi bấm áp dụng.";
+      showToast("Vui lòng dán mã đồng bộ vào ô.");
       return;
     }
     try {
       const count = await Sync.applyFastCode(code);
       if (msg) msg.textContent = `✓ Đã nạp thành công ${count} thẻ tiến độ!`;
       $("#pasteFastCode").value = "";
-      alert(`🎉 Đã gộp thành công ${count} thẻ tiến độ từ thiết bị khác!`);
+      showToast(`Đã gộp thành công ${count} thẻ tiến độ!`);
       VIEWS["cai-dat"]();
     } catch (e) {
       if (msg) msg.textContent = "Lỗi áp dụng mã: " + e.message;
-      alert("Lỗi áp dụng mã: " + e.message);
+      showToast("Lỗi áp dụng mã: " + e.message);
     }
   };
 
@@ -9961,33 +10288,44 @@ VIEWS["cai-dat"] = () => {
     a.download = `so-hoc-tieng-hoa-backup-${dayKey(Date.now())}.json`;
     a.click();
     URL.revokeObjectURL(url);
+    showToast("Đã xuất file sao lưu tiến độ!");
   };
 
-  // Import JSON
+  // Import JSON (resets file input on cancel/error so same file can be re-selected)
   $("#importFile").onchange = async (e) => {
     const file = e.target.files && e.target.files[0];
     if (!file) return;
-    if (!confirm("Bạn có muốn nạp dữ liệu từ file này không?")) return;
+    if (!confirm("Bạn có muốn nạp dữ liệu từ file này không?")) {
+      e.target.value = "";
+      return;
+    }
     const strat = document.querySelector('input[name="sync-strategy"]:checked')?.value || "merge";
     try {
       const txt = await file.text();
       const obj = JSON.parse(txt);
       await Store.importAll(obj, strat);
-      alert("✓ Đã nạp dữ liệu thành công! Ứng dụng sẽ tải lại.");
-      location.reload();
+      showToast("Đã nạp dữ liệu thành công! Đang tải lại...");
+      setTimeout(() => location.reload(), 400);
     } catch (err) {
-      alert("Lỗi đọc file backup: " + err.message);
+      e.target.value = "";
+      showToast("Lỗi đọc file backup: " + err.message);
     }
   };
 
-  // Clear Cache
+  // Clear Cache (unregisters stale Service Workers cleanly)
   $("#btnClearCache").onclick = async () => {
     if (!confirm("Thao tác này sẽ xóa cache Service Worker và tải lại bản mới nhất. Tiếp tục?")) return;
-    if ("caches" in window) {
-      const keys = await caches.keys();
-      await Promise.all(keys.map((k) => caches.delete(k)));
-    }
-    location.reload(true);
+    try {
+      if ("serviceWorker" in navigator) {
+        const regs = await navigator.serviceWorker.getRegistrations();
+        await Promise.all(regs.map((r) => r.unregister()));
+      }
+      if ("caches" in window) {
+        const keys = await caches.keys();
+        await Promise.all(keys.map((k) => caches.delete(k)));
+      }
+    } catch (e) {}
+    location.reload();
   };
 };
 

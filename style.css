@@ -1326,6 +1326,255 @@ html.dark .sb-more .rich-ex, [data-theme="dark"] .sb-more .rich-ex { background:
 :root[data-theme="dark"] .rich-opt.right { background: #143527; border-color: #4ade80; }
 :root[data-theme="dark"] .rich-opt.wrong { background: #381a17; border-color: #e27d78; }
 
+/* ---- Comprehensive Dark Theme Safety for Inputs, Hovers, Rich Blocks, Levels & Special Frames ---- */
+:root[data-theme="dark"] input:not(.bg-transparent):focus,
+:root[data-theme="dark"] textarea:not(.bg-transparent):focus,
+:root[data-theme="dark"] select:focus,
+:root[data-theme="dark"] .view input:not([class]):focus,
+:root[data-theme="dark"] .focus\:bg-white:focus,
+:root[data-theme="dark"] .focus\:bg-paper-card:focus,
+:root[data-theme="dark"] .focus\:bg-surface-bright:focus {
+  background-color: #26211f !important;
+  color: var(--on-surface) !important;
+}
+:root[data-theme="dark"] select option { background-color: #1f1b1a; color: var(--on-surface); }
+:root[data-theme="dark"] .bg-secondary-container { background-color: #143527 !important; color: #86efac !important; }
+:root[data-theme="dark"] .text-on-secondary-container { color: #86efac !important; }
+:root[data-theme="dark"] .hover\:bg-surface-container-low:hover { background-color: #2a2422 !important; }
+:root[data-theme="dark"] .hover\:bg-surface-container:hover { background-color: #322c2a !important; }
+:root[data-theme="dark"] .hover\:bg-surface-container-high:hover { background-color: #3d3533 !important; }
+:root[data-theme="dark"] .hover\:bg-surface-container-highest:hover { background-color: #463d3a !important; }
+:root[data-theme="dark"] .hover\:bg-paper-muted:hover { background-color: #2b2523 !important; }
+:root[data-theme="dark"] .hover\:bg-paper-card:hover { background-color: #292321 !important; }
+:root[data-theme="dark"] .hover\:bg-cinnabar-subtle:hover { background-color: #3f1d1a !important; }
+:root[data-theme="dark"] .hover\:bg-jade-subtle:hover { background-color: #153b2b !important; }
+:root[data-theme="dark"] .hover\:bg-primary-container:hover { background-color: #b8332c !important; color: #ffffff !important; }
+:root[data-theme="dark"] .hover\:bg-primary:hover { background-color: #c93b33 !important; color: #ffffff !important; }
+:root[data-theme="dark"] .hover\:bg-secondary:hover { background-color: #156e4e !important; color: #ffffff !important; }
+:root[data-theme="dark"] .hover\:bg-tertiary:hover { background-color: #9e6b21 !important; color: #ffffff !important; }
+:root[data-theme="dark"] .hover\:bg-secondary-container:hover,
+:root[data-theme="dark"] .hover\:bg-secondary-fixed:hover { background-color: #1d4a36 !important; color: #dcfce7 !important; }
+:root[data-theme="dark"] .hover\:bg-primary-fixed:hover { background-color: #4c2320 !important; color: #ffe3df !important; }
+:root[data-theme="dark"] .hover\:text-on-surface:hover { color: var(--on-surface) !important; }
+:root[data-theme="dark"] .hover\:text-primary:hover { color: var(--primary) !important; }
+:root[data-theme="dark"] .hover\:text-secondary:hover { color: var(--secondary) !important; }
+:root[data-theme="dark"] .hover\:text-white:hover,
+:root[data-theme="dark"] .hover\:text-on-primary:hover { color: #ffffff !important; }
+:root[data-theme="dark"] #app-toast {
+  background-color: #362f2d !important;
+  color: #F5EFEB !important;
+  border-color: #544945 !important;
+}
+:root[data-theme="dark"] .bg-paper-card\/80 { background-color: rgba(31, 27, 26, 0.92) !important; }
+:root[data-theme="dark"] .bg-surface-container-low\/50,
+:root[data-theme="dark"] .bg-surface-container-low\/70 { background-color: #241f1e !important; }
+:root[data-theme="dark"] .bg-cinnabar-subtle\/35,
+:root[data-theme="dark"] .bg-cinnabar-subtle\/40,
+:root[data-theme="dark"] .bg-cinnabar-subtle\/50,
+:root[data-theme="dark"] .bg-cinnabar-subtle\/60,
+:root[data-theme="dark"] .bg-cinnabar-subtle\/80 { background-color: var(--cinnabar-subtle) !important; }
+:root[data-theme="dark"] .bg-jade-subtle\/60 { background-color: var(--jade-soft) !important; }
+:root[data-theme="dark"] .bg-amber-subtle\/50 { background-color: var(--amber-soft) !important; }
+:root[data-theme="dark"] .paper-card { background-color: var(--paper-card) !important; }
+:root[data-theme="dark"] .hanzi-grid,
+:root[data-theme="dark"] .mi-zi-ge { background-color: #26211f !important; border-color: var(--border-subtle) !important; }
+:root[data-theme="dark"] .wrongc { color: #fca5a5 !important; background-color: #4a1c19 !important; }
+:root[data-theme="dark"] button.speak:hover { background-color: #1c4734 !important; }
+:root[data-theme="dark"] .task-card.is-done { background-color: #143527 !important; }
+:root[data-theme="dark"] .custom-scrollbar::-webkit-scrollbar-track { background: #26211f; }
+:root[data-theme="dark"] .custom-scrollbar::-webkit-scrollbar-thumb { background: #4a403d; }
+
+/* Unscoped .rich-* dark support (used on #tu/:word and #tu-dien outside .sb-more) */
+:root[data-theme="dark"] .rich-box { background: #241f1e !important; border-color: var(--border-subtle) !important; color: var(--on-surface); }
+:root[data-theme="dark"] .rich-note,
+:root[data-theme="dark"] .rich-note.rich-warn,
+:root[data-theme="dark"] .rich-note.rich-tw,
+:root[data-theme="dark"] .rich-note.rich-tip,
+:root[data-theme="dark"] .rich-ex,
+:root[data-theme="dark"] .rich-kv > div { background: #26211f !important; color: var(--on-surface) !important; }
+:root[data-theme="dark"] .rich-tag { background: #143527 !important; color: #86efac !important; }
+:root[data-theme="dark"] .rich h4,
+:root[data-theme="dark"] .rich-kv dt,
+:root[data-theme="dark"] .rich-note b { color: var(--on-surface) !important; }
+:root[data-theme="dark"] .rich .py,
+:root[data-theme="dark"] .rich-scene,
+:root[data-theme="dark"] .rich-box > summary small,
+:root[data-theme="dark"] .rich-exam .src { color: var(--on-surface-variant) !important; }
+:root[data-theme="dark"] .rich-words a { background: #2d2725; color: var(--on-surface); }
+
+/* 6-level & SRS grade buttons dark mode */
+:root[data-theme="dark"] .lvl-btn-0 { background: #2a2523 !important; color: #d6cac4 !important; border-color: #3a3230 !important; }
+:root[data-theme="dark"] .lvl-btn-1 { background: #3f1d1a !important; color: #f8b4ae !important; border-color: rgba(248,180,174,0.3) !important; }
+:root[data-theme="dark"] .lvl-btn-2 { background: #3b2b10 !important; color: #fcd34d !important; border-color: rgba(252,211,77,0.3) !important; }
+:root[data-theme="dark"] .lvl-btn-3 { background: #142c47 !important; color: #93c5fd !important; border-color: rgba(147,197,253,0.3) !important; }
+:root[data-theme="dark"] .lvl-btn-4 { background: #143527 !important; color: #86efac !important; border-color: rgba(134,239,172,0.3) !important; }
+:root[data-theme="dark"] .lvl-btn-5 { background: #2d1f4e !important; color: #d8b4fe !important; border-color: rgba(216,180,254,0.3) !important; }
+:root[data-theme="dark"] .srs-grade-1, :root[data-theme="dark"] .g1 { background: #3f1d1a !important; color: #f8b4ae !important; border-color: rgba(248,180,174,0.35) !important; }
+:root[data-theme="dark"] .srs-grade-2 { background: #3b2b10 !important; color: #fcd34d !important; border-color: rgba(252,211,77,0.35) !important; }
+:root[data-theme="dark"] .srs-grade-3 { background: #143527 !important; color: #86efac !important; border-color: rgba(134,239,172,0.35) !important; }
+:root[data-theme="dark"] .srs-grade-4 { background: #142c47 !important; color: #93c5fd !important; border-color: rgba(147,197,253,0.35) !important; }
+:root[data-theme="dark"] .g3 { background: #142c47 !important; color: #93c5fd !important; border-color: rgba(147,197,253,0.35) !important; }
+:root[data-theme="dark"] .g4 { background: #143527 !important; color: #86efac !important; border-color: rgba(134,239,172,0.35) !important; }
+
+/* Explicit light backing frames (QR codes, radio dots, scanned exam diagrams stay crisp in dark mode) */
+.qr-frame, :root[data-theme="dark"] .qr-frame { background-color: #ffffff !important; color: #1d1b1a !important; }
+.exam-img-paper, :root[data-theme="dark"] .exam-img-paper { background-color: #ffffff !important; }
+.radio-dot-white, :root[data-theme="dark"] .radio-dot-white { background-color: #ffffff !important; }
+.hero-white-btn, :root[data-theme="dark"] .hero-white-btn { background-color: #ffffff !important; color: #86090a !important; }
+.hero-white-btn:hover, :root[data-theme="dark"] .hero-white-btn:hover { background-color: #FDF2F0 !important; }
+.hero-white-btn.hero-jade-btn, :root[data-theme="dark"] .hero-white-btn.hero-jade-btn { color: #00594d !important; }
+.hero-white-btn.hero-jade-btn:hover, :root[data-theme="dark"] .hero-white-btn.hero-jade-btn:hover { background-color: #ECFDF5 !important; }
+
+/* ===== Offline Handwriting Pad (gugray/HanziLookupJS) ===== */
+.hw-pad {
+  display: grid;
+  grid-template-columns: 224px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  padding: 0.9rem;
+  border-radius: 14px;
+  background: var(--paper-muted);
+  border: 1px solid var(--border-subtle);
+}
+@media (max-width: 639px) {
+  .hw-pad {
+    grid-template-columns: 1fr;
+  }
+}
+.hw-pad-canvas-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
+}
+.hw-pad-stage {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  border-radius: 12px;
+  background: var(--paper-card);
+  border: 1.5px solid var(--border-subtle);
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(44, 42, 41, 0.06);
+}
+@media (max-width: 639px) {
+  .hw-pad-stage { width: min(244px, 100%); aspect-ratio: 1; height: auto; }
+}
+.hw-pad-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: crosshair;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.hw-pad-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--outline);
+  text-align: center;
+  padding: 0.75rem;
+}
+.hw-pad-toolbar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  width: 220px;
+}
+@media (max-width: 639px) {
+  .hw-pad-toolbar { width: min(244px, 100%); }
+}
+.hw-pad-btn {
+  min-height: 40px;
+  padding: 0.4rem 0.65rem;
+  border-radius: 10px;
+  border: 1px solid var(--border-subtle);
+  background: var(--paper-card);
+  color: var(--on-surface);
+  font-size: 13.5px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+.hw-pad-btn:hover:not(:disabled) {
+  border-color: var(--primary-container);
+  color: var(--primary);
+}
+.hw-pad-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.hw-pad-results-col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 0;
+}
+.hw-pad-status {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+}
+.hw-pad-candidates {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+  gap: 0.5rem;
+  min-height: 68px;
+}
+.hw-cand-btn {
+  min-height: 62px;
+  padding: 0.35rem 0.25rem;
+  border-radius: 11px;
+  border: 1px solid var(--border-subtle);
+  background: var(--paper-card);
+  color: var(--on-surface);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+  cursor: pointer;
+  transition: border-color 0.14s ease, transform 0.12s ease, background-color 0.14s ease;
+}
+.hw-cand-btn:hover {
+  border-color: var(--primary-container);
+  background: var(--cinnabar-subtle);
+  transform: translateY(-1px);
+}
+.hw-cand-han {
+  font-family: var(--f-han);
+  font-size: 26px;
+  line-height: 1.15;
+  font-weight: 700;
+}
+.hw-cand-py {
+  font-family: var(--f-code);
+  font-size: 11.5px;
+  line-height: 1.2;
+  color: var(--primary);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hw-pad-hint {
+  margin: 0;
+  font-size: 13px;
+  color: var(--outline);
+}
+
 /* ===== Chữ to hơn, dễ đọc (2026-11-19) =====
    Dùng "body ..." để thắng cả tw.css lẫn Tailwind CDN mà không cần !important. */
 body .text-\[10px\] { font-size: 12.5px; line-height: 1.35; }
