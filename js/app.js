@@ -1063,10 +1063,6 @@ function route() {
   const fn = VIEWS[name] || VIEWS["trang-chu"];
   if (name !== "hoc") S.session = null;
   fn(arg); window.scrollTo(0, 0); updateBadge();
-  if (name === "tu" && arg && S.ready) {
-    const at = location.hash;
-    Promise.all([ensureVi([arg]), ensureRich([arg])]).then(([a, b]) => { if ((a || b) && location.hash === at) fn(arg); }).catch(() => {});
-  }
 }
 addEventListener("hashchange", route);
 function updateBadge() {
@@ -6412,114 +6408,216 @@ function showcaseItemOf(w) {
 }
 
 // Shared helper to render the Stitch 7+5 Master Dictionary Showcase for any word `w`
-function buildStitchWordShowcaseHTML(w) {
+function dictTierForBand(bandStr) {
+  const b = String(bandStr || "").toUpperCase();
+  if (/(?:^|[\s·•\-/|(])(A1|A2|NOVICE)(?=$|[\s·•\-/|)])/.test(b)) return "tier-a";
+  if (/(?:^|[\s·•\-/|(])B1(?=$|[\s·•\-/|)])/.test(b)) return "tier-b";
+  if (/(?:^|[\s·•\-/|(])B2(?=$|[\s·•\-/|)])/.test(b)) return "tier-indigo";
+  if (/(?:^|[\s·•\-/|(])(C1|C2|C)(?=$|[\s·•\-/|)])/.test(b)) return "tier-c";
+  return "tier-personal";
+}
+
+function renderDictWorkspaceHeader(activeTab) {
+  const vocabCount = S.notes.filter((n) => n.kind === "vocab").length;
+  const inboxCount = S.inbox ? S.inbox.size : 0;
+  const isLookup = activeTab !== "import";
+  const bannerTier = isLookup ? "tier-c" : "tier-personal";
+  const bannerImg = isLookup ? "img/vocab-topics.jpg" : "img/home-personal.jpg";
+  const bannerMark = isLookup ? "詞" : "納";
+  const bannerTitle = isLookup ? "Tra cứu & Nhập từ vựng" : "Nhập từ hàng loạt & Hộp thư";
+  const bannerSub = isLookup
+    ? "Tra từ điển Phồn thể Đài Loan, viết tay nhận dạng chữ offline, xem bút thuận & chiết tự Khang Hy."
+    : "Thêm nhanh 1 từ hoặc dán danh sách nhiều từ — tự động chuẩn hóa Phồn thể, Pinyin và nạp vào Flashcard SRS.";
+
+  return `
+    <section class="flex flex-col gap-space-md">
+      <!-- Cohesive Panda Workspace Banner -->
+      <div class="home-band-card vocab-parent-banner ${bannerTier} !flex-col md:!flex-row md:items-center !justify-between !gap-4">
+        <span class="home-band-watermark" aria-hidden="true" lang="zh-Hant">${bannerMark}</span>
+        <div class="flex items-start gap-3.5 min-w-0 relative z-10">
+          <img src="${bannerImg}" alt="" width="56" height="56" loading="lazy" class="home-band-avatar shrink-0" onerror="this.onerror=null;this.src='img/icon-192.png'">
+          <div class="min-w-0 flex flex-col gap-1">
+            <div class="flex items-center gap-2 flex-wrap">
+              <span class="home-band-tier-pill">${isLookup ? "Từ điển Đài Loan · Offline" : "Sổ tay cá nhân · SRS"}</span>
+              <span class="home-band-status-pill bg-paper-base text-on-surface-variant border border-border-subtle font-code">${fmt(vocabCount)} từ TOCFL</span>
+            </div>
+            <h1 class="font-display text-2xl md:text-3xl text-on-surface font-semibold tracking-tight font-serif m-0 leading-tight">
+              ${bannerTitle} <span class="text-outline font-normal text-xl" lang="zh-Hant">${isLookup ? "詞典" : "收錄"}</span>
+            </h1>
+            <p class="font-body-sm text-xs sm:text-sm text-on-surface-variant m-0 leading-relaxed max-w-2xl">
+              ${bannerSub}
+            </p>
+          </div>
+        </div>
+        <!-- Compact Live Metrics -->
+        <div class="flex items-center gap-2 flex-wrap shrink-0 relative z-10">
+          <div class="px-3 py-2 rounded-xl bg-paper-base border border-border-subtle flex items-center gap-2">
+            <span class="material-symbols-outlined text-primary text-[19px]" aria-hidden="true">${isLookup ? "draw" : "inbox"}</span>
+            <div class="flex flex-col leading-tight">
+              <span class="text-[11px] text-on-surface-variant">${isLookup ? "Viết tay & Nét chữ" : "Hộp thư đã lưu"}</span>
+              <strong class="text-xs font-semibold text-on-surface font-code">${isLookup ? "Offline 100%" : `<span id="header-inbox-metric">${fmt(inboxCount)}</span> từ`}</strong>
+            </div>
+          </div>
+          <div class="px-3 py-2 rounded-xl bg-paper-base border border-border-subtle flex items-center gap-2">
+            <span class="material-symbols-outlined text-secondary text-[19px]" aria-hidden="true">bolt</span>
+            <div class="flex flex-col leading-tight">
+              <span class="text-[11px] text-on-surface-variant">Đồng bộ SRS</span>
+              <strong class="text-xs font-semibold text-secondary">Tự động khi lưu</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mode Navigation Tabs -->
+      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-2.5 p-1.5 bg-surface-container-low rounded-xl border border-border-subtle">
+        <div class="grid grid-cols-2 sm:inline-flex items-center gap-1 p-1 bg-surface-container rounded-lg">
+          <a href="#tu-dien" class="min-h-[40px] min-w-0 flex items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-4 py-2 rounded-lg font-label-md text-xs sm:text-sm transition-all duration-150 no-underline whitespace-nowrap ${isLookup ? "bg-paper-card text-primary shadow-sm font-semibold" : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-medium"}" id="tab-btn-lookup" ${isLookup ? 'aria-current="page"' : ""}>
+            <span class="material-symbols-outlined text-[18px] shrink-0" aria-hidden="true">menu_book</span>
+            <span class="sm:hidden">Tra từ</span>
+            <span class="hidden sm:inline">Tra cứu từ điển</span>
+          </a>
+          <a href="#nhap" class="min-h-[40px] min-w-0 flex items-center justify-center gap-1 sm:gap-1.5 px-2 sm:px-4 py-2 rounded-lg font-label-md text-xs sm:text-sm transition-all duration-150 no-underline whitespace-nowrap ${!isLookup ? "bg-paper-card text-primary shadow-sm font-semibold" : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high font-medium"}" id="tab-btn-import" ${!isLookup ? 'aria-current="page"' : ""}>
+            <span class="material-symbols-outlined text-[18px] shrink-0" aria-hidden="true">post_add</span>
+            <span class="sm:hidden">Nhập từ</span>
+            <span class="hidden sm:inline">Nhập hàng loạt</span>
+            <span id="header-inbox-count" class="px-1.5 py-0.5 rounded-full text-[11px] font-code shrink-0 ${!isLookup ? "bg-cinnabar-subtle text-primary" : "bg-paper-card text-on-surface-variant border border-border-subtle"}">${fmt(inboxCount)}</span>
+          </a>
+        </div>
+        <div class="flex items-center gap-1.5 px-3 py-1 text-on-surface-variant text-xs">
+          <span class="material-symbols-outlined text-[16px] shrink-0 text-primary" aria-hidden="true">${isLookup ? "tips_and_updates" : "sync_alt"}</span>
+          <span>${isLookup ? 'Hỗ trợ gõ Phồn thể, Giản thể, Pinyin, nghĩa Việt hoặc <strong>vẽ chữ viết tay</strong>' : 'Vừa nhập vừa học: <strong>tự động tạo thẻ Flashcard SRS</strong>'}</span>
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function buildStitchWordShowcaseHTML(w, opts = {}) {
   const { n, e, inLearn, it } = showcaseItemOf(w);
   const chars = [...new Set([...hanOnly(w)])];
   if (!chars.length && w) chars.push(w[0]);
   const containing = (c) => S.notes.filter((x) => x.kind === "vocab" && x.w.includes(c) && x.w !== w).slice(0, 8);
   const curLvl = n ? noteLevel(n) : 0;
   const unicodeHex = chars.map((ch) => "U+" + ch.codePointAt(0).toString(16).toUpperCase()).join(" ");
-  const bandLabel = n ? `TOCFL ${bandsOf(n).join(" · ") || "Chuẩn"}` : (it.band ? `TOCFL ${it.band}` : "Mở rộng CC-CEDICT");
+  const rawBand = n ? (bandsOf(n).join(" · ") || "Chuẩn") : (it.band || "");
+  const bandLabel = n ? `TOCFL ${rawBand}` : (it.band ? `TOCFL ${it.band}` : "Mở rộng CC-CEDICT");
+  const tier = dictTierForBand(rawBand);
+  const collocations = [];
+  const seenColloc = new Set();
+  for (const c of chars) {
+    for (const x of containing(c)) {
+      if (!seenColloc.has(x.w)) { seenColloc.add(x.w); collocations.push(x); }
+      if (collocations.length >= 6) break;
+    }
+    if (collocations.length >= 6) break;
+  }
 
   return `
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
       <!-- Left: Word Card Showcase & Hanzi Stroke Breakdown (7 cols) -->
-      <div class="lg:col-span-7 flex flex-col gap-space-lg">
+      <div class="lg:col-span-7 flex flex-col gap-space-lg min-w-0">
         <!-- Master Dictionary Showcase Card -->
-        <div class="bg-paper-card p-space-lg md:p-space-xl rounded-2xl border border-border-subtle/70 shadow-sm relative overflow-hidden flex flex-col gap-space-lg">
-          <!-- Traditional Red Seal Background Stamp -->
-          <div class="absolute -right-8 -top-8 w-44 h-44 rounded-full bg-cinnabar-subtle opacity-60 pointer-events-none flex items-center justify-center">
-            <span class="font-display text-primary text-[88px] opacity-25 select-none font-bold">${esc(chars[0] || "學")}</span>
-          </div>
+        <div class="dict-showcase-card ${tier} p-4 sm:p-space-lg flex flex-col gap-space-md">
+          <span class="home-band-watermark !bottom-auto !top-3 !right-4 !text-[4.5rem]" aria-hidden="true" lang="zh-Hant">${esc(chars[0] || "學")}</span>
 
           <!-- Header of Entry Card -->
-          <div class="flex items-start justify-between relative z-10 gap-2 flex-wrap">
-            <div class="flex items-center gap-space-sm flex-wrap">
-              <span class="px-2.5 py-1 rounded-full bg-primary text-on-primary font-label-sm text-label-sm font-semibold tracking-wide">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between relative z-10 gap-2.5 pb-3 border-b border-border-subtle">
+            <div class="flex items-center gap-1.5 flex-wrap">
+              <span class="home-band-tier-pill">
                 ${esc(bandLabel)}
               </span>
-              <span class="px-2 py-0.5 rounded-md bg-amber-subtle text-tertiary font-label-sm text-label-sm">
-                Từ tính: ${esc(it.pos || "Từ vựng")}
-              </span>
-              <span class="px-2 py-0.5 rounded-md bg-paper-base text-outline font-code text-body-sm">
-                Unicode: ${esc(unicodeHex)}
+              <span class="home-band-status-pill bg-amber-subtle text-tertiary">
+                ${esc(it.pos || "Từ vựng")}
               </span>
             </div>
             <!-- Quick Direct Save Actions -->
-            <div class="flex items-center gap-space-xs">
-              <button type="button" class="px-space-md py-1.5 rounded-xl ${inLearn ? "bg-jade-subtle text-secondary" : "bg-cinnabar-subtle hover:bg-primary-fixed text-primary"} font-label-md text-label-md font-semibold transition-all duration-150 flex items-center gap-1.5 shadow-sm" id="addLearn">
-                <span class="material-symbols-outlined text-[18px]">${inLearn ? "bookmark_added" : "bookmark_add"}</span>
+            <div class="flex items-center gap-1.5 flex-wrap self-start sm:self-auto">
+              ${opts.showStandaloneLink ? `
+                <a href="#tu/${encodeURIComponent(w)}" class="min-h-[36px] px-2.5 py-1.5 rounded-lg bg-paper-base hover:bg-surface-container text-on-surface-variant hover:text-primary border border-border-subtle text-xs font-medium inline-flex items-center gap-1 no-underline transition-colors" title="Mở trang chi tiết riêng cho từ này">
+                  <span class="material-symbols-outlined text-[15px]" aria-hidden="true">open_in_new</span>
+                  <span>Trang riêng</span>
+                </a>
+              ` : ""}
+              <button type="button" class="min-h-[38px] px-3.5 py-1.5 rounded-xl ${inLearn ? "bg-jade-subtle text-secondary border-secondary/30" : "bg-cinnabar-subtle hover:bg-primary-container hover:text-on-primary text-primary border-primary/20"} border font-label-md text-xs font-semibold transition-all duration-150 inline-flex items-center gap-1.5 shadow-sm" id="addLearn">
+                <span class="material-symbols-outlined text-[17px]" aria-hidden="true">${inLearn ? "bookmark_added" : "bookmark_add"}</span>
                 <span>${inLearn ? "✓ Đang trong lịch học" : "+ Lưu vào sổ"}</span>
               </button>
             </div>
           </div>
 
-          <!-- Calligraphic Mi-zi-ge (米字格) Character Display + HanziWriter -->
-          <div class="flex flex-col sm:flex-row items-center sm:items-start gap-space-lg py-space-sm relative z-10">
-            <!-- Rice Grid Boxes Container -->
-            <div class="flex items-center gap-space-md flex-wrap justify-center">
-              ${chars.map((c, k) => `
-                <div class="flex flex-col items-center gap-1.5">
-                  <div class="mi-zi-ge relative w-32 h-32 md:w-36 md:h-36 rounded-xl border border-border-subtle flex items-center justify-center shadow-inner overflow-hidden group cursor-pointer" data-anim-w="${k}" title="Nhấn để xem diễn họa bút thuận chữ ${esc(c)}">
-                    <svg class="absolute inset-0 w-full h-full text-outline/30 stroke-current pointer-events-none" stroke-dasharray="2,3" stroke-width="0.8" viewBox="0 0 100 100">
-                      <line x1="0" x2="100" y1="0" y2="100"></line>
-                      <line x1="100" x2="0" y1="0" y2="100"></line>
-                      <line x1="50" x2="50" y1="0" y2="100"></line>
-                      <line x1="0" x2="100" y1="50" y2="50"></line>
-                    </svg>
-                    <div id="wordHw${k}" class="relative z-10 flex items-center justify-center">
-                      <span class="font-display text-[72px] md:text-[82px] text-on-surface select-none leading-none">${esc(c)}</span>
-                    </div>
-                  </div>
-                  <div class="flex gap-1.5">
-                    <button type="button" class="text-xs px-2.5 py-1 rounded-lg bg-paper-base hover:bg-cinnabar-subtle text-primary border border-border-subtle font-medium" data-anim-w="${k}">Xem nét</button>
-                    <button type="button" class="text-xs px-2.5 py-1 rounded-lg bg-paper-base hover:bg-jade-subtle text-secondary border border-border-subtle font-medium" data-quiz-w="${k}">Tập viết</button>
-                  </div>
-                </div>
-              `).join("")}
-            </div>
-
+          <!-- Word Hero: Pronunciation, Han-Viet, Meaning (Full Width) + Mi-zi-ge Stroke Grid Below -->
+          <div class="flex flex-col gap-4 py-1 relative z-10">
             <!-- Pronunciation, Han-Viet, and Meaning -->
-            <div class="flex flex-col gap-space-xs text-center sm:text-left justify-center flex-1 min-w-0">
-              <div class="flex items-center justify-center sm:justify-start gap-space-sm flex-wrap">
-                <h2 class="font-headline-lg text-4xl md:text-5xl font-bold text-on-surface font-serif select-all mr-2">${esc(w)}</h2>
-                <span class="font-body-lg text-2xl md:text-3xl font-bold text-primary">${esc(it.py || "")}</span>
-                <button type="button" class="w-10 h-10 rounded-full bg-cinnabar-subtle hover:bg-primary-fixed text-primary flex items-center justify-center transition-transform active:scale-95 shadow-sm" data-say="${esc(w)}" title="Phát âm chuẩn Đài Bắc (Quốc ngữ)" aria-label="Phát âm ${esc(w)}">
-                  <span class="material-symbols-outlined text-[20px]">volume_up</span>
+            <div class="flex flex-col gap-2 min-w-0 w-full">
+              <div class="flex items-center gap-2.5 flex-wrap">
+                <h2 class="font-headline-lg text-3xl sm:text-4xl font-bold text-on-surface font-serif select-all m-0 leading-tight" lang="zh-Hant">${esc(w)}</h2>
+                <span class="font-code text-xl sm:text-2xl font-bold text-primary">${esc(it.py || "")}</span>
+                <button type="button" class="w-10 h-10 rounded-full bg-cinnabar-subtle hover:bg-primary-container hover:text-on-primary text-primary flex items-center justify-center transition-all active:scale-95 shadow-sm border border-primary/20 shrink-0" data-say="${esc(w)}" title="Phát âm chuẩn Đài Bắc (Quốc ngữ)" aria-label="Phát âm ${esc(w)}">
+                  <span class="material-symbols-outlined text-[20px]" aria-hidden="true">volume_up</span>
                 </button>
-                <span class="text-outline text-body-sm font-code">Đài Loan [Chuẩn]</span>
               </div>
 
-              <div class="flex items-center justify-center sm:justify-start gap-space-md text-on-surface-variant flex-wrap">
-                <div class="flex items-center gap-1 font-body-md text-body-md">
-                  <span class="text-outline font-label-sm">Hán Việt:</span>
-                  <span class="font-semibold text-on-surface">${esc(it.hv || "Đang cập nhật")}</span>
-                </div>
+              <div class="flex items-center gap-2 text-on-surface-variant flex-wrap text-sm">
+                <span><span class="text-outline text-xs">Hán Việt:</span> <strong class="text-on-surface">${esc(it.hv || "Đang cập nhật")}</strong></span>
+                <span class="text-border-subtle">·</span>
+                <span class="text-outline text-xs font-code">Đài Loan [Chuẩn]</span>
               </div>
 
               <!-- Meaning Section & Actions -->
-              <div class="flex flex-col gap-1.5 pt-2 border-t border-border-subtle/60 mt-1">
+              <div class="flex flex-col gap-1.5 pt-2.5 border-t border-border-subtle/70 mt-1 text-left">
                 <div class="flex items-center justify-between flex-wrap gap-2">
                   <span class="text-xs uppercase font-semibold text-outline">Nghĩa tiếng Việt</span>
-                  <div class="flex items-center gap-1.5">
-                    <button type="button" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-jade-subtle text-secondary hover:bg-secondary-container border border-secondary/30 flex items-center gap-1 transition-colors" id="btnAutoTranslate" title="Tự động dịch sang tiếng Việt">
-                      <span class="material-symbols-outlined text-[15px]">translate</span>
+                  <div class="flex items-center gap-1.5 flex-wrap">
+                    <button type="button" class="min-h-[36px] px-3 py-1 rounded-lg text-xs font-semibold bg-jade-subtle text-secondary hover:bg-secondary-container border border-secondary/30 inline-flex items-center gap-1 transition-colors whitespace-nowrap" id="btnAutoTranslate" title="Tự động dịch sang tiếng Việt">
+                      <span class="material-symbols-outlined text-[15px]" aria-hidden="true">translate</span>
                       <span>Dịch tự động</span>
                     </button>
-                    <button type="button" class="px-2.5 py-1 rounded-lg text-xs font-semibold bg-paper-muted text-on-surface hover:bg-surface-container border border-border-subtle flex items-center gap-1 transition-colors" id="btnEditMeaning">
-                      <span class="material-symbols-outlined text-[15px]">edit</span>
+                    <button type="button" class="min-h-[36px] px-3 py-1 rounded-lg text-xs font-semibold bg-paper-muted text-on-surface hover:bg-surface-container border border-border-subtle inline-flex items-center gap-1 transition-colors whitespace-nowrap" id="btnEditMeaning">
+                      <span class="material-symbols-outlined text-[15px]" aria-hidden="true">edit</span>
                       <span>${it.vn ? "Sửa nghĩa" : "+ Thêm nghĩa TV"}</span>
                     </button>
                   </div>
                 </div>
-                <div class="font-body-md text-lg md:text-xl text-on-surface font-semibold leading-relaxed" id="meaningDisplay">
+                <div class="font-body-md text-base sm:text-lg text-on-surface font-semibold leading-relaxed break-words" id="meaningDisplay">
                   ${it.vn
                     ? esc(it.vn)
                     : it.en
                       ? `<span class="text-on-surface-variant font-normal text-sm italic">${esc(it.en)} <small class="text-tertiary not-italic block text-xs mt-1 font-sans">⚠️ Từ này hiện có nghĩa tiếng Anh. Bấm "Dịch tự động" hoặc "Tra trên Hanzii VIP ↗" để cập nhật tiếng Việt!</small></span>`
                       : '<span class="text-outline text-sm">Chưa có định nghĩa tiếng Việt. Bấm "Dịch tự động" hoặc "+ Thêm nghĩa TV".</span>'}
                 </div>
-                ${it.vn && it.en ? `<div class="text-xs text-outline">${esc(it.en)}</div>` : ""}
+                ${it.vn && it.en ? `<div class="text-xs text-outline break-words">${esc(it.en)}</div>` : ""}
+              </div>
+            </div>
+
+            <!-- Calligraphic Mi-zi-ge (米字格) Stroke Order & Writing Grid -->
+            <div class="p-3.5 rounded-xl bg-paper-base border border-border-subtle flex flex-col gap-2.5">
+              <div class="flex items-center justify-between gap-2 flex-wrap">
+                <span class="font-label-md text-xs font-semibold text-on-surface flex items-center gap-1.5">
+                  <span class="material-symbols-outlined text-primary text-[17px]" aria-hidden="true">gesture</span>
+                  Bút thuận &amp; Tập viết (米字格)
+                </span>
+                <span class="text-[11px] text-outline">Bấm vào ô chữ để xem thứ tự nét</span>
+              </div>
+              <div class="${chars.length >= 2 ? "grid grid-cols-2 sm:flex sm:flex-wrap" : "flex flex-wrap"} items-center justify-items-center sm:justify-start gap-3">
+                ${chars.map((c, k) => `
+                  <div class="flex flex-col items-center gap-1.5">
+                    <div class="mi-zi-ge relative w-28 h-28 sm:w-32 sm:h-32 rounded-xl border border-border-subtle flex items-center justify-center shadow-inner overflow-hidden group cursor-pointer" data-anim-w="${k}" title="Nhấn để xem diễn họa bút thuận chữ ${esc(c)}">
+                      <svg class="absolute inset-0 w-full h-full text-outline/30 stroke-current pointer-events-none" stroke-dasharray="2,3" stroke-width="0.8" viewBox="0 0 100 100">
+                        <line x1="0" x2="100" y1="0" y2="100"></line>
+                        <line x1="100" x2="0" y1="0" y2="100"></line>
+                        <line x1="50" x2="50" y1="0" y2="100"></line>
+                        <line x1="0" x2="100" y1="50" y2="50"></line>
+                      </svg>
+                      <div id="wordHw${k}" class="relative z-10 flex items-center justify-center">
+                        <span class="font-display text-[64px] sm:text-[74px] text-on-surface select-none leading-none" lang="zh-Hant">${esc(c)}</span>
+                      </div>
+                    </div>
+                    <div class="flex gap-1.5">
+                      <button type="button" class="min-h-[36px] text-xs px-2.5 py-1 rounded-lg bg-paper-card hover:bg-cinnabar-subtle text-primary border border-border-subtle font-semibold transition-colors whitespace-nowrap" data-anim-w="${k}">Xem nét</button>
+                      <button type="button" class="min-h-[36px] text-xs px-2.5 py-1 rounded-lg bg-paper-card hover:bg-jade-subtle text-secondary border border-border-subtle font-semibold transition-colors whitespace-nowrap" data-quiz-w="${k}">Tập viết</button>
+                    </div>
+                  </div>
+                `).join("")}
               </div>
             </div>
           </div>
@@ -6528,30 +6626,30 @@ function buildStitchWordShowcaseHTML(w) {
           <div id="editMeaningBox" class="hidden p-4 rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-3 transition-all relative z-10">
             <div class="flex items-center justify-between border-b border-border-subtle pb-2">
               <span class="text-xs font-bold text-on-surface flex items-center gap-1.5">
-                <span class="material-symbols-outlined text-[16px] text-primary">edit_note</span>
+                <span class="material-symbols-outlined text-[16px] text-primary" aria-hidden="true">edit_note</span>
                 <span>Chỉnh sửa nghĩa Tiếng Việt &amp; Hán Việt cho "${esc(w)}"</span>
               </span>
-              <button type="button" class="text-xs text-outline hover:text-on-surface" id="btnCancelEdit">Đóng ✕</button>
+              <button type="button" class="min-h-[36px] px-2.5 text-xs text-outline hover:text-on-surface" id="btnCancelEdit">Đóng ✕</button>
             </div>
             <div class="flex flex-col gap-1">
-              <label class="text-[11px] font-semibold text-on-surface-variant">Nghĩa tiếng Việt:</label>
+              <label class="text-[11px] font-semibold text-on-surface-variant" for="editVn">Nghĩa tiếng Việt:</label>
               <input id="editVn" class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-sm text-on-surface focus:outline-none focus:border-primary" value="${esc(it.vn || "")}" placeholder="VD: con nhện; rực rỡ lấp lánh">
             </div>
-            <div class="grid grid-cols-2 gap-2">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
               <div class="flex flex-col gap-1">
-                <label class="text-[11px] font-semibold text-on-surface-variant">Âm Hán Việt:</label>
+                <label class="text-[11px] font-semibold text-on-surface-variant" for="editHv">Âm Hán Việt:</label>
                 <input id="editHv" class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-sm text-on-surface focus:outline-none focus:border-primary" value="${esc(it.hv || "")}" placeholder="VD: Tri chu">
               </div>
               <div class="flex flex-col gap-1">
-                <label class="text-[11px] font-semibold text-on-surface-variant">Từ loại:</label>
+                <label class="text-[11px] font-semibold text-on-surface-variant" for="editPos">Từ loại:</label>
                 <input id="editPos" class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-sm text-on-surface focus:outline-none focus:border-primary" value="${esc(it.pos || "")}" placeholder="VD: Danh từ">
               </div>
             </div>
-            <div class="flex items-center justify-between gap-2 pt-2 border-t border-border-subtle/50">
-              <button type="button" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" id="btnAutoFillTranslate">
+            <div class="flex items-center justify-between gap-2 pt-2 border-t border-border-subtle/50 flex-wrap">
+              <button type="button" class="min-h-[36px] px-3 py-1.5 rounded-lg text-xs font-semibold bg-surface-container text-on-surface hover:bg-surface-container-high transition-colors" id="btnAutoFillTranslate">
                 Lấy bản dịch gợi ý
               </button>
-              <button type="button" class="px-4 py-2 rounded-xl text-xs font-bold bg-primary-container text-white hover:bg-primary transition-all shadow-sm" id="btnSaveMeaning">
+              <button type="button" class="min-h-[38px] px-4 py-2 rounded-xl text-xs font-bold bg-primary-container text-white hover:bg-primary transition-all shadow-sm" id="btnSaveMeaning">
                 Lưu vào từ điển
               </button>
             </div>
@@ -6559,39 +6657,38 @@ function buildStitchWordShowcaseHTML(w) {
 
           <!-- Prominent External Dictionaries Box (Hanzii VIP, Moedict, Trichdan) -->
           <div class="p-3.5 rounded-xl bg-paper-base border border-border-subtle flex flex-col gap-2 relative z-10">
-            <div class="flex items-center justify-between text-xs text-outline font-semibold uppercase">
+            <div class="flex items-center justify-between gap-2 flex-wrap text-xs text-outline font-semibold uppercase">
               <span class="flex items-center gap-1.5">
-                <span class="material-symbols-outlined text-[16px] text-tertiary">open_in_new</span>
-                <span>Tra cứu chuyên sâu trên Hanzii VIP &amp; Bộ GD Đài Loan</span>
+                <span class="material-symbols-outlined text-[16px] text-tertiary" aria-hidden="true">open_in_new</span>
+                <span>Tra cứu mở rộng</span>
               </span>
-              <span class="text-[11px] text-outline">Hỗ trợ tài khoản VIP</span>
+              <span class="text-[11px] text-outline normal-case font-normal">Hanzii VIP · Bộ GD Đài Loan · Hán Việt</span>
             </div>
             <div class="flex items-center gap-2 flex-wrap">
-              <a href="https://hanzii.net/search/word/${encodeURIComponent(w)}?hl=vi" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-xl bg-cinnabar-subtle hover:bg-primary-fixed text-primary border border-primary/20 text-xs font-bold transition-all flex items-center gap-1.5 no-underline">
-                <span class="w-2 h-2 rounded-full bg-primary"></span>
+              <a href="https://hanzii.net/search/word/${encodeURIComponent(w)}?hl=vi" target="_blank" rel="noopener noreferrer" class="min-h-[36px] px-3.5 py-1.5 rounded-xl bg-cinnabar-subtle hover:bg-primary-container hover:text-on-primary text-primary border border-primary/20 text-xs font-bold transition-all inline-flex items-center gap-1.5 no-underline">
                 <span>Tra trên Hanzii VIP ↗</span>
               </a>
-              <a href="https://www.moedict.tw/${encodeURIComponent(w)}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle text-xs font-medium transition-all flex items-center gap-1.5 no-underline">
+              <a href="https://www.moedict.tw/${encodeURIComponent(w)}" target="_blank" rel="noopener noreferrer" class="min-h-[36px] px-3 py-1.5 rounded-xl bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle text-xs font-medium transition-all inline-flex items-center gap-1.5 no-underline">
                 <span>🇹🇼 Từ điển Đài Loan (萌典) ↗</span>
               </a>
-              <a href="https://trichdan.net/tu-dien/han-viet/${encodeURIComponent(w)}" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-xl bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle text-xs font-medium transition-all flex items-center gap-1.5 no-underline">
+              <a href="https://trichdan.net/tu-dien/han-viet/${encodeURIComponent(w)}" target="_blank" rel="noopener noreferrer" class="min-h-[36px] px-3 py-1.5 rounded-xl bg-paper-card hover:bg-surface-container text-on-surface border border-border-subtle text-xs font-medium transition-all inline-flex items-center gap-1.5 no-underline">
                 <span>📖 Tra Hán Việt (Trích Dẫn) ↗</span>
               </a>
             </div>
           </div>
 
-          <!-- Radical Deconstruction (Chiết tự bộ thủ - Exact Stitch) -->
-          <div class="p-space-md bg-paper-base rounded-xl flex flex-col gap-space-sm relative z-10">
-            <div class="flex items-center justify-between">
-              <span class="font-label-md text-label-md font-semibold text-on-surface flex items-center gap-1.5">
-                <span class="material-symbols-outlined text-tertiary text-[18px]">account_tree</span>
+          <!-- Radical Deconstruction (Chiết tự bộ thủ) -->
+          <div class="p-3.5 sm:p-space-md bg-paper-base rounded-xl border border-border-subtle flex flex-col gap-space-sm relative z-10">
+            <div class="flex items-center justify-between gap-2 flex-wrap">
+              <span class="font-label-md text-sm font-semibold text-on-surface flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-tertiary text-[18px]" aria-hidden="true">account_tree</span>
                 Chiết tự &amp; Nguồn gốc chữ Hán
               </span>
-              <span class="font-label-sm text-label-sm text-outline">Bộ thủ 214 Khang Hy</span>
+              <span class="font-code text-[11px] text-outline">214 Bộ thủ · ${esc(unicodeHex)}</span>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm font-body-sm text-body-sm text-on-surface-variant">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 font-body-sm text-xs sm:text-sm text-on-surface-variant">
               ${chars.map((ch) => `
-                <div class="p-2.5 rounded-lg bg-paper-card border border-border-subtle/50">
+                <div class="p-2.5 rounded-lg bg-paper-card border border-border-subtle/70 min-w-0 break-words">
                   ${formatDecompHTML(ch)}
                 </div>
               `).join("")}
@@ -6599,41 +6696,38 @@ function buildStitchWordShowcaseHTML(w) {
           </div>
 
           <!-- Live Moedict (Bộ Giáo dục Đài Loan - 萌典) -->
-          <div id="moedictLiveBox" class="p-space-md bg-paper-base rounded-xl border border-border-subtle/70 flex flex-col gap-1.5 relative z-10 text-xs text-outline">
+          <div id="moedictLiveBox" class="p-3.5 sm:p-space-md bg-paper-base rounded-xl border border-border-subtle flex flex-col gap-1.5 relative z-10 text-xs text-outline">
             Đang tải dữ liệu chuẩn Bộ Giáo dục Đài Loan (萌典)…
           </div>
 
           <!-- Real-World Taiwanese Context Examples with Audio -->
-          <div class="flex flex-col gap-space-sm relative z-10">
+          <div class="flex flex-col gap-2 relative z-10">
             <div class="flex items-center justify-between">
-              <span class="font-label-md text-label-md font-semibold text-on-surface flex items-center gap-1.5">
-                <span class="material-symbols-outlined text-primary text-[18px]">format_quote</span>
+              <span class="font-label-md text-sm font-semibold text-on-surface flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-primary text-[18px]" aria-hidden="true">format_quote</span>
                 Ví dụ câu chuẩn ngữ cảnh Đài Loan
               </span>
-              <span class="font-label-sm text-label-sm text-outline">Câu ví dụ</span>
             </div>
-            <div class="flex flex-col gap-space-sm">
-              <div class="p-space-md rounded-xl bg-paper-base hover:bg-surface-container-low transition-colors flex flex-col gap-space-xs">
-                ${(() => {
-                  const tb = tbclInfo(w);
-                  const own = it.e1 || "";
-                  const exZh = own || tbclSentence(w, tb);
-                  const exPy = (own ? it.e1p : "") || (exZh ? pinyinProOf(exZh) : "");
-                  const exVn = (own ? it.e1v : "") || (S.viEx && S.viEx[exZh]) || "";
-                  const extra = tb && (tb.lv || tb.cmp) ? `<p class="text-xs text-secondary font-medium">${tb.lv ? `TBCL Cấp ${esc(tb.lv)}` : ""}${tb.lv && tb.cmp ? " · " : ""}${tb.cmp ? `Từ ghép: ${esc(tb.cmp)}` : ""}</p>` : "";
-                  if (!exZh) return `<p class="text-sm text-outline">Từ này chưa có câu ví dụ.</p>${extra}`;
-                  return `
-                  <div class="flex items-center justify-between gap-2">
-                    <p class="font-headline-md text-headline-md text-on-surface font-normal" lang="zh-Hant">${esc(exZh)}</p>
-                    <button type="button" class="p-1 rounded-full text-on-surface-variant hover:text-primary hover:bg-paper-card transition-colors shrink-0" data-say="${esc(exZh)}" title="Nghe câu ví dụ">
-                      <span class="material-symbols-outlined text-[18px]">volume_up</span>
-                    </button>
-                  </div>
-                  <p class="font-code text-body-sm text-outline">${esc(exPy)}</p>
-                  <p class="font-body-md text-body-md text-on-surface-variant">${exVn ? esc(exVn) : '<span class="text-xs text-outline">Câu này chưa có bản dịch tiếng Việt.</span>'}</p>
-                  ${extra}`;
-                })()}
-              </div>
+            <div class="p-3.5 sm:p-space-md rounded-xl bg-paper-base border border-border-subtle flex flex-col gap-1">
+              ${(() => {
+                const tb = tbclInfo(w);
+                const own = it.e1 || "";
+                const exZh = own || tbclSentence(w, tb);
+                const exPy = (own ? it.e1p : "") || (exZh ? pinyinProOf(exZh) : "");
+                const exVn = (own ? it.e1v : "") || (S.viEx && S.viEx[exZh]) || "";
+                const extra = tb && (tb.lv || tb.cmp) ? `<p class="text-xs text-secondary font-medium m-0 mt-1">${tb.lv ? `TBCL Cấp ${esc(tb.lv)}` : ""}${tb.lv && tb.cmp ? " · " : ""}${tb.cmp ? `Từ ghép: ${esc(tb.cmp)}` : ""}</p>` : "";
+                if (!exZh) return `<p class="text-sm text-outline m-0">Từ này chưa có câu ví dụ.</p>${extra}`;
+                return `
+                <div class="flex items-start justify-between gap-3">
+                  <p class="font-serif text-base sm:text-lg text-on-surface font-medium m-0 leading-snug" lang="zh-Hant">${esc(exZh)}</p>
+                  <button type="button" class="w-9 h-9 rounded-full bg-paper-card text-on-surface-variant hover:text-primary hover:bg-cinnabar-subtle border border-border-subtle flex items-center justify-center transition-colors shrink-0" data-say="${esc(exZh)}" title="Nghe câu ví dụ" aria-label="Nghe câu ví dụ">
+                    <span class="material-symbols-outlined text-[18px]" aria-hidden="true">volume_up</span>
+                  </button>
+                </div>
+                <p class="font-code text-xs text-outline m-0">${esc(exPy)}</p>
+                <p class="font-body-md text-sm text-on-surface-variant m-0 mt-0.5">${exVn ? esc(exVn) : '<span class="text-xs text-outline">Câu này chưa có bản dịch tiếng Việt.</span>'}</p>
+                ${extra}`;
+              })()}
             </div>
           </div>
 
@@ -6664,57 +6758,62 @@ function buildStitchWordShowcaseHTML(w) {
         </div>
       </div>
 
-      <!-- Right: Word Details, Radicals, Collocations & Quick Entry Drawer (5 cols) -->
-      <div class="lg:col-span-5 flex flex-col gap-space-lg">
-        <!-- Visual Context Card with Traditional Photography (Exact Stitch) -->
-        <div class="bg-paper-card p-space-md rounded-2xl border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
-          <div class="relative w-full h-44 rounded-xl overflow-hidden shadow-inner bg-gradient-to-br from-[#1d1b1a] via-[#86090a] to-[#a8261f]">
-            <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Taipei Night Glow" src="img/tra-tu.jpg" onerror="this.style.display='none'">
-            <div class="absolute inset-0 bg-gradient-to-t from-on-surface/80 via-transparent to-transparent flex items-end p-space-md">
-              <span class="text-on-primary font-headline-md text-headline-md font-semibold tracking-wide">
-                ${esc(w)} • 臺灣語境 • Ngữ cảnh Đài Loan
+      <!-- Right: Sticky Context, Collocations, Quick Assign & CC-CEDICT (5 cols) -->
+      <aside class="lg:col-span-5 lg:sticky lg:top-24 flex flex-col gap-space-md min-w-0">
+        <!-- Compact Visual Context + Collocations Card -->
+        <div class="bg-paper-card p-4 rounded-2xl border border-border-subtle shadow-sm flex flex-col gap-3">
+          <div class="relative w-full h-32 rounded-xl overflow-hidden shadow-inner bg-gradient-to-br from-[#1d1b1a] via-[#86090a] to-[#a8261f]">
+            <img class="w-full h-full object-cover transition-transform duration-500 hover:scale-105" alt="Ngữ cảnh Đài Loan" src="img/tra-tu.jpg" loading="lazy" onerror="this.style.display='none'">
+            <div class="absolute inset-0 dict-ctx-overlay flex items-end p-3.5">
+              <span class="text-white font-headline-md text-sm sm:text-base font-semibold tracking-wide drop-shadow-sm" lang="zh-Hant">
+                ${esc(w)} · 臺灣語境 · Ngữ cảnh Đài Loan
               </span>
             </div>
           </div>
           <!-- Collocation Combos -->
-          <div class="flex flex-col gap-space-xs">
-            <span class="font-label-md text-label-md font-semibold text-on-surface">Từ vựng liên quan cùng chữ Hán (相關詞彙):</span>
-            <div class="flex flex-wrap gap-space-xs">
-              ${chars.flatMap((c) => containing(c)).slice(0, 6).map((x) => `
-                <a href="#tu/${encodeURIComponent(x.w)}" class="px-2.5 py-1 rounded-lg bg-paper-base text-on-surface font-body-sm text-body-sm hover:bg-cinnabar-subtle hover:text-primary transition-colors no-underline">
-                  <strong class="font-serif">${esc(x.w)}</strong> <span class="text-outline text-xs">(${esc(itemOf(x).py || "")})</span>
+          <div class="flex flex-col gap-2">
+            <span class="font-label-md text-xs font-semibold text-on-surface flex items-center gap-1.5">
+              <span class="w-1.5 h-3.5 rounded-full bg-primary-container inline-block"></span>
+              Từ vựng liên quan cùng chữ Hán (相關詞彙)
+            </span>
+            <div class="flex flex-wrap gap-1.5">
+              ${collocations.map((x) => `
+                <a href="#tu/${encodeURIComponent(x.w)}" class="dict-quick-chip no-underline" data-colloc-word="${esc(x.w)}">
+                  <strong class="font-serif" lang="zh-Hant">${esc(x.w)}</strong>
+                  <span class="text-outline text-[11px] font-normal">${esc(itemOf(x).py || "")}</span>
                 </a>
               `).join("") || `
-                <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-base text-on-surface font-body-sm text-body-sm" onclick="location.hash='#tu/璀璨'">璀璨 (cuǐcàn)</button>
-                <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-base text-on-surface font-body-sm text-body-sm" onclick="location.hash='#tu/謙虛'">謙虛 (qiānxū)</button>
-                <button type="button" class="px-2.5 py-1 rounded-lg bg-paper-base text-on-surface font-body-sm text-body-sm" onclick="location.hash='#tu/客氣'">客氣 (kèqi)</button>
+                <a href="#tu/${encodeURIComponent("璀璨")}" class="dict-quick-chip no-underline" data-colloc-word="璀璨"><strong class="font-serif" lang="zh-Hant">璀璨</strong> <span class="text-outline text-[11px] font-normal">cuǐcàn</span></a>
+                <a href="#tu/${encodeURIComponent("謙虛")}" class="dict-quick-chip no-underline" data-colloc-word="謙虛"><strong class="font-serif" lang="zh-Hant">謙虛</strong> <span class="text-outline text-[11px] font-normal">qiānxū</span></a>
+                <a href="#tu/${encodeURIComponent("客氣")}" class="dict-quick-chip no-underline" data-colloc-word="客氣"><strong class="font-serif" lang="zh-Hant">客氣</strong> <span class="text-outline text-[11px] font-normal">kèqi</span></a>
               `}
             </div>
           </div>
         </div>
 
-        <!-- Quick Append to Custom Notebook Module (Exact Stitch) -->
-        <div class="bg-paper-card p-space-lg rounded-2xl border border-border-subtle/70 shadow-sm flex flex-col gap-space-md">
-          <div class="flex items-center justify-between">
-            <div class="flex items-center gap-space-xs">
+        <!-- Quick Append to Custom Notebook Module -->
+        <div class="bg-paper-card p-4 sm:p-space-md rounded-2xl border border-border-subtle shadow-sm flex flex-col gap-3">
+          <div class="flex items-center justify-between gap-2 flex-wrap">
+            <div class="flex items-center gap-1.5">
               <span class="w-1.5 h-3.5 rounded-full bg-secondary"></span>
-              <h3 class="font-headline-md text-label-md font-semibold text-on-surface">Gán vào mục tiêu học tập</h3>
+              <h3 class="font-headline-md text-sm font-semibold text-on-surface m-0">Gán vào mục tiêu học tập</h3>
             </div>
-            <span class="font-label-sm text-label-sm text-secondary">Đồng bộ Flashcard SRS</span>
+            <span class="px-2 py-0.5 rounded-full bg-jade-subtle text-secondary text-[11px] font-semibold">Đồng bộ SRS</span>
           </div>
-          <div class="flex flex-col gap-space-sm">
-            <label class="font-label-sm text-label-sm text-on-surface-variant">Chọn Thư mục đích:</label>
-            <select id="quickAssignDeck" class="w-full px-space-md py-2 rounded-xl bg-paper-base border border-border-subtle text-on-surface font-body-md text-body-md focus:outline-none">
+          <div class="flex flex-col gap-2">
+            <label class="text-xs font-medium text-on-surface-variant" for="quickAssignDeck">Chọn thư mục đích:</label>
+            <select id="quickAssignDeck" class="w-full min-h-[40px] px-3 py-2 rounded-xl bg-paper-base border border-border-subtle text-on-surface text-sm focus:outline-none focus:border-primary">
               <option value="Sổ từ của tôi">📖 Thư mục của tôi (個人詞庫)</option>
               <option value="TOCFL Band B">🎯 Mục tiêu TOCFL Band B1/B2</option>
               <option value="Báo chí & Đời sống Đài Loan">📰 Báo chí &amp; Đời sống Đài Bắc</option>
             </select>
-            <label class="font-label-sm text-label-sm text-on-surface-variant pt-1">Ghi chú cá nhân / Nghĩa bổ sung:</label>
-            <textarea id="quickAssignNote" class="w-full px-space-md py-2 rounded-xl bg-paper-base border border-border-subtle text-on-surface font-body-sm text-body-sm focus:outline-none placeholder:text-outline/60 resize-none" placeholder="Ghi chú mẹo nhớ bộ thủ hoặc ngữ cảnh gặp từ này..." rows="2">${esc(it.vn || it.en || "")}</textarea>
-            <div class="flex items-center justify-between pt-1">
-              <span id="quickAssignMsg" class="text-xs font-semibold text-secondary"></span>
-              <button type="button" id="btnQuickAssignSave" class="px-space-lg py-2 rounded-xl bg-secondary hover:bg-secondary/90 text-on-secondary font-label-md text-label-md font-semibold shadow-sm transition-all">
-                Lưu từ ngay
+            <label class="text-xs font-medium text-on-surface-variant pt-0.5" for="quickAssignNote">Ghi chú cá nhân / Nghĩa bổ sung:</label>
+            <textarea id="quickAssignNote" class="w-full px-3 py-2 rounded-xl bg-paper-base border border-border-subtle text-on-surface text-xs sm:text-sm focus:outline-none focus:border-primary placeholder:text-outline/60 resize-none" placeholder="Ghi chú mẹo nhớ bộ thủ hoặc ngữ cảnh gặp từ này..." rows="2">${esc(it.vn || it.en || "")}</textarea>
+            <div class="flex items-center justify-between gap-2 pt-1 flex-wrap">
+              <span id="quickAssignMsg" class="text-xs font-semibold text-secondary" role="status"></span>
+              <button type="button" id="btnQuickAssignSave" class="min-h-[40px] px-4 py-2 rounded-xl bg-secondary hover:bg-secondary/90 text-on-secondary text-xs font-semibold shadow-sm transition-all inline-flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">bookmark_add</span>
+                <span>Lưu từ ngay</span>
               </button>
             </div>
           </div>
@@ -6722,14 +6821,14 @@ function buildStitchWordShowcaseHTML(w) {
 
         <!-- CC-CEDICT English Definitions if available -->
         ${e ? `
-          <div class="bg-paper-card p-space-lg rounded-2xl border border-border-subtle/70 shadow-sm flex flex-col gap-space-sm">
+          <div class="bg-paper-card p-4 sm:p-space-md rounded-2xl border border-border-subtle shadow-sm flex flex-col gap-2.5">
             <div class="flex items-center justify-between">
-              <span class="font-label-md text-label-md font-semibold text-on-surface">Từ điển Anh-Hoa (CC-CEDICT)</span>
-              <span class="font-label-sm text-label-sm text-outline">${e.length} mục</span>
+              <span class="font-label-md text-xs font-semibold text-on-surface">Từ điển Anh-Hoa (CC-CEDICT)</span>
+              <span class="font-code text-[11px] text-outline">${e.length} mục</span>
             </div>
             <div class="flex flex-col gap-1.5 text-xs">
               ${e.map(([py, defs]) => `
-                <div class="p-2 rounded-lg bg-paper-base flex flex-col sm:flex-row sm:items-baseline gap-1.5">
+                <div class="p-2.5 rounded-lg bg-paper-base border border-border-subtle/60 flex flex-col sm:flex-row sm:items-baseline gap-1.5 min-w-0 break-words">
                   <span class="font-code font-bold text-tertiary shrink-0">${esc(py)}</span>
                   <span class="text-on-surface">${esc(defs.replace(/\[[^\]]*\d\]/g, "").split("/").join("; "))}</span>
                 </div>
@@ -6737,13 +6836,16 @@ function buildStitchWordShowcaseHTML(w) {
             </div>
           </div>
         ` : ""}
-      </div>
+      </aside>
     </div>
   `;
 }
 
 function getHanziWriterColors() {
-  const dark = typeof getTheme === "function" && getTheme() === "dark";
+  const dark =
+    document.documentElement.dataset.theme === "dark" ||
+    document.documentElement.classList.contains("dark") ||
+    (typeof getTheme === "function" && getTheme() === "dark");
   return dark
     ? { strokeColor: "#F5EFEB", outlineColor: "#4a403d", highlightColor: "#4ade80", drawingColor: "#e27d78" }
     : { strokeColor: "#86090a", outlineColor: "#DCD2C7", highlightColor: "#176b4b", drawingColor: "#a8261f" };
@@ -6767,22 +6869,52 @@ function getDictHistory() {
   return ["璀璨", "蜘蛛", "謙虛", "學生"];
 }
 
-function renderStitchWordShowcase(w, containerSelector, onRefresh) {
+function syncHeaderInboxCounts() {
+  const cnt = S.inbox ? S.inbox.size : 0;
+  const h1 = document.getElementById("header-inbox-count");
+  if (h1) h1.textContent = fmt(cnt);
+  const h2 = document.getElementById("header-inbox-metric");
+  if (h2) h2.textContent = fmt(cnt);
+  const j = document.getElementById("jump-inbox-count");
+  if (j) j.textContent = fmt(cnt);
+}
+
+function findOrCreateInboxKey(word) {
+  if (S.inbox) {
+    for (const [k, v] of S.inbox) {
+      if (v && v.w === word) return k;
+    }
+  }
+  return "inbox~" + word;
+}
+
+function renderStitchWordShowcase(w, containerSelector, onRefresh, opts = {}) {
   const host = $(containerSelector);
   if (!host) return;
   recordDictHistory(w);
   const { n, it } = showcaseItemOf(w);
   const chars = [...new Set([...hanOnly(w)])];
   if (!chars.length && w) chars.push(w[0]);
-  host.innerHTML = buildStitchWordShowcaseHTML(w);
+  host.innerHTML = buildStitchWordShowcaseHTML(w, opts);
   host._showcaseWord = w;
   fetchMoedictLive(w, host);
   if (S.ready && (!n || needsRich(n))) {
     Promise.all([ensureVi([w]), ensureRich([w])]).then(([a, b]) => {
       if ((a || b) && host._showcaseWord === w && (!document.contains || document.contains(host))) {
-        renderStitchWordShowcase(w, containerSelector, onRefresh);
+        renderStitchWordShowcase(w, containerSelector, onRefresh, opts);
       }
     }).catch(() => {});
+  }
+
+  // Bind inline collocation preview when inside #tu-dien workspace
+  if (typeof opts.onSelectWord === "function") {
+    host.querySelectorAll("[data-colloc-word]").forEach((a) => {
+      a.onclick = (ev) => {
+        if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return;
+        ev.preventDefault();
+        opts.onSelectWord(a.dataset.collocWord);
+      };
+    });
   }
 
   // Initialize Hanzi Writer inside the Mi-zi-ge boxes (preserve fallback Hanzi if stroke data fails)
@@ -6794,8 +6926,10 @@ function renderStitchWordShowcase(w, containerSelector, onRefresh) {
       strokeData(c).then((data) => {
         if (!document.contains(el) || host._showcaseWord !== w) return;
         el.innerHTML = "";
+        const boxW = el.parentElement ? el.parentElement.clientWidth : 112;
+        const hwSize = Math.min(120, Math.max(96, boxW - 6));
         const writer = HanziWriter.create(el, c, {
-          width: 120, height: 120, padding: 4, showOutline: true,
+          width: hwSize, height: hwSize, padding: 4, showOutline: true,
           strokeColor: hwColors.strokeColor, outlineColor: hwColors.outlineColor,
           highlightColor: hwColors.highlightColor, drawingColor: hwColors.drawingColor,
           charDataLoader: (_ch, onLoad) => onLoad(data)
@@ -6821,19 +6955,23 @@ function renderStitchWordShowcase(w, containerSelector, onRefresh) {
         S.settings.extra[n.w] = true;
         await saveSettings();
       } else {
-        const entry = {
+        const key = findOrCreateInboxKey(w);
+        const prev = S.inbox ? S.inbox.get(key) : null;
+        const entry = Object.assign({}, prev, {
+          id: key,
           w,
           py: it.py,
-          note: it.vn || it.en || "",
-          hv: it.hv || "",
-          pos: it.pos || "Từ vựng",
-          where: "Từ điển tra cứu",
+          note: (prev && prev.note) || it.vn || it.en || "",
+          hv: it.hv || (prev && prev.hv) || "",
+          pos: it.pos || (prev && prev.pos) || "Từ vựng",
+          where: (prev && prev.where) || "Từ điển tra cứu",
           at: Date.now()
-        };
+        });
         if (!S.inbox) S.inbox = new Map();
-        S.inbox.set("inbox_" + w, entry);
-        try { await Store.put("inbox", "inbox_" + w, entry); } catch (err) {}
+        S.inbox.set(key, entry);
+        try { await Store.put("inbox", key, entry); } catch (err) {}
         if (typeof syncInboxWordToLearning === "function") syncInboxWordToLearning(entry, true);
+        syncHeaderInboxCounts();
       }
       if (typeof updateBadge === "function") updateBadge();
       if (onRefresh) onRefresh(w);
@@ -6846,12 +6984,20 @@ function renderStitchWordShowcase(w, containerSelector, onRefresh) {
     btnQuickSave.onclick = async () => {
       const where = $("#quickAssignDeck")?.value || "Sổ từ của tôi";
       const note = $("#quickAssignNote")?.value.trim() || it.vn || it.en || "";
-      const entry = { w, py: it.py, note, hv: it.hv || "", pos: it.pos || "Từ vựng", where, at: Date.now() };
+      const key = findOrCreateInboxKey(w);
+      const prev = S.inbox ? S.inbox.get(key) : null;
+      const entry = Object.assign({}, prev, { id: key, w, py: it.py, note, hv: it.hv || (prev && prev.hv) || "", pos: it.pos || (prev && prev.pos) || "Từ vựng", where, at: Date.now() });
       if (!S.inbox) S.inbox = new Map();
-      S.inbox.set("inbox_" + w, entry);
-      try { await Store.put("inbox", "inbox_" + w, entry); } catch (err) {}
+      S.inbox.set(key, entry);
+      try { await Store.put("inbox", key, entry); } catch (err) {}
       if (typeof syncInboxWordToLearning === "function") syncInboxWordToLearning(entry, true);
       if (typeof updateBadge === "function") updateBadge();
+      syncHeaderInboxCounts();
+      const addBtn = $("#addLearn");
+      if (addBtn) {
+        addBtn.className = "min-h-[38px] px-3.5 py-1.5 rounded-xl bg-jade-subtle text-secondary border-secondary/30 border font-label-md text-xs font-semibold transition-all duration-150 inline-flex items-center gap-1.5 shadow-sm";
+        addBtn.innerHTML = `<span class="material-symbols-outlined text-[17px]" aria-hidden="true">bookmark_added</span><span>✓ Đang trong lịch học</span>`;
+      }
       const msg = $("#quickAssignMsg");
       if (msg) msg.textContent = `✓ Đã lưu "${w}" vào sổ & lịch học!`;
     };
@@ -6881,24 +7027,28 @@ function renderStitchWordShowcase(w, containerSelector, onRefresh) {
     const newVi = Object.assign({}, prevVi, { vn, hv, py: it.py, pos });
     S.vi.set(word, newVi);
 
-    const entry = {
-      w: word,
-      py: it.py,
-      note: vn,
-      hv: hv || prevVi.hv || "",
-      pos: pos || prevVi.pos || "Từ vựng",
-      where: "Từ điển cá nhân",
-      at: Date.now()
-    };
     if (!S.inbox) S.inbox = new Map();
-    S.inbox.set("inbox_" + word, entry);
+    const key = findOrCreateInboxKey(word);
+    const prevEntry = S.inbox.get(key) || {};
+    const entry = Object.assign({}, prevEntry, {
+      id: key,
+      w: word,
+      py: it.py || prevEntry.py || "",
+      note: vn,
+      hv: hv || prevVi.hv || prevEntry.hv || "",
+      pos: pos || prevVi.pos || prevEntry.pos || "Từ vựng",
+      where: prevEntry.where || "Từ điển cá nhân",
+      at: Date.now()
+    });
+    S.inbox.set(key, entry);
     try {
-      await Store.put("inbox", "inbox_" + word, entry);
+      await Store.put("inbox", key, entry);
       await Store.put("kv", "vi_" + word, newVi);
     } catch (err) {}
 
     if (typeof syncInboxWordToLearning === "function") syncInboxWordToLearning(entry, false);
-    if (onRefresh) onRefresh(word);
+    syncHeaderInboxCounts();
+    if (onRefresh && host._showcaseWord === word && document.contains(host)) onRefresh(word);
   }
 
   async function doAutoTranslate() {
@@ -6910,6 +7060,7 @@ function renderStitchWordShowcase(w, containerSelector, onRefresh) {
       const transEn = await autoTranslateEnToVi(it.en);
       if (transEn) trans = transEn;
     }
+    if (host._showcaseWord !== w || !document.contains(host)) return;
 
     if (trans) {
       const editVn = $("#editVn");
@@ -6917,7 +7068,7 @@ function renderStitchWordShowcase(w, containerSelector, onRefresh) {
       await saveCustomMeaning(w, trans, $("#editHv") ? $("#editHv").value : "", $("#editPos") ? $("#editPos").value : "");
     } else {
       alert("Không thể dịch tự động lúc này. Bạn có thể bấm nút 'Tra trên Hanzii VIP' để xem nghĩa chuẩn!");
-      if (onRefresh) onRefresh(w);
+      if (onRefresh && host._showcaseWord === w && document.contains(host)) onRefresh(w);
     }
   }
 
@@ -6930,6 +7081,7 @@ function renderStitchWordShowcase(w, containerSelector, onRefresh) {
         const transEn = await autoTranslateEnToVi(it.en);
         if (transEn) trans = transEn;
       }
+      if (host._showcaseWord !== w || !document.contains(host)) return;
       if (trans && $("#editVn")) $("#editVn").value = trans;
       btnAutoFill.textContent = "Lấy bản dịch gợi ý";
     };
@@ -6957,77 +7109,36 @@ function renderStitchWordShowcase(w, containerSelector, onRefresh) {
 
 // ---------------- VIEW: TRA & NHẬP TỪ (#tu-dien) ----------------
 VIEWS["tu-dien"] = (arg) => {
-  const vocabCount = S.notes.filter((n) => n.kind === "vocab").length;
   const histWords = getDictHistory();
   const initialWord = arg && isHan(arg) ? arg : (histWords[0] || "璀璨");
+  const radicalsQuick = [
+    ["玉", "Ngọc"], ["言", "Ngôn"], ["心", "Tâm"],
+    ["水", "Thủy"], ["木", "Mộc"], ["手", "Thủ"]
+  ];
 
   setView(`
     <div class="relative w-full max-w-6xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
-      <!-- Top Workspace Header -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-md">
-        <div class="flex flex-col gap-space-xs max-w-2xl">
-          <h1 class="font-display text-display text-on-surface font-semibold tracking-tight m-0">
-            Tra cứu &amp; Nhập từ vựng <span class="text-outline font-normal text-2xl" lang="zh-Hant">詞典</span>
-          </h1>
-          <p class="font-body-md text-body-md text-on-surface-variant m-0">
-            Tra cứu Hán tự Phồn thể Đài Loan, viết tay nhận dạng chữ offline, xem bút thuận hoặc nạp từ hàng loạt vào SRS.
-          </p>
-        </div>
-        <!-- Compact Real Metrics Pill -->
-        <div class="flex items-center gap-space-md bg-paper-card border border-border-subtle p-space-sm rounded-xl shadow-sm self-start md:self-auto">
-          <div class="flex items-center gap-space-sm px-space-sm py-1 border-r border-border-subtle">
-            <span class="material-symbols-outlined text-primary text-[20px]">collections_bookmark</span>
-            <div class="flex flex-col">
-              <span class="font-label-sm text-xs text-on-surface-variant">Sổ từ TOCFL</span>
-              <span class="font-headline-md text-sm font-semibold text-on-surface font-code">${fmt(vocabCount)} từ</span>
-            </div>
-          </div>
-          <div class="flex items-center gap-space-sm px-space-sm py-1">
-            <span class="material-symbols-outlined text-secondary text-[20px]">draw</span>
-            <div class="flex flex-col">
-              <span class="font-label-sm text-xs text-on-surface-variant">Viết tay &amp; Nét chữ</span>
-              <span class="font-label-md text-sm font-semibold text-secondary">Offline 100%</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mode Navigation Tabs -->
-      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-sm p-1.5 bg-surface-container-low rounded-xl border border-border-subtle">
-        <div class="grid grid-cols-2 sm:inline-flex items-center gap-space-xs p-1 bg-surface-container rounded-lg">
-          <a href="#tu-dien" class="flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-lg font-label-md text-sm transition-all duration-200 bg-paper-card text-primary shadow-sm font-semibold no-underline whitespace-nowrap" id="tab-btn-lookup">
-            <span class="material-symbols-outlined text-[18px] shrink-0">menu_book</span>
-            <span>Tra cứu từ điển</span>
-          </a>
-          <a href="#nhap" class="flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-lg font-label-md text-sm transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high no-underline whitespace-nowrap" id="tab-btn-import">
-            <span class="material-symbols-outlined text-[18px] shrink-0">post_add</span>
-            <span>Nhập hàng loạt</span>
-          </a>
-        </div>
-        <div class="flex items-center gap-space-sm px-3 py-1 text-on-surface-variant font-label-sm text-xs">
-          <span class="material-symbols-outlined text-[16px] shrink-0">info</span>
-          <span>Hỗ trợ gõ Phồn thể, Giản thể, Pinyin, nghĩa Việt hoặc <strong>vẽ chữ viết tay</strong></span>
-        </div>
-      </div>
+      ${renderDictWorkspaceHeader("lookup")}
 
       <!-- ================= MODE 1: TRA CỨU TỪ ĐIỂN ================= -->
       <div class="flex flex-col gap-space-lg" id="section-lookup">
         <!-- Unified Universal Search Bar + Offline Handwriting Toggle -->
-        <div class="bg-paper-card p-4 sm:p-space-md rounded-2xl border border-border-subtle shadow-sm flex flex-col gap-space-md">
-          <div class="flex flex-col lg:flex-row items-stretch gap-space-sm">
-            <div class="relative flex-1 flex items-center bg-paper-base border border-border-subtle rounded-xl px-3 sm:px-space-md">
-              <span class="material-symbols-outlined text-outline text-[22px] mr-2 shrink-0">search</span>
-              <input class="w-full min-w-0 bg-transparent py-3 text-on-surface font-body-lg text-body-lg focus:outline-none placeholder:text-outline" id="dq" placeholder="Nhập Hán tự, Pinyin, hoặc nghĩa tiếng Việt..." type="text" value="${esc(arg || "")}" autocomplete="off">
-              <button type="button" class="text-outline hover:text-on-surface p-2 rounded-full hover:bg-surface-container shrink-0" id="btn-clear-dq" aria-label="Xóa ô tìm kiếm">
-                <span class="material-symbols-outlined text-[18px]">cancel</span>
+        <div class="bg-paper-card p-4 sm:p-space-md rounded-2xl border border-border-subtle shadow-sm flex flex-col gap-3.5">
+          <div class="flex flex-col lg:flex-row items-stretch gap-2.5">
+            <div class="dict-search-box relative flex-1 flex items-center px-3 sm:px-4">
+              <span class="material-symbols-outlined text-outline text-[21px] mr-2 shrink-0" aria-hidden="true">search</span>
+              <input class="w-full min-w-0 bg-transparent py-3 text-on-surface text-base focus:outline-none placeholder:text-outline" id="dq" placeholder="Nhập Hán tự, Pinyin (vd: cuican), hoặc nghĩa tiếng Việt..." type="text" value="${esc(arg || "")}" autocomplete="off">
+              <button type="button" class="text-outline hover:text-on-surface w-9 h-9 rounded-full hover:bg-surface-container shrink-0 flex items-center justify-center transition-colors${arg ? "" : " hidden"}" id="btn-clear-dq" aria-label="Xóa ô tìm kiếm" title="Xóa ô tìm kiếm">
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">cancel</span>
               </button>
             </div>
             <div class="flex items-center gap-2">
               <button type="button" class="flex-1 lg:flex-none min-h-[46px] px-4 py-2.5 rounded-xl bg-paper-muted hover:bg-surface-container-high text-on-surface border border-border-subtle font-label-md text-sm font-semibold transition-all flex items-center justify-center gap-1.5 whitespace-nowrap" id="btn-toggle-dict-hw" aria-expanded="false" aria-controls="dict-hw-drawer">
-                <span class="material-symbols-outlined text-[20px] text-primary">draw</span>
+                <span class="material-symbols-outlined text-[20px] text-primary" aria-hidden="true">draw</span>
                 <span>Viết tay 手寫</span>
               </button>
-              <button type="button" class="flex-1 lg:flex-none min-h-[46px] px-5 py-2.5 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-label-md text-sm font-semibold transition-all duration-200 shadow-sm flex items-center justify-center gap-1.5 whitespace-nowrap" id="btn-run-dq">
+              <button type="button" class="flex-1 lg:flex-none min-h-[46px] px-5 py-2.5 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-label-md text-sm font-semibold transition-all duration-150 shadow-sm flex items-center justify-center gap-1.5 whitespace-nowrap" id="btn-run-dq">
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">search</span>
                 <span>Tìm kiếm</span>
               </button>
             </div>
@@ -7037,26 +7148,30 @@ VIEWS["tu-dien"] = (arg) => {
           <div id="dict-hw-drawer" hidden></div>
 
           <!-- Real Lookup History & Radical Shortcuts -->
-          <div class="flex flex-wrap items-center gap-2 pt-1 text-xs text-on-surface-variant">
-            <span class="text-outline flex items-center gap-1 font-medium">
-              <span class="material-symbols-outlined text-[15px]">history</span>
-              Gần đây:
-            </span>
-            <span class="flex flex-wrap items-center gap-1.5" id="dictHistoryBar">
-              ${histWords.map((hw) => `<button type="button" class="px-2.5 py-1 rounded-lg bg-paper-muted hover:bg-surface-container-high text-on-surface border border-border-subtle font-serif font-semibold transition-colors" data-quick-q="${esc(hw)}">${esc(hw)}</button>`).join("")}
-            </span>
+          <div class="flex flex-col sm:flex-row sm:items-center gap-2.5 pt-2 border-t border-border-subtle/60 text-xs text-on-surface-variant">
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="text-outline inline-flex items-center gap-1 font-semibold mr-0.5">
+                <span class="material-symbols-outlined text-[15px]" aria-hidden="true">history</span>
+                Gần đây:
+              </span>
+              <span class="flex flex-wrap items-center gap-1.5" id="dictHistoryBar">
+                ${histWords.map((hw) => `<button type="button" class="dict-quick-chip font-serif" data-quick-q="${esc(hw)}" lang="zh-Hant">${esc(hw)}</button>`).join("")}
+              </span>
+            </div>
             <span class="text-border-subtle hidden sm:inline">|</span>
-            <span class="text-outline font-medium">Bộ thủ:</span>
-            <button type="button" class="px-2 py-1 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-on-surface font-serif" data-quick-q="玉">玉 (Ngọc)</button>
-            <button type="button" class="px-2 py-1 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-on-surface font-serif" data-quick-q="言">言 (Ngôn)</button>
-            <button type="button" class="px-2 py-1 rounded-lg bg-surface-container hover:bg-cinnabar-subtle text-on-surface font-serif" data-quick-q="心">心 (Tâm)</button>
+            <div class="flex flex-wrap items-center gap-1.5">
+              <span class="text-outline font-semibold mr-0.5">Bộ thủ:</span>
+              ${radicalsQuick.map(([rad, name]) => `<button type="button" class="dict-quick-chip font-serif" data-quick-q="${rad}" lang="zh-Hant">${rad} <span class="font-sans text-[11px] font-normal text-on-surface-variant">(${name})</span></button>`).join("")}
+            </div>
           </div>
         </div>
 
-        <!-- Live Search Results Grid (When user types a query) -->
-        <div class="flex flex-col gap-space-sm" id="search-results-wrap">
-          <div class="text-xs font-semibold text-outline" id="dcount"></div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-space-sm" id="dres"></div>
+        <!-- Live Search Results Grid (Hidden when query is empty) -->
+        <div class="flex flex-col gap-2.5" id="search-results-wrap" hidden>
+          <div class="flex items-center justify-between gap-2 flex-wrap">
+            <div class="text-xs font-semibold text-on-surface-variant" id="dcount" role="status"></div>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3" id="dres"></div>
         </div>
 
         <!-- Master Dictionary Showcase Card -->
@@ -7073,46 +7188,76 @@ VIEWS["tu-dien"] = (arg) => {
   let hwPad = null;
   let lastShownWord = "";
 
+  const syncClearBtn = () => {
+    if (clearBtn) clearBtn.classList.toggle("hidden", !inp.value.trim());
+  };
+
+  const markSelectedResult = (word) => {
+    document.querySelectorAll("#dres [data-dict-preview]").forEach((card) => {
+      card.classList.toggle("is-selected", card.dataset.dictPreview === word);
+    });
+  };
+
   const refreshHistoryBar = () => {
     const bar = $("#dictHistoryBar");
     if (!bar) return;
     const list = getDictHistory();
     const items = list.length ? list.slice(0, 6) : ["璀璨", "謙虛", "客氣"];
-    bar.innerHTML = items.map((hw) => `<button type="button" class="px-2.5 py-1 rounded-lg bg-paper-muted hover:bg-surface-container-high text-on-surface border border-border-subtle font-serif font-semibold transition-colors" data-quick-q="${esc(hw)}">${esc(hw)}</button>`).join("");
+    bar.innerHTML = items.map((hw) => `<button type="button" class="dict-quick-chip font-serif" data-quick-q="${esc(hw)}" lang="zh-Hant">${esc(hw)}</button>`).join("");
     bar.querySelectorAll("[data-quick-q]").forEach((btn) => {
       btn.onclick = () => {
         inp.value = btn.dataset.quickQ;
+        syncClearBtn();
         runSearchAndShowcase(inp.value, true);
       };
     });
   };
 
-  const refreshShowcase = (newW) => {
-    if (!newW) return;
-    lastShownWord = newW;
-    renderStitchWordShowcase(newW, "#stitch-dict-showcase", refreshShowcase);
-    refreshHistoryBar();
-  };
-
   let listTmr = null;
   let showTmr = null;
+  const refreshShowcase = (newW, scrollIntoView = false) => {
+    if (!newW) return;
+    clearTimeout(listTmr);
+    clearTimeout(showTmr);
+    lastShownWord = newW;
+    renderStitchWordShowcase(newW, "#stitch-dict-showcase", (w2) => refreshShowcase(w2, false), {
+      showStandaloneLink: true,
+      onSelectWord: (pickedW) => refreshShowcase(pickedW, true)
+    });
+    refreshHistoryBar();
+    markSelectedResult(newW);
+    if (scrollIntoView) {
+      document.getElementById("stitch-dict-showcase")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   const runSearchAndShowcase = (qVal, immediateShowcase = false) => {
-    const topMatch = searchDict(qVal);
+    syncClearBtn();
+    const topMatch = searchDict(qVal, (pickedW) => {
+      refreshShowcase(pickedW, true);
+    }, lastShownWord);
     const qClean = clean(qVal);
     const showcaseWord = topMatch || (isHan(qClean) ? (typeof toTraditionalTw === "function" ? toTraditionalTw(qClean) : qClean) : initialWord);
     clearTimeout(showTmr);
     if (immediateShowcase) {
-      if (showcaseWord !== lastShownWord) refreshShowcase(showcaseWord);
+      if (showcaseWord !== lastShownWord) refreshShowcase(showcaseWord, false);
+      else markSelectedResult(lastShownWord);
     } else {
       showTmr = setTimeout(() => {
-        if (showcaseWord !== lastShownWord) refreshShowcase(showcaseWord);
+        if (!document.contains(inp)) return;
+        if (showcaseWord !== lastShownWord) refreshShowcase(showcaseWord, false);
+        else markSelectedResult(lastShownWord);
       }, 240);
     }
   };
 
   inp.oninput = () => {
+    syncClearBtn();
     clearTimeout(listTmr);
-    listTmr = setTimeout(() => runSearchAndShowcase(inp.value, false), 90);
+    listTmr = setTimeout(() => {
+      if (!document.contains(inp)) return;
+      runSearchAndShowcase(inp.value, false);
+    }, 90);
   };
   inp.onkeydown = (e) => {
     if (e.key === "Enter" && !e.isComposing) {
@@ -7124,6 +7269,7 @@ VIEWS["tu-dien"] = (arg) => {
   if (clearBtn) {
     clearBtn.onclick = () => {
       inp.value = "";
+      syncClearBtn();
       inp.focus();
       runSearchAndShowcase("", true);
     };
@@ -7145,6 +7291,7 @@ VIEWS["tu-dien"] = (arg) => {
           hint: "Vẽ từng chữ vào khung lưới, bấm vào chữ gợi ý để ghép vào ô tìm kiếm.",
           onPick: (ch) => {
             inp.value = (inp.value || "") + ch;
+            syncClearBtn();
             runSearchAndShowcase(inp.value, true);
           }
         });
@@ -7156,6 +7303,7 @@ VIEWS["tu-dien"] = (arg) => {
   document.querySelectorAll("[data-quick-q]").forEach((btn) => {
     btn.onclick = () => {
       inp.value = btn.dataset.quickQ;
+      syncClearBtn();
       runSearchAndShowcase(inp.value, true);
     };
   });
@@ -7163,15 +7311,17 @@ VIEWS["tu-dien"] = (arg) => {
   runSearchAndShowcase(inp.value, true);
 };
 
-function searchDict(raw) {
-  const out = $("#dres"), cnt = $("#dcount");
+function searchDict(raw, onSelectWord, selectedWord = "") {
+  const out = $("#dres"), cnt = $("#dcount"), wrap = $("#search-results-wrap");
   if (!out) return null;
   const q = typeof toTraditionalTw === "function" ? toTraditionalTw(clean(raw)) : clean(raw);
   if (!q) {
-    cnt.textContent = "";
+    if (cnt) cnt.textContent = "";
     out.innerHTML = "";
+    if (wrap) wrap.hidden = true;
     return null;
   }
+  if (wrap) wrap.hidden = false;
   const res = [];
   const seen = new Set();
   const push = (w, n, pri) => { if (seen.has(w)) return; seen.add(w); res.push({ w, n, pri }); };
@@ -7208,32 +7358,60 @@ function searchDict(raw) {
   }
 
   res.sort((a, b) => a.pri - b.pri || a.w.length - b.w.length);
-  cnt.textContent = `${fmt(Math.min(res.length, 80))}${res.length > 80 ? "+" : ""} kết quả phù hợp (Bấm vào thẻ từ để xem chi tiết bên dưới)`;
+  if (cnt) {
+    cnt.textContent = res.length
+      ? `${fmt(Math.min(res.length, 80))}${res.length > 80 ? "+" : ""} kết quả phù hợp · Bấm vào thẻ từ để xem chi tiết ngay bên dưới`
+      : `0 kết quả cho "${clean(raw)}"`;
+  }
 
   out.innerHTML = res.slice(0, 80).map(({ w, n }) => {
     const e = cedFirst(w);
     const py = n ? itemOf(n).py : (e ? e[0][0] : "");
     const m = n ? meaningOf(n) : enOf(w);
     const lvl = n ? noteLevel(n) : 0;
+    const bandText = n ? (bandsOf(n).join(" · ") || "Cá nhân") : "CC-CEDICT";
+    const tier = dictTierForBand(bandText);
+    const isSel = selectedWord && selectedWord === w;
     return `
-      <a class="p-3 rounded-xl bg-paper-card border border-border-subtle shadow-sm hover:border-primary/40 hover:shadow-sm transition-all flex flex-col justify-between gap-1.5 no-underline" href="#tu/${encodeURIComponent(w)}">
-        <div class="flex items-start justify-between">
-          <div>
-            <span class="font-headline-md text-xl text-on-surface font-serif font-bold">${esc(w)}</span>
-            <span class="font-code text-xs text-tertiary ml-1.5">${esc(py)}</span>
-          </div>
-          <div class="flex items-center gap-1">
+      <div class="dict-res-card ${tier}${isSel ? " is-selected" : ""}" data-dict-preview="${esc(w)}">
+        <div class="flex items-start justify-between gap-2">
+          <a class="min-w-0 flex-1 no-underline text-inherit" href="#tu/${encodeURIComponent(w)}" data-dict-pick="${esc(w)}">
+            <div class="flex items-baseline gap-1.5 flex-wrap">
+              <span class="font-headline-md text-xl dict-res-title font-serif font-bold leading-tight" lang="zh-Hant">${esc(w)}</span>
+              <span class="font-code text-xs text-tertiary">${esc(py)}</span>
+            </div>
+            <div class="text-xs text-on-surface-variant line-clamp-2 mt-1">${esc(m || "Chưa có nghĩa tiếng Việt")}</div>
+          </a>
+          <button type="button" class="w-9 h-9 rounded-full bg-paper-base hover:bg-cinnabar-subtle text-on-surface-variant hover:text-primary border border-border-subtle flex items-center justify-center shrink-0 transition-colors" data-say="${esc(w)}" title="Nghe phát âm ${esc(w)}" aria-label="Nghe ${esc(w)}">
+            <span class="material-symbols-outlined text-[17px]" aria-hidden="true">volume_up</span>
+          </button>
+        </div>
+        <div class="pt-1.5 border-t border-border-subtle/60 flex items-center justify-between gap-1.5 text-[11px] text-outline">
+          <div class="flex items-center gap-1 min-w-0 truncate">
             ${n ? `<span class="pill lv-${lvl}">${esc(LEVELS[lvl])}</span>` : `<span class="pill">ngoài TOCFL</span>`}
+            <span class="truncate">${esc(bandText)}</span>
           </div>
+          <a href="#tu/${encodeURIComponent(w)}" data-dict-pick="${esc(w)}" class="text-primary font-semibold no-underline hover:underline shrink-0">Xem →</a>
         </div>
-        <div class="text-xs text-on-surface-variant line-clamp-1">${esc(m)}</div>
-        <div class="pt-1 border-t border-border-subtle/50 flex items-center justify-between text-[11px] text-outline">
-          <span>${n ? esc(bandsOf(n).join(" · ") || "Cá nhân") : "CC-CEDICT"}</span>
-          <span class="text-primary font-semibold">Chi tiết →</span>
-        </div>
-      </a>
+      </div>
     `;
-  }).join("") || `<div class="col-span-full p-6 text-center text-sm text-outline bg-paper-card rounded-2xl border border-border-subtle">Không tìm thấy từ khớp. Thử gõ chữ Hán Phồn thể hoặc pinyin không dấu.</div>`;
+  }).join("") || `
+    <div class="col-span-full p-6 text-center text-sm text-on-surface-variant bg-paper-card rounded-2xl border border-border-subtle flex flex-col items-center gap-2">
+      <span class="material-symbols-outlined text-[28px] text-outline" aria-hidden="true">search_off</span>
+      <p class="m-0">Không tìm thấy từ khớp với "<strong>${esc(clean(raw))}</strong>". Thử gõ chữ Phồn thể, Pinyin không dấu hoặc mở khung <strong>Viết tay 手寫</strong>.</p>
+    </div>
+  `;
+
+  if (typeof onSelectWord === "function") {
+    out.querySelectorAll(".dict-res-card[data-dict-preview]").forEach((card) => {
+      card.onclick = (ev) => {
+        if (ev.target.closest("[data-say]")) return;
+        if (ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey || ev.button !== 0) return;
+        ev.preventDefault();
+        onSelectWord(card.dataset.dictPreview);
+      };
+    });
+  }
 
   return res.length ? res[0].w : null;
 }
@@ -7241,13 +7419,16 @@ function searchDict(raw) {
 // ---------------- CHI TIẾT TỪ VỰNG (#tu/:word) ----------------
 VIEWS["tu"] = (w) => {
   setView(`
-    <div class="max-w-6xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
-      <div class="flex items-center justify-between">
-        <a href="#tu-dien" class="text-primary hover:underline text-sm font-semibold flex items-center gap-1 no-underline">
-          <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+    <div class="max-w-6xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-md">
+      <div class="flex items-center justify-between gap-2 flex-wrap">
+        <a href="#tu-dien" class="min-h-[38px] px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-sm font-semibold inline-flex items-center gap-1.5 no-underline transition-colors">
+          <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_back</span>
           <span>Quay lại Tra cứu &amp; Nhập từ</span>
         </a>
-        <a href="#nhap" class="text-secondary hover:underline text-xs font-semibold no-underline">+ Nhập từ hàng loạt →</a>
+        <a href="#nhap" class="min-h-[38px] px-3 py-1.5 rounded-lg bg-jade-subtle hover:bg-secondary-container text-secondary border border-secondary/20 text-xs font-semibold inline-flex items-center gap-1 no-underline transition-colors">
+          <span class="material-symbols-outlined text-[16px]" aria-hidden="true">post_add</span>
+          <span>Nhập hàng loạt →</span>
+        </a>
       </div>
       <div id="tu-detail-host"></div>
     </div>
@@ -7869,10 +8050,11 @@ window.saveWordToNotebook = async function saveWordToNotebook(word, py, vn, band
     if (S.vi && !S.vi.has(word)) {
       S.vi.set(word, { vn: vn || "", py: py || "", hv: "" });
     }
-    const entry = { w: word, py: py || "", note: vn || "", hv: "", pos: "Từ vựng", where: "Chép chính tả", at: Date.now() };
     if (!S.inbox) S.inbox = new Map();
-    S.inbox.set("inbox_" + word, entry);
-    try { await Store.put("inbox", "inbox_" + word, entry); } catch (e) {}
+    const key = findOrCreateInboxKey(word);
+    const entry = { id: key, w: word, py: py || "", note: vn || "", hv: "", pos: "Từ vựng", where: "Chép chính tả", at: Date.now() };
+    S.inbox.set(key, entry);
+    try { await Store.put("inbox", key, entry); } catch (e) {}
   }
 
   if (typeof applyCardLevel === "function") {
@@ -9435,106 +9617,64 @@ window.examQuickStart = (testId, section) => {
 // 8. NHẬP TỪ HÀNG LOẠT & HỘP THƯ + 9. CÀI ĐẶT HỆ THỐNG (Exact Stitch Design)
 // =========================================================================
 VIEWS["nhap"] = () => {
-  const vocabCount = S.notes.filter((n) => n.kind === "vocab").length;
+  const inboxCount = S.inbox ? S.inbox.size : 0;
 
   setView(`
-    <div class="relative w-full max-w-6xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-xl">
-      <!-- Top Workspace Header & Mode Switcher (Exact Stitch) -->
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-space-lg">
-        <div class="flex flex-col gap-space-xs max-w-2xl">
-          <h1 class="font-display text-display text-on-surface font-semibold tracking-tight">
-            Tra cứu &amp; Nhập từ vựng <span class="text-outline font-normal text-2xl">詞典</span>
-          </h1>
-          <p class="font-body-md text-body-md text-on-surface-variant">
-            Tra cứu chiết tự Khang Hy, chú âm Đài Loan hoặc phân giải nạp văn bản hàng loạt vào sổ học SRS.
-          </p>
-        </div>
-        <!-- Quick Metrics & Notebook Pill -->
-        <div class="flex items-center gap-space-md bg-paper-card border border-border-subtle/70 p-space-sm rounded-xl shadow-sm self-start md:self-auto">
-          <div class="flex items-center gap-space-sm px-space-sm py-1 border-r border-surface-container-high">
-            <span class="material-symbols-outlined text-primary text-[20px]">collections_bookmark</span>
-            <div class="flex flex-col">
-              <span class="font-label-sm text-label-sm text-on-surface-variant">Sổ từ hiện tại</span>
-              <span class="font-headline-md text-label-md font-semibold text-on-surface">${fmt(vocabCount)} <span class="font-normal text-outline text-[11px]">từ</span></span>
-            </div>
-          </div>
-          <div class="flex items-center gap-space-sm px-space-sm py-1">
-            <span class="material-symbols-outlined text-secondary text-[20px]">bolt</span>
-            <div class="flex flex-col">
-              <span class="font-label-sm text-label-sm text-on-surface-variant">Đồng bộ SRS</span>
-              <span class="font-label-md text-label-md font-semibold text-secondary">Tự động khi lưu</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Mode Navigation Tabs -->
-      <div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-sm p-1.5 bg-surface-container-low rounded-xl border border-border-subtle/60">
-        <div class="grid grid-cols-2 sm:inline-flex items-center gap-space-xs p-1 bg-surface-container rounded-lg">
-          <a href="#tu-dien" class="flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-lg font-label-md text-sm sm:text-label-md transition-all duration-200 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high no-underline whitespace-nowrap" id="tab-btn-lookup">
-            <span class="material-symbols-outlined text-[18px] shrink-0">menu_book</span>
-            <span>Tra cứu từ điển</span>
-          </a>
-          <a href="#nhap" class="flex items-center justify-center gap-1.5 px-3 sm:px-4 py-2.5 rounded-lg font-label-md text-sm sm:text-label-md transition-all duration-200 bg-paper-card text-primary shadow-sm font-semibold no-underline whitespace-nowrap" id="tab-btn-import">
-            <span class="material-symbols-outlined text-[18px] shrink-0">post_add</span>
-            <span>Nhập hàng loạt</span>
-          </a>
-        </div>
-        <div class="flex items-center gap-space-sm px-3 py-1 text-on-surface-variant font-label-sm text-label-sm">
-          <span class="material-symbols-outlined text-[16px] shrink-0">sync_alt</span>
-          <span>Vừa nhập vừa học: <strong>Đồng bộ thẳng vào Flashcard SRS</strong></span>
-        </div>
-      </div>
+    <div class="relative w-full max-w-6xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg">
+      ${renderDictWorkspaceHeader("import")}
 
       <!-- ================= BATCH & SINGLE IMPORT WORKSPACE ================= -->
       <div class="flex flex-col gap-space-lg" id="section-import">
         <!-- Compact Section Jump Pills -->
         <div class="flex flex-wrap items-center gap-2 text-xs">
-          <button type="button" class="px-3 py-1.5 rounded-full bg-paper-card border border-border-subtle hover:border-primary text-on-surface font-semibold inline-flex items-center gap-1.5" onclick="$('#w')?.focus()">
-            <span class="material-symbols-outlined text-[16px] text-primary">add_task</span> Nhập nhanh 1 từ
+          <button type="button" class="dict-quick-chip min-h-[38px] px-3.5" data-jump-nhap="single">
+            <span class="material-symbols-outlined text-[16px] text-primary" aria-hidden="true">add_task</span>
+            <span>Nhập nhanh 1 từ</span>
           </button>
-          <button type="button" class="px-3 py-1.5 rounded-full bg-paper-card border border-border-subtle hover:border-primary text-on-surface font-semibold inline-flex items-center gap-1.5" onclick="$('#batch-textarea')?.focus()">
-            <span class="material-symbols-outlined text-[16px] text-secondary">content_paste</span> Dán danh sách nhiều từ
+          <button type="button" class="dict-quick-chip min-h-[38px] px-3.5" data-jump-nhap="batch">
+            <span class="material-symbols-outlined text-[16px] text-secondary" aria-hidden="true">content_paste</span>
+            <span>Dán danh sách nhiều từ</span>
           </button>
-          <button type="button" class="px-3 py-1.5 rounded-full bg-paper-card border border-border-subtle hover:border-primary text-on-surface font-semibold inline-flex items-center gap-1.5" onclick="$('#ilist')?.scrollIntoView({behavior:'smooth'})">
-            <span class="material-symbols-outlined text-[16px] text-tertiary">inbox</span> Hộp thư đã lưu (${S.inbox ? S.inbox.size : 0})
+          <button type="button" class="dict-quick-chip min-h-[38px] px-3.5" data-jump-nhap="inbox">
+            <span class="material-symbols-outlined text-[16px] text-tertiary" aria-hidden="true">inbox</span>
+            <span>Hộp thư đã lưu (<span id="jump-inbox-count">${fmt(inboxCount)}</span>)</span>
           </button>
         </div>
 
         <!-- Quick Single-Word Input Card (Preserves #f, #w, #check, #where, #note, #save, #msg) -->
-        <div class="bg-paper-card rounded-2xl p-4 sm:p-space-lg border border-border-subtle shadow-sm flex flex-col gap-space-md">
+        <div class="dict-panel-card tier-personal p-4 sm:p-space-lg flex flex-col gap-space-md" id="card-single-import">
           <div class="flex items-center justify-between flex-wrap gap-2">
             <div class="flex items-center gap-2">
-              <span class="w-1.5 h-4 rounded-full bg-primary-container"></span>
-              <h2 class="font-headline-md text-lg font-bold text-on-surface m-0">Nhập nhanh 1 từ mới</h2>
+              <span class="dict-step-badge">＋</span>
+              <h2 class="font-headline-md text-lg font-bold text-on-surface m-0 font-serif">Nhập nhanh 1 từ mới</h2>
             </div>
-            <span class="text-xs px-2.5 py-0.5 rounded-full bg-jade-subtle text-secondary font-semibold">Tự động tạo thẻ SRS</span>
+            <span class="home-band-status-pill bg-jade-subtle text-secondary">Tự động tạo thẻ SRS</span>
           </div>
 
           <form class="flex flex-col gap-space-md" id="f" autocomplete="off">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-3.5">
               <label class="flex flex-col gap-1.5">
-                <span class="text-xs font-semibold text-on-surface-variant">Từ mới (chữ Phồn thể):</span>
-                <input id="w" class="w-full p-3 rounded-xl bg-paper-base border border-border-subtle text-xl font-serif text-on-surface focus:outline-none focus:ring-2 focus:ring-primary/20" placeholder="Ví dụ：機會, 買單, 捷運..." maxlength="16">
+                <span class="text-xs font-semibold text-on-surface-variant">Từ mới (chữ Hán Phồn/Giản thể):</span>
+                <input id="w" class="w-full min-h-[46px] px-3.5 py-2.5 rounded-xl bg-paper-base border border-border-subtle text-xl font-serif text-on-surface focus:outline-none focus:border-primary" placeholder="Ví dụ：機會, 買單, 捷運..." maxlength="16">
               </label>
               <label class="flex flex-col gap-1.5">
                 <span class="text-xs font-semibold text-on-surface-variant">Gặp ở đâu (ngữ cảnh):</span>
-                <input id="where" placeholder="Podcast, lớp học, phim Đài Loan..." maxlength="60" class="w-full p-3 rounded-xl bg-paper-base border border-border-subtle text-sm text-on-surface">
+                <input id="where" placeholder="Podcast, lớp học, phim Đài Loan..." maxlength="60" class="w-full min-h-[46px] px-3.5 py-2.5 rounded-xl bg-paper-base border border-border-subtle text-sm text-on-surface focus:outline-none focus:border-primary">
               </label>
               <label class="flex flex-col gap-1.5">
                 <span class="text-xs font-semibold text-on-surface-variant">Ghi chú thêm / Nghĩa tiếng Việt:</span>
-                <input id="note" placeholder="Ý nghĩa trong tình huống này..." maxlength="200" class="w-full p-3 rounded-xl bg-paper-base border border-border-subtle text-sm text-on-surface">
+                <input id="note" placeholder="Ý nghĩa trong tình huống này..." maxlength="200" class="w-full min-h-[46px] px-3.5 py-2.5 rounded-xl bg-paper-base border border-border-subtle text-sm text-on-surface focus:outline-none focus:border-primary">
               </label>
             </div>
 
-            <div class="p-3 rounded-xl bg-surface-container-low border border-border-subtle text-xs text-on-surface-variant font-medium" id="check">
-              Gõ một từ chữ Hán Phồn thể để kiểm tra với kho dữ liệu TOCFL &amp; Từ điển.
+            <div class="p-3 rounded-xl bg-surface-container-low border border-border-subtle text-xs text-on-surface-variant font-medium" id="check" role="status">
+              Gõ một từ chữ Hán (hỗ trợ tự chuyển Giản → Phồn thể) để kiểm tra với kho TOCFL &amp; Từ điển.
             </div>
 
             <div class="flex items-center justify-between pt-1 flex-wrap gap-2">
-              <div class="text-xs font-semibold" id="msg"></div>
-              <button class="min-h-[42px] px-5 py-2.5 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary transition-colors shadow-sm disabled:opacity-40 disabled:cursor-not-allowed flex items-center gap-1.5" id="save" type="submit" disabled>
-                <span class="material-symbols-outlined text-[16px]">add_task</span>
+              <div class="text-xs font-semibold" id="msg" role="status"></div>
+              <button class="min-h-[42px] px-5 py-2.5 rounded-xl bg-primary-container text-white font-semibold text-xs hover:bg-primary transition-colors shadow-sm disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center gap-1.5" id="save" type="submit" disabled>
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">add_task</span>
                 <span>Lưu &amp; Đồng bộ vào Lịch học</span>
               </button>
             </div>
@@ -9542,65 +9682,64 @@ VIEWS["nhap"] = () => {
         </div>
 
         <!-- Main Batch Ingestion Workspace (6+6 Cols) -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg" id="card-batch-import">
           <!-- Left Editor Box (6 cols) -->
-          <div class="lg:col-span-6 flex flex-col gap-space-md bg-paper-card p-4 sm:p-space-lg rounded-2xl border border-border-subtle shadow-sm">
+          <div class="lg:col-span-6 dict-panel-card tier-b p-4 sm:p-space-lg flex flex-col gap-3.5">
             <div class="flex items-center justify-between flex-wrap gap-2">
-              <div class="flex items-center gap-space-xs">
-                <span class="w-1.5 h-3.5 rounded-full bg-primary-container"></span>
-                <span class="font-label-md text-label-md font-semibold text-on-surface">Nhập danh sách hàng loạt</span>
-              </div>
               <div class="flex items-center gap-2">
-                <button type="button" class="text-primary hover:underline font-label-sm text-xs font-semibold" id="btn-batch-sample">
+                <span class="dict-step-badge">1</span>
+                <span class="font-headline-md text-base font-bold text-on-surface font-serif">Dán danh sách hàng loạt</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <button type="button" class="min-h-[36px] px-3 py-1 rounded-lg bg-amber-subtle text-tertiary hover:bg-surface-container-high font-label-sm text-xs font-semibold transition-colors" id="btn-batch-sample">
                   Điền mẫu ví dụ
                 </button>
-                <span class="text-border-subtle">•</span>
-                <button type="button" class="text-on-surface-variant hover:text-on-surface font-label-sm text-xs" id="btn-batch-clear">
+                <button type="button" class="min-h-[36px] px-3 py-1 rounded-lg bg-paper-base text-on-surface-variant hover:text-on-surface border border-border-subtle font-label-sm text-xs transition-colors" id="btn-batch-clear">
                   Xóa trắng
                 </button>
               </div>
             </div>
             <div class="relative flex-1">
-              <textarea class="w-full h-full min-h-[180px] p-space-md rounded-xl bg-paper-base border border-border-subtle text-on-surface font-body-md text-body-md focus:outline-none placeholder:text-outline resize-y leading-relaxed" id="batch-textarea" rows="7" placeholder="Dán danh sách từ của bạn vào đây (mỗi dòng 1 từ)..."></textarea>
+              <textarea class="w-full h-full min-h-[190px] p-3.5 rounded-xl bg-paper-base border border-border-subtle text-on-surface text-sm focus:outline-none focus:border-primary placeholder:text-outline resize-y leading-relaxed" id="batch-textarea" rows="7" placeholder="Dán danh sách từ của bạn vào đây (mỗi dòng 1 từ, vd: 1. 璀璨 - rực rỡ lấp lánh)..."></textarea>
             </div>
-            <div class="flex items-center justify-between flex-wrap gap-2 pt-space-xs">
+            <div class="flex items-center justify-between flex-wrap gap-2 pt-1">
               <span class="font-body-sm text-xs text-on-surface-variant" id="batch-detect-count">Đã phát hiện: <strong>0 mục từ</strong></span>
-              <button type="button" class="min-h-[42px] px-4 py-2 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-label-md text-xs font-semibold transition-all shadow-sm flex items-center gap-1.5" id="btn-batch-parse">
-                <span class="material-symbols-outlined text-[18px]">auto_fix_high</span>
+              <button type="button" class="min-h-[42px] px-4 py-2 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-label-md text-xs font-semibold transition-all shadow-sm inline-flex items-center gap-1.5" id="btn-batch-parse">
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">auto_fix_high</span>
                 <span>Chuẩn hóa &amp; Xem trước</span>
               </button>
             </div>
           </div>
 
           <!-- Right Preview & Validation Table (6 cols) -->
-          <div class="lg:col-span-6 flex flex-col gap-space-md bg-paper-card p-4 sm:p-space-lg rounded-2xl border border-border-subtle shadow-sm">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-space-xs">
-                <span class="w-1.5 h-3.5 rounded-full bg-secondary"></span>
-                <span class="font-label-md text-label-md font-semibold text-on-surface" id="batch-preview-title">Kết quả chuẩn hóa</span>
+          <div class="lg:col-span-6 dict-panel-card tier-a p-4 sm:p-space-lg flex flex-col gap-3.5">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <div class="flex items-center gap-2">
+                <span class="dict-step-badge">2</span>
+                <span class="font-headline-md text-base font-bold text-on-surface font-serif" id="batch-preview-title">Kết quả chuẩn hóa</span>
               </div>
-              <span class="px-2 py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-xs font-medium">Sẵn sàng nhập sổ</span>
+              <span class="home-band-status-pill bg-jade-subtle text-secondary">Sẵn sàng nhập sổ</span>
             </div>
             <div class="overflow-x-auto rounded-xl bg-paper-base border border-border-subtle flex-1">
-              <table class="w-full text-left font-body-sm text-body-sm">
+              <table class="w-full min-w-[440px] text-left font-body-sm text-xs sm:text-sm">
                 <thead class="bg-surface-container font-label-sm text-xs text-on-surface-variant">
                   <tr>
-                    <th class="p-space-sm pl-space-md">Chữ Phồn thể</th>
-                    <th class="p-space-sm">Phiên âm</th>
-                    <th class="p-space-sm">Nghĩa tiếng Việt</th>
-                    <th class="p-space-sm pr-space-md text-right">TOCFL</th>
+                    <th class="p-2.5 pl-3.5 whitespace-nowrap">Chữ Phồn thể</th>
+                    <th class="p-2.5 whitespace-nowrap">Phiên âm</th>
+                    <th class="p-2.5">Nghĩa tiếng Việt</th>
+                    <th class="p-2.5 pr-3.5 text-right whitespace-nowrap">TOCFL</th>
                   </tr>
                 </thead>
                 <tbody class="divide-y divide-border-subtle text-on-surface" id="batch-preview-tbody"></tbody>
               </table>
             </div>
-            <div class="flex flex-col gap-space-sm pt-space-xs">
+            <div class="flex flex-col gap-2 pt-1">
               <div class="flex items-center justify-between text-xs flex-wrap gap-1">
                 <span class="text-on-surface-variant">Thư mục nhận dữ liệu:</span>
                 <span class="font-semibold text-primary">Hộp thư &amp; Thư mục của tôi (SRS)</span>
               </div>
-              <button type="button" class="w-full min-h-[44px] py-2.5 rounded-xl bg-secondary hover:bg-secondary/90 text-on-secondary font-label-md text-sm font-semibold transition-all shadow-sm disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2" id="btn-batch-commit" disabled>
-                <span class="material-symbols-outlined text-[20px]">archive</span>
+              <button type="button" class="w-full min-h-[44px] py-2.5 rounded-xl bg-secondary hover:bg-secondary/90 text-on-secondary font-label-md text-sm font-semibold transition-all shadow-sm disabled:opacity-40 disabled:cursor-not-allowed inline-flex items-center justify-center gap-2" id="btn-batch-commit" disabled>
+                <span class="material-symbols-outlined text-[20px]" aria-hidden="true">archive</span>
                 <span id="btn-batch-commit-label">Xác nhận nạp tất cả vào sổ tay</span>
               </button>
             </div>
@@ -9608,57 +9747,69 @@ VIEWS["nhap"] = () => {
         </div>
 
         <!-- Imported Words List in Inbox (#ilist) -->
-        <div class="bg-paper-card rounded-2xl p-4 sm:p-space-lg border border-border-subtle shadow-sm flex flex-col gap-space-md">
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div class="dict-panel-card tier-a p-4 sm:p-space-lg flex flex-col gap-space-md" id="card-inbox-list">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-3 border-b border-border-subtle">
             <div class="flex items-center gap-2 flex-wrap">
-              <h2 class="font-headline-lg text-lg font-bold text-on-surface m-0">Từ đã nhập trong Hộp thư (<span id="inbox-count">${S.inbox ? S.inbox.size : 0}</span>)</h2>
-              <span class="text-xs font-semibold px-2 py-0.5 rounded-full bg-jade-subtle text-secondary">Đầy đủ nghĩa &amp; đồng bộ SRS</span>
+              <h2 class="font-headline-lg text-lg font-bold text-on-surface font-serif m-0">Từ đã nhập trong Hộp thư (<span id="inbox-count">${fmt(inboxCount)}</span>)</h2>
+              <span class="home-band-status-pill bg-jade-subtle text-secondary">Đầy đủ nghĩa &amp; đồng bộ SRS</span>
             </div>
             <div class="flex items-center gap-2 flex-wrap">
-              <span id="inboxEnrichStatus" class="text-xs text-secondary font-medium"></span>
-              <button type="button" id="btn-enrich-all-inbox" class="min-h-[38px] px-3 py-1.5 rounded-lg bg-jade-subtle hover:bg-secondary-container text-secondary border border-border-subtle text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer">
-                <span class="material-symbols-outlined text-[16px]">auto_fix_high</span>
+              <span id="inboxEnrichStatus" class="text-xs text-secondary font-medium" role="status"></span>
+              <button type="button" id="btn-enrich-all-inbox" class="min-h-[38px] px-3 py-1.5 rounded-lg bg-jade-subtle hover:bg-secondary-container text-secondary border border-secondary/20 text-xs font-semibold inline-flex items-center gap-1.5 transition-colors cursor-pointer">
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">auto_fix_high</span>
                 <span>Cập nhật đầy đủ nghĩa tất cả</span>
               </button>
             </div>
           </div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md" id="ilist"></div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5" id="ilist"></div>
         </div>
       </div>
     </div>
   `);
 
+  document.querySelectorAll("[data-jump-nhap]").forEach((btn) => {
+    btn.onclick = () => {
+      const target = btn.dataset.jumpNhap;
+      if (target === "single") $("#w")?.focus();
+      else if (target === "batch") $("#batch-textarea")?.focus();
+      else if (target === "inbox") $("#card-inbox-list")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+  });
+
   const check = () => {
-    const w = clean($("#w").value), box = $("#check"), btn = $("#save");
+    const rawW = clean($("#w").value);
+    const w = typeof toTraditionalTw === "function" ? toTraditionalTw(rawW) : rawW;
+    const box = $("#check"), btn = $("#save");
     btn.disabled = true;
-    box.className = "p-3 rounded-xl bg-surface-container-low border border-border-subtle text-xs font-medium";
-    if (!w) { box.textContent = "Gõ một từ để kiểm tra."; return null; }
-    if (!/^[㐀-鿿豈-﫿]+$/.test(w)) {
+    box.className = "p-3 rounded-xl bg-surface-container-low border border-border-subtle text-xs font-medium text-on-surface-variant";
+    if (!rawW) { box.textContent = "Gõ một từ chữ Hán (hỗ trợ tự chuyển Giản → Phồn thể) để kiểm tra với kho TOCFL & Từ điển."; return null; }
+    if (!/^[㐀-鿿豈-﫿]+$/.test(rawW)) {
       box.className = "p-3 rounded-xl bg-cinnabar-subtle border border-primary/30 text-xs font-medium text-primary";
-      box.textContent = "Chỉ nhập chữ Hán Phồn thể chuẩn.";
+      box.textContent = "Chỉ nhập chữ Hán (không gồm số, khoảng trắng hay ký tự Latin).";
       return null;
     }
+    const convBadge = w !== rawW ? `<span class="inline-block mr-1.5 px-1.5 py-0.5 rounded bg-paper-card border border-border-subtle text-on-surface font-serif">Phồn thể: <strong>${esc(w)}</strong></span>` : "";
     const n = S.noteByWord.get(w);
     const e = cedFirst(w);
     btn.disabled = false;
     if (S.inbox && [...S.inbox.values()].some((x) => x.w === w)) {
-      box.className = "p-3 rounded-xl bg-amber-subtle border border-amber-subtle text-xs font-medium text-tertiary";
-      box.textContent = "Bạn đã nhập từ này vào Hộp thư rồi. Từ đã được đưa vào hàng đợi học.";
+      box.className = "p-3 rounded-xl bg-amber-subtle border border-tertiary/30 text-xs font-medium text-tertiary";
+      box.innerHTML = `${convBadge}Bạn đã nhập từ <strong class="font-serif">${esc(w)}</strong> vào Hộp thư rồi. Từ đã được đưa vào hàng đợi học.`;
       btn.disabled = true;
       return null;
     }
     if (n) {
       box.className = "p-3 rounded-xl bg-jade-subtle border border-secondary/30 text-xs font-medium text-secondary";
-      box.innerHTML = `✓ Từ này đã có trong bảng chuẩn <strong>TOCFL ${esc(bandsOf(n).join(" · ") || "")}</strong>: <span class="font-serif font-bold">${esc(n.w)}</span> (${esc(itemOf(n).py)}) — ${esc(meaningOf(n))}. Bấm lưu để kích hoạt vào lịch ôn ngay.`;
+      box.innerHTML = `${convBadge}✓ Đã có trong bảng chuẩn <strong>TOCFL ${esc(bandsOf(n).join(" · ") || "")}</strong>: <span class="font-serif font-bold">${esc(n.w)}</span> (${esc(itemOf(n).py)}) — ${esc(meaningOf(n))}. Bấm lưu để kích hoạt vào lịch ôn ngay.`;
       return { n, w };
     }
     if (e) {
-      box.className = "p-3 rounded-xl bg-surface-container text-xs font-medium text-on-surface";
-      box.innerHTML = `Chưa có trong TOCFL, nhưng có trong CC-CEDICT: <span class="font-serif font-bold">${esc(w)}</span> (${esc(e[0][0])}) — ${esc(e[0][1].split("/").join("; "))}. Sẽ tạo thẻ học và đồng bộ ngay.`;
+      box.className = "p-3 rounded-xl bg-surface-container border border-border-subtle text-xs font-medium text-on-surface";
+      box.innerHTML = `${convBadge}Chưa có trong TOCFL, nhưng có trong CC-CEDICT: <span class="font-serif font-bold">${esc(w)}</span> (${esc(e[0][0])}) — ${esc(e[0][1].split("/").join("; "))}. Sẽ tạo thẻ học và đồng bộ ngay.`;
       return { w, py: e[0][0], en: e[0][1].split("/").join("; ") };
     }
-    box.className = "p-3 rounded-xl bg-surface-container-low border border-border-subtle text-xs font-medium text-outline";
-    box.textContent = "Từ mới hoàn toàn (chưa có trong bảng TOCFL và CC-CEDICT). Bạn có thể ghi chú thêm nghĩa bên dưới, hệ thống sẽ tạo thẻ Flashcard chuẩn để học.";
+    box.className = "p-3 rounded-xl bg-surface-container-low border border-border-subtle text-xs font-medium text-on-surface-variant";
+    box.innerHTML = `${convBadge}Từ mới hoàn toàn (chưa có trong TOCFL &amp; CC-CEDICT). Bạn có thể ghi chú thêm nghĩa bên dưới, hệ thống sẽ tạo thẻ Flashcard chuẩn để học.`;
     return { w };
   };
 
@@ -9772,7 +9923,8 @@ VIEWS["nhap"] = () => {
   const drawInbox = () => {
     const list = $("#ilist");
     const countEl = $("#inbox-count");
-    if (countEl) countEl.textContent = S.inbox ? S.inbox.size : 0;
+    if (countEl) countEl.textContent = fmt(S.inbox ? S.inbox.size : 0);
+    syncHeaderInboxCounts();
     if (!list) return;
     const entries = S.inbox ? [...S.inbox.entries()].sort((a, b) => (b[1].at || 0) - (a[1].at || 0)) : [];
     if (!entries.length) {
@@ -9796,17 +9948,18 @@ VIEWS["nhap"] = () => {
       const hasMultiSenses = info.ng && info.ng.length > 0;
       const showUserNoteSeparately = info.userNote && info.dictVn && info.userNote.toLowerCase() !== info.dictVn.toLowerCase();
       const isEditing = editingInboxKey === key;
+      const inboxTier = dictTierForBand(info.band);
 
       return `
-        <div class="p-4 rounded-2xl bg-surface-container-low border border-border-subtle hover:border-primary/40 transition-all flex flex-col justify-between gap-3 shadow-sm">
+        <div class="dict-inbox-card ${inboxTier}">
           <div class="flex items-start justify-between gap-2">
             <div class="flex flex-col min-w-0 flex-1">
               <div class="flex items-center gap-2 flex-wrap">
-                <a href="#tu/${encodeURIComponent(it.w)}" class="font-serif font-bold text-xl text-on-surface hover:text-primary transition-colors no-underline">${esc(it.w)}</a>
+                <a href="#tu/${encodeURIComponent(it.w)}" class="font-serif font-bold text-xl text-on-surface hover:text-primary transition-colors no-underline" lang="zh-Hant">${esc(it.w)}</a>
                 ${info.py ? `<span class="font-code text-xs text-tertiary font-medium bg-amber-subtle px-2 py-0.5 rounded-md border border-border-subtle">${esc(info.py)}</span>` : ""}
-                ${info.band ? `<span class="px-1.5 py-0.5 rounded bg-surface-container text-xs font-code font-semibold text-on-surface-variant">${esc(info.band)}</span>` : ""}
-                <button type="button" class="w-8 h-8 text-secondary hover:text-primary transition-colors rounded-lg hover:bg-paper-card flex items-center justify-center" data-say="${esc(it.w)}" title="Nghe phát âm" aria-label="Nghe ${esc(it.w)}">
-                  <span class="material-symbols-outlined text-[18px]">volume_up</span>
+                ${info.band ? `<span class="home-band-tier-pill">${esc(info.band)}</span>` : ""}
+                <button type="button" class="w-9 h-9 text-secondary hover:text-primary transition-colors rounded-lg hover:bg-paper-base flex items-center justify-center" data-say="${esc(it.w)}" title="Nghe phát âm" aria-label="Nghe ${esc(it.w)}">
+                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">volume_up</span>
                 </button>
               </div>
               ${info.hv || info.pos ? `
@@ -9819,19 +9972,19 @@ VIEWS["nhap"] = () => {
                 <ul class="mt-1.5 space-y-1 text-xs text-on-surface leading-relaxed list-disc pl-4">
                   ${info.ng.map((sense) => `<li>${esc(sense)}</li>`).join("")}
                 </ul>
-              ` : (summaryMeaning ? `<div class="text-xs text-on-surface font-medium mt-1.5 leading-relaxed">${esc(summaryMeaning)}</div>` : `<div class="text-xs text-outline italic mt-1.5">Chưa có nghĩa tiếng Việt — bấm biểu tượng đồng bộ để cập nhật tự động.</div>`)}
-              ${showUserNoteSeparately ? `<div class="text-xs text-tertiary mt-1 bg-amber-subtle px-2 py-1 rounded-lg">Ghi chú của bạn: ${esc(info.userNote)}</div>` : ""}
-              ${it.where ? `<div class="text-xs text-outline mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]">location_on</span><span>${esc(it.where)}</span></div>` : ""}
+              ` : (summaryMeaning ? `<div class="text-xs text-on-surface font-medium mt-1.5 leading-relaxed break-words">${esc(summaryMeaning)}</div>` : `<div class="text-xs text-outline italic mt-1.5">Chưa có nghĩa tiếng Việt — bấm biểu tượng đồng bộ để cập nhật tự động.</div>`)}
+              ${showUserNoteSeparately ? `<div class="text-xs text-tertiary mt-1 bg-amber-subtle px-2 py-1 rounded-lg break-words">Ghi chú của bạn: ${esc(info.userNote)}</div>` : ""}
+              ${it.where ? `<div class="text-xs text-outline mt-1 flex items-center gap-1"><span class="material-symbols-outlined text-[14px]" aria-hidden="true">location_on</span><span>${esc(it.where)}</span></div>` : ""}
             </div>
             <div class="flex items-center gap-1 shrink-0">
-              <button type="button" class="w-8 h-8 text-secondary hover:text-primary transition-colors rounded-lg hover:bg-paper-card flex items-center justify-center" data-enrich-inbox="${esc(key)}" title="Cập nhật nghĩa đầy đủ tự động" aria-label="Cập nhật nghĩa">
-                <span class="material-symbols-outlined text-[18px]">sync</span>
+              <button type="button" class="w-9 h-9 text-secondary hover:text-primary transition-colors rounded-lg hover:bg-paper-base flex items-center justify-center" data-enrich-inbox="${esc(key)}" title="Cập nhật nghĩa đầy đủ tự động" aria-label="Cập nhật nghĩa">
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">sync</span>
               </button>
-              <button type="button" class="w-8 h-8 text-outline hover:text-primary transition-colors rounded-lg hover:bg-paper-card flex items-center justify-center" data-edit-inbox="${esc(key)}" title="Sửa / thêm nghĩa cho từ này" aria-label="Sửa nghĩa">
-                <span class="material-symbols-outlined text-[18px]">edit</span>
+              <button type="button" class="w-9 h-9 text-outline hover:text-primary transition-colors rounded-lg hover:bg-paper-base flex items-center justify-center" data-edit-inbox="${esc(key)}" title="Sửa / thêm nghĩa cho từ này" aria-label="Sửa nghĩa">
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">edit</span>
               </button>
-              <button type="button" class="w-8 h-8 text-outline hover:text-primary transition-colors rounded-lg hover:bg-paper-card flex items-center justify-center" data-del-inbox="${esc(key)}" title="Xóa khỏi Hộp thư" aria-label="Xóa từ">
-                <span class="material-symbols-outlined text-[18px]">delete</span>
+              <button type="button" class="w-9 h-9 text-outline hover:text-primary transition-colors rounded-lg hover:bg-paper-base flex items-center justify-center" data-del-inbox="${esc(key)}" title="Xóa khỏi Hộp thư" aria-label="Xóa từ">
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">delete</span>
               </button>
             </div>
           </div>
@@ -9845,8 +9998,8 @@ VIEWS["nhap"] = () => {
                 <input class="p-1.5 rounded-lg bg-paper-base border border-border-subtle text-xs text-on-surface" data-edit-hv="${esc(key)}" value="${esc(info.hv)}" placeholder="Âm Hán Việt">
               </div>
               <div class="flex items-center justify-end gap-2">
-                <button type="button" class="px-2.5 py-1 rounded-lg bg-surface-container text-xs text-on-surface-variant" data-cancel-edit-inbox="${esc(key)}">Hủy</button>
-                <button type="button" class="px-3 py-1 rounded-lg bg-primary text-white text-xs font-semibold" data-save-edit-inbox="${esc(key)}">Lưu nghĩa</button>
+                <button type="button" class="min-h-[36px] px-3 py-1 rounded-lg bg-surface-container text-xs text-on-surface-variant" data-cancel-edit-inbox="${esc(key)}">Hủy</button>
+                <button type="button" class="min-h-[36px] px-3.5 py-1 rounded-lg bg-primary text-white text-xs font-semibold" data-save-edit-inbox="${esc(key)}">Lưu nghĩa</button>
               </div>
             </div>
           ` : ""}
@@ -9996,61 +10149,79 @@ VIEWS["nhap"] = () => {
     };
   }
 
+  let msgTimer = null;
+  let isSingleSaving = false;
   $("#f").onsubmit = async (e) => {
     e.preventDefault();
+    if (isSingleSaving) return;
     const c = check();
     if (!c) return;
-    const twWord = typeof toTraditionalTw === "function" ? toTraditionalTw(c.w) : c.w;
-    if (!S.inbox) S.inbox = new Map();
-    let existingId = null;
-    for (const [k, v] of S.inbox) { if (v && v.w === twWord) { existingId = k; break; } }
-    const id = existingId || ("inbox~" + twWord);
-    try { await Promise.all([ensureVi([twWord]), ensureRich([twWord])]); } catch (err) {}
-    const info = resolveFullInfoForWord(twWord, null);
-    const typedNote = ($("#note").value || "").trim();
-    const entry = {
-      id,
-      w: twWord,
-      py: info.py || c.py || (c.n ? itemOf(c.n).py : "") || (typeof pyOf === "function" ? pyOf(twWord) : ""),
-      hv: info.hv || "",
-      pos: info.pos || "",
-      ng: info.ng.length ? info.ng : (typedNote ? typedNote.split(/;+/).map((x) => x.trim()).filter(Boolean) : []),
-      where: ($("#where").value || "").trim(),
-      note: typedNote || info.dictVn || info.en || "",
-      at: Date.now()
-    };
-    await Store.put("inbox", id, entry);
-    S.inbox.set(id, entry);
+    isSingleSaving = true;
+    const saveBtn = $("#save");
+    if (saveBtn) saveBtn.disabled = true;
+    try {
+      const twWord = typeof toTraditionalTw === "function" ? toTraditionalTw(c.w) : c.w;
+      if (!S.inbox) S.inbox = new Map();
+      const id = findOrCreateInboxKey(twWord);
+      try { await Promise.all([ensureVi([twWord]), ensureRich([twWord])]); } catch (err) {}
+      const info = resolveFullInfoForWord(twWord, null);
+      const typedNote = ($("#note").value || "").trim();
+      const entry = {
+        id,
+        w: twWord,
+        py: info.py || c.py || (c.n ? itemOf(c.n).py : "") || (typeof pyOf === "function" ? pyOf(twWord) : ""),
+        hv: info.hv || "",
+        pos: info.pos || "",
+        ng: info.ng.length ? info.ng : (typedNote ? typedNote.split(/;+/).map((x) => x.trim()).filter(Boolean) : []),
+        where: ($("#where").value || "").trim(),
+        note: typedNote || info.dictVn || info.en || "",
+        at: Date.now()
+      };
+      await Store.put("inbox", id, entry);
+      S.inbox.set(id, entry);
 
-    if (typeof syncInboxWordToLearning === "function") {
-      syncInboxWordToLearning(entry, true);
+      if (typeof syncInboxWordToLearning === "function") {
+        syncInboxWordToLearning(entry, true);
+      }
+
+      if ($("#w")) $("#w").value = "";
+      if ($("#where")) $("#where").value = "";
+      if ($("#note")) $("#note").value = "";
+      if ($("#msg")) {
+        $("#msg").innerHTML = `<span class="inline-flex items-center gap-1.5 text-secondary font-semibold"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">check_circle</span> Đã lưu từ "${esc(twWord)}" vào Hộp thư &amp; đồng bộ ngay vào hàng đợi Học/Ôn tập!</span>`;
+      }
+      clearTimeout(msgTimer);
+      msgTimer = setTimeout(() => {
+        const m = $("#msg");
+        if (m) m.innerHTML = "";
+      }, 5000);
+      if (typeof updateBadge === "function") updateBadge();
+      check();
+      drawInbox();
+    } finally {
+      isSingleSaving = false;
     }
-
-    $("#w").value = "";
-    $("#where").value = "";
-    $("#note").value = "";
-    $("#msg").innerHTML = `<span class="inline-flex items-center gap-1.5 text-secondary font-semibold"><span class="material-symbols-outlined text-[16px]">check_circle</span> Đã lưu từ "${esc(twWord)}" vào Hộp thư &amp; đồng bộ ngay vào hàng đợi Học/Ôn tập!</span>`;
-    setTimeout(() => {
-      const m = $("#msg");
-      if (m) m.innerHTML = "";
-    }, 5000);
-    check();
-    drawInbox();
   };
 
   // Batch Parser & Commit Logic (Mode 2)
   let parsedBatch = [];
+  let isCommitting = false;
   const parseBatchLines = () => {
     const raw = $("#batch-textarea")?.value || "";
     const lines = raw.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
     parsedBatch = [];
+    const seenBatch = new Set();
     for (const line of lines) {
       const mHan = line.match(/[㐀-鿿豈-﫿]+/);
       if (!mHan) continue;
       const rawW = mHan[0];
       const w = typeof toTraditionalTw === "function" ? toTraditionalTw(rawW) : rawW;
+      if (seenBatch.has(w)) continue;
+      seenBatch.add(w);
       const info = resolveFullInfoForWord(w, null);
-      let rest = line.replace(/^\d+[\.\)\s-]*/, "").replace(rawW, "").replace(w, "").trim();
+      let rest = line.replace(/^\d+[\.\)\s-]*/, "").replace(rawW, "");
+      if (w !== rawW) rest = rest.replace(w, "");
+      rest = rest.trim();
       let py = info.py || (typeof pyOf === "function" ? pyOf(w) : "");
       const mPy = rest.match(/\(([^)]+)\)/);
       if (mPy) {
@@ -10063,22 +10234,22 @@ VIEWS["nhap"] = () => {
       parsedBatch.push({ w, py, vn, ng: info.ng, hv: info.hv, pos: info.pos, band });
     }
     const cntEl = $("#batch-detect-count");
-    if (cntEl) cntEl.innerHTML = `Đã phát hiện: <strong>${parsedBatch.length} mục từ hợp lệ</strong>`;
+    if (cntEl) cntEl.innerHTML = `Đã phát hiện: <strong>${fmt(parsedBatch.length)} mục từ hợp lệ</strong>`;
     const titleEl = $("#batch-preview-title");
-    if (titleEl) titleEl.textContent = `Kết quả chuẩn hóa (${parsedBatch.length} mục)`;
+    if (titleEl) titleEl.textContent = `Kết quả chuẩn hóa (${fmt(parsedBatch.length)} mục)`;
     const btnLbl = $("#btn-batch-commit-label");
-    if (btnLbl) btnLbl.textContent = parsedBatch.length ? `Xác nhận nạp ${parsedBatch.length} từ vào sổ tay` : `Nhập từ ở khung bên trái để nạp`;
+    if (btnLbl && !isCommitting) btnLbl.textContent = parsedBatch.length ? `Xác nhận nạp ${fmt(parsedBatch.length)} từ vào sổ tay` : `Nhập từ ở khung bên trái để nạp`;
     const commitBtn = $("#btn-batch-commit");
-    if (commitBtn) commitBtn.disabled = parsedBatch.length === 0;
+    if (commitBtn) commitBtn.disabled = isCommitting || parsedBatch.length === 0;
     const tbody = $("#batch-preview-tbody");
     if (tbody) {
       tbody.innerHTML = parsedBatch.map((it) => `
         <tr class="hover:bg-paper-card transition-colors">
-          <td class="p-space-sm pl-space-md font-display text-body-lg font-semibold text-primary">${esc(it.w)}</td>
-          <td class="p-space-sm font-code text-xs text-tertiary">${esc(it.py || "—")}</td>
-          <td class="p-space-sm text-xs text-on-surface">${esc(it.vn || "Tự động cập nhật khi nạp")}</td>
-          <td class="p-space-sm pr-space-md text-right">
-            <span class="px-1.5 py-0.5 rounded bg-amber-subtle text-tertiary font-label-sm text-[10px]">${esc(it.band)}</span>
+          <td class="p-2.5 pl-3.5 font-serif text-base font-semibold text-primary whitespace-nowrap" lang="zh-Hant">${esc(it.w)}</td>
+          <td class="p-2.5 font-code text-xs text-tertiary whitespace-nowrap">${esc(it.py || "—")}</td>
+          <td class="p-2.5 text-xs text-on-surface">${esc(it.vn || "Tự động cập nhật khi nạp")}</td>
+          <td class="p-2.5 pr-3.5 text-right whitespace-nowrap">
+            <span class="px-1.5 py-0.5 rounded bg-amber-subtle text-tertiary font-label-sm text-[11px]">${esc(it.band)}</span>
           </td>
         </tr>
       `).join("") || `<tr><td colspan="4" class="p-4 text-center text-xs text-outline">Chưa có dòng chữ Hán nào hợp lệ.</td></tr>`;
@@ -10123,28 +10294,29 @@ VIEWS["nhap"] = () => {
   const btnCommit = $("#btn-batch-commit");
   if (btnCommit) {
     btnCommit.onclick = async () => {
-      if (!parsedBatch.length || btnCommit.disabled) return;
+      if (!parsedBatch.length || btnCommit.disabled || isCommitting) return;
+      isCommitting = true;
       btnCommit.disabled = true;
+      const items = parsedBatch.slice();
       const lbl = $("#btn-batch-commit-label");
       if (lbl) lbl.textContent = "Đang nạp & cập nhật nghĩa…";
       try {
         if (!S.inbox) S.inbox = new Map();
         const addedKeys = [];
-        for (const item of parsedBatch) {
-          let existingId = null;
-          for (const [k, v] of S.inbox) { if (v && v.w === item.w) { existingId = k; break; } }
-          const id = existingId || ("inbox~" + item.w);
-          const entry = {
+        for (const item of items) {
+          const id = findOrCreateInboxKey(item.w);
+          const prev = S.inbox.get(id) || {};
+          const entry = Object.assign({}, prev, {
             id,
             w: item.w,
-            py: item.py,
-            hv: item.hv || "",
-            pos: item.pos || "",
-            ng: item.ng || [],
-            where: "Nhập hàng loạt",
-            note: item.vn || "",
+            py: item.py || prev.py || "",
+            hv: item.hv || prev.hv || "",
+            pos: item.pos || prev.pos || "",
+            ng: (item.ng && item.ng.length) ? item.ng : (prev.ng || []),
+            where: prev.where || "Nhập hàng loạt",
+            note: item.vn || prev.note || "",
             at: Date.now()
-          };
+          });
           S.inbox.set(id, entry);
           addedKeys.push(id);
           try { await Store.put("inbox", id, entry); } catch (err) {}
@@ -10155,8 +10327,9 @@ VIEWS["nhap"] = () => {
         await enrichInboxKeys(addedKeys, true);
         drawInbox();
         if (typeof updateBadge === "function") updateBadge();
-        if (lbl) lbl.textContent = `✓ Đã nạp & cập nhật nghĩa cho ${parsedBatch.length} từ vào Hộp thư & SRS!`;
+        if (lbl) lbl.textContent = `✓ Đã nạp & cập nhật nghĩa cho ${fmt(items.length)} từ vào Hộp thư & SRS!`;
       } finally {
+        isCommitting = false;
         btnCommit.disabled = !parsedBatch.length;
       }
     };

@@ -1651,6 +1651,204 @@ a.home-metric-card:hover {
   border-color: #e27d78 !important;
   color: #fca5a5 !important;
 }
+
+/* ---- Dictionary & Batch Import Workspace (Tier-Matched Light & Dark) ---- */
+.dict-search-box {
+  background: var(--paper-base);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 14px;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+}
+.dict-search-box:focus-within {
+  border-color: var(--primary-container);
+  box-shadow: 0 0 0 3px rgba(168, 38, 31, 0.14);
+  background: var(--paper-card);
+}
+.dict-quick-chip {
+  min-height: 36px;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--paper-muted);
+  color: var(--on-surface);
+  border: 1px solid var(--border-subtle);
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.dict-quick-chip:hover {
+  border-color: var(--primary-container);
+  background: var(--cinnabar-subtle);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+.dict-res-card,
+.dict-inbox-card {
+  --tier-accent: #00685A;
+  --tier-tint: #EAF6F3;
+  --tier-tint-dark: #122924;
+  --tier-text: #00685A;
+  --tier-text-dark: #5eead4;
+  position: relative;
+  min-width: 0;
+  border-radius: 14px;
+  background: var(--paper-card);
+  border: 1px solid var(--border-subtle);
+  border-left: 3.5px solid var(--tier-accent);
+  box-shadow: 0 1px 4px rgba(44, 42, 41, 0.04);
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+}
+.dict-res-card {
+  padding: 0.75rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.45rem;
+  cursor: pointer;
+}
+.dict-inbox-card {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.dict-showcase-card,
+.dict-panel-card {
+  --tier-accent: #A8261F;
+  --tier-tint: #FDEEEB;
+  --tier-tint-dark: #311816;
+  --tier-text: #A8261F;
+  --tier-text-dark: #f89b96;
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--paper-card);
+  border: 1px solid var(--border-subtle);
+  border-top: 4px solid var(--tier-accent);
+  box-shadow: 0 2px 10px rgba(44, 42, 41, 0.05);
+}
+.dict-res-card.tier-a, .dict-inbox-card.tier-a, .dict-showcase-card.tier-a, .dict-panel-card.tier-a {
+  --tier-accent: #00685A; --tier-tint: #EAF6F3; --tier-tint-dark: #122924; --tier-text: #00685A; --tier-text-dark: #5eead4;
+}
+.dict-res-card.tier-b, .dict-inbox-card.tier-b, .dict-showcase-card.tier-b, .dict-panel-card.tier-b {
+  --tier-accent: #B86B11; --tier-tint: #FDF5E6; --tier-tint-dark: #2e2313; --tier-text: #9A5509; --tier-text-dark: #fbbf24;
+}
+.dict-res-card.tier-indigo, .dict-inbox-card.tier-indigo, .dict-showcase-card.tier-indigo, .dict-panel-card.tier-indigo {
+  --tier-accent: #3B5998; --tier-tint: #EEF2FA; --tier-tint-dark: #192235; --tier-text: #2F4980; --tier-text-dark: #93c5fd;
+}
+.dict-res-card.tier-c, .dict-inbox-card.tier-c, .dict-showcase-card.tier-c, .dict-panel-card.tier-c {
+  --tier-accent: #A8261F; --tier-tint: #FDEEEB; --tier-tint-dark: #311816; --tier-text: #A8261F; --tier-text-dark: #f89b96;
+}
+.dict-res-card.tier-personal, .dict-inbox-card.tier-personal, .dict-showcase-card.tier-personal, .dict-panel-card.tier-personal {
+  --tier-accent: #9D4359; --tier-tint: #FDF0F3; --tier-tint-dark: #2f1922; --tier-text: #8C364C; --tier-text-dark: #f9a8d4;
+}
+.dict-res-card:hover,
+.dict-inbox-card:hover {
+  border-color: var(--tier-accent);
+  box-shadow: 0 6px 14px rgba(44, 42, 41, 0.08);
+  transform: translateY(-1px);
+}
+.dict-res-card.is-selected {
+  border-color: var(--tier-accent);
+  background: var(--tier-tint);
+  box-shadow: 0 4px 12px rgba(44, 42, 41, 0.08);
+}
+.dict-res-title {
+  color: var(--on-surface);
+  transition: color 0.15s ease;
+}
+.dict-res-card:hover .dict-res-title,
+.dict-res-card.is-selected .dict-res-title {
+  color: var(--tier-text);
+}
+.dict-step-badge {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--f-code);
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--tier-tint);
+  color: var(--tier-text);
+  border: 1px solid rgba(44, 42, 41, 0.08);
+}
+.dict-ctx-overlay {
+  background: linear-gradient(180deg, rgba(20, 17, 16, 0.08) 0%, rgba(20, 17, 16, 0.78) 100%);
+}
+:root[data-theme="dark"] .dict-search-box {
+  background: #1b1817;
+  border-color: var(--border-subtle);
+}
+:root[data-theme="dark"] .dict-search-box:focus-within {
+  border-color: #e27d78;
+  box-shadow: 0 0 0 3px rgba(226, 125, 120, 0.2);
+  background: #231f1d;
+}
+:root[data-theme="dark"] .dict-quick-chip {
+  background: #292321;
+  color: var(--on-surface);
+  border-color: var(--border-subtle);
+}
+:root[data-theme="dark"] .dict-quick-chip:hover {
+  border-color: #e27d78;
+  background: #3b1c19;
+  color: #fca5a5;
+}
+:root[data-theme="dark"] .dict-res-card,
+:root[data-theme="dark"] .dict-inbox-card {
+  border-left-color: var(--tier-text-dark);
+}
+:root[data-theme="dark"] .dict-res-card:hover,
+:root[data-theme="dark"] .dict-inbox-card:hover {
+  border-color: var(--tier-text-dark);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+:root[data-theme="dark"] .dict-res-card.is-selected {
+  border-color: var(--tier-text-dark);
+  background: var(--tier-tint-dark);
+}
+:root[data-theme="dark"] .dict-res-card:hover .dict-res-title,
+:root[data-theme="dark"] .dict-res-card.is-selected .dict-res-title {
+  color: var(--tier-text-dark);
+}
+:root[data-theme="dark"] .dict-showcase-card,
+:root[data-theme="dark"] .dict-panel-card {
+  border-top-color: var(--tier-text-dark);
+}
+:root[data-theme="dark"] .dict-step-badge {
+  background: var(--tier-tint-dark);
+  color: var(--tier-text-dark);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+:root[data-theme="dark"] .hover\:bg-paper-base:hover {
+  background-color: #292321 !important;
+}
+:root[data-theme="dark"] .border-border-subtle\/60,
+:root[data-theme="dark"] .border-border-subtle\/70 {
+  border-color: var(--border-subtle) !important;
+}
+:root[data-theme="dark"] .divide-border-subtle > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--border-subtle) !important;
+}
+:root[data-theme="dark"] .text-border-subtle {
+  color: var(--border-subtle) !important;
+}
+:root[data-theme="dark"] .border-primary {
+  border-color: #e27d78 !important;
+}
+:root[data-theme="dark"] :is(input, textarea, select):not(.bg-transparent):focus {
+  border-color: #e27d78 !important;
+  box-shadow: 0 0 0 2px rgba(226, 125, 120, 0.22);
+}
 .home-band-card:hover {
   border-color: var(--tier-accent);
   box-shadow: 0 8px 18px rgba(44, 42, 41, 0.08);
