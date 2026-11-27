@@ -168,14 +168,43 @@ const Store = (() => {
           if (c.bands || v.bands) merged.bands = Object.assign({}, c.bands, v.bands);
           if (c.decks || v.decks) merged.decks = Object.assign({}, c.decks, v.decks);
           if (c.extra || v.extra) merged.extra = Object.assign({}, c.extra, v.extra);
-          if (c.dictation || v.dictation) {   // dictation progress: union of done sentences ("ok" wins), furthest position per lesson
-            const a = c.dictation || {}, b2 = v.dictation || {}, dm = {}, pos = Object.assign({}, a.pos, b2.pos);
-            for (const id of new Set([...Object.keys(a.doneMap || {}), ...Object.keys(b2.doneMap || {})])) {
-              const x = (a.doneMap || {})[id] || {}, y = (b2.doneMap || {})[id] || {}; dm[id] = Object.assign({}, x, y);
+          const isPlainObj = (o) => Boolean(o && typeof o === "object" && !Array.isArray(o));
+          const posNum = (x) => (typeof x === "number" && Number.isFinite(x) && x > 0) ? x : (x === true ? 1 : 0);
+          const mergeDoneWithTombstones = (doneA, remA, doneB, remB) => {
+            const dA = isPlainObj(doneA) ? doneA : {}, rA = isPlainObj(remA) ? remA : {};
+            const dB = isPlainObj(doneB) ? doneB : {}, rB = isPlainObj(remB) ? remB : {};
+            const done = {}, removed = {};
+            const ids = new Set([...Object.keys(dA), ...Object.keys(rA), ...Object.keys(dB), ...Object.keys(rB)]);
+            for (const id of ids) {
+              const bestDone = Math.max(posNum(dA[id]), posNum(dB[id]));
+              const bestRem = Math.max(posNum(rA[id]), posNum(rB[id]));
+              if (bestDone > 0 && bestDone >= bestRem) done[id] = bestDone;
+              else if (bestRem > 0) removed[id] = bestRem;
+            }
+            return { done, removed };
+          };
+          if (c.grammarDone || v.grammarDone || c.grammarDoneRemoved || v.grammarDoneRemoved) {   // grammar completion: LWW merge with removal tombstones
+            const res = mergeDoneWithTombstones(c.grammarDone, c.grammarDoneRemoved, v.grammarDone, v.grammarDoneRemoved);
+            merged.grammarDone = res.done;
+            merged.grammarDoneRemoved = res.removed;
+          }
+          if (c.dictation || v.dictation) {   // dictation progress: union of done sentences ("ok" wins), furthest position & LWW completed topics per lesson
+            const a = isPlainObj(c.dictation) ? c.dictation : {}, b2 = isPlainObj(v.dictation) ? v.dictation : {};
+            const dm = {}, pos = Object.assign({}, isPlainObj(a.pos) ? a.pos : {}, isPlainObj(b2.pos) ? b2.pos : {});
+            for (const id of new Set([...Object.keys(isPlainObj(a.doneMap) ? a.doneMap : {}), ...Object.keys(isPlainObj(b2.doneMap) ? b2.doneMap : {})])) {
+              const x = (isPlainObj(a.doneMap) && isPlainObj(a.doneMap[id])) ? a.doneMap[id] : {};
+              const y = (isPlainObj(b2.doneMap) && isPlainObj(b2.doneMap[id])) ? b2.doneMap[id] : {};
+              dm[id] = Object.assign({}, x, y);
               for (const i of Object.keys(x)) if (x[i] === "ok") dm[id][i] = "ok";
             }
-            for (const id of Object.keys(a.pos || {})) pos[id] = Math.max(a.pos[id] || 0, (b2.pos || {})[id] || 0);
-            merged.dictation = Object.assign({}, a, b2, { doneMap: dm, pos });
+            if (isPlainObj(a.pos)) for (const id of Object.keys(a.pos)) pos[id] = Math.max(a.pos[id] || 0, (isPlainObj(b2.pos) ? b2.pos[id] : 0) || 0);
+            const nextDict = Object.assign({}, a, b2, { doneMap: dm, pos });
+            if (a.completed || b2.completed || a.completedRemoved || b2.completedRemoved) {
+              const res = mergeDoneWithTombstones(a.completed, a.completedRemoved, b2.completed, b2.completedRemoved);
+              nextDict.completed = res.done;
+              nextDict.completedRemoved = res.removed;
+            }
+            merged.dictation = nextDict;
           }
           keep.push([k, merged]);
         }

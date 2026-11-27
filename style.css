@@ -1493,6 +1493,12 @@ a.home-metric-card:hover {
   border-color: var(--tier-accent);
   box-shadow: 0 3px 10px rgba(44, 42, 41, 0.08);
 }
+.gram-card.is-done {
+  background: linear-gradient(135deg, var(--paper-card) 0%, #f1faf6 100%);
+}
+:root[data-theme="dark"] .gram-card.is-done {
+  background: linear-gradient(135deg, var(--paper-card) 0%, #15251f 100%);
+}
 .gram-zh-chip {
   min-width: 44px;
   max-width: 72px;
@@ -1913,6 +1919,12 @@ a.home-metric-card:hover {
   background: var(--tier-tint);
   box-shadow: 0 4px 12px rgba(44, 42, 41, 0.08);
 }
+.dicta-topic-card.is-completed:not(.is-active) {
+  background: linear-gradient(135deg, var(--paper-card) 0%, #f1faf6 100%);
+}
+:root[data-theme="dark"] .dicta-topic-card.is-completed:not(.is-active) {
+  background: linear-gradient(135deg, var(--paper-card) 0%, #15251f 100%);
+}
 .dicta-topic-title {
   color: var(--on-surface);
   transition: color 0.15s ease;
@@ -2029,6 +2041,9 @@ a.home-metric-card:hover {
   line-height: 1.25;
   font-weight: 600;
   white-space: nowrap;
+}
+.home-band-status-pill[hidden] {
+  display: none;
 }
 .home-band-title-link {
   color: var(--on-surface);

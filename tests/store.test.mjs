@@ -202,3 +202,94 @@ test("importAll preserves local sync secrets and mockTests in both merge and rep
   assert.equal(exported.kv.settings.lastSyncTime, undefined);
   assert.equal(exported.kv.mockTests, undefined);
 });
+
+test("importAll merge (completion): unions grammarDone and dictation.completed keeping latest timestamp", async () => {
+  const Store = createStore();
+  await Store.put("kv", "settings", {
+    grammarDone: { ba: 1000, bei: 5000 },
+    dictation: {
+      doneMap: { t1: { "0": "ok" } },
+      pos: { t1: 1 },
+      completed: { t1: 2000, t2: 6000 },
+    },
+  });
+
+  await Store.importAll(
+    makeBackup({
+      kv: {
+        settings: {
+          grammarDone: { bei: 3000, yue: 7000 },
+          dictation: {
+            doneMap: { t3: { "0": "ok" } },
+            pos: { t3: 2 },
+            completed: { t2: 4000, t3: 8000 },
+          },
+        },
+      },
+    }),
+    "merge"
+  );
+
+  const settings = plain(await Store.get("kv", "settings"));
+  assert.deepEqual(settings.grammarDone, { ba: 1000, bei: 5000, yue: 7000 });
+  assert.deepEqual(settings.dictation.completed, { t1: 2000, t2: 6000, t3: 8000 });
+});
+
+test("importAll merge (completion tombstones): unmarking beats older remote done, re-marking beats older tombstone, arrays ignored", async () => {
+  const Store = createStore();
+  // Local device unmarked 'ba' at t=2000 and unmarked dictation 't1' at t=2500
+  await Store.put("kv", "settings", {
+    grammarDone: { bei: 5000 },
+    grammarDoneRemoved: { ba: 2000 },
+    dictation: {
+      doneMap: {},
+      pos: {},
+      completed: { t2: 6000 },
+      completedRemoved: { t1: 2500 },
+    },
+  });
+
+  // Stale remote snapshot still has 'ba' done at 1000 and 't1' done at 2000, plus a malformed array field
+  await Store.importAll(
+    makeBackup({
+      kv: {
+        settings: {
+          grammarDone: { ba: 1000, yue: 7000 },
+          grammarDoneRemoved: ["bad-array"],
+          dictation: {
+            doneMap: {},
+            pos: {},
+            completed: { t1: 2000, t3: 8000 },
+            completedRemoved: ["bad-array"],
+          },
+        },
+      },
+    }),
+    "merge"
+  );
+
+  let settings = plain(await Store.get("kv", "settings"));
+  assert.deepEqual(settings.grammarDone, { bei: 5000, yue: 7000 });
+  assert.deepEqual(settings.grammarDoneRemoved, { ba: 2000 });
+  assert.deepEqual(settings.dictation.completed, { t2: 6000, t3: 8000 });
+  assert.deepEqual(settings.dictation.completedRemoved, { t1: 2500 });
+
+  // Later device re-marks 'ba' at t=3000 and 't1' at t=3500 -> overrides older tombstones
+  await Store.importAll(
+    makeBackup({
+      kv: {
+        settings: {
+          grammarDone: { ba: 3000 },
+          dictation: { completed: { t1: 3500 } },
+        },
+      },
+    }),
+    "merge"
+  );
+
+  settings = plain(await Store.get("kv", "settings"));
+  assert.deepEqual(settings.grammarDone, { ba: 3000, bei: 5000, yue: 7000 });
+  assert.deepEqual(settings.grammarDoneRemoved, {});
+  assert.deepEqual(settings.dictation.completed, { t1: 3500, t2: 6000, t3: 8000 });
+  assert.deepEqual(settings.dictation.completedRemoved, {});
+});

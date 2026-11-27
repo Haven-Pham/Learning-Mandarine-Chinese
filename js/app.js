@@ -5602,6 +5602,41 @@ function gramZhChip(g) {
   const fallback = Array.from(String((g && g.name) || "").trim()).slice(0, 2).join("");
   return fallback || "語";
 }
+function formatShortDate(ts) {
+  const n = Number(ts);
+  if (!n || !isFinite(n) || n < 1000000000) return "";
+  try {
+    const dt = new Date(n);
+    if (Number.isNaN(dt.getTime())) return "";
+    const dd = String(dt.getDate()).padStart(2, "0");
+    const mm = String(dt.getMonth() + 1).padStart(2, "0");
+    return `${dd}/${mm}`;
+  } catch (e) { return ""; }
+}
+function isPlainObj(x) {
+  return Boolean(x && typeof x === "object" && !Array.isArray(x));
+}
+function getGrammarDoneMap() {
+  if (!isPlainObj(S.settings)) S.settings = {};
+  if (!isPlainObj(S.settings.grammarDone)) S.settings.grammarDone = {};
+  return S.settings.grammarDone;
+}
+function getGrammarDoneRemovedMap() {
+  if (!isPlainObj(S.settings)) S.settings = {};
+  if (!isPlainObj(S.settings.grammarDoneRemoved)) S.settings.grammarDoneRemoved = {};
+  return S.settings.grammarDoneRemoved;
+}
+function isGrammarDone(id) {
+  return Boolean(getGrammarDoneMap()[id]);
+}
+function activeGrammarDoneCount(list = null) {
+  const map = getGrammarDoneMap();
+  if (list) return list.filter((g) => Boolean(map[g.id])).length;
+  if (window._grammarDataLoaded) {
+    return GRAMMAR_MASTER_LIST.filter((g) => Boolean(map[g.id])).length;
+  }
+  return Object.keys(map).filter((k) => Boolean(map[k])).length;
+}
 function activeGrammarBookmarkCount() {
   if (window._grammarDataLoaded) {
     return GRAMMAR_MASTER_LIST.filter((g) => window.GRAMMAR_BOOKMARKS.has(g.id)).length;
@@ -5628,7 +5663,17 @@ window.checkPractice = function(choice, btnEl) {
 
   if (opt.correct) {
     resultDiv.className = "mt-3 p-3 rounded-xl font-body-sm text-sm bg-jade-subtle text-secondary block border border-secondary/30 shadow-sm";
-    resultDiv.innerHTML = opt.explain;
+    const quickDoneHtml = !isGrammarDone(current.id)
+      ? `<div class="mt-2.5 pt-2 border-t border-secondary/20 flex items-center justify-between gap-2 flex-wrap"><span class="text-xs text-on-surface-variant">Bạn đã nắm vững mẫu câu này chưa?</span><button type="button" class="min-h-[36px] px-3 py-1 rounded-lg bg-secondary hover:bg-secondary/90 text-white text-xs font-semibold inline-flex items-center gap-1 transition-colors" data-gram-done-quick="${esc(current.id)}"><span class="material-symbols-outlined text-[15px]" aria-hidden="true">task_alt</span><span>Đánh dấu đã hoàn thành</span></button></div>`
+      : "";
+    resultDiv.innerHTML = `<div>${opt.explain}</div>${quickDoneHtml}`;
+    const qBtn = resultDiv.querySelector("[data-gram-done-quick]");
+    if (qBtn) {
+      qBtn.onclick = () => {
+        if (!isGrammarDone(current.id)) toggleGrammarDone(current.id);
+        qBtn.parentElement?.remove();
+      };
+    }
     if (typeof playChime === "function") playChime(true);
   } else {
     resultDiv.className = "mt-3 p-3 rounded-xl font-body-sm text-sm bg-cinnabar-subtle text-primary block border border-primary/30 shadow-sm";
@@ -5669,6 +5714,104 @@ window.clearGrammarSearch = function() {
   const inp = document.getElementById("grammarSearchInput");
   if (inp) inp.value = "";
   updateGrammarGrid();
+};
+
+function syncGrammarStatusBarUI() {
+  const st = window.GRAMMAR_STATUS_FILTER || "all";
+  const scopeList = (window.ACTIVE_GRAMMAR_GROUP_KEY && window.ACTIVE_GRAMMAR_GROUP_KEY !== "all")
+    ? GRAMMAR_MASTER_LIST.filter((g) => g.levelGroup === window.ACTIVE_GRAMMAR_GROUP_KEY)
+    : GRAMMAR_MASTER_LIST;
+  const doneCnt = activeGrammarDoneCount(scopeList);
+  const todoCnt = Math.max(0, scopeList.length - doneCnt);
+  const allCntEl = document.getElementById("gramStatusAllCount");
+  if (allCntEl) allCntEl.textContent = fmt(scopeList.length);
+  const doneCntEl = document.getElementById("gramStatusDoneCount");
+  if (doneCntEl) doneCntEl.textContent = fmt(doneCnt);
+  const todoCntEl = document.getElementById("gramStatusTodoCount");
+  if (todoCntEl) todoCntEl.textContent = fmt(todoCnt);
+  document.querySelectorAll("[data-gram-status]").forEach((btn) => {
+    const on = btn.dataset.gramStatus === st;
+    btn.setAttribute("aria-pressed", String(on));
+    btn.className = on
+      ? "min-h-[36px] inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-secondary text-white text-xs font-semibold shadow-sm transition-colors whitespace-nowrap"
+      : "min-h-[36px] inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-paper-card text-on-surface-variant hover:bg-paper-muted text-xs font-medium border border-border-subtle transition-colors whitespace-nowrap";
+  });
+}
+
+window.setGrammarStatusFilter = function(status) {
+  window.GRAMMAR_STATUS_FILTER = ["all", "done", "todo"].includes(status) ? status : "all";
+  syncGrammarStatusBarUI();
+  updateGrammarGrid();
+};
+
+window.toggleGrammarDone = function(id) {
+  const map = getGrammarDoneMap();
+  const remMap = getGrammarDoneRemovedMap();
+  const isNowDone = !map[id];
+  if (isNowDone) {
+    map[id] = Math.max(Date.now(), (Number(remMap[id]) || 0) + 1);
+    delete remMap[id];
+  } else {
+    remMap[id] = Math.max(Date.now(), (Number(map[id]) || 0) + 1);
+    delete map[id];
+  }
+  saveSettings().catch(() => {});
+  if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
+
+  const item = GRAMMAR_MASTER_LIST.find((g) => g.id === id);
+  const itemName = item ? item.name : "";
+  const dateLabel = isNowDone ? formatShortDate(map[id]) : "";
+
+  // Patch buttons & cards in-place so detail quiz state & keyboard focus are preserved
+  document.querySelectorAll("[data-gram-done]").forEach((btn) => {
+    if (btn.dataset.gramDone !== id) return;
+    btn.setAttribute("aria-pressed", isNowDone ? "true" : "false");
+    const icon = btn.querySelector(".material-symbols-outlined");
+    if (btn.dataset.gramDoneStyle === "detail") {
+      btn.className = `min-h-[38px] inline-flex items-center gap-1 px-3 py-1.5 rounded-lg ${isNowDone ? "bg-jade-subtle text-secondary border-secondary/30" : "bg-paper-base text-on-surface-variant hover:text-secondary border-border-subtle"} font-label-sm text-xs font-semibold transition-colors border`;
+      if (icon) icon.textContent = isNowDone ? "check_circle" : "radio_button_unchecked";
+      const lbl = btn.querySelector("[data-gram-done-label]");
+      if (lbl) lbl.textContent = isNowDone ? "Đã hoàn thành" : "Đánh dấu hoàn thành";
+    } else {
+      btn.className = `w-9 h-9 rounded-lg shrink-0 ${isNowDone ? "text-secondary bg-jade-subtle" : "text-on-surface-variant hover:text-secondary hover:bg-jade-subtle"} flex items-center justify-center transition-colors`;
+      btn.title = isNowDone ? "Bỏ đánh dấu hoàn thành" : "Đánh dấu đã học xong";
+      btn.setAttribute("aria-label", isNowDone ? `Bỏ hoàn thành ${itemName}` : `Đánh dấu hoàn thành ${itemName}`);
+      if (icon) icon.textContent = isNowDone ? "check_circle" : "radio_button_unchecked";
+      const card = btn.closest(".gram-card");
+      if (card) {
+        card.classList.toggle("is-done", isNowDone);
+        const badge = card.querySelector("[data-gram-done-badge]");
+        if (badge) {
+          badge.hidden = !isNowDone;
+          badge.textContent = dateLabel ? `✓ Đã học · ${dateLabel}` : "✓ Đã học";
+        }
+      }
+    }
+  });
+  if (isNowDone) {
+    document.querySelectorAll("[data-gram-done-quick]").forEach((qBtn) => {
+      if (qBtn.dataset.gramDoneQuick === id) qBtn.parentElement?.remove();
+    });
+  }
+
+  const statDone = document.getElementById("grammar-done-stat");
+  if (statDone) statDone.textContent = `${fmt(activeGrammarDoneCount())}/${fmt(GRAMMAR_MASTER_LIST.length)}`;
+  const bannerDone = document.getElementById("gramBannerDone");
+  if (bannerDone && window.ACTIVE_GRAMMAR_GROUP_KEY) {
+    const grpItems = GRAMMAR_MASTER_LIST.filter((g) => g.levelGroup === window.ACTIVE_GRAMMAR_GROUP_KEY);
+    const cnt = activeGrammarDoneCount(grpItems);
+    bannerDone.textContent = `✓ ${fmt(cnt)}/${fmt(grpItems.length)} hoàn thành`;
+  }
+  syncGrammarStatusBarUI();
+  renderSidebarGrammarProgress();
+
+  // Re-render grid if viewing parent cards or an active done/todo filter
+  if (document.querySelector("#grammar-cards-grid [data-gram-parent]") || (window.GRAMMAR_STATUS_FILTER && window.GRAMMAR_STATUS_FILTER !== "all")) {
+    updateGrammarGrid();
+  }
+  if (typeof showToast === "function") {
+    showToast(isNowDone ? `✓ Đã đánh dấu hoàn thành "${itemName}"!` : `Đã bỏ đánh dấu hoàn thành "${itemName}".`);
+  }
 };
 
 window.toggleGrammarBookmark = function(id) {
@@ -5722,6 +5865,14 @@ window.deleteCustomGrammarNote = function(id) {
   GRAMMAR_MASTER_LIST.splice(idx, 1);
   saveCustomGrammarNotes();
   window.GRAMMAR_BOOKMARKS.delete(id);
+  const doneMap = getGrammarDoneMap();
+  if (doneMap[id]) {
+    const remMap = getGrammarDoneRemovedMap();
+    remMap[id] = Math.max(Date.now(), (Number(doneMap[id]) || 0) + 1);
+    delete doneMap[id];
+    saveSettings().catch(() => {});
+    if (window.Sync && typeof Sync.onCardGraded === "function") Sync.onCardGraded();
+  }
   try {
     localStorage.setItem("bookmarked_grammar", JSON.stringify(Array.from(window.GRAMMAR_BOOKMARKS)));
   } catch (e) {}
@@ -5748,6 +5899,9 @@ window.promptAddGrammarNote = function() {
 
 function bindSpotlightEvents(root) {
   if (!root) return;
+  root.querySelectorAll("[data-gram-done]").forEach((btn) => {
+    btn.onclick = () => toggleGrammarDone(btn.dataset.gramDone);
+  });
   root.querySelectorAll("[data-gram-bookmark]").forEach((btn) => {
     btn.onclick = () => toggleGrammarBookmark(btn.dataset.gramBookmark);
   });
@@ -5761,6 +5915,7 @@ function bindSpotlightEvents(root) {
 
 function renderSpotlightContent(item) {
   const isBookmarked = window.GRAMMAR_BOOKMARKS.has(item.id);
+  const isDone = isGrammarDone(item.id);
   const isCustom = String(item.id || "").startsWith("custom_");
   const grp = grammarGroupMeta(item.levelGroup);
   const exHtml = (item.examples || []).map(ex => `
@@ -5797,7 +5952,11 @@ function renderSpotlightContent(item) {
           <h1 class="font-headline-md text-xl md:text-2xl text-on-surface font-bold font-serif m-0 leading-snug break-words">${esc(item.name)}</h1>
         </div>
       </div>
-      <div class="flex items-center gap-1.5 shrink-0 self-start">
+      <div class="flex items-center gap-1.5 flex-wrap shrink-0 self-start">
+        <button type="button" class="min-h-[38px] inline-flex items-center gap-1 px-3 py-1.5 rounded-lg ${isDone ? 'bg-jade-subtle text-secondary border-secondary/30' : 'bg-paper-base text-on-surface-variant hover:text-secondary border-border-subtle'} font-label-sm text-xs font-semibold transition-colors border" data-gram-done="${esc(item.id)}" data-gram-done-style="detail" aria-pressed="${isDone ? 'true' : 'false'}">
+          <span class="material-symbols-outlined text-[17px]" aria-hidden="true">${isDone ? 'check_circle' : 'radio_button_unchecked'}</span>
+          <span data-gram-done-label>${isDone ? 'Đã hoàn thành' : 'Đánh dấu hoàn thành'}</span>
+        </button>
         ${isCustom ? `<button type="button" class="min-h-[38px] inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary hover:bg-primary-container hover:text-on-primary text-xs font-semibold border border-primary/20 transition-colors" data-gram-delete="${esc(item.id)}" title="Xóa ghi chú này"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">delete</span><span>Xóa</span></button>` : ""}
         <button type="button" class="min-h-[38px] inline-flex items-center gap-1 px-3 py-1.5 rounded-lg ${isBookmarked ? 'bg-amber-subtle text-tertiary border-tertiary/30' : 'bg-paper-base text-on-surface-variant hover:text-primary border-border-subtle'} font-label-sm text-xs font-semibold transition-colors border" data-gram-bookmark="${esc(item.id)}" data-gram-bookmark-style="detail" aria-pressed="${isBookmarked ? 'true' : 'false'}">
           <span class="material-symbols-outlined text-[17px]" aria-hidden="true">${isBookmarked ? 'bookmark' : 'bookmark_add'}</span>
@@ -5896,14 +6055,17 @@ function updateGrammarGrid() {
   const qFold = foldGramQ(qRaw);
   const qTradFold = foldGramQ(qTrad);
   const groupKey = window.ACTIVE_GRAMMAR_GROUP_KEY || null; // null = root parent cards, "all" = all flat, or group.key
+  const statusFilter = window.GRAMMAR_STATUS_FILTER || "all";
+  const doneMap = getGrammarDoneMap();
 
-  // Root view with empty search -> render 5 Parent Grammar Group cards (same cozy design as Trang chủ & Từ vựng!)
-  if (!groupKey && !qRaw) {
+  // Root view with empty search & statusFilter === "all" -> render 5 Parent Grammar Group cards
+  if (!groupKey && !qRaw && statusFilter === "all") {
     const cardsHTML = GRAMMAR_GROUPS.map((g) => {
       const items = GRAMMAR_MASTER_LIST.filter((x) => x.levelGroup === g.key);
       if (!items.length) return "";
+      const doneCount = items.filter((x) => Boolean(doneMap[x.id])).length;
+      const donePct = Math.round((doneCount / items.length) * 100);
       const savedCount = items.filter((x) => window.GRAMMAR_BOOKMARKS.has(x.id)).length;
-      const savedPct = Math.round((savedCount / items.length) * 100);
       const previews = items.slice(0, 4).map((x) => x.zh || gramZhChip(x)).filter(Boolean);
       const href = `#ngu-phap/nhom/${encodeURIComponent(g.slug)}`;
       return `
@@ -5916,7 +6078,10 @@ function updateGrammarGrid() {
             <div class="min-w-0 flex-1 flex flex-col gap-1">
               <div class="flex items-center justify-between gap-1.5 flex-wrap">
                 <span class="home-band-tier-pill">${fmt(items.length)} mẫu câu</span>
-                ${savedCount > 0 ? `<span class="home-band-status-pill bg-amber-subtle text-tertiary">${fmt(savedCount)} đã lưu</span>` : ""}
+                <div class="flex items-center gap-1 flex-wrap">
+                  ${doneCount >= items.length ? `<span class="home-band-status-pill bg-jade-subtle text-secondary">✓ Xong hết</span>` : ""}
+                  ${savedCount > 0 ? `<span class="home-band-status-pill bg-amber-subtle text-tertiary">${fmt(savedCount)} đã ghim</span>` : ""}
+                </div>
               </div>
               <a href="${href}" class="no-underline">
                 <h3 class="font-semibold home-band-title-link leading-snug m-0 text-base">${esc(g.title)}</h3>
@@ -5931,11 +6096,11 @@ function updateGrammarGrid() {
           ` : ""}
           <div class="mt-auto relative z-10">
             <div class="flex justify-between text-xs mb-1">
-              <span class="text-outline">Đã ghim sổ tay</span>
-              <span class="font-code text-on-surface font-semibold">${fmt(savedCount)} / ${fmt(items.length)} <span class="home-band-pct">(${savedPct}%)</span></span>
+              <span class="text-outline">Đã hoàn thành</span>
+              <span class="font-code text-on-surface font-semibold">${fmt(doneCount)} / ${fmt(items.length)} <span class="home-band-pct">(${donePct}%)</span></span>
             </div>
             <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
-              <div class="h-full rounded-full home-band-fill" style="width:${savedPct}%"></div>
+              <div class="h-full rounded-full home-band-fill" style="width:${donePct}%"></div>
             </div>
           </div>
           <div class="flex items-center justify-between pt-2 border-t border-border-subtle/50 relative z-10">
@@ -5954,6 +6119,8 @@ function updateGrammarGrid() {
 
   const filtered = GRAMMAR_MASTER_LIST.filter((g) => {
     if (groupKey && groupKey !== "all" && g.levelGroup !== groupKey) return false;
+    if (statusFilter === "done" && !doneMap[g.id]) return false;
+    if (statusFilter === "todo" && doneMap[g.id]) return false;
     if (qRaw) {
       if (!qFold && !qTradFold) return false;
       const hay = [g.name, g.zh, g.band, g.levelGroup, g.formula, g.summary, g.wrong && g.wrong.zh, g.correct && g.correct.zh].filter(Boolean).join(" ");
@@ -5965,42 +6132,59 @@ function updateGrammarGrid() {
   });
 
   if (filtered.length === 0) {
+    const emptyMsg = statusFilter === "done" && !qRaw
+      ? "Bạn chưa đánh dấu hoàn thành mẫu câu nào trong mục này. Bấm nút dấu tích ✓ trên thẻ mẫu câu hoặc trong bài học để lưu lại tiến độ nhé!"
+      : (statusFilter === "todo" && !qRaw
+        ? "Tuyệt vời! Bạn đã học hoàn thành toàn bộ mẫu câu trong mục này."
+        : `Không tìm thấy mẫu câu phù hợp${qRaw ? ` với "${esc(qRaw)}"` : ""}.`);
     container.innerHTML = `
       <div class="text-center py-8 px-4 text-on-surface-variant bg-paper-card rounded-2xl border border-border-subtle flex flex-col items-center gap-2">
-        <span class="material-symbols-outlined text-[32px] text-outline" aria-hidden="true">search_off</span>
-        <p class="text-sm m-0">Không tìm thấy mẫu câu phù hợp${qRaw ? ` với "${esc(qRaw)}"` : ""}.</p>
+        <span class="material-symbols-outlined text-[32px] ${statusFilter === "todo" && !qRaw ? "text-secondary" : "text-outline"}" aria-hidden="true">${statusFilter === "todo" && !qRaw ? "celebration" : "search_off"}</span>
+        <p class="text-sm m-0 max-w-md">${emptyMsg}</p>
         <div class="flex flex-wrap items-center justify-center gap-2 mt-1">
           ${qRaw ? `<button type="button" id="gramClearSearchBtn" class="min-h-[36px] px-3.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface border border-border-subtle text-xs font-semibold transition-colors">Xóa tìm kiếm</button>` : ""}
+          ${statusFilter !== "all" ? `<button type="button" id="gramResetStatusBtn" class="min-h-[36px] px-3.5 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-xs font-semibold hover:bg-primary-container hover:text-on-primary transition-colors">Xem tất cả mẫu câu</button>` : ""}
           ${groupKey && groupKey !== "all" && qRaw ? `<a href="#ngu-phap/nhom/all" class="min-h-[36px] inline-flex items-center px-3.5 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-xs font-semibold no-underline hover:bg-primary-container hover:text-on-primary transition-colors">Tìm trong tất cả ${GRAMMAR_MASTER_LIST.length} mẫu câu →</a>` : ""}
         </div>
       </div>
     `;
     const clearBtn = document.getElementById("gramClearSearchBtn");
     if (clearBtn) clearBtn.onclick = () => clearGrammarSearch();
+    const resetStatusBtn = document.getElementById("gramResetStatusBtn");
+    if (resetStatusBtn) resetStatusBtn.onclick = () => setGrammarStatusFilter("all");
     return;
   }
 
   const renderCard = (g, grp) => {
     const isBookmarked = window.GRAMMAR_BOOKMARKS.has(g.id);
+    const doneTs = doneMap[g.id];
+    const isDone = Boolean(doneTs);
+    const doneDate = isDone ? formatShortDate(doneTs) : "";
     const isCurrent = g.id === window.ACTIVE_GRAMMAR_ID;
     const chipText = gramZhChip(g);
     const isCompactChip = Array.from(chipText).length >= 3;
     return `
-      <div class="gram-card ${grp.tier} ${isCurrent ? 'is-current' : ''}">
+      <div class="gram-card ${grp.tier} ${isCurrent ? 'is-current' : ''} ${isDone ? 'is-done' : ''}">
         <a href="#ngu-phap/${encodeURIComponent(g.id)}" class="min-w-0 flex-1 no-underline text-inherit flex items-start gap-2.5">
           <span class="gram-zh-chip${isCompactChip ? ' is-compact' : ''}" lang="zh-Hant" aria-hidden="true">${esc(chipText)}</span>
           <div class="min-w-0 flex-1">
-            <div class="flex items-center gap-1.5 mb-0.5">
+            <div class="flex items-center gap-1.5 flex-wrap mb-0.5">
               <span class="home-band-tier-pill">${esc(g.band)}</span>
+              <span data-gram-done-badge class="home-band-status-pill bg-jade-subtle text-secondary"${isDone ? '' : ' hidden'}>${doneDate ? `✓ Đã học · ${doneDate}` : '✓ Đã học'}</span>
             </div>
             <h3 class="font-headline-md text-sm font-semibold gram-card-title font-serif line-clamp-2 leading-snug m-0">${esc(g.name)}</h3>
             <div class="gram-formula-pill">${esc(g.formula)}</div>
             <p class="font-body-sm text-xs text-on-surface-variant mt-1.5 mb-0 line-clamp-2">${esc(g.summary)}</p>
           </div>
         </a>
-        <button type="button" class="w-9 h-9 rounded-lg shrink-0 ${isBookmarked ? 'text-tertiary bg-amber-subtle' : 'text-on-surface-variant hover:text-primary hover:bg-cinnabar-subtle'} flex items-center justify-center transition-colors" data-gram-bookmark="${esc(g.id)}" data-gram-bookmark-style="card" aria-pressed="${isBookmarked ? 'true' : 'false'}" title="${isBookmarked ? 'Bỏ lưu sổ tay' : 'Lưu vào sổ tay'}" aria-label="${isBookmarked ? 'Bỏ lưu ' + esc(g.name) : 'Lưu ' + esc(g.name) + ' vào sổ tay'}">
-          <span class="material-symbols-outlined text-[19px]" aria-hidden="true">${isBookmarked ? 'bookmark' : 'bookmark_border'}</span>
-        </button>
+        <div class="flex flex-col items-center gap-1 shrink-0">
+          <button type="button" class="w-9 h-9 rounded-lg shrink-0 ${isDone ? 'text-secondary bg-jade-subtle' : 'text-on-surface-variant hover:text-secondary hover:bg-jade-subtle'} flex items-center justify-center transition-colors" data-gram-done="${esc(g.id)}" data-gram-done-style="card" aria-pressed="${isDone ? 'true' : 'false'}" title="${isDone ? 'Bỏ đánh dấu hoàn thành' : 'Đánh dấu đã học xong'}" aria-label="${isDone ? 'Bỏ hoàn thành ' + esc(g.name) : 'Đánh dấu hoàn thành ' + esc(g.name)}">
+            <span class="material-symbols-outlined text-[19px]" aria-hidden="true">${isDone ? 'check_circle' : 'radio_button_unchecked'}</span>
+          </button>
+          <button type="button" class="w-9 h-9 rounded-lg shrink-0 ${isBookmarked ? 'text-tertiary bg-amber-subtle' : 'text-on-surface-variant hover:text-primary hover:bg-cinnabar-subtle'} flex items-center justify-center transition-colors" data-gram-bookmark="${esc(g.id)}" data-gram-bookmark-style="card" aria-pressed="${isBookmarked ? 'true' : 'false'}" title="${isBookmarked ? 'Bỏ lưu sổ tay' : 'Lưu vào sổ tay'}" aria-label="${isBookmarked ? 'Bỏ lưu ' + esc(g.name) : 'Lưu ' + esc(g.name) + ' vào sổ tay'}">
+            <span class="material-symbols-outlined text-[19px]" aria-hidden="true">${isBookmarked ? 'bookmark' : 'bookmark_border'}</span>
+          </button>
+        </div>
       </div>
     `;
   };
@@ -6027,6 +6211,13 @@ function updateGrammarGrid() {
     </div>
   `).join("");
 
+  container.querySelectorAll("[data-gram-done]").forEach((btn) => {
+    btn.onclick = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleGrammarDone(btn.dataset.gramDone);
+    };
+  });
   container.querySelectorAll("[data-gram-bookmark]").forEach((btn) => {
     btn.onclick = (e) => {
       e.preventDefault();
@@ -6034,6 +6225,74 @@ function updateGrammarGrid() {
       toggleGrammarBookmark(btn.dataset.gramBookmark);
     };
   });
+}
+
+function renderSidebarGrammarProgress() {
+  const host = document.getElementById("sidebar-grammar-progress");
+  if (!host) return;
+  const doneMap = getGrammarDoneMap();
+  const total = GRAMMAR_MASTER_LIST.length;
+  const doneItems = GRAMMAR_MASTER_LIST
+    .filter((g) => Boolean(doneMap[g.id]))
+    .sort((a, b) => (Number(doneMap[b.id]) || 0) - (Number(doneMap[a.id]) || 0));
+  const doneCount = doneItems.length;
+  const pct = total ? Math.round((doneCount / total) * 100) : 0;
+
+  host.innerHTML = `
+    <div class="flex items-center justify-between pb-2 border-b border-border-subtle">
+      <h3 class="font-headline-md text-sm text-on-surface font-semibold font-serif flex items-center gap-1.5 m-0">
+        <span class="material-symbols-outlined text-secondary text-[18px]" aria-hidden="true">task_alt</span>
+        Đã học hoàn thành
+      </h3>
+      <span class="px-2 py-0.5 rounded-full bg-jade-subtle text-secondary font-code text-xs font-bold">${fmt(doneCount)}/${fmt(total)}</span>
+    </div>
+    <div class="mt-2.5">
+      <div class="flex justify-between text-xs mb-1">
+        <span class="text-on-surface-variant">Tiến độ ngữ pháp</span>
+        <span class="font-code font-bold text-secondary">${pct}%</span>
+      </div>
+      <div class="w-full h-2 rounded-full bg-surface-container overflow-hidden">
+        <div class="h-full rounded-full bg-secondary transition-all duration-300" style="width:${pct}%"></div>
+      </div>
+    </div>
+    ${doneItems.length ? `
+      <div class="mt-2.5 space-y-1.5">
+        ${doneItems.slice(0, 4).map((g) => {
+          const dt = formatShortDate(doneMap[g.id]);
+          return `
+            <a href="#ngu-phap/${encodeURIComponent(g.id)}" class="p-2 rounded-lg bg-paper-base hover:bg-surface-container transition-colors border border-border-subtle flex items-center justify-between gap-2 no-underline">
+              <div class="min-w-0 flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-secondary text-[15px] shrink-0" aria-hidden="true">check_circle</span>
+                <span class="text-xs text-on-surface font-semibold font-serif truncate">${esc(g.name)}</span>
+              </div>
+              <span class="font-code text-[11px] text-outline shrink-0">${dt || esc(g.band)}</span>
+            </a>
+          `;
+        }).join("")}
+      </div>
+      <button type="button" id="sidebarViewAllDoneGram" class="w-full min-h-[36px] mt-2.5 py-1.5 rounded-xl bg-jade-subtle hover:bg-secondary-container text-secondary border border-secondary/20 text-xs font-semibold transition-colors">
+        Xem tất cả ${fmt(doneCount)} mẫu đã học →
+      </button>
+    ` : `
+      <p class="mt-2.5 mb-0 text-xs text-on-surface-variant bg-paper-base p-2.5 rounded-lg border border-border-subtle">
+        Chưa đánh dấu mẫu nào. Bấm dấu <strong>✓</strong> trên thẻ mẫu câu hoặc trong bài chi tiết sau khi học xong.
+      </p>
+    `}
+  `;
+
+  const viewAllBtn = document.getElementById("sidebarViewAllDoneGram");
+  if (viewAllBtn) {
+    viewAllBtn.onclick = () => {
+      window.GRAMMAR_SEARCH_QUERY = "";
+      if (window.ACTIVE_GRAMMAR_GROUP_KEY && window.ACTIVE_GRAMMAR_GROUP_KEY !== "all") {
+        window.GRAMMAR_STATUS_FILTER = "done";
+        location.hash = "#ngu-phap/nhom/all";
+      } else {
+        setGrammarStatusFilter("done");
+        document.getElementById("grammar-cards-grid")?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    };
+  }
 }
 
 function renderSidebarNotebook() {
@@ -6071,19 +6330,21 @@ function grammarStatsHTML() {
   const end = dayStart(Date.now()) + DAY; let due = 0;
   for (const n of notes) for (const [t] of typesOf(n)) { const st = S.srs.get(cardId(n, t)); if (st && st.state !== "new" && st.due < end) due++; }
   const saved = activeGrammarBookmarkCount();
+  const doneCnt = activeGrammarDoneCount();
   return `
     <div class="flex flex-wrap items-center gap-2 text-xs">
-      <span class="px-3 py-1.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface-variant">
-        Bài giảng: <strong class="text-on-surface font-code">${fmt(GRAMMAR_MASTER_LIST.length)}</strong>
-      </span>
-      ${notes.length && gramDeck ? `<a href="#thu-muc/${encodeURIComponent(gramDeck.id)}" class="px-3 py-1.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface-variant hover:border-primary no-underline">
-        Thẻ ôn SRS: <strong class="text-on-surface font-code">${fmt(learning)}/${fmt(notes.length)}</strong>
+      <button type="button" id="grammarDoneStatBtn" class="min-h-[36px] px-3 py-1.5 rounded-lg bg-jade-subtle border border-secondary/30 text-secondary font-semibold hover:bg-secondary-container transition-colors inline-flex items-center gap-1">
+        <span class="material-symbols-outlined text-[15px]" aria-hidden="true">task_alt</span>
+        <span>Đã học: <strong id="grammar-done-stat" class="font-code">${fmt(doneCnt)}/${fmt(GRAMMAR_MASTER_LIST.length)}</strong></span>
+      </button>
+      ${notes.length && gramDeck ? `<a href="#thu-muc/${encodeURIComponent(gramDeck.id)}" class="min-h-[36px] inline-flex items-center px-3 py-1.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface-variant hover:border-primary no-underline">
+        Thẻ ôn SRS: <strong class="text-on-surface font-code ml-1">${fmt(learning)}/${fmt(notes.length)}</strong>
       </a>` : ''}
-      ${due ? `<a href="#hoc" class="px-3 py-1.5 rounded-lg bg-cinnabar-subtle border border-border-subtle text-primary font-semibold no-underline">
-        Đến hạn: <strong class="font-code">${fmt(due)}</strong> thẻ →
+      ${due ? `<a href="#hoc" class="min-h-[36px] inline-flex items-center px-3 py-1.5 rounded-lg bg-cinnabar-subtle border border-border-subtle text-primary font-semibold no-underline">
+        Đến hạn: <strong class="font-code ml-1">${fmt(due)}</strong> thẻ →
       </a>` : ''}
-      <span class="px-3 py-1.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface-variant">
-        Sổ tay: <strong id="grammar-saved-stat" class="text-on-surface font-code">${fmt(saved)}</strong>
+      <span class="min-h-[36px] inline-flex items-center px-3 py-1.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface-variant">
+        Sổ tay: <strong id="grammar-saved-stat" class="text-on-surface font-code ml-1">${fmt(saved)}</strong>
       </span>
     </div>
   `;
@@ -6149,7 +6410,7 @@ VIEWS["ngu-phap"] = (arg) => {
         <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-md w-full">
           <div class="flex items-center justify-between gap-2 flex-wrap">
             <div class="flex items-center gap-1.5 flex-wrap text-sm">
-              <a href="#ngu-phap" class="min-h-[38px] px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold inline-flex items-center gap-1 no-underline whitespace-nowrap">
+              <a href="#ngu-phap" data-gram-reset-root class="min-h-[38px] px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold inline-flex items-center gap-1 no-underline whitespace-nowrap">
                 <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_back</span>
                 <span>Nhóm ngữ pháp</span>
               </a>
@@ -6168,6 +6429,12 @@ VIEWS["ngu-phap"] = (arg) => {
         </div>
       `);
       bindSpotlightEvents(document.getElementById("grammar-spotlight-container"));
+      document.querySelectorAll("[data-gram-reset-root]").forEach((el) => {
+        el.onclick = () => {
+          window.GRAMMAR_STATUS_FILTER = "all";
+          window.GRAMMAR_SEARCH_QUERY = "";
+        };
+      });
       return;
     }
   }
@@ -6185,6 +6452,8 @@ VIEWS["ngu-phap"] = (arg) => {
 
   const parentItems = currentParent ? GRAMMAR_MASTER_LIST.filter(g => g.levelGroup === currentParent.key) : [];
   const parentSaved = currentParent ? parentItems.filter(g => window.GRAMMAR_BOOKMARKS.has(g.id)).length : 0;
+  const parentDone = currentParent ? activeGrammarDoneCount(parentItems) : 0;
+  const curStatus = window.GRAMMAR_STATUS_FILTER || "all";
 
   setView(`
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg w-full">
@@ -6204,14 +6473,22 @@ VIEWS["ngu-phap"] = (arg) => {
         </div>
       </section>
 
-      <!-- Band Level Filter Bar + Compact Stats -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div class="flex items-center gap-1.5 flex-wrap">
-          <a href="#ngu-phap" class="${pillCls(!currentGroupKey)}" data-gband="root">Nhóm ngữ pháp (${GRAMMAR_GROUPS.length})</a>
-          ${GRAMMAR_GROUPS.map((g) => `<a href="#ngu-phap/nhom/${encodeURIComponent(g.slug)}" class="${pillCls(currentGroupKey === g.key)}" data-gband="${esc(g.slug)}">${esc(g.shortLabel)} (${countByKey(g.key)})</a>`).join("")}
-          <a href="#ngu-phap/nhom/all" class="${pillCls(currentGroupKey === "all")}" data-gband="all">Tất cả (${GRAMMAR_MASTER_LIST.length})</a>
+      <!-- Band Level Filter Bar + Completion Status Filter + Compact Stats -->
+      <div class="flex flex-col gap-2.5">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <a href="#ngu-phap" class="${pillCls(!currentGroupKey)}" data-gband="root">Nhóm ngữ pháp (${GRAMMAR_GROUPS.length})</a>
+            ${GRAMMAR_GROUPS.map((g) => `<a href="#ngu-phap/nhom/${encodeURIComponent(g.slug)}" class="${pillCls(currentGroupKey === g.key)}" data-gband="${esc(g.slug)}">${esc(g.shortLabel)} (${countByKey(g.key)})</a>`).join("")}
+            <a href="#ngu-phap/nhom/all" class="${pillCls(currentGroupKey === "all")}" data-gband="all">Tất cả (${GRAMMAR_MASTER_LIST.length})</a>
+          </div>
+          ${grammarStatsHTML()}
         </div>
-        ${grammarStatsHTML()}
+        <div class="flex items-center gap-1.5 flex-wrap">
+          <span class="text-xs font-bold text-outline uppercase mr-0.5">Trạng thái:</span>
+          <button type="button" data-gram-status="all" aria-pressed="${curStatus === 'all'}">Tất cả (<span id="gramStatusAllCount" class="font-code">0</span>)</button>
+          <button type="button" data-gram-status="done" aria-pressed="${curStatus === 'done'}"><span class="material-symbols-outlined text-[15px]" aria-hidden="true">check_circle</span>Đã hoàn thành (<span id="gramStatusDoneCount" class="font-code">0</span>)</button>
+          <button type="button" data-gram-status="todo" aria-pressed="${curStatus === 'todo'}">Chưa học (<span id="gramStatusTodoCount" class="font-code">0</span>)</button>
+        </div>
       </div>
 
       <!-- Main 2-Column Layout -->
@@ -6230,7 +6507,8 @@ VIEWS["ngu-phap"] = (arg) => {
                   <p class="text-xs text-on-surface-variant m-0 mt-0.5">${esc(currentParent.sub)}</p>
                 </div>
               </div>
-              <div class="flex items-center justify-between sm:justify-end gap-3 flex-wrap sm:flex-nowrap shrink-0 relative z-10">
+              <div class="flex items-center justify-between sm:justify-end gap-2 flex-wrap shrink-0 relative z-10">
+                <span id="gramBannerDone" class="home-band-status-pill bg-jade-subtle text-secondary font-code">✓ ${fmt(parentDone)}/${fmt(parentItems.length)} hoàn thành</span>
                 <span id="gramBannerBookmarked" class="home-band-status-pill bg-amber-subtle text-tertiary">${fmt(parentSaved)} đã lưu</span>
                 <a href="#ngu-phap" data-gram-reset-root class="min-h-[40px] px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold inline-flex items-center gap-1 no-underline whitespace-nowrap">
                   <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_back</span><span>Quay lại</span>
@@ -6251,6 +6529,8 @@ VIEWS["ngu-phap"] = (arg) => {
 
         <!-- Compact Sticky Sidebar -->
         <aside class="lg:col-span-4 lg:sticky lg:top-24 flex flex-col gap-space-md w-full">
+          <div class="bg-paper-card rounded-2xl p-space-md shadow-sm border border-border-subtle" id="sidebar-grammar-progress"></div>
+
           <div class="bg-paper-card rounded-2xl p-space-md shadow-sm border border-border-subtle">
             <div class="flex items-center justify-between pb-2 border-b border-border-subtle">
               <h3 class="font-headline-md text-sm text-on-surface font-semibold font-serif flex items-center gap-1.5 m-0">
@@ -6337,18 +6617,46 @@ VIEWS["ngu-phap"] = (arg) => {
     };
   }
 
+  document.querySelectorAll("[data-gram-status]").forEach((btn) => {
+    btn.onclick = () => setGrammarStatusFilter(btn.dataset.gramStatus);
+  });
+  const doneStatBtn = document.getElementById("grammarDoneStatBtn");
+  if (doneStatBtn) {
+    doneStatBtn.onclick = () => {
+      const inSpecificGroup = Boolean(window.ACTIVE_GRAMMAR_GROUP_KEY && window.ACTIVE_GRAMMAR_GROUP_KEY !== "all");
+      if (inSpecificGroup) {
+        window.GRAMMAR_SEARCH_QUERY = "";
+        window.GRAMMAR_STATUS_FILTER = "done";
+        location.hash = "#ngu-phap/nhom/all";
+        return;
+      }
+      setGrammarStatusFilter(window.GRAMMAR_STATUS_FILTER === "done" ? "all" : "done");
+      document.getElementById("grammar-cards-grid")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+  }
   document.querySelectorAll('[data-gband="root"], [data-gram-reset-root]').forEach((el) => {
     el.onclick = () => {
+      let changed = false;
       if (window.GRAMMAR_SEARCH_QUERY) {
         window.GRAMMAR_SEARCH_QUERY = "";
         const inp = document.getElementById("grammarSearchInput");
         if (inp) inp.value = "";
-        if (location.hash === "#ngu-phap" || !location.hash) updateGrammarGrid();
+        changed = true;
+      }
+      if (window.GRAMMAR_STATUS_FILTER && window.GRAMMAR_STATUS_FILTER !== "all") {
+        window.GRAMMAR_STATUS_FILTER = "all";
+        changed = true;
+      }
+      if (changed && (location.hash === "#ngu-phap" || !location.hash)) {
+        syncGrammarStatusBarUI();
+        updateGrammarGrid();
       }
     };
   });
 
+  syncGrammarStatusBarUI();
   updateGrammarGrid();
+  renderSidebarGrammarProgress();
   renderSidebarNotebook();
 };
 
@@ -8096,6 +8404,7 @@ VIEWS["chinh-ta"] = async () => {
     speed: 1.0,
     bandFilter: "all",
     topicCategory: "all",
+    statusFilter: "all",
     searchQuery: "",
     passageId: "dia_copier_repair",
     sentenceIdx: 0,
@@ -8108,10 +8417,12 @@ VIEWS["chinh-ta"] = async () => {
   }, S.dict || {});
   if (!d.doneMap) d.doneMap = {};
   // Saved progress (S.settings.dictation, synced with other devices): which sentences are done and where each lesson stopped.
-  if (!S.settings.dictation) S.settings.dictation = { doneMap: {}, pos: {} };
-  const saved = S.settings.dictation;
-  if (!saved.doneMap) saved.doneMap = {};
-  if (!saved.pos) saved.pos = {};
+  if (!S.settings.dictation) S.settings.dictation = { doneMap: {}, pos: {}, completed: {} };
+  const saved = isPlainObj(S.settings.dictation) ? S.settings.dictation : (S.settings.dictation = { doneMap: {}, pos: {}, completed: {}, completedRemoved: {} });
+  if (!isPlainObj(saved.doneMap)) saved.doneMap = {};
+  if (!isPlainObj(saved.pos)) saved.pos = {};
+  if (!isPlainObj(saved.completed)) saved.completed = {};
+  if (!isPlainObj(saved.completedRemoved)) saved.completedRemoved = {};
   if (!d._loaded) { d.doneMap = saved.doneMap; if (saved.last) d.passageId = saved.last; d._loaded = true; }
   else if (d.doneMap !== saved.doneMap) { for (const [k, v] of Object.entries(d.doneMap)) saved.doneMap[k] = Object.assign({}, saved.doneMap[k], v); d.doneMap = saved.doneMap; }
   const resumeIdx = (t) => {   // the saved position, or the first sentence not yet done
@@ -8178,13 +8489,31 @@ VIEWS["chinh-ta"] = async () => {
   const curSent = curTopic.sentences[d.sentenceIdx] || { zh: "", py: "", vn: "", speaker: "" };
   d.cur = curSent;
 
-  // Overall progress across all 23 topics
-  const totalSentencesAll = allTopics.reduce((sum, t) => sum + ((t.sentences && t.sentences.length) || 0), 0);
-  const totalDoneAll = allTopics.reduce((sum, t) => {
+  const topicOkCountFor = (t) => {
     const m = d.doneMap[t.id] || {};
-    return sum + Object.values(m).filter((v) => v === "ok").length;
-  }, 0);
+    return Object.values(m).filter((v) => v === "ok").length;
+  };
+  const isTopicCompleted = (t) => {
+    const tot = (t.sentences && t.sentences.length) || 0;
+    return Boolean(saved.completed[t.id]) || (tot > 0 && topicOkCountFor(t) >= tot);
+  };
+
+  // Overall progress across all topics
+  const totalSentencesAll = allTopics.reduce((sum, t) => sum + ((t.sentences && t.sentences.length) || 0), 0);
+  const totalDoneAll = allTopics.reduce((sum, t) => sum + topicOkCountFor(t), 0);
   const totalDonePct = totalSentencesAll ? Math.round((totalDoneAll / totalSentencesAll) * 100) : 0;
+  const completedTopicsCount = allTopics.filter((t) => isTopicCompleted(t)).length;
+  const completedTopicsPct = allTopics.length ? Math.round((completedTopicsCount / allTopics.length) * 100) : 0;
+  const scopedDictTopics = allTopics.filter((t) => (d.bandFilter === "all" || topicBandOf(t) === d.bandFilter) && (d.topicCategory === "all" || (t.category || "dialogue") === d.topicCategory));
+  const scopedCompletedCount = scopedDictTopics.filter((t) => isTopicCompleted(t)).length;
+  const curTopicCompleted = isTopicCompleted(curTopic);
+  const curTopicAllOk = curTopic.sentences.length > 0 && topicOkCount() >= curTopic.sentences.length;
+  const curTopicDoneDate = formatShortDate(saved.completed[curTopic.id]);
+  const curTopicIdx = allTopics.findIndex((t) => t.id === curTopic.id);
+  const nextUnfinishedTopic = allTopics
+    .slice(curTopicIdx + 1)
+    .concat(allTopics.slice(0, Math.max(0, curTopicIdx)))
+    .find((t) => t.id !== curTopic.id && !isTopicCompleted(t)) || null;
 
   const availBands = ["A", "B1", "B2", "C"].filter(k => allTopics.some(t => topicBandOf(t) === k));
   const pillCls = (on) => on
@@ -8225,7 +8554,8 @@ VIEWS["chinh-ta"] = async () => {
   const hasVocab = Array.isArray(curTopic.vocab) && curTopic.vocab.length > 0;
   const isFirstSent = d.sentenceIdx <= 0;
   const isLastSent = d.sentenceIdx >= curTopic.sentences.length - 1;
-  const resumeSentNum = resumeIdx(curTopic) + 1;
+  const resumeTarget = (curTopicCompleted && nextUnfinishedTopic) ? nextUnfinishedTopic : curTopic;
+  const resumeSentNum = resumeIdx(resumeTarget) + 1;
 
   function renderTopicGroupsHTML() {
     const qRaw = String(d.searchQuery || "").trim();
@@ -8236,6 +8566,8 @@ VIEWS["chinh-ta"] = async () => {
     const filtered = allTopics.filter(t => {
       if (d.bandFilter !== "all" && topicBandOf(t) !== d.bandFilter) return false;
       if (d.topicCategory !== "all" && t.category !== d.topicCategory) return false;
+      if (d.statusFilter === "done" && !isTopicCompleted(t)) return false;
+      if (d.statusFilter === "todo" && isTopicCompleted(t)) return false;
       if (qRaw) {
         const vocabStr = Array.isArray(t.vocab) ? t.vocab.map(v => `${v.w} ${v.vn}`).join(" ") : "";
         const hay = `${t.title || ""} ${t.band || ""} ${t.categoryName || ""} ${vocabStr}`;
@@ -8251,10 +8583,15 @@ VIEWS["chinh-ta"] = async () => {
       .filter((g) => g.items.length > 0);
 
     if (!groups.length) {
+      const emptyMsg = d.statusFilter === "done" && !qRaw
+        ? "Bạn chưa đánh dấu hoàn thành bài nghe nào. Hãy luyện xong hoặc bấm \"Đánh dấu hoàn thành\" trong bài học để lưu lại tiến độ nhé!"
+        : (d.statusFilter === "todo" && !qRaw
+          ? "Tuyệt vời! Bạn đã hoàn thành toàn bộ các bài nghe trong mục này."
+          : "Không có bài nghe nào khớp với bộ lọc hiện tại.");
       return `
         <div class="text-center py-8 px-4 text-on-surface-variant bg-paper-base rounded-2xl border border-border-subtle flex flex-col items-center gap-2">
-          <span class="material-symbols-outlined text-[30px] text-outline" aria-hidden="true">search_off</span>
-          <p class="text-sm m-0">Không có bài nghe nào khớp với bộ lọc hiện tại.</p>
+          <span class="material-symbols-outlined text-[30px] ${d.statusFilter === "todo" && !qRaw ? "text-secondary" : "text-outline"}" aria-hidden="true">${d.statusFilter === "todo" && !qRaw ? "celebration" : "search_off"}</span>
+          <p class="text-sm m-0 max-w-md">${emptyMsg}</p>
           <button type="button" id="btn-reset-dict-filters" class="min-h-[36px] mt-1 px-3.5 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-xs font-semibold hover:bg-primary-container hover:text-on-primary transition-colors">
             Đặt lại bộ lọc
           </button>
@@ -8274,18 +8611,18 @@ VIEWS["chinh-ta"] = async () => {
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           ${grp.items.map((top) => {
             const active = top.id === curTopic.id;
-            const tMap = d.doneMap[top.id] || {};
-            const okN = Object.values(tMap).filter((v) => v === "ok").length;
+            const okN = topicOkCountFor(top);
             const totN = (top.sentences && top.sentences.length) || 0;
-            const pct = totN ? Math.round((okN / totN) * 100) : 0;
-            const isComplete = totN > 0 && okN >= totN;
+            const isComplete = isTopicCompleted(top);
+            const doneDate = saved.completed[top.id] ? formatShortDate(saved.completed[top.id]) : "";
+            const pct = isComplete ? 100 : (totN ? Math.round((okN / totN) * 100) : 0);
             return `
-              <button type="button" class="dicta-topic-card ${grp.tier}${active ? " is-active" : ""}" data-select-topic="${esc(top.id)}">
+              <button type="button" class="dicta-topic-card ${grp.tier}${active ? " is-active" : ""}${isComplete ? " is-completed" : ""}" data-select-topic="${esc(top.id)}">
                 <div class="flex flex-col gap-1.5 min-w-0 w-full">
                   <div class="flex items-center justify-between gap-1.5 flex-wrap">
                     <span class="home-band-tier-pill">${esc(top.categoryName || "Hội thoại")}</span>
                     ${isComplete
-                      ? `<span class="home-band-status-pill bg-jade-subtle text-secondary">✓ Hoàn thành</span>`
+                      ? `<span class="home-band-status-pill bg-jade-subtle text-secondary">${doneDate ? `✓ Hoàn thành · ${doneDate}` : "✓ Hoàn thành"}</span>`
                       : (okN > 0
                         ? `<span class="home-band-status-pill bg-amber-subtle text-tertiary font-code">${okN}/${totN} câu</span>`
                         : `<span class="text-[11px] font-code text-outline">${totN} câu</span>`)}
@@ -8294,11 +8631,11 @@ VIEWS["chinh-ta"] = async () => {
                 </div>
                 <div class="flex flex-col gap-2 w-full mt-auto pt-1">
                   <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
-                    <div class="h-full rounded-full dicta-prog-fill" style="width:${pct}%"></div>
+                    <div class="h-full rounded-full ${isComplete ? "bg-secondary" : "dicta-prog-fill"}" style="width:${pct}%"></div>
                   </div>
                   <div class="flex items-center justify-between text-xs">
-                    <span class="text-outline font-code">${pct}% hoàn thành</span>
-                    <span class="font-semibold text-primary">${active ? "Đang học →" : (okN > 0 ? "Tiếp tục →" : "Luyện ngay →")}</span>
+                    <span class="text-outline font-code">${isComplete ? (okN > 0 ? `Đúng ${okN}/${totN} câu` : "Đã đánh dấu xong") : `${pct}% hoàn thành`}</span>
+                    <span class="font-semibold ${isComplete ? "text-secondary" : "text-primary"}">${isComplete ? "Ôn lại →" : (active ? "Đang học →" : (okN > 0 ? "Tiếp tục →" : "Luyện ngay →"))}</span>
                   </div>
                 </div>
               </button>
@@ -8320,7 +8657,8 @@ VIEWS["chinh-ta"] = async () => {
             <div class="min-w-0 flex flex-col gap-1">
               <div class="flex items-center gap-2 flex-wrap">
                 <span class="home-band-tier-pill">${fmt(allTopics.length)} bài nghe · ${fmt(totalSentencesAll)} câu</span>
-                <span class="home-band-status-pill bg-jade-subtle text-secondary font-code">Đúng ${fmt(totalDoneAll)}/${fmt(totalSentencesAll)} (${totalDonePct}%)</span>
+                <button type="button" id="btnDictDoneBanner" class="home-band-status-pill min-h-[32px] py-1 px-2.5 ${d.statusFilter === 'done' ? 'bg-secondary text-white' : 'bg-jade-subtle text-secondary hover:bg-secondary hover:text-white'} transition-colors font-code cursor-pointer border border-secondary/20" aria-pressed="${d.statusFilter === 'done'}" title="Xem danh sách các bài đã hoàn thành">✓ Hoàn thành ${fmt(completedTopicsCount)}/${fmt(allTopics.length)} bài (${completedTopicsPct}%)</button>
+                <span class="home-band-status-pill bg-paper-base text-on-surface-variant border border-border-subtle font-code">Đúng ${fmt(totalDoneAll)}/${fmt(totalSentencesAll)} câu</span>
               </div>
               <h1 class="font-display text-2xl md:text-3xl text-on-surface font-semibold tracking-tight font-serif m-0 leading-tight">
                 Chép chính tả <span class="text-outline font-normal text-xl" lang="zh-Hant">聽寫</span>
@@ -8331,10 +8669,10 @@ VIEWS["chinh-ta"] = async () => {
             </div>
           </div>
           <div class="flex items-center gap-2 flex-wrap shrink-0 relative z-10">
-            <a href="#chinh-ta/${encodeURIComponent(curTopic.id)}" id="btn-resume-dictation" class="min-h-[42px] px-4 py-2 rounded-xl bg-primary-container hover:bg-primary text-on-primary text-xs font-semibold shadow-sm inline-flex items-center gap-1.5 no-underline transition-colors max-w-full">
+            <a href="#chinh-ta/${encodeURIComponent(resumeTarget.id)}" id="btn-resume-dictation" class="min-h-[42px] px-4 py-2 rounded-xl bg-primary-container hover:bg-primary text-on-primary text-xs font-semibold shadow-sm inline-flex items-center gap-1.5 no-underline transition-colors max-w-full">
               <span class="material-symbols-outlined text-[18px] shrink-0" aria-hidden="true">play_arrow</span>
-              <span class="truncate max-w-[200px] sm:max-w-[220px]">Tiếp tục: ${esc(curTopic.title)}</span>
-              <span class="px-1.5 py-0.5 rounded bg-white/20 font-code text-[11px] shrink-0">${resumeSentNum}/${curTopic.sentences.length}</span>
+              <span class="truncate max-w-[200px] sm:max-w-[220px]">${curTopicCompleted && nextUnfinishedTopic ? 'Bài tiếp theo' : 'Tiếp tục'}: ${esc(resumeTarget.title)}</span>
+              <span class="px-1.5 py-0.5 rounded bg-white/20 font-code text-[11px] shrink-0">${resumeSentNum}/${resumeTarget.sentences.length}</span>
             </a>
           </div>
         </section>
@@ -8387,6 +8725,14 @@ VIEWS["chinh-ta"] = async () => {
               ${[["all","Tất cả"],["dialogue","Hội thoại"],["story","Câu chuyện"],["tocfl","TOCFL"],["news","Tin tức"]].map(([k, lbl]) => `<button type="button" class="${pillCls(d.topicCategory === k)}" data-topic-cat="${k}">${lbl}</button>`).join("")}
             </div>
           </div>
+          <div class="flex items-center gap-1.5 flex-wrap pt-2 border-t border-border-subtle/60">
+            <span class="text-xs font-bold text-outline uppercase mr-0.5">Trạng thái:</span>
+            ${[
+              ["all", `Tất cả (${scopedDictTopics.length})`],
+              ["done", `✓ Đã hoàn thành (${scopedCompletedCount})`],
+              ["todo", `Chưa xong (${Math.max(0, scopedDictTopics.length - scopedCompletedCount)})`]
+            ].map(([st, lbl]) => `<button type="button" class="${d.statusFilter === st ? "min-h-[36px] inline-flex items-center px-3 py-1 rounded-lg bg-secondary text-white text-xs font-semibold shadow-sm transition-colors whitespace-nowrap" : "min-h-[36px] inline-flex items-center px-3 py-1 rounded-lg bg-paper-card text-on-surface-variant hover:bg-paper-muted text-xs font-medium border border-border-subtle transition-colors whitespace-nowrap"}" data-dict-status="${st}" aria-pressed="${d.statusFilter === st}">${lbl}</button>`).join("")}
+          </div>
         </div>
         <div class="p-4 flex flex-col gap-5" id="dictTopicGroupsHost">
           ${renderTopicGroupsHTML()}
@@ -8403,6 +8749,7 @@ VIEWS["chinh-ta"] = async () => {
                 <div class="flex items-center gap-1.5 flex-wrap text-xs">
                   <span class="home-band-tier-pill">${esc(curTopic.band)}</span>
                   <span class="home-band-status-pill bg-jade-subtle text-secondary">${esc(curTopic.categoryName || "Hội thoại")}</span>
+                  <span id="dictLessonDonePill" class="${curTopicCompleted ? 'inline-flex' : 'hidden'} items-center gap-1 px-2 py-0.5 rounded-full bg-jade-subtle text-secondary text-xs font-semibold border border-secondary/20">✓ Đã hoàn thành</span>
                 </div>
                 <h1 class="font-headline-md text-lg sm:text-xl font-bold text-on-surface font-serif mt-1.5 mb-0 leading-snug break-words">${esc(curTopic.title)}</h1>
               </div>
@@ -8571,6 +8918,18 @@ VIEWS["chinh-ta"] = async () => {
               <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-amber-subtle border border-tertiary/40 inline-block"></span>Xem/Sai</span>
               <span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-primary-container inline-block"></span>Đang làm</span>
             </div>
+            <div class="pt-2.5 border-t border-border-subtle flex flex-col gap-2">
+              <button type="button" id="btn-toggle-dict-complete" aria-pressed="${curTopicCompleted}" title="${curTopicCompleted ? (curTopicAllOk ? 'Đã chép đúng toàn bộ câu trong bài' : 'Bấm để bỏ đánh dấu hoàn thành') : 'Đánh dấu đã hoàn thành bài nghe này'}" class="min-h-[40px] w-full px-3 py-2 rounded-xl text-xs font-semibold inline-flex items-center justify-center gap-1.5 transition-colors ${curTopicCompleted ? 'bg-secondary text-white hover:bg-secondary/90 shadow-sm' : 'bg-paper-base hover:bg-jade-subtle text-on-surface hover:text-secondary border border-border-subtle'}">
+                <span class="material-symbols-outlined text-[17px]" aria-hidden="true">${curTopicCompleted ? 'check_circle' : 'task_alt'}</span>
+                <span id="btn-toggle-dict-complete-label">${curTopicCompleted ? (curTopicAllOk ? `Đã hoàn thành (${curTopic.sentences.length}/${curTopic.sentences.length} câu)` : `Đã hoàn thành${curTopicDoneDate ? ' · ' + curTopicDoneDate : ''}`) : 'Đánh dấu hoàn thành bài'}</span>
+              </button>
+              ${nextUnfinishedTopic ? `
+                <a href="#chinh-ta/${encodeURIComponent(nextUnfinishedTopic.id)}" id="btn-next-unfinished-topic" class="${curTopicCompleted ? 'inline-flex' : 'hidden'} min-h-[38px] w-full px-3 py-1.5 rounded-xl bg-jade-subtle hover:bg-secondary hover:text-white text-secondary text-xs font-semibold items-center justify-between gap-2 no-underline border border-secondary/20 transition-colors">
+                  <span class="truncate">Bài chưa học: ${esc(nextUnfinishedTopic.title)}</span>
+                  <span class="shrink-0">→</span>
+                </a>
+              ` : ''}
+            </div>
           </div>
 
           ${hasVocab ? `
@@ -8690,6 +9049,74 @@ VIEWS["chinh-ta"] = async () => {
     };
   });
 
+  const markTopicCompleted = (topicId) => {
+    saved.completed[topicId] = Math.max(Date.now(), (Number(saved.completedRemoved[topicId]) || 0) + 1);
+    delete saved.completedRemoved[topicId];
+  };
+  const unmarkTopicCompleted = (topicId) => {
+    saved.completedRemoved[topicId] = Math.max(Date.now(), (Number(saved.completed[topicId]) || 0) + 1);
+    delete saved.completed[topicId];
+  };
+
+  const syncDictCompletionUI = () => {
+    const doneNow = isTopicCompleted(curTopic);
+    const allOkNow = curTopic.sentences.length > 0 && topicOkCount() >= curTopic.sentences.length;
+    const btnDone = $("#btn-toggle-dict-complete");
+    if (btnDone) {
+      btnDone.setAttribute("aria-pressed", String(doneNow));
+      btnDone.title = doneNow
+        ? (allOkNow ? "Đã chép đúng toàn bộ câu trong bài" : "Bấm để bỏ đánh dấu hoàn thành")
+        : "Đánh dấu đã hoàn thành bài nghe này";
+      btnDone.className = `min-h-[40px] w-full px-3 py-2 rounded-xl text-xs font-semibold inline-flex items-center justify-center gap-1.5 transition-colors ${doneNow ? "bg-secondary text-white hover:bg-secondary/90 shadow-sm" : "bg-paper-base hover:bg-jade-subtle text-on-surface hover:text-secondary border border-border-subtle"}`;
+      const iconEl = btnDone.querySelector(".material-symbols-outlined");
+      if (iconEl) iconEl.textContent = doneNow ? "check_circle" : "task_alt";
+      const lblEl = $("#btn-toggle-dict-complete-label");
+      if (lblEl) {
+        const doneDate = formatShortDate(saved.completed[curTopic.id]);
+        lblEl.textContent = doneNow
+          ? (allOkNow ? `Đã hoàn thành (${curTopic.sentences.length}/${curTopic.sentences.length} câu)` : `Đã hoàn thành${doneDate ? " · " + doneDate : ""}`)
+          : "Đánh dấu hoàn thành bài";
+      }
+    }
+    const pill = $("#dictLessonDonePill");
+    if (pill) {
+      pill.classList.toggle("hidden", !doneNow);
+      pill.classList.toggle("inline-flex", doneNow);
+    }
+    const nextLink = $("#btn-next-unfinished-topic");
+    if (nextLink) {
+      nextLink.classList.toggle("hidden", !doneNow);
+      nextLink.classList.toggle("inline-flex", doneNow);
+    }
+  };
+
+  const btnToggleDictComplete = $("#btn-toggle-dict-complete");
+  if (btnToggleDictComplete) {
+    btnToggleDictComplete.onclick = () => {
+      const allOkNow = curTopic.sentences.length > 0 && topicOkCount() >= curTopic.sentences.length;
+      if (allOkNow) {
+        if (!saved.completed[curTopic.id]) {
+          markTopicCompleted(curTopic.id);
+          saveDict();
+        }
+        syncDictCompletionUI();
+        showToast(`Bạn đã chép đúng toàn bộ ${curTopic.sentences.length}/${curTopic.sentences.length} câu của bài này!`);
+        return;
+      }
+      if (saved.completed[curTopic.id]) {
+        unmarkTopicCompleted(curTopic.id);
+        saveDict();
+        syncDictCompletionUI();
+        showToast(`Đã bỏ đánh dấu hoàn thành bài "${curTopic.title}".`);
+      } else {
+        markTopicCompleted(curTopic.id);
+        saveDict();
+        syncDictCompletionUI();
+        showToast(`Đã đánh dấu hoàn thành bài "${curTopic.title}"!`);
+      }
+    };
+  }
+
   const goNextSentence = () => {
     if (d.sentenceIdx < curTopic.sentences.length - 1) {
       d.sentenceIdx++;
@@ -8697,7 +9124,10 @@ VIEWS["chinh-ta"] = async () => {
       saveDict();
       VIEWS["chinh-ta"]();
     } else {
-      showToast(`Hoàn thành bài "${curTopic.title}"! Bạn có thể chọn bài tiếp theo trong Danh sách bài.`);
+      if (!saved.completed[curTopic.id]) markTopicCompleted(curTopic.id);
+      saveDict();
+      syncDictCompletionUI();
+      showToast(`Đã lưu hoàn thành bài "${curTopic.title}"! Bạn có thể chuyển sang bài tiếp theo.`);
     }
   };
 
@@ -8786,8 +9216,19 @@ VIEWS["chinh-ta"] = async () => {
     } else if (!topicDone[d.sentenceIdx]) {
       topicDone[d.sentenceIdx] = isRevealOnly ? "skip" : "miss";
     }
+    let justCompletedTopic = false;
+    if (isExact && curTopic.sentences.length > 0 && topicOkCount() >= curTopic.sentences.length) {
+      if (!saved.completed[curTopic.id]) {
+        markTopicCompleted(curTopic.id);
+        justCompletedTopic = true;
+      }
+    }
     updateScoreDOM();
+    syncDictCompletionUI();
     saveDict();
+    if (justCompletedTopic) {
+      showToast(`Chúc mừng! Bạn đã hoàn thành toàn bộ bài "${curTopic.title}"!`);
+    }
 
     const feedbackPanel = $("#feedback-panel");
     const stateCorrect = $("#state-correct");
@@ -8914,6 +9355,7 @@ VIEWS["chinh-ta"] = async () => {
       resetBtn.onclick = () => {
         d.bandFilter = "all";
         d.topicCategory = "all";
+        d.statusFilter = "all";
         d.searchQuery = "";
         VIEWS["chinh-ta"]();
       };
@@ -8944,6 +9386,24 @@ VIEWS["chinh-ta"] = async () => {
   document.querySelectorAll("[data-topic-cat]").forEach((chip) => {
     chip.onclick = () => { d.topicCategory = chip.dataset.topicCat; VIEWS["chinh-ta"](); };
   });
+  document.querySelectorAll("[data-dict-status]").forEach((chip) => {
+    chip.onclick = () => { d.statusFilter = chip.dataset.dictStatus; VIEWS["chinh-ta"](); };
+  });
+  const btnDictDoneBanner = $("#btnDictDoneBanner");
+  if (btnDictDoneBanner) {
+    btnDictDoneBanner.onclick = async () => {
+      const nextStatus = d.statusFilter === "done" ? "all" : "done";
+      d.statusFilter = nextStatus;
+      if (nextStatus === "done") {
+        d.bandFilter = "all";
+        d.topicCategory = "all";
+        d.searchQuery = "";
+      }
+      await VIEWS["chinh-ta"]();
+      const exp = $("#section-topic-explorer");
+      if (exp && typeof exp.scrollIntoView === "function") exp.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+  }
 
   // KEYBOARD SHORTCUT: Standalone Shift tap replays audio; Enter checks answer (IME-safe!)
   let shiftSolo = false;
