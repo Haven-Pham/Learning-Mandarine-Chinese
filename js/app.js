@@ -5575,19 +5575,67 @@ function saveCustomGrammarNotes() {
   } catch (e) {}
 }
 
+// Grammar Band Groups (synchronized with Trang chủ & Từ vựng tier themes + cute panda avatars)
+const GRAMMAR_GROUPS = [
+  { slug: "a",        key: "A1/A2",    shortLabel: "Band A",   title: "Band A · Sơ cấp (A1–A2)",        sub: "Thời thái (了, 過, 著), so sánh và cấu trúc nền tảng giao tiếp hàng ngày.", tier: "tier-a",        img: "img/home-band-a.jpg",  mark: "基" },
+  { slug: "b1",       key: "B1",       shortLabel: "Band B1",  title: "Band B · Trung cấp (B1)",        sub: "Câu chữ 把/被, bổ ngữ xu hướng, điều kiện và cấu trúc câu phức.",           tier: "tier-b",        img: "img/home-band-b.jpg",  mark: "進" },
+  { slug: "b2",       key: "B2",       shortLabel: "Band B2",  title: "Band B · Cao cấp (B2)",          sub: "Liên từ chuyển ngoặt (然而, 與其…不如), văn viết học thuật và đề thi B2.",  tier: "tier-indigo",   img: "img/vocab-class.jpg",  mark: "高" },
+  { slug: "c",        key: "C",        shortLabel: "Band C",   title: "Band C · Lưu loát (C1–C2)",      sub: "Cấu trúc trang trọng, thành ngữ ngữ pháp và sắc thái biểu đạt nâng cao.",   tier: "tier-c",        img: "img/home-band-c.jpg",  mark: "流" },
+  { slug: "khau-ngu", key: "Khẩu ngữ", shortLabel: "Khẩu ngữ", title: "Khẩu ngữ Đài Loan & Ghi chú",    sub: "Cách nói tự nhiên của người Đài Loan và các mẫu câu ghi chú riêng của bạn.", tier: "tier-personal", img: "img/home-personal.jpg", mark: "臺" }
+];
+const GRAMMAR_GROUP_BY_KEY = new Map(GRAMMAR_GROUPS.map((g) => [g.key, g]));
+const GRAMMAR_GROUP_BY_SLUG = new Map(GRAMMAR_GROUPS.map((g) => [g.slug, g]));
+function grammarGroupMeta(levelGroup) {
+  return GRAMMAR_GROUP_BY_KEY.get(levelGroup) || GRAMMAR_GROUPS[0];
+}
+function foldGramQ(s) {
+  return String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[đĐ]/g, "d").toLowerCase().replace(/[\s'’·\-…./／+~]+/g, "");
+}
+function gramZhChip(g) {
+  const raw = String((g && g.zh) || "").trim();
+  if (raw) {
+    const seg = raw
+      .split(/\s*(?:\/|／|\.{2,}|…|\+|~|\s)\s*/)
+      .map((s) => s.replace(/^[()（）\[\]「」『』,，、:：\-–—]+|[()（）\[\]「」『』,，、:：\-–—]+$/g, ""))
+      .find(Boolean);
+    if (seg) {
+      const chars = Array.from(seg);
+      return chars.length > 3 ? chars.slice(0, 2).join("") : seg;
+    }
+  }
+  const fallback = Array.from(String((g && g.name) || "").trim()).slice(0, 2).join("");
+  return fallback || "語";
+}
+function activeGrammarBookmarkCount() {
+  if (window._grammarDataLoaded) {
+    return GRAMMAR_MASTER_LIST.filter((g) => window.GRAMMAR_BOOKMARKS.has(g.id)).length;
+  }
+  return (window.GRAMMAR_BOOKMARKS || new Set()).size;
+}
+
 // Helpers
-window.checkPractice = function(choice) {
+window.checkPractice = function(choice, btnEl) {
   const resultDiv = document.getElementById("practice-result");
   if (!resultDiv) return;
   const current = GRAMMAR_MASTER_LIST.find(g => g.id === window.ACTIVE_GRAMMAR_ID) || GRAMMAR_MASTER_LIST[0];
+  if (!current || !current.quiz || !Array.isArray(current.quiz.opts)) return;
   const opt = current.quiz.opts.find(o => o.key === choice) || current.quiz.opts[0];
 
+  document.querySelectorAll(".gram-quiz-opt").forEach((b) => {
+    b.classList.remove("is-correct", "is-wrong");
+    b.setAttribute("aria-pressed", "false");
+  });
+  if (btnEl) {
+    btnEl.classList.add(opt.correct ? "is-correct" : "is-wrong");
+    btnEl.setAttribute("aria-pressed", "true");
+  }
+
   if (opt.correct) {
-    resultDiv.className = "mt-space-sm p-space-sm rounded-lg font-body-sm text-body-sm bg-jade-subtle text-secondary block border border-secondary/20 shadow-sm";
+    resultDiv.className = "mt-3 p-3 rounded-xl font-body-sm text-sm bg-jade-subtle text-secondary block border border-secondary/30 shadow-sm";
     resultDiv.innerHTML = opt.explain;
     if (typeof playChime === "function") playChime(true);
   } else {
-    resultDiv.className = "mt-space-sm p-space-sm rounded-lg font-body-sm text-body-sm bg-cinnabar-subtle text-primary block border border-primary/20 shadow-sm";
+    resultDiv.className = "mt-3 p-3 rounded-xl font-body-sm text-sm bg-cinnabar-subtle text-primary block border border-primary/30 shadow-sm";
     resultDiv.innerHTML = opt.explain;
     if (typeof playChime === "function") playChime(false);
   }
@@ -5601,20 +5649,18 @@ window.selectGrammarSpotlight = function(id) {
   if (el) {
     const item = GRAMMAR_MASTER_LIST.find(g => g.id === id) || GRAMMAR_MASTER_LIST[0];
     el.innerHTML = renderSpotlightContent(item);
+    bindSpotlightEvents(el);
     el.scrollIntoView({ behavior: "smooth", block: "start" });
   }
   updateGrammarGrid();
 };
 
-window.filterGrammarTab = function(level, btnEl) {
-  window.ACTIVE_GRAMMAR_FILTER = level;
-  document.querySelectorAll(".grammar-tab-btn").forEach(b => {
-    const isAct = (btnEl ? b === btnEl : b.dataset && b.dataset.gband === level);
-    b.className = isAct
-      ? "grammar-tab-btn px-3 py-1.5 rounded-full bg-primary-container text-on-primary font-label-sm text-xs font-semibold whitespace-nowrap shadow-sm transition-colors"
-      : "grammar-tab-btn px-3 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-sm text-xs font-medium whitespace-nowrap border border-border-subtle transition-colors";
-  });
-  updateGrammarGrid();
+window.filterGrammarTab = function(slugOrKey) {
+  const grp = GRAMMAR_GROUP_BY_SLUG.get(slugOrKey) || GRAMMAR_GROUP_BY_KEY.get(slugOrKey);
+  if (slugOrKey === "root" || !slugOrKey) { location.hash = "#ngu-phap"; return; }
+  if (slugOrKey === "all") { location.hash = "#ngu-phap/nhom/all"; return; }
+  if (grp) { location.hash = "#ngu-phap/nhom/" + encodeURIComponent(grp.slug); return; }
+  location.hash = "#ngu-phap";
 };
 
 window.filterGrammarSearch = function(query) {
@@ -5622,23 +5668,54 @@ window.filterGrammarSearch = function(query) {
   updateGrammarGrid();
 };
 
+window.clearGrammarSearch = function() {
+  window.GRAMMAR_SEARCH_QUERY = "";
+  const inp = document.getElementById("grammarSearchInput");
+  if (inp) inp.value = "";
+  updateGrammarGrid();
+};
+
 window.toggleGrammarBookmark = function(id) {
-  if (window.GRAMMAR_BOOKMARKS.has(id)) {
-    window.GRAMMAR_BOOKMARKS.delete(id);
-  } else {
+  const isNowSaved = !window.GRAMMAR_BOOKMARKS.has(id);
+  if (isNowSaved) {
     window.GRAMMAR_BOOKMARKS.add(id);
+  } else {
+    window.GRAMMAR_BOOKMARKS.delete(id);
   }
   try {
     localStorage.setItem("bookmarked_grammar", JSON.stringify(Array.from(window.GRAMMAR_BOOKMARKS)));
   } catch (e) {}
-  if (window.ACTIVE_GRAMMAR_ID === id) {
-    const el = document.getElementById("grammar-spotlight-container");
-    const item = GRAMMAR_MASTER_LIST.find(g => g.id === id);
-    if (el && item) el.innerHTML = renderSpotlightContent(item);
-  }
+
+  // Patch bookmark buttons in-place so detail quiz state & keyboard focus are preserved
+  const item = GRAMMAR_MASTER_LIST.find((g) => g.id === id);
+  const itemName = item ? item.name : "";
+  document.querySelectorAll("[data-gram-bookmark]").forEach((btn) => {
+    if (btn.dataset.gramBookmark !== id) return;
+    btn.setAttribute("aria-pressed", isNowSaved ? "true" : "false");
+    const icon = btn.querySelector(".material-symbols-outlined");
+    if (btn.dataset.gramBookmarkStyle === "detail") {
+      btn.className = `min-h-[38px] inline-flex items-center gap-1 px-3 py-1.5 rounded-lg ${isNowSaved ? "bg-amber-subtle text-tertiary border-tertiary/30" : "bg-paper-base text-on-surface-variant hover:text-primary border-border-subtle"} font-label-sm text-xs font-semibold transition-colors border`;
+      if (icon) icon.textContent = isNowSaved ? "bookmark" : "bookmark_add";
+      const lbl = btn.querySelector("[data-gram-bookmark-label]");
+      if (lbl) lbl.textContent = isNowSaved ? "Đã lưu sổ tay" : "Lưu sổ tay";
+    } else {
+      btn.className = `w-9 h-9 rounded-lg shrink-0 ${isNowSaved ? "text-tertiary bg-amber-subtle" : "text-on-surface-variant hover:text-primary hover:bg-cinnabar-subtle"} flex items-center justify-center transition-colors`;
+      btn.title = isNowSaved ? "Bỏ lưu sổ tay" : "Lưu vào sổ tay";
+      btn.setAttribute("aria-label", isNowSaved ? `Bỏ lưu ${itemName}` : `Lưu ${itemName} vào sổ tay`);
+      if (icon) icon.textContent = isNowSaved ? "bookmark" : "bookmark_border";
+    }
+  });
+
   const statSaved = document.getElementById("grammar-saved-stat");
-  if (statSaved) statSaved.textContent = fmt(window.GRAMMAR_BOOKMARKS.size);
-  updateGrammarGrid();
+  if (statSaved) statSaved.textContent = fmt(activeGrammarBookmarkCount());
+  const bannerSaved = document.getElementById("gramBannerBookmarked");
+  if (bannerSaved && window.ACTIVE_GRAMMAR_GROUP_KEY) {
+    const cnt = GRAMMAR_MASTER_LIST.filter(g => g.levelGroup === window.ACTIVE_GRAMMAR_GROUP_KEY && window.GRAMMAR_BOOKMARKS.has(g.id)).length;
+    bannerSaved.textContent = `${fmt(cnt)} đã lưu`;
+  }
+  if (document.querySelector("#grammar-cards-grid [data-gram-parent]")) {
+    updateGrammarGrid();
+  }
   renderSidebarNotebook();
 };
 
@@ -5653,10 +5730,14 @@ window.deleteCustomGrammarNote = function(id) {
     localStorage.setItem("bookmarked_grammar", JSON.stringify(Array.from(window.GRAMMAR_BOOKMARKS)));
   } catch (e) {}
   if (location.hash === "#ngu-phap/" + encodeURIComponent(id)) {
-    location.hash = "#ngu-phap";
+    location.hash = "#ngu-phap/nhom/khau-ngu";
   } else {
-    updateGrammarGrid();
-    renderSidebarNotebook();
+    let curArg = "";
+    if (location.hash.startsWith("#ngu-phap/")) {
+      try { curArg = decodeURIComponent(location.hash.slice("#ngu-phap/".length)); }
+      catch (e) { curArg = location.hash.slice("#ngu-phap/".length); }
+    }
+    VIEWS["ngu-phap"](curArg);
   }
   showToast("Đã xóa ghi chú ngữ pháp.");
 };
@@ -5669,65 +5750,85 @@ window.promptAddGrammarNote = function() {
   }
 };
 
+function bindSpotlightEvents(root) {
+  if (!root) return;
+  root.querySelectorAll("[data-gram-bookmark]").forEach((btn) => {
+    btn.onclick = () => toggleGrammarBookmark(btn.dataset.gramBookmark);
+  });
+  root.querySelectorAll("[data-gram-delete]").forEach((btn) => {
+    btn.onclick = () => deleteCustomGrammarNote(btn.dataset.gramDelete);
+  });
+  root.querySelectorAll("[data-quiz-opt]").forEach((btn) => {
+    btn.onclick = () => checkPractice(btn.dataset.quizOpt, btn);
+  });
+}
+
 function renderSpotlightContent(item) {
   const isBookmarked = window.GRAMMAR_BOOKMARKS.has(item.id);
   const isCustom = String(item.id || "").startsWith("custom_");
+  const grp = grammarGroupMeta(item.levelGroup);
   const exHtml = (item.examples || []).map(ex => `
-    <div class="p-3 rounded-xl bg-paper-base hover:bg-surface-container-low transition-colors flex items-start justify-between gap-3 border border-border-subtle">
+    <div class="p-3.5 rounded-xl bg-paper-base hover:bg-surface-container-low transition-colors flex items-start justify-between gap-3 border border-border-subtle">
       <div class="flex-1 min-w-0">
         <div class="flex items-baseline gap-2 flex-wrap">
           <span class="font-headline-md text-base md:text-lg text-on-surface font-semibold font-serif" lang="zh-Hant">${esc(ex.zh)}</span>
-          ${ex.tag ? `<span class="font-label-sm text-xs font-medium px-2 py-0.5 rounded bg-${ex.tagColor || 'cinnabar-subtle'} ${ex.tagText || 'text-primary'}">${esc(ex.tag)}</span>` : ''}
+          ${ex.tag ? `<span class="home-band-status-pill bg-${ex.tagColor || 'cinnabar-subtle'} ${ex.tagText || 'text-primary'}">${esc(ex.tag)}</span>` : ''}
         </div>
         <div class="font-code text-xs text-on-surface-variant mt-0.5">${esc(ex.py)}</div>
-        <div class="font-body-md text-sm text-on-surface-variant mt-0.5">${esc(ex.vn)}</div>
+        <div class="font-body-md text-sm text-on-surface mt-1">${esc(ex.vn)}</div>
       </div>
-      <button type="button" class="w-10 h-10 rounded-full bg-paper-card text-on-surface-variant hover:text-primary shadow-sm flex items-center justify-center transition-colors shrink-0 border border-border-subtle" data-say="${esc(ex.zh)}" title="Nghe phát âm chuẩn Đài Loan" aria-label="Nghe ví dụ">
-        <span class="material-symbols-outlined text-[19px]">volume_up</span>
+      <button type="button" class="w-10 h-10 rounded-full bg-paper-card text-on-surface-variant hover:text-primary hover:bg-cinnabar-subtle shadow-sm flex items-center justify-center transition-colors shrink-0 border border-border-subtle" data-say="${esc(ex.zh)}" title="Nghe phát âm chuẩn Đài Loan" aria-label="Nghe ví dụ">
+        <span class="material-symbols-outlined text-[19px]" aria-hidden="true">volume_up</span>
       </button>
     </div>
   `).join("");
 
   const quizOptsHtml = (item.quiz && item.quiz.opts || []).map(opt => `
-    <button type="button" class="min-h-[38px] px-3.5 py-1.5 rounded-lg bg-surface-container hover:bg-cinnabar-subtle hover:text-primary font-body-md text-sm text-on-surface transition-colors" onclick="checkPractice('${esc(opt.key)}')">
+    <button type="button" class="gram-quiz-opt" data-quiz-opt="${esc(opt.key)}" aria-pressed="false">
       ${esc(opt.label)}
     </button>
   `).join("");
 
   return `
-    <div class="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-border-subtle">
-      <div class="flex items-center gap-2 flex-wrap">
-        <span class="px-2.5 py-0.5 rounded-full bg-jade-subtle text-secondary font-label-sm text-xs font-semibold">${esc(item.band)}</span>
-        <h2 class="font-headline-md text-lg md:text-xl text-on-surface font-semibold font-serif m-0">${esc(item.name)}</h2>
+    <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-3 pb-4 border-b border-border-subtle">
+      <div class="flex items-start gap-3 min-w-0 flex-1">
+        <img src="${grp.img}" alt="" width="56" height="56" loading="lazy" class="home-band-avatar shrink-0" onerror="this.onerror=null;this.src='img/icon-192.png'">
+        <div class="min-w-0 flex-1 flex flex-col gap-1">
+          <div class="flex items-center gap-1.5 flex-wrap">
+            <span class="home-band-tier-pill">${esc(item.band)}</span>
+            ${item.freq ? `<span class="home-band-status-pill bg-paper-base text-on-surface-variant border border-border-subtle">${esc(item.freq)}</span>` : ""}
+          </div>
+          <h1 class="font-headline-md text-xl md:text-2xl text-on-surface font-bold font-serif m-0 leading-snug break-words">${esc(item.name)}</h1>
+        </div>
       </div>
-      <div class="flex items-center gap-1.5">
-        ${isCustom ? `<button type="button" class="min-h-[36px] inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-cinnabar-subtle text-primary text-xs font-semibold border border-border-subtle" onclick="deleteCustomGrammarNote('${esc(item.id)}')" title="Xóa ghi chú này"><span class="material-symbols-outlined text-[16px]">delete</span><span>Xóa</span></button>` : ""}
-        <button type="button" class="min-h-[36px] inline-flex items-center gap-1 px-2.5 py-1 rounded-lg ${isBookmarked ? 'bg-amber-subtle text-tertiary' : 'bg-paper-base text-on-surface-variant hover:text-primary'} font-label-sm text-xs font-semibold transition-colors border border-border-subtle" onclick="toggleGrammarBookmark('${esc(item.id)}')">
-          <span class="material-symbols-outlined text-[16px]">${isBookmarked ? 'bookmark' : 'bookmark_add'}</span>
-          <span>${isBookmarked ? 'Đã lưu sổ tay' : 'Lưu sổ tay'}</span>
+      <div class="flex items-center gap-1.5 shrink-0 self-start">
+        ${isCustom ? `<button type="button" class="min-h-[38px] inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary hover:bg-primary-container hover:text-on-primary text-xs font-semibold border border-primary/20 transition-colors" data-gram-delete="${esc(item.id)}" title="Xóa ghi chú này"><span class="material-symbols-outlined text-[16px]" aria-hidden="true">delete</span><span>Xóa</span></button>` : ""}
+        <button type="button" class="min-h-[38px] inline-flex items-center gap-1 px-3 py-1.5 rounded-lg ${isBookmarked ? 'bg-amber-subtle text-tertiary border-tertiary/30' : 'bg-paper-base text-on-surface-variant hover:text-primary border-border-subtle'} font-label-sm text-xs font-semibold transition-colors border" data-gram-bookmark="${esc(item.id)}" data-gram-bookmark-style="detail" aria-pressed="${isBookmarked ? 'true' : 'false'}">
+          <span class="material-symbols-outlined text-[17px]" aria-hidden="true">${isBookmarked ? 'bookmark' : 'bookmark_add'}</span>
+          <span data-gram-bookmark-label>${isBookmarked ? 'Đã lưu sổ tay' : 'Lưu sổ tay'}</span>
         </button>
       </div>
     </div>
 
-    <div class="mt-3 p-3 rounded-xl bg-paper-base border border-border-subtle font-code text-sm md:text-base text-primary font-bold">
+    <div class="gram-detail-formula">
       ${esc(item.formula)}
     </div>
-    <p class="font-body-sm text-sm text-on-surface-variant mt-2 leading-relaxed">${esc(item.summary)}</p>
+    <p class="font-body-md text-sm md:text-base text-on-surface-variant mt-3 mb-0 leading-relaxed">${esc(item.summary)}</p>
 
     ${(item.cond1 || item.cond2) ? `
-    <div class="mt-3 grid grid-cols-1 md:grid-cols-2 gap-2.5">
+    <div class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3">
       ${item.cond1 ? `
-      <div class="p-3 rounded-lg bg-surface-container-low border border-border-subtle">
-        <div class="flex items-center gap-1 text-on-surface font-label-md text-xs font-semibold mb-1">
-          <span class="material-symbols-outlined text-secondary text-[16px]">check_circle</span>
+      <div class="p-3.5 rounded-xl bg-surface-container-low border border-border-subtle">
+        <div class="flex items-center gap-1.5 text-on-surface font-label-md text-xs font-semibold mb-1.5">
+          <span class="material-symbols-outlined text-secondary text-[17px]" aria-hidden="true">check_circle</span>
           ${esc(item.cond1.title || "")}
         </div>
         <p class="font-body-sm text-xs text-on-surface-variant leading-relaxed m-0">${esc(item.cond1.desc || "")}</p>
       </div>` : ""}
       ${item.cond2 ? `
-      <div class="p-3 rounded-lg bg-surface-container-low border border-border-subtle">
-        <div class="flex items-center gap-1 text-on-surface font-label-md text-xs font-semibold mb-1">
-          <span class="material-symbols-outlined text-secondary text-[16px]">transform</span>
+      <div class="p-3.5 rounded-xl bg-surface-container-low border border-border-subtle">
+        <div class="flex items-center gap-1.5 text-on-surface font-label-md text-xs font-semibold mb-1.5">
+          <span class="material-symbols-outlined text-secondary text-[17px]" aria-hidden="true">transform</span>
           ${esc(item.cond2.title || "")}
         </div>
         <p class="font-body-sm text-xs text-on-surface-variant leading-relaxed m-0">${esc(item.cond2.desc || "")}</p>
@@ -5735,53 +5836,58 @@ function renderSpotlightContent(item) {
     </div>` : ""}
 
     ${(item.wrong && item.wrong.zh) || (item.correct && item.correct.zh) ? `
-    <div class="mt-4">
-      <h3 class="font-headline-md text-sm font-semibold text-on-surface mb-2 flex items-center gap-1.5">
-        <span class="material-symbols-outlined text-primary text-[18px]">troubleshoot</span>
+    <div class="mt-5">
+      <h2 class="font-headline-md text-sm font-semibold text-on-surface mb-2.5 flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-primary text-[18px]" aria-hidden="true">troubleshoot</span>
         Tránh bẫy đề thi TOCFL (Sai vs Đúng)
-      </h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
         ${item.wrong && item.wrong.zh ? `
-        <div class="p-3 rounded-xl bg-cinnabar-subtle border border-border-subtle flex flex-col justify-between gap-1.5">
+        <div class="p-3.5 rounded-xl bg-cinnabar-subtle border border-border-subtle flex flex-col justify-between gap-2 min-w-0 break-words">
           <div>
-            <div class="text-primary font-label-sm text-xs font-bold uppercase mb-0.5">✕ Sai ngữ pháp</div>
+            <div class="text-primary font-label-sm text-xs font-bold uppercase mb-1">✕ Sai ngữ pháp</div>
             <div class="font-serif text-base text-on-surface line-through decoration-primary/60" lang="zh-Hant">${esc(item.wrong.zh)}</div>
-            <div class="font-code text-xs text-on-surface-variant">${esc(item.wrong.py || "")}</div>
+            <div class="font-code text-xs text-on-surface-variant mt-0.5">${esc(item.wrong.py || "")}</div>
           </div>
-          <p class="text-xs text-on-surface-variant bg-paper-card p-2 rounded border border-border-subtle m-0">${esc(item.wrong.reason || "")}</p>
+          <p class="text-xs text-on-surface-variant bg-paper-card p-2.5 rounded-lg border border-border-subtle m-0">${esc(item.wrong.reason || "")}</p>
         </div>` : ''}
         ${item.correct && item.correct.zh ? `
-        <div class="p-3 rounded-xl bg-jade-subtle border border-border-subtle flex flex-col justify-between gap-1.5">
-          <div>
-            <div class="text-secondary font-label-sm text-xs font-bold uppercase mb-0.5">✓ Chuẩn Đài Loan</div>
-            <div class="font-serif text-base text-secondary font-semibold" lang="zh-Hant">${esc(item.correct.zh)}</div>
-            <div class="font-code text-xs text-secondary">${esc(item.correct.py || "")}</div>
+        <div class="p-3.5 rounded-xl bg-jade-subtle border border-border-subtle flex flex-col justify-between gap-2 min-w-0 break-words">
+          <div class="flex items-start justify-between gap-2">
+            <div class="min-w-0">
+              <div class="text-secondary font-label-sm text-xs font-bold uppercase mb-1">✓ Chuẩn Đài Loan</div>
+              <div class="font-serif text-base text-secondary font-semibold" lang="zh-Hant">${esc(item.correct.zh)}</div>
+              <div class="font-code text-xs text-secondary mt-0.5">${esc(item.correct.py || "")}</div>
+            </div>
+            <button type="button" class="w-9 h-9 rounded-full bg-paper-card text-secondary hover:bg-secondary hover:text-white shadow-sm flex items-center justify-center transition-colors shrink-0 border border-border-subtle" data-say="${esc(item.correct.zh)}" title="Nghe câu đúng chuẩn Đài Loan" aria-label="Nghe câu chuẩn Đài Loan">
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">volume_up</span>
+            </button>
           </div>
-          <p class="text-xs text-on-surface-variant bg-paper-card p-2 rounded border border-border-subtle m-0">${esc(item.correct.reason || "")}</p>
+          <p class="text-xs text-on-surface-variant bg-paper-card p-2.5 rounded-lg border border-border-subtle m-0">${esc(item.correct.reason || "")}</p>
         </div>` : ''}
       </div>
     </div>` : ''}
 
     ${exHtml ? `
-    <div class="mt-4">
-      <h3 class="font-headline-md text-sm font-semibold text-on-surface mb-2 flex items-center gap-1.5">
-        <span class="material-symbols-outlined text-secondary text-[18px]">record_voice_over</span>
+    <div class="mt-5">
+      <h2 class="font-headline-md text-sm font-semibold text-on-surface mb-2.5 flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-secondary text-[18px]" aria-hidden="true">record_voice_over</span>
         Ví dụ thực tế Đài Loan
-      </h3>
-      <div class="space-y-2">${exHtml}</div>
+      </h2>
+      <div class="space-y-2.5">${exHtml}</div>
     </div>` : ''}
 
     ${item.quiz ? `
-    <div class="mt-4 p-3.5 rounded-xl bg-cinnabar-subtle border border-border-subtle">
-      <div class="font-label-md text-xs text-primary font-bold flex items-center gap-1.5 mb-2">
-        <span class="material-symbols-outlined text-[16px]">quiz</span>
+    <div class="mt-5 p-4 rounded-xl bg-surface-container-low border border-border-subtle">
+      <div class="font-label-md text-xs text-primary font-bold flex items-center gap-1.5 mb-2.5">
+        <span class="material-symbols-outlined text-[17px]" aria-hidden="true">quiz</span>
         Luyện tập nhanh
       </div>
-      <div class="bg-paper-card p-3 rounded-lg flex flex-col md:flex-row md:items-center justify-between gap-3 border border-border-subtle">
-        <div class="font-serif text-base text-on-surface font-medium" lang="zh-Hant">${esc(item.quiz.q)}</div>
+      <div class="bg-paper-card p-3.5 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-3 border border-border-subtle">
+        <div class="font-serif text-base md:text-lg text-on-surface font-medium" lang="zh-Hant">${esc(item.quiz.q)}</div>
         <div class="flex items-center gap-2 flex-wrap">${quizOptsHtml}</div>
       </div>
-      <div class="hidden mt-2 p-2.5 rounded-lg font-body-sm text-xs" id="practice-result"></div>
+      <div class="hidden mt-3 p-3 rounded-xl font-body-sm text-sm" id="practice-result" role="status"></div>
     </div>` : ''}
   `;
 }
@@ -5789,16 +5895,74 @@ function renderSpotlightContent(item) {
 function updateGrammarGrid() {
   const container = document.getElementById("grammar-cards-grid");
   if (!container) return;
-  const qRaw = window.GRAMMAR_SEARCH_QUERY || "";
+  const qRaw = (window.GRAMMAR_SEARCH_QUERY || "").trim();
   const qTrad = typeof toTraditionalTw === "function" ? toTraditionalTw(qRaw) : qRaw;
-  const qFold = fold(qRaw);
-  const filter = window.ACTIVE_GRAMMAR_FILTER || "all";
+  const qFold = foldGramQ(qRaw);
+  const qTradFold = foldGramQ(qTrad);
+  const groupKey = window.ACTIVE_GRAMMAR_GROUP_KEY || null; // null = root parent cards, "all" = all flat, or group.key
 
-  const filtered = GRAMMAR_MASTER_LIST.filter(g => {
-    if (filter !== "all" && g.levelGroup !== filter) return false;
+  // Root view with empty search -> render 5 Parent Grammar Group cards (same cozy design as Trang chủ & Từ vựng!)
+  if (!groupKey && !qRaw) {
+    const cardsHTML = GRAMMAR_GROUPS.map((g) => {
+      const items = GRAMMAR_MASTER_LIST.filter((x) => x.levelGroup === g.key);
+      if (!items.length) return "";
+      const savedCount = items.filter((x) => window.GRAMMAR_BOOKMARKS.has(x.id)).length;
+      const savedPct = Math.round((savedCount / items.length) * 100);
+      const previews = items.slice(0, 4).map((x) => x.zh || gramZhChip(x)).filter(Boolean);
+      const href = `#ngu-phap/nhom/${encodeURIComponent(g.slug)}`;
+      return `
+        <div class="home-band-card ${g.tier}" data-gram-parent="${esc(g.slug)}">
+          <span class="home-band-watermark" aria-hidden="true" lang="zh-Hant">${esc(g.mark)}</span>
+          <div class="flex items-start gap-3 relative z-10">
+            <a href="${href}" class="shrink-0 no-underline" tabindex="-1" aria-hidden="true">
+              <img src="${g.img}" alt="" width="56" height="56" loading="lazy" class="home-band-avatar" onerror="this.onerror=null;this.src='img/icon-192.png'">
+            </a>
+            <div class="min-w-0 flex-1 flex flex-col gap-1">
+              <div class="flex items-center justify-between gap-1.5 flex-wrap">
+                <span class="home-band-tier-pill">${fmt(items.length)} mẫu câu</span>
+                ${savedCount > 0 ? `<span class="home-band-status-pill bg-amber-subtle text-tertiary">${fmt(savedCount)} đã lưu</span>` : ""}
+              </div>
+              <a href="${href}" class="no-underline">
+                <h3 class="font-semibold home-band-title-link leading-snug m-0 text-base">${esc(g.title)}</h3>
+              </a>
+              <p class="text-xs text-on-surface-variant line-clamp-2 m-0">${esc(g.sub)}</p>
+            </div>
+          </div>
+          ${previews.length ? `
+            <div class="flex flex-wrap items-center gap-1.5 relative z-10">
+              ${previews.map((p) => `<span class="gram-preview-chip" lang="zh-Hant">${esc(p)}</span>`).join("")}
+            </div>
+          ` : ""}
+          <div class="mt-auto relative z-10">
+            <div class="flex justify-between text-xs mb-1">
+              <span class="text-outline">Đã ghim sổ tay</span>
+              <span class="font-code text-on-surface font-semibold">${fmt(savedCount)} / ${fmt(items.length)} <span class="home-band-pct">(${savedPct}%)</span></span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-surface-container overflow-hidden">
+              <div class="h-full rounded-full home-band-fill" style="width:${savedPct}%"></div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between pt-2 border-t border-border-subtle/50 relative z-10">
+            <a href="${href}" class="text-xs text-primary hover:underline font-semibold no-underline">Xem mẫu câu →</a>
+            <a href="${href}" class="min-h-[36px] px-3 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-label-sm font-semibold hover:bg-primary-container hover:text-on-primary transition-colors flex items-center gap-1 no-underline">
+              <span class="material-symbols-outlined text-[16px]" aria-hidden="true">folder_open</span>
+              <span>Mở (${items.length})</span>
+            </a>
+          </div>
+        </div>
+      `;
+    }).join("");
+    container.innerHTML = `<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">${cardsHTML}</div>`;
+    return;
+  }
+
+  const filtered = GRAMMAR_MASTER_LIST.filter((g) => {
+    if (groupKey && groupKey !== "all" && g.levelGroup !== groupKey) return false;
     if (qRaw) {
-      const hay = [g.name, g.zh, g.formula, g.summary, g.wrong && g.wrong.zh, g.correct && g.correct.zh].filter(Boolean).join(" ");
-      const match = hay.includes(qRaw) || hay.includes(qTrad) || (qFold && fold(hay).includes(qFold));
+      if (!qFold && !qTradFold) return false;
+      const hay = [g.name, g.zh, g.band, g.levelGroup, g.formula, g.summary, g.wrong && g.wrong.zh, g.correct && g.correct.zh].filter(Boolean).join(" ");
+      const hayFold = foldGramQ(hay);
+      const match = hay.includes(qRaw) || hay.includes(qTrad) || (qFold && hayFold.includes(qFold)) || (qTradFold && hayFold.includes(qTradFold));
       if (!match) return false;
     }
     return true;
@@ -5806,69 +5970,83 @@ function updateGrammarGrid() {
 
   if (filtered.length === 0) {
     container.innerHTML = `
-      <div class="text-center py-8 text-on-surface-variant bg-paper-card rounded-xl border border-border-subtle">
-        <span class="material-symbols-outlined text-[32px] text-outline mb-1">search_off</span>
-        <p class="text-sm">Không tìm thấy cấu trúc phù hợp với "${esc(qRaw)}".</p>
+      <div class="text-center py-8 px-4 text-on-surface-variant bg-paper-card rounded-2xl border border-border-subtle flex flex-col items-center gap-2">
+        <span class="material-symbols-outlined text-[32px] text-outline" aria-hidden="true">search_off</span>
+        <p class="text-sm m-0">Không tìm thấy mẫu câu phù hợp${qRaw ? ` với "${esc(qRaw)}"` : ""}.</p>
+        <div class="flex flex-wrap items-center justify-center gap-2 mt-1">
+          ${qRaw ? `<button type="button" id="gramClearSearchBtn" class="min-h-[36px] px-3.5 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface border border-border-subtle text-xs font-semibold transition-colors">Xóa tìm kiếm</button>` : ""}
+          ${groupKey && groupKey !== "all" && qRaw ? `<a href="#ngu-phap/nhom/all" class="min-h-[36px] inline-flex items-center px-3.5 py-1.5 rounded-lg bg-cinnabar-subtle text-primary border border-primary/20 text-xs font-semibold no-underline hover:bg-primary-container hover:text-on-primary transition-colors">Tìm trong tất cả ${GRAMMAR_MASTER_LIST.length} mẫu câu →</a>` : ""}
+        </div>
       </div>
     `;
+    const clearBtn = document.getElementById("gramClearSearchBtn");
+    if (clearBtn) clearBtn.onclick = () => clearGrammarSearch();
     return;
   }
 
-  const BAND_GROUPS = [
-    { key: "A1/A2", label: "Band A · Sơ cấp (A1–A2)", badge: "bg-jade-subtle text-secondary" },
-    { key: "B1", label: "Band B · Trung cấp (B1)", badge: "bg-cinnabar-subtle text-primary" },
-    { key: "B2", label: "Band B · Cao cấp (B2)", badge: "bg-amber-subtle text-tertiary" },
-    { key: "C", label: "Band C · Lưu loát (C1–C2)", badge: "bg-primary-container text-on-primary" },
-    { key: "Khẩu ngữ", label: "Khẩu ngữ Đài Loan & Ghi chú", badge: "bg-surface-container text-on-surface" }
-  ];
-
-  const renderCard = (g, badgeCls) => {
+  const renderCard = (g, grp) => {
     const isBookmarked = window.GRAMMAR_BOOKMARKS.has(g.id);
     const isCurrent = g.id === window.ACTIVE_GRAMMAR_ID;
+    const chipText = gramZhChip(g);
+    const isCompactChip = Array.from(chipText).length >= 3;
     return `
-      <div class="bg-paper-card rounded-xl p-3.5 transition-all border ${isCurrent ? 'border-primary shadow-sm' : 'border-border-subtle hover:border-primary/40 hover:shadow-sm'} flex items-start justify-between gap-2.5">
-        <a href="#ngu-phap/${encodeURIComponent(g.id)}" class="min-w-0 flex-1 no-underline text-inherit block">
-          <div class="flex items-center gap-1.5 flex-wrap">
-            <span class="px-2 py-0.5 rounded ${badgeCls} font-label-sm text-xs font-semibold">${esc(g.band)}</span>
-            <h3 class="font-headline-md text-sm font-semibold text-on-surface font-serif truncate m-0">${esc(g.name)}</h3>
+      <div class="gram-card ${grp.tier} ${isCurrent ? 'is-current' : ''}">
+        <a href="#ngu-phap/${encodeURIComponent(g.id)}" class="min-w-0 flex-1 no-underline text-inherit flex items-start gap-2.5">
+          <span class="gram-zh-chip${isCompactChip ? ' is-compact' : ''}" lang="zh-Hant" aria-hidden="true">${esc(chipText)}</span>
+          <div class="min-w-0 flex-1">
+            <div class="flex items-center gap-1.5 mb-0.5">
+              <span class="home-band-tier-pill">${esc(g.band)}</span>
+            </div>
+            <h3 class="font-headline-md text-sm font-semibold gram-card-title font-serif line-clamp-2 leading-snug m-0">${esc(g.name)}</h3>
+            <div class="gram-formula-pill">${esc(g.formula)}</div>
+            <p class="font-body-sm text-xs text-on-surface-variant mt-1.5 mb-0 line-clamp-2">${esc(g.summary)}</p>
           </div>
-          <div class="font-code text-xs text-primary mt-1 truncate">${esc(g.formula)}</div>
-          <p class="font-body-sm text-xs text-on-surface-variant mt-1 mb-0 line-clamp-1">${esc(g.summary)}</p>
         </a>
-        <button type="button" class="w-9 h-9 rounded-lg shrink-0 ${isBookmarked ? 'text-tertiary bg-amber-subtle' : 'text-outline hover:text-primary hover:bg-cinnabar-subtle'} flex items-center justify-center transition-colors" onclick="toggleGrammarBookmark('${esc(g.id)}')" title="${isBookmarked ? 'Bỏ lưu sổ tay' : 'Lưu vào sổ tay'}" aria-label="${isBookmarked ? 'Bỏ lưu sổ tay' : 'Lưu vào sổ tay'}">
-          <span class="material-symbols-outlined text-[19px]">${isBookmarked ? 'bookmark' : 'bookmark_border'}</span>
+        <button type="button" class="w-9 h-9 rounded-lg shrink-0 ${isBookmarked ? 'text-tertiary bg-amber-subtle' : 'text-on-surface-variant hover:text-primary hover:bg-cinnabar-subtle'} flex items-center justify-center transition-colors" data-gram-bookmark="${esc(g.id)}" data-gram-bookmark-style="card" aria-pressed="${isBookmarked ? 'true' : 'false'}" title="${isBookmarked ? 'Bỏ lưu sổ tay' : 'Lưu vào sổ tay'}" aria-label="${isBookmarked ? 'Bỏ lưu ' + esc(g.name) : 'Lưu ' + esc(g.name) + ' vào sổ tay'}">
+          <span class="material-symbols-outlined text-[19px]" aria-hidden="true">${isBookmarked ? 'bookmark' : 'bookmark_border'}</span>
         </button>
       </div>
     `;
   };
 
-  const groupsToRender = BAND_GROUPS
-    .map(grp => ({ ...grp, items: filtered.filter(g => g.levelGroup === grp.key) }))
-    .filter(grp => grp.items.length > 0);
+  const groupsToRender = GRAMMAR_GROUPS
+    .map((grp) => ({ ...grp, items: filtered.filter((g) => g.levelGroup === grp.key) }))
+    .filter((grp) => grp.items.length > 0);
 
-  container.innerHTML = groupsToRender.map(grp => `
-    <div class="flex flex-col gap-2">
-      <div class="flex items-center justify-between">
-        <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wide flex items-center gap-1.5">
-          <span class="w-1.5 h-3.5 rounded-full bg-primary-container inline-block"></span>
-          ${esc(grp.label)}
-        </span>
-        <span class="font-code text-xs text-on-surface-variant">${grp.items.length} mẫu</span>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
-        ${grp.items.map(g => renderCard(g, grp.badge)).join("")}
+  const showGroupHeadings = !groupKey || groupKey === "all";
+  container.innerHTML = groupsToRender.map((grp) => `
+    <div class="flex flex-col gap-2.5">
+      ${showGroupHeadings ? `
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wide flex items-center gap-1.5">
+            <span class="w-1.5 h-3.5 rounded-full bg-primary-container inline-block"></span>
+            ${esc(grp.title)}
+          </span>
+          <span class="font-code text-xs text-on-surface-variant">${grp.items.length} mẫu</span>
+        </div>
+      ` : ""}
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        ${grp.items.map((g) => renderCard(g, grp)).join("")}
       </div>
     </div>
   `).join("");
+
+  container.querySelectorAll("[data-gram-bookmark]").forEach((btn) => {
+    btn.onclick = (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleGrammarBookmark(btn.dataset.gramBookmark);
+    };
+  });
 }
 
 function renderSidebarNotebook() {
   const container = document.getElementById("sidebar-notebook-items");
   const countEl = document.getElementById("sidebar-notebook-count");
-  if (countEl) countEl.textContent = `${window.GRAMMAR_BOOKMARKS.size} mục`;
+  const bookmarkedList = GRAMMAR_MASTER_LIST.filter(g => window.GRAMMAR_BOOKMARKS.has(g.id));
+  if (countEl) countEl.textContent = `${activeGrammarBookmarkCount()} mục`;
   if (!container) return;
 
-  const bookmarkedList = GRAMMAR_MASTER_LIST.filter(g => window.GRAMMAR_BOOKMARKS.has(g.id));
   if (bookmarkedList.length === 0) {
     container.innerHTML = `
       <div class="p-3 text-center text-xs text-on-surface-variant bg-paper-base rounded-lg border border-border-subtle">
@@ -5884,7 +6062,7 @@ function renderSidebarNotebook() {
         <span class="font-headline-md text-xs text-on-surface font-semibold group-hover:text-primary font-serif truncate">${esc(g.name)}</span>
         <span class="font-code text-xs text-on-surface-variant truncate">${esc(g.formula)}</span>
       </div>
-      <span class="material-symbols-outlined text-tertiary text-[16px] shrink-0">bookmark</span>
+      <span class="material-symbols-outlined text-tertiary text-[16px] shrink-0" aria-hidden="true">bookmark</span>
     </a>
   `).join("");
 }
@@ -5896,7 +6074,7 @@ function grammarStatsHTML() {
   const learning = lv.filter((l) => l > 0).length;
   const end = dayStart(Date.now()) + DAY; let due = 0;
   for (const n of notes) for (const [t] of typesOf(n)) { const st = S.srs.get(cardId(n, t)); if (st && st.state !== "new" && st.due < end) due++; }
-  const saved = (window.GRAMMAR_BOOKMARKS || new Set()).size;
+  const saved = activeGrammarBookmarkCount();
   return `
     <div class="flex flex-wrap items-center gap-2 text-xs">
       <span class="px-3 py-1.5 rounded-lg bg-paper-card border border-border-subtle text-on-surface-variant">
@@ -5916,23 +6094,39 @@ function grammarStatsHTML() {
 }
 
 // Mẫu ngữ pháp soạn thêm (nguồn: du-lieu-tu-vung/ngu-phap/*.json → tools/build_ngu_phap.py → data/ngu-phap.json)
-async function ensureGrammarData() {
-  if (window._grammarDataLoaded) return false;
-  window._grammarDataLoaded = true;
-  try {
-    const res = await fetch("data/ngu-phap.json", { cache: "no-cache" });
-    if (!res.ok) return false;
-    const arr = await res.json();
-    const ids = new Set(GRAMMAR_MASTER_LIST.map(g => g.id));
-    let added = 0;
-    for (const it of arr) if (it && it.id && !ids.has(it.id)) { GRAMMAR_MASTER_LIST.push(it); ids.add(it.id); added++; }
-    return added > 0;
-  } catch (e) { return false; }
+function ensureGrammarData() {
+  if (window._grammarDataLoaded) return Promise.resolve(false);
+  if (window._grammarDataPromise) return window._grammarDataPromise;
+  window._grammarDataPromise = (async () => {
+    try {
+      const res = await fetch("data/ngu-phap.json", { cache: "no-cache" });
+      if (!res.ok) { window._grammarDataPromise = null; return false; }
+      const arr = await res.json();
+      const ids = new Set(GRAMMAR_MASTER_LIST.map(g => g.id));
+      let added = 0;
+      for (const it of arr) if (it && it.id && !ids.has(it.id)) { GRAMMAR_MASTER_LIST.push(it); ids.add(it.id); added++; }
+      window._grammarDataLoaded = true;
+      return added > 0;
+    } catch (e) {
+      window._grammarDataPromise = null;
+      return false;
+    }
+  })();
+  return window._grammarDataPromise;
 }
 
 VIEWS["ngu-phap"] = (arg) => {
   if (!window._grammarDataLoaded) {
-    ensureGrammarData().then((changed) => { if (changed && location.hash.startsWith("#ngu-phap")) VIEWS["ngu-phap"](arg); });
+    ensureGrammarData().then((changed) => {
+      if (changed && (location.hash === "#ngu-phap" || location.hash.startsWith("#ngu-phap/"))) {
+        let curArg = "";
+        if (location.hash.startsWith("#ngu-phap/")) {
+          try { curArg = decodeURIComponent(location.hash.slice("#ngu-phap/".length)); }
+          catch (e) { curArg = location.hash.slice("#ngu-phap/".length); }
+        }
+        VIEWS["ngu-phap"](curArg);
+      }
+    });
   }
   loadCustomGrammarNotes();
   try {
@@ -5943,42 +6137,58 @@ VIEWS["ngu-phap"] = (arg) => {
     }
   } catch (e) {}
 
-  if (arg) {
+  const isGroupRoute = Boolean(arg && String(arg).startsWith("nhom/"));
+  const groupSlug = isGroupRoute ? String(arg).slice(5) : null;
+
+  // TRƯỜNG HỢP 1: TRANG CHI TIẾT MỘT MẪU NGỮ PHÁP (#ngu-phap/:id)
+  if (arg && !isGroupRoute) {
     const item = GRAMMAR_MASTER_LIST.find(g => g.id === arg);
     if (item) {
       window.ACTIVE_GRAMMAR_ID = item.id;
-      const idx = GRAMMAR_MASTER_LIST.indexOf(item);
-      const prev = GRAMMAR_MASTER_LIST[idx - 1], next = GRAMMAR_MASTER_LIST[idx + 1];
+      const grp = grammarGroupMeta(item.levelGroup);
+      const siblings = GRAMMAR_MASTER_LIST.filter(g => g.levelGroup === item.levelGroup);
+      const idx = siblings.indexOf(item);
+      const prev = siblings[idx - 1], next = siblings[idx + 1];
       setView(`
         <div class="max-w-4xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-md w-full">
           <div class="flex items-center justify-between gap-2 flex-wrap">
-            <a href="#ngu-phap" class="min-h-[38px] px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-sm font-semibold flex items-center gap-1 no-underline whitespace-nowrap"><span class="material-symbols-outlined text-[18px]">arrow_back</span>Danh sách ngữ pháp</a>
+            <div class="flex items-center gap-1.5 flex-wrap text-sm">
+              <a href="#ngu-phap" class="min-h-[38px] px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold inline-flex items-center gap-1 no-underline whitespace-nowrap">
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_back</span>
+                <span>Nhóm ngữ pháp</span>
+              </a>
+              <span class="text-outline">/</span>
+              <a href="#ngu-phap/nhom/${encodeURIComponent(grp.slug)}" class="min-h-[36px] inline-flex items-center px-1.5 text-primary hover:underline font-semibold no-underline">${esc(grp.shortLabel)}</a>
+              <span class="text-xs font-code text-outline">(${idx + 1}/${siblings.length})</span>
+            </div>
             <div class="flex items-center gap-2 text-xs sm:text-sm max-w-full flex-wrap">
-              ${prev ? `<a href="#ngu-phap/${encodeURIComponent(prev.id)}" class="min-h-[38px] inline-flex items-center px-3 py-1.5 rounded-lg border border-border-subtle bg-paper-card hover:bg-surface-container no-underline text-on-surface max-w-[44vw] sm:max-w-[220px] truncate">← ${esc(prev.name)}</a>` : ""}
-              ${next ? `<a href="#ngu-phap/${encodeURIComponent(next.id)}" class="min-h-[38px] inline-flex items-center px-3 py-1.5 rounded-lg border border-border-subtle bg-paper-card hover:bg-surface-container no-underline text-on-surface max-w-[44vw] sm:max-w-[220px] truncate">${esc(next.name)} →</a>` : ""}
+              ${prev ? `<a href="#ngu-phap/${encodeURIComponent(prev.id)}" class="min-h-[38px] inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-border-subtle bg-paper-card hover:bg-surface-container no-underline text-on-surface max-w-[44vw] sm:max-w-[210px] min-w-0" title="${esc(prev.name)}"><span class="shrink-0" aria-hidden="true">←</span><span class="truncate">${esc(prev.name)}</span></a>` : ""}
+              ${next ? `<a href="#ngu-phap/${encodeURIComponent(next.id)}" class="min-h-[38px] inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-border-subtle bg-paper-card hover:bg-surface-container no-underline text-on-surface max-w-[44vw] sm:max-w-[210px] min-w-0" title="${esc(next.name)}"><span class="truncate">${esc(next.name)}</span><span class="shrink-0" aria-hidden="true">→</span></a>` : ""}
             </div>
           </div>
-          <article class="bg-paper-card rounded-2xl p-4 sm:p-space-lg shadow-sm border border-border-subtle" id="grammar-spotlight-container">
+          <article class="gram-detail-card ${grp.tier} p-4 sm:p-space-lg" id="grammar-spotlight-container">
             ${renderSpotlightContent(item)}
           </article>
         </div>
       `);
+      bindSpotlightEvents(document.getElementById("grammar-spotlight-container"));
       return;
     }
   }
-  const curFilter = window.ACTIVE_GRAMMAR_FILTER || "all";
-  const countBy = (k) => k === "all" ? GRAMMAR_MASTER_LIST.length : GRAMMAR_MASTER_LIST.filter(g => g.levelGroup === k).length;
-  const tabCls = (on) => on
-    ? "grammar-tab-btn px-3 py-1.5 rounded-full bg-primary-container text-on-primary font-label-sm text-xs font-semibold whitespace-nowrap shadow-sm transition-colors"
-    : "grammar-tab-btn px-3 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-sm text-xs font-medium whitespace-nowrap border border-border-subtle transition-colors";
-  const TABS = [
-    ["all", "Tất cả"],
-    ["A1/A2", "Band A · A1/A2"],
-    ["B1", "Band B · B1"],
-    ["B2", "Band B · B2"],
-    ["C", "Band C"],
-    ["Khẩu ngữ", "Khẩu ngữ Đài Loan"]
-  ];
+
+  // TRƯỜNG HỢP 2: TỔNG QUAN 5 NHÓM NGỮ PHÁP (#ngu-phap) HOẶC MỞ NHÓM (#ngu-phap/nhom/:slug)
+  const currentParent = (groupSlug && groupSlug !== "all") ? (GRAMMAR_GROUP_BY_SLUG.get(groupSlug) || null) : null;
+  const currentGroupKey = groupSlug === "all" ? "all" : (currentParent ? currentParent.key : null);
+  window.ACTIVE_GRAMMAR_GROUP_KEY = currentGroupKey;
+  window.ACTIVE_GRAMMAR_FILTER = currentGroupKey || "all";
+
+  const countByKey = (k) => k === "all" ? GRAMMAR_MASTER_LIST.length : GRAMMAR_MASTER_LIST.filter(g => g.levelGroup === k).length;
+  const pillCls = (on) => on
+    ? "grammar-tab-btn min-h-[36px] inline-flex items-center px-3 py-1.5 rounded-full bg-primary-container text-on-primary font-label-sm text-xs font-semibold whitespace-nowrap shadow-sm transition-colors no-underline"
+    : "grammar-tab-btn min-h-[36px] inline-flex items-center px-3 py-1.5 rounded-full bg-paper-card text-on-surface-variant hover:bg-paper-muted font-label-sm text-xs font-medium whitespace-nowrap border border-border-subtle transition-colors no-underline";
+
+  const parentItems = currentParent ? GRAMMAR_MASTER_LIST.filter(g => g.levelGroup === currentParent.key) : [];
+  const parentSaved = currentParent ? parentItems.filter(g => window.GRAMMAR_BOOKMARKS.has(g.id)).length : 0;
 
   setView(`
     <div class="max-w-7xl mx-auto px-margin-mobile md:px-margin py-space-lg flex flex-col gap-space-lg w-full">
@@ -5989,42 +6199,73 @@ VIEWS["ngu-phap"] = (arg) => {
             Học Ngữ pháp tiếng Hoa Phồn thể <span class="text-outline font-normal text-xl" lang="zh-Hant">文法</span>
           </h1>
           <p class="font-body-sm text-sm text-on-surface-variant mt-1 mb-0">
-            Tổng hợp mẫu câu chia theo Band TOCFL (A1/A2, B1, B2, C) và khẩu ngữ Đài Loan.
+            Chia gọn thành 5 nhóm theo Band TOCFL (A1/A2, B1, B2, C) và khẩu ngữ Đài Loan.
           </p>
         </div>
         <div class="relative w-full md:w-72">
-          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-outline pointer-events-none">search</span>
-          <input class="w-full h-11 pl-9 pr-3 rounded-xl bg-paper-card text-on-surface text-sm placeholder:text-outline border border-border-subtle focus:outline-none focus:border-primary" placeholder="Tìm mẫu câu (把, 被, chu ba...)" type="search" id="grammarSearchInput" value="${esc(window.GRAMMAR_SEARCH_QUERY || "")}" oninput="filterGrammarSearch(this.value)"/>
+          <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-outline pointer-events-none" aria-hidden="true">search</span>
+          <input class="w-full h-11 pl-9 pr-3 rounded-xl bg-paper-card text-on-surface text-sm placeholder:text-outline border border-border-subtle focus:outline-none focus:border-primary" placeholder="${currentParent ? `Tìm trong ${esc(currentParent.shortLabel)}…` : `Tìm ${GRAMMAR_MASTER_LIST.length} mẫu câu (把, B2…)`}" type="search" id="grammarSearchInput" value="${esc(window.GRAMMAR_SEARCH_QUERY || "")}" oninput="filterGrammarSearch(this.value)" onsearch="filterGrammarSearch(this.value)"/>
         </div>
       </section>
 
       <!-- Band Level Filter Bar + Compact Stats -->
       <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div class="flex items-center gap-1.5 flex-wrap">
-          ${TABS.map(([k, lbl]) => `<button type="button" data-gband="${k}" class="${tabCls(curFilter === k)}" onclick="filterGrammarTab('${k}', this)">${lbl} (${countBy(k)})</button>`).join("")}
+          <a href="#ngu-phap" class="${pillCls(!currentGroupKey)}" data-gband="root">Nhóm ngữ pháp (${GRAMMAR_GROUPS.length})</a>
+          ${GRAMMAR_GROUPS.map((g) => `<a href="#ngu-phap/nhom/${encodeURIComponent(g.slug)}" class="${pillCls(currentGroupKey === g.key)}" data-gband="${esc(g.slug)}">${esc(g.shortLabel)} (${countByKey(g.key)})</a>`).join("")}
+          <a href="#ngu-phap/nhom/all" class="${pillCls(currentGroupKey === "all")}" data-gband="all">Tất cả (${GRAMMAR_MASTER_LIST.length})</a>
         </div>
         ${grammarStatsHTML()}
       </div>
 
       <!-- Main 2-Column Layout -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
-        <div class="lg:col-span-8 flex flex-col gap-space-lg">
+        <div class="lg:col-span-8 flex flex-col gap-space-md">
+          ${currentParent ? `
+            <div class="home-band-card vocab-parent-banner ${currentParent.tier} !flex-col sm:!flex-row sm:items-center !justify-between !gap-3">
+              <span class="home-band-watermark" aria-hidden="true" lang="zh-Hant">${esc(currentParent.mark)}</span>
+              <div class="flex items-start gap-3 min-w-0 relative z-10">
+                <img src="${currentParent.img}" alt="" width="56" height="56" loading="lazy" class="home-band-avatar" onerror="this.onerror=null;this.src='img/icon-192.png'">
+                <div class="min-w-0">
+                  <div class="flex items-center gap-2 flex-wrap">
+                    <h2 class="font-headline-md text-lg font-bold text-on-surface m-0">${esc(currentParent.title)}</h2>
+                    <span class="home-band-tier-pill">${fmt(parentItems.length)} mẫu câu</span>
+                  </div>
+                  <p class="text-xs text-on-surface-variant m-0 mt-0.5">${esc(currentParent.sub)}</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between sm:justify-end gap-3 flex-wrap sm:flex-nowrap shrink-0 relative z-10">
+                <span id="gramBannerBookmarked" class="home-band-status-pill bg-amber-subtle text-tertiary">${fmt(parentSaved)} đã lưu</span>
+                <a href="#ngu-phap" data-gram-reset-root class="min-h-[40px] px-3 py-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface text-xs font-semibold inline-flex items-center gap-1 no-underline whitespace-nowrap">
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_back</span><span>Quay lại</span>
+                </a>
+              </div>
+            </div>
+          ` : (currentGroupKey === "all" ? `
+            <div class="flex items-center justify-between gap-2 flex-wrap text-xs text-on-surface-variant">
+              <span>Đang hiển thị toàn bộ <strong class="text-on-surface">${fmt(GRAMMAR_MASTER_LIST.length)} mẫu câu ngữ pháp</strong>.</span>
+              <a href="#ngu-phap" data-gram-reset-root class="min-h-[36px] text-primary hover:underline font-semibold inline-flex items-center gap-1 no-underline">
+                <span class="material-symbols-outlined text-[15px]" aria-hidden="true">arrow_back</span>Thu gọn về ${GRAMMAR_GROUPS.length} nhóm
+              </a>
+            </div>
+          ` : "")}
+
           <section class="flex flex-col gap-4" id="grammar-cards-grid"></section>
         </div>
 
-        <!-- Compact Sidebar -->
-        <aside class="lg:col-span-4 flex flex-col gap-space-md w-full">
+        <!-- Compact Sticky Sidebar -->
+        <aside class="lg:col-span-4 lg:sticky lg:top-24 flex flex-col gap-space-md w-full">
           <div class="bg-paper-card rounded-2xl p-space-md shadow-sm border border-border-subtle">
             <div class="flex items-center justify-between pb-2 border-b border-border-subtle">
               <h3 class="font-headline-md text-sm text-on-surface font-semibold font-serif flex items-center gap-1.5 m-0">
-                <span class="material-symbols-outlined text-primary text-[18px]">stylus_note</span>
+                <span class="material-symbols-outlined text-primary text-[18px]" aria-hidden="true">stylus_note</span>
                 Sổ tay ngữ pháp của bạn
               </h3>
               <span class="px-2 py-0.5 rounded-full bg-paper-base text-on-surface-variant font-code text-xs font-semibold" id="sidebar-notebook-count">0 mục</span>
             </div>
             <div class="mt-2.5 space-y-1.5 max-h-[340px] overflow-y-auto custom-scrollbar pr-0.5" id="sidebar-notebook-items"></div>
             <button type="button" class="w-full min-h-[40px] mt-3 py-2 rounded-xl border border-dashed border-outline/50 hover:border-primary text-on-surface-variant hover:text-primary font-label-md text-xs font-semibold transition-colors flex items-center justify-center gap-1" onclick="promptAddGrammarNote()">
-              <span class="material-symbols-outlined text-[16px]">edit_note</span>
+              <span class="material-symbols-outlined text-[16px]" aria-hidden="true">edit_note</span>
               <span>Thêm ghi chú mới</span>
             </button>
             <form id="grammarInlineAddBox" class="mt-3 p-3 rounded-xl bg-surface-container-low border border-border-subtle flex flex-col gap-2" hidden>
@@ -6032,15 +6273,15 @@ VIEWS["ngu-phap"] = (arg) => {
               <input type="text" id="gramAddFormula" placeholder="Công thức (vd: 連 + N + 也/都 + V)" class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-xs font-code text-on-surface">
               <textarea id="gramAddNote" rows="2" placeholder="Ghi chú cách dùng hoặc lưu ý thi cử..." class="w-full px-3 py-2 rounded-lg bg-paper-card border border-border-subtle text-xs text-on-surface resize-y"></textarea>
               <div class="flex items-center justify-end gap-2">
-                <button type="button" id="gramAddCancel" class="px-3 py-1.5 rounded-lg bg-surface-container text-xs text-on-surface-variant">Hủy</button>
-                <button type="submit" class="px-3.5 py-1.5 rounded-lg bg-primary-container hover:bg-primary text-white text-xs font-semibold">Lưu ghi chú</button>
+                <button type="button" id="gramAddCancel" class="min-h-[36px] px-3 py-1.5 rounded-lg bg-surface-container text-xs text-on-surface-variant">Hủy</button>
+                <button type="submit" class="min-h-[36px] px-3.5 py-1.5 rounded-lg bg-primary-container hover:bg-primary text-white text-xs font-semibold">Lưu ghi chú</button>
               </div>
             </form>
           </div>
 
           <details open class="bg-paper-card rounded-2xl p-space-md shadow-sm border border-border-subtle">
             <summary class="cursor-pointer select-none flex items-center gap-2 font-headline-md text-sm font-semibold text-on-surface font-serif">
-              <span class="material-symbols-outlined text-primary text-[18px]">lightbulb</span>
+              <span class="material-symbols-outlined text-primary text-[18px]" aria-hidden="true">lightbulb</span>
               Mẹo thi TOCFL Band B
             </summary>
             <div class="mt-3 space-y-2 text-xs text-on-surface-variant leading-relaxed">
@@ -6077,7 +6318,7 @@ VIEWS["ngu-phap"] = (arg) => {
       GRAMMAR_MASTER_LIST.push({
         id: customId,
         name,
-        zh: name.charAt(0) || "語",
+        zh: Array.from(name)[0] || "語",
         formula: formula || name,
         band: "Cá nhân",
         levelGroup: "Khẩu ngữ",
@@ -6095,10 +6336,21 @@ VIEWS["ngu-phap"] = (arg) => {
       try { localStorage.setItem("bookmarked_grammar", JSON.stringify(Array.from(window.GRAMMAR_BOOKMARKS))); } catch (err) {}
       addForm.reset();
       addForm.hidden = true;
-      VIEWS["ngu-phap"]();
+      VIEWS["ngu-phap"](arg);
       showToast(`Đã thêm ghi chú "${name}" vào sổ tay!`);
     };
   }
+
+  document.querySelectorAll('[data-gband="root"], [data-gram-reset-root]').forEach((el) => {
+    el.onclick = () => {
+      if (window.GRAMMAR_SEARCH_QUERY) {
+        window.GRAMMAR_SEARCH_QUERY = "";
+        const inp = document.getElementById("grammarSearchInput");
+        if (inp) inp.value = "";
+        if (location.hash === "#ngu-phap" || !location.hash) updateGrammarGrid();
+      }
+    };
+  });
 
   updateGrammarGrid();
   renderSidebarNotebook();

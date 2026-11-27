@@ -1447,6 +1447,210 @@ a.home-metric-card:hover {
   transform: translateY(-50%);
   font-size: 3rem;
 }
+
+/* ---- Grammar Pattern Cards & Detail View (Tier-Matched Light & Dark) ---- */
+.gram-card {
+  --tier-accent: #00685A;
+  --tier-tint: #EAF6F3;
+  --tier-tint-dark: #132924;
+  --tier-text: #00685A;
+  --tier-text-dark: #5eead4;
+  position: relative;
+  min-width: 0;
+  border-radius: 14px;
+  background: var(--paper-card);
+  border: 1px solid var(--border-subtle);
+  border-left: 3.5px solid var(--tier-accent);
+  padding: 0.85rem 0.9rem;
+  box-shadow: 0 1px 4px rgba(44, 42, 41, 0.04);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.7rem;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.16s ease;
+}
+.gram-card.tier-a, .gram-detail-card.tier-a {
+  --tier-accent: #00685A; --tier-tint: #EAF6F3; --tier-tint-dark: #122924; --tier-text: #00685A; --tier-text-dark: #5eead4;
+}
+.gram-card.tier-b, .gram-detail-card.tier-b {
+  --tier-accent: #B86B11; --tier-tint: #FDF5E6; --tier-tint-dark: #2e2313; --tier-text: #9A5509; --tier-text-dark: #fbbf24;
+}
+.gram-card.tier-indigo, .gram-detail-card.tier-indigo {
+  --tier-accent: #3B5998; --tier-tint: #EEF2FA; --tier-tint-dark: #192235; --tier-text: #2F4980; --tier-text-dark: #93c5fd;
+}
+.gram-card.tier-c, .gram-detail-card.tier-c {
+  --tier-accent: #A8261F; --tier-tint: #FDEEEB; --tier-tint-dark: #311816; --tier-text: #A8261F; --tier-text-dark: #f89b96;
+}
+.gram-card.tier-personal, .gram-detail-card.tier-personal {
+  --tier-accent: #9D4359; --tier-tint: #FDF0F3; --tier-tint-dark: #2f1922; --tier-text: #8C364C; --tier-text-dark: #f9a8d4;
+}
+.gram-card:hover {
+  border-color: var(--tier-accent);
+  box-shadow: 0 6px 14px rgba(44, 42, 41, 0.08);
+  transform: translateY(-1px);
+}
+.gram-card.is-current {
+  border-color: var(--tier-accent);
+  box-shadow: 0 3px 10px rgba(44, 42, 41, 0.08);
+}
+.gram-zh-chip {
+  min-width: 44px;
+  max-width: 72px;
+  height: 44px;
+  padding: 0 0.45rem;
+  border-radius: 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: var(--f-han);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1;
+  background: var(--tier-tint);
+  color: var(--tier-text);
+  border: 1px solid rgba(44, 42, 41, 0.07);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.gram-zh-chip.is-compact {
+  font-size: 0.84rem;
+  padding: 0 0.35rem;
+}
+.gram-card-title {
+  color: var(--on-surface);
+  transition: color 0.15s ease;
+}
+.gram-card:hover .gram-card-title {
+  color: var(--tier-text);
+}
+.gram-formula-pill {
+  display: block;
+  margin-top: 0.4rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  background: var(--paper-base);
+  border: 1px solid var(--border-subtle);
+  font-family: var(--f-code);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--tier-text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.gram-preview-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.12rem 0.45rem;
+  border-radius: 6px;
+  font-family: var(--f-han);
+  font-size: 12px;
+  font-weight: 600;
+  background: var(--paper-base);
+  color: var(--on-surface-variant);
+  border: 1px solid var(--border-subtle);
+}
+.gram-detail-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--paper-card);
+  border: 1px solid var(--border-subtle);
+  border-top: 4px solid var(--tier-accent);
+  box-shadow: 0 2px 10px rgba(44, 42, 41, 0.05);
+}
+.gram-detail-formula {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: var(--tier-tint);
+  border: 1px solid rgba(44, 42, 41, 0.08);
+  border-left: 4px solid var(--tier-accent);
+  font-family: var(--f-code);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--tier-text);
+  overflow-wrap: anywhere;
+}
+.gram-quiz-opt {
+  min-height: 40px;
+  padding: 0.45rem 0.9rem;
+  border-radius: 10px;
+  background: var(--paper-muted);
+  color: var(--on-surface);
+  border: 1.5px solid var(--border-subtle);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+.gram-quiz-opt:hover {
+  border-color: var(--primary-container);
+  color: var(--primary);
+}
+.gram-quiz-opt.is-correct {
+  background: var(--jade-soft) !important;
+  border-color: var(--secondary) !important;
+  color: var(--secondary) !important;
+}
+.gram-quiz-opt.is-wrong {
+  background: var(--cinnabar-subtle) !important;
+  border-color: var(--primary) !important;
+  color: var(--primary) !important;
+}
+:root[data-theme="dark"] .gram-card {
+  border-left-color: var(--tier-text-dark);
+}
+:root[data-theme="dark"] .gram-card:hover,
+:root[data-theme="dark"] .gram-card.is-current {
+  border-color: var(--tier-text-dark);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+:root[data-theme="dark"] .gram-zh-chip {
+  background: var(--tier-tint-dark);
+  color: var(--tier-text-dark);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+:root[data-theme="dark"] .gram-card:hover .gram-card-title {
+  color: var(--tier-text-dark) !important;
+}
+:root[data-theme="dark"] .gram-formula-pill {
+  background: #191615;
+  color: var(--tier-text-dark);
+}
+:root[data-theme="dark"] .gram-preview-chip {
+  background: #241f1e;
+  color: var(--on-surface-variant);
+}
+:root[data-theme="dark"] .gram-detail-card {
+  border-top-color: var(--tier-text-dark);
+}
+:root[data-theme="dark"] .gram-detail-formula {
+  background: var(--tier-tint-dark);
+  border-color: rgba(255, 255, 255, 0.1);
+  border-left-color: var(--tier-text-dark);
+  color: var(--tier-text-dark);
+}
+:root[data-theme="dark"] .gram-quiz-opt {
+  background: #2d2725;
+  color: var(--on-surface);
+  border-color: var(--border-subtle);
+}
+:root[data-theme="dark"] .gram-quiz-opt:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+:root[data-theme="dark"] .gram-quiz-opt.is-correct {
+  background: #143527 !important;
+  border-color: #4ade80 !important;
+  color: #86efac !important;
+}
+:root[data-theme="dark"] .gram-quiz-opt.is-wrong {
+  background: #3f1d1a !important;
+  border-color: #e27d78 !important;
+  color: #fca5a5 !important;
+}
 .home-band-card:hover {
   border-color: var(--tier-accent);
   box-shadow: 0 8px 18px rgba(44, 42, 41, 0.08);
